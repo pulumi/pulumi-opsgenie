@@ -1,0 +1,3 @@
+name: opsgenie-client
+runtime: nodejs
+description: Opsgenie client
