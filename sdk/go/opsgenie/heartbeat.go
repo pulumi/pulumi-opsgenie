@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -213,15 +213,15 @@ type HeartbeatInput interface {
 	ToHeartbeatOutputWithContext(ctx context.Context) HeartbeatOutput
 }
 
-func (Heartbeat) ElementType() reflect.Type {
-	return reflect.TypeOf((*Heartbeat)(nil)).Elem()
+func (*Heartbeat) ElementType() reflect.Type {
+	return reflect.TypeOf((*Heartbeat)(nil))
 }
 
-func (i Heartbeat) ToHeartbeatOutput() HeartbeatOutput {
+func (i *Heartbeat) ToHeartbeatOutput() HeartbeatOutput {
 	return i.ToHeartbeatOutputWithContext(context.Background())
 }
 
-func (i Heartbeat) ToHeartbeatOutputWithContext(ctx context.Context) HeartbeatOutput {
+func (i *Heartbeat) ToHeartbeatOutputWithContext(ctx context.Context) HeartbeatOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HeartbeatOutput)
 }
 
@@ -230,7 +230,7 @@ type HeartbeatOutput struct {
 }
 
 func (HeartbeatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HeartbeatOutput)(nil)).Elem()
+	return reflect.TypeOf((*Heartbeat)(nil))
 }
 
 func (o HeartbeatOutput) ToHeartbeatOutput() HeartbeatOutput {

@@ -61,6 +61,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/userContact:UserContact testcontact genie@awesometeam.com/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/userContact:UserContact")]
     public partial class UserContact : Pulumi.CustomResource
     {
         /// <summary>

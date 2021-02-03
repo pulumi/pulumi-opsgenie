@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -173,15 +174,15 @@ type ServiceIncidentRuleInput interface {
 	ToServiceIncidentRuleOutputWithContext(ctx context.Context) ServiceIncidentRuleOutput
 }
 
-func (ServiceIncidentRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceIncidentRule)(nil)).Elem()
+func (*ServiceIncidentRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIncidentRule)(nil))
 }
 
-func (i ServiceIncidentRule) ToServiceIncidentRuleOutput() ServiceIncidentRuleOutput {
+func (i *ServiceIncidentRule) ToServiceIncidentRuleOutput() ServiceIncidentRuleOutput {
 	return i.ToServiceIncidentRuleOutputWithContext(context.Background())
 }
 
-func (i ServiceIncidentRule) ToServiceIncidentRuleOutputWithContext(ctx context.Context) ServiceIncidentRuleOutput {
+func (i *ServiceIncidentRule) ToServiceIncidentRuleOutputWithContext(ctx context.Context) ServiceIncidentRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleOutput)
 }
 
@@ -190,7 +191,7 @@ type ServiceIncidentRuleOutput struct {
 }
 
 func (ServiceIncidentRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceIncidentRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceIncidentRule)(nil))
 }
 
 func (o ServiceIncidentRuleOutput) ToServiceIncidentRuleOutput() ServiceIncidentRuleOutput {

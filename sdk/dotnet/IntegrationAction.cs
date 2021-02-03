@@ -236,6 +236,7 @@ namespace Pulumi.Opsgenie
     /// }
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/integrationAction:IntegrationAction")]
     public partial class IntegrationAction : Pulumi.CustomResource
     {
         [Output("acknowledges")]

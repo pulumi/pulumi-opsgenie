@@ -41,6 +41,7 @@ namespace Pulumi.Opsgenie
     /// }
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/customRole:CustomRole")]
     public partial class CustomRole : Pulumi.CustomResource
     {
         /// <summary>

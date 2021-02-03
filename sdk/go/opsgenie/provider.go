@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -22,11 +23,11 @@ type Provider struct {
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
 	if args == nil {
-		args = &ProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
 	if args.ApiKey == nil {
-		args.ApiKey = pulumi.StringPtr(getEnvOrDefault("", nil, "OPSGENIE_API_KEY").(string))
+		return nil, errors.New("invalid value for required argument 'ApiKey'")
 	}
 	if args.ApiUrl == nil {
 		args.ApiUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "OPSGENIE_API_URL").(string))
@@ -40,13 +41,13 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	ApiKey *string `pulumi:"apiKey"`
+	ApiKey string  `pulumi:"apiKey"`
 	ApiUrl *string `pulumi:"apiUrl"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	ApiKey pulumi.StringPtrInput
+	ApiKey pulumi.StringInput
 	ApiUrl pulumi.StringPtrInput
 }
 
@@ -61,15 +62,15 @@ type ProviderInput interface {
 	ToProviderOutputWithContext(ctx context.Context) ProviderOutput
 }
 
-func (Provider) ElementType() reflect.Type {
-	return reflect.TypeOf((*Provider)(nil)).Elem()
+func (*Provider) ElementType() reflect.Type {
+	return reflect.TypeOf((*Provider)(nil))
 }
 
-func (i Provider) ToProviderOutput() ProviderOutput {
+func (i *Provider) ToProviderOutput() ProviderOutput {
 	return i.ToProviderOutputWithContext(context.Background())
 }
 
-func (i Provider) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
+func (i *Provider) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderOutput)
 }
 
@@ -78,7 +79,7 @@ type ProviderOutput struct {
 }
 
 func (ProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*Provider)(nil))
 }
 
 func (o ProviderOutput) ToProviderOutput() ProviderOutput {

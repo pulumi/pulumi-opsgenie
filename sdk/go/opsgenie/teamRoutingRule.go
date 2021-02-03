@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -233,15 +234,15 @@ type TeamRoutingRuleInput interface {
 	ToTeamRoutingRuleOutputWithContext(ctx context.Context) TeamRoutingRuleOutput
 }
 
-func (TeamRoutingRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamRoutingRule)(nil)).Elem()
+func (*TeamRoutingRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamRoutingRule)(nil))
 }
 
-func (i TeamRoutingRule) ToTeamRoutingRuleOutput() TeamRoutingRuleOutput {
+func (i *TeamRoutingRule) ToTeamRoutingRuleOutput() TeamRoutingRuleOutput {
 	return i.ToTeamRoutingRuleOutputWithContext(context.Background())
 }
 
-func (i TeamRoutingRule) ToTeamRoutingRuleOutputWithContext(ctx context.Context) TeamRoutingRuleOutput {
+func (i *TeamRoutingRule) ToTeamRoutingRuleOutputWithContext(ctx context.Context) TeamRoutingRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleOutput)
 }
 
@@ -250,7 +251,7 @@ type TeamRoutingRuleOutput struct {
 }
 
 func (TeamRoutingRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamRoutingRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*TeamRoutingRule)(nil))
 }
 
 func (o TeamRoutingRuleOutput) ToTeamRoutingRuleOutput() TeamRoutingRuleOutput {

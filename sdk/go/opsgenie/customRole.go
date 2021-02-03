@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -147,15 +147,15 @@ type CustomRoleInput interface {
 	ToCustomRoleOutputWithContext(ctx context.Context) CustomRoleOutput
 }
 
-func (CustomRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRole)(nil)).Elem()
+func (*CustomRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRole)(nil))
 }
 
-func (i CustomRole) ToCustomRoleOutput() CustomRoleOutput {
+func (i *CustomRole) ToCustomRoleOutput() CustomRoleOutput {
 	return i.ToCustomRoleOutputWithContext(context.Background())
 }
 
-func (i CustomRole) ToCustomRoleOutputWithContext(ctx context.Context) CustomRoleOutput {
+func (i *CustomRole) ToCustomRoleOutputWithContext(ctx context.Context) CustomRoleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoleOutput)
 }
 
@@ -164,7 +164,7 @@ type CustomRoleOutput struct {
 }
 
 func (CustomRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRoleOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomRole)(nil))
 }
 
 func (o CustomRoleOutput) ToCustomRoleOutput() CustomRoleOutput {

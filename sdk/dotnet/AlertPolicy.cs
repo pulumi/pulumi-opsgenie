@@ -69,6 +69,7 @@ namespace Pulumi.Opsgenie
     /// }
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/alertPolicy:AlertPolicy")]
     public partial class AlertPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -205,15 +205,15 @@ type NotificationPolicyInput interface {
 	ToNotificationPolicyOutputWithContext(ctx context.Context) NotificationPolicyOutput
 }
 
-func (NotificationPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationPolicy)(nil)).Elem()
+func (*NotificationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationPolicy)(nil))
 }
 
-func (i NotificationPolicy) ToNotificationPolicyOutput() NotificationPolicyOutput {
+func (i *NotificationPolicy) ToNotificationPolicyOutput() NotificationPolicyOutput {
 	return i.ToNotificationPolicyOutputWithContext(context.Background())
 }
 
-func (i NotificationPolicy) ToNotificationPolicyOutputWithContext(ctx context.Context) NotificationPolicyOutput {
+func (i *NotificationPolicy) ToNotificationPolicyOutputWithContext(ctx context.Context) NotificationPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyOutput)
 }
 
@@ -222,7 +222,7 @@ type NotificationPolicyOutput struct {
 }
 
 func (NotificationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*NotificationPolicy)(nil))
 }
 
 func (o NotificationPolicyOutput) ToNotificationPolicyOutput() NotificationPolicyOutput {

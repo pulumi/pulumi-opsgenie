@@ -70,6 +70,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/team:Team team1 812be1a1-32c8-4666-a7fb-03ecc385106c`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/team:Team")]
     public partial class Team : Pulumi.CustomResource
     {
         /// <summary>

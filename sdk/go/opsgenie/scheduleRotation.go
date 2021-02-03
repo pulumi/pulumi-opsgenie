@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -222,15 +223,15 @@ type ScheduleRotationInput interface {
 	ToScheduleRotationOutputWithContext(ctx context.Context) ScheduleRotationOutput
 }
 
-func (ScheduleRotation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleRotation)(nil)).Elem()
+func (*ScheduleRotation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleRotation)(nil))
 }
 
-func (i ScheduleRotation) ToScheduleRotationOutput() ScheduleRotationOutput {
+func (i *ScheduleRotation) ToScheduleRotationOutput() ScheduleRotationOutput {
 	return i.ToScheduleRotationOutputWithContext(context.Background())
 }
 
-func (i ScheduleRotation) ToScheduleRotationOutputWithContext(ctx context.Context) ScheduleRotationOutput {
+func (i *ScheduleRotation) ToScheduleRotationOutputWithContext(ctx context.Context) ScheduleRotationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationOutput)
 }
 
@@ -239,7 +240,7 @@ type ScheduleRotationOutput struct {
 }
 
 func (ScheduleRotationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleRotationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScheduleRotation)(nil))
 }
 
 func (o ScheduleRotationOutput) ToScheduleRotationOutput() ScheduleRotationOutput {

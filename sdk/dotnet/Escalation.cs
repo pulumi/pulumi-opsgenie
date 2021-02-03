@@ -77,6 +77,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/escalation:Escalation test 812be1a1-32c8-4666-a7fb-03ecc385106c`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/escalation:Escalation")]
     public partial class Escalation : Pulumi.CustomResource
     {
         /// <summary>

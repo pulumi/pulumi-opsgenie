@@ -103,6 +103,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/teamRoutingRule:TeamRoutingRule")]
     public partial class TeamRoutingRule : Pulumi.CustomResource
     {
         /// <summary>

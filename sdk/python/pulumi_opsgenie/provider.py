@@ -46,8 +46,8 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_key is None:
-                api_key = _utilities.get_env('OPSGENIE_API_KEY')
+            if api_key is None and not opts.urn:
+                raise TypeError("Missing required property 'api_key'")
             __props__['api_key'] = api_key
             if api_url is None:
                 api_url = _utilities.get_env('OPSGENIE_API_URL')

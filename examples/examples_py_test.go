@@ -13,7 +13,7 @@ import (
 func TestAccTeamTs(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "team", "py"),
+			Dir: filepath.Join(getCwd(t), "team", "py"),
 		})
 
 	integration.ProgramTest(t, &test)

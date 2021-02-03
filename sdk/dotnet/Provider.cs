@@ -15,6 +15,7 @@ namespace Pulumi.Opsgenie
     /// construction to achieve fine-grained programmatic control over provider settings. See the
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
+    [OpsgenieResourceType("pulumi:providers:opsgenie")]
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
@@ -24,7 +25,7 @@ namespace Pulumi.Opsgenie
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
             : base("opsgenie", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -44,15 +45,14 @@ namespace Pulumi.Opsgenie
 
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
-        [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        [Input("apiKey", required: true)]
+        public Input<string> ApiKey { get; set; } = null!;
 
         [Input("apiUrl")]
         public Input<string>? ApiUrl { get; set; }
 
         public ProviderArgs()
         {
-            ApiKey = Utilities.GetEnv("OPSGENIE_API_KEY");
             ApiUrl = Utilities.GetEnv("OPSGENIE_API_URL");
         }
     }

@@ -76,6 +76,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/scheduleRotation:ScheduleRotation")]
     public partial class ScheduleRotation : Pulumi.CustomResource
     {
         /// <summary>

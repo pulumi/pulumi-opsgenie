@@ -43,6 +43,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/service:Service this 812be1a1-32c8-4666-a7fb-03ecc385106c`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/service:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

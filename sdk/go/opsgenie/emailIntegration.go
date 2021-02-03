@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -215,15 +216,15 @@ type EmailIntegrationInput interface {
 	ToEmailIntegrationOutputWithContext(ctx context.Context) EmailIntegrationOutput
 }
 
-func (EmailIntegration) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailIntegration)(nil)).Elem()
+func (*EmailIntegration) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIntegration)(nil))
 }
 
-func (i EmailIntegration) ToEmailIntegrationOutput() EmailIntegrationOutput {
+func (i *EmailIntegration) ToEmailIntegrationOutput() EmailIntegrationOutput {
 	return i.ToEmailIntegrationOutputWithContext(context.Background())
 }
 
-func (i EmailIntegration) ToEmailIntegrationOutputWithContext(ctx context.Context) EmailIntegrationOutput {
+func (i *EmailIntegration) ToEmailIntegrationOutputWithContext(ctx context.Context) EmailIntegrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationOutput)
 }
 
@@ -232,7 +233,7 @@ type EmailIntegrationOutput struct {
 }
 
 func (EmailIntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailIntegrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*EmailIntegration)(nil))
 }
 
 func (o EmailIntegrationOutput) ToEmailIntegrationOutput() EmailIntegrationOutput {

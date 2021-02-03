@@ -8,7 +8,7 @@ namespace Pulumi.Opsgenie
     public static class Config
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("opsgenie");
-        public static string? ApiKey { get; set; } = __config.Get("apiKey") ?? Utilities.GetEnv("OPSGENIE_API_KEY");
+        public static string? ApiKey { get; set; } = __config.Get("apiKey");
 
         public static string? ApiUrl { get; set; } = __config.Get("apiUrl") ?? Utilities.GetEnv("OPSGENIE_API_URL");
 

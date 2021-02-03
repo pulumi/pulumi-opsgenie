@@ -63,6 +63,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/maintenance:Maintenance test 812be1a1-32c8-4666-a7fb-03ecc385106c`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/maintenance:Maintenance")]
     public partial class Maintenance : Pulumi.CustomResource
     {
         /// <summary>

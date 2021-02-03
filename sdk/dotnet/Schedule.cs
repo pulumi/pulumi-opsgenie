@@ -42,6 +42,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/schedule:Schedule test 812be1a1-32c8-4666-a7fb-03ecc385106c`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/schedule:Schedule")]
     public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>

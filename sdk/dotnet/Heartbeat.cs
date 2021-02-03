@@ -50,6 +50,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/heartbeat:Heartbeat test geniehearbeat-%s`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/heartbeat:Heartbeat")]
     public partial class Heartbeat : Pulumi.CustomResource
     {
         /// <summary>

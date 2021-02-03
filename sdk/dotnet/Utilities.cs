@@ -77,4 +77,11 @@ namespace Pulumi.Opsgenie
             }
         }
     }
+
+    internal sealed class OpsgenieResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public OpsgenieResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

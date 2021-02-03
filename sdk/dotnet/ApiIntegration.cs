@@ -89,6 +89,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration defaultintegration 812be1a1-32c8-4666-a7fb-03ecc385106c`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/apiIntegration:ApiIntegration")]
     public partial class ApiIntegration : Pulumi.CustomResource
     {
         /// <summary>

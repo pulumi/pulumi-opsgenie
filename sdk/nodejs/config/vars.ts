@@ -6,5 +6,5 @@ import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("opsgenie");
 
-export let apiKey: string | undefined = __config.get("apiKey") || utilities.getEnv("OPSGENIE_API_KEY");
+export let apiKey: string | undefined = __config.get("apiKey");
 export let apiUrl: string | undefined = __config.get("apiUrl") || utilities.getEnv("OPSGENIE_API_URL");

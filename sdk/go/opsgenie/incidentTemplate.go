@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -215,15 +216,15 @@ type IncidentTemplateInput interface {
 	ToIncidentTemplateOutputWithContext(ctx context.Context) IncidentTemplateOutput
 }
 
-func (IncidentTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentTemplate)(nil)).Elem()
+func (*IncidentTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentTemplate)(nil))
 }
 
-func (i IncidentTemplate) ToIncidentTemplateOutput() IncidentTemplateOutput {
+func (i *IncidentTemplate) ToIncidentTemplateOutput() IncidentTemplateOutput {
 	return i.ToIncidentTemplateOutputWithContext(context.Background())
 }
 
-func (i IncidentTemplate) ToIncidentTemplateOutputWithContext(ctx context.Context) IncidentTemplateOutput {
+func (i *IncidentTemplate) ToIncidentTemplateOutputWithContext(ctx context.Context) IncidentTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateOutput)
 }
 
@@ -232,7 +233,7 @@ type IncidentTemplateOutput struct {
 }
 
 func (IncidentTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentTemplateOutput)(nil)).Elem()
+	return reflect.TypeOf((*IncidentTemplate)(nil))
 }
 
 func (o IncidentTemplateOutput) ToIncidentTemplateOutput() IncidentTemplateOutput {

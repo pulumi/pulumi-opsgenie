@@ -181,15 +181,15 @@ type ApiIntegrationInput interface {
 	ToApiIntegrationOutputWithContext(ctx context.Context) ApiIntegrationOutput
 }
 
-func (ApiIntegration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiIntegration)(nil)).Elem()
+func (*ApiIntegration) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIntegration)(nil))
 }
 
-func (i ApiIntegration) ToApiIntegrationOutput() ApiIntegrationOutput {
+func (i *ApiIntegration) ToApiIntegrationOutput() ApiIntegrationOutput {
 	return i.ToApiIntegrationOutputWithContext(context.Background())
 }
 
-func (i ApiIntegration) ToApiIntegrationOutputWithContext(ctx context.Context) ApiIntegrationOutput {
+func (i *ApiIntegration) ToApiIntegrationOutputWithContext(ctx context.Context) ApiIntegrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationOutput)
 }
 
@@ -198,7 +198,7 @@ type ApiIntegrationOutput struct {
 }
 
 func (ApiIntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiIntegrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiIntegration)(nil))
 }
 
 func (o ApiIntegrationOutput) ToApiIntegrationOutput() ApiIntegrationOutput {

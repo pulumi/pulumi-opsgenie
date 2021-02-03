@@ -72,6 +72,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test 812be1a1-32c8-4666-a7fb-03ecc385106c`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/incidentTemplate:IncidentTemplate")]
     public partial class IncidentTemplate : Pulumi.CustomResource
     {
         /// <summary>

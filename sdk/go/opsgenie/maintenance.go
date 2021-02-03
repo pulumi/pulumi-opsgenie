@@ -22,6 +22,7 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -160,15 +161,15 @@ type MaintenanceInput interface {
 	ToMaintenanceOutputWithContext(ctx context.Context) MaintenanceOutput
 }
 
-func (Maintenance) ElementType() reflect.Type {
-	return reflect.TypeOf((*Maintenance)(nil)).Elem()
+func (*Maintenance) ElementType() reflect.Type {
+	return reflect.TypeOf((*Maintenance)(nil))
 }
 
-func (i Maintenance) ToMaintenanceOutput() MaintenanceOutput {
+func (i *Maintenance) ToMaintenanceOutput() MaintenanceOutput {
 	return i.ToMaintenanceOutputWithContext(context.Background())
 }
 
-func (i Maintenance) ToMaintenanceOutputWithContext(ctx context.Context) MaintenanceOutput {
+func (i *Maintenance) ToMaintenanceOutputWithContext(ctx context.Context) MaintenanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceOutput)
 }
 
@@ -177,7 +178,7 @@ type MaintenanceOutput struct {
 }
 
 func (MaintenanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceOutput)(nil)).Elem()
+	return reflect.TypeOf((*Maintenance)(nil))
 }
 
 func (o MaintenanceOutput) ToMaintenanceOutput() MaintenanceOutput {

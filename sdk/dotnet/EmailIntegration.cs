@@ -85,6 +85,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test 812be1a1-32c8-4666-a7fb-03ecc385106c`
     /// ```
     /// </summary>
+    [OpsgenieResourceType("opsgenie:index/emailIntegration:EmailIntegration")]
     public partial class EmailIntegration : Pulumi.CustomResource
     {
         /// <summary>

@@ -15,7 +15,7 @@ __all__ = [
 
 __config__ = pulumi.Config('opsgenie')
 
-api_key = __config__.get('apiKey') or _utilities.get_env('OPSGENIE_API_KEY')
+api_key = __config__.get('apiKey')
 
 api_url = __config__.get('apiUrl') or _utilities.get_env('OPSGENIE_API_URL')
 

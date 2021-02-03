@@ -29,6 +29,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -293,15 +294,15 @@ type IntegrationActionInput interface {
 	ToIntegrationActionOutputWithContext(ctx context.Context) IntegrationActionOutput
 }
 
-func (IntegrationAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAction)(nil)).Elem()
+func (*IntegrationAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAction)(nil))
 }
 
-func (i IntegrationAction) ToIntegrationActionOutput() IntegrationActionOutput {
+func (i *IntegrationAction) ToIntegrationActionOutput() IntegrationActionOutput {
 	return i.ToIntegrationActionOutputWithContext(context.Background())
 }
 
-func (i IntegrationAction) ToIntegrationActionOutputWithContext(ctx context.Context) IntegrationActionOutput {
+func (i *IntegrationAction) ToIntegrationActionOutputWithContext(ctx context.Context) IntegrationActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionOutput)
 }
 
@@ -310,7 +311,7 @@ type IntegrationActionOutput struct {
 }
 
 func (IntegrationActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationActionOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationAction)(nil))
 }
 
 func (o IntegrationActionOutput) ToIntegrationActionOutput() IntegrationActionOutput {

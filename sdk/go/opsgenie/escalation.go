@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -187,15 +188,15 @@ type EscalationInput interface {
 	ToEscalationOutputWithContext(ctx context.Context) EscalationOutput
 }
 
-func (Escalation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Escalation)(nil)).Elem()
+func (*Escalation) ElementType() reflect.Type {
+	return reflect.TypeOf((*Escalation)(nil))
 }
 
-func (i Escalation) ToEscalationOutput() EscalationOutput {
+func (i *Escalation) ToEscalationOutput() EscalationOutput {
 	return i.ToEscalationOutputWithContext(context.Background())
 }
 
-func (i Escalation) ToEscalationOutputWithContext(ctx context.Context) EscalationOutput {
+func (i *Escalation) ToEscalationOutputWithContext(ctx context.Context) EscalationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationOutput)
 }
 
@@ -204,7 +205,7 @@ type EscalationOutput struct {
 }
 
 func (EscalationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EscalationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Escalation)(nil))
 }
 
 func (o EscalationOutput) ToEscalationOutput() EscalationOutput {

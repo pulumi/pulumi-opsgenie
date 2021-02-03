@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -179,15 +179,15 @@ type UserContactInput interface {
 	ToUserContactOutputWithContext(ctx context.Context) UserContactOutput
 }
 
-func (UserContact) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserContact)(nil)).Elem()
+func (*UserContact) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserContact)(nil))
 }
 
-func (i UserContact) ToUserContactOutput() UserContactOutput {
+func (i *UserContact) ToUserContactOutput() UserContactOutput {
 	return i.ToUserContactOutputWithContext(context.Background())
 }
 
-func (i UserContact) ToUserContactOutputWithContext(ctx context.Context) UserContactOutput {
+func (i *UserContact) ToUserContactOutputWithContext(ctx context.Context) UserContactOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserContactOutput)
 }
 
@@ -196,7 +196,7 @@ type UserContactOutput struct {
 }
 
 func (UserContactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserContactOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserContact)(nil))
 }
 
 func (o UserContactOutput) ToUserContactOutput() UserContactOutput {
