@@ -14,8 +14,6 @@
 
 import * as opsgenie from "@pulumi/opsgenie";
 
-let team = new opsgenie.Team('test', {
-  name: 'test',
-})
+let team = new opsgenie.Team('test')
 
 export let teamName = team.name;

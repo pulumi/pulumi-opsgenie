@@ -10,10 +10,10 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
-func TestAccClient(t *testing.T) {
+func TestAccTeamTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "client"),
+			Dir: path.Join(getCwd(t), "team", "ts"),
 		})
 
 	integration.ProgramTest(t, &test)
