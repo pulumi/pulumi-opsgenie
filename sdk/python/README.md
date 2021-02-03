@@ -1,3 +1,11 @@
+[![Actions Status](https://github.com/pulumi/pulumi-opsgenie/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-opsgenie/actions)
+[![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
+[![NPM version](https://badge.fury.io/js/%40pulumi%2Fopsgenie.svg)](https://npmjs.com/package/@pulumi/opsgenie)
+[![NuGet version](https://badge.fury.io/nu/pulumi.opsgenie.svg)](https://badge.fury.io/nu/pulumi.opsgenie)
+[![Python version](https://badge.fury.io/py/pulumi-opsgenie.svg)](https://pypi.org/project/pulumi-opsgenie)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-opsgenie/sdk/go)](https://pkg.go.dev/github.com/pulumi/pulumi-opsgenie/sdk/go)
+[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-opsgenie/blob/master/LICENSE)
+
 # Opsgenie Resource Provider
 
 The OpsGenie resource provider for Pulumi lets you manage opsgenie resources in your cloud programs. To use this package, please install the Pulumi CLI first.
