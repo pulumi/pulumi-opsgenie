@@ -2053,6 +2053,7 @@
             },
             "type": "object",
             "required": [
+                "name",
                 "type"
             ]
         },
@@ -2438,8 +2439,8 @@
                     }
                 },
                 "details": {
-                    "type": "array",
-                    "items": {
+                    "type": "object",
+                    "additionalProperties": {
                         "type": "string"
                     },
                     "description": "Map of key-value pairs to use as custom properties of the alert.\n",

@@ -19,14 +19,14 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string>? Description { get; set; }
 
         [Input("details")]
-        private InputList<string>? _details;
+        private InputMap<string>? _details;
 
         /// <summary>
         /// Map of key-value pairs to use as custom properties of the alert.
         /// </summary>
-        public InputList<string> Details
+        public InputMap<string> Details
         {
-            get => _details ?? (_details = new InputList<string>());
+            get => _details ?? (_details = new InputMap<string>());
             set => _details = value;
         }
 

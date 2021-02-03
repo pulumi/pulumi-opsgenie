@@ -16,7 +16,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// <summary>
         /// Name of the notification policy
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Opsgenie.Outputs
 
         [OutputConstructor]
         private NotificationRuleSchedule(
-            string? name,
+            string name,
 
             string type)
         {

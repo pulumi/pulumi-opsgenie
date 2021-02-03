@@ -20,7 +20,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// <summary>
         /// Map of key-value pairs to use as custom properties of the alert.
         /// </summary>
-        public readonly ImmutableArray<string> Details;
+        public readonly ImmutableDictionary<string, string>? Details;
         /// <summary>
         /// Message that is to be passed to audience that is generally used to provide a content information about the alert.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Opsgenie.Outputs
         private ServiceIncidentRuleIncidentRuleIncidentProperty(
             string? description,
 
-            ImmutableArray<string> details,
+            ImmutableDictionary<string, string>? details,
 
             string message,
 

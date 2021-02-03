@@ -2472,15 +2472,22 @@ class NotificationRuleRepeat(dict):
 @pulumi.output_type
 class NotificationRuleSchedule(dict):
     def __init__(__self__, *,
-                 type: str,
-                 name: Optional[str] = None):
+                 name: str,
+                 type: str):
         """
-        :param str type: Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
         :param str name: Name of the notification policy
+        :param str type: Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the notification policy
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
@@ -2489,14 +2496,6 @@ class NotificationRuleSchedule(dict):
         Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the notification policy
-        """
-        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2916,14 +2915,14 @@ class ServiceIncidentRuleIncidentRuleIncidentProperty(dict):
                  priority: str,
                  stakeholder_properties: Sequence['outputs.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty'],
                  description: Optional[str] = None,
-                 details: Optional[Sequence[str]] = None,
+                 details: Optional[Mapping[str, str]] = None,
                  tags: Optional[Sequence[str]] = None):
         """
         :param str message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
         :param str priority: Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
         :param Sequence['ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs'] stakeholder_properties: DEtails about stakeholders for this rule. This is a block, structure is documented below.
         :param str description: Description that is generally used to provide a detailed information about the alert.
-        :param Sequence[str] details: Map of key-value pairs to use as custom properties of the alert.
+        :param Mapping[str, str] details: Map of key-value pairs to use as custom properties of the alert.
         :param Sequence[str] tags: Tags of the alert.
         """
         pulumi.set(__self__, "message", message)
@@ -2970,7 +2969,7 @@ class ServiceIncidentRuleIncidentRuleIncidentProperty(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[Sequence[str]]:
+    def details(self) -> Optional[Mapping[str, str]]:
         """
         Map of key-value pairs to use as custom properties of the alert.
         """

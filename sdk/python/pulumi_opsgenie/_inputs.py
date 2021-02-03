@@ -3048,15 +3048,26 @@ class NotificationRuleRepeatArgs:
 @pulumi.input_type
 class NotificationRuleScheduleArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
         :param pulumi.Input[str] name: Name of the notification policy
+        :param pulumi.Input[str] type: Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the notification policy
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -3069,18 +3080,6 @@ class NotificationRuleScheduleArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the notification policy
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -3594,14 +3593,14 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
                  priority: pulumi.Input[str],
                  stakeholder_properties: pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
-                 details: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
         :param pulumi.Input[str] priority: Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
         :param pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs']]] stakeholder_properties: DEtails about stakeholders for this rule. This is a block, structure is documented below.
         :param pulumi.Input[str] description: Description that is generally used to provide a detailed information about the alert.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the alert.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the alert.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the alert.
         """
         pulumi.set(__self__, "message", message)
@@ -3664,14 +3663,14 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of key-value pairs to use as custom properties of the alert.
         """
         return pulumi.get(self, "details")
 
     @details.setter
-    def details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "details", value)
 
     @property

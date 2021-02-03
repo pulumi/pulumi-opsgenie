@@ -777,7 +777,7 @@ export interface NotificationRuleSchedule {
     /**
      * Name of the notification policy
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
      */
@@ -919,7 +919,7 @@ export interface ServiceIncidentRuleIncidentRuleIncidentProperty {
     /**
      * Map of key-value pairs to use as custom properties of the alert.
      */
-    details?: pulumi.Input<pulumi.Input<string>[]>;
+    details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Message that is to be passed to audience that is generally used to provide a content information about the alert.
      */

@@ -5542,7 +5542,7 @@ func (o NotificationRuleRepeatArrayOutput) Index(i pulumi.IntInput) Notification
 
 type NotificationRuleSchedule struct {
 	// Name of the notification policy
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
 	Type string `pulumi:"type"`
 }
@@ -5560,7 +5560,7 @@ type NotificationRuleScheduleInput interface {
 
 type NotificationRuleScheduleArgs struct {
 	// Name of the notification policy
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -5617,8 +5617,8 @@ func (o NotificationRuleScheduleOutput) ToNotificationRuleScheduleOutputWithCont
 }
 
 // Name of the notification policy
-func (o NotificationRuleScheduleOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotificationRuleSchedule) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o NotificationRuleScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationRuleSchedule) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
@@ -6705,7 +6705,7 @@ type ServiceIncidentRuleIncidentRuleIncidentProperty struct {
 	// Description that is generally used to provide a detailed information about the alert.
 	Description *string `pulumi:"description"`
 	// Map of key-value pairs to use as custom properties of the alert.
-	Details []string `pulumi:"details"`
+	Details map[string]string `pulumi:"details"`
 	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
 	Message string `pulumi:"message"`
 	// Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
@@ -6731,7 +6731,7 @@ type ServiceIncidentRuleIncidentRuleIncidentPropertyArgs struct {
 	// Description that is generally used to provide a detailed information about the alert.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Map of key-value pairs to use as custom properties of the alert.
-	Details pulumi.StringArrayInput `pulumi:"details"`
+	Details pulumi.StringMapInput `pulumi:"details"`
 	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
 	Message pulumi.StringInput `pulumi:"message"`
 	// Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
@@ -6799,8 +6799,8 @@ func (o ServiceIncidentRuleIncidentRuleIncidentPropertyOutput) Description() pul
 }
 
 // Map of key-value pairs to use as custom properties of the alert.
-func (o ServiceIncidentRuleIncidentRuleIncidentPropertyOutput) Details() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ServiceIncidentRuleIncidentRuleIncidentProperty) []string { return v.Details }).(pulumi.StringArrayOutput)
+func (o ServiceIncidentRuleIncidentRuleIncidentPropertyOutput) Details() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceIncidentRuleIncidentRuleIncidentProperty) map[string]string { return v.Details }).(pulumi.StringMapOutput)
 }
 
 // Message that is to be passed to audience that is generally used to provide a content information about the alert.
