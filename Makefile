@@ -41,7 +41,7 @@ build_nodejs:: install_plugins tfgen # build the node sdk
         yarn install && \
         yarn run tsc && \
         cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-        sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
+    	sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
 build_python:: install_plugins tfgen # build the python sdk
@@ -82,7 +82,6 @@ clean::
 
 install_plugins::
 	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
-	pulumi plugin install resource random 2.2.0
 
 install_dotnet_sdk::
 	mkdir -p $(WORKING_DIR)/nuget
