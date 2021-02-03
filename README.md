@@ -1,6 +1,6 @@
 # Opsgenie Resource Provider
 
-The postgresql resource provider for Pulumi lets you manage opsgenie resources in your cloud programs. To use this package, please install the Pulumi CLI first.
+The OpsGenie resource provider for Pulumi lets you manage opsgenie resources in your cloud programs. To use this package, please install the Pulumi CLI first.
 
 ## Installing
 
@@ -27,6 +27,12 @@ To use from Python, install using `pip`:
 To use from Go, use `go get` to grab the latest version of the library
 
     $ go get github.com/pulumi/pulumi-opsgenie/sdk/go/...
+
+### .NET
+
+To use from .NET, install using `dotnet add package`:
+
+    $ dotnet add package Pulumi.Opsgenie
 
 ## Configuration
 
