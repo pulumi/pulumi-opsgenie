@@ -43,6 +43,26 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Alert policies can be imported using the `team id` and `policy_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test teamId/Id`
+ * ```
+ *
+ *  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Alert Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+ *
+ * ```sh
+ *  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+ * ```
+ *
+ *  You can import global polices using only policy identifier
+ *
+ * ```sh
+ *  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c`
+ * ```
  */
 export class AlertPolicy extends pulumi.CustomResource {
     /**
@@ -76,6 +96,9 @@ export class AlertPolicy extends pulumi.CustomResource {
      * Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
      */
     public readonly actions!: pulumi.Output<string[] | undefined>;
+    /**
+     * Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+     */
     public readonly alertDescription!: pulumi.Output<string | undefined>;
     /**
      * Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
@@ -224,6 +247,9 @@ export interface AlertPolicyState {
      * Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
      */
     readonly actions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+     */
     readonly alertDescription?: pulumi.Input<string>;
     /**
      * Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
@@ -304,6 +330,9 @@ export interface AlertPolicyArgs {
      * Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
      */
     readonly actions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+     */
     readonly alertDescription?: pulumi.Input<string>;
     /**
      * Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}

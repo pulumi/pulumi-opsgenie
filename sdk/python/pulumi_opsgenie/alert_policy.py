@@ -78,9 +78,30 @@ class AlertPolicy(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Alert policies can be imported using the `team id` and `policy_id`, e.g.
+
+        ```sh
+         $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test teamId/Id`
+        ```
+
+         For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Alert Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+
+        ```sh
+         $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+        ```
+
+         You can import global polices using only policy identifier
+
+        ```sh
+         $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c`
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
+        :param pulumi.Input[str] alert_description: Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
         :param pulumi.Input[str] alias: Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
         :param pulumi.Input[bool] enabled: If policy should be enabled. Default: true
         :param pulumi.Input[str] entity: Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
@@ -176,6 +197,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
+        :param pulumi.Input[str] alert_description: Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
         :param pulumi.Input[str] alias: Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
         :param pulumi.Input[bool] enabled: If policy should be enabled. Default: true
         :param pulumi.Input[str] entity: Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
@@ -231,6 +253,9 @@ class AlertPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="alertDescription")
     def alert_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+        """
         return pulumi.get(self, "alert_description")
 
     @property
