@@ -70,12 +70,33 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Alert policies can be imported using the `team id` and `policy_id`, e.g.
+//
+// ```sh
+//  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test teamId/Id`
+// ```
+//
+//  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Alert Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+//
+// ```sh
+//  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+// ```
+//
+//  You can import global polices using only policy identifier
+//
+// ```sh
+//  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c`
+// ```
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 
 	// Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
-	Actions          pulumi.StringArrayOutput `pulumi:"actions"`
-	AlertDescription pulumi.StringPtrOutput   `pulumi:"alertDescription"`
+	Actions pulumi.StringArrayOutput `pulumi:"actions"`
+	// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+	AlertDescription pulumi.StringPtrOutput `pulumi:"alertDescription"`
 	// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
 	Alias          pulumi.StringPtrOutput `pulumi:"alias"`
 	ContinuePolicy pulumi.BoolPtrOutput   `pulumi:"continuePolicy"`
@@ -146,8 +167,9 @@ func GetAlertPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AlertPolicy resources.
 type alertPolicyState struct {
 	// Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
-	Actions          []string `pulumi:"actions"`
-	AlertDescription *string  `pulumi:"alertDescription"`
+	Actions []string `pulumi:"actions"`
+	// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+	AlertDescription *string `pulumi:"alertDescription"`
 	// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
 	Alias          *string `pulumi:"alias"`
 	ContinuePolicy *bool   `pulumi:"continuePolicy"`
@@ -187,7 +209,8 @@ type alertPolicyState struct {
 
 type AlertPolicyState struct {
 	// Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
-	Actions          pulumi.StringArrayInput
+	Actions pulumi.StringArrayInput
+	// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
 	AlertDescription pulumi.StringPtrInput
 	// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
 	Alias          pulumi.StringPtrInput
@@ -232,8 +255,9 @@ func (AlertPolicyState) ElementType() reflect.Type {
 
 type alertPolicyArgs struct {
 	// Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
-	Actions          []string `pulumi:"actions"`
-	AlertDescription *string  `pulumi:"alertDescription"`
+	Actions []string `pulumi:"actions"`
+	// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+	AlertDescription *string `pulumi:"alertDescription"`
 	// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
 	Alias          *string `pulumi:"alias"`
 	ContinuePolicy *bool   `pulumi:"continuePolicy"`
@@ -274,7 +298,8 @@ type alertPolicyArgs struct {
 // The set of arguments for constructing a AlertPolicy resource.
 type AlertPolicyArgs struct {
 	// Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
-	Actions          pulumi.StringArrayInput
+	Actions pulumi.StringArrayInput
+	// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
 	AlertDescription pulumi.StringPtrInput
 	// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
 	Alias          pulumi.StringPtrInput

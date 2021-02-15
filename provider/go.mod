@@ -8,8 +8,8 @@ replace (
 )
 
 require (
-	github.com/hashicorp/terraform-plugin-sdk v1.15.0
-	github.com/opsgenie/terraform-provider-opsgenie v0.6.2
+	github.com/hashicorp/terraform-plugin-sdk v1.15.0 // indirect
+	github.com/opsgenie/terraform-provider-opsgenie v0.6.3
 	github.com/pulumi/pulumi-terraform-bridge/v2 v2.18.1
 	github.com/pulumi/pulumi/sdk/v2 v2.18.0
 )

@@ -68,6 +68,26 @@ namespace Pulumi.Opsgenie
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Alert policies can be imported using the `team id` and `policy_id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test teamId/Id`
+    /// ```
+    /// 
+    ///  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Alert Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+    /// 
+    /// ```sh
+    ///  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+    /// ```
+    /// 
+    ///  You can import global polices using only policy identifier
+    /// 
+    /// ```sh
+    ///  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c`
+    /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/alertPolicy:AlertPolicy")]
     public partial class AlertPolicy : Pulumi.CustomResource
@@ -78,6 +98,9 @@ namespace Pulumi.Opsgenie
         [Output("actions")]
         public Output<ImmutableArray<string>> Actions { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+        /// </summary>
         [Output("alertDescription")]
         public Output<string?> AlertDescription { get; private set; } = null!;
 
@@ -244,6 +267,9 @@ namespace Pulumi.Opsgenie
             set => _actions = value;
         }
 
+        /// <summary>
+        /// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+        /// </summary>
         [Input("alertDescription")]
         public Input<string>? AlertDescription { get; set; }
 
@@ -395,6 +421,9 @@ namespace Pulumi.Opsgenie
             set => _actions = value;
         }
 
+        /// <summary>
+        /// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+        /// </summary>
         [Input("alertDescription")]
         public Input<string>? AlertDescription { get; set; }
 
