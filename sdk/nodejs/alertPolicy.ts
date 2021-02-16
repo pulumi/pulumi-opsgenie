@@ -180,7 +180,8 @@ export class AlertPolicy extends pulumi.CustomResource {
     constructor(name: string, args: AlertPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertPolicyArgs | AlertPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AlertPolicyState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["alertDescription"] = state ? state.alertDescription : undefined;
@@ -204,7 +205,7 @@ export class AlertPolicy extends pulumi.CustomResource {
             inputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
         } else {
             const args = argsOrState as AlertPolicyArgs | undefined;
-            if ((!args || args.message === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.message === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -228,12 +229,8 @@ export class AlertPolicy extends pulumi.CustomResource {
             inputs["teamId"] = args ? args.teamId : undefined;
             inputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AlertPolicy.__pulumiType, name, inputs, opts);
     }

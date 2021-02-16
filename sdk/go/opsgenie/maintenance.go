@@ -22,7 +22,6 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -173,6 +172,85 @@ func (i *Maintenance) ToMaintenanceOutputWithContext(ctx context.Context) Mainte
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceOutput)
 }
 
+func (i *Maintenance) ToMaintenancePtrOutput() MaintenancePtrOutput {
+	return i.ToMaintenancePtrOutputWithContext(context.Background())
+}
+
+func (i *Maintenance) ToMaintenancePtrOutputWithContext(ctx context.Context) MaintenancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenancePtrOutput)
+}
+
+type MaintenancePtrInput interface {
+	pulumi.Input
+
+	ToMaintenancePtrOutput() MaintenancePtrOutput
+	ToMaintenancePtrOutputWithContext(ctx context.Context) MaintenancePtrOutput
+}
+
+type maintenancePtrType MaintenanceArgs
+
+func (*maintenancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Maintenance)(nil))
+}
+
+func (i *maintenancePtrType) ToMaintenancePtrOutput() MaintenancePtrOutput {
+	return i.ToMaintenancePtrOutputWithContext(context.Background())
+}
+
+func (i *maintenancePtrType) ToMaintenancePtrOutputWithContext(ctx context.Context) MaintenancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenancePtrOutput)
+}
+
+// MaintenanceArrayInput is an input type that accepts MaintenanceArray and MaintenanceArrayOutput values.
+// You can construct a concrete instance of `MaintenanceArrayInput` via:
+//
+//          MaintenanceArray{ MaintenanceArgs{...} }
+type MaintenanceArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceArrayOutput() MaintenanceArrayOutput
+	ToMaintenanceArrayOutputWithContext(context.Context) MaintenanceArrayOutput
+}
+
+type MaintenanceArray []MaintenanceInput
+
+func (MaintenanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Maintenance)(nil))
+}
+
+func (i MaintenanceArray) ToMaintenanceArrayOutput() MaintenanceArrayOutput {
+	return i.ToMaintenanceArrayOutputWithContext(context.Background())
+}
+
+func (i MaintenanceArray) ToMaintenanceArrayOutputWithContext(ctx context.Context) MaintenanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceArrayOutput)
+}
+
+// MaintenanceMapInput is an input type that accepts MaintenanceMap and MaintenanceMapOutput values.
+// You can construct a concrete instance of `MaintenanceMapInput` via:
+//
+//          MaintenanceMap{ "key": MaintenanceArgs{...} }
+type MaintenanceMapInput interface {
+	pulumi.Input
+
+	ToMaintenanceMapOutput() MaintenanceMapOutput
+	ToMaintenanceMapOutputWithContext(context.Context) MaintenanceMapOutput
+}
+
+type MaintenanceMap map[string]MaintenanceInput
+
+func (MaintenanceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Maintenance)(nil))
+}
+
+func (i MaintenanceMap) ToMaintenanceMapOutput() MaintenanceMapOutput {
+	return i.ToMaintenanceMapOutputWithContext(context.Background())
+}
+
+func (i MaintenanceMap) ToMaintenanceMapOutputWithContext(ctx context.Context) MaintenanceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceMapOutput)
+}
+
 type MaintenanceOutput struct {
 	*pulumi.OutputState
 }
@@ -189,6 +267,75 @@ func (o MaintenanceOutput) ToMaintenanceOutputWithContext(ctx context.Context) M
 	return o
 }
 
+func (o MaintenanceOutput) ToMaintenancePtrOutput() MaintenancePtrOutput {
+	return o.ToMaintenancePtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceOutput) ToMaintenancePtrOutputWithContext(ctx context.Context) MaintenancePtrOutput {
+	return o.ApplyT(func(v Maintenance) *Maintenance {
+		return &v
+	}).(MaintenancePtrOutput)
+}
+
+type MaintenancePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MaintenancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Maintenance)(nil))
+}
+
+func (o MaintenancePtrOutput) ToMaintenancePtrOutput() MaintenancePtrOutput {
+	return o
+}
+
+func (o MaintenancePtrOutput) ToMaintenancePtrOutputWithContext(ctx context.Context) MaintenancePtrOutput {
+	return o
+}
+
+type MaintenanceArrayOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Maintenance)(nil))
+}
+
+func (o MaintenanceArrayOutput) ToMaintenanceArrayOutput() MaintenanceArrayOutput {
+	return o
+}
+
+func (o MaintenanceArrayOutput) ToMaintenanceArrayOutputWithContext(ctx context.Context) MaintenanceArrayOutput {
+	return o
+}
+
+func (o MaintenanceArrayOutput) Index(i pulumi.IntInput) MaintenanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Maintenance {
+		return vs[0].([]Maintenance)[vs[1].(int)]
+	}).(MaintenanceOutput)
+}
+
+type MaintenanceMapOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Maintenance)(nil))
+}
+
+func (o MaintenanceMapOutput) ToMaintenanceMapOutput() MaintenanceMapOutput {
+	return o
+}
+
+func (o MaintenanceMapOutput) ToMaintenanceMapOutputWithContext(ctx context.Context) MaintenanceMapOutput {
+	return o
+}
+
+func (o MaintenanceMapOutput) MapIndex(k pulumi.StringInput) MaintenanceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Maintenance {
+		return vs[0].(map[string]Maintenance)[vs[1].(string)]
+	}).(MaintenanceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MaintenanceOutput{})
+	pulumi.RegisterOutputType(MaintenancePtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceMapOutput{})
 }

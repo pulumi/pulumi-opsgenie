@@ -194,7 +194,8 @@ export class IntegrationAction extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationActionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationActionArgs | IntegrationActionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationActionState | undefined;
             inputs["acknowledges"] = state ? state.acknowledges : undefined;
             inputs["addNotes"] = state ? state.addNotes : undefined;
@@ -204,7 +205,7 @@ export class IntegrationAction extends pulumi.CustomResource {
             inputs["integrationId"] = state ? state.integrationId : undefined;
         } else {
             const args = argsOrState as IntegrationActionArgs | undefined;
-            if ((!args || args.integrationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.integrationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationId'");
             }
             inputs["acknowledges"] = args ? args.acknowledges : undefined;
@@ -214,12 +215,8 @@ export class IntegrationAction extends pulumi.CustomResource {
             inputs["ignores"] = args ? args.ignores : undefined;
             inputs["integrationId"] = args ? args.integrationId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IntegrationAction.__pulumiType, name, inputs, opts);
     }

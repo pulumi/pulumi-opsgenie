@@ -193,6 +193,85 @@ func (i *ApiIntegration) ToApiIntegrationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationOutput)
 }
 
+func (i *ApiIntegration) ToApiIntegrationPtrOutput() ApiIntegrationPtrOutput {
+	return i.ToApiIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *ApiIntegration) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationPtrOutput)
+}
+
+type ApiIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToApiIntegrationPtrOutput() ApiIntegrationPtrOutput
+	ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput
+}
+
+type apiIntegrationPtrType ApiIntegrationArgs
+
+func (*apiIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiIntegration)(nil))
+}
+
+func (i *apiIntegrationPtrType) ToApiIntegrationPtrOutput() ApiIntegrationPtrOutput {
+	return i.ToApiIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *apiIntegrationPtrType) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationPtrOutput)
+}
+
+// ApiIntegrationArrayInput is an input type that accepts ApiIntegrationArray and ApiIntegrationArrayOutput values.
+// You can construct a concrete instance of `ApiIntegrationArrayInput` via:
+//
+//          ApiIntegrationArray{ ApiIntegrationArgs{...} }
+type ApiIntegrationArrayInput interface {
+	pulumi.Input
+
+	ToApiIntegrationArrayOutput() ApiIntegrationArrayOutput
+	ToApiIntegrationArrayOutputWithContext(context.Context) ApiIntegrationArrayOutput
+}
+
+type ApiIntegrationArray []ApiIntegrationInput
+
+func (ApiIntegrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ApiIntegration)(nil))
+}
+
+func (i ApiIntegrationArray) ToApiIntegrationArrayOutput() ApiIntegrationArrayOutput {
+	return i.ToApiIntegrationArrayOutputWithContext(context.Background())
+}
+
+func (i ApiIntegrationArray) ToApiIntegrationArrayOutputWithContext(ctx context.Context) ApiIntegrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationArrayOutput)
+}
+
+// ApiIntegrationMapInput is an input type that accepts ApiIntegrationMap and ApiIntegrationMapOutput values.
+// You can construct a concrete instance of `ApiIntegrationMapInput` via:
+//
+//          ApiIntegrationMap{ "key": ApiIntegrationArgs{...} }
+type ApiIntegrationMapInput interface {
+	pulumi.Input
+
+	ToApiIntegrationMapOutput() ApiIntegrationMapOutput
+	ToApiIntegrationMapOutputWithContext(context.Context) ApiIntegrationMapOutput
+}
+
+type ApiIntegrationMap map[string]ApiIntegrationInput
+
+func (ApiIntegrationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ApiIntegration)(nil))
+}
+
+func (i ApiIntegrationMap) ToApiIntegrationMapOutput() ApiIntegrationMapOutput {
+	return i.ToApiIntegrationMapOutputWithContext(context.Background())
+}
+
+func (i ApiIntegrationMap) ToApiIntegrationMapOutputWithContext(ctx context.Context) ApiIntegrationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationMapOutput)
+}
+
 type ApiIntegrationOutput struct {
 	*pulumi.OutputState
 }
@@ -209,6 +288,75 @@ func (o ApiIntegrationOutput) ToApiIntegrationOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ApiIntegrationOutput) ToApiIntegrationPtrOutput() ApiIntegrationPtrOutput {
+	return o.ToApiIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o ApiIntegrationOutput) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
+	return o.ApplyT(func(v ApiIntegration) *ApiIntegration {
+		return &v
+	}).(ApiIntegrationPtrOutput)
+}
+
+type ApiIntegrationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiIntegration)(nil))
+}
+
+func (o ApiIntegrationPtrOutput) ToApiIntegrationPtrOutput() ApiIntegrationPtrOutput {
+	return o
+}
+
+func (o ApiIntegrationPtrOutput) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
+	return o
+}
+
+type ApiIntegrationArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiIntegrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiIntegration)(nil))
+}
+
+func (o ApiIntegrationArrayOutput) ToApiIntegrationArrayOutput() ApiIntegrationArrayOutput {
+	return o
+}
+
+func (o ApiIntegrationArrayOutput) ToApiIntegrationArrayOutputWithContext(ctx context.Context) ApiIntegrationArrayOutput {
+	return o
+}
+
+func (o ApiIntegrationArrayOutput) Index(i pulumi.IntInput) ApiIntegrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiIntegration {
+		return vs[0].([]ApiIntegration)[vs[1].(int)]
+	}).(ApiIntegrationOutput)
+}
+
+type ApiIntegrationMapOutput struct{ *pulumi.OutputState }
+
+func (ApiIntegrationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiIntegration)(nil))
+}
+
+func (o ApiIntegrationMapOutput) ToApiIntegrationMapOutput() ApiIntegrationMapOutput {
+	return o
+}
+
+func (o ApiIntegrationMapOutput) ToApiIntegrationMapOutputWithContext(ctx context.Context) ApiIntegrationMapOutput {
+	return o
+}
+
+func (o ApiIntegrationMapOutput) MapIndex(k pulumi.StringInput) ApiIntegrationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiIntegration {
+		return vs[0].(map[string]ApiIntegration)[vs[1].(string)]
+	}).(ApiIntegrationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiIntegrationOutput{})
+	pulumi.RegisterOutputType(ApiIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(ApiIntegrationArrayOutput{})
+	pulumi.RegisterOutputType(ApiIntegrationMapOutput{})
 }

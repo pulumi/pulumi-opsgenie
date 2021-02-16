@@ -88,7 +88,8 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, args?: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -103,12 +104,8 @@ export class Schedule extends pulumi.CustomResource {
             inputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Schedule.__pulumiType, name, inputs, opts);
     }

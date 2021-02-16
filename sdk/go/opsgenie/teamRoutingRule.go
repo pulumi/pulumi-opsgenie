@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -246,6 +245,85 @@ func (i *TeamRoutingRule) ToTeamRoutingRuleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleOutput)
 }
 
+func (i *TeamRoutingRule) ToTeamRoutingRulePtrOutput() TeamRoutingRulePtrOutput {
+	return i.ToTeamRoutingRulePtrOutputWithContext(context.Background())
+}
+
+func (i *TeamRoutingRule) ToTeamRoutingRulePtrOutputWithContext(ctx context.Context) TeamRoutingRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRulePtrOutput)
+}
+
+type TeamRoutingRulePtrInput interface {
+	pulumi.Input
+
+	ToTeamRoutingRulePtrOutput() TeamRoutingRulePtrOutput
+	ToTeamRoutingRulePtrOutputWithContext(ctx context.Context) TeamRoutingRulePtrOutput
+}
+
+type teamRoutingRulePtrType TeamRoutingRuleArgs
+
+func (*teamRoutingRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamRoutingRule)(nil))
+}
+
+func (i *teamRoutingRulePtrType) ToTeamRoutingRulePtrOutput() TeamRoutingRulePtrOutput {
+	return i.ToTeamRoutingRulePtrOutputWithContext(context.Background())
+}
+
+func (i *teamRoutingRulePtrType) ToTeamRoutingRulePtrOutputWithContext(ctx context.Context) TeamRoutingRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRulePtrOutput)
+}
+
+// TeamRoutingRuleArrayInput is an input type that accepts TeamRoutingRuleArray and TeamRoutingRuleArrayOutput values.
+// You can construct a concrete instance of `TeamRoutingRuleArrayInput` via:
+//
+//          TeamRoutingRuleArray{ TeamRoutingRuleArgs{...} }
+type TeamRoutingRuleArrayInput interface {
+	pulumi.Input
+
+	ToTeamRoutingRuleArrayOutput() TeamRoutingRuleArrayOutput
+	ToTeamRoutingRuleArrayOutputWithContext(context.Context) TeamRoutingRuleArrayOutput
+}
+
+type TeamRoutingRuleArray []TeamRoutingRuleInput
+
+func (TeamRoutingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TeamRoutingRule)(nil))
+}
+
+func (i TeamRoutingRuleArray) ToTeamRoutingRuleArrayOutput() TeamRoutingRuleArrayOutput {
+	return i.ToTeamRoutingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i TeamRoutingRuleArray) ToTeamRoutingRuleArrayOutputWithContext(ctx context.Context) TeamRoutingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleArrayOutput)
+}
+
+// TeamRoutingRuleMapInput is an input type that accepts TeamRoutingRuleMap and TeamRoutingRuleMapOutput values.
+// You can construct a concrete instance of `TeamRoutingRuleMapInput` via:
+//
+//          TeamRoutingRuleMap{ "key": TeamRoutingRuleArgs{...} }
+type TeamRoutingRuleMapInput interface {
+	pulumi.Input
+
+	ToTeamRoutingRuleMapOutput() TeamRoutingRuleMapOutput
+	ToTeamRoutingRuleMapOutputWithContext(context.Context) TeamRoutingRuleMapOutput
+}
+
+type TeamRoutingRuleMap map[string]TeamRoutingRuleInput
+
+func (TeamRoutingRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TeamRoutingRule)(nil))
+}
+
+func (i TeamRoutingRuleMap) ToTeamRoutingRuleMapOutput() TeamRoutingRuleMapOutput {
+	return i.ToTeamRoutingRuleMapOutputWithContext(context.Background())
+}
+
+func (i TeamRoutingRuleMap) ToTeamRoutingRuleMapOutputWithContext(ctx context.Context) TeamRoutingRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleMapOutput)
+}
+
 type TeamRoutingRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -262,6 +340,75 @@ func (o TeamRoutingRuleOutput) ToTeamRoutingRuleOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o TeamRoutingRuleOutput) ToTeamRoutingRulePtrOutput() TeamRoutingRulePtrOutput {
+	return o.ToTeamRoutingRulePtrOutputWithContext(context.Background())
+}
+
+func (o TeamRoutingRuleOutput) ToTeamRoutingRulePtrOutputWithContext(ctx context.Context) TeamRoutingRulePtrOutput {
+	return o.ApplyT(func(v TeamRoutingRule) *TeamRoutingRule {
+		return &v
+	}).(TeamRoutingRulePtrOutput)
+}
+
+type TeamRoutingRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TeamRoutingRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamRoutingRule)(nil))
+}
+
+func (o TeamRoutingRulePtrOutput) ToTeamRoutingRulePtrOutput() TeamRoutingRulePtrOutput {
+	return o
+}
+
+func (o TeamRoutingRulePtrOutput) ToTeamRoutingRulePtrOutputWithContext(ctx context.Context) TeamRoutingRulePtrOutput {
+	return o
+}
+
+type TeamRoutingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamRoutingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamRoutingRule)(nil))
+}
+
+func (o TeamRoutingRuleArrayOutput) ToTeamRoutingRuleArrayOutput() TeamRoutingRuleArrayOutput {
+	return o
+}
+
+func (o TeamRoutingRuleArrayOutput) ToTeamRoutingRuleArrayOutputWithContext(ctx context.Context) TeamRoutingRuleArrayOutput {
+	return o
+}
+
+func (o TeamRoutingRuleArrayOutput) Index(i pulumi.IntInput) TeamRoutingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamRoutingRule {
+		return vs[0].([]TeamRoutingRule)[vs[1].(int)]
+	}).(TeamRoutingRuleOutput)
+}
+
+type TeamRoutingRuleMapOutput struct{ *pulumi.OutputState }
+
+func (TeamRoutingRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TeamRoutingRule)(nil))
+}
+
+func (o TeamRoutingRuleMapOutput) ToTeamRoutingRuleMapOutput() TeamRoutingRuleMapOutput {
+	return o
+}
+
+func (o TeamRoutingRuleMapOutput) ToTeamRoutingRuleMapOutputWithContext(ctx context.Context) TeamRoutingRuleMapOutput {
+	return o
+}
+
+func (o TeamRoutingRuleMapOutput) MapIndex(k pulumi.StringInput) TeamRoutingRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TeamRoutingRule {
+		return vs[0].(map[string]TeamRoutingRule)[vs[1].(string)]
+	}).(TeamRoutingRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TeamRoutingRuleOutput{})
+	pulumi.RegisterOutputType(TeamRoutingRulePtrOutput{})
+	pulumi.RegisterOutputType(TeamRoutingRuleArrayOutput{})
+	pulumi.RegisterOutputType(TeamRoutingRuleMapOutput{})
 }

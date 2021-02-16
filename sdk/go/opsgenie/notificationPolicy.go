@@ -217,6 +217,85 @@ func (i *NotificationPolicy) ToNotificationPolicyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyOutput)
 }
 
+func (i *NotificationPolicy) ToNotificationPolicyPtrOutput() NotificationPolicyPtrOutput {
+	return i.ToNotificationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *NotificationPolicy) ToNotificationPolicyPtrOutputWithContext(ctx context.Context) NotificationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyPtrOutput)
+}
+
+type NotificationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToNotificationPolicyPtrOutput() NotificationPolicyPtrOutput
+	ToNotificationPolicyPtrOutputWithContext(ctx context.Context) NotificationPolicyPtrOutput
+}
+
+type notificationPolicyPtrType NotificationPolicyArgs
+
+func (*notificationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationPolicy)(nil))
+}
+
+func (i *notificationPolicyPtrType) ToNotificationPolicyPtrOutput() NotificationPolicyPtrOutput {
+	return i.ToNotificationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationPolicyPtrType) ToNotificationPolicyPtrOutputWithContext(ctx context.Context) NotificationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyPtrOutput)
+}
+
+// NotificationPolicyArrayInput is an input type that accepts NotificationPolicyArray and NotificationPolicyArrayOutput values.
+// You can construct a concrete instance of `NotificationPolicyArrayInput` via:
+//
+//          NotificationPolicyArray{ NotificationPolicyArgs{...} }
+type NotificationPolicyArrayInput interface {
+	pulumi.Input
+
+	ToNotificationPolicyArrayOutput() NotificationPolicyArrayOutput
+	ToNotificationPolicyArrayOutputWithContext(context.Context) NotificationPolicyArrayOutput
+}
+
+type NotificationPolicyArray []NotificationPolicyInput
+
+func (NotificationPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NotificationPolicy)(nil))
+}
+
+func (i NotificationPolicyArray) ToNotificationPolicyArrayOutput() NotificationPolicyArrayOutput {
+	return i.ToNotificationPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationPolicyArray) ToNotificationPolicyArrayOutputWithContext(ctx context.Context) NotificationPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyArrayOutput)
+}
+
+// NotificationPolicyMapInput is an input type that accepts NotificationPolicyMap and NotificationPolicyMapOutput values.
+// You can construct a concrete instance of `NotificationPolicyMapInput` via:
+//
+//          NotificationPolicyMap{ "key": NotificationPolicyArgs{...} }
+type NotificationPolicyMapInput interface {
+	pulumi.Input
+
+	ToNotificationPolicyMapOutput() NotificationPolicyMapOutput
+	ToNotificationPolicyMapOutputWithContext(context.Context) NotificationPolicyMapOutput
+}
+
+type NotificationPolicyMap map[string]NotificationPolicyInput
+
+func (NotificationPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NotificationPolicy)(nil))
+}
+
+func (i NotificationPolicyMap) ToNotificationPolicyMapOutput() NotificationPolicyMapOutput {
+	return i.ToNotificationPolicyMapOutputWithContext(context.Background())
+}
+
+func (i NotificationPolicyMap) ToNotificationPolicyMapOutputWithContext(ctx context.Context) NotificationPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyMapOutput)
+}
+
 type NotificationPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -233,6 +312,75 @@ func (o NotificationPolicyOutput) ToNotificationPolicyOutputWithContext(ctx cont
 	return o
 }
 
+func (o NotificationPolicyOutput) ToNotificationPolicyPtrOutput() NotificationPolicyPtrOutput {
+	return o.ToNotificationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationPolicyOutput) ToNotificationPolicyPtrOutputWithContext(ctx context.Context) NotificationPolicyPtrOutput {
+	return o.ApplyT(func(v NotificationPolicy) *NotificationPolicy {
+		return &v
+	}).(NotificationPolicyPtrOutput)
+}
+
+type NotificationPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotificationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationPolicy)(nil))
+}
+
+func (o NotificationPolicyPtrOutput) ToNotificationPolicyPtrOutput() NotificationPolicyPtrOutput {
+	return o
+}
+
+func (o NotificationPolicyPtrOutput) ToNotificationPolicyPtrOutputWithContext(ctx context.Context) NotificationPolicyPtrOutput {
+	return o
+}
+
+type NotificationPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationPolicy)(nil))
+}
+
+func (o NotificationPolicyArrayOutput) ToNotificationPolicyArrayOutput() NotificationPolicyArrayOutput {
+	return o
+}
+
+func (o NotificationPolicyArrayOutput) ToNotificationPolicyArrayOutputWithContext(ctx context.Context) NotificationPolicyArrayOutput {
+	return o
+}
+
+func (o NotificationPolicyArrayOutput) Index(i pulumi.IntInput) NotificationPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationPolicy {
+		return vs[0].([]NotificationPolicy)[vs[1].(int)]
+	}).(NotificationPolicyOutput)
+}
+
+type NotificationPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (NotificationPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotificationPolicy)(nil))
+}
+
+func (o NotificationPolicyMapOutput) ToNotificationPolicyMapOutput() NotificationPolicyMapOutput {
+	return o
+}
+
+func (o NotificationPolicyMapOutput) ToNotificationPolicyMapOutputWithContext(ctx context.Context) NotificationPolicyMapOutput {
+	return o
+}
+
+func (o NotificationPolicyMapOutput) MapIndex(k pulumi.StringInput) NotificationPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotificationPolicy {
+		return vs[0].(map[string]NotificationPolicy)[vs[1].(string)]
+	}).(NotificationPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotificationPolicyOutput{})
+	pulumi.RegisterOutputType(NotificationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(NotificationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(NotificationPolicyMapOutput{})
 }

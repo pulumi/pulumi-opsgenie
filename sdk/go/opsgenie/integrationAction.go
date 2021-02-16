@@ -29,7 +29,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -306,6 +305,85 @@ func (i *IntegrationAction) ToIntegrationActionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionOutput)
 }
 
+func (i *IntegrationAction) ToIntegrationActionPtrOutput() IntegrationActionPtrOutput {
+	return i.ToIntegrationActionPtrOutputWithContext(context.Background())
+}
+
+func (i *IntegrationAction) ToIntegrationActionPtrOutputWithContext(ctx context.Context) IntegrationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionPtrOutput)
+}
+
+type IntegrationActionPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationActionPtrOutput() IntegrationActionPtrOutput
+	ToIntegrationActionPtrOutputWithContext(ctx context.Context) IntegrationActionPtrOutput
+}
+
+type integrationActionPtrType IntegrationActionArgs
+
+func (*integrationActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAction)(nil))
+}
+
+func (i *integrationActionPtrType) ToIntegrationActionPtrOutput() IntegrationActionPtrOutput {
+	return i.ToIntegrationActionPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationActionPtrType) ToIntegrationActionPtrOutputWithContext(ctx context.Context) IntegrationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionPtrOutput)
+}
+
+// IntegrationActionArrayInput is an input type that accepts IntegrationActionArray and IntegrationActionArrayOutput values.
+// You can construct a concrete instance of `IntegrationActionArrayInput` via:
+//
+//          IntegrationActionArray{ IntegrationActionArgs{...} }
+type IntegrationActionArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationActionArrayOutput() IntegrationActionArrayOutput
+	ToIntegrationActionArrayOutputWithContext(context.Context) IntegrationActionArrayOutput
+}
+
+type IntegrationActionArray []IntegrationActionInput
+
+func (IntegrationActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IntegrationAction)(nil))
+}
+
+func (i IntegrationActionArray) ToIntegrationActionArrayOutput() IntegrationActionArrayOutput {
+	return i.ToIntegrationActionArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationActionArray) ToIntegrationActionArrayOutputWithContext(ctx context.Context) IntegrationActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionArrayOutput)
+}
+
+// IntegrationActionMapInput is an input type that accepts IntegrationActionMap and IntegrationActionMapOutput values.
+// You can construct a concrete instance of `IntegrationActionMapInput` via:
+//
+//          IntegrationActionMap{ "key": IntegrationActionArgs{...} }
+type IntegrationActionMapInput interface {
+	pulumi.Input
+
+	ToIntegrationActionMapOutput() IntegrationActionMapOutput
+	ToIntegrationActionMapOutputWithContext(context.Context) IntegrationActionMapOutput
+}
+
+type IntegrationActionMap map[string]IntegrationActionInput
+
+func (IntegrationActionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IntegrationAction)(nil))
+}
+
+func (i IntegrationActionMap) ToIntegrationActionMapOutput() IntegrationActionMapOutput {
+	return i.ToIntegrationActionMapOutputWithContext(context.Background())
+}
+
+func (i IntegrationActionMap) ToIntegrationActionMapOutputWithContext(ctx context.Context) IntegrationActionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionMapOutput)
+}
+
 type IntegrationActionOutput struct {
 	*pulumi.OutputState
 }
@@ -322,6 +400,75 @@ func (o IntegrationActionOutput) ToIntegrationActionOutputWithContext(ctx contex
 	return o
 }
 
+func (o IntegrationActionOutput) ToIntegrationActionPtrOutput() IntegrationActionPtrOutput {
+	return o.ToIntegrationActionPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationActionOutput) ToIntegrationActionPtrOutputWithContext(ctx context.Context) IntegrationActionPtrOutput {
+	return o.ApplyT(func(v IntegrationAction) *IntegrationAction {
+		return &v
+	}).(IntegrationActionPtrOutput)
+}
+
+type IntegrationActionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAction)(nil))
+}
+
+func (o IntegrationActionPtrOutput) ToIntegrationActionPtrOutput() IntegrationActionPtrOutput {
+	return o
+}
+
+func (o IntegrationActionPtrOutput) ToIntegrationActionPtrOutputWithContext(ctx context.Context) IntegrationActionPtrOutput {
+	return o
+}
+
+type IntegrationActionArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAction)(nil))
+}
+
+func (o IntegrationActionArrayOutput) ToIntegrationActionArrayOutput() IntegrationActionArrayOutput {
+	return o
+}
+
+func (o IntegrationActionArrayOutput) ToIntegrationActionArrayOutputWithContext(ctx context.Context) IntegrationActionArrayOutput {
+	return o
+}
+
+func (o IntegrationActionArrayOutput) Index(i pulumi.IntInput) IntegrationActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAction {
+		return vs[0].([]IntegrationAction)[vs[1].(int)]
+	}).(IntegrationActionOutput)
+}
+
+type IntegrationActionMapOutput struct{ *pulumi.OutputState }
+
+func (IntegrationActionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IntegrationAction)(nil))
+}
+
+func (o IntegrationActionMapOutput) ToIntegrationActionMapOutput() IntegrationActionMapOutput {
+	return o
+}
+
+func (o IntegrationActionMapOutput) ToIntegrationActionMapOutputWithContext(ctx context.Context) IntegrationActionMapOutput {
+	return o
+}
+
+func (o IntegrationActionMapOutput) MapIndex(k pulumi.StringInput) IntegrationActionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationAction {
+		return vs[0].(map[string]IntegrationAction)[vs[1].(string)]
+	}).(IntegrationActionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationActionOutput{})
+	pulumi.RegisterOutputType(IntegrationActionPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationActionArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationActionMapOutput{})
 }

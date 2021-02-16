@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -186,6 +185,85 @@ func (i *ServiceIncidentRule) ToServiceIncidentRuleOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleOutput)
 }
 
+func (i *ServiceIncidentRule) ToServiceIncidentRulePtrOutput() ServiceIncidentRulePtrOutput {
+	return i.ToServiceIncidentRulePtrOutputWithContext(context.Background())
+}
+
+func (i *ServiceIncidentRule) ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRulePtrOutput)
+}
+
+type ServiceIncidentRulePtrInput interface {
+	pulumi.Input
+
+	ToServiceIncidentRulePtrOutput() ServiceIncidentRulePtrOutput
+	ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput
+}
+
+type serviceIncidentRulePtrType ServiceIncidentRuleArgs
+
+func (*serviceIncidentRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceIncidentRule)(nil))
+}
+
+func (i *serviceIncidentRulePtrType) ToServiceIncidentRulePtrOutput() ServiceIncidentRulePtrOutput {
+	return i.ToServiceIncidentRulePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceIncidentRulePtrType) ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRulePtrOutput)
+}
+
+// ServiceIncidentRuleArrayInput is an input type that accepts ServiceIncidentRuleArray and ServiceIncidentRuleArrayOutput values.
+// You can construct a concrete instance of `ServiceIncidentRuleArrayInput` via:
+//
+//          ServiceIncidentRuleArray{ ServiceIncidentRuleArgs{...} }
+type ServiceIncidentRuleArrayInput interface {
+	pulumi.Input
+
+	ToServiceIncidentRuleArrayOutput() ServiceIncidentRuleArrayOutput
+	ToServiceIncidentRuleArrayOutputWithContext(context.Context) ServiceIncidentRuleArrayOutput
+}
+
+type ServiceIncidentRuleArray []ServiceIncidentRuleInput
+
+func (ServiceIncidentRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServiceIncidentRule)(nil))
+}
+
+func (i ServiceIncidentRuleArray) ToServiceIncidentRuleArrayOutput() ServiceIncidentRuleArrayOutput {
+	return i.ToServiceIncidentRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceIncidentRuleArray) ToServiceIncidentRuleArrayOutputWithContext(ctx context.Context) ServiceIncidentRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleArrayOutput)
+}
+
+// ServiceIncidentRuleMapInput is an input type that accepts ServiceIncidentRuleMap and ServiceIncidentRuleMapOutput values.
+// You can construct a concrete instance of `ServiceIncidentRuleMapInput` via:
+//
+//          ServiceIncidentRuleMap{ "key": ServiceIncidentRuleArgs{...} }
+type ServiceIncidentRuleMapInput interface {
+	pulumi.Input
+
+	ToServiceIncidentRuleMapOutput() ServiceIncidentRuleMapOutput
+	ToServiceIncidentRuleMapOutputWithContext(context.Context) ServiceIncidentRuleMapOutput
+}
+
+type ServiceIncidentRuleMap map[string]ServiceIncidentRuleInput
+
+func (ServiceIncidentRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServiceIncidentRule)(nil))
+}
+
+func (i ServiceIncidentRuleMap) ToServiceIncidentRuleMapOutput() ServiceIncidentRuleMapOutput {
+	return i.ToServiceIncidentRuleMapOutputWithContext(context.Background())
+}
+
+func (i ServiceIncidentRuleMap) ToServiceIncidentRuleMapOutputWithContext(ctx context.Context) ServiceIncidentRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleMapOutput)
+}
+
 type ServiceIncidentRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -202,6 +280,75 @@ func (o ServiceIncidentRuleOutput) ToServiceIncidentRuleOutputWithContext(ctx co
 	return o
 }
 
+func (o ServiceIncidentRuleOutput) ToServiceIncidentRulePtrOutput() ServiceIncidentRulePtrOutput {
+	return o.ToServiceIncidentRulePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceIncidentRuleOutput) ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput {
+	return o.ApplyT(func(v ServiceIncidentRule) *ServiceIncidentRule {
+		return &v
+	}).(ServiceIncidentRulePtrOutput)
+}
+
+type ServiceIncidentRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceIncidentRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceIncidentRule)(nil))
+}
+
+func (o ServiceIncidentRulePtrOutput) ToServiceIncidentRulePtrOutput() ServiceIncidentRulePtrOutput {
+	return o
+}
+
+func (o ServiceIncidentRulePtrOutput) ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput {
+	return o
+}
+
+type ServiceIncidentRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceIncidentRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIncidentRule)(nil))
+}
+
+func (o ServiceIncidentRuleArrayOutput) ToServiceIncidentRuleArrayOutput() ServiceIncidentRuleArrayOutput {
+	return o
+}
+
+func (o ServiceIncidentRuleArrayOutput) ToServiceIncidentRuleArrayOutputWithContext(ctx context.Context) ServiceIncidentRuleArrayOutput {
+	return o
+}
+
+func (o ServiceIncidentRuleArrayOutput) Index(i pulumi.IntInput) ServiceIncidentRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceIncidentRule {
+		return vs[0].([]ServiceIncidentRule)[vs[1].(int)]
+	}).(ServiceIncidentRuleOutput)
+}
+
+type ServiceIncidentRuleMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceIncidentRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceIncidentRule)(nil))
+}
+
+func (o ServiceIncidentRuleMapOutput) ToServiceIncidentRuleMapOutput() ServiceIncidentRuleMapOutput {
+	return o
+}
+
+func (o ServiceIncidentRuleMapOutput) ToServiceIncidentRuleMapOutputWithContext(ctx context.Context) ServiceIncidentRuleMapOutput {
+	return o
+}
+
+func (o ServiceIncidentRuleMapOutput) MapIndex(k pulumi.StringInput) ServiceIncidentRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceIncidentRule {
+		return vs[0].(map[string]ServiceIncidentRule)[vs[1].(string)]
+	}).(ServiceIncidentRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceIncidentRuleOutput{})
+	pulumi.RegisterOutputType(ServiceIncidentRulePtrOutput{})
+	pulumi.RegisterOutputType(ServiceIncidentRuleArrayOutput{})
+	pulumi.RegisterOutputType(ServiceIncidentRuleMapOutput{})
 }

@@ -101,27 +101,24 @@ export class ServiceIncidentRule extends pulumi.CustomResource {
     constructor(name: string, args: ServiceIncidentRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceIncidentRuleArgs | ServiceIncidentRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceIncidentRuleState | undefined;
             inputs["incidentRules"] = state ? state.incidentRules : undefined;
             inputs["serviceId"] = state ? state.serviceId : undefined;
         } else {
             const args = argsOrState as ServiceIncidentRuleArgs | undefined;
-            if ((!args || args.incidentRules === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.incidentRules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'incidentRules'");
             }
-            if ((!args || args.serviceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
             inputs["incidentRules"] = args ? args.incidentRules : undefined;
             inputs["serviceId"] = args ? args.serviceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServiceIncidentRule.__pulumiType, name, inputs, opts);
     }

@@ -124,7 +124,8 @@ export class EmailIntegration extends pulumi.CustomResource {
     constructor(name: string, args: EmailIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EmailIntegrationArgs | EmailIntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EmailIntegrationState | undefined;
             inputs["emailUsername"] = state ? state.emailUsername : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -135,7 +136,7 @@ export class EmailIntegration extends pulumi.CustomResource {
             inputs["suppressNotifications"] = state ? state.suppressNotifications : undefined;
         } else {
             const args = argsOrState as EmailIntegrationArgs | undefined;
-            if ((!args || args.emailUsername === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.emailUsername === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailUsername'");
             }
             inputs["emailUsername"] = args ? args.emailUsername : undefined;
@@ -146,12 +147,8 @@ export class EmailIntegration extends pulumi.CustomResource {
             inputs["responders"] = args ? args.responders : undefined;
             inputs["suppressNotifications"] = args ? args.suppressNotifications : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EmailIntegration.__pulumiType, name, inputs, opts);
     }

@@ -143,7 +143,8 @@ export class ApiIntegration extends pulumi.CustomResource {
     constructor(name: string, args?: ApiIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiIntegrationArgs | ApiIntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApiIntegrationState | undefined;
             inputs["allowWriteAccess"] = state ? state.allowWriteAccess : undefined;
             inputs["apiKey"] = state ? state.apiKey : undefined;
@@ -170,12 +171,8 @@ export class ApiIntegration extends pulumi.CustomResource {
             inputs["webhookUrl"] = args ? args.webhookUrl : undefined;
             inputs["apiKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApiIntegration.__pulumiType, name, inputs, opts);
     }

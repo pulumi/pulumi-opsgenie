@@ -111,7 +111,8 @@ export class Heartbeat extends pulumi.CustomResource {
     constructor(name: string, args: HeartbeatArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HeartbeatArgs | HeartbeatState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as HeartbeatState | undefined;
             inputs["alertMessage"] = state ? state.alertMessage : undefined;
             inputs["alertPriority"] = state ? state.alertPriority : undefined;
@@ -124,13 +125,13 @@ export class Heartbeat extends pulumi.CustomResource {
             inputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
         } else {
             const args = argsOrState as HeartbeatArgs | undefined;
-            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.interval === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.interval === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'interval'");
             }
-            if ((!args || args.intervalUnit === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.intervalUnit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'intervalUnit'");
             }
             inputs["alertMessage"] = args ? args.alertMessage : undefined;
@@ -143,12 +144,8 @@ export class Heartbeat extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Heartbeat.__pulumiType, name, inputs, opts);
     }

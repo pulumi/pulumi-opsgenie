@@ -101,7 +101,8 @@ export class UserContact extends pulumi.CustomResource {
     constructor(name: string, args: UserContactArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserContactArgs | UserContactState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserContactState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["method"] = state ? state.method : undefined;
@@ -109,13 +110,13 @@ export class UserContact extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as UserContactArgs | undefined;
-            if ((!args || args.method === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.method === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'method'");
             }
-            if ((!args || args.to === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.to === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'to'");
             }
-            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -123,12 +124,8 @@ export class UserContact extends pulumi.CustomResource {
             inputs["to"] = args ? args.to : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UserContact.__pulumiType, name, inputs, opts);
     }

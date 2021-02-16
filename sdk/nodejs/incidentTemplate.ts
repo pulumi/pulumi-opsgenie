@@ -110,7 +110,8 @@ export class IncidentTemplate extends pulumi.CustomResource {
     constructor(name: string, args: IncidentTemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IncidentTemplateArgs | IncidentTemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IncidentTemplateState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["details"] = state ? state.details : undefined;
@@ -122,13 +123,13 @@ export class IncidentTemplate extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as IncidentTemplateArgs | undefined;
-            if ((!args || args.message === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.message === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.stakeholderProperties === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stakeholderProperties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stakeholderProperties'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -140,12 +141,8 @@ export class IncidentTemplate extends pulumi.CustomResource {
             inputs["stakeholderProperties"] = args ? args.stakeholderProperties : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IncidentTemplate.__pulumiType, name, inputs, opts);
     }

@@ -133,7 +133,8 @@ export class TeamRoutingRule extends pulumi.CustomResource {
     constructor(name: string, args: TeamRoutingRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamRoutingRuleArgs | TeamRoutingRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TeamRoutingRuleState | undefined;
             inputs["criterias"] = state ? state.criterias : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -144,10 +145,10 @@ export class TeamRoutingRule extends pulumi.CustomResource {
             inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as TeamRoutingRuleArgs | undefined;
-            if ((!args || args.notifies === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.notifies === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notifies'");
             }
-            if ((!args || args.teamId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.teamId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
             inputs["criterias"] = args ? args.criterias : undefined;
@@ -158,12 +159,8 @@ export class TeamRoutingRule extends pulumi.CustomResource {
             inputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TeamRoutingRule.__pulumiType, name, inputs, opts);
     }

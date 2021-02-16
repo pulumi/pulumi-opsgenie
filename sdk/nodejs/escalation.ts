@@ -112,7 +112,8 @@ export class Escalation extends pulumi.CustomResource {
     constructor(name: string, args: EscalationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EscalationArgs | EscalationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EscalationState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -121,7 +122,7 @@ export class Escalation extends pulumi.CustomResource {
             inputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as EscalationArgs | undefined;
-            if ((!args || args.rules === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -130,12 +131,8 @@ export class Escalation extends pulumi.CustomResource {
             inputs["repeats"] = args ? args.repeats : undefined;
             inputs["rules"] = args ? args.rules : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Escalation.__pulumiType, name, inputs, opts);
     }
