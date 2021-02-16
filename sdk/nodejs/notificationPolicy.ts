@@ -107,7 +107,8 @@ export class NotificationPolicy extends pulumi.CustomResource {
     constructor(name: string, args: NotificationPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationPolicyArgs | NotificationPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NotificationPolicyState | undefined;
             inputs["autoCloseActions"] = state ? state.autoCloseActions : undefined;
             inputs["autoRestartActions"] = state ? state.autoRestartActions : undefined;
@@ -122,10 +123,10 @@ export class NotificationPolicy extends pulumi.CustomResource {
             inputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
         } else {
             const args = argsOrState as NotificationPolicyArgs | undefined;
-            if ((!args || args.filters === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.filters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if ((!args || args.teamId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.teamId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
             inputs["autoCloseActions"] = args ? args.autoCloseActions : undefined;
@@ -140,12 +141,8 @@ export class NotificationPolicy extends pulumi.CustomResource {
             inputs["teamId"] = args ? args.teamId : undefined;
             inputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NotificationPolicy.__pulumiType, name, inputs, opts);
     }

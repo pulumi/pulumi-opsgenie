@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -228,6 +227,85 @@ func (i *EmailIntegration) ToEmailIntegrationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationOutput)
 }
 
+func (i *EmailIntegration) ToEmailIntegrationPtrOutput() EmailIntegrationPtrOutput {
+	return i.ToEmailIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *EmailIntegration) ToEmailIntegrationPtrOutputWithContext(ctx context.Context) EmailIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationPtrOutput)
+}
+
+type EmailIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToEmailIntegrationPtrOutput() EmailIntegrationPtrOutput
+	ToEmailIntegrationPtrOutputWithContext(ctx context.Context) EmailIntegrationPtrOutput
+}
+
+type emailIntegrationPtrType EmailIntegrationArgs
+
+func (*emailIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIntegration)(nil))
+}
+
+func (i *emailIntegrationPtrType) ToEmailIntegrationPtrOutput() EmailIntegrationPtrOutput {
+	return i.ToEmailIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *emailIntegrationPtrType) ToEmailIntegrationPtrOutputWithContext(ctx context.Context) EmailIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationPtrOutput)
+}
+
+// EmailIntegrationArrayInput is an input type that accepts EmailIntegrationArray and EmailIntegrationArrayOutput values.
+// You can construct a concrete instance of `EmailIntegrationArrayInput` via:
+//
+//          EmailIntegrationArray{ EmailIntegrationArgs{...} }
+type EmailIntegrationArrayInput interface {
+	pulumi.Input
+
+	ToEmailIntegrationArrayOutput() EmailIntegrationArrayOutput
+	ToEmailIntegrationArrayOutputWithContext(context.Context) EmailIntegrationArrayOutput
+}
+
+type EmailIntegrationArray []EmailIntegrationInput
+
+func (EmailIntegrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EmailIntegration)(nil))
+}
+
+func (i EmailIntegrationArray) ToEmailIntegrationArrayOutput() EmailIntegrationArrayOutput {
+	return i.ToEmailIntegrationArrayOutputWithContext(context.Background())
+}
+
+func (i EmailIntegrationArray) ToEmailIntegrationArrayOutputWithContext(ctx context.Context) EmailIntegrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationArrayOutput)
+}
+
+// EmailIntegrationMapInput is an input type that accepts EmailIntegrationMap and EmailIntegrationMapOutput values.
+// You can construct a concrete instance of `EmailIntegrationMapInput` via:
+//
+//          EmailIntegrationMap{ "key": EmailIntegrationArgs{...} }
+type EmailIntegrationMapInput interface {
+	pulumi.Input
+
+	ToEmailIntegrationMapOutput() EmailIntegrationMapOutput
+	ToEmailIntegrationMapOutputWithContext(context.Context) EmailIntegrationMapOutput
+}
+
+type EmailIntegrationMap map[string]EmailIntegrationInput
+
+func (EmailIntegrationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EmailIntegration)(nil))
+}
+
+func (i EmailIntegrationMap) ToEmailIntegrationMapOutput() EmailIntegrationMapOutput {
+	return i.ToEmailIntegrationMapOutputWithContext(context.Background())
+}
+
+func (i EmailIntegrationMap) ToEmailIntegrationMapOutputWithContext(ctx context.Context) EmailIntegrationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationMapOutput)
+}
+
 type EmailIntegrationOutput struct {
 	*pulumi.OutputState
 }
@@ -244,6 +322,75 @@ func (o EmailIntegrationOutput) ToEmailIntegrationOutputWithContext(ctx context.
 	return o
 }
 
+func (o EmailIntegrationOutput) ToEmailIntegrationPtrOutput() EmailIntegrationPtrOutput {
+	return o.ToEmailIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o EmailIntegrationOutput) ToEmailIntegrationPtrOutputWithContext(ctx context.Context) EmailIntegrationPtrOutput {
+	return o.ApplyT(func(v EmailIntegration) *EmailIntegration {
+		return &v
+	}).(EmailIntegrationPtrOutput)
+}
+
+type EmailIntegrationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EmailIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIntegration)(nil))
+}
+
+func (o EmailIntegrationPtrOutput) ToEmailIntegrationPtrOutput() EmailIntegrationPtrOutput {
+	return o
+}
+
+func (o EmailIntegrationPtrOutput) ToEmailIntegrationPtrOutputWithContext(ctx context.Context) EmailIntegrationPtrOutput {
+	return o
+}
+
+type EmailIntegrationArrayOutput struct{ *pulumi.OutputState }
+
+func (EmailIntegrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailIntegration)(nil))
+}
+
+func (o EmailIntegrationArrayOutput) ToEmailIntegrationArrayOutput() EmailIntegrationArrayOutput {
+	return o
+}
+
+func (o EmailIntegrationArrayOutput) ToEmailIntegrationArrayOutputWithContext(ctx context.Context) EmailIntegrationArrayOutput {
+	return o
+}
+
+func (o EmailIntegrationArrayOutput) Index(i pulumi.IntInput) EmailIntegrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailIntegration {
+		return vs[0].([]EmailIntegration)[vs[1].(int)]
+	}).(EmailIntegrationOutput)
+}
+
+type EmailIntegrationMapOutput struct{ *pulumi.OutputState }
+
+func (EmailIntegrationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EmailIntegration)(nil))
+}
+
+func (o EmailIntegrationMapOutput) ToEmailIntegrationMapOutput() EmailIntegrationMapOutput {
+	return o
+}
+
+func (o EmailIntegrationMapOutput) ToEmailIntegrationMapOutputWithContext(ctx context.Context) EmailIntegrationMapOutput {
+	return o
+}
+
+func (o EmailIntegrationMapOutput) MapIndex(k pulumi.StringInput) EmailIntegrationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EmailIntegration {
+		return vs[0].(map[string]EmailIntegration)[vs[1].(string)]
+	}).(EmailIntegrationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EmailIntegrationOutput{})
+	pulumi.RegisterOutputType(EmailIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(EmailIntegrationArrayOutput{})
+	pulumi.RegisterOutputType(EmailIntegrationMapOutput{})
 }

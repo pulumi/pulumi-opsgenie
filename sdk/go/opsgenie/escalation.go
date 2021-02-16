@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -200,6 +199,85 @@ func (i *Escalation) ToEscalationOutputWithContext(ctx context.Context) Escalati
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationOutput)
 }
 
+func (i *Escalation) ToEscalationPtrOutput() EscalationPtrOutput {
+	return i.ToEscalationPtrOutputWithContext(context.Background())
+}
+
+func (i *Escalation) ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationPtrOutput)
+}
+
+type EscalationPtrInput interface {
+	pulumi.Input
+
+	ToEscalationPtrOutput() EscalationPtrOutput
+	ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput
+}
+
+type escalationPtrType EscalationArgs
+
+func (*escalationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Escalation)(nil))
+}
+
+func (i *escalationPtrType) ToEscalationPtrOutput() EscalationPtrOutput {
+	return i.ToEscalationPtrOutputWithContext(context.Background())
+}
+
+func (i *escalationPtrType) ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationPtrOutput)
+}
+
+// EscalationArrayInput is an input type that accepts EscalationArray and EscalationArrayOutput values.
+// You can construct a concrete instance of `EscalationArrayInput` via:
+//
+//          EscalationArray{ EscalationArgs{...} }
+type EscalationArrayInput interface {
+	pulumi.Input
+
+	ToEscalationArrayOutput() EscalationArrayOutput
+	ToEscalationArrayOutputWithContext(context.Context) EscalationArrayOutput
+}
+
+type EscalationArray []EscalationInput
+
+func (EscalationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Escalation)(nil))
+}
+
+func (i EscalationArray) ToEscalationArrayOutput() EscalationArrayOutput {
+	return i.ToEscalationArrayOutputWithContext(context.Background())
+}
+
+func (i EscalationArray) ToEscalationArrayOutputWithContext(ctx context.Context) EscalationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationArrayOutput)
+}
+
+// EscalationMapInput is an input type that accepts EscalationMap and EscalationMapOutput values.
+// You can construct a concrete instance of `EscalationMapInput` via:
+//
+//          EscalationMap{ "key": EscalationArgs{...} }
+type EscalationMapInput interface {
+	pulumi.Input
+
+	ToEscalationMapOutput() EscalationMapOutput
+	ToEscalationMapOutputWithContext(context.Context) EscalationMapOutput
+}
+
+type EscalationMap map[string]EscalationInput
+
+func (EscalationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Escalation)(nil))
+}
+
+func (i EscalationMap) ToEscalationMapOutput() EscalationMapOutput {
+	return i.ToEscalationMapOutputWithContext(context.Background())
+}
+
+func (i EscalationMap) ToEscalationMapOutputWithContext(ctx context.Context) EscalationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationMapOutput)
+}
+
 type EscalationOutput struct {
 	*pulumi.OutputState
 }
@@ -216,6 +294,75 @@ func (o EscalationOutput) ToEscalationOutputWithContext(ctx context.Context) Esc
 	return o
 }
 
+func (o EscalationOutput) ToEscalationPtrOutput() EscalationPtrOutput {
+	return o.ToEscalationPtrOutputWithContext(context.Background())
+}
+
+func (o EscalationOutput) ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput {
+	return o.ApplyT(func(v Escalation) *Escalation {
+		return &v
+	}).(EscalationPtrOutput)
+}
+
+type EscalationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EscalationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Escalation)(nil))
+}
+
+func (o EscalationPtrOutput) ToEscalationPtrOutput() EscalationPtrOutput {
+	return o
+}
+
+func (o EscalationPtrOutput) ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput {
+	return o
+}
+
+type EscalationArrayOutput struct{ *pulumi.OutputState }
+
+func (EscalationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Escalation)(nil))
+}
+
+func (o EscalationArrayOutput) ToEscalationArrayOutput() EscalationArrayOutput {
+	return o
+}
+
+func (o EscalationArrayOutput) ToEscalationArrayOutputWithContext(ctx context.Context) EscalationArrayOutput {
+	return o
+}
+
+func (o EscalationArrayOutput) Index(i pulumi.IntInput) EscalationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Escalation {
+		return vs[0].([]Escalation)[vs[1].(int)]
+	}).(EscalationOutput)
+}
+
+type EscalationMapOutput struct{ *pulumi.OutputState }
+
+func (EscalationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Escalation)(nil))
+}
+
+func (o EscalationMapOutput) ToEscalationMapOutput() EscalationMapOutput {
+	return o
+}
+
+func (o EscalationMapOutput) ToEscalationMapOutputWithContext(ctx context.Context) EscalationMapOutput {
+	return o
+}
+
+func (o EscalationMapOutput) MapIndex(k pulumi.StringInput) EscalationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Escalation {
+		return vs[0].(map[string]Escalation)[vs[1].(string)]
+	}).(EscalationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EscalationOutput{})
+	pulumi.RegisterOutputType(EscalationPtrOutput{})
+	pulumi.RegisterOutputType(EscalationArrayOutput{})
+	pulumi.RegisterOutputType(EscalationMapOutput{})
 }

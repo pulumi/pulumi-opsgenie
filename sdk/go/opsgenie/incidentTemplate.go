@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -228,6 +227,85 @@ func (i *IncidentTemplate) ToIncidentTemplateOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateOutput)
 }
 
+func (i *IncidentTemplate) ToIncidentTemplatePtrOutput() IncidentTemplatePtrOutput {
+	return i.ToIncidentTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *IncidentTemplate) ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplatePtrOutput)
+}
+
+type IncidentTemplatePtrInput interface {
+	pulumi.Input
+
+	ToIncidentTemplatePtrOutput() IncidentTemplatePtrOutput
+	ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput
+}
+
+type incidentTemplatePtrType IncidentTemplateArgs
+
+func (*incidentTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentTemplate)(nil))
+}
+
+func (i *incidentTemplatePtrType) ToIncidentTemplatePtrOutput() IncidentTemplatePtrOutput {
+	return i.ToIncidentTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *incidentTemplatePtrType) ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplatePtrOutput)
+}
+
+// IncidentTemplateArrayInput is an input type that accepts IncidentTemplateArray and IncidentTemplateArrayOutput values.
+// You can construct a concrete instance of `IncidentTemplateArrayInput` via:
+//
+//          IncidentTemplateArray{ IncidentTemplateArgs{...} }
+type IncidentTemplateArrayInput interface {
+	pulumi.Input
+
+	ToIncidentTemplateArrayOutput() IncidentTemplateArrayOutput
+	ToIncidentTemplateArrayOutputWithContext(context.Context) IncidentTemplateArrayOutput
+}
+
+type IncidentTemplateArray []IncidentTemplateInput
+
+func (IncidentTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IncidentTemplate)(nil))
+}
+
+func (i IncidentTemplateArray) ToIncidentTemplateArrayOutput() IncidentTemplateArrayOutput {
+	return i.ToIncidentTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i IncidentTemplateArray) ToIncidentTemplateArrayOutputWithContext(ctx context.Context) IncidentTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateArrayOutput)
+}
+
+// IncidentTemplateMapInput is an input type that accepts IncidentTemplateMap and IncidentTemplateMapOutput values.
+// You can construct a concrete instance of `IncidentTemplateMapInput` via:
+//
+//          IncidentTemplateMap{ "key": IncidentTemplateArgs{...} }
+type IncidentTemplateMapInput interface {
+	pulumi.Input
+
+	ToIncidentTemplateMapOutput() IncidentTemplateMapOutput
+	ToIncidentTemplateMapOutputWithContext(context.Context) IncidentTemplateMapOutput
+}
+
+type IncidentTemplateMap map[string]IncidentTemplateInput
+
+func (IncidentTemplateMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IncidentTemplate)(nil))
+}
+
+func (i IncidentTemplateMap) ToIncidentTemplateMapOutput() IncidentTemplateMapOutput {
+	return i.ToIncidentTemplateMapOutputWithContext(context.Background())
+}
+
+func (i IncidentTemplateMap) ToIncidentTemplateMapOutputWithContext(ctx context.Context) IncidentTemplateMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateMapOutput)
+}
+
 type IncidentTemplateOutput struct {
 	*pulumi.OutputState
 }
@@ -244,6 +322,75 @@ func (o IncidentTemplateOutput) ToIncidentTemplateOutputWithContext(ctx context.
 	return o
 }
 
+func (o IncidentTemplateOutput) ToIncidentTemplatePtrOutput() IncidentTemplatePtrOutput {
+	return o.ToIncidentTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o IncidentTemplateOutput) ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput {
+	return o.ApplyT(func(v IncidentTemplate) *IncidentTemplate {
+		return &v
+	}).(IncidentTemplatePtrOutput)
+}
+
+type IncidentTemplatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IncidentTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentTemplate)(nil))
+}
+
+func (o IncidentTemplatePtrOutput) ToIncidentTemplatePtrOutput() IncidentTemplatePtrOutput {
+	return o
+}
+
+func (o IncidentTemplatePtrOutput) ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput {
+	return o
+}
+
+type IncidentTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (IncidentTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentTemplate)(nil))
+}
+
+func (o IncidentTemplateArrayOutput) ToIncidentTemplateArrayOutput() IncidentTemplateArrayOutput {
+	return o
+}
+
+func (o IncidentTemplateArrayOutput) ToIncidentTemplateArrayOutputWithContext(ctx context.Context) IncidentTemplateArrayOutput {
+	return o
+}
+
+func (o IncidentTemplateArrayOutput) Index(i pulumi.IntInput) IncidentTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentTemplate {
+		return vs[0].([]IncidentTemplate)[vs[1].(int)]
+	}).(IncidentTemplateOutput)
+}
+
+type IncidentTemplateMapOutput struct{ *pulumi.OutputState }
+
+func (IncidentTemplateMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IncidentTemplate)(nil))
+}
+
+func (o IncidentTemplateMapOutput) ToIncidentTemplateMapOutput() IncidentTemplateMapOutput {
+	return o
+}
+
+func (o IncidentTemplateMapOutput) ToIncidentTemplateMapOutputWithContext(ctx context.Context) IncidentTemplateMapOutput {
+	return o
+}
+
+func (o IncidentTemplateMapOutput) MapIndex(k pulumi.StringInput) IncidentTemplateOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IncidentTemplate {
+		return vs[0].(map[string]IncidentTemplate)[vs[1].(string)]
+	}).(IncidentTemplateOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IncidentTemplateOutput{})
+	pulumi.RegisterOutputType(IncidentTemplatePtrOutput{})
+	pulumi.RegisterOutputType(IncidentTemplateArrayOutput{})
+	pulumi.RegisterOutputType(IncidentTemplateMapOutput{})
 }

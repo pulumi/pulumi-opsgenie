@@ -120,7 +120,8 @@ export class ScheduleRotation extends pulumi.CustomResource {
     constructor(name: string, args: ScheduleRotationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleRotationArgs | ScheduleRotationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ScheduleRotationState | undefined;
             inputs["endDate"] = state ? state.endDate : undefined;
             inputs["length"] = state ? state.length : undefined;
@@ -132,16 +133,16 @@ export class ScheduleRotation extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ScheduleRotationArgs | undefined;
-            if ((!args || args.participants === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.participants === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'participants'");
             }
-            if ((!args || args.scheduleId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scheduleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleId'");
             }
-            if ((!args || args.startDate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startDate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startDate'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["endDate"] = args ? args.endDate : undefined;
@@ -153,12 +154,8 @@ export class ScheduleRotation extends pulumi.CustomResource {
             inputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ScheduleRotation.__pulumiType, name, inputs, opts);
     }

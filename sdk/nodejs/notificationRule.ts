@@ -122,7 +122,8 @@ export class NotificationRule extends pulumi.CustomResource {
     constructor(name: string, args: NotificationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationRuleArgs | NotificationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NotificationRuleState | undefined;
             inputs["actionType"] = state ? state.actionType : undefined;
             inputs["criterias"] = state ? state.criterias : undefined;
@@ -137,10 +138,10 @@ export class NotificationRule extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as NotificationRuleArgs | undefined;
-            if ((!args || args.actionType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.actionType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actionType'");
             }
-            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["actionType"] = args ? args.actionType : undefined;
@@ -155,12 +156,8 @@ export class NotificationRule extends pulumi.CustomResource {
             inputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NotificationRule.__pulumiType, name, inputs, opts);
     }
