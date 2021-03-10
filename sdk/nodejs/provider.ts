@@ -41,7 +41,7 @@ export class Provider extends pulumi.ProviderResource {
                 throw new Error("Missing required property 'apiKey'");
             }
             inputs["apiKey"] = args ? args.apiKey : undefined;
-            inputs["apiUrl"] = (args ? args.apiUrl : undefined) || utilities.getEnv("OPSGENIE_API_URL");
+            inputs["apiUrl"] = (args ? args.apiUrl : undefined) ?? utilities.getEnv("OPSGENIE_API_URL");
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
