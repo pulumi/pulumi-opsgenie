@@ -5,13 +5,162 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Heartbeat']
+__all__ = ['HeartbeatArgs', 'Heartbeat']
+
+@pulumi.input_type
+class HeartbeatArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 interval: pulumi.Input[int],
+                 interval_unit: pulumi.Input[str],
+                 alert_message: Optional[pulumi.Input[str]] = None,
+                 alert_priority: Optional[pulumi.Input[str]] = None,
+                 alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_team_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Heartbeat resource.
+        :param pulumi.Input[bool] enabled: Enable/disable heartbeat monitoring.
+        :param pulumi.Input[int] interval: Specifies how often a heartbeat message should be expected.
+        :param pulumi.Input[str] interval_unit: Interval specified as minutes, hours or days.
+        :param pulumi.Input[str] alert_message: Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
+        :param pulumi.Input[str] alert_priority: Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alert_tags: Specifies the alert tags for heartbeat expiration alert.
+        :param pulumi.Input[str] description: An optional description of the heartbeat
+        :param pulumi.Input[str] name: Name of the heartbeat
+        :param pulumi.Input[str] owner_team_id: Owner team of the heartbeat.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "interval_unit", interval_unit)
+        if alert_message is not None:
+            pulumi.set(__self__, "alert_message", alert_message)
+        if alert_priority is not None:
+            pulumi.set(__self__, "alert_priority", alert_priority)
+        if alert_tags is not None:
+            pulumi.set(__self__, "alert_tags", alert_tags)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_team_id is not None:
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Enable/disable heartbeat monitoring.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[int]:
+        """
+        Specifies how often a heartbeat message should be expected.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> pulumi.Input[str]:
+        """
+        Interval specified as minutes, hours or days.
+        """
+        return pulumi.get(self, "interval_unit")
+
+    @interval_unit.setter
+    def interval_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval_unit", value)
+
+    @property
+    @pulumi.getter(name="alertMessage")
+    def alert_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
+        """
+        return pulumi.get(self, "alert_message")
+
+    @alert_message.setter
+    def alert_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_message", value)
+
+    @property
+    @pulumi.getter(name="alertPriority")
+    def alert_priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
+        """
+        return pulumi.get(self, "alert_priority")
+
+    @alert_priority.setter
+    def alert_priority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_priority", value)
+
+    @property
+    @pulumi.getter(name="alertTags")
+    def alert_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the alert tags for heartbeat expiration alert.
+        """
+        return pulumi.get(self, "alert_tags")
+
+    @alert_tags.setter
+    def alert_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "alert_tags", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description of the heartbeat
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the heartbeat
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerTeamId")
+    def owner_team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner team of the heartbeat.
+        """
+        return pulumi.get(self, "owner_team_id")
+
+    @owner_team_id.setter
+    def owner_team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_team_id", value)
 
 
 class Heartbeat(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -70,6 +219,70 @@ class Heartbeat(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the heartbeat
         :param pulumi.Input[str] owner_team_id: Owner team of the heartbeat.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: HeartbeatArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages heartbeat within Opsgenie.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        test = opsgenie.Heartbeat("test",
+            alert_message="Test",
+            alert_priority="P3",
+            alert_tags=[
+                "test",
+                "fahri",
+            ],
+            description="test opsgenie heartbeat terraform",
+            enabled=False,
+            interval=10,
+            interval_unit="minutes",
+            owner_team_id=opsgenie_team["test"]["id"])
+        ```
+
+        ## Import
+
+        Heartbeat Integrations can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import opsgenie:index/heartbeat:Heartbeat test geniehearbeat-%s`
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param HeartbeatArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(HeartbeatArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_message: Optional[pulumi.Input[str]] = None,
+                 alert_priority: Optional[pulumi.Input[str]] = None,
+                 alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 interval_unit: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_team_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

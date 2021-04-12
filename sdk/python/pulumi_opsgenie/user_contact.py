@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['UserContact']
+__all__ = ['UserContactArgs', 'UserContact']
+
+@pulumi.input_type
+class UserContactArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input[str],
+                 to: pulumi.Input[str],
+                 username: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a UserContact resource.
+        :param pulumi.Input[str] method: This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
+        :param pulumi.Input[str] to: to field is the address of given method.
+        :param pulumi.Input[str] username: The username for contact.(reference)
+        :param pulumi.Input[bool] enabled: Enable contact of the user in OpsGenie. Default value is true.
+        """
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "to", to)
+        pulumi.set(__self__, "username", username)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[str]:
+        """
+        This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[str]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[str]:
+        """
+        to field is the address of given method.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[str]):
+        pulumi.set(self, "to", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The username for contact.(reference)
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable contact of the user in OpsGenie. Default value is true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 class UserContact(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -68,6 +137,73 @@ class UserContact(pulumi.CustomResource):
         :param pulumi.Input[str] to: to field is the address of given method.
         :param pulumi.Input[str] username: The username for contact.(reference)
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserContactArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a User Contact.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        sms = opsgenie.UserContact("sms",
+            method="sms",
+            to="39-123",
+            username=opsgenie_user["exampleuser"]["username"])
+        email = opsgenie.UserContact("email",
+            method="email",
+            to="fahri@opsgenie.com",
+            username=opsgenie_user["exampleuser"]["username"])
+        voice = opsgenie.UserContact("voice",
+            method="voice",
+            to="39-123",
+            username=opsgenie_user["exampleuser"]["username"])
+        ```
+
+        ## Import
+
+        Users can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contactId`
+        ```
+
+         For this example- Username = `genie@awesometeam.com`
+
+        - Contact Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+
+        ```sh
+         $ pulumi import opsgenie:index/userContact:UserContact testcontact genie@awesometeam.com/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param UserContactArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserContactArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 method: Optional[pulumi.Input[str]] = None,
+                 to: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

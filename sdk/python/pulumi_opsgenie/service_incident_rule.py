@@ -5,15 +5,53 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceIncidentRule']
+__all__ = ['ServiceIncidentRuleArgs', 'ServiceIncidentRule']
+
+@pulumi.input_type
+class ServiceIncidentRuleArgs:
+    def __init__(__self__, *,
+                 incident_rules: pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]],
+                 service_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ServiceIncidentRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
+        :param pulumi.Input[str] service_id: ID of the service associated
+        """
+        pulumi.set(__self__, "incident_rules", incident_rules)
+        pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter(name="incidentRules")
+    def incident_rules(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]:
+        """
+        This is the rule configuration for this incident rule. This is a block, structure is documented below.
+        """
+        return pulumi.get(self, "incident_rules")
+
+    @incident_rules.setter
+    def incident_rules(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]):
+        pulumi.set(self, "incident_rules", value)
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> pulumi.Input[str]:
+        """
+        ID of the service associated
+        """
+        return pulumi.get(self, "service_id")
+
+    @service_id.setter
+    def service_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_id", value)
 
 
 class ServiceIncidentRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -75,6 +113,80 @@ class ServiceIncidentRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIncidentRuleIncidentRuleArgs']]]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
         :param pulumi.Input[str] service_id: ID of the service associated
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceIncidentRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Service Incident Rule within Opsgenie.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
+        test_service = opsgenie.Service("testService", team_id=test_team.id)
+        test_service_incident_rule = opsgenie.ServiceIncidentRule("testServiceIncidentRule",
+            service_id=test_service.id,
+            incident_rules=[opsgenie.ServiceIncidentRuleIncidentRuleArgs(
+                condition_match_type="match-any-condition",
+                conditions=[
+                    opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs(
+                        field="message",
+                        not_=False,
+                        operation="contains",
+                        expected_value="expected1",
+                    ),
+                    opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs(
+                        field="message",
+                        not_=False,
+                        operation="contains",
+                        expected_value="expected2",
+                    ),
+                ],
+                incident_properties=[opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs(
+                    message="This is a test message",
+                    priority="P3",
+                    stakeholder_properties=[{
+                        "message": "Message for stakeholders",
+                        "enable": "true",
+                    }],
+                )],
+            )])
+        ```
+
+        ## Import
+
+        Service Incident Rule can be imported using the `service_id/service_incident_rule_id`, e.g.
+
+        ```sh
+         $ pulumi import opsgenie:index/serviceIncidentRule:ServiceIncidentRule this 812be1a1-32c8-4666-a7fb-03ecc385106c/b84ed86f-6ce3-4388-91ac-7638ac0a8052`
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceIncidentRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceIncidentRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIncidentRuleIncidentRuleArgs']]]]] = None,
+                 service_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

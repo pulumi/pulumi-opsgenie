@@ -5,15 +5,143 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ScheduleRotation']
+__all__ = ['ScheduleRotationArgs', 'ScheduleRotation']
+
+@pulumi.input_type
+class ScheduleRotationArgs:
+    def __init__(__self__, *,
+                 participants: pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]],
+                 schedule_id: pulumi.Input[str],
+                 start_date: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 end_date: Optional[pulumi.Input[str]] = None,
+                 length: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None):
+        """
+        The set of arguments for constructing a ScheduleRotation resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]] participants: List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
+        :param pulumi.Input[str] schedule_id: Identifier of the schedule.
+        :param pulumi.Input[str] start_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
+        :param pulumi.Input[str] type: Type of rotation. May be one of daily, weekly and hourly.
+        :param pulumi.Input[str] end_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
+        :param pulumi.Input[int] length: Length of the rotation with default value 1.
+        :param pulumi.Input[str] name: Name of rotation.
+        """
+        pulumi.set(__self__, "participants", participants)
+        pulumi.set(__self__, "schedule_id", schedule_id)
+        pulumi.set(__self__, "start_date", start_date)
+        pulumi.set(__self__, "type", type)
+        if end_date is not None:
+            pulumi.set(__self__, "end_date", end_date)
+        if length is not None:
+            pulumi.set(__self__, "length", length)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if time_restrictions is not None:
+            pulumi.set(__self__, "time_restrictions", time_restrictions)
+
+    @property
+    @pulumi.getter
+    def participants(self) -> pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]]:
+        """
+        List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
+        """
+        return pulumi.get(self, "participants")
+
+    @participants.setter
+    def participants(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]]):
+        pulumi.set(self, "participants", value)
+
+    @property
+    @pulumi.getter(name="scheduleId")
+    def schedule_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the schedule.
+        """
+        return pulumi.get(self, "schedule_id")
+
+    @schedule_id.setter
+    def schedule_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule_id", value)
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> pulumi.Input[str]:
+        """
+        This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
+        """
+        return pulumi.get(self, "start_date")
+
+    @start_date.setter
+    def start_date(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_date", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of rotation. May be one of daily, weekly and hourly.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
+        """
+        return pulumi.get(self, "end_date")
+
+    @end_date.setter
+    def end_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_date", value)
+
+    @property
+    @pulumi.getter
+    def length(self) -> Optional[pulumi.Input[int]]:
+        """
+        Length of the rotation with default value 1.
+        """
+        return pulumi.get(self, "length")
+
+    @length.setter
+    def length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "length", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of rotation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="timeRestrictions")
+    def time_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]]:
+        return pulumi.get(self, "time_restrictions")
+
+    @time_restrictions.setter
+    def time_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]]):
+        pulumi.set(self, "time_restrictions", value)
 
 
 class ScheduleRotation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -84,6 +212,84 @@ class ScheduleRotation(pulumi.CustomResource):
         :param pulumi.Input[str] start_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
         :param pulumi.Input[str] type: Type of rotation. May be one of daily, weekly and hourly.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ScheduleRotationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Schedule Rotation within Opsgenie.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        test = opsgenie.ScheduleRotation("test",
+            end_date="2019-06-20T17:30:00Z",
+            length=6,
+            participants=[opsgenie.ScheduleRotationParticipantArgs(
+                id=opsgenie_user["test"]["id"],
+                type="user",
+            )],
+            schedule_id=opsgenie_schedule["test"]["id"],
+            start_date="2019-06-18T17:00:00Z",
+            time_restrictions=[opsgenie.ScheduleRotationTimeRestrictionArgs(
+                restrictions=[opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs(
+                    end_hour=10,
+                    end_min=1,
+                    start_hour=1,
+                    start_min=1,
+                )],
+                type="time-of-day",
+            )],
+            type="hourly")
+        ```
+
+        ## Import
+
+        Schedule Rotations can be imported using the `id` and `schedule_id`, e.g.
+
+        ```sh
+         $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/id`
+        ```
+
+         For this example- Schedule Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
+
+        - Rotation Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+
+        ```sh
+         $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ScheduleRotationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduleRotationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 end_date: Optional[pulumi.Input[str]] = None,
+                 length: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 participants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleRotationParticipantArgs']]]]] = None,
+                 schedule_id: Optional[pulumi.Input[str]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
+                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleRotationTimeRestrictionArgs']]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,130 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EmailIntegration']
+__all__ = ['EmailIntegrationArgs', 'EmailIntegration']
+
+@pulumi.input_type
+class EmailIntegrationArgs:
+    def __init__(__self__, *,
+                 email_username: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_team_id: Optional[pulumi.Input[str]] = None,
+                 responders: Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]] = None,
+                 suppress_notifications: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a EmailIntegration resource.
+        :param pulumi.Input[str] email_username: The username part of the email address. It must be unique for each integration.
+        :param pulumi.Input[bool] enabled: A Member block as documented below.
+        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
+        :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
+        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        """
+        pulumi.set(__self__, "email_username", email_username)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if ignore_responders_from_payload is not None:
+            pulumi.set(__self__, "ignore_responders_from_payload", ignore_responders_from_payload)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_team_id is not None:
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
+        if responders is not None:
+            pulumi.set(__self__, "responders", responders)
+        if suppress_notifications is not None:
+            pulumi.set(__self__, "suppress_notifications", suppress_notifications)
+
+    @property
+    @pulumi.getter(name="emailUsername")
+    def email_username(self) -> pulumi.Input[str]:
+        """
+        The username part of the email address. It must be unique for each integration.
+        """
+        return pulumi.get(self, "email_username")
+
+    @email_username.setter
+    def email_username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email_username", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Member block as documented below.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="ignoreRespondersFromPayload")
+    def ignore_responders_from_payload(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        """
+        return pulumi.get(self, "ignore_responders_from_payload")
+
+    @ignore_responders_from_payload.setter
+    def ignore_responders_from_payload(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_responders_from_payload", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the integration. Name must be unique for each integration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerTeamId")
+    def owner_team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner team id of the integration.
+        """
+        return pulumi.get(self, "owner_team_id")
+
+    @owner_team_id.setter
+    def owner_team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_team_id", value)
+
+    @property
+    @pulumi.getter
+    def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]]:
+        return pulumi.get(self, "responders")
+
+    @responders.setter
+    def responders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]]):
+        pulumi.set(self, "responders", value)
+
+    @property
+    @pulumi.getter(name="suppressNotifications")
+    def suppress_notifications(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        """
+        return pulumi.get(self, "suppress_notifications")
+
+    @suppress_notifications.setter
+    def suppress_notifications(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suppress_notifications", value)
 
 
 class EmailIntegration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -89,6 +204,90 @@ class EmailIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
         :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EmailIntegrationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Email Integration within Opsgenie.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        test_email_integration = opsgenie.EmailIntegration("testEmailIntegration", email_username="fahri")
+        test_index_email_integration_email_integration = opsgenie.EmailIntegration("testIndex/emailIntegrationEmailIntegration",
+            responders=[
+                opsgenie.EmailIntegrationResponderArgs(
+                    type="user",
+                    id=opsgenie_user["test"]["id"],
+                ),
+                opsgenie.EmailIntegrationResponderArgs(
+                    type="schedule",
+                    id=opsgenie_schedule["test"]["id"],
+                ),
+                opsgenie.EmailIntegrationResponderArgs(
+                    type="escalation",
+                    id=opsgenie_escalation["test"]["id"],
+                ),
+                opsgenie.EmailIntegrationResponderArgs(
+                    type="team",
+                    id=opsgenie_team["test2"]["id"],
+                ),
+            ],
+            email_username="test",
+            enabled=True,
+            ignore_responders_from_payload=True,
+            suppress_notifications=True)
+        test_opsgenie_index_email_integration_email_integration = opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration",
+            responders=[opsgenie.EmailIntegrationResponderArgs(
+                type="user",
+                id=opsgenie_user["test"]["id"],
+            )],
+            email_username="test",
+            enabled=True,
+            ignore_responders_from_payload=True,
+            suppress_notifications=True,
+            owner_team_id=opsgenie_team_genies["id"])
+        ```
+
+        ## Import
+
+        Email Integrations can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EmailIntegrationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EmailIntegrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 email_username: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_team_id: Optional[pulumi.Input[str]] = None,
+                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailIntegrationResponderArgs']]]]] = None,
+                 suppress_notifications: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

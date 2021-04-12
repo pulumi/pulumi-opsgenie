@@ -5,15 +5,69 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Maintenance']
+__all__ = ['MaintenanceArgs', 'Maintenance']
+
+@pulumi.input_type
+class MaintenanceArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[str],
+                 rules: pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]],
+                 times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None):
+        """
+        The set of arguments for constructing a Maintenance resource.
+        :param pulumi.Input[str] description: Description for the maintenance.
+        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]] rules: Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
+        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]] times: Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "rules", rules)
+        if times is not None:
+            pulumi.set(__self__, "times", times)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[str]:
+        """
+        Description for the maintenance.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[str]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]]:
+        """
+        Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]]:
+        """
+        Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
+        """
+        return pulumi.get(self, "times")
+
+    @times.setter
+    def times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]]):
+        pulumi.set(self, "times", value)
 
 
 class Maintenance(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +116,66 @@ class Maintenance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceRuleArgs']]]] rules: Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceTimeArgs']]]] times: Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MaintenanceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Maintenance within Opsgenie.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        test = opsgenie.Maintenance("test",
+            description="geniemaintenance-%s",
+            rules=[opsgenie.MaintenanceRuleArgs(
+                entities=[opsgenie.MaintenanceRuleEntityArgs(
+                    id=opsgenie_email_integration["test"]["id"],
+                    type="integration",
+                )],
+                state="enabled",
+            )],
+            times=[opsgenie.MaintenanceTimeArgs(
+                end_date="2019-06-%dT17:50:00Z",
+                start_date="2019-06-20T17:45:00Z",
+                type="schedule",
+            )])
+        ```
+
+        ## Import
+
+        Maintenance policies can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import opsgenie:index/maintenance:Maintenance test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MaintenanceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MaintenanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceRuleArgs']]]]] = None,
+                 times: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceTimeArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
