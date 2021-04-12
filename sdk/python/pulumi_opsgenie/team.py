@@ -5,15 +5,103 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Team']
+__all__ = ['TeamArgs', 'Team']
+
+@pulumi.input_type
+class TeamArgs:
+    def __init__(__self__, *,
+                 delete_default_resources: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ignore_members: Optional[pulumi.Input[bool]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Team resource.
+        :param pulumi.Input[bool] delete_default_resources: Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
+        :param pulumi.Input[str] description: A description for this team.
+        :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+        :param pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]] members: A Member block as documented below.
+        :param pulumi.Input[str] name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+        """
+        if delete_default_resources is not None:
+            pulumi.set(__self__, "delete_default_resources", delete_default_resources)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ignore_members is not None:
+            pulumi.set(__self__, "ignore_members", ignore_members)
+        if members is not None:
+            pulumi.set(__self__, "members", members)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="deleteDefaultResources")
+    def delete_default_resources(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
+        """
+        return pulumi.get(self, "delete_default_resources")
+
+    @delete_default_resources.setter
+    def delete_default_resources(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_default_resources", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for this team.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ignoreMembers")
+    def ignore_members(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+        """
+        return pulumi.get(self, "ignore_members")
+
+    @ignore_members.setter
+    def ignore_members(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_members", value)
+
+    @property
+    @pulumi.getter
+    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]]:
+        """
+        A Member block as documented below.
+        """
+        return pulumi.get(self, "members")
+
+    @members.setter
+    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]]):
+        pulumi.set(self, "members", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class Team(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -76,6 +164,78 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMemberArgs']]]] members: A Member block as documented below.
         :param pulumi.Input[str] name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[TeamArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Team within Opsgenie.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        first = opsgenie.User("first",
+            full_name="name ",
+            role="User",
+            username="user@domain.com")
+        second = opsgenie.User("second",
+            full_name="name ",
+            role="User",
+            username="test@domain.com")
+        test = opsgenie.Team("test",
+            description="This team deals with all the things",
+            members=[
+                opsgenie.TeamMemberArgs(
+                    id=first.id,
+                    role="admin",
+                ),
+                opsgenie.TeamMemberArgs(
+                    id=second.id,
+                    role="user",
+                ),
+            ])
+        self_service = opsgenie.Team("self-service",
+            delete_default_resources=True,
+            description="Membership in this team is managed via OpsGenie web UI only",
+            ignore_members=True)
+        ```
+
+        ## Import
+
+        Teams can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import opsgenie:index/team:Team team1 812be1a1-32c8-4666-a7fb-03ecc385106c`
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TeamArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TeamArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_default_resources: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ignore_members: Optional[pulumi.Input[bool]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMemberArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['CustomRole']
+__all__ = ['CustomRoleArgs', 'CustomRole']
+
+@pulumi.input_type
+class CustomRoleArgs:
+    def __init__(__self__, *,
+                 role_name: pulumi.Input[str],
+                 disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 extended_role: Optional[pulumi.Input[str]] = None,
+                 granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a CustomRole resource.
+        :param pulumi.Input[str] role_name: Name of the custom role.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disallowed_rights: The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
+        :param pulumi.Input[str] extended_role: The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] granted_rights: The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
+        """
+        pulumi.set(__self__, "role_name", role_name)
+        if disallowed_rights is not None:
+            pulumi.set(__self__, "disallowed_rights", disallowed_rights)
+        if extended_role is not None:
+            pulumi.set(__self__, "extended_role", extended_role)
+        if granted_rights is not None:
+            pulumi.set(__self__, "granted_rights", granted_rights)
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> pulumi.Input[str]:
+        """
+        Name of the custom role.
+        """
+        return pulumi.get(self, "role_name")
+
+    @role_name.setter
+    def role_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_name", value)
+
+    @property
+    @pulumi.getter(name="disallowedRights")
+    def disallowed_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
+        """
+        return pulumi.get(self, "disallowed_rights")
+
+    @disallowed_rights.setter
+    def disallowed_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disallowed_rights", value)
+
+    @property
+    @pulumi.getter(name="extendedRole")
+    def extended_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
+        """
+        return pulumi.get(self, "extended_role")
+
+    @extended_role.setter
+    def extended_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extended_role", value)
+
+    @property
+    @pulumi.getter(name="grantedRights")
+    def granted_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
+        """
+        return pulumi.get(self, "granted_rights")
+
+    @granted_rights.setter
+    def granted_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "granted_rights", value)
 
 
 class CustomRole(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +119,53 @@ class CustomRole(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] granted_rights: The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
         :param pulumi.Input[str] role_name: Name of the custom role.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CustomRoleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages custom user roles within Opsgenie.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        test = opsgenie.CustomRole("test",
+            disallowed_rights=[
+                "profile-edit",
+                "contacts-edit",
+            ],
+            extended_role="user",
+            granted_rights=["alert-delete"],
+            role_name="genierole")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param CustomRoleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CustomRoleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 extended_role: Optional[pulumi.Input[str]] = None,
+                 granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 role_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

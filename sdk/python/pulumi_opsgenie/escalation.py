@@ -5,15 +5,102 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Escalation']
+__all__ = ['EscalationArgs', 'Escalation']
+
+@pulumi.input_type
+class EscalationArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_team_id: Optional[pulumi.Input[str]] = None,
+                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None):
+        """
+        The set of arguments for constructing a Escalation resource.
+        :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]] rules: List of the escalation rules.
+        :param pulumi.Input[str] description: Description of the escalation.
+        :param pulumi.Input[str] name: Name of the escalation.
+        :param pulumi.Input[str] owner_team_id: Owner team id of the escalation.
+        :param pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
+        """
+        pulumi.set(__self__, "rules", rules)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_team_id is not None:
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
+        if repeats is not None:
+            pulumi.set(__self__, "repeats", repeats)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]:
+        """
+        List of the escalation rules.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the escalation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the escalation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerTeamId")
+    def owner_team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner team id of the escalation.
+        """
+        return pulumi.get(self, "owner_team_id")
+
+    @owner_team_id.setter
+    def owner_team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_team_id", value)
+
+    @property
+    @pulumi.getter
+    def repeats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]]:
+        """
+        Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
+        """
+        return pulumi.get(self, "repeats")
+
+    @repeats.setter
+    def repeats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]]):
+        pulumi.set(self, "repeats", value)
 
 
 class Escalation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -80,6 +167,82 @@ class Escalation(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationRepeatArgs']]]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationRuleArgs']]]] rules: List of the escalation rules.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EscalationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Escalation within Opsgenie.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        test = opsgenie.Escalation("test",
+            description="test",
+            owner_team_id=opsgenie_team["test"]["id"],
+            repeats=[opsgenie.EscalationRepeatArgs(
+                close_alert_after_all=False,
+                count=1,
+                reset_recipient_states=True,
+                wait_interval=10,
+            )],
+            rules=[opsgenie.EscalationRuleArgs(
+                condition="if-not-acked",
+                delay=1,
+                notify_type="default",
+                recipients=[
+                    opsgenie.EscalationRuleRecipientArgs(
+                        id=opsgenie_user["test"]["id"],
+                        type="user",
+                    ),
+                    opsgenie.EscalationRuleRecipientArgs(
+                        id=opsgenie_team["test"]["id"],
+                        type="team",
+                    ),
+                    opsgenie.EscalationRuleRecipientArgs(
+                        id=opsgenie_schedule["test"]["id"],
+                        type="schedule",
+                    ),
+                ],
+            )])
+        ```
+
+        ## Import
+
+        Escalations can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import opsgenie:index/escalation:Escalation test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EscalationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EscalationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_team_id: Optional[pulumi.Input[str]] = None,
+                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationRepeatArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationRuleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

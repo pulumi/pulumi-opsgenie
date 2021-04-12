@@ -21,47 +21,48 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "opsgenie:index/alertPolicy:AlertPolicy":
-		r, err = NewAlertPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertPolicy{}
 	case "opsgenie:index/apiIntegration:ApiIntegration":
-		r, err = NewApiIntegration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiIntegration{}
 	case "opsgenie:index/customRole:CustomRole":
-		r, err = NewCustomRole(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomRole{}
 	case "opsgenie:index/emailIntegration:EmailIntegration":
-		r, err = NewEmailIntegration(ctx, name, nil, pulumi.URN_(urn))
+		r = &EmailIntegration{}
 	case "opsgenie:index/escalation:Escalation":
-		r, err = NewEscalation(ctx, name, nil, pulumi.URN_(urn))
+		r = &Escalation{}
 	case "opsgenie:index/heartbeat:Heartbeat":
-		r, err = NewHeartbeat(ctx, name, nil, pulumi.URN_(urn))
+		r = &Heartbeat{}
 	case "opsgenie:index/incidentTemplate:IncidentTemplate":
-		r, err = NewIncidentTemplate(ctx, name, nil, pulumi.URN_(urn))
+		r = &IncidentTemplate{}
 	case "opsgenie:index/integrationAction:IntegrationAction":
-		r, err = NewIntegrationAction(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAction{}
 	case "opsgenie:index/maintenance:Maintenance":
-		r, err = NewMaintenance(ctx, name, nil, pulumi.URN_(urn))
+		r = &Maintenance{}
 	case "opsgenie:index/notificationPolicy:NotificationPolicy":
-		r, err = NewNotificationPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotificationPolicy{}
 	case "opsgenie:index/notificationRule:NotificationRule":
-		r, err = NewNotificationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotificationRule{}
 	case "opsgenie:index/schedule:Schedule":
-		r, err = NewSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schedule{}
 	case "opsgenie:index/scheduleRotation:ScheduleRotation":
-		r, err = NewScheduleRotation(ctx, name, nil, pulumi.URN_(urn))
+		r = &ScheduleRotation{}
 	case "opsgenie:index/service:Service":
-		r, err = NewService(ctx, name, nil, pulumi.URN_(urn))
+		r = &Service{}
 	case "opsgenie:index/serviceIncidentRule:ServiceIncidentRule":
-		r, err = NewServiceIncidentRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceIncidentRule{}
 	case "opsgenie:index/team:Team":
-		r, err = NewTeam(ctx, name, nil, pulumi.URN_(urn))
+		r = &Team{}
 	case "opsgenie:index/teamRoutingRule:TeamRoutingRule":
-		r, err = NewTeamRoutingRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &TeamRoutingRule{}
 	case "opsgenie:index/user:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	case "opsgenie:index/userContact:UserContact":
-		r, err = NewUserContact(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserContact{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
@@ -78,7 +79,9 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 		return nil, fmt.Errorf("unknown provider type: %s", typ)
 	}
 
-	return NewProvider(ctx, name, nil, pulumi.URN_(urn))
+	r := &Provider{}
+	err := ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return r, err
 }
 
 func init() {
