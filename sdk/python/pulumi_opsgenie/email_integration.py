@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -55,6 +55,122 @@ class EmailIntegrationArgs:
 
     @email_username.setter
     def email_username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email_username", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Member block as documented below.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="ignoreRespondersFromPayload")
+    def ignore_responders_from_payload(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        """
+        return pulumi.get(self, "ignore_responders_from_payload")
+
+    @ignore_responders_from_payload.setter
+    def ignore_responders_from_payload(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_responders_from_payload", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the integration. Name must be unique for each integration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerTeamId")
+    def owner_team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner team id of the integration.
+        """
+        return pulumi.get(self, "owner_team_id")
+
+    @owner_team_id.setter
+    def owner_team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_team_id", value)
+
+    @property
+    @pulumi.getter
+    def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]]:
+        return pulumi.get(self, "responders")
+
+    @responders.setter
+    def responders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]]):
+        pulumi.set(self, "responders", value)
+
+    @property
+    @pulumi.getter(name="suppressNotifications")
+    def suppress_notifications(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        """
+        return pulumi.get(self, "suppress_notifications")
+
+    @suppress_notifications.setter
+    def suppress_notifications(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suppress_notifications", value)
+
+
+@pulumi.input_type
+class _EmailIntegrationState:
+    def __init__(__self__, *,
+                 email_username: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_team_id: Optional[pulumi.Input[str]] = None,
+                 responders: Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]] = None,
+                 suppress_notifications: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering EmailIntegration resources.
+        :param pulumi.Input[str] email_username: The username part of the email address. It must be unique for each integration.
+        :param pulumi.Input[bool] enabled: A Member block as documented below.
+        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
+        :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
+        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        """
+        if email_username is not None:
+            pulumi.set(__self__, "email_username", email_username)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if ignore_responders_from_payload is not None:
+            pulumi.set(__self__, "ignore_responders_from_payload", ignore_responders_from_payload)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_team_id is not None:
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
+        if responders is not None:
+            pulumi.set(__self__, "responders", responders)
+        if suppress_notifications is not None:
+            pulumi.set(__self__, "suppress_notifications", suppress_notifications)
+
+    @property
+    @pulumi.getter(name="emailUsername")
+    def email_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username part of the email address. It must be unique for each integration.
+        """
+        return pulumi.get(self, "email_username")
+
+    @email_username.setter
+    def email_username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "email_username", value)
 
     @property
@@ -303,17 +419,17 @@ class EmailIntegration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EmailIntegrationArgs.__new__(EmailIntegrationArgs)
 
             if email_username is None and not opts.urn:
                 raise TypeError("Missing required property 'email_username'")
-            __props__['email_username'] = email_username
-            __props__['enabled'] = enabled
-            __props__['ignore_responders_from_payload'] = ignore_responders_from_payload
-            __props__['name'] = name
-            __props__['owner_team_id'] = owner_team_id
-            __props__['responders'] = responders
-            __props__['suppress_notifications'] = suppress_notifications
+            __props__.__dict__["email_username"] = email_username
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["ignore_responders_from_payload"] = ignore_responders_from_payload
+            __props__.__dict__["name"] = name
+            __props__.__dict__["owner_team_id"] = owner_team_id
+            __props__.__dict__["responders"] = responders
+            __props__.__dict__["suppress_notifications"] = suppress_notifications
         super(EmailIntegration, __self__).__init__(
             'opsgenie:index/emailIntegration:EmailIntegration',
             resource_name,
@@ -347,15 +463,15 @@ class EmailIntegration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EmailIntegrationState.__new__(_EmailIntegrationState)
 
-        __props__["email_username"] = email_username
-        __props__["enabled"] = enabled
-        __props__["ignore_responders_from_payload"] = ignore_responders_from_payload
-        __props__["name"] = name
-        __props__["owner_team_id"] = owner_team_id
-        __props__["responders"] = responders
-        __props__["suppress_notifications"] = suppress_notifications
+        __props__.__dict__["email_username"] = email_username
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["ignore_responders_from_payload"] = ignore_responders_from_payload
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner_team_id"] = owner_team_id
+        __props__.__dict__["responders"] = responders
+        __props__.__dict__["suppress_notifications"] = suppress_notifications
         return EmailIntegration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -410,10 +526,4 @@ class EmailIntegration(pulumi.CustomResource):
         If enabled, notifications that come from alerts will be suppressed. Defaults to false.
         """
         return pulumi.get(self, "suppress_notifications")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

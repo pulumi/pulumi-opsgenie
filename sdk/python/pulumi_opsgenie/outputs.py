@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 
 __all__ = [
@@ -110,12 +110,28 @@ class AlertPolicyFilter(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AlertPolicyFilterCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertPolicyFilterCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertPolicyFilterCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertPolicyFilterCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  operation: str,
@@ -190,9 +206,6 @@ class AlertPolicyFilterCondition(dict):
         """
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AlertPolicyResponder(dict):
@@ -246,9 +259,6 @@ class AlertPolicyResponder(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AlertPolicyTimeRestriction(dict):
@@ -279,12 +289,36 @@ class AlertPolicyTimeRestriction(dict):
         """
         return pulumi.get(self, "restrictions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AlertPolicyTimeRestrictionRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDay":
+            suggest = "end_day"
+        elif key == "endHour":
+            suggest = "end_hour"
+        elif key == "endMin":
+            suggest = "end_min"
+        elif key == "startDay":
+            suggest = "start_day"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMin":
+            suggest = "start_min"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertPolicyTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertPolicyTimeRestrictionRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertPolicyTimeRestrictionRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_day: str,
                  end_hour: int,
@@ -355,9 +389,6 @@ class AlertPolicyTimeRestrictionRestriction(dict):
         """
         return pulumi.get(self, "start_min")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApiIntegrationResponder(dict):
@@ -388,9 +419,6 @@ class ApiIntegrationResponder(dict):
         The responder type.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -423,12 +451,30 @@ class EmailIntegrationResponder(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EscalationRepeat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "closeAlertAfterAll":
+            suggest = "close_alert_after_all"
+        elif key == "resetRecipientStates":
+            suggest = "reset_recipient_states"
+        elif key == "waitInterval":
+            suggest = "wait_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EscalationRepeat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EscalationRepeat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EscalationRepeat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  close_alert_after_all: Optional[bool] = None,
                  count: Optional[int] = None,
@@ -463,12 +509,26 @@ class EscalationRepeat(dict):
     def wait_interval(self) -> Optional[int]:
         return pulumi.get(self, "wait_interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EscalationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notifyType":
+            suggest = "notify_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EscalationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EscalationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EscalationRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  condition: str,
                  delay: int,
@@ -523,9 +583,6 @@ class EscalationRule(dict):
         """
         return pulumi.get(self, "recipients")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EscalationRuleRecipient(dict):
@@ -552,9 +609,6 @@ class EscalationRuleRecipient(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -597,9 +651,6 @@ class IncidentTemplateStakeholderProperty(dict):
         Option to enable stakeholder notifications.Default value is true.
         """
         return pulumi.get(self, "enable")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -697,9 +748,6 @@ class IntegrationActionAcknowledge(dict):
         """
         return pulumi.get(self, "user")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionAcknowledgeFilter(dict):
@@ -726,12 +774,28 @@ class IntegrationActionAcknowledgeFilter(dict):
     def conditions(self) -> Optional[Sequence['outputs.IntegrationActionAcknowledgeFilterCondition']]:
         return pulumi.get(self, "conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionAcknowledgeFilterCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationActionAcknowledgeFilterCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationActionAcknowledgeFilterCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationActionAcknowledgeFilterCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  operation: str,
@@ -785,9 +849,6 @@ class IntegrationActionAcknowledgeFilterCondition(dict):
         Integer value that defines in which order the action will be performed. Defaults to `1`.
         """
         return pulumi.get(self, "order")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -885,9 +946,6 @@ class IntegrationActionAddNote(dict):
         """
         return pulumi.get(self, "user")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionAddNoteFilter(dict):
@@ -914,12 +972,28 @@ class IntegrationActionAddNoteFilter(dict):
     def conditions(self) -> Optional[Sequence['outputs.IntegrationActionAddNoteFilterCondition']]:
         return pulumi.get(self, "conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionAddNoteFilterCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationActionAddNoteFilterCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationActionAddNoteFilterCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationActionAddNoteFilterCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  operation: str,
@@ -973,9 +1047,6 @@ class IntegrationActionAddNoteFilterCondition(dict):
         Integer value that defines in which order the action will be performed. Defaults to `1`.
         """
         return pulumi.get(self, "order")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1073,9 +1144,6 @@ class IntegrationActionClose(dict):
         """
         return pulumi.get(self, "user")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionCloseFilter(dict):
@@ -1102,12 +1170,28 @@ class IntegrationActionCloseFilter(dict):
     def conditions(self) -> Optional[Sequence['outputs.IntegrationActionCloseFilterCondition']]:
         return pulumi.get(self, "conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionCloseFilterCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationActionCloseFilterCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationActionCloseFilterCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationActionCloseFilterCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  operation: str,
@@ -1162,12 +1246,42 @@ class IntegrationActionCloseFilterCondition(dict):
         """
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionCreate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertActions":
+            suggest = "alert_actions"
+        elif key == "appendAttachments":
+            suggest = "append_attachments"
+        elif key == "customPriority":
+            suggest = "custom_priority"
+        elif key == "extraProperties":
+            suggest = "extra_properties"
+        elif key == "ignoreAlertActionsFromPayload":
+            suggest = "ignore_alert_actions_from_payload"
+        elif key == "ignoreExtraPropertiesFromPayload":
+            suggest = "ignore_extra_properties_from_payload"
+        elif key == "ignoreRespondersFromPayload":
+            suggest = "ignore_responders_from_payload"
+        elif key == "ignoreTagsFromPayload":
+            suggest = "ignore_tags_from_payload"
+        elif key == "ignoreTeamsFromPayload":
+            suggest = "ignore_teams_from_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationActionCreate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationActionCreate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationActionCreate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  alert_actions: Optional[Sequence[str]] = None,
@@ -1433,9 +1547,6 @@ class IntegrationActionCreate(dict):
         """
         return pulumi.get(self, "user")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionCreateFilter(dict):
@@ -1462,12 +1573,28 @@ class IntegrationActionCreateFilter(dict):
     def conditions(self) -> Optional[Sequence['outputs.IntegrationActionCreateFilterCondition']]:
         return pulumi.get(self, "conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionCreateFilterCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationActionCreateFilterCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationActionCreateFilterCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationActionCreateFilterCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  operation: str,
@@ -1522,9 +1649,6 @@ class IntegrationActionCreateFilterCondition(dict):
         """
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionCreateResponder(dict):
@@ -1553,9 +1677,6 @@ class IntegrationActionCreateResponder(dict):
         The responder type - can be escalation, team or user.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1617,9 +1738,6 @@ class IntegrationActionIgnore(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionIgnoreFilter(dict):
@@ -1646,12 +1764,28 @@ class IntegrationActionIgnoreFilter(dict):
     def conditions(self) -> Optional[Sequence['outputs.IntegrationActionIgnoreFilterCondition']]:
         return pulumi.get(self, "conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationActionIgnoreFilterCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationActionIgnoreFilterCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationActionIgnoreFilterCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationActionIgnoreFilterCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  operation: str,
@@ -1706,9 +1840,6 @@ class IntegrationActionIgnoreFilterCondition(dict):
         """
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceRule(dict):
@@ -1738,9 +1869,6 @@ class MaintenanceRule(dict):
         State of rule that will be defined in maintenance and can take either enabled or disabled for policy type rules. This field has to be disabled for integration type entity rules.
         """
         return pulumi.get(self, "state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1773,12 +1901,28 @@ class MaintenanceRuleEntity(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDate":
+            suggest = "end_date"
+        elif key == "startDate":
+            suggest = "start_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  end_date: Optional[str] = None,
@@ -1818,9 +1962,6 @@ class MaintenanceTime(dict):
         """
         return pulumi.get(self, "start_date")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyAutoCloseAction(dict):
@@ -1839,12 +1980,28 @@ class NotificationPolicyAutoCloseAction(dict):
         """
         return pulumi.get(self, "durations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyAutoCloseActionDuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeAmount":
+            suggest = "time_amount"
+        elif key == "timeUnit":
+            suggest = "time_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyAutoCloseActionDuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyAutoCloseActionDuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyAutoCloseActionDuration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  time_amount: int,
                  time_unit: Optional[str] = None):
@@ -1872,12 +2029,26 @@ class NotificationPolicyAutoCloseActionDuration(dict):
         """
         return pulumi.get(self, "time_unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyAutoRestartAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRepeatCount":
+            suggest = "max_repeat_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyAutoRestartAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyAutoRestartAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyAutoRestartAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  durations: Sequence['outputs.NotificationPolicyAutoRestartActionDuration'],
                  max_repeat_count: int):
@@ -1904,12 +2075,28 @@ class NotificationPolicyAutoRestartAction(dict):
         """
         return pulumi.get(self, "max_repeat_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyAutoRestartActionDuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeAmount":
+            suggest = "time_amount"
+        elif key == "timeUnit":
+            suggest = "time_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyAutoRestartActionDuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyAutoRestartActionDuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyAutoRestartActionDuration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  time_amount: int,
                  time_unit: Optional[str] = None):
@@ -1937,12 +2124,26 @@ class NotificationPolicyAutoRestartActionDuration(dict):
         """
         return pulumi.get(self, "time_unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyDeDuplicationAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deDuplicationActionType":
+            suggest = "de_duplication_action_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyDeDuplicationAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyDeDuplicationAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyDeDuplicationAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: int,
                  de_duplication_action_type: str,
@@ -1981,12 +2182,28 @@ class NotificationPolicyDeDuplicationAction(dict):
         """
         return pulumi.get(self, "durations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyDeDuplicationActionDuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeAmount":
+            suggest = "time_amount"
+        elif key == "timeUnit":
+            suggest = "time_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyDeDuplicationActionDuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyDeDuplicationActionDuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyDeDuplicationActionDuration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  time_amount: int,
                  time_unit: Optional[str] = None):
@@ -2014,12 +2231,30 @@ class NotificationPolicyDeDuplicationActionDuration(dict):
         """
         return pulumi.get(self, "time_unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyDelayAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "delayOption":
+            suggest = "delay_option"
+        elif key == "untilHour":
+            suggest = "until_hour"
+        elif key == "untilMinute":
+            suggest = "until_minute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyDelayAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyDelayAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyDelayAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delay_option: str,
                  durations: Optional[Sequence['outputs.NotificationPolicyDelayActionDuration']] = None,
@@ -2071,12 +2306,28 @@ class NotificationPolicyDelayAction(dict):
         """
         return pulumi.get(self, "until_minute")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyDelayActionDuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeAmount":
+            suggest = "time_amount"
+        elif key == "timeUnit":
+            suggest = "time_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyDelayActionDuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyDelayActionDuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyDelayActionDuration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  time_amount: int,
                  time_unit: Optional[str] = None):
@@ -2103,9 +2354,6 @@ class NotificationPolicyDelayActionDuration(dict):
         Valid time units are: "minutes", "hours", "days". Default: minutes
         """
         return pulumi.get(self, "time_unit")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2138,12 +2386,28 @@ class NotificationPolicyFilter(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyFilterCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyFilterCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyFilterCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyFilterCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  operation: str,
@@ -2218,9 +2482,6 @@ class NotificationPolicyFilterCondition(dict):
         """
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyTimeRestriction(dict):
@@ -2251,12 +2512,36 @@ class NotificationPolicyTimeRestriction(dict):
         """
         return pulumi.get(self, "restrictions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPolicyTimeRestrictionRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDay":
+            suggest = "end_day"
+        elif key == "endHour":
+            suggest = "end_hour"
+        elif key == "endMin":
+            suggest = "end_min"
+        elif key == "startDay":
+            suggest = "start_day"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMin":
+            suggest = "start_min"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyTimeRestrictionRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyTimeRestrictionRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_day: str,
                  end_hour: int,
@@ -2327,9 +2612,6 @@ class NotificationPolicyTimeRestrictionRestriction(dict):
         """
         return pulumi.get(self, "start_min")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationRuleCriteria(dict):
@@ -2360,12 +2642,28 @@ class NotificationRuleCriteria(dict):
         """
         return pulumi.get(self, "conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationRuleCriteriaCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationRuleCriteriaCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationRuleCriteriaCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationRuleCriteriaCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  operation: str,
@@ -2436,12 +2734,26 @@ class NotificationRuleCriteriaCondition(dict):
         """
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationRuleRepeat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loopAfter":
+            suggest = "loop_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationRuleRepeat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationRuleRepeat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationRuleRepeat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  loop_after: int,
                  enabled: Optional[bool] = None):
@@ -2464,9 +2776,6 @@ class NotificationRuleRepeat(dict):
         Defined if this step is enabled. Default: true
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2497,12 +2806,26 @@ class NotificationRuleSchedule(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationRuleStep(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sendAfter":
+            suggest = "send_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationRuleStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationRuleStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationRuleStep.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  contacts: Sequence['outputs.NotificationRuleStepContact'],
                  enabled: Optional[bool] = None,
@@ -2542,9 +2865,6 @@ class NotificationRuleStep(dict):
         """
         return pulumi.get(self, "send_after")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationRuleStepContact(dict):
@@ -2574,9 +2894,6 @@ class NotificationRuleStepContact(dict):
         """
         return pulumi.get(self, "to")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationRuleTimeRestriction(dict):
@@ -2603,12 +2920,36 @@ class NotificationRuleTimeRestriction(dict):
     def restrictions(self) -> Optional[Sequence['outputs.NotificationRuleTimeRestrictionRestriction']]:
         return pulumi.get(self, "restrictions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationRuleTimeRestrictionRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDay":
+            suggest = "end_day"
+        elif key == "endHour":
+            suggest = "end_hour"
+        elif key == "endMin":
+            suggest = "end_min"
+        elif key == "startDay":
+            suggest = "start_day"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMin":
+            suggest = "start_min"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationRuleTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationRuleTimeRestrictionRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationRuleTimeRestrictionRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_day: str,
                  end_hour: int,
@@ -2653,9 +2994,6 @@ class NotificationRuleTimeRestrictionRestriction(dict):
     def start_min(self) -> int:
         return pulumi.get(self, "start_min")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleRotationParticipant(dict):
@@ -2685,9 +3023,6 @@ class ScheduleRotationParticipant(dict):
         The id of the responder.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2719,12 +3054,36 @@ class ScheduleRotationTimeRestriction(dict):
         """
         return pulumi.get(self, "restrictions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleRotationTimeRestrictionRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDay":
+            suggest = "end_day"
+        elif key == "endHour":
+            suggest = "end_hour"
+        elif key == "endMin":
+            suggest = "end_min"
+        elif key == "startDay":
+            suggest = "start_day"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMin":
+            suggest = "start_min"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleRotationTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleRotationTimeRestrictionRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleRotationTimeRestrictionRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_day: str,
                  end_hour: int,
@@ -2795,12 +3154,28 @@ class ScheduleRotationTimeRestrictionRestriction(dict):
         """
         return pulumi.get(self, "start_min")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceIncidentRuleIncidentRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incidentProperties":
+            suggest = "incident_properties"
+        elif key == "conditionMatchType":
+            suggest = "condition_match_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceIncidentRuleIncidentRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceIncidentRuleIncidentRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceIncidentRuleIncidentRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  incident_properties: Sequence['outputs.ServiceIncidentRuleIncidentRuleIncidentProperty'],
                  condition_match_type: Optional[str] = None,
@@ -2840,12 +3215,28 @@ class ServiceIncidentRuleIncidentRule(dict):
         """
         return pulumi.get(self, "conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceIncidentRuleIncidentRuleCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceIncidentRuleIncidentRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceIncidentRuleIncidentRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceIncidentRuleIncidentRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  operation: str,
@@ -2904,12 +3295,26 @@ class ServiceIncidentRuleIncidentRuleCondition(dict):
         """
         return pulumi.get(self, "not_")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceIncidentRuleIncidentRuleIncidentProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stakeholderProperties":
+            suggest = "stakeholder_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceIncidentRuleIncidentRuleIncidentProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceIncidentRuleIncidentRuleIncidentProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceIncidentRuleIncidentRuleIncidentProperty.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  message: str,
                  priority: str,
@@ -2983,9 +3388,6 @@ class ServiceIncidentRuleIncidentRuleIncidentProperty(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty(dict):
@@ -3028,9 +3430,6 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty(dict):
         """
         return pulumi.get(self, "enable")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TeamMember(dict):
@@ -3060,9 +3459,6 @@ class TeamMember(dict):
         The role for the user within the Team - can be either 'admin' or 'user', defaults to 'user' if not set.
         """
         return pulumi.get(self, "role")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3094,12 +3490,28 @@ class TeamRoutingRuleCriteria(dict):
         """
         return pulumi.get(self, "conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TeamRoutingRuleCriteriaCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamRoutingRuleCriteriaCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamRoutingRuleCriteriaCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamRoutingRuleCriteriaCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: str,
                  operation: str,
@@ -3170,9 +3582,6 @@ class TeamRoutingRuleCriteriaCondition(dict):
         """
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TeamRoutingRuleNotify(dict):
@@ -3211,9 +3620,6 @@ class TeamRoutingRuleNotify(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TeamRoutingRuleTimeRestriction(dict):
@@ -3234,12 +3640,36 @@ class TeamRoutingRuleTimeRestriction(dict):
     def restrictions(self) -> Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']]:
         return pulumi.get(self, "restrictions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TeamRoutingRuleTimeRestrictionRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDay":
+            suggest = "end_day"
+        elif key == "endHour":
+            suggest = "end_hour"
+        elif key == "endMin":
+            suggest = "end_min"
+        elif key == "startDay":
+            suggest = "start_day"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMin":
+            suggest = "start_min"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamRoutingRuleTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamRoutingRuleTimeRestrictionRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamRoutingRuleTimeRestrictionRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_day: str,
                  end_hour: int,
@@ -3284,9 +3714,6 @@ class TeamRoutingRuleTimeRestrictionRestriction(dict):
     def start_min(self) -> int:
         return pulumi.get(self, "start_min")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserUserAddress(dict):
@@ -3326,9 +3753,6 @@ class UserUserAddress(dict):
     @pulumi.getter
     def zipcode(self) -> str:
         return pulumi.get(self, "zipcode")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
