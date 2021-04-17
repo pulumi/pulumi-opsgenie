@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -123,6 +123,134 @@ class IncidentTemplateArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags of the incident template.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _IncidentTemplateState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 impacted_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
+                 stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentTemplateStakeholderPropertyArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering IncidentTemplate resources.
+        :param pulumi.Input[str] description: Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
+        :param pulumi.Input[str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        :param pulumi.Input[str] name: Name of the incident template.
+        :param pulumi.Input[str] priority: Priority level of the incident. Possible values are P1, P2, P3, P4 and P5.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if impacted_services is not None:
+            pulumi.set(__self__, "impacted_services", impacted_services)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if stakeholder_properties is not None:
+            pulumi.set(__self__, "stakeholder_properties", stakeholder_properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
+        """
+        return pulumi.get(self, "details")
+
+    @details.setter
+    def details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "details", value)
+
+    @property
+    @pulumi.getter(name="impactedServices")
+    def impacted_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "impacted_services")
+
+    @impacted_services.setter
+    def impacted_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "impacted_services", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the incident template.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        Priority level of the incident. Possible values are P1, P2, P3, P4 and P5.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="stakeholderProperties")
+    def stakeholder_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncidentTemplateStakeholderPropertyArgs']]]]:
+        return pulumi.get(self, "stakeholder_properties")
+
+    @stakeholder_properties.setter
+    def stakeholder_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentTemplateStakeholderPropertyArgs']]]]):
+        pulumi.set(self, "stakeholder_properties", value)
 
     @property
     @pulumi.getter
@@ -287,22 +415,22 @@ class IncidentTemplate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IncidentTemplateArgs.__new__(IncidentTemplateArgs)
 
-            __props__['description'] = description
-            __props__['details'] = details
-            __props__['impacted_services'] = impacted_services
+            __props__.__dict__["description"] = description
+            __props__.__dict__["details"] = details
+            __props__.__dict__["impacted_services"] = impacted_services
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
-            __props__['message'] = message
-            __props__['name'] = name
+            __props__.__dict__["message"] = message
+            __props__.__dict__["name"] = name
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
-            __props__['priority'] = priority
+            __props__.__dict__["priority"] = priority
             if stakeholder_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'stakeholder_properties'")
-            __props__['stakeholder_properties'] = stakeholder_properties
-            __props__['tags'] = tags
+            __props__.__dict__["stakeholder_properties"] = stakeholder_properties
+            __props__.__dict__["tags"] = tags
         super(IncidentTemplate, __self__).__init__(
             'opsgenie:index/incidentTemplate:IncidentTemplate',
             resource_name,
@@ -337,16 +465,16 @@ class IncidentTemplate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IncidentTemplateState.__new__(_IncidentTemplateState)
 
-        __props__["description"] = description
-        __props__["details"] = details
-        __props__["impacted_services"] = impacted_services
-        __props__["message"] = message
-        __props__["name"] = name
-        __props__["priority"] = priority
-        __props__["stakeholder_properties"] = stakeholder_properties
-        __props__["tags"] = tags
+        __props__.__dict__["description"] = description
+        __props__.__dict__["details"] = details
+        __props__.__dict__["impacted_services"] = impacted_services
+        __props__.__dict__["message"] = message
+        __props__.__dict__["name"] = name
+        __props__.__dict__["priority"] = priority
+        __props__.__dict__["stakeholder_properties"] = stakeholder_properties
+        __props__.__dict__["tags"] = tags
         return IncidentTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -406,10 +534,4 @@ class IncidentTemplate(pulumi.CustomResource):
         Tags of the incident template.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

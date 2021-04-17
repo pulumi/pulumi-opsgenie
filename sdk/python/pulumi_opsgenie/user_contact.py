@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['UserContactArgs', 'UserContact']
 
@@ -77,6 +77,78 @@ class UserContactArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class _UserContactState:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 method: Optional[pulumi.Input[str]] = None,
+                 to: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UserContact resources.
+        :param pulumi.Input[bool] enabled: Enable contact of the user in OpsGenie. Default value is true.
+        :param pulumi.Input[str] method: This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
+        :param pulumi.Input[str] to: to field is the address of given method.
+        :param pulumi.Input[str] username: The username for contact.(reference)
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable contact of the user in OpsGenie. Default value is true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[str]]:
+        """
+        This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[str]]:
+        """
+        to field is the address of given method.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "to", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username for contact.(reference)
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 class UserContact(pulumi.CustomResource):
@@ -219,18 +291,18 @@ class UserContact(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserContactArgs.__new__(UserContactArgs)
 
-            __props__['enabled'] = enabled
+            __props__.__dict__["enabled"] = enabled
             if method is None and not opts.urn:
                 raise TypeError("Missing required property 'method'")
-            __props__['method'] = method
+            __props__.__dict__["method"] = method
             if to is None and not opts.urn:
                 raise TypeError("Missing required property 'to'")
-            __props__['to'] = to
+            __props__.__dict__["to"] = to
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
-            __props__['username'] = username
+            __props__.__dict__["username"] = username
         super(UserContact, __self__).__init__(
             'opsgenie:index/userContact:UserContact',
             resource_name,
@@ -259,12 +331,12 @@ class UserContact(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserContactState.__new__(_UserContactState)
 
-        __props__["enabled"] = enabled
-        __props__["method"] = method
-        __props__["to"] = to
-        __props__["username"] = username
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["method"] = method
+        __props__.__dict__["to"] = to
+        __props__.__dict__["username"] = username
         return UserContact(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -298,10 +370,4 @@ class UserContact(pulumi.CustomResource):
         The username for contact.(reference)
         """
         return pulumi.get(self, "username")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

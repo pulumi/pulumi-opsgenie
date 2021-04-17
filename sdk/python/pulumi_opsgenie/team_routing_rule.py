@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -103,6 +103,122 @@ class TeamRoutingRuleArgs:
     @order.setter
     def order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter(name="timeRestrictions")
+    def time_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]]:
+        return pulumi.get(self, "time_restrictions")
+
+    @time_restrictions.setter
+    def time_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]]):
+        pulumi.set(self, "time_restrictions", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+
+
+@pulumi.input_type
+class _TeamRoutingRuleState:
+    def __init__(__self__, *,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifies: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
+                 team_id: Optional[pulumi.Input[str]] = None,
+                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TeamRoutingRule resources.
+        :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]] criterias: You can refer Criteria for detailed information about criteria and its fields
+        :param pulumi.Input[str] name: Name of the team routing rule
+        :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
+        :param pulumi.Input[str] team_id: Id of the team owning the routing rule
+        :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
+        """
+        if criterias is not None:
+            pulumi.set(__self__, "criterias", criterias)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifies is not None:
+            pulumi.set(__self__, "notifies", notifies)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if team_id is not None:
+            pulumi.set(__self__, "team_id", team_id)
+        if time_restrictions is not None:
+            pulumi.set(__self__, "time_restrictions", time_restrictions)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]]]:
+        """
+        You can refer Criteria for detailed information about criteria and its fields
+        """
+        return pulumi.get(self, "criterias")
+
+    @criterias.setter
+    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]]]):
+        pulumi.set(self, "criterias", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the team routing rule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notifies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]]]:
+        """
+        Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        """
+        return pulumi.get(self, "notifies")
+
+    @notifies.setter
+    def notifies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]]]):
+        pulumi.set(self, "notifies", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[int]]:
+        """
+        The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the team owning the routing rule
+        """
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "team_id", value)
 
     @property
     @pulumi.getter(name="timeRestrictions")
@@ -316,19 +432,19 @@ class TeamRoutingRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TeamRoutingRuleArgs.__new__(TeamRoutingRuleArgs)
 
-            __props__['criterias'] = criterias
-            __props__['name'] = name
+            __props__.__dict__["criterias"] = criterias
+            __props__.__dict__["name"] = name
             if notifies is None and not opts.urn:
                 raise TypeError("Missing required property 'notifies'")
-            __props__['notifies'] = notifies
-            __props__['order'] = order
+            __props__.__dict__["notifies"] = notifies
+            __props__.__dict__["order"] = order
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")
-            __props__['team_id'] = team_id
-            __props__['time_restrictions'] = time_restrictions
-            __props__['timezone'] = timezone
+            __props__.__dict__["team_id"] = team_id
+            __props__.__dict__["time_restrictions"] = time_restrictions
+            __props__.__dict__["timezone"] = timezone
         super(TeamRoutingRule, __self__).__init__(
             'opsgenie:index/teamRoutingRule:TeamRoutingRule',
             resource_name,
@@ -362,15 +478,15 @@ class TeamRoutingRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TeamRoutingRuleState.__new__(_TeamRoutingRuleState)
 
-        __props__["criterias"] = criterias
-        __props__["name"] = name
-        __props__["notifies"] = notifies
-        __props__["order"] = order
-        __props__["team_id"] = team_id
-        __props__["time_restrictions"] = time_restrictions
-        __props__["timezone"] = timezone
+        __props__.__dict__["criterias"] = criterias
+        __props__.__dict__["name"] = name
+        __props__.__dict__["notifies"] = notifies
+        __props__.__dict__["order"] = order
+        __props__.__dict__["team_id"] = team_id
+        __props__.__dict__["time_restrictions"] = time_restrictions
+        __props__.__dict__["timezone"] = timezone
         return TeamRoutingRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -425,10 +541,4 @@ class TeamRoutingRule(pulumi.CustomResource):
         Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
         """
         return pulumi.get(self, "timezone")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

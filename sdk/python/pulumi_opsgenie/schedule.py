@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ScheduleArgs', 'Schedule']
 
@@ -20,6 +20,94 @@ class ScheduleArgs:
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
+        :param pulumi.Input[str] description: The description of schedule.
+        :param pulumi.Input[bool] enabled: Enable/disable state of schedule
+        :param pulumi.Input[str] name: Name of the schedule.
+        :param pulumi.Input[str] owner_team_id: Owner team id of the schedule.
+        :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_team_id is not None:
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of schedule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/disable state of schedule
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the schedule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerTeamId")
+    def owner_team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner team id of the schedule.
+        """
+        return pulumi.get(self, "owner_team_id")
+
+    @owner_team_id.setter
+    def owner_team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_team_id", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+
+
+@pulumi.input_type
+class _ScheduleState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_team_id: Optional[pulumi.Input[str]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Schedule resources.
         :param pulumi.Input[str] description: The description of schedule.
         :param pulumi.Input[bool] enabled: Enable/disable state of schedule
         :param pulumi.Input[str] name: Name of the schedule.
@@ -211,13 +299,13 @@ class Schedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
-            __props__['description'] = description
-            __props__['enabled'] = enabled
-            __props__['name'] = name
-            __props__['owner_team_id'] = owner_team_id
-            __props__['timezone'] = timezone
+            __props__.__dict__["description"] = description
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["name"] = name
+            __props__.__dict__["owner_team_id"] = owner_team_id
+            __props__.__dict__["timezone"] = timezone
         super(Schedule, __self__).__init__(
             'opsgenie:index/schedule:Schedule',
             resource_name,
@@ -248,13 +336,13 @@ class Schedule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ScheduleState.__new__(_ScheduleState)
 
-        __props__["description"] = description
-        __props__["enabled"] = enabled
-        __props__["name"] = name
-        __props__["owner_team_id"] = owner_team_id
-        __props__["timezone"] = timezone
+        __props__.__dict__["description"] = description
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner_team_id"] = owner_team_id
+        __props__.__dict__["timezone"] = timezone
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -296,10 +384,4 @@ class Schedule(pulumi.CustomResource):
         Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
         """
         return pulumi.get(self, "timezone")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

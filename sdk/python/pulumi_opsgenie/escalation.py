@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -97,6 +97,94 @@ class EscalationArgs:
     @repeats.setter
     def repeats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]]):
         pulumi.set(self, "repeats", value)
+
+
+@pulumi.input_type
+class _EscalationState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_team_id: Optional[pulumi.Input[str]] = None,
+                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering Escalation resources.
+        :param pulumi.Input[str] description: Description of the escalation.
+        :param pulumi.Input[str] name: Name of the escalation.
+        :param pulumi.Input[str] owner_team_id: Owner team id of the escalation.
+        :param pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
+        :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]] rules: List of the escalation rules.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_team_id is not None:
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
+        if repeats is not None:
+            pulumi.set(__self__, "repeats", repeats)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the escalation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the escalation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ownerTeamId")
+    def owner_team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner team id of the escalation.
+        """
+        return pulumi.get(self, "owner_team_id")
+
+    @owner_team_id.setter
+    def owner_team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_team_id", value)
+
+    @property
+    @pulumi.getter
+    def repeats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]]:
+        """
+        Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
+        """
+        return pulumi.get(self, "repeats")
+
+    @repeats.setter
+    def repeats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]]):
+        pulumi.set(self, "repeats", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]]:
+        """
+        List of the escalation rules.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
 
 
 class Escalation(pulumi.CustomResource):
@@ -258,15 +346,15 @@ class Escalation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EscalationArgs.__new__(EscalationArgs)
 
-            __props__['description'] = description
-            __props__['name'] = name
-            __props__['owner_team_id'] = owner_team_id
-            __props__['repeats'] = repeats
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
+            __props__.__dict__["owner_team_id"] = owner_team_id
+            __props__.__dict__["repeats"] = repeats
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
-            __props__['rules'] = rules
+            __props__.__dict__["rules"] = rules
         super(Escalation, __self__).__init__(
             'opsgenie:index/escalation:Escalation',
             resource_name,
@@ -297,13 +385,13 @@ class Escalation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EscalationState.__new__(_EscalationState)
 
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["owner_team_id"] = owner_team_id
-        __props__["repeats"] = repeats
-        __props__["rules"] = rules
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["owner_team_id"] = owner_team_id
+        __props__.__dict__["repeats"] = repeats
+        __props__.__dict__["rules"] = rules
         return Escalation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -345,10 +433,4 @@ class Escalation(pulumi.CustomResource):
         List of the escalation rules.
         """
         return pulumi.get(self, "rules")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
