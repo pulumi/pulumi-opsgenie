@@ -13,7 +13,7 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class NotificationPolicyDelayActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines until what day to delay or for what duration. Possible values are: "for-duration", "next-time", "next-weekday", "next-monday", "next-tuesday", "next-wednesday", "next-thursday", "next-friday", "next-saturday", "next-sunday"
+        /// Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
         /// </summary>
         [Input("delayOption", required: true)]
         public Input<string> DelayOption { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie.Inputs
         private InputList<Inputs.NotificationPolicyDelayActionDurationArgs>? _durations;
 
         /// <summary>
-        /// Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        /// Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.NotificationPolicyDelayActionDurationArgs> Durations
         {
@@ -31,13 +31,13 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then "for-duration" this has to be set.
+        /// Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         /// </summary>
         [Input("untilHour")]
         public Input<int>? UntilHour { get; set; }
 
         /// <summary>
-        /// Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then "for-duration" this has to be set.
+        /// Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         /// </summary>
         [Input("untilMinute")]
         public Input<int>? UntilMinute { get; set; }

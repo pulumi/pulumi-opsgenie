@@ -28,7 +28,7 @@ namespace Pulumi.Opsgenie.Inputs
         private InputList<Inputs.NotificationPolicyDeDuplicationActionDurationArgs>? _durations;
 
         /// <summary>
-        /// Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        /// Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.NotificationPolicyDeDuplicationActionDurationArgs> Durations
         {

@@ -10,7 +10,7 @@ export interface AlertPolicyFilter {
      */
     conditions?: outputs.AlertPolicyFilterCondition[];
     /**
-     * Type of responder. Acceptable values are: user or team
+     * Type of responder. Acceptable values are: `user` or `team`
      */
     type?: string;
 }
@@ -21,7 +21,7 @@ export interface AlertPolicyFilterCondition {
      */
     expectedValue?: string;
     /**
-     * Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
      */
     field: string;
     /**
@@ -29,11 +29,11 @@ export interface AlertPolicyFilterCondition {
      */
     key?: string;
     /**
-     * Indicates behaviour of the given operation. Default: false
+     * Indicates behaviour of the given operation. Default:`false`
      */
     not?: boolean;
     /**
-     * It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+     * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
      */
     operation: string;
     /**
@@ -52,7 +52,7 @@ export interface AlertPolicyResponder {
      */
     name?: string;
     /**
-     * Type of responder. Acceptable values are: user or team
+     * Type of responder. Acceptable values are: `user` or `team`
      */
     type: string;
     /**
@@ -63,18 +63,18 @@ export interface AlertPolicyResponder {
 
 export interface AlertPolicyTimeRestriction {
     /**
-     * List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+     * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
     restrictions?: outputs.AlertPolicyTimeRestrictionRestriction[];
     /**
-     * Type of responder. Acceptable values are: user or team
+     * Type of responder. Acceptable values are: `user` or `team`
      */
     type: string;
 }
 
 export interface AlertPolicyTimeRestrictionRestriction {
     /**
-     * Ending day of restriction (eg. "wednesday)
+     * Ending day of restriction (eg. `wednesday`)
      */
     endDay: string;
     /**
@@ -86,7 +86,7 @@ export interface AlertPolicyTimeRestrictionRestriction {
      */
     endMin: number;
     /**
-     * Starting day of restriction (eg. "monday")
+     * Starting day of restriction (eg. `monday`)
      */
     startDay: string;
     /**
@@ -130,22 +130,19 @@ export interface EscalationRepeat {
 
 export interface EscalationRule {
     /**
-     * The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: if-not-acked and if-not-closed. If not given, if-not-acked is used.
+     * The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
      */
     condition: string;
     /**
-     * Time delay of the escalation rule. This parameter takes an object that consists timeAmount field that takes time amount in minutes.
+     * Time delay of the escalation rule, in minutes.
      */
     delay: number;
     /**
      * Recipient calculation logic for schedules. Possible values are:
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     notifyType: string;
     /**
-     * Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: user, schedule, team.
+     * Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
      */
     recipients: outputs.EscalationRuleRecipient[];
 }
@@ -205,7 +202,7 @@ export interface IncidentTemplateStakeholderProperty {
 
 export interface IntegrationActionAcknowledge {
     /**
-     * An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+     * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
     alias?: string;
     /**
@@ -220,15 +217,15 @@ export interface IntegrationActionAcknowledge {
      */
     name: string;
     /**
-     * Integer value that defines in which order the action will be performed.
+     * Additional alert action note.
      */
     note?: string;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: number;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type?: string;
     /**
@@ -240,7 +237,7 @@ export interface IntegrationActionAcknowledge {
 export interface IntegrationActionAcknowledgeFilter {
     conditions?: outputs.IntegrationActionAcknowledgeFilterCondition[];
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: string;
 }
@@ -252,14 +249,14 @@ export interface IntegrationActionAcknowledgeFilterCondition {
     not?: boolean;
     operation: string;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: number;
 }
 
 export interface IntegrationActionAddNote {
     /**
-     * An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+     * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
     alias?: string;
     /**
@@ -274,15 +271,15 @@ export interface IntegrationActionAddNote {
      */
     name: string;
     /**
-     * Integer value that defines in which order the action will be performed.
+     * Additional alert action note.
      */
     note?: string;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: number;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type?: string;
     /**
@@ -294,7 +291,7 @@ export interface IntegrationActionAddNote {
 export interface IntegrationActionAddNoteFilter {
     conditions?: outputs.IntegrationActionAddNoteFilterCondition[];
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: string;
 }
@@ -306,14 +303,14 @@ export interface IntegrationActionAddNoteFilterCondition {
     not?: boolean;
     operation: string;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: number;
 }
 
 export interface IntegrationActionClose {
     /**
-     * An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+     * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
     alias?: string;
     /**
@@ -328,15 +325,15 @@ export interface IntegrationActionClose {
      */
     name: string;
     /**
-     * Integer value that defines in which order the action will be performed.
+     * Additional alert action note.
      */
     note?: string;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: number;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type?: string;
     /**
@@ -348,7 +345,7 @@ export interface IntegrationActionClose {
 export interface IntegrationActionCloseFilter {
     conditions?: outputs.IntegrationActionCloseFilterCondition[];
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: string;
 }
@@ -360,7 +357,7 @@ export interface IntegrationActionCloseFilterCondition {
     not?: boolean;
     operation: string;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: number;
 }
@@ -368,12 +365,12 @@ export interface IntegrationActionCloseFilterCondition {
 export interface IntegrationActionCreate {
     alertActions?: string[];
     /**
-     * An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+     * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
     alias?: string;
     appendAttachments?: boolean;
     /**
-     * Custom alert priority. e.g. {{message.substring(0,2)}}
+     * Custom alert priority. e.g. ``{{message.substring(0,2)}}``
      */
     customPriority?: string;
     /**
@@ -415,11 +412,11 @@ export interface IntegrationActionCreate {
      */
     name: string;
     /**
-     * Integer value that defines in which order the action will be performed.
+     * Additional alert action note.
      */
     note?: string;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: number;
     /**
@@ -439,7 +436,7 @@ export interface IntegrationActionCreate {
      */
     tags?: string[];
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type?: string;
     /**
@@ -451,7 +448,7 @@ export interface IntegrationActionCreate {
 export interface IntegrationActionCreateFilter {
     conditions?: outputs.IntegrationActionCreateFilterCondition[];
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: string;
 }
@@ -463,7 +460,7 @@ export interface IntegrationActionCreateFilterCondition {
     not?: boolean;
     operation: string;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: number;
 }
@@ -474,7 +471,7 @@ export interface IntegrationActionCreateResponder {
      */
     id: string;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: string;
 }
@@ -492,11 +489,11 @@ export interface IntegrationActionIgnore {
      */
     name: string;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: number;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type?: string;
 }
@@ -504,7 +501,7 @@ export interface IntegrationActionIgnore {
 export interface IntegrationActionIgnoreFilter {
     conditions?: outputs.IntegrationActionIgnoreFilterCondition[];
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: string;
 }
@@ -516,7 +513,7 @@ export interface IntegrationActionIgnoreFilterCondition {
     not?: boolean;
     operation: string;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: number;
 }
@@ -560,7 +557,7 @@ export interface MaintenanceTime {
 
 export interface NotificationPolicyAutoCloseAction {
     /**
-     * Duration of this action. If `delayOption` = "for-duration" this has to be set. This is a block, structure is documented below.
+     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      */
     durations: outputs.NotificationPolicyAutoCloseActionDuration[];
 }
@@ -571,14 +568,14 @@ export interface NotificationPolicyAutoCloseActionDuration {
      */
     timeAmount: number;
     /**
-     * Valid time units are: "minutes", "hours", "days". Default: minutes
+     * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
     timeUnit?: string;
 }
 
 export interface NotificationPolicyAutoRestartAction {
     /**
-     * Duration of this action. If `delayOption` = "for-duration" this has to be set. This is a block, structure is documented below.
+     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      */
     durations: outputs.NotificationPolicyAutoRestartActionDuration[];
     /**
@@ -593,7 +590,7 @@ export interface NotificationPolicyAutoRestartActionDuration {
      */
     timeAmount: number;
     /**
-     * Valid time units are: "minutes", "hours", "days". Default: minutes
+     * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
     timeUnit?: string;
 }
@@ -608,7 +605,7 @@ export interface NotificationPolicyDeDuplicationAction {
      */
     deDuplicationActionType: string;
     /**
-     * Duration of this action. If `delayOption` = "for-duration" this has to be set. This is a block, structure is documented below.
+     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      */
     durations?: outputs.NotificationPolicyDeDuplicationActionDuration[];
 }
@@ -619,26 +616,26 @@ export interface NotificationPolicyDeDuplicationActionDuration {
      */
     timeAmount: number;
     /**
-     * Valid time units are: "minutes", "hours", "days". Default: minutes
+     * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
     timeUnit?: string;
 }
 
 export interface NotificationPolicyDelayAction {
     /**
-     * Defines until what day to delay or for what duration. Possible values are: "for-duration", "next-time", "next-weekday", "next-monday", "next-tuesday", "next-wednesday", "next-thursday", "next-friday", "next-saturday", "next-sunday"
+     * Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
      */
     delayOption: string;
     /**
-     * Duration of this action. If `delayOption` = "for-duration" this has to be set. This is a block, structure is documented below.
+     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      */
     durations?: outputs.NotificationPolicyDelayActionDuration[];
     /**
-     * Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then "for-duration" this has to be set.
+     * Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      */
     untilHour?: number;
     /**
-     * Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then "for-duration" this has to be set.
+     * Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      */
     untilMinute?: number;
 }
@@ -649,7 +646,7 @@ export interface NotificationPolicyDelayActionDuration {
      */
     timeAmount: number;
     /**
-     * Valid time units are: "minutes", "hours", "days". Default: minutes
+     * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
     timeUnit?: string;
 }
@@ -660,7 +657,7 @@ export interface NotificationPolicyFilter {
      */
     conditions?: outputs.NotificationPolicyFilterCondition[];
     /**
-     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: "time-of-day", "weekday-and-time-of-day"
+     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      */
     type?: string;
 }
@@ -671,7 +668,7 @@ export interface NotificationPolicyFilterCondition {
      */
     expectedValue?: string;
     /**
-     * Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
      */
     field: string;
     /**
@@ -679,11 +676,11 @@ export interface NotificationPolicyFilterCondition {
      */
     key?: string;
     /**
-     * Indicates behaviour of the given operation. Default: false
+     * Indicates behaviour of the given operation. Default: `false`
      */
     not?: boolean;
     /**
-     * It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+     * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
      */
     operation: string;
     /**
@@ -694,18 +691,18 @@ export interface NotificationPolicyFilterCondition {
 
 export interface NotificationPolicyTimeRestriction {
     /**
-     * List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+     * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
     restrictions?: outputs.NotificationPolicyTimeRestrictionRestriction[];
     /**
-     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: "time-of-day", "weekday-and-time-of-day"
+     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      */
     type: string;
 }
 
 export interface NotificationPolicyTimeRestrictionRestriction {
     /**
-     * Ending day of restriction (eg. "wednesday)
+     * Ending day of restriction (eg. `wednesday`)
      */
     endDay: string;
     /**
@@ -717,7 +714,7 @@ export interface NotificationPolicyTimeRestrictionRestriction {
      */
     endMin: number;
     /**
-     * Starting day of restriction (eg. "monday")
+     * Starting day of restriction (eg. `monday`)
      */
     startDay: string;
     /**

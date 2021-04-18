@@ -14,7 +14,7 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class IntegrationActionAcknowledge
     {
         /// <summary>
-        /// An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+        /// An identifier that is used for alert deduplication. Default: `{{alias}}`.
         /// </summary>
         public readonly string? Alias;
         /// <summary>
@@ -29,15 +29,15 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Integer value that defines in which order the action will be performed.
+        /// Additional alert action note.
         /// </summary>
         public readonly string? Note;
         /// <summary>
-        /// Integer value that defines in which order the action will be performed. Defaults to `1`.
+        /// Integer value that defines in which order the action will be performed. Default: `1`.
         /// </summary>
         public readonly int? Order;
         /// <summary>
-        /// The responder type - can be escalation, team or user.
+        /// The responder type - can be `escalation`, `team` or `user`.
         /// </summary>
         public readonly string? Type;
         /// <summary>

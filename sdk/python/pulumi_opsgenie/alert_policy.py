@@ -38,22 +38,23 @@ class AlertPolicyArgs:
         """
         The set of arguments for constructing a AlertPolicy resource.
         :param pulumi.Input[str] message: Message of the alerts
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
-        :param pulumi.Input[str] alert_description: Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
-        :param pulumi.Input[str] alias: Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
-        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: true
-        :param pulumi.Input[str] entity: Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
-        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]] filters: A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
-        :param pulumi.Input[bool] ignore_original_actions: If set to true, policy will ignore the original actions of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_details: If set to true, policy will ignore the original details of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_responders: If set to true, policy will ignore the original responders of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_tags: If set to true, policy will ignore the original tags of the alert. Default value is false
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+        :param pulumi.Input[str] alert_description: Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
+        :param pulumi.Input[str] alias: Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
+        :param pulumi.Input[bool] continue_policy: It will trigger other modify policies if set to `true`. Default: `false`
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
+        :param pulumi.Input[str] entity: Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]] filters: A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+        :param pulumi.Input[bool] ignore_original_actions: If set to `true`, policy will ignore the original actions of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_details: If set to `true`, policy will ignore the original details of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_tags: If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         :param pulumi.Input[str] name: Name of the responder
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
-        :param pulumi.Input[str] priority: Priority of the alert. Should be one of P1, P2, P3, P4, or P5
-        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
-        :param pulumi.Input[str] source: Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+        :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        :param pulumi.Input[str] source: Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
@@ -113,7 +114,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
+        Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         """
         return pulumi.get(self, "actions")
 
@@ -125,7 +126,7 @@ class AlertPolicyArgs:
     @pulumi.getter(name="alertDescription")
     def alert_description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+        Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
         """
         return pulumi.get(self, "alert_description")
 
@@ -137,7 +138,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
         """
-        Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
+        Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
         """
         return pulumi.get(self, "alias")
 
@@ -148,6 +149,9 @@ class AlertPolicyArgs:
     @property
     @pulumi.getter(name="continuePolicy")
     def continue_policy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        It will trigger other modify policies if set to `true`. Default: `false`
+        """
         return pulumi.get(self, "continue_policy")
 
     @continue_policy.setter
@@ -158,7 +162,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        If policy should be enabled. Default: true
+        If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -170,7 +174,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def entity(self) -> Optional[pulumi.Input[str]]:
         """
-        Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+        Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
         """
         return pulumi.get(self, "entity")
 
@@ -182,7 +186,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]]:
         """
-        A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "filters")
 
@@ -194,7 +198,7 @@ class AlertPolicyArgs:
     @pulumi.getter(name="ignoreOriginalActions")
     def ignore_original_actions(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, policy will ignore the original actions of the alert. Default value is false
+        If set to `true`, policy will ignore the original actions of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_actions")
 
@@ -206,7 +210,7 @@ class AlertPolicyArgs:
     @pulumi.getter(name="ignoreOriginalDetails")
     def ignore_original_details(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, policy will ignore the original details of the alert. Default value is false
+        If set to `true`, policy will ignore the original details of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_details")
 
@@ -218,7 +222,7 @@ class AlertPolicyArgs:
     @pulumi.getter(name="ignoreOriginalResponders")
     def ignore_original_responders(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, policy will ignore the original responders of the alert. Default value is false
+        If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_responders")
 
@@ -230,7 +234,7 @@ class AlertPolicyArgs:
     @pulumi.getter(name="ignoreOriginalTags")
     def ignore_original_tags(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, policy will ignore the original tags of the alert. Default value is false
+        If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_tags")
 
@@ -266,7 +270,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
         """
-        Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+        Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         """
         return pulumi.get(self, "priority")
 
@@ -278,7 +282,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]:
         """
-        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "responders")
 
@@ -290,7 +294,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+        Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         """
         return pulumi.get(self, "source")
 
@@ -302,7 +306,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+        Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         """
         return pulumi.get(self, "tags")
 
@@ -360,23 +364,24 @@ class _AlertPolicyState:
                  time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None):
         """
         Input properties used for looking up and filtering AlertPolicy resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
-        :param pulumi.Input[str] alert_description: Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
-        :param pulumi.Input[str] alias: Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
-        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: true
-        :param pulumi.Input[str] entity: Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
-        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]] filters: A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
-        :param pulumi.Input[bool] ignore_original_actions: If set to true, policy will ignore the original actions of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_details: If set to true, policy will ignore the original details of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_responders: If set to true, policy will ignore the original responders of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_tags: If set to true, policy will ignore the original tags of the alert. Default value is false
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+        :param pulumi.Input[str] alert_description: Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
+        :param pulumi.Input[str] alias: Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
+        :param pulumi.Input[bool] continue_policy: It will trigger other modify policies if set to `true`. Default: `false`
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
+        :param pulumi.Input[str] entity: Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]] filters: A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+        :param pulumi.Input[bool] ignore_original_actions: If set to `true`, policy will ignore the original actions of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_details: If set to `true`, policy will ignore the original details of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_tags: If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         :param pulumi.Input[str] message: Message of the alerts
         :param pulumi.Input[str] name: Name of the responder
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
-        :param pulumi.Input[str] priority: Priority of the alert. Should be one of P1, P2, P3, P4, or P5
-        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
-        :param pulumi.Input[str] source: Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+        :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        :param pulumi.Input[str] source: Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
@@ -425,7 +430,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
+        Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         """
         return pulumi.get(self, "actions")
 
@@ -437,7 +442,7 @@ class _AlertPolicyState:
     @pulumi.getter(name="alertDescription")
     def alert_description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+        Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
         """
         return pulumi.get(self, "alert_description")
 
@@ -449,7 +454,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
         """
-        Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
+        Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
         """
         return pulumi.get(self, "alias")
 
@@ -460,6 +465,9 @@ class _AlertPolicyState:
     @property
     @pulumi.getter(name="continuePolicy")
     def continue_policy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        It will trigger other modify policies if set to `true`. Default: `false`
+        """
         return pulumi.get(self, "continue_policy")
 
     @continue_policy.setter
@@ -470,7 +478,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        If policy should be enabled. Default: true
+        If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -482,7 +490,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def entity(self) -> Optional[pulumi.Input[str]]:
         """
-        Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+        Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
         """
         return pulumi.get(self, "entity")
 
@@ -494,7 +502,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]]:
         """
-        A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "filters")
 
@@ -506,7 +514,7 @@ class _AlertPolicyState:
     @pulumi.getter(name="ignoreOriginalActions")
     def ignore_original_actions(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, policy will ignore the original actions of the alert. Default value is false
+        If set to `true`, policy will ignore the original actions of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_actions")
 
@@ -518,7 +526,7 @@ class _AlertPolicyState:
     @pulumi.getter(name="ignoreOriginalDetails")
     def ignore_original_details(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, policy will ignore the original details of the alert. Default value is false
+        If set to `true`, policy will ignore the original details of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_details")
 
@@ -530,7 +538,7 @@ class _AlertPolicyState:
     @pulumi.getter(name="ignoreOriginalResponders")
     def ignore_original_responders(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, policy will ignore the original responders of the alert. Default value is false
+        If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_responders")
 
@@ -542,7 +550,7 @@ class _AlertPolicyState:
     @pulumi.getter(name="ignoreOriginalTags")
     def ignore_original_tags(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, policy will ignore the original tags of the alert. Default value is false
+        If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_tags")
 
@@ -590,7 +598,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
         """
-        Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+        Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         """
         return pulumi.get(self, "priority")
 
@@ -602,7 +610,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]:
         """
-        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "responders")
 
@@ -614,7 +622,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+        Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         """
         return pulumi.get(self, "source")
 
@@ -626,7 +634,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+        Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         """
         return pulumi.get(self, "tags")
 
@@ -747,23 +755,24 @@ class AlertPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
-        :param pulumi.Input[str] alert_description: Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
-        :param pulumi.Input[str] alias: Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
-        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: true
-        :param pulumi.Input[str] entity: Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyFilterArgs']]]] filters: A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
-        :param pulumi.Input[bool] ignore_original_actions: If set to true, policy will ignore the original actions of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_details: If set to true, policy will ignore the original details of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_responders: If set to true, policy will ignore the original responders of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_tags: If set to true, policy will ignore the original tags of the alert. Default value is false
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+        :param pulumi.Input[str] alert_description: Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
+        :param pulumi.Input[str] alias: Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
+        :param pulumi.Input[bool] continue_policy: It will trigger other modify policies if set to `true`. Default: `false`
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
+        :param pulumi.Input[str] entity: Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyFilterArgs']]]] filters: A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+        :param pulumi.Input[bool] ignore_original_actions: If set to `true`, policy will ignore the original actions of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_details: If set to `true`, policy will ignore the original details of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_tags: If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         :param pulumi.Input[str] message: Message of the alerts
         :param pulumi.Input[str] name: Name of the responder
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
-        :param pulumi.Input[str] priority: Priority of the alert. Should be one of P1, P2, P3, P4, or P5
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
-        :param pulumi.Input[str] source: Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+        :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        :param pulumi.Input[str] source: Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyTimeRestrictionArgs']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
@@ -945,23 +954,24 @@ class AlertPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
-        :param pulumi.Input[str] alert_description: Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
-        :param pulumi.Input[str] alias: Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
-        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: true
-        :param pulumi.Input[str] entity: Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyFilterArgs']]]] filters: A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
-        :param pulumi.Input[bool] ignore_original_actions: If set to true, policy will ignore the original actions of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_details: If set to true, policy will ignore the original details of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_responders: If set to true, policy will ignore the original responders of the alert. Default value is false
-        :param pulumi.Input[bool] ignore_original_tags: If set to true, policy will ignore the original tags of the alert. Default value is false
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+        :param pulumi.Input[str] alert_description: Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
+        :param pulumi.Input[str] alias: Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
+        :param pulumi.Input[bool] continue_policy: It will trigger other modify policies if set to `true`. Default: `false`
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
+        :param pulumi.Input[str] entity: Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyFilterArgs']]]] filters: A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+        :param pulumi.Input[bool] ignore_original_actions: If set to `true`, policy will ignore the original actions of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_details: If set to `true`, policy will ignore the original details of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
+        :param pulumi.Input[bool] ignore_original_tags: If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         :param pulumi.Input[str] message: Message of the alerts
         :param pulumi.Input[str] name: Name of the responder
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
-        :param pulumi.Input[str] priority: Priority of the alert. Should be one of P1, P2, P3, P4, or P5
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
-        :param pulumi.Input[str] source: Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+        :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        :param pulumi.Input[str] source: Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyTimeRestrictionArgs']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
@@ -995,7 +1005,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
+        Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         """
         return pulumi.get(self, "actions")
 
@@ -1003,7 +1013,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter(name="alertDescription")
     def alert_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+        Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
         """
         return pulumi.get(self, "alert_description")
 
@@ -1011,20 +1021,23 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def alias(self) -> pulumi.Output[Optional[str]]:
         """
-        Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
+        Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
         """
         return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter(name="continuePolicy")
     def continue_policy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        It will trigger other modify policies if set to `true`. Default: `false`
+        """
         return pulumi.get(self, "continue_policy")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        If policy should be enabled. Default: true
+        If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -1032,7 +1045,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def entity(self) -> pulumi.Output[Optional[str]]:
         """
-        Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+        Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
         """
         return pulumi.get(self, "entity")
 
@@ -1040,7 +1053,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def filters(self) -> pulumi.Output[Optional[Sequence['outputs.AlertPolicyFilter']]]:
         """
-        A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "filters")
 
@@ -1048,7 +1061,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter(name="ignoreOriginalActions")
     def ignore_original_actions(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set to true, policy will ignore the original actions of the alert. Default value is false
+        If set to `true`, policy will ignore the original actions of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_actions")
 
@@ -1056,7 +1069,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter(name="ignoreOriginalDetails")
     def ignore_original_details(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set to true, policy will ignore the original details of the alert. Default value is false
+        If set to `true`, policy will ignore the original details of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_details")
 
@@ -1064,7 +1077,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter(name="ignoreOriginalResponders")
     def ignore_original_responders(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set to true, policy will ignore the original responders of the alert. Default value is false
+        If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_responders")
 
@@ -1072,7 +1085,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter(name="ignoreOriginalTags")
     def ignore_original_tags(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set to true, policy will ignore the original tags of the alert. Default value is false
+        If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_tags")
 
@@ -1104,7 +1117,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[str]]:
         """
-        Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+        Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         """
         return pulumi.get(self, "priority")
 
@@ -1112,7 +1125,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def responders(self) -> pulumi.Output[Optional[Sequence['outputs.AlertPolicyResponder']]]:
         """
-        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "responders")
 
@@ -1120,7 +1133,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[Optional[str]]:
         """
-        Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+        Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         """
         return pulumi.get(self, "source")
 
@@ -1128,7 +1141,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+        Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         """
         return pulumi.get(self, "tags")
 

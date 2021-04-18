@@ -14,11 +14,11 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class AlertPolicyTimeRestriction
     {
         /// <summary>
-        /// List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+        /// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertPolicyTimeRestrictionRestriction> Restrictions;
         /// <summary>
-        /// Type of responder. Acceptable values are: user or team
+        /// Type of responder. Acceptable values are: `user` or `team`
         /// </summary>
         public readonly string Type;
 

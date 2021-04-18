@@ -21,7 +21,7 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// The responder type - can be escalation, team or user.
+        /// The responder type - can be `escalation`, `team` or `user`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -28,7 +28,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string> Operation { get; set; } = null!;
 
         /// <summary>
-        /// Integer value that defines in which order the action will be performed. Defaults to `1`.
+        /// Integer value that defines in which order the action will be performed. Default: `1`.
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }

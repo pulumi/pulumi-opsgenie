@@ -19,7 +19,7 @@ namespace Pulumi.Opsgenie.Outputs
         public readonly bool? Not;
         public readonly string Operation;
         /// <summary>
-        /// Integer value that defines in which order the action will be performed. Defaults to `1`.
+        /// Integer value that defines in which order the action will be performed. Default: `1`.
         /// </summary>
         public readonly int? Order;
 

@@ -195,15 +195,15 @@ class IntegrationAction(pulumi.CustomResource):
                  __opts__=None):
         """
         Manages advanced actions for Integrations within Opsgenie. This applies for the following resources:
-        * ApiIntegration
-        * EmailIntegration
+        * `ApiIntegration`
+        * `EmailIntegration`
 
         The actions that are supported are:
-        * create
-        * close
-        * acknowledge
-        * add_note
-        * ignore
+        * `create`
+        * `close`
+        * `acknowledge`
+        * `add_note`
+        * `ignore`
 
         ## Example Usage
 
@@ -345,15 +345,15 @@ class IntegrationAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages advanced actions for Integrations within Opsgenie. This applies for the following resources:
-        * ApiIntegration
-        * EmailIntegration
+        * `ApiIntegration`
+        * `EmailIntegration`
 
         The actions that are supported are:
-        * create
-        * close
-        * acknowledge
-        * add_note
-        * ignore
+        * `create`
+        * `close`
+        * `acknowledge`
+        * `add_note`
+        * `ignore`
 
         ## Example Usage
 

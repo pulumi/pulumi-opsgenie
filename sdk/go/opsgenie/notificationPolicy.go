@@ -21,9 +21,7 @@ import (
 //  $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test teamId/Id`
 // ```
 //
-//  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-//
-// - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+//  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
 //
 // ```sh
 //  $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
@@ -39,15 +37,15 @@ type NotificationPolicy struct {
 	DeDuplicationActions NotificationPolicyDeDuplicationActionArrayOutput `pulumi:"deDuplicationActions"`
 	// Delay notifications. This is a block, structure is documented below.
 	DelayActions NotificationPolicyDelayActionArrayOutput `pulumi:"delayActions"`
-	// If policy should be enabled. Default: true
+	// If policy should be enabled. Default: `true`
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+	// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters NotificationPolicyFilterArrayOutput `pulumi:"filters"`
 	// Name of the notification policy
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrOutput `pulumi:"policyDescription"`
-	// Suppress value of the policy. Values are: true, false. Default: false
+	// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
 	Suppress pulumi.BoolPtrOutput `pulumi:"suppress"`
 	// Id of team that this policy belons to.
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
@@ -98,15 +96,15 @@ type notificationPolicyState struct {
 	DeDuplicationActions []NotificationPolicyDeDuplicationAction `pulumi:"deDuplicationActions"`
 	// Delay notifications. This is a block, structure is documented below.
 	DelayActions []NotificationPolicyDelayAction `pulumi:"delayActions"`
-	// If policy should be enabled. Default: true
+	// If policy should be enabled. Default: `true`
 	Enabled *bool `pulumi:"enabled"`
-	// A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+	// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters []NotificationPolicyFilter `pulumi:"filters"`
 	// Name of the notification policy
 	Name *string `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription *string `pulumi:"policyDescription"`
-	// Suppress value of the policy. Values are: true, false. Default: false
+	// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
 	Suppress *bool `pulumi:"suppress"`
 	// Id of team that this policy belons to.
 	TeamId *string `pulumi:"teamId"`
@@ -123,15 +121,15 @@ type NotificationPolicyState struct {
 	DeDuplicationActions NotificationPolicyDeDuplicationActionArrayInput
 	// Delay notifications. This is a block, structure is documented below.
 	DelayActions NotificationPolicyDelayActionArrayInput
-	// If policy should be enabled. Default: true
+	// If policy should be enabled. Default: `true`
 	Enabled pulumi.BoolPtrInput
-	// A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+	// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters NotificationPolicyFilterArrayInput
 	// Name of the notification policy
 	Name pulumi.StringPtrInput
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrInput
-	// Suppress value of the policy. Values are: true, false. Default: false
+	// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
 	Suppress pulumi.BoolPtrInput
 	// Id of team that this policy belons to.
 	TeamId pulumi.StringPtrInput
@@ -152,15 +150,15 @@ type notificationPolicyArgs struct {
 	DeDuplicationActions []NotificationPolicyDeDuplicationAction `pulumi:"deDuplicationActions"`
 	// Delay notifications. This is a block, structure is documented below.
 	DelayActions []NotificationPolicyDelayAction `pulumi:"delayActions"`
-	// If policy should be enabled. Default: true
+	// If policy should be enabled. Default: `true`
 	Enabled *bool `pulumi:"enabled"`
-	// A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+	// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters []NotificationPolicyFilter `pulumi:"filters"`
 	// Name of the notification policy
 	Name *string `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription *string `pulumi:"policyDescription"`
-	// Suppress value of the policy. Values are: true, false. Default: false
+	// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
 	Suppress *bool `pulumi:"suppress"`
 	// Id of team that this policy belons to.
 	TeamId string `pulumi:"teamId"`
@@ -178,15 +176,15 @@ type NotificationPolicyArgs struct {
 	DeDuplicationActions NotificationPolicyDeDuplicationActionArrayInput
 	// Delay notifications. This is a block, structure is documented below.
 	DelayActions NotificationPolicyDelayActionArrayInput
-	// If policy should be enabled. Default: true
+	// If policy should be enabled. Default: `true`
 	Enabled pulumi.BoolPtrInput
-	// A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+	// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters NotificationPolicyFilterArrayInput
 	// Name of the notification policy
 	Name pulumi.StringPtrInput
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrInput
-	// Suppress value of the policy. Values are: true, false. Default: false
+	// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
 	Suppress pulumi.BoolPtrInput
 	// Id of team that this policy belons to.
 	TeamId pulumi.StringInput

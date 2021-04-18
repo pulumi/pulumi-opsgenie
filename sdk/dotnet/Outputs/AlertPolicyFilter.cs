@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertPolicyFilterCondition> Conditions;
         /// <summary>
-        /// Type of responder. Acceptable values are: user or team
+        /// Type of responder. Acceptable values are: `user` or `team`
         /// </summary>
         public readonly string? Type;
 

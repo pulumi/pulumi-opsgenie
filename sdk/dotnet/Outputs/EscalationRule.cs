@@ -14,30 +14,19 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class EscalationRule
     {
         /// <summary>
-        /// The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: if-not-acked and if-not-closed. If not given, if-not-acked is used.
+        /// The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
         /// </summary>
         public readonly string Condition;
         /// <summary>
-        /// Time delay of the escalation rule. This parameter takes an object that consists timeAmount field that takes time amount in minutes.
+        /// Time delay of the escalation rule, in minutes.
         /// </summary>
         public readonly int Delay;
         /// <summary>
         /// Recipient calculation logic for schedules. Possible values are:
-        /// ```csharp
-        /// using Pulumi;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///     }
-        /// 
-        /// }
-        /// ```
         /// </summary>
         public readonly string NotifyType;
         /// <summary>
-        /// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: user, schedule, team.
+        /// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
         /// </summary>
         public readonly ImmutableArray<Outputs.EscalationRuleRecipient> Recipients;
 

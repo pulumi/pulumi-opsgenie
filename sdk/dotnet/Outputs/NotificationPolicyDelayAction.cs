@@ -14,19 +14,19 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class NotificationPolicyDelayAction
     {
         /// <summary>
-        /// Defines until what day to delay or for what duration. Possible values are: "for-duration", "next-time", "next-weekday", "next-monday", "next-tuesday", "next-wednesday", "next-thursday", "next-friday", "next-saturday", "next-sunday"
+        /// Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
         /// </summary>
         public readonly string DelayOption;
         /// <summary>
-        /// Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        /// Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationPolicyDelayActionDuration> Durations;
         /// <summary>
-        /// Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then "for-duration" this has to be set.
+        /// Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         /// </summary>
         public readonly int? UntilHour;
         /// <summary>
-        /// Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then "for-duration" this has to be set.
+        /// Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         /// </summary>
         public readonly int? UntilMinute;
 

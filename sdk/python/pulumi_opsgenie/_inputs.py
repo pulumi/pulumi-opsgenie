@@ -86,7 +86,7 @@ class AlertPolicyFilterArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]] conditions: Conditions applied to filter. This is a block, structure is documented below.
-        :param pulumi.Input[str] type: Type of responder. Acceptable values are: user or team
+        :param pulumi.Input[str] type: Type of responder. Acceptable values are: `user` or `team`
         """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -109,7 +109,7 @@ class AlertPolicyFilterArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of responder. Acceptable values are: user or team
+        Type of responder. Acceptable values are: `user` or `team`
         """
         return pulumi.get(self, "type")
 
@@ -128,11 +128,11 @@ class AlertPolicyFilterConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
-        :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         :param pulumi.Input[str] expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param pulumi.Input[str] key: If `field` is set as extra-properties, key could be used for key-value pair
-        :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default: false
+        :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default:`false`
         :param pulumi.Input[int] order: Order of the condition in conditions list
         """
         pulumi.set(__self__, "field", field)
@@ -150,7 +150,7 @@ class AlertPolicyFilterConditionArgs:
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
         """
-        Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
         """
         return pulumi.get(self, "field")
 
@@ -162,7 +162,7 @@ class AlertPolicyFilterConditionArgs:
     @pulumi.getter
     def operation(self) -> pulumi.Input[str]:
         """
-        It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+        It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         """
         return pulumi.get(self, "operation")
 
@@ -198,7 +198,7 @@ class AlertPolicyFilterConditionArgs:
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates behaviour of the given operation. Default: false
+        Indicates behaviour of the given operation. Default:`false`
         """
         return pulumi.get(self, "not_")
 
@@ -228,7 +228,7 @@ class AlertPolicyResponderArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] id: ID of the responder
-        :param pulumi.Input[str] type: Type of responder. Acceptable values are: user or team
+        :param pulumi.Input[str] type: Type of responder. Acceptable values are: `user` or `team`
         :param pulumi.Input[str] name: Name of the responder
         :param pulumi.Input[str] username: Username of the responder
         """
@@ -255,7 +255,7 @@ class AlertPolicyResponderArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of responder. Acceptable values are: user or team
+        Type of responder. Acceptable values are: `user` or `team`
         """
         return pulumi.get(self, "type")
 
@@ -294,8 +294,8 @@ class AlertPolicyTimeRestrictionArgs:
                  type: pulumi.Input[str],
                  restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: Type of responder. Acceptable values are: user or team
-        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]] restrictions: List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+        :param pulumi.Input[str] type: Type of responder. Acceptable values are: `user` or `team`
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]] restrictions: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "type", type)
         if restrictions is not None:
@@ -305,7 +305,7 @@ class AlertPolicyTimeRestrictionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of responder. Acceptable values are: user or team
+        Type of responder. Acceptable values are: `user` or `team`
         """
         return pulumi.get(self, "type")
 
@@ -317,7 +317,7 @@ class AlertPolicyTimeRestrictionArgs:
     @pulumi.getter
     def restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]:
         """
-        List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+        List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "restrictions")
 
@@ -336,10 +336,10 @@ class AlertPolicyTimeRestrictionRestrictionArgs:
                  start_hour: pulumi.Input[int],
                  start_min: pulumi.Input[int]):
         """
-        :param pulumi.Input[str] end_day: Ending day of restriction (eg. "wednesday)
+        :param pulumi.Input[str] end_day: Ending day of restriction (eg. `wednesday`)
         :param pulumi.Input[int] end_hour: Ending hour of restriction.
         :param pulumi.Input[int] end_min: Ending minute of restriction on defined `end_hour`
-        :param pulumi.Input[str] start_day: Starting day of restriction (eg. "monday")
+        :param pulumi.Input[str] start_day: Starting day of restriction (eg. `monday`)
         :param pulumi.Input[int] start_hour: Starting hour of restriction.
         :param pulumi.Input[int] start_min: Staring minute of restriction on defined `start_hour`
         """
@@ -354,7 +354,7 @@ class AlertPolicyTimeRestrictionRestrictionArgs:
     @pulumi.getter(name="endDay")
     def end_day(self) -> pulumi.Input[str]:
         """
-        Ending day of restriction (eg. "wednesday)
+        Ending day of restriction (eg. `wednesday`)
         """
         return pulumi.get(self, "end_day")
 
@@ -390,7 +390,7 @@ class AlertPolicyTimeRestrictionRestrictionArgs:
     @pulumi.getter(name="startDay")
     def start_day(self) -> pulumi.Input[str]:
         """
-        Starting day of restriction (eg. "monday")
+        Starting day of restriction (eg. `monday`)
         """
         return pulumi.get(self, "start_day")
 
@@ -562,13 +562,10 @@ class EscalationRuleArgs:
                  notify_type: pulumi.Input[str],
                  recipients: pulumi.Input[Sequence[pulumi.Input['EscalationRuleRecipientArgs']]]):
         """
-        :param pulumi.Input[str] condition: The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: if-not-acked and if-not-closed. If not given, if-not-acked is used.
-        :param pulumi.Input[int] delay: Time delay of the escalation rule. This parameter takes an object that consists timeAmount field that takes time amount in minutes.
+        :param pulumi.Input[str] condition: The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
+        :param pulumi.Input[int] delay: Time delay of the escalation rule, in minutes.
         :param pulumi.Input[str] notify_type: Recipient calculation logic for schedules. Possible values are:
-               ```python
-               import pulumi
-               ```
-        :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleRecipientArgs']]] recipients: Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: user, schedule, team.
+        :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleRecipientArgs']]] recipients: Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
         """
         pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "delay", delay)
@@ -579,7 +576,7 @@ class EscalationRuleArgs:
     @pulumi.getter
     def condition(self) -> pulumi.Input[str]:
         """
-        The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: if-not-acked and if-not-closed. If not given, if-not-acked is used.
+        The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
         """
         return pulumi.get(self, "condition")
 
@@ -591,7 +588,7 @@ class EscalationRuleArgs:
     @pulumi.getter
     def delay(self) -> pulumi.Input[int]:
         """
-        Time delay of the escalation rule. This parameter takes an object that consists timeAmount field that takes time amount in minutes.
+        Time delay of the escalation rule, in minutes.
         """
         return pulumi.get(self, "delay")
 
@@ -604,9 +601,6 @@ class EscalationRuleArgs:
     def notify_type(self) -> pulumi.Input[str]:
         """
         Recipient calculation logic for schedules. Possible values are:
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "notify_type")
 
@@ -618,7 +612,7 @@ class EscalationRuleArgs:
     @pulumi.getter
     def recipients(self) -> pulumi.Input[Sequence[pulumi.Input['EscalationRuleRecipientArgs']]]:
         """
-        Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: user, schedule, team.
+        Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
         """
         return pulumi.get(self, "recipients")
 
@@ -728,14 +722,14 @@ class IntegrationActionAcknowledgeArgs:
                  user: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the integration action.
-        :param pulumi.Input[str] alias: An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+        :param pulumi.Input[str] alias: An identifier that is used for alert deduplication. Default: `{{alias}}`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgs']]] filters: Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
                * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
                * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
                * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
-        :param pulumi.Input[str] note: Integer value that defines in which order the action will be performed.
-        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Defaults to `1`.
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[str] note: Additional alert action note.
+        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Default: `1`.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         :param pulumi.Input[str] user: Owner of the execution for integration action.
         """
         pulumi.set(__self__, "name", name)
@@ -768,7 +762,7 @@ class IntegrationActionAcknowledgeArgs:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
         """
-        An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+        An identifier that is used for alert deduplication. Default: `{{alias}}`.
         """
         return pulumi.get(self, "alias")
 
@@ -795,7 +789,7 @@ class IntegrationActionAcknowledgeArgs:
     @pulumi.getter
     def note(self) -> Optional[pulumi.Input[str]]:
         """
-        Integer value that defines in which order the action will be performed.
+        Additional alert action note.
         """
         return pulumi.get(self, "note")
 
@@ -807,7 +801,7 @@ class IntegrationActionAcknowledgeArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value that defines in which order the action will be performed. Defaults to `1`.
+        Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
@@ -819,7 +813,7 @@ class IntegrationActionAcknowledgeArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -846,7 +840,7 @@ class IntegrationActionAcknowledgeFilterArgs:
                  type: pulumi.Input[str],
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         """
         pulumi.set(__self__, "type", type)
         if conditions is not None:
@@ -856,7 +850,7 @@ class IntegrationActionAcknowledgeFilterArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -884,7 +878,7 @@ class IntegrationActionAcknowledgeFilterConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Defaults to `1`.
+        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
         pulumi.set(__self__, "field", field)
         pulumi.set(__self__, "operation", operation)
@@ -946,7 +940,7 @@ class IntegrationActionAcknowledgeFilterConditionArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value that defines in which order the action will be performed. Defaults to `1`.
+        Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
@@ -967,14 +961,14 @@ class IntegrationActionAddNoteArgs:
                  user: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the integration action.
-        :param pulumi.Input[str] alias: An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+        :param pulumi.Input[str] alias: An identifier that is used for alert deduplication. Default: `{{alias}}`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgs']]] filters: Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
                * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
                * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
                * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
-        :param pulumi.Input[str] note: Integer value that defines in which order the action will be performed.
-        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Defaults to `1`.
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[str] note: Additional alert action note.
+        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Default: `1`.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         :param pulumi.Input[str] user: Owner of the execution for integration action.
         """
         pulumi.set(__self__, "name", name)
@@ -1007,7 +1001,7 @@ class IntegrationActionAddNoteArgs:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
         """
-        An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+        An identifier that is used for alert deduplication. Default: `{{alias}}`.
         """
         return pulumi.get(self, "alias")
 
@@ -1034,7 +1028,7 @@ class IntegrationActionAddNoteArgs:
     @pulumi.getter
     def note(self) -> Optional[pulumi.Input[str]]:
         """
-        Integer value that defines in which order the action will be performed.
+        Additional alert action note.
         """
         return pulumi.get(self, "note")
 
@@ -1046,7 +1040,7 @@ class IntegrationActionAddNoteArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value that defines in which order the action will be performed. Defaults to `1`.
+        Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
@@ -1058,7 +1052,7 @@ class IntegrationActionAddNoteArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -1085,7 +1079,7 @@ class IntegrationActionAddNoteFilterArgs:
                  type: pulumi.Input[str],
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         """
         pulumi.set(__self__, "type", type)
         if conditions is not None:
@@ -1095,7 +1089,7 @@ class IntegrationActionAddNoteFilterArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -1123,7 +1117,7 @@ class IntegrationActionAddNoteFilterConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Defaults to `1`.
+        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
         pulumi.set(__self__, "field", field)
         pulumi.set(__self__, "operation", operation)
@@ -1185,7 +1179,7 @@ class IntegrationActionAddNoteFilterConditionArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value that defines in which order the action will be performed. Defaults to `1`.
+        Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
@@ -1206,14 +1200,14 @@ class IntegrationActionCloseArgs:
                  user: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the integration action.
-        :param pulumi.Input[str] alias: An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+        :param pulumi.Input[str] alias: An identifier that is used for alert deduplication. Default: `{{alias}}`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterArgs']]] filters: Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
                * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
                * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
                * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
-        :param pulumi.Input[str] note: Integer value that defines in which order the action will be performed.
-        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Defaults to `1`.
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[str] note: Additional alert action note.
+        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Default: `1`.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         :param pulumi.Input[str] user: Owner of the execution for integration action.
         """
         pulumi.set(__self__, "name", name)
@@ -1246,7 +1240,7 @@ class IntegrationActionCloseArgs:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
         """
-        An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+        An identifier that is used for alert deduplication. Default: `{{alias}}`.
         """
         return pulumi.get(self, "alias")
 
@@ -1273,7 +1267,7 @@ class IntegrationActionCloseArgs:
     @pulumi.getter
     def note(self) -> Optional[pulumi.Input[str]]:
         """
-        Integer value that defines in which order the action will be performed.
+        Additional alert action note.
         """
         return pulumi.get(self, "note")
 
@@ -1285,7 +1279,7 @@ class IntegrationActionCloseArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value that defines in which order the action will be performed. Defaults to `1`.
+        Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
@@ -1297,7 +1291,7 @@ class IntegrationActionCloseArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -1324,7 +1318,7 @@ class IntegrationActionCloseFilterArgs:
                  type: pulumi.Input[str],
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         """
         pulumi.set(__self__, "type", type)
         if conditions is not None:
@@ -1334,7 +1328,7 @@ class IntegrationActionCloseFilterArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -1362,7 +1356,7 @@ class IntegrationActionCloseFilterConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Defaults to `1`.
+        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
         pulumi.set(__self__, "field", field)
         pulumi.set(__self__, "operation", operation)
@@ -1424,7 +1418,7 @@ class IntegrationActionCloseFilterConditionArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value that defines in which order the action will be performed. Defaults to `1`.
+        Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
@@ -1461,8 +1455,8 @@ class IntegrationActionCreateArgs:
                  user: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the integration action.
-        :param pulumi.Input[str] alias: An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
-        :param pulumi.Input[str] custom_priority: Custom alert priority. e.g. {{message.substring(0,2)}}
+        :param pulumi.Input[str] alias: An identifier that is used for alert deduplication. Default: `{{alias}}`.
+        :param pulumi.Input[str] custom_priority: Custom alert priority. e.g. ``{{message.substring(0,2)}}``
         :param pulumi.Input[str] description: Detailed description of the alert, anything that may not have fit in the `message` field.
         :param pulumi.Input[str] entity: The entity the alert is related to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extra_properties: Set of user defined properties specified as a map.
@@ -1473,13 +1467,13 @@ class IntegrationActionCreateArgs:
         :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore responders sent in request payloads.
         :param pulumi.Input[bool] ignore_teams_from_payload: If enabled, the integration will ignore teams sent in request payloads.
         :param pulumi.Input[str] message: Alert text limited to 130 characters.
-        :param pulumi.Input[str] note: Integer value that defines in which order the action will be performed.
-        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Defaults to `1`.
+        :param pulumi.Input[str] note: Additional alert action note.
+        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         :param pulumi.Input[str] priority: Alert priority.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateResponderArgs']]] responders: User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
         :param pulumi.Input[str] source: User defined field to specify source of action.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Comma separated list of labels to be attached to the alert.
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         :param pulumi.Input[str] user: Owner of the execution for integration action.
         """
         pulumi.set(__self__, "name", name)
@@ -1553,7 +1547,7 @@ class IntegrationActionCreateArgs:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
         """
-        An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+        An identifier that is used for alert deduplication. Default: `{{alias}}`.
         """
         return pulumi.get(self, "alias")
 
@@ -1574,7 +1568,7 @@ class IntegrationActionCreateArgs:
     @pulumi.getter(name="customPriority")
     def custom_priority(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom alert priority. e.g. {{message.substring(0,2)}}
+        Custom alert priority. e.g. ``{{message.substring(0,2)}}``
         """
         return pulumi.get(self, "custom_priority")
 
@@ -1700,7 +1694,7 @@ class IntegrationActionCreateArgs:
     @pulumi.getter
     def note(self) -> Optional[pulumi.Input[str]]:
         """
-        Integer value that defines in which order the action will be performed.
+        Additional alert action note.
         """
         return pulumi.get(self, "note")
 
@@ -1712,7 +1706,7 @@ class IntegrationActionCreateArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value that defines in which order the action will be performed. Defaults to `1`.
+        Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
@@ -1772,7 +1766,7 @@ class IntegrationActionCreateArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -1799,7 +1793,7 @@ class IntegrationActionCreateFilterArgs:
                  type: pulumi.Input[str],
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         """
         pulumi.set(__self__, "type", type)
         if conditions is not None:
@@ -1809,7 +1803,7 @@ class IntegrationActionCreateFilterArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -1837,7 +1831,7 @@ class IntegrationActionCreateFilterConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Defaults to `1`.
+        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
         pulumi.set(__self__, "field", field)
         pulumi.set(__self__, "operation", operation)
@@ -1899,7 +1893,7 @@ class IntegrationActionCreateFilterConditionArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value that defines in which order the action will be performed. Defaults to `1`.
+        Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
@@ -1915,7 +1909,7 @@ class IntegrationActionCreateResponderArgs:
                  type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: The id of the responder.
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -1936,7 +1930,7 @@ class IntegrationActionCreateResponderArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -1958,8 +1952,8 @@ class IntegrationActionIgnoreArgs:
                * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
                * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
                * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
-        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Defaults to `1`.
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Default: `1`.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         """
         pulumi.set(__self__, "name", name)
         if filters is not None:
@@ -2000,7 +1994,7 @@ class IntegrationActionIgnoreArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value that defines in which order the action will be performed. Defaults to `1`.
+        Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
@@ -2012,7 +2006,7 @@ class IntegrationActionIgnoreArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -2027,7 +2021,7 @@ class IntegrationActionIgnoreFilterArgs:
                  type: pulumi.Input[str],
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: The responder type - can be escalation, team or user.
+        :param pulumi.Input[str] type: The responder type - can be `escalation`, `team` or `user`.
         """
         pulumi.set(__self__, "type", type)
         if conditions is not None:
@@ -2037,7 +2031,7 @@ class IntegrationActionIgnoreFilterArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The responder type - can be escalation, team or user.
+        The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
@@ -2065,7 +2059,7 @@ class IntegrationActionIgnoreFilterConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Defaults to `1`.
+        :param pulumi.Input[int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
         pulumi.set(__self__, "field", field)
         pulumi.set(__self__, "operation", operation)
@@ -2127,7 +2121,7 @@ class IntegrationActionIgnoreFilterConditionArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value that defines in which order the action will be performed. Defaults to `1`.
+        Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
@@ -2272,7 +2266,7 @@ class NotificationPolicyAutoCloseActionArgs:
     def __init__(__self__, *,
                  durations: pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionDurationArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionDurationArgs']]] durations: Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionDurationArgs']]] durations: Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "durations", durations)
 
@@ -2280,7 +2274,7 @@ class NotificationPolicyAutoCloseActionArgs:
     @pulumi.getter
     def durations(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionDurationArgs']]]:
         """
-        Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         """
         return pulumi.get(self, "durations")
 
@@ -2296,7 +2290,7 @@ class NotificationPolicyAutoCloseActionDurationArgs:
                  time_unit: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] time_amount: A amount of time in `time_units`. This is a integer attribute.
-        :param pulumi.Input[str] time_unit: Valid time units are: "minutes", "hours", "days". Default: minutes
+        :param pulumi.Input[str] time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         pulumi.set(__self__, "time_amount", time_amount)
         if time_unit is not None:
@@ -2318,7 +2312,7 @@ class NotificationPolicyAutoCloseActionDurationArgs:
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> Optional[pulumi.Input[str]]:
         """
-        Valid time units are: "minutes", "hours", "days". Default: minutes
+        Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         return pulumi.get(self, "time_unit")
 
@@ -2333,7 +2327,7 @@ class NotificationPolicyAutoRestartActionArgs:
                  durations: pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionDurationArgs']]],
                  max_repeat_count: pulumi.Input[int]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionDurationArgs']]] durations: Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionDurationArgs']]] durations: Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         :param pulumi.Input[int] max_repeat_count: How many times to repeat. This is a integer attribute.
         """
         pulumi.set(__self__, "durations", durations)
@@ -2343,7 +2337,7 @@ class NotificationPolicyAutoRestartActionArgs:
     @pulumi.getter
     def durations(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionDurationArgs']]]:
         """
-        Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         """
         return pulumi.get(self, "durations")
 
@@ -2371,7 +2365,7 @@ class NotificationPolicyAutoRestartActionDurationArgs:
                  time_unit: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] time_amount: A amount of time in `time_units`. This is a integer attribute.
-        :param pulumi.Input[str] time_unit: Valid time units are: "minutes", "hours", "days". Default: minutes
+        :param pulumi.Input[str] time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         pulumi.set(__self__, "time_amount", time_amount)
         if time_unit is not None:
@@ -2393,7 +2387,7 @@ class NotificationPolicyAutoRestartActionDurationArgs:
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> Optional[pulumi.Input[str]]:
         """
-        Valid time units are: "minutes", "hours", "days". Default: minutes
+        Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         return pulumi.get(self, "time_unit")
 
@@ -2411,7 +2405,7 @@ class NotificationPolicyDeDuplicationActionArgs:
         """
         :param pulumi.Input[int] count: - Count
         :param pulumi.Input[str] de_duplication_action_type: Deduplication type. Possible values are: "value-based", "frequency-based"
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]] durations: Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]] durations: Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "de_duplication_action_type", de_duplication_action_type)
@@ -2446,7 +2440,7 @@ class NotificationPolicyDeDuplicationActionArgs:
     @pulumi.getter
     def durations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]]:
         """
-        Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         """
         return pulumi.get(self, "durations")
 
@@ -2462,7 +2456,7 @@ class NotificationPolicyDeDuplicationActionDurationArgs:
                  time_unit: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] time_amount: A amount of time in `time_units`. This is a integer attribute.
-        :param pulumi.Input[str] time_unit: Valid time units are: "minutes", "hours", "days". Default: minutes
+        :param pulumi.Input[str] time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         pulumi.set(__self__, "time_amount", time_amount)
         if time_unit is not None:
@@ -2484,7 +2478,7 @@ class NotificationPolicyDeDuplicationActionDurationArgs:
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> Optional[pulumi.Input[str]]:
         """
-        Valid time units are: "minutes", "hours", "days". Default: minutes
+        Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         return pulumi.get(self, "time_unit")
 
@@ -2501,10 +2495,10 @@ class NotificationPolicyDelayActionArgs:
                  until_hour: Optional[pulumi.Input[int]] = None,
                  until_minute: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] delay_option: Defines until what day to delay or for what duration. Possible values are: "for-duration", "next-time", "next-weekday", "next-monday", "next-tuesday", "next-wednesday", "next-thursday", "next-friday", "next-saturday", "next-sunday"
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]] durations: Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
-        :param pulumi.Input[int] until_hour: Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then "for-duration" this has to be set.
-        :param pulumi.Input[int] until_minute: Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then "for-duration" this has to be set.
+        :param pulumi.Input[str] delay_option: Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]] durations: Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        :param pulumi.Input[int] until_hour: Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+        :param pulumi.Input[int] until_minute: Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         """
         pulumi.set(__self__, "delay_option", delay_option)
         if durations is not None:
@@ -2518,7 +2512,7 @@ class NotificationPolicyDelayActionArgs:
     @pulumi.getter(name="delayOption")
     def delay_option(self) -> pulumi.Input[str]:
         """
-        Defines until what day to delay or for what duration. Possible values are: "for-duration", "next-time", "next-weekday", "next-monday", "next-tuesday", "next-wednesday", "next-thursday", "next-friday", "next-saturday", "next-sunday"
+        Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
         """
         return pulumi.get(self, "delay_option")
 
@@ -2530,7 +2524,7 @@ class NotificationPolicyDelayActionArgs:
     @pulumi.getter
     def durations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]]]:
         """
-        Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         """
         return pulumi.get(self, "durations")
 
@@ -2542,7 +2536,7 @@ class NotificationPolicyDelayActionArgs:
     @pulumi.getter(name="untilHour")
     def until_hour(self) -> Optional[pulumi.Input[int]]:
         """
-        Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then "for-duration" this has to be set.
+        Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         """
         return pulumi.get(self, "until_hour")
 
@@ -2554,7 +2548,7 @@ class NotificationPolicyDelayActionArgs:
     @pulumi.getter(name="untilMinute")
     def until_minute(self) -> Optional[pulumi.Input[int]]:
         """
-        Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then "for-duration" this has to be set.
+        Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         """
         return pulumi.get(self, "until_minute")
 
@@ -2570,7 +2564,7 @@ class NotificationPolicyDelayActionDurationArgs:
                  time_unit: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] time_amount: A amount of time in `time_units`. This is a integer attribute.
-        :param pulumi.Input[str] time_unit: Valid time units are: "minutes", "hours", "days". Default: minutes
+        :param pulumi.Input[str] time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         pulumi.set(__self__, "time_amount", time_amount)
         if time_unit is not None:
@@ -2592,7 +2586,7 @@ class NotificationPolicyDelayActionDurationArgs:
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> Optional[pulumi.Input[str]]:
         """
-        Valid time units are: "minutes", "hours", "days". Default: minutes
+        Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         return pulumi.get(self, "time_unit")
 
@@ -2608,7 +2602,7 @@ class NotificationPolicyFilterArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]] conditions: Conditions applied to filter. This is a block, structure is documented below.
-        :param pulumi.Input[str] type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: "time-of-day", "weekday-and-time-of-day"
+        :param pulumi.Input[str] type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -2631,7 +2625,7 @@ class NotificationPolicyFilterArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: "time-of-day", "weekday-and-time-of-day"
+        Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         """
         return pulumi.get(self, "type")
 
@@ -2650,11 +2644,11 @@ class NotificationPolicyFilterConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
-        :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         :param pulumi.Input[str] expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param pulumi.Input[str] key: If `field` is set as extra-properties, key could be used for key-value pair
-        :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default: false
+        :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default: `false`
         :param pulumi.Input[int] order: Order of the condition in conditions list
         """
         pulumi.set(__self__, "field", field)
@@ -2672,7 +2666,7 @@ class NotificationPolicyFilterConditionArgs:
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
         """
-        Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
         """
         return pulumi.get(self, "field")
 
@@ -2684,7 +2678,7 @@ class NotificationPolicyFilterConditionArgs:
     @pulumi.getter
     def operation(self) -> pulumi.Input[str]:
         """
-        It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+        It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         """
         return pulumi.get(self, "operation")
 
@@ -2720,7 +2714,7 @@ class NotificationPolicyFilterConditionArgs:
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates behaviour of the given operation. Default: false
+        Indicates behaviour of the given operation. Default: `false`
         """
         return pulumi.get(self, "not_")
 
@@ -2747,8 +2741,8 @@ class NotificationPolicyTimeRestrictionArgs:
                  type: pulumi.Input[str],
                  restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: "time-of-day", "weekday-and-time-of-day"
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]] restrictions: List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+        :param pulumi.Input[str] type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]] restrictions: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "type", type)
         if restrictions is not None:
@@ -2758,7 +2752,7 @@ class NotificationPolicyTimeRestrictionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: "time-of-day", "weekday-and-time-of-day"
+        Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         """
         return pulumi.get(self, "type")
 
@@ -2770,7 +2764,7 @@ class NotificationPolicyTimeRestrictionArgs:
     @pulumi.getter
     def restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]:
         """
-        List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+        List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "restrictions")
 
@@ -2789,10 +2783,10 @@ class NotificationPolicyTimeRestrictionRestrictionArgs:
                  start_hour: pulumi.Input[int],
                  start_min: pulumi.Input[int]):
         """
-        :param pulumi.Input[str] end_day: Ending day of restriction (eg. "wednesday)
+        :param pulumi.Input[str] end_day: Ending day of restriction (eg. `wednesday`)
         :param pulumi.Input[int] end_hour: Ending hour of restriction.
         :param pulumi.Input[int] end_min: Ending minute of restriction on defined `end_hour`
-        :param pulumi.Input[str] start_day: Starting day of restriction (eg. "monday")
+        :param pulumi.Input[str] start_day: Starting day of restriction (eg. `monday`)
         :param pulumi.Input[int] start_hour: Starting hour of restriction.
         :param pulumi.Input[int] start_min: Staring minute of restriction on defined `start_hour`
         """
@@ -2807,7 +2801,7 @@ class NotificationPolicyTimeRestrictionRestrictionArgs:
     @pulumi.getter(name="endDay")
     def end_day(self) -> pulumi.Input[str]:
         """
-        Ending day of restriction (eg. "wednesday)
+        Ending day of restriction (eg. `wednesday`)
         """
         return pulumi.get(self, "end_day")
 
@@ -2843,7 +2837,7 @@ class NotificationPolicyTimeRestrictionRestrictionArgs:
     @pulumi.getter(name="startDay")
     def start_day(self) -> pulumi.Input[str]:
         """
-        Starting day of restriction (eg. "monday")
+        Starting day of restriction (eg. `monday`)
         """
         return pulumi.get(self, "start_day")
 

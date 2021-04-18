@@ -13,30 +13,19 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class EscalationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: if-not-acked and if-not-closed. If not given, if-not-acked is used.
+        /// The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
         /// </summary>
         [Input("condition", required: true)]
         public Input<string> Condition { get; set; } = null!;
 
         /// <summary>
-        /// Time delay of the escalation rule. This parameter takes an object that consists timeAmount field that takes time amount in minutes.
+        /// Time delay of the escalation rule, in minutes.
         /// </summary>
         [Input("delay", required: true)]
         public Input<int> Delay { get; set; } = null!;
 
         /// <summary>
         /// Recipient calculation logic for schedules. Possible values are:
-        /// ```csharp
-        /// using Pulumi;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///     }
-        /// 
-        /// }
-        /// ```
         /// </summary>
         [Input("notifyType", required: true)]
         public Input<string> NotifyType { get; set; } = null!;
@@ -45,7 +34,7 @@ namespace Pulumi.Opsgenie.Inputs
         private InputList<Inputs.EscalationRuleRecipientArgs>? _recipients;
 
         /// <summary>
-        /// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: user, schedule, team.
+        /// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
         /// </summary>
         public InputList<Inputs.EscalationRuleRecipientArgs> Recipients
         {

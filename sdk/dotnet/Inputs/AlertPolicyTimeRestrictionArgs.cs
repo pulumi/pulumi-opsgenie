@@ -16,7 +16,7 @@ namespace Pulumi.Opsgenie.Inputs
         private InputList<Inputs.AlertPolicyTimeRestrictionRestrictionArgs>? _restrictions;
 
         /// <summary>
-        /// List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+        /// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.AlertPolicyTimeRestrictionRestrictionArgs> Restrictions
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// Type of responder. Acceptable values are: user or team
+        /// Type of responder. Acceptable values are: `user` or `team`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

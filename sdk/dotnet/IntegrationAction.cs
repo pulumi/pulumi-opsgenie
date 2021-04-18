@@ -11,15 +11,15 @@ namespace Pulumi.Opsgenie
 {
     /// <summary>
     /// Manages advanced actions for Integrations within Opsgenie. This applies for the following resources:
-    /// * opsgenie.ApiIntegration
-    /// * opsgenie.EmailIntegration
+    /// * `opsgenie.ApiIntegration`
+    /// * `opsgenie.EmailIntegration`
     /// 
     /// The actions that are supported are:
-    /// * create
-    /// * close
-    /// * acknowledge
-    /// * add_note
-    /// * ignore
+    /// * `create`
+    /// * `close`
+    /// * `acknowledge`
+    /// * `add_note`
+    /// * `ignore`
     /// 
     /// ## Example Usage
     /// 

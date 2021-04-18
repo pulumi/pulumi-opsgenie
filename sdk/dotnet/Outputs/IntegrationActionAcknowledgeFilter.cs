@@ -15,7 +15,7 @@ namespace Pulumi.Opsgenie.Outputs
     {
         public readonly ImmutableArray<Outputs.IntegrationActionAcknowledgeFilterCondition> Conditions;
         /// <summary>
-        /// The responder type - can be escalation, team or user.
+        /// The responder type - can be `escalation`, `team` or `user`.
         /// </summary>
         public readonly string Type;
 

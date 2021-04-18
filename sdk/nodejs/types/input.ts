@@ -10,7 +10,7 @@ export interface AlertPolicyFilter {
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.AlertPolicyFilterCondition>[]>;
     /**
-     * Type of responder. Acceptable values are: user or team
+     * Type of responder. Acceptable values are: `user` or `team`
      */
     type?: pulumi.Input<string>;
 }
@@ -21,7 +21,7 @@ export interface AlertPolicyFilterCondition {
      */
     expectedValue?: pulumi.Input<string>;
     /**
-     * Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
      */
     field: pulumi.Input<string>;
     /**
@@ -29,11 +29,11 @@ export interface AlertPolicyFilterCondition {
      */
     key?: pulumi.Input<string>;
     /**
-     * Indicates behaviour of the given operation. Default: false
+     * Indicates behaviour of the given operation. Default:`false`
      */
     not?: pulumi.Input<boolean>;
     /**
-     * It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+     * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
      */
     operation: pulumi.Input<string>;
     /**
@@ -52,7 +52,7 @@ export interface AlertPolicyResponder {
      */
     name?: pulumi.Input<string>;
     /**
-     * Type of responder. Acceptable values are: user or team
+     * Type of responder. Acceptable values are: `user` or `team`
      */
     type: pulumi.Input<string>;
     /**
@@ -63,18 +63,18 @@ export interface AlertPolicyResponder {
 
 export interface AlertPolicyTimeRestriction {
     /**
-     * List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+     * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
     restrictions?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestrictionRestriction>[]>;
     /**
-     * Type of responder. Acceptable values are: user or team
+     * Type of responder. Acceptable values are: `user` or `team`
      */
     type: pulumi.Input<string>;
 }
 
 export interface AlertPolicyTimeRestrictionRestriction {
     /**
-     * Ending day of restriction (eg. "wednesday)
+     * Ending day of restriction (eg. `wednesday`)
      */
     endDay: pulumi.Input<string>;
     /**
@@ -86,7 +86,7 @@ export interface AlertPolicyTimeRestrictionRestriction {
      */
     endMin: pulumi.Input<number>;
     /**
-     * Starting day of restriction (eg. "monday")
+     * Starting day of restriction (eg. `monday`)
      */
     startDay: pulumi.Input<string>;
     /**
@@ -130,22 +130,19 @@ export interface EscalationRepeat {
 
 export interface EscalationRule {
     /**
-     * The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: if-not-acked and if-not-closed. If not given, if-not-acked is used.
+     * The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
      */
     condition: pulumi.Input<string>;
     /**
-     * Time delay of the escalation rule. This parameter takes an object that consists timeAmount field that takes time amount in minutes.
+     * Time delay of the escalation rule, in minutes.
      */
     delay: pulumi.Input<number>;
     /**
      * Recipient calculation logic for schedules. Possible values are:
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     notifyType: pulumi.Input<string>;
     /**
-     * Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: user, schedule, team.
+     * Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
      */
     recipients: pulumi.Input<pulumi.Input<inputs.EscalationRuleRecipient>[]>;
 }
@@ -205,7 +202,7 @@ export interface IncidentTemplateStakeholderProperty {
 
 export interface IntegrationActionAcknowledge {
     /**
-     * An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+     * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
     alias?: pulumi.Input<string>;
     /**
@@ -220,15 +217,15 @@ export interface IntegrationActionAcknowledge {
      */
     name: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed.
+     * Additional alert action note.
      */
     note?: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -240,7 +237,7 @@ export interface IntegrationActionAcknowledge {
 export interface IntegrationActionAcknowledgeFilter {
     conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledgeFilterCondition>[]>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: pulumi.Input<string>;
 }
@@ -252,14 +249,14 @@ export interface IntegrationActionAcknowledgeFilterCondition {
     not?: pulumi.Input<boolean>;
     operation: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
 }
 
 export interface IntegrationActionAddNote {
     /**
-     * An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+     * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
     alias?: pulumi.Input<string>;
     /**
@@ -274,15 +271,15 @@ export interface IntegrationActionAddNote {
      */
     name: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed.
+     * Additional alert action note.
      */
     note?: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -294,7 +291,7 @@ export interface IntegrationActionAddNote {
 export interface IntegrationActionAddNoteFilter {
     conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNoteFilterCondition>[]>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: pulumi.Input<string>;
 }
@@ -306,14 +303,14 @@ export interface IntegrationActionAddNoteFilterCondition {
     not?: pulumi.Input<boolean>;
     operation: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
 }
 
 export interface IntegrationActionClose {
     /**
-     * An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+     * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
     alias?: pulumi.Input<string>;
     /**
@@ -328,15 +325,15 @@ export interface IntegrationActionClose {
      */
     name: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed.
+     * Additional alert action note.
      */
     note?: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -348,7 +345,7 @@ export interface IntegrationActionClose {
 export interface IntegrationActionCloseFilter {
     conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCloseFilterCondition>[]>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: pulumi.Input<string>;
 }
@@ -360,7 +357,7 @@ export interface IntegrationActionCloseFilterCondition {
     not?: pulumi.Input<boolean>;
     operation: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
 }
@@ -368,12 +365,12 @@ export interface IntegrationActionCloseFilterCondition {
 export interface IntegrationActionCreate {
     alertActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+     * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
     alias?: pulumi.Input<string>;
     appendAttachments?: pulumi.Input<boolean>;
     /**
-     * Custom alert priority. e.g. {{message.substring(0,2)}}
+     * Custom alert priority. e.g. ``{{message.substring(0,2)}}``
      */
     customPriority?: pulumi.Input<string>;
     /**
@@ -415,11 +412,11 @@ export interface IntegrationActionCreate {
      */
     name: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed.
+     * Additional alert action note.
      */
     note?: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
     /**
@@ -439,7 +436,7 @@ export interface IntegrationActionCreate {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -451,7 +448,7 @@ export interface IntegrationActionCreate {
 export interface IntegrationActionCreateFilter {
     conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreateFilterCondition>[]>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: pulumi.Input<string>;
 }
@@ -463,7 +460,7 @@ export interface IntegrationActionCreateFilterCondition {
     not?: pulumi.Input<boolean>;
     operation: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
 }
@@ -474,7 +471,7 @@ export interface IntegrationActionCreateResponder {
      */
     id: pulumi.Input<string>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: pulumi.Input<string>;
 }
@@ -492,11 +489,11 @@ export interface IntegrationActionIgnore {
      */
     name: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type?: pulumi.Input<string>;
 }
@@ -504,7 +501,7 @@ export interface IntegrationActionIgnore {
 export interface IntegrationActionIgnoreFilter {
     conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnoreFilterCondition>[]>;
     /**
-     * The responder type - can be escalation, team or user.
+     * The responder type - can be `escalation`, `team` or `user`.
      */
     type: pulumi.Input<string>;
 }
@@ -516,7 +513,7 @@ export interface IntegrationActionIgnoreFilterCondition {
     not?: pulumi.Input<boolean>;
     operation: pulumi.Input<string>;
     /**
-     * Integer value that defines in which order the action will be performed. Defaults to `1`.
+     * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
 }
@@ -560,7 +557,7 @@ export interface MaintenanceTime {
 
 export interface NotificationPolicyAutoCloseAction {
     /**
-     * Duration of this action. If `delayOption` = "for-duration" this has to be set. This is a block, structure is documented below.
+     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      */
     durations: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoCloseActionDuration>[]>;
 }
@@ -571,14 +568,14 @@ export interface NotificationPolicyAutoCloseActionDuration {
      */
     timeAmount: pulumi.Input<number>;
     /**
-     * Valid time units are: "minutes", "hours", "days". Default: minutes
+     * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
     timeUnit?: pulumi.Input<string>;
 }
 
 export interface NotificationPolicyAutoRestartAction {
     /**
-     * Duration of this action. If `delayOption` = "for-duration" this has to be set. This is a block, structure is documented below.
+     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      */
     durations: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoRestartActionDuration>[]>;
     /**
@@ -593,7 +590,7 @@ export interface NotificationPolicyAutoRestartActionDuration {
      */
     timeAmount: pulumi.Input<number>;
     /**
-     * Valid time units are: "minutes", "hours", "days". Default: minutes
+     * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
     timeUnit?: pulumi.Input<string>;
 }
@@ -608,7 +605,7 @@ export interface NotificationPolicyDeDuplicationAction {
      */
     deDuplicationActionType: pulumi.Input<string>;
     /**
-     * Duration of this action. If `delayOption` = "for-duration" this has to be set. This is a block, structure is documented below.
+     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      */
     durations?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDeDuplicationActionDuration>[]>;
 }
@@ -619,26 +616,26 @@ export interface NotificationPolicyDeDuplicationActionDuration {
      */
     timeAmount: pulumi.Input<number>;
     /**
-     * Valid time units are: "minutes", "hours", "days". Default: minutes
+     * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
     timeUnit?: pulumi.Input<string>;
 }
 
 export interface NotificationPolicyDelayAction {
     /**
-     * Defines until what day to delay or for what duration. Possible values are: "for-duration", "next-time", "next-weekday", "next-monday", "next-tuesday", "next-wednesday", "next-thursday", "next-friday", "next-saturday", "next-sunday"
+     * Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
      */
     delayOption: pulumi.Input<string>;
     /**
-     * Duration of this action. If `delayOption` = "for-duration" this has to be set. This is a block, structure is documented below.
+     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      */
     durations?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDelayActionDuration>[]>;
     /**
-     * Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then "for-duration" this has to be set.
+     * Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      */
     untilHour?: pulumi.Input<number>;
     /**
-     * Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then "for-duration" this has to be set.
+     * Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      */
     untilMinute?: pulumi.Input<number>;
 }
@@ -649,7 +646,7 @@ export interface NotificationPolicyDelayActionDuration {
      */
     timeAmount: pulumi.Input<number>;
     /**
-     * Valid time units are: "minutes", "hours", "days". Default: minutes
+     * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
     timeUnit?: pulumi.Input<string>;
 }
@@ -660,7 +657,7 @@ export interface NotificationPolicyFilter {
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyFilterCondition>[]>;
     /**
-     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: "time-of-day", "weekday-and-time-of-day"
+     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      */
     type?: pulumi.Input<string>;
 }
@@ -671,7 +668,7 @@ export interface NotificationPolicyFilterCondition {
      */
     expectedValue?: pulumi.Input<string>;
     /**
-     * Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
      */
     field: pulumi.Input<string>;
     /**
@@ -679,11 +676,11 @@ export interface NotificationPolicyFilterCondition {
      */
     key?: pulumi.Input<string>;
     /**
-     * Indicates behaviour of the given operation. Default: false
+     * Indicates behaviour of the given operation. Default: `false`
      */
     not?: pulumi.Input<boolean>;
     /**
-     * It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+     * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
      */
     operation: pulumi.Input<string>;
     /**
@@ -694,18 +691,18 @@ export interface NotificationPolicyFilterCondition {
 
 export interface NotificationPolicyTimeRestriction {
     /**
-     * List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+     * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
     restrictions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestrictionRestriction>[]>;
     /**
-     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: "time-of-day", "weekday-and-time-of-day"
+     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      */
     type: pulumi.Input<string>;
 }
 
 export interface NotificationPolicyTimeRestrictionRestriction {
     /**
-     * Ending day of restriction (eg. "wednesday)
+     * Ending day of restriction (eg. `wednesday`)
      */
     endDay: pulumi.Input<string>;
     /**
@@ -717,7 +714,7 @@ export interface NotificationPolicyTimeRestrictionRestriction {
      */
     endMin: pulumi.Input<number>;
     /**
-     * Starting day of restriction (eg. "monday")
+     * Starting day of restriction (eg. `monday`)
      */
     startDay: pulumi.Input<string>;
     /**

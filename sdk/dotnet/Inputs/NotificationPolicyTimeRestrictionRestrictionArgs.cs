@@ -13,7 +13,7 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class NotificationPolicyTimeRestrictionRestrictionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Ending day of restriction (eg. "wednesday)
+        /// Ending day of restriction (eg. `wednesday`)
         /// </summary>
         [Input("endDay", required: true)]
         public Input<string> EndDay { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<int> EndMin { get; set; } = null!;
 
         /// <summary>
-        /// Starting day of restriction (eg. "monday")
+        /// Starting day of restriction (eg. `monday`)
         /// </summary>
         [Input("startDay", required: true)]
         public Input<string> StartDay { get; set; } = null!;
