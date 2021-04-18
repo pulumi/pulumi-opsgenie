@@ -16,7 +16,7 @@ namespace Pulumi.Opsgenie.Inputs
         private InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionGetArgs>? _restrictions;
 
         /// <summary>
-        /// List of days and hours definitions for field type = "weekday-and-time-of-day". This is a block, structure is documented below.
+        /// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionGetArgs> Restrictions
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: "time-of-day", "weekday-and-time-of-day"
+        /// Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

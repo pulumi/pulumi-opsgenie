@@ -21,7 +21,7 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// An identifier that is used for alert deduplication. Defaults to `{{alias}}`.
+        /// An identifier that is used for alert deduplication. Default: `{{alias}}`.
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -30,7 +30,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<bool>? AppendAttachments { get; set; }
 
         /// <summary>
-        /// Custom alert priority. e.g. {{message.substring(0,2)}}
+        /// Custom alert priority. e.g. ``{{message.substring(0,2)}}``
         /// </summary>
         [Input("customPriority")]
         public Input<string>? CustomPriority { get; set; }
@@ -108,13 +108,13 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Integer value that defines in which order the action will be performed.
+        /// Additional alert action note.
         /// </summary>
         [Input("note")]
         public Input<string>? Note { get; set; }
 
         /// <summary>
-        /// Integer value that defines in which order the action will be performed. Defaults to `1`.
+        /// Integer value that defines in which order the action will be performed. Default: `1`.
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
@@ -156,7 +156,7 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// The responder type - can be escalation, team or user.
+        /// The responder type - can be `escalation`, `team` or `user`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly int TimeAmount;
         /// <summary>
-        /// Valid time units are: "minutes", "hours", "days". Default: minutes
+        /// Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         /// </summary>
         public readonly string? TimeUnit;
 

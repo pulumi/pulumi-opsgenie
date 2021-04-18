@@ -19,7 +19,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<int> TimeAmount { get; set; } = null!;
 
         /// <summary>
-        /// Valid time units are: "minutes", "hours", "days". Default: minutes
+        /// Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         /// </summary>
         [Input("timeUnit")]
         public Input<string>? TimeUnit { get; set; }

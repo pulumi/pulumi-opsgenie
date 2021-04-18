@@ -28,16 +28,16 @@ class NotificationPolicyArgs:
                  time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]]] = None):
         """
         The set of arguments for constructing a NotificationPolicy resource.
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]] filters: A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]] filters: A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         :param pulumi.Input[str] team_id: Id of team that this policy belons to.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionArgs']]] auto_close_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionArgs']]] auto_restart_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionArgs']]] de_duplication_actions: Deduplication Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionArgs']]] delay_actions: Delay notifications. This is a block, structure is documented below.
-        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: true
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
-        :param pulumi.Input[bool] suppress: Suppress value of the policy. Values are: true, false. Default: false
+        :param pulumi.Input[bool] suppress: Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "filters", filters)
@@ -65,7 +65,7 @@ class NotificationPolicyArgs:
     @pulumi.getter
     def filters(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]]:
         """
-        A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "filters")
 
@@ -137,7 +137,7 @@ class NotificationPolicyArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        If policy should be enabled. Default: true
+        If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -173,7 +173,7 @@ class NotificationPolicyArgs:
     @pulumi.getter
     def suppress(self) -> Optional[pulumi.Input[bool]]:
         """
-        Suppress value of the policy. Values are: true, false. Default: false
+        Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         """
         return pulumi.get(self, "suppress")
 
@@ -214,11 +214,11 @@ class _NotificationPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionArgs']]] auto_restart_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionArgs']]] de_duplication_actions: Deduplication Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionArgs']]] delay_actions: Delay notifications. This is a block, structure is documented below.
-        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: true
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]] filters: A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]] filters: A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
-        :param pulumi.Input[bool] suppress: Suppress value of the policy. Values are: true, false. Default: false
+        :param pulumi.Input[bool] suppress: Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         :param pulumi.Input[str] team_id: Id of team that this policy belons to.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
@@ -297,7 +297,7 @@ class _NotificationPolicyState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        If policy should be enabled. Default: true
+        If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -309,7 +309,7 @@ class _NotificationPolicyState:
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]]]:
         """
-        A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "filters")
 
@@ -345,7 +345,7 @@ class _NotificationPolicyState:
     @pulumi.getter
     def suppress(self) -> Optional[pulumi.Input[bool]]:
         """
-        Suppress value of the policy. Values are: true, false. Default: false
+        Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         """
         return pulumi.get(self, "suppress")
 
@@ -408,9 +408,7 @@ class NotificationPolicy(pulumi.CustomResource):
          $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test teamId/Id`
         ```
 
-         For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-
-        - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+         For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
 
         ```sh
          $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
@@ -422,11 +420,11 @@ class NotificationPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyAutoRestartActionArgs']]]] auto_restart_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyDeDuplicationActionArgs']]]] de_duplication_actions: Deduplication Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyDelayActionArgs']]]] delay_actions: Delay notifications. This is a block, structure is documented below.
-        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: true
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyFilterArgs']]]] filters: A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyFilterArgs']]]] filters: A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
-        :param pulumi.Input[bool] suppress: Suppress value of the policy. Values are: true, false. Default: false
+        :param pulumi.Input[bool] suppress: Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         :param pulumi.Input[str] team_id: Id of team that this policy belons to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyTimeRestrictionArgs']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
@@ -447,9 +445,7 @@ class NotificationPolicy(pulumi.CustomResource):
          $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test teamId/Id`
         ```
 
-         For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-
-        - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+         For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
 
         ```sh
          $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
@@ -548,11 +544,11 @@ class NotificationPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyAutoRestartActionArgs']]]] auto_restart_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyDeDuplicationActionArgs']]]] de_duplication_actions: Deduplication Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyDelayActionArgs']]]] delay_actions: Delay notifications. This is a block, structure is documented below.
-        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: true
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyFilterArgs']]]] filters: A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyFilterArgs']]]] filters: A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
-        :param pulumi.Input[bool] suppress: Suppress value of the policy. Values are: true, false. Default: false
+        :param pulumi.Input[bool] suppress: Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         :param pulumi.Input[str] team_id: Id of team that this policy belons to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationPolicyTimeRestrictionArgs']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
@@ -609,7 +605,7 @@ class NotificationPolicy(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        If policy should be enabled. Default: true
+        If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -617,7 +613,7 @@ class NotificationPolicy(pulumi.CustomResource):
     @pulumi.getter
     def filters(self) -> pulumi.Output[Sequence['outputs.NotificationPolicyFilter']]:
         """
-        A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "filters")
 
@@ -641,7 +637,7 @@ class NotificationPolicy(pulumi.CustomResource):
     @pulumi.getter
     def suppress(self) -> pulumi.Output[Optional[bool]]:
         """
-        Suppress value of the policy. Values are: true, false. Default: false
+        Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         """
         return pulumi.get(self, "suppress")
 

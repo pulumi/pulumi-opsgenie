@@ -92,26 +92,27 @@ import (
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 
-	// Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
+	// Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
 	Actions pulumi.StringArrayOutput `pulumi:"actions"`
-	// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+	// Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
 	AlertDescription pulumi.StringPtrOutput `pulumi:"alertDescription"`
-	// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
-	Alias          pulumi.StringPtrOutput `pulumi:"alias"`
-	ContinuePolicy pulumi.BoolPtrOutput   `pulumi:"continuePolicy"`
-	// If policy should be enabled. Default: true
+	// Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
+	Alias pulumi.StringPtrOutput `pulumi:"alias"`
+	// It will trigger other modify policies if set to `true`. Default: `false`
+	ContinuePolicy pulumi.BoolPtrOutput `pulumi:"continuePolicy"`
+	// If policy should be enabled. Default: `true`
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+	// Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
 	Entity pulumi.StringPtrOutput `pulumi:"entity"`
-	// A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+	// A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters AlertPolicyFilterArrayOutput `pulumi:"filters"`
-	// If set to true, policy will ignore the original actions of the alert. Default value is false
+	// If set to `true`, policy will ignore the original actions of the alert. Default: `false`
 	IgnoreOriginalActions pulumi.BoolPtrOutput `pulumi:"ignoreOriginalActions"`
-	// If set to true, policy will ignore the original details of the alert. Default value is false
+	// If set to `true`, policy will ignore the original details of the alert. Default: `false`
 	IgnoreOriginalDetails pulumi.BoolPtrOutput `pulumi:"ignoreOriginalDetails"`
-	// If set to true, policy will ignore the original responders of the alert. Default value is false
+	// If set to `true`, policy will ignore the original responders of the alert. Default: `false`
 	IgnoreOriginalResponders pulumi.BoolPtrOutput `pulumi:"ignoreOriginalResponders"`
-	// If set to true, policy will ignore the original tags of the alert. Default value is false
+	// If set to `true`, policy will ignore the original tags of the alert. Default: `false`
 	IgnoreOriginalTags pulumi.BoolPtrOutput `pulumi:"ignoreOriginalTags"`
 	// Message of the alerts
 	Message pulumi.StringOutput `pulumi:"message"`
@@ -119,13 +120,13 @@ type AlertPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrOutput `pulumi:"policyDescription"`
-	// Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
-	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
 	Responders AlertPolicyResponderArrayOutput `pulumi:"responders"`
-	// Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+	// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
 	Source pulumi.StringPtrOutput `pulumi:"source"`
-	// Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+	// Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Id of team that this policy belongs to.
 	TeamId pulumi.StringPtrOutput `pulumi:"teamId"`
@@ -165,26 +166,27 @@ func GetAlertPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertPolicy resources.
 type alertPolicyState struct {
-	// Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
+	// Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
 	Actions []string `pulumi:"actions"`
-	// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+	// Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
 	AlertDescription *string `pulumi:"alertDescription"`
-	// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
-	Alias          *string `pulumi:"alias"`
-	ContinuePolicy *bool   `pulumi:"continuePolicy"`
-	// If policy should be enabled. Default: true
+	// Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
+	Alias *string `pulumi:"alias"`
+	// It will trigger other modify policies if set to `true`. Default: `false`
+	ContinuePolicy *bool `pulumi:"continuePolicy"`
+	// If policy should be enabled. Default: `true`
 	Enabled *bool `pulumi:"enabled"`
-	// Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+	// Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
 	Entity *string `pulumi:"entity"`
-	// A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+	// A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters []AlertPolicyFilter `pulumi:"filters"`
-	// If set to true, policy will ignore the original actions of the alert. Default value is false
+	// If set to `true`, policy will ignore the original actions of the alert. Default: `false`
 	IgnoreOriginalActions *bool `pulumi:"ignoreOriginalActions"`
-	// If set to true, policy will ignore the original details of the alert. Default value is false
+	// If set to `true`, policy will ignore the original details of the alert. Default: `false`
 	IgnoreOriginalDetails *bool `pulumi:"ignoreOriginalDetails"`
-	// If set to true, policy will ignore the original responders of the alert. Default value is false
+	// If set to `true`, policy will ignore the original responders of the alert. Default: `false`
 	IgnoreOriginalResponders *bool `pulumi:"ignoreOriginalResponders"`
-	// If set to true, policy will ignore the original tags of the alert. Default value is false
+	// If set to `true`, policy will ignore the original tags of the alert. Default: `false`
 	IgnoreOriginalTags *bool `pulumi:"ignoreOriginalTags"`
 	// Message of the alerts
 	Message *string `pulumi:"message"`
@@ -192,13 +194,13 @@ type alertPolicyState struct {
 	Name *string `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription *string `pulumi:"policyDescription"`
-	// Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
 	Priority *string `pulumi:"priority"`
-	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
 	Responders []AlertPolicyResponder `pulumi:"responders"`
-	// Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+	// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
 	Source *string `pulumi:"source"`
-	// Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+	// Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
 	Tags []string `pulumi:"tags"`
 	// Id of team that this policy belongs to.
 	TeamId *string `pulumi:"teamId"`
@@ -207,26 +209,27 @@ type alertPolicyState struct {
 }
 
 type AlertPolicyState struct {
-	// Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
+	// Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
 	Actions pulumi.StringArrayInput
-	// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+	// Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
 	AlertDescription pulumi.StringPtrInput
-	// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
-	Alias          pulumi.StringPtrInput
+	// Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
+	Alias pulumi.StringPtrInput
+	// It will trigger other modify policies if set to `true`. Default: `false`
 	ContinuePolicy pulumi.BoolPtrInput
-	// If policy should be enabled. Default: true
+	// If policy should be enabled. Default: `true`
 	Enabled pulumi.BoolPtrInput
-	// Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+	// Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
 	Entity pulumi.StringPtrInput
-	// A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+	// A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters AlertPolicyFilterArrayInput
-	// If set to true, policy will ignore the original actions of the alert. Default value is false
+	// If set to `true`, policy will ignore the original actions of the alert. Default: `false`
 	IgnoreOriginalActions pulumi.BoolPtrInput
-	// If set to true, policy will ignore the original details of the alert. Default value is false
+	// If set to `true`, policy will ignore the original details of the alert. Default: `false`
 	IgnoreOriginalDetails pulumi.BoolPtrInput
-	// If set to true, policy will ignore the original responders of the alert. Default value is false
+	// If set to `true`, policy will ignore the original responders of the alert. Default: `false`
 	IgnoreOriginalResponders pulumi.BoolPtrInput
-	// If set to true, policy will ignore the original tags of the alert. Default value is false
+	// If set to `true`, policy will ignore the original tags of the alert. Default: `false`
 	IgnoreOriginalTags pulumi.BoolPtrInput
 	// Message of the alerts
 	Message pulumi.StringPtrInput
@@ -234,13 +237,13 @@ type AlertPolicyState struct {
 	Name pulumi.StringPtrInput
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrInput
-	// Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
 	Priority pulumi.StringPtrInput
-	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
 	Responders AlertPolicyResponderArrayInput
-	// Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+	// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
 	Source pulumi.StringPtrInput
-	// Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+	// Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
 	Tags pulumi.StringArrayInput
 	// Id of team that this policy belongs to.
 	TeamId pulumi.StringPtrInput
@@ -253,26 +256,27 @@ func (AlertPolicyState) ElementType() reflect.Type {
 }
 
 type alertPolicyArgs struct {
-	// Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
+	// Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
 	Actions []string `pulumi:"actions"`
-	// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+	// Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
 	AlertDescription *string `pulumi:"alertDescription"`
-	// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
-	Alias          *string `pulumi:"alias"`
-	ContinuePolicy *bool   `pulumi:"continuePolicy"`
-	// If policy should be enabled. Default: true
+	// Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
+	Alias *string `pulumi:"alias"`
+	// It will trigger other modify policies if set to `true`. Default: `false`
+	ContinuePolicy *bool `pulumi:"continuePolicy"`
+	// If policy should be enabled. Default: `true`
 	Enabled *bool `pulumi:"enabled"`
-	// Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+	// Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
 	Entity *string `pulumi:"entity"`
-	// A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+	// A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters []AlertPolicyFilter `pulumi:"filters"`
-	// If set to true, policy will ignore the original actions of the alert. Default value is false
+	// If set to `true`, policy will ignore the original actions of the alert. Default: `false`
 	IgnoreOriginalActions *bool `pulumi:"ignoreOriginalActions"`
-	// If set to true, policy will ignore the original details of the alert. Default value is false
+	// If set to `true`, policy will ignore the original details of the alert. Default: `false`
 	IgnoreOriginalDetails *bool `pulumi:"ignoreOriginalDetails"`
-	// If set to true, policy will ignore the original responders of the alert. Default value is false
+	// If set to `true`, policy will ignore the original responders of the alert. Default: `false`
 	IgnoreOriginalResponders *bool `pulumi:"ignoreOriginalResponders"`
-	// If set to true, policy will ignore the original tags of the alert. Default value is false
+	// If set to `true`, policy will ignore the original tags of the alert. Default: `false`
 	IgnoreOriginalTags *bool `pulumi:"ignoreOriginalTags"`
 	// Message of the alerts
 	Message string `pulumi:"message"`
@@ -280,13 +284,13 @@ type alertPolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription *string `pulumi:"policyDescription"`
-	// Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
 	Priority *string `pulumi:"priority"`
-	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
 	Responders []AlertPolicyResponder `pulumi:"responders"`
-	// Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+	// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
 	Source *string `pulumi:"source"`
-	// Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+	// Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
 	Tags []string `pulumi:"tags"`
 	// Id of team that this policy belongs to.
 	TeamId *string `pulumi:"teamId"`
@@ -296,26 +300,27 @@ type alertPolicyArgs struct {
 
 // The set of arguments for constructing a AlertPolicy resource.
 type AlertPolicyArgs struct {
-	// Actions to add to the alerts original actions value as a list of strings. If ignoreOriginalActions field is set to true, this will replace the original actions.
+	// Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
 	Actions pulumi.StringArrayInput
-	// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+	// Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
 	AlertDescription pulumi.StringPtrInput
-	// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
-	Alias          pulumi.StringPtrInput
+	// Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
+	Alias pulumi.StringPtrInput
+	// It will trigger other modify policies if set to `true`. Default: `false`
 	ContinuePolicy pulumi.BoolPtrInput
-	// If policy should be enabled. Default: true
+	// If policy should be enabled. Default: `true`
 	Enabled pulumi.BoolPtrInput
-	// Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+	// Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
 	Entity pulumi.StringPtrInput
-	// A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+	// A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters AlertPolicyFilterArrayInput
-	// If set to true, policy will ignore the original actions of the alert. Default value is false
+	// If set to `true`, policy will ignore the original actions of the alert. Default: `false`
 	IgnoreOriginalActions pulumi.BoolPtrInput
-	// If set to true, policy will ignore the original details of the alert. Default value is false
+	// If set to `true`, policy will ignore the original details of the alert. Default: `false`
 	IgnoreOriginalDetails pulumi.BoolPtrInput
-	// If set to true, policy will ignore the original responders of the alert. Default value is false
+	// If set to `true`, policy will ignore the original responders of the alert. Default: `false`
 	IgnoreOriginalResponders pulumi.BoolPtrInput
-	// If set to true, policy will ignore the original tags of the alert. Default value is false
+	// If set to `true`, policy will ignore the original tags of the alert. Default: `false`
 	IgnoreOriginalTags pulumi.BoolPtrInput
 	// Message of the alerts
 	Message pulumi.StringInput
@@ -323,13 +328,13 @@ type AlertPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrInput
-	// Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
 	Priority pulumi.StringPtrInput
-	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
 	Responders AlertPolicyResponderArrayInput
-	// Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+	// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
 	Source pulumi.StringPtrInput
-	// Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+	// Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
 	Tags pulumi.StringArrayInput
 	// Id of team that this policy belongs to.
 	TeamId pulumi.StringPtrInput

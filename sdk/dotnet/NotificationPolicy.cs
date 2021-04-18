@@ -20,9 +20,7 @@ namespace Pulumi.Opsgenie
     ///  $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test teamId/Id`
     /// ```
     /// 
-    ///  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-    /// 
-    /// - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+    ///  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
     /// 
     /// ```sh
     ///  $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
@@ -56,13 +54,13 @@ namespace Pulumi.Opsgenie
         public Output<ImmutableArray<Outputs.NotificationPolicyDelayAction>> DelayActions { get; private set; } = null!;
 
         /// <summary>
-        /// If policy should be enabled. Default: true
+        /// If policy should be enabled. Default: `true`
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        /// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.NotificationPolicyFilter>> Filters { get; private set; } = null!;
@@ -80,7 +78,7 @@ namespace Pulumi.Opsgenie
         public Output<string?> PolicyDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Suppress value of the policy. Values are: true, false. Default: false
+        /// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         /// </summary>
         [Output("suppress")]
         public Output<bool?> Suppress { get; private set; } = null!;
@@ -192,7 +190,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If policy should be enabled. Default: true
+        /// If policy should be enabled. Default: `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -201,7 +199,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.NotificationPolicyFilterArgs>? _filters;
 
         /// <summary>
-        /// A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        /// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.NotificationPolicyFilterArgs> Filters
         {
@@ -222,7 +220,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? PolicyDescription { get; set; }
 
         /// <summary>
-        /// Suppress value of the policy. Values are: true, false. Default: false
+        /// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         /// </summary>
         [Input("suppress")]
         public Input<bool>? Suppress { get; set; }
@@ -301,7 +299,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If policy should be enabled. Default: true
+        /// If policy should be enabled. Default: `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -310,7 +308,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.NotificationPolicyFilterGetArgs>? _filters;
 
         /// <summary>
-        /// A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        /// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.NotificationPolicyFilterGetArgs> Filters
         {
@@ -331,7 +329,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? PolicyDescription { get; set; }
 
         /// <summary>
-        /// Suppress value of the policy. Values are: true, false. Default: false
+        /// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         /// </summary>
         [Input("suppress")]
         public Input<bool>? Suppress { get; set; }

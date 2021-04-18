@@ -7,15 +7,15 @@ import * as utilities from "./utilities";
 
 /**
  * Manages advanced actions for Integrations within Opsgenie. This applies for the following resources:
- * * opsgenie.ApiIntegration
- * * opsgenie.EmailIntegration
+ * * `opsgenie.ApiIntegration`
+ * * `opsgenie.EmailIntegration`
  *
  * The actions that are supported are:
- * * create
- * * close
- * * acknowledge
- * * addNote
- * * ignore
+ * * `create`
+ * * `close`
+ * * `acknowledge`
+ * * `addNote`
+ * * `ignore`
  *
  * ## Example Usage
  *

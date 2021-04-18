@@ -93,64 +93,67 @@ namespace Pulumi.Opsgenie
     public partial class AlertPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
+        /// Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<string>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+        /// Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
         /// </summary>
         [Output("alertDescription")]
         public Output<string?> AlertDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
+        /// Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
         /// </summary>
         [Output("alias")]
         public Output<string?> Alias { get; private set; } = null!;
 
+        /// <summary>
+        /// It will trigger other modify policies if set to `true`. Default: `false`
+        /// </summary>
         [Output("continuePolicy")]
         public Output<bool?> ContinuePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// If policy should be enabled. Default: true
+        /// If policy should be enabled. Default: `true`
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+        /// Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
         /// </summary>
         [Output("entity")]
         public Output<string?> Entity { get; private set; } = null!;
 
         /// <summary>
-        /// A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        /// A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.AlertPolicyFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, policy will ignore the original actions of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original actions of the alert. Default: `false`
         /// </summary>
         [Output("ignoreOriginalActions")]
         public Output<bool?> IgnoreOriginalActions { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, policy will ignore the original details of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original details of the alert. Default: `false`
         /// </summary>
         [Output("ignoreOriginalDetails")]
         public Output<bool?> IgnoreOriginalDetails { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, policy will ignore the original responders of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         /// </summary>
         [Output("ignoreOriginalResponders")]
         public Output<bool?> IgnoreOriginalResponders { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, policy will ignore the original tags of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         /// </summary>
         [Output("ignoreOriginalTags")]
         public Output<bool?> IgnoreOriginalTags { get; private set; } = null!;
@@ -174,25 +177,25 @@ namespace Pulumi.Opsgenie
         public Output<string?> PolicyDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+        /// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         /// </summary>
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
         /// </summary>
         [Output("responders")]
         public Output<ImmutableArray<Outputs.AlertPolicyResponder>> Responders { get; private set; } = null!;
 
         /// <summary>
-        /// Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+        /// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+        /// Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -259,7 +262,7 @@ namespace Pulumi.Opsgenie
         private InputList<string>? _actions;
 
         /// <summary>
-        /// Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
+        /// Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         /// </summary>
         public InputList<string> Actions
         {
@@ -268,28 +271,31 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+        /// Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
         /// </summary>
         [Input("alertDescription")]
         public Input<string>? AlertDescription { get; set; }
 
         /// <summary>
-        /// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
+        /// Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// It will trigger other modify policies if set to `true`. Default: `false`
+        /// </summary>
         [Input("continuePolicy")]
         public Input<bool>? ContinuePolicy { get; set; }
 
         /// <summary>
-        /// If policy should be enabled. Default: true
+        /// If policy should be enabled. Default: `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+        /// Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
         /// </summary>
         [Input("entity")]
         public Input<string>? Entity { get; set; }
@@ -298,7 +304,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.AlertPolicyFilterArgs>? _filters;
 
         /// <summary>
-        /// A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        /// A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.AlertPolicyFilterArgs> Filters
         {
@@ -307,25 +313,25 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If set to true, policy will ignore the original actions of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original actions of the alert. Default: `false`
         /// </summary>
         [Input("ignoreOriginalActions")]
         public Input<bool>? IgnoreOriginalActions { get; set; }
 
         /// <summary>
-        /// If set to true, policy will ignore the original details of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original details of the alert. Default: `false`
         /// </summary>
         [Input("ignoreOriginalDetails")]
         public Input<bool>? IgnoreOriginalDetails { get; set; }
 
         /// <summary>
-        /// If set to true, policy will ignore the original responders of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         /// </summary>
         [Input("ignoreOriginalResponders")]
         public Input<bool>? IgnoreOriginalResponders { get; set; }
 
         /// <summary>
-        /// If set to true, policy will ignore the original tags of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         /// </summary>
         [Input("ignoreOriginalTags")]
         public Input<bool>? IgnoreOriginalTags { get; set; }
@@ -349,7 +355,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? PolicyDescription { get; set; }
 
         /// <summary>
-        /// Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+        /// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
@@ -358,7 +364,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.AlertPolicyResponderArgs>? _responders;
 
         /// <summary>
-        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.AlertPolicyResponderArgs> Responders
         {
@@ -367,7 +373,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+        /// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
@@ -376,7 +382,7 @@ namespace Pulumi.Opsgenie
         private InputList<string>? _tags;
 
         /// <summary>
-        /// Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+        /// Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         /// </summary>
         public InputList<string> Tags
         {
@@ -413,7 +419,7 @@ namespace Pulumi.Opsgenie
         private InputList<string>? _actions;
 
         /// <summary>
-        /// Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.
+        /// Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         /// </summary>
         public InputList<string> Actions
         {
@@ -422,28 +428,31 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}
+        /// Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
         /// </summary>
         [Input("alertDescription")]
         public Input<string>? AlertDescription { get; set; }
 
         /// <summary>
-        /// Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}
+        /// Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// It will trigger other modify policies if set to `true`. Default: `false`
+        /// </summary>
         [Input("continuePolicy")]
         public Input<bool>? ContinuePolicy { get; set; }
 
         /// <summary>
-        /// If policy should be enabled. Default: true
+        /// If policy should be enabled. Default: `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}
+        /// Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
         /// </summary>
         [Input("entity")]
         public Input<string>? Entity { get; set; }
@@ -452,7 +461,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.AlertPolicyFilterGetArgs>? _filters;
 
         /// <summary>
-        /// A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+        /// A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.AlertPolicyFilterGetArgs> Filters
         {
@@ -461,25 +470,25 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If set to true, policy will ignore the original actions of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original actions of the alert. Default: `false`
         /// </summary>
         [Input("ignoreOriginalActions")]
         public Input<bool>? IgnoreOriginalActions { get; set; }
 
         /// <summary>
-        /// If set to true, policy will ignore the original details of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original details of the alert. Default: `false`
         /// </summary>
         [Input("ignoreOriginalDetails")]
         public Input<bool>? IgnoreOriginalDetails { get; set; }
 
         /// <summary>
-        /// If set to true, policy will ignore the original responders of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         /// </summary>
         [Input("ignoreOriginalResponders")]
         public Input<bool>? IgnoreOriginalResponders { get; set; }
 
         /// <summary>
-        /// If set to true, policy will ignore the original tags of the alert. Default value is false
+        /// If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         /// </summary>
         [Input("ignoreOriginalTags")]
         public Input<bool>? IgnoreOriginalTags { get; set; }
@@ -503,7 +512,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? PolicyDescription { get; set; }
 
         /// <summary>
-        /// Priority of the alert. Should be one of P1, P2, P3, P4, or P5
+        /// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
@@ -512,7 +521,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.AlertPolicyResponderGetArgs>? _responders;
 
         /// <summary>
-        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.
+        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.AlertPolicyResponderGetArgs> Responders
         {
@@ -521,7 +530,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}
+        /// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
@@ -530,7 +539,7 @@ namespace Pulumi.Opsgenie
         private InputList<string>? _tags;
 
         /// <summary>
-        /// Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.
+        /// Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         /// </summary>
         public InputList<string> Tags
         {

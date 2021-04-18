@@ -34,13 +34,13 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Integer value that defines in which order the action will be performed. Defaults to `1`.
+        /// Integer value that defines in which order the action will be performed. Default: `1`.
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// The responder type - can be escalation, team or user.
+        /// The responder type - can be `escalation`, `team` or `user`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

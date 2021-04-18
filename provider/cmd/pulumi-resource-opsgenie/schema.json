@@ -47,7 +47,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of responder. Acceptable values are: user or team\n",
+                    "description": "Type of responder. Acceptable values are: `user` or `team`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -70,7 +70,7 @@
                 },
                 "field": {
                     "type": "string",
-                    "description": "Specifies which alert field will be used in condition. Possible values are \"message\", \"alias\", \"description\", \"source\", \"entity\", \"tags\", \"actions\", \"details\", \"extra-properties\", \"recipients\", \"teams\", \"priority\"\n",
+                    "description": "Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -88,7 +88,7 @@
                 },
                 "not": {
                     "type": "boolean",
-                    "description": "Indicates behaviour of the given operation. Default: false\n",
+                    "description": "Indicates behaviour of the given operation. Default:`false`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -97,7 +97,7 @@
                 },
                 "operation": {
                     "type": "string",
-                    "description": "It is the operation that will be executed for the given field and key. Possible operations are \"matches\", \"contains\", \"starts-with\", \"ends-with\", \"equals\", \"contains-key\", \"contains-value\", \"greater-than\", \"less-than\", \"is-empty\", \"equals-ignore-whitespace\".\n",
+                    "description": "It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -142,7 +142,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of responder. Acceptable values are: user or team\n",
+                    "description": "Type of responder. Acceptable values are: `user` or `team`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -172,7 +172,7 @@
                     "items": {
                         "$ref": "#/types/opsgenie:index/AlertPolicyTimeRestrictionRestriction:AlertPolicyTimeRestrictionRestriction"
                     },
-                    "description": "List of days and hours definitions for field type = \"weekday-and-time-of-day\". This is a block, structure is documented below.\n",
+                    "description": "List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -181,7 +181,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of responder. Acceptable values are: user or team\n",
+                    "description": "Type of responder. Acceptable values are: `user` or `team`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -198,7 +198,7 @@
             "properties": {
                 "endDay": {
                     "type": "string",
-                    "description": "Ending day of restriction (eg. \"wednesday)\n",
+                    "description": "Ending day of restriction (eg. `wednesday`)\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -225,7 +225,7 @@
                 },
                 "startDay": {
                     "type": "string",
-                    "description": "Starting day of restriction (eg. \"monday\")\n",
+                    "description": "Starting day of restriction (eg. `monday`)\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -348,7 +348,7 @@
             "properties": {
                 "condition": {
                     "type": "string",
-                    "description": "The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: if-not-acked and if-not-closed. If not given, if-not-acked is used.\n",
+                    "description": "The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -357,7 +357,7 @@
                 },
                 "delay": {
                     "type": "integer",
-                    "description": "Time delay of the escalation rule. This parameter takes an object that consists timeAmount field that takes time amount in minutes.\n",
+                    "description": "Time delay of the escalation rule, in minutes.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -366,7 +366,7 @@
                 },
                 "notifyType": {
                     "type": "string",
-                    "description": "Recipient calculation logic for schedules. Possible values are:\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing Pulumi;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n",
+                    "description": "Recipient calculation logic for schedules. Possible values are:\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -378,7 +378,7 @@
                     "items": {
                         "$ref": "#/types/opsgenie:index/EscalationRuleRecipient:EscalationRuleRecipient"
                     },
-                    "description": "Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: user, schedule, team.\n",
+                    "description": "Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -455,7 +455,7 @@
             "properties": {
                 "alias": {
                     "type": "string",
-                    "description": "An identifier that is used for alert deduplication. Defaults to `{{alias}}`.\n",
+                    "description": "An identifier that is used for alert deduplication. Default: `{{alias}}`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -485,7 +485,7 @@
                 },
                 "note": {
                     "type": "string",
-                    "description": "Integer value that defines in which order the action will be performed.\n",
+                    "description": "Additional alert action note.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -494,7 +494,7 @@
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Integer value that defines in which order the action will be performed. Defaults to `1`.\n",
+                    "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -503,7 +503,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -540,7 +540,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -597,7 +597,7 @@
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Integer value that defines in which order the action will be performed. Defaults to `1`.\n",
+                    "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -615,7 +615,7 @@
             "properties": {
                 "alias": {
                     "type": "string",
-                    "description": "An identifier that is used for alert deduplication. Defaults to `{{alias}}`.\n",
+                    "description": "An identifier that is used for alert deduplication. Default: `{{alias}}`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -645,7 +645,7 @@
                 },
                 "note": {
                     "type": "string",
-                    "description": "Integer value that defines in which order the action will be performed.\n",
+                    "description": "Additional alert action note.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -654,7 +654,7 @@
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Integer value that defines in which order the action will be performed. Defaults to `1`.\n",
+                    "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -663,7 +663,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -700,7 +700,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -757,7 +757,7 @@
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Integer value that defines in which order the action will be performed. Defaults to `1`.\n",
+                    "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -775,7 +775,7 @@
             "properties": {
                 "alias": {
                     "type": "string",
-                    "description": "An identifier that is used for alert deduplication. Defaults to `{{alias}}`.\n",
+                    "description": "An identifier that is used for alert deduplication. Default: `{{alias}}`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -805,7 +805,7 @@
                 },
                 "note": {
                     "type": "string",
-                    "description": "Integer value that defines in which order the action will be performed.\n",
+                    "description": "Additional alert action note.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -814,7 +814,7 @@
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Integer value that defines in which order the action will be performed. Defaults to `1`.\n",
+                    "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -823,7 +823,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -860,7 +860,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -917,7 +917,7 @@
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Integer value that defines in which order the action will be performed. Defaults to `1`.\n",
+                    "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -946,7 +946,7 @@
                 },
                 "alias": {
                     "type": "string",
-                    "description": "An identifier that is used for alert deduplication. Defaults to `{{alias}}`.\n",
+                    "description": "An identifier that is used for alert deduplication. Default: `{{alias}}`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -963,7 +963,7 @@
                 },
                 "customPriority": {
                     "type": "string",
-                    "description": "Custom alert priority. e.g. {{message.substring(0,2)}}\n",
+                    "description": "Custom alert priority. e.g. ``{{message.substring(0,2)}}``\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1074,7 +1074,7 @@
                 },
                 "note": {
                     "type": "string",
-                    "description": "Integer value that defines in which order the action will be performed.\n",
+                    "description": "Additional alert action note.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1083,7 +1083,7 @@
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Integer value that defines in which order the action will be performed. Defaults to `1`.\n",
+                    "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1134,7 +1134,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1171,7 +1171,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1228,7 +1228,7 @@
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Integer value that defines in which order the action will be performed. Defaults to `1`.\n",
+                    "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1255,7 +1255,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1294,7 +1294,7 @@
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Integer value that defines in which order the action will be performed. Defaults to `1`.\n",
+                    "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1303,7 +1303,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1331,7 +1331,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The responder type - can be escalation, team or user.\n",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1388,7 +1388,7 @@
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Integer value that defines in which order the action will be performed. Defaults to `1`.\n",
+                    "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1496,7 +1496,7 @@
                     "items": {
                         "$ref": "#/types/opsgenie:index/NotificationPolicyAutoCloseActionDuration:NotificationPolicyAutoCloseActionDuration"
                     },
-                    "description": "Duration of this action. If `delay_option` = \"for-duration\" this has to be set. This is a block, structure is documented below.\n",
+                    "description": "Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1522,7 +1522,7 @@
                 },
                 "timeUnit": {
                     "type": "string",
-                    "description": "Valid time units are: \"minutes\", \"hours\", \"days\". Default: minutes\n",
+                    "description": "Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1542,7 +1542,7 @@
                     "items": {
                         "$ref": "#/types/opsgenie:index/NotificationPolicyAutoRestartActionDuration:NotificationPolicyAutoRestartActionDuration"
                     },
-                    "description": "Duration of this action. If `delay_option` = \"for-duration\" this has to be set. This is a block, structure is documented below.\n",
+                    "description": "Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1578,7 +1578,7 @@
                 },
                 "timeUnit": {
                     "type": "string",
-                    "description": "Valid time units are: \"minutes\", \"hours\", \"days\". Default: minutes\n",
+                    "description": "Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1616,7 +1616,7 @@
                     "items": {
                         "$ref": "#/types/opsgenie:index/NotificationPolicyDeDuplicationActionDuration:NotificationPolicyDeDuplicationActionDuration"
                     },
-                    "description": "Duration of this action. If `delay_option` = \"for-duration\" this has to be set. This is a block, structure is documented below.\n",
+                    "description": "Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1643,7 +1643,7 @@
                 },
                 "timeUnit": {
                     "type": "string",
-                    "description": "Valid time units are: \"minutes\", \"hours\", \"days\". Default: minutes\n",
+                    "description": "Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1660,7 +1660,7 @@
             "properties": {
                 "delayOption": {
                     "type": "string",
-                    "description": "Defines until what day to delay or for what duration. Possible values are: \"for-duration\", \"next-time\", \"next-weekday\", \"next-monday\", \"next-tuesday\", \"next-wednesday\", \"next-thursday\", \"next-friday\", \"next-saturday\", \"next-sunday\"\n",
+                    "description": "Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1672,7 +1672,7 @@
                     "items": {
                         "$ref": "#/types/opsgenie:index/NotificationPolicyDelayActionDuration:NotificationPolicyDelayActionDuration"
                     },
-                    "description": "Duration of this action. If `delay_option` = \"for-duration\" this has to be set. This is a block, structure is documented below.\n",
+                    "description": "Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1681,7 +1681,7 @@
                 },
                 "untilHour": {
                     "type": "integer",
-                    "description": "Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then \"for-duration\" this has to be set.\n",
+                    "description": "Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1690,7 +1690,7 @@
                 },
                 "untilMinute": {
                     "type": "integer",
-                    "description": "Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then \"for-duration\" this has to be set.\n",
+                    "description": "Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1716,7 +1716,7 @@
                 },
                 "timeUnit": {
                     "type": "string",
-                    "description": "Valid time units are: \"minutes\", \"hours\", \"days\". Default: minutes\n",
+                    "description": "Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1745,7 +1745,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: \"time-of-day\", \"weekday-and-time-of-day\"\n",
+                    "description": "Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1768,7 +1768,7 @@
                 },
                 "field": {
                     "type": "string",
-                    "description": "Specifies which alert field will be used in condition. Possible values are \"message\", \"alias\", \"description\", \"source\", \"entity\", \"tags\", \"actions\", \"details\", \"extra-properties\", \"recipients\", \"teams\", \"priority\"\n",
+                    "description": "Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1786,7 +1786,7 @@
                 },
                 "not": {
                     "type": "boolean",
-                    "description": "Indicates behaviour of the given operation. Default: false\n",
+                    "description": "Indicates behaviour of the given operation. Default: `false`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1795,7 +1795,7 @@
                 },
                 "operation": {
                     "type": "string",
-                    "description": "It is the operation that will be executed for the given field and key. Possible operations are \"matches\", \"contains\", \"starts-with\", \"ends-with\", \"equals\", \"contains-key\", \"contains-value\", \"greater-than\", \"less-than\", \"is-empty\", \"equals-ignore-whitespace\".\n",
+                    "description": "It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1825,7 +1825,7 @@
                     "items": {
                         "$ref": "#/types/opsgenie:index/NotificationPolicyTimeRestrictionRestriction:NotificationPolicyTimeRestrictionRestriction"
                     },
-                    "description": "List of days and hours definitions for field type = \"weekday-and-time-of-day\". This is a block, structure is documented below.\n",
+                    "description": "List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1834,7 +1834,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: \"time-of-day\", \"weekday-and-time-of-day\"\n",
+                    "description": "Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1851,7 +1851,7 @@
             "properties": {
                 "endDay": {
                     "type": "string",
-                    "description": "Ending day of restriction (eg. \"wednesday)\n",
+                    "description": "Ending day of restriction (eg. `wednesday`)\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1878,7 +1878,7 @@
                 },
                 "startDay": {
                     "type": "string",
-                    "description": "Starting day of restriction (eg. \"monday\")\n",
+                    "description": "Starting day of restriction (eg. `monday`)\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2984,56 +2984,57 @@
     },
     "resources": {
         "opsgenie:index/alertPolicy:AlertPolicy": {
-            "description": "Manages a Alert Policy within Opsgenie.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as opsgenie from \"@pulumi/opsgenie\";\n\nconst testTeam = new opsgenie.Team(\"testTeam\", {description: \"This team deals with all the things\"});\nconst testAlertPolicy = new opsgenie.AlertPolicy(\"testAlertPolicy\", {\n    teamId: testTeam.id,\n    policyDescription: \"This is sample policy\",\n    message: \"{{message}}\",\n    filters: [{}],\n    timeRestrictions: [{\n        type: \"weekday-and-time-of-day\",\n        restrictions: [\n            {\n                endDay: \"monday\",\n                endHour: 7,\n                endMin: 0,\n                startDay: \"sunday\",\n                startHour: 21,\n                startMin: 0,\n            },\n            {\n                endDay: \"tuesday\",\n                endHour: 7,\n                endMin: 0,\n                startDay: \"monday\",\n                startHour: 22,\n                startMin: 0,\n            },\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_opsgenie as opsgenie\n\ntest_team = opsgenie.Team(\"testTeam\", description=\"This team deals with all the things\")\ntest_alert_policy = opsgenie.AlertPolicy(\"testAlertPolicy\",\n    team_id=test_team.id,\n    policy_description=\"This is sample policy\",\n    message=\"{{message}}\",\n    filters=[opsgenie.AlertPolicyFilterArgs()],\n    time_restrictions=[opsgenie.AlertPolicyTimeRestrictionArgs(\n        type=\"weekday-and-time-of-day\",\n        restrictions=[\n            opsgenie.AlertPolicyTimeRestrictionRestrictionArgs(\n                end_day=\"monday\",\n                end_hour=7,\n                end_min=0,\n                start_day=\"sunday\",\n                start_hour=21,\n                start_min=0,\n            ),\n            opsgenie.AlertPolicyTimeRestrictionRestrictionArgs(\n                end_day=\"tuesday\",\n                end_hour=7,\n                end_min=0,\n                start_day=\"monday\",\n                start_hour=22,\n                start_min=0,\n            ),\n        ],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Opsgenie = Pulumi.Opsgenie;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testTeam = new Opsgenie.Team(\"testTeam\", new Opsgenie.TeamArgs\n        {\n            Description = \"This team deals with all the things\",\n        });\n        var testAlertPolicy = new Opsgenie.AlertPolicy(\"testAlertPolicy\", new Opsgenie.AlertPolicyArgs\n        {\n            TeamId = testTeam.Id,\n            PolicyDescription = \"This is sample policy\",\n            Message = \"{{message}}\",\n            Filters = \n            {\n                ,\n            },\n            TimeRestrictions = \n            {\n                new Opsgenie.Inputs.AlertPolicyTimeRestrictionArgs\n                {\n                    Type = \"weekday-and-time-of-day\",\n                    Restrictions = \n                    {\n                        new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionArgs\n                        {\n                            EndDay = \"monday\",\n                            EndHour = 7,\n                            EndMin = 0,\n                            StartDay = \"sunday\",\n                            StartHour = 21,\n                            StartMin = 0,\n                        },\n                        new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionArgs\n                        {\n                            EndDay = \"tuesday\",\n                            EndHour = 7,\n                            EndMin = 0,\n                            StartDay = \"monday\",\n                            StartHour = 22,\n                            StartMin = 0,\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestTeam, err := opsgenie.NewTeam(ctx, \"testTeam\", \u0026opsgenie.TeamArgs{\n\t\t\tDescription: pulumi.String(\"This team deals with all the things\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = opsgenie.NewAlertPolicy(ctx, \"testAlertPolicy\", \u0026opsgenie.AlertPolicyArgs{\n\t\t\tTeamId:            testTeam.ID(),\n\t\t\tPolicyDescription: pulumi.String(\"This is sample policy\"),\n\t\t\tMessage:           pulumi.String(\"{{message}}\"),\n\t\t\tFilters: opsgenie.AlertPolicyFilterArray{\n\t\t\t\tnil,\n\t\t\t},\n\t\t\tTimeRestrictions: opsgenie.AlertPolicyTimeRestrictionArray{\n\t\t\t\t\u0026opsgenie.AlertPolicyTimeRestrictionArgs{\n\t\t\t\t\tType: pulumi.String(\"weekday-and-time-of-day\"),\n\t\t\t\t\tRestrictions: opsgenie.AlertPolicyTimeRestrictionRestrictionArray{\n\t\t\t\t\t\t\u0026opsgenie.AlertPolicyTimeRestrictionRestrictionArgs{\n\t\t\t\t\t\t\tEndDay:    pulumi.String(\"monday\"),\n\t\t\t\t\t\t\tEndHour:   pulumi.Int(7),\n\t\t\t\t\t\t\tEndMin:    pulumi.Int(0),\n\t\t\t\t\t\t\tStartDay:  pulumi.String(\"sunday\"),\n\t\t\t\t\t\t\tStartHour: pulumi.Int(21),\n\t\t\t\t\t\t\tStartMin:  pulumi.Int(0),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026opsgenie.AlertPolicyTimeRestrictionRestrictionArgs{\n\t\t\t\t\t\t\tEndDay:    pulumi.String(\"tuesday\"),\n\t\t\t\t\t\t\tEndHour:   pulumi.Int(7),\n\t\t\t\t\t\t\tEndMin:    pulumi.Int(0),\n\t\t\t\t\t\t\tStartDay:  pulumi.String(\"monday\"),\n\t\t\t\t\t\t\tStartHour: pulumi.Int(22),\n\t\t\t\t\t\t\tStartMin:  pulumi.Int(0),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAlert policies can be imported using the `team id` and `policy_id`, e.g.\n\n```sh\n $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test teamId/Id`\n```\n\n For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Alert Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`\n\n```sh\n $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`\n```\n\n You can import global polices using only policy identifier\n\n\n\n```sh\n $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c`\n```\n\n ",
+            "description": "Manages a Alert Policy within Opsgenie.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as opsgenie from \"@pulumi/opsgenie\";\n\nconst testTeam = new opsgenie.Team(\"testTeam\", {description: \"This team deals with all the things\"});\nconst testAlertPolicy = new opsgenie.AlertPolicy(\"testAlertPolicy\", {\n    teamId: testTeam.id,\n    policyDescription: \"This is sample policy\",\n    message: \"{{message}}\",\n    filters: [{}],\n    timeRestrictions: [{\n        type: \"weekday-and-time-of-day\",\n        restrictions: [\n            {\n                endDay: \"monday\",\n                endHour: 7,\n                endMin: 0,\n                startDay: \"sunday\",\n                startHour: 21,\n                startMin: 0,\n            },\n            {\n                endDay: \"tuesday\",\n                endHour: 7,\n                endMin: 0,\n                startDay: \"monday\",\n                startHour: 22,\n                startMin: 0,\n            },\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_opsgenie as opsgenie\n\ntest_team = opsgenie.Team(\"testTeam\", description=\"This team deals with all the things\")\ntest_alert_policy = opsgenie.AlertPolicy(\"testAlertPolicy\",\n    team_id=test_team.id,\n    policy_description=\"This is sample policy\",\n    message=\"{{message}}\",\n    filters=[opsgenie.AlertPolicyFilterArgs()],\n    time_restrictions=[opsgenie.AlertPolicyTimeRestrictionArgs(\n        type=\"weekday-and-time-of-day\",\n        restrictions=[\n            opsgenie.AlertPolicyTimeRestrictionRestrictionArgs(\n                end_day=\"monday\",\n                end_hour=7,\n                end_min=0,\n                start_day=\"sunday\",\n                start_hour=21,\n                start_min=0,\n            ),\n            opsgenie.AlertPolicyTimeRestrictionRestrictionArgs(\n                end_day=\"tuesday\",\n                end_hour=7,\n                end_min=0,\n                start_day=\"monday\",\n                start_hour=22,\n                start_min=0,\n            ),\n        ],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Opsgenie = Pulumi.Opsgenie;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testTeam = new Opsgenie.Team(\"testTeam\", new Opsgenie.TeamArgs\n        {\n            Description = \"This team deals with all the things\",\n        });\n        var testAlertPolicy = new Opsgenie.AlertPolicy(\"testAlertPolicy\", new Opsgenie.AlertPolicyArgs\n        {\n            TeamId = testTeam.Id,\n            PolicyDescription = \"This is sample policy\",\n            Message = \"{{message}}\",\n            Filters = \n            {\n                ,\n            },\n            TimeRestrictions = \n            {\n                new Opsgenie.Inputs.AlertPolicyTimeRestrictionArgs\n                {\n                    Type = \"weekday-and-time-of-day\",\n                    Restrictions = \n                    {\n                        new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionArgs\n                        {\n                            EndDay = \"monday\",\n                            EndHour = 7,\n                            EndMin = 0,\n                            StartDay = \"sunday\",\n                            StartHour = 21,\n                            StartMin = 0,\n                        },\n                        new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionArgs\n                        {\n                            EndDay = \"tuesday\",\n                            EndHour = 7,\n                            EndMin = 0,\n                            StartDay = \"monday\",\n                            StartHour = 22,\n                            StartMin = 0,\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestTeam, err := opsgenie.NewTeam(ctx, \"testTeam\", \u0026opsgenie.TeamArgs{\n\t\t\tDescription: pulumi.String(\"This team deals with all the things\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = opsgenie.NewAlertPolicy(ctx, \"testAlertPolicy\", \u0026opsgenie.AlertPolicyArgs{\n\t\t\tTeamId:            testTeam.ID(),\n\t\t\tPolicyDescription: pulumi.String(\"This is sample policy\"),\n\t\t\tMessage:           pulumi.String(\"{{message}}\"),\n\t\t\tFilters: opsgenie.AlertPolicyFilterArray{\n\t\t\t\tnil,\n\t\t\t},\n\t\t\tTimeRestrictions: opsgenie.AlertPolicyTimeRestrictionArray{\n\t\t\t\t\u0026opsgenie.AlertPolicyTimeRestrictionArgs{\n\t\t\t\t\tType: pulumi.String(\"weekday-and-time-of-day\"),\n\t\t\t\t\tRestrictions: opsgenie.AlertPolicyTimeRestrictionRestrictionArray{\n\t\t\t\t\t\t\u0026opsgenie.AlertPolicyTimeRestrictionRestrictionArgs{\n\t\t\t\t\t\t\tEndDay:    pulumi.String(\"monday\"),\n\t\t\t\t\t\t\tEndHour:   pulumi.Int(7),\n\t\t\t\t\t\t\tEndMin:    pulumi.Int(0),\n\t\t\t\t\t\t\tStartDay:  pulumi.String(\"sunday\"),\n\t\t\t\t\t\t\tStartHour: pulumi.Int(21),\n\t\t\t\t\t\t\tStartMin:  pulumi.Int(0),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026opsgenie.AlertPolicyTimeRestrictionRestrictionArgs{\n\t\t\t\t\t\t\tEndDay:    pulumi.String(\"tuesday\"),\n\t\t\t\t\t\t\tEndHour:   pulumi.Int(7),\n\t\t\t\t\t\t\tEndMin:    pulumi.Int(0),\n\t\t\t\t\t\t\tStartDay:  pulumi.String(\"monday\"),\n\t\t\t\t\t\t\tStartHour: pulumi.Int(22),\n\t\t\t\t\t\t\tStartMin:  pulumi.Int(0),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAlert policies can be imported using the `team id` and `policy_id`, e.g.\n\n```sh\n $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test teamId/Id`\n```\n\n For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Alert Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`\n\n```sh\n $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`\n```\n\n You can import global polices using only policy identifier\n\n```sh\n $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c`\n```\n\n ",
             "properties": {
                 "actions": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.\n"
+                    "description": "Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.\n"
                 },
                 "alertDescription": {
                     "type": "string",
-                    "description": "Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}\n"
+                    "description": "Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`\n"
                 },
                 "alias": {
                     "type": "string",
-                    "description": "Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}\n"
+                    "description": "Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`\n"
                 },
                 "continuePolicy": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "It will trigger other modify policies if set to `true`. Default: `false`\n"
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "If policy should be enabled. Default: true\n"
+                    "description": "If policy should be enabled. Default: `true`\n"
                 },
                 "entity": {
                     "type": "string",
-                    "description": "Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}\n"
+                    "description": "Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`\n"
                 },
                 "filters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/AlertPolicyFilter:AlertPolicyFilter"
                     },
-                    "description": "A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.\n"
+                    "description": "A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.\n"
                 },
                 "ignoreOriginalActions": {
                     "type": "boolean",
-                    "description": "If set to true, policy will ignore the original actions of the alert. Default value is false\n"
+                    "description": "If set to `true`, policy will ignore the original actions of the alert. Default: `false`\n"
                 },
                 "ignoreOriginalDetails": {
                     "type": "boolean",
-                    "description": "If set to true, policy will ignore the original details of the alert. Default value is false\n"
+                    "description": "If set to `true`, policy will ignore the original details of the alert. Default: `false`\n"
                 },
                 "ignoreOriginalResponders": {
                     "type": "boolean",
-                    "description": "If set to true, policy will ignore the original responders of the alert. Default value is false\n"
+                    "description": "If set to `true`, policy will ignore the original responders of the alert. Default: `false`\n"
                 },
                 "ignoreOriginalTags": {
                     "type": "boolean",
-                    "description": "If set to true, policy will ignore the original tags of the alert. Default value is false\n"
+                    "description": "If set to `true`, policy will ignore the original tags of the alert. Default: `false`\n"
                 },
                 "message": {
                     "type": "string",
@@ -3049,25 +3050,25 @@
                 },
                 "priority": {
                     "type": "string",
-                    "description": "Priority of the alert. Should be one of P1, P2, P3, P4, or P5\n"
+                    "description": "Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`\n"
                 },
                 "responders": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/AlertPolicyResponder:AlertPolicyResponder"
                     },
-                    "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.\n"
+                    "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.\n"
                 },
                 "source": {
                     "type": "string",
-                    "description": "Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}\n"
+                    "description": "Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`\n"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.\n"
+                    "description": "Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.\n"
                 },
                 "teamId": {
                     "type": "string",
@@ -3091,49 +3092,50 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.\n"
+                    "description": "Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.\n"
                 },
                 "alertDescription": {
                     "type": "string",
-                    "description": "Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}\n"
+                    "description": "Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`\n"
                 },
                 "alias": {
                     "type": "string",
-                    "description": "Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}\n"
+                    "description": "Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`\n"
                 },
                 "continuePolicy": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "It will trigger other modify policies if set to `true`. Default: `false`\n"
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "If policy should be enabled. Default: true\n"
+                    "description": "If policy should be enabled. Default: `true`\n"
                 },
                 "entity": {
                     "type": "string",
-                    "description": "Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}\n"
+                    "description": "Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`\n"
                 },
                 "filters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/AlertPolicyFilter:AlertPolicyFilter"
                     },
-                    "description": "A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.\n"
+                    "description": "A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.\n"
                 },
                 "ignoreOriginalActions": {
                     "type": "boolean",
-                    "description": "If set to true, policy will ignore the original actions of the alert. Default value is false\n"
+                    "description": "If set to `true`, policy will ignore the original actions of the alert. Default: `false`\n"
                 },
                 "ignoreOriginalDetails": {
                     "type": "boolean",
-                    "description": "If set to true, policy will ignore the original details of the alert. Default value is false\n"
+                    "description": "If set to `true`, policy will ignore the original details of the alert. Default: `false`\n"
                 },
                 "ignoreOriginalResponders": {
                     "type": "boolean",
-                    "description": "If set to true, policy will ignore the original responders of the alert. Default value is false\n"
+                    "description": "If set to `true`, policy will ignore the original responders of the alert. Default: `false`\n"
                 },
                 "ignoreOriginalTags": {
                     "type": "boolean",
-                    "description": "If set to true, policy will ignore the original tags of the alert. Default value is false\n"
+                    "description": "If set to `true`, policy will ignore the original tags of the alert. Default: `false`\n"
                 },
                 "message": {
                     "type": "string",
@@ -3149,25 +3151,25 @@
                 },
                 "priority": {
                     "type": "string",
-                    "description": "Priority of the alert. Should be one of P1, P2, P3, P4, or P5\n"
+                    "description": "Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`\n"
                 },
                 "responders": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/AlertPolicyResponder:AlertPolicyResponder"
                     },
-                    "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.\n"
+                    "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.\n"
                 },
                 "source": {
                     "type": "string",
-                    "description": "Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}\n"
+                    "description": "Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`\n"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.\n"
+                    "description": "Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.\n"
                 },
                 "teamId": {
                     "type": "string",
@@ -3192,49 +3194,50 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Actions to add to the alerts original actions value as a list of strings. If ignore_original_actions field is set to true, this will replace the original actions.\n"
+                        "description": "Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.\n"
                     },
                     "alertDescription": {
                         "type": "string",
-                        "description": "Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}\n"
+                        "description": "Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`\n"
                     },
                     "alias": {
                         "type": "string",
-                        "description": "Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}\n"
+                        "description": "Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`\n"
                     },
                     "continuePolicy": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "It will trigger other modify policies if set to `true`. Default: `false`\n"
                     },
                     "enabled": {
                         "type": "boolean",
-                        "description": "If policy should be enabled. Default: true\n"
+                        "description": "If policy should be enabled. Default: `true`\n"
                     },
                     "entity": {
                         "type": "string",
-                        "description": "Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}\n"
+                        "description": "Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`\n"
                     },
                     "filters": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/opsgenie:index/AlertPolicyFilter:AlertPolicyFilter"
                         },
-                        "description": "A alert filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.\n"
+                        "description": "A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.\n"
                     },
                     "ignoreOriginalActions": {
                         "type": "boolean",
-                        "description": "If set to true, policy will ignore the original actions of the alert. Default value is false\n"
+                        "description": "If set to `true`, policy will ignore the original actions of the alert. Default: `false`\n"
                     },
                     "ignoreOriginalDetails": {
                         "type": "boolean",
-                        "description": "If set to true, policy will ignore the original details of the alert. Default value is false\n"
+                        "description": "If set to `true`, policy will ignore the original details of the alert. Default: `false`\n"
                     },
                     "ignoreOriginalResponders": {
                         "type": "boolean",
-                        "description": "If set to true, policy will ignore the original responders of the alert. Default value is false\n"
+                        "description": "If set to `true`, policy will ignore the original responders of the alert. Default: `false`\n"
                     },
                     "ignoreOriginalTags": {
                         "type": "boolean",
-                        "description": "If set to true, policy will ignore the original tags of the alert. Default value is false\n"
+                        "description": "If set to `true`, policy will ignore the original tags of the alert. Default: `false`\n"
                     },
                     "message": {
                         "type": "string",
@@ -3250,25 +3253,25 @@
                     },
                     "priority": {
                         "type": "string",
-                        "description": "Priority of the alert. Should be one of P1, P2, P3, P4, or P5\n"
+                        "description": "Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`\n"
                     },
                     "responders": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/opsgenie:index/AlertPolicyResponder:AlertPolicyResponder"
                         },
-                        "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If ignoreOriginalResponders field is set to true, this will replace the original responders. The possible values for responders are: user, team. This is a block, structure is documented below.\n"
+                        "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.\n"
                     },
                     "source": {
                         "type": "string",
-                        "description": "Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}\n"
+                        "description": "Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`\n"
                     },
                     "tags": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalResponders field is set to true, this will replace the original responders.\n"
+                        "description": "Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.\n"
                     },
                     "teamId": {
                         "type": "string",
@@ -4030,7 +4033,7 @@
             }
         },
         "opsgenie:index/integrationAction:IntegrationAction": {
-            "description": "Manages advanced actions for Integrations within Opsgenie. This applies for the following resources:\n* opsgenie.ApiIntegration\n* opsgenie.EmailIntegration\n\nThe actions that are supported are:\n* create\n* close\n* acknowledge\n* add_note\n* ignore\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as opsgenie from \"@pulumi/opsgenie\";\n\nconst testAction = new opsgenie.IntegrationAction(\"testAction\", {\n    integrationId: opsgenie_api_integration.test.id,\n    creates: [\n        {\n            name: \"create action\",\n            tags: [\n                \"CRITICAL\",\n                \"SEV-0\",\n            ],\n            user: \"Example-service\",\n            note: \"{{note}}\",\n            alias: \"{{alias}}\",\n            source: \"{{source}}\",\n            message: \"{{message}}\",\n            description: \"{{description}}\",\n            entity: \"{{entity}}\",\n            alertActions: [\"Runbook ID#342\"],\n            filters: [{\n                type: \"match-all-conditions\",\n                conditions: [{\n                    field: \"priority\",\n                    operation: \"equals\",\n                    expectedValue: \"P1\",\n                }],\n            }],\n            responders: [{\n                id: opsgenie_team.test.id,\n                type: \"team\",\n            }],\n        },\n        {\n            name: \"Create medium priority alerts\",\n            tags: [\n                \"SEVERE\",\n                \"SEV-1\",\n            ],\n            priority: \"P3\",\n            filters: [{\n                type: \"match-all-conditions\",\n                conditions: [{\n                    field: \"priority\",\n                    operation: \"equals\",\n                    expectedValue: \"P2\",\n                }],\n            }],\n        },\n        {\n            name: \"Create alert with priority from message\",\n            customPriority: \"{{message.substringAfter(\\\"[custom]\\\")}}\",\n            filters: [{\n                type: \"match-all-conditions\",\n                conditions: [\n                    {\n                        field: \"tags\",\n                        operation: \"contains\",\n                        expectedValue: \"P5\",\n                    },\n                    {\n                        field: \"message\",\n                        operation: \"Starts With\",\n                        expectedValue: \"[custom]\",\n                    },\n                ],\n            }],\n        },\n    ],\n    closes: [{\n        name: \"Low priority alerts\",\n        filters: [{\n            type: \"match-any-condition\",\n            conditions: [\n                {\n                    field: \"priority\",\n                    operation: \"equals\",\n                    expectedValue: \"P5\",\n                },\n                {\n                    field: \"message\",\n                    operation: \"contains\",\n                    expectedValue: \"DEBUG\",\n                },\n            ],\n        }],\n    }],\n    acknowledges: [{\n        name: \"Auto-ack test alerts\",\n        filters: [{\n            type: \"match-all-conditions\",\n            conditions: [\n                {\n                    field: \"message\",\n                    operation: \"contains\",\n                    expectedValue: \"TEST\",\n                },\n                {\n                    field: \"priority\",\n                    operation: \"equals\",\n                    expectedValue: \"P5\",\n                },\n            ],\n        }],\n    }],\n    addNotes: [{\n        name: \"Add note to all alerts\",\n        note: \"Created from test integration\",\n        filters: [{\n            type: \"match-all\",\n        }],\n    }],\n    ignores: [{\n        name: \"Ignore alerts with ignore tag\",\n        filters: [{\n            type: \"match-all-conditions\",\n            conditions: [{\n                field: \"tags\",\n                operation: \"contains\",\n                expectedValue: \"ignore\",\n            }],\n        }],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_opsgenie as opsgenie\n\ntest_action = opsgenie.IntegrationAction(\"testAction\",\n    integration_id=opsgenie_api_integration[\"test\"][\"id\"],\n    creates=[\n        opsgenie.IntegrationActionCreateArgs(\n            name=\"create action\",\n            tags=[\n                \"CRITICAL\",\n                \"SEV-0\",\n            ],\n            user=\"Example-service\",\n            note=\"{{note}}\",\n            alias=\"{{alias}}\",\n            source=\"{{source}}\",\n            message=\"{{message}}\",\n            description=\"{{description}}\",\n            entity=\"{{entity}}\",\n            alert_actions=[\"Runbook ID#342\"],\n            filters=[opsgenie.IntegrationActionCreateFilterArgs(\n                type=\"match-all-conditions\",\n                conditions=[opsgenie.IntegrationActionCreateFilterConditionArgs(\n                    field=\"priority\",\n                    operation=\"equals\",\n                    expected_value=\"P1\",\n                )],\n            )],\n            responders=[opsgenie.IntegrationActionCreateResponderArgs(\n                id=opsgenie_team[\"test\"][\"id\"],\n                type=\"team\",\n            )],\n        ),\n        opsgenie.IntegrationActionCreateArgs(\n            name=\"Create medium priority alerts\",\n            tags=[\n                \"SEVERE\",\n                \"SEV-1\",\n            ],\n            priority=\"P3\",\n            filters=[opsgenie.IntegrationActionCreateFilterArgs(\n                type=\"match-all-conditions\",\n                conditions=[opsgenie.IntegrationActionCreateFilterConditionArgs(\n                    field=\"priority\",\n                    operation=\"equals\",\n                    expected_value=\"P2\",\n                )],\n            )],\n        ),\n        opsgenie.IntegrationActionCreateArgs(\n            name=\"Create alert with priority from message\",\n            custom_priority=\"{{message.substringAfter(\\\"[custom]\\\")}}\",\n            filters=[opsgenie.IntegrationActionCreateFilterArgs(\n                type=\"match-all-conditions\",\n                conditions=[\n                    opsgenie.IntegrationActionCreateFilterConditionArgs(\n                        field=\"tags\",\n                        operation=\"contains\",\n                        expected_value=\"P5\",\n                    ),\n                    opsgenie.IntegrationActionCreateFilterConditionArgs(\n                        field=\"message\",\n                        operation=\"Starts With\",\n                        expected_value=\"[custom]\",\n                    ),\n                ],\n            )],\n        ),\n    ],\n    closes=[opsgenie.IntegrationActionCloseArgs(\n        name=\"Low priority alerts\",\n        filters=[opsgenie.IntegrationActionCloseFilterArgs(\n            type=\"match-any-condition\",\n            conditions=[\n                opsgenie.IntegrationActionCloseFilterConditionArgs(\n                    field=\"priority\",\n                    operation=\"equals\",\n                    expected_value=\"P5\",\n                ),\n                opsgenie.IntegrationActionCloseFilterConditionArgs(\n                    field=\"message\",\n                    operation=\"contains\",\n                    expected_value=\"DEBUG\",\n                ),\n            ],\n        )],\n    )],\n    acknowledges=[opsgenie.IntegrationActionAcknowledgeArgs(\n        name=\"Auto-ack test alerts\",\n        filters=[opsgenie.IntegrationActionAcknowledgeFilterArgs(\n            type=\"match-all-conditions\",\n            conditions=[\n                opsgenie.IntegrationActionAcknowledgeFilterConditionArgs(\n                    field=\"message\",\n                    operation=\"contains\",\n                    expected_value=\"TEST\",\n                ),\n                opsgenie.IntegrationActionAcknowledgeFilterConditionArgs(\n                    field=\"priority\",\n                    operation=\"equals\",\n                    expected_value=\"P5\",\n                ),\n            ],\n        )],\n    )],\n    add_notes=[opsgenie.IntegrationActionAddNoteArgs(\n        name=\"Add note to all alerts\",\n        note=\"Created from test integration\",\n        filters=[opsgenie.IntegrationActionAddNoteFilterArgs(\n            type=\"match-all\",\n        )],\n    )],\n    ignores=[opsgenie.IntegrationActionIgnoreArgs(\n        name=\"Ignore alerts with ignore tag\",\n        filters=[opsgenie.IntegrationActionIgnoreFilterArgs(\n            type=\"match-all-conditions\",\n            conditions=[opsgenie.IntegrationActionIgnoreFilterConditionArgs(\n                field=\"tags\",\n                operation=\"contains\",\n                expected_value=\"ignore\",\n            )],\n        )],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Opsgenie = Pulumi.Opsgenie;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testAction = new Opsgenie.IntegrationAction(\"testAction\", new Opsgenie.IntegrationActionArgs\n        {\n            IntegrationId = opsgenie_api_integration.Test.Id,\n            Creates = \n            {\n                new Opsgenie.Inputs.IntegrationActionCreateArgs\n                {\n                    Name = \"create action\",\n                    Tags = \n                    {\n                        \"CRITICAL\",\n                        \"SEV-0\",\n                    },\n                    User = \"Example-service\",\n                    Note = \"{{note}}\",\n                    Alias = \"{{alias}}\",\n                    Source = \"{{source}}\",\n                    Message = \"{{message}}\",\n                    Description = \"{{description}}\",\n                    Entity = \"{{entity}}\",\n                    AlertActions = \n                    {\n                        \"Runbook ID#342\",\n                    },\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionCreateFilterArgs\n                        {\n                            Type = \"match-all-conditions\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs\n                                {\n                                    Field = \"priority\",\n                                    Operation = \"equals\",\n                                    ExpectedValue = \"P1\",\n                                },\n                            },\n                        },\n                    },\n                    Responders = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionCreateResponderArgs\n                        {\n                            Id = opsgenie_team.Test.Id,\n                            Type = \"team\",\n                        },\n                    },\n                },\n                new Opsgenie.Inputs.IntegrationActionCreateArgs\n                {\n                    Name = \"Create medium priority alerts\",\n                    Tags = \n                    {\n                        \"SEVERE\",\n                        \"SEV-1\",\n                    },\n                    Priority = \"P3\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionCreateFilterArgs\n                        {\n                            Type = \"match-all-conditions\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs\n                                {\n                                    Field = \"priority\",\n                                    Operation = \"equals\",\n                                    ExpectedValue = \"P2\",\n                                },\n                            },\n                        },\n                    },\n                },\n                new Opsgenie.Inputs.IntegrationActionCreateArgs\n                {\n                    Name = \"Create alert with priority from message\",\n                    CustomPriority = \"{{message.substringAfter(\\\"[custom]\\\")}}\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionCreateFilterArgs\n                        {\n                            Type = \"match-all-conditions\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs\n                                {\n                                    Field = \"tags\",\n                                    Operation = \"contains\",\n                                    ExpectedValue = \"P5\",\n                                },\n                                new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs\n                                {\n                                    Field = \"message\",\n                                    Operation = \"Starts With\",\n                                    ExpectedValue = \"[custom]\",\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n            Closes = \n            {\n                new Opsgenie.Inputs.IntegrationActionCloseArgs\n                {\n                    Name = \"Low priority alerts\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionCloseFilterArgs\n                        {\n                            Type = \"match-any-condition\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionCloseFilterConditionArgs\n                                {\n                                    Field = \"priority\",\n                                    Operation = \"equals\",\n                                    ExpectedValue = \"P5\",\n                                },\n                                new Opsgenie.Inputs.IntegrationActionCloseFilterConditionArgs\n                                {\n                                    Field = \"message\",\n                                    Operation = \"contains\",\n                                    ExpectedValue = \"DEBUG\",\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n            Acknowledges = \n            {\n                new Opsgenie.Inputs.IntegrationActionAcknowledgeArgs\n                {\n                    Name = \"Auto-ack test alerts\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionAcknowledgeFilterArgs\n                        {\n                            Type = \"match-all-conditions\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionAcknowledgeFilterConditionArgs\n                                {\n                                    Field = \"message\",\n                                    Operation = \"contains\",\n                                    ExpectedValue = \"TEST\",\n                                },\n                                new Opsgenie.Inputs.IntegrationActionAcknowledgeFilterConditionArgs\n                                {\n                                    Field = \"priority\",\n                                    Operation = \"equals\",\n                                    ExpectedValue = \"P5\",\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n            AddNotes = \n            {\n                new Opsgenie.Inputs.IntegrationActionAddNoteArgs\n                {\n                    Name = \"Add note to all alerts\",\n                    Note = \"Created from test integration\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionAddNoteFilterArgs\n                        {\n                            Type = \"match-all\",\n                        },\n                    },\n                },\n            },\n            Ignores = \n            {\n                new Opsgenie.Inputs.IntegrationActionIgnoreArgs\n                {\n                    Name = \"Ignore alerts with ignore tag\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionIgnoreFilterArgs\n                        {\n                            Type = \"match-all-conditions\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionIgnoreFilterConditionArgs\n                                {\n                                    Field = \"tags\",\n                                    Operation = \"contains\",\n                                    ExpectedValue = \"ignore\",\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := opsgenie.NewIntegrationAction(ctx, \"testAction\", \u0026opsgenie.IntegrationActionArgs{\n\t\t\tIntegrationId: pulumi.Any(opsgenie_api_integration.Test.Id),\n\t\t\tCreates: opsgenie.IntegrationActionCreateArray{\n\t\t\t\t\u0026opsgenie.IntegrationActionCreateArgs{\n\t\t\t\t\tName: pulumi.String(\"create action\"),\n\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"CRITICAL\"),\n\t\t\t\t\t\tpulumi.String(\"SEV-0\"),\n\t\t\t\t\t},\n\t\t\t\t\tUser:        pulumi.String(\"Example-service\"),\n\t\t\t\t\tNote:        pulumi.String(\"{{note}}\"),\n\t\t\t\t\tAlias:       pulumi.String(\"{{alias}}\"),\n\t\t\t\t\tSource:      pulumi.String(\"{{source}}\"),\n\t\t\t\t\tMessage:     pulumi.String(\"{{message}}\"),\n\t\t\t\t\tDescription: pulumi.String(\"{{description}}\"),\n\t\t\t\t\tEntity:      pulumi.String(\"{{entity}}\"),\n\t\t\t\t\tAlertActions: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"Runbook ID#342\"),\n\t\t\t\t\t},\n\t\t\t\t\tFilters: opsgenie.IntegrationActionCreateFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all-conditions\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionCreateFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"priority\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"equals\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"P1\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tResponders: opsgenie.IntegrationActionCreateResponderArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateResponderArgs{\n\t\t\t\t\t\t\tId:   pulumi.Any(opsgenie_team.Test.Id),\n\t\t\t\t\t\t\tType: pulumi.String(\"team\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026opsgenie.IntegrationActionCreateArgs{\n\t\t\t\t\tName: pulumi.String(\"Create medium priority alerts\"),\n\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"SEVERE\"),\n\t\t\t\t\t\tpulumi.String(\"SEV-1\"),\n\t\t\t\t\t},\n\t\t\t\t\tPriority: pulumi.String(\"P3\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionCreateFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all-conditions\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionCreateFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"priority\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"equals\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"P2\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026opsgenie.IntegrationActionCreateArgs{\n\t\t\t\t\tName:           pulumi.String(\"Create alert with priority from message\"),\n\t\t\t\t\tCustomPriority: pulumi.String(\"{{message.substringAfter(\\\"[custom]\\\")}}\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionCreateFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all-conditions\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionCreateFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"tags\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"contains\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"P5\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"message\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"Starts With\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"[custom]\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCloses: opsgenie.IntegrationActionCloseArray{\n\t\t\t\t\u0026opsgenie.IntegrationActionCloseArgs{\n\t\t\t\t\tName: pulumi.String(\"Low priority alerts\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionCloseFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCloseFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-any-condition\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionCloseFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCloseFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"priority\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"equals\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"P5\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCloseFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"message\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"contains\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"DEBUG\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tAcknowledges: opsgenie.IntegrationActionAcknowledgeArray{\n\t\t\t\t\u0026opsgenie.IntegrationActionAcknowledgeArgs{\n\t\t\t\t\tName: pulumi.String(\"Auto-ack test alerts\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionAcknowledgeFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionAcknowledgeFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all-conditions\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionAcknowledgeFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionAcknowledgeFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"message\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"contains\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"TEST\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionAcknowledgeFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"priority\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"equals\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"P5\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tAddNotes: opsgenie.IntegrationActionAddNoteArray{\n\t\t\t\t\u0026opsgenie.IntegrationActionAddNoteArgs{\n\t\t\t\t\tName: pulumi.String(\"Add note to all alerts\"),\n\t\t\t\t\tNote: pulumi.String(\"Created from test integration\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionAddNoteFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionAddNoteFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tIgnores: opsgenie.IntegrationActionIgnoreArray{\n\t\t\t\t\u0026opsgenie.IntegrationActionIgnoreArgs{\n\t\t\t\t\tName: pulumi.String(\"Ignore alerts with ignore tag\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionIgnoreFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionIgnoreFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all-conditions\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionIgnoreFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionIgnoreFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"tags\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"contains\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"ignore\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Manages advanced actions for Integrations within Opsgenie. This applies for the following resources:\n* `opsgenie.ApiIntegration`\n* `opsgenie.EmailIntegration`\n\nThe actions that are supported are:\n* `create`\n* `close`\n* `acknowledge`\n* `add_note`\n* `ignore`\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as opsgenie from \"@pulumi/opsgenie\";\n\nconst testAction = new opsgenie.IntegrationAction(\"testAction\", {\n    integrationId: opsgenie_api_integration.test.id,\n    creates: [\n        {\n            name: \"create action\",\n            tags: [\n                \"CRITICAL\",\n                \"SEV-0\",\n            ],\n            user: \"Example-service\",\n            note: \"{{note}}\",\n            alias: \"{{alias}}\",\n            source: \"{{source}}\",\n            message: \"{{message}}\",\n            description: \"{{description}}\",\n            entity: \"{{entity}}\",\n            alertActions: [\"Runbook ID#342\"],\n            filters: [{\n                type: \"match-all-conditions\",\n                conditions: [{\n                    field: \"priority\",\n                    operation: \"equals\",\n                    expectedValue: \"P1\",\n                }],\n            }],\n            responders: [{\n                id: opsgenie_team.test.id,\n                type: \"team\",\n            }],\n        },\n        {\n            name: \"Create medium priority alerts\",\n            tags: [\n                \"SEVERE\",\n                \"SEV-1\",\n            ],\n            priority: \"P3\",\n            filters: [{\n                type: \"match-all-conditions\",\n                conditions: [{\n                    field: \"priority\",\n                    operation: \"equals\",\n                    expectedValue: \"P2\",\n                }],\n            }],\n        },\n        {\n            name: \"Create alert with priority from message\",\n            customPriority: \"{{message.substringAfter(\\\"[custom]\\\")}}\",\n            filters: [{\n                type: \"match-all-conditions\",\n                conditions: [\n                    {\n                        field: \"tags\",\n                        operation: \"contains\",\n                        expectedValue: \"P5\",\n                    },\n                    {\n                        field: \"message\",\n                        operation: \"Starts With\",\n                        expectedValue: \"[custom]\",\n                    },\n                ],\n            }],\n        },\n    ],\n    closes: [{\n        name: \"Low priority alerts\",\n        filters: [{\n            type: \"match-any-condition\",\n            conditions: [\n                {\n                    field: \"priority\",\n                    operation: \"equals\",\n                    expectedValue: \"P5\",\n                },\n                {\n                    field: \"message\",\n                    operation: \"contains\",\n                    expectedValue: \"DEBUG\",\n                },\n            ],\n        }],\n    }],\n    acknowledges: [{\n        name: \"Auto-ack test alerts\",\n        filters: [{\n            type: \"match-all-conditions\",\n            conditions: [\n                {\n                    field: \"message\",\n                    operation: \"contains\",\n                    expectedValue: \"TEST\",\n                },\n                {\n                    field: \"priority\",\n                    operation: \"equals\",\n                    expectedValue: \"P5\",\n                },\n            ],\n        }],\n    }],\n    addNotes: [{\n        name: \"Add note to all alerts\",\n        note: \"Created from test integration\",\n        filters: [{\n            type: \"match-all\",\n        }],\n    }],\n    ignores: [{\n        name: \"Ignore alerts with ignore tag\",\n        filters: [{\n            type: \"match-all-conditions\",\n            conditions: [{\n                field: \"tags\",\n                operation: \"contains\",\n                expectedValue: \"ignore\",\n            }],\n        }],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_opsgenie as opsgenie\n\ntest_action = opsgenie.IntegrationAction(\"testAction\",\n    integration_id=opsgenie_api_integration[\"test\"][\"id\"],\n    creates=[\n        opsgenie.IntegrationActionCreateArgs(\n            name=\"create action\",\n            tags=[\n                \"CRITICAL\",\n                \"SEV-0\",\n            ],\n            user=\"Example-service\",\n            note=\"{{note}}\",\n            alias=\"{{alias}}\",\n            source=\"{{source}}\",\n            message=\"{{message}}\",\n            description=\"{{description}}\",\n            entity=\"{{entity}}\",\n            alert_actions=[\"Runbook ID#342\"],\n            filters=[opsgenie.IntegrationActionCreateFilterArgs(\n                type=\"match-all-conditions\",\n                conditions=[opsgenie.IntegrationActionCreateFilterConditionArgs(\n                    field=\"priority\",\n                    operation=\"equals\",\n                    expected_value=\"P1\",\n                )],\n            )],\n            responders=[opsgenie.IntegrationActionCreateResponderArgs(\n                id=opsgenie_team[\"test\"][\"id\"],\n                type=\"team\",\n            )],\n        ),\n        opsgenie.IntegrationActionCreateArgs(\n            name=\"Create medium priority alerts\",\n            tags=[\n                \"SEVERE\",\n                \"SEV-1\",\n            ],\n            priority=\"P3\",\n            filters=[opsgenie.IntegrationActionCreateFilterArgs(\n                type=\"match-all-conditions\",\n                conditions=[opsgenie.IntegrationActionCreateFilterConditionArgs(\n                    field=\"priority\",\n                    operation=\"equals\",\n                    expected_value=\"P2\",\n                )],\n            )],\n        ),\n        opsgenie.IntegrationActionCreateArgs(\n            name=\"Create alert with priority from message\",\n            custom_priority=\"{{message.substringAfter(\\\"[custom]\\\")}}\",\n            filters=[opsgenie.IntegrationActionCreateFilterArgs(\n                type=\"match-all-conditions\",\n                conditions=[\n                    opsgenie.IntegrationActionCreateFilterConditionArgs(\n                        field=\"tags\",\n                        operation=\"contains\",\n                        expected_value=\"P5\",\n                    ),\n                    opsgenie.IntegrationActionCreateFilterConditionArgs(\n                        field=\"message\",\n                        operation=\"Starts With\",\n                        expected_value=\"[custom]\",\n                    ),\n                ],\n            )],\n        ),\n    ],\n    closes=[opsgenie.IntegrationActionCloseArgs(\n        name=\"Low priority alerts\",\n        filters=[opsgenie.IntegrationActionCloseFilterArgs(\n            type=\"match-any-condition\",\n            conditions=[\n                opsgenie.IntegrationActionCloseFilterConditionArgs(\n                    field=\"priority\",\n                    operation=\"equals\",\n                    expected_value=\"P5\",\n                ),\n                opsgenie.IntegrationActionCloseFilterConditionArgs(\n                    field=\"message\",\n                    operation=\"contains\",\n                    expected_value=\"DEBUG\",\n                ),\n            ],\n        )],\n    )],\n    acknowledges=[opsgenie.IntegrationActionAcknowledgeArgs(\n        name=\"Auto-ack test alerts\",\n        filters=[opsgenie.IntegrationActionAcknowledgeFilterArgs(\n            type=\"match-all-conditions\",\n            conditions=[\n                opsgenie.IntegrationActionAcknowledgeFilterConditionArgs(\n                    field=\"message\",\n                    operation=\"contains\",\n                    expected_value=\"TEST\",\n                ),\n                opsgenie.IntegrationActionAcknowledgeFilterConditionArgs(\n                    field=\"priority\",\n                    operation=\"equals\",\n                    expected_value=\"P5\",\n                ),\n            ],\n        )],\n    )],\n    add_notes=[opsgenie.IntegrationActionAddNoteArgs(\n        name=\"Add note to all alerts\",\n        note=\"Created from test integration\",\n        filters=[opsgenie.IntegrationActionAddNoteFilterArgs(\n            type=\"match-all\",\n        )],\n    )],\n    ignores=[opsgenie.IntegrationActionIgnoreArgs(\n        name=\"Ignore alerts with ignore tag\",\n        filters=[opsgenie.IntegrationActionIgnoreFilterArgs(\n            type=\"match-all-conditions\",\n            conditions=[opsgenie.IntegrationActionIgnoreFilterConditionArgs(\n                field=\"tags\",\n                operation=\"contains\",\n                expected_value=\"ignore\",\n            )],\n        )],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Opsgenie = Pulumi.Opsgenie;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testAction = new Opsgenie.IntegrationAction(\"testAction\", new Opsgenie.IntegrationActionArgs\n        {\n            IntegrationId = opsgenie_api_integration.Test.Id,\n            Creates = \n            {\n                new Opsgenie.Inputs.IntegrationActionCreateArgs\n                {\n                    Name = \"create action\",\n                    Tags = \n                    {\n                        \"CRITICAL\",\n                        \"SEV-0\",\n                    },\n                    User = \"Example-service\",\n                    Note = \"{{note}}\",\n                    Alias = \"{{alias}}\",\n                    Source = \"{{source}}\",\n                    Message = \"{{message}}\",\n                    Description = \"{{description}}\",\n                    Entity = \"{{entity}}\",\n                    AlertActions = \n                    {\n                        \"Runbook ID#342\",\n                    },\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionCreateFilterArgs\n                        {\n                            Type = \"match-all-conditions\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs\n                                {\n                                    Field = \"priority\",\n                                    Operation = \"equals\",\n                                    ExpectedValue = \"P1\",\n                                },\n                            },\n                        },\n                    },\n                    Responders = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionCreateResponderArgs\n                        {\n                            Id = opsgenie_team.Test.Id,\n                            Type = \"team\",\n                        },\n                    },\n                },\n                new Opsgenie.Inputs.IntegrationActionCreateArgs\n                {\n                    Name = \"Create medium priority alerts\",\n                    Tags = \n                    {\n                        \"SEVERE\",\n                        \"SEV-1\",\n                    },\n                    Priority = \"P3\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionCreateFilterArgs\n                        {\n                            Type = \"match-all-conditions\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs\n                                {\n                                    Field = \"priority\",\n                                    Operation = \"equals\",\n                                    ExpectedValue = \"P2\",\n                                },\n                            },\n                        },\n                    },\n                },\n                new Opsgenie.Inputs.IntegrationActionCreateArgs\n                {\n                    Name = \"Create alert with priority from message\",\n                    CustomPriority = \"{{message.substringAfter(\\\"[custom]\\\")}}\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionCreateFilterArgs\n                        {\n                            Type = \"match-all-conditions\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs\n                                {\n                                    Field = \"tags\",\n                                    Operation = \"contains\",\n                                    ExpectedValue = \"P5\",\n                                },\n                                new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs\n                                {\n                                    Field = \"message\",\n                                    Operation = \"Starts With\",\n                                    ExpectedValue = \"[custom]\",\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n            Closes = \n            {\n                new Opsgenie.Inputs.IntegrationActionCloseArgs\n                {\n                    Name = \"Low priority alerts\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionCloseFilterArgs\n                        {\n                            Type = \"match-any-condition\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionCloseFilterConditionArgs\n                                {\n                                    Field = \"priority\",\n                                    Operation = \"equals\",\n                                    ExpectedValue = \"P5\",\n                                },\n                                new Opsgenie.Inputs.IntegrationActionCloseFilterConditionArgs\n                                {\n                                    Field = \"message\",\n                                    Operation = \"contains\",\n                                    ExpectedValue = \"DEBUG\",\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n            Acknowledges = \n            {\n                new Opsgenie.Inputs.IntegrationActionAcknowledgeArgs\n                {\n                    Name = \"Auto-ack test alerts\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionAcknowledgeFilterArgs\n                        {\n                            Type = \"match-all-conditions\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionAcknowledgeFilterConditionArgs\n                                {\n                                    Field = \"message\",\n                                    Operation = \"contains\",\n                                    ExpectedValue = \"TEST\",\n                                },\n                                new Opsgenie.Inputs.IntegrationActionAcknowledgeFilterConditionArgs\n                                {\n                                    Field = \"priority\",\n                                    Operation = \"equals\",\n                                    ExpectedValue = \"P5\",\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n            AddNotes = \n            {\n                new Opsgenie.Inputs.IntegrationActionAddNoteArgs\n                {\n                    Name = \"Add note to all alerts\",\n                    Note = \"Created from test integration\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionAddNoteFilterArgs\n                        {\n                            Type = \"match-all\",\n                        },\n                    },\n                },\n            },\n            Ignores = \n            {\n                new Opsgenie.Inputs.IntegrationActionIgnoreArgs\n                {\n                    Name = \"Ignore alerts with ignore tag\",\n                    Filters = \n                    {\n                        new Opsgenie.Inputs.IntegrationActionIgnoreFilterArgs\n                        {\n                            Type = \"match-all-conditions\",\n                            Conditions = \n                            {\n                                new Opsgenie.Inputs.IntegrationActionIgnoreFilterConditionArgs\n                                {\n                                    Field = \"tags\",\n                                    Operation = \"contains\",\n                                    ExpectedValue = \"ignore\",\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := opsgenie.NewIntegrationAction(ctx, \"testAction\", \u0026opsgenie.IntegrationActionArgs{\n\t\t\tIntegrationId: pulumi.Any(opsgenie_api_integration.Test.Id),\n\t\t\tCreates: opsgenie.IntegrationActionCreateArray{\n\t\t\t\t\u0026opsgenie.IntegrationActionCreateArgs{\n\t\t\t\t\tName: pulumi.String(\"create action\"),\n\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"CRITICAL\"),\n\t\t\t\t\t\tpulumi.String(\"SEV-0\"),\n\t\t\t\t\t},\n\t\t\t\t\tUser:        pulumi.String(\"Example-service\"),\n\t\t\t\t\tNote:        pulumi.String(\"{{note}}\"),\n\t\t\t\t\tAlias:       pulumi.String(\"{{alias}}\"),\n\t\t\t\t\tSource:      pulumi.String(\"{{source}}\"),\n\t\t\t\t\tMessage:     pulumi.String(\"{{message}}\"),\n\t\t\t\t\tDescription: pulumi.String(\"{{description}}\"),\n\t\t\t\t\tEntity:      pulumi.String(\"{{entity}}\"),\n\t\t\t\t\tAlertActions: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"Runbook ID#342\"),\n\t\t\t\t\t},\n\t\t\t\t\tFilters: opsgenie.IntegrationActionCreateFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all-conditions\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionCreateFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"priority\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"equals\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"P1\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tResponders: opsgenie.IntegrationActionCreateResponderArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateResponderArgs{\n\t\t\t\t\t\t\tId:   pulumi.Any(opsgenie_team.Test.Id),\n\t\t\t\t\t\t\tType: pulumi.String(\"team\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026opsgenie.IntegrationActionCreateArgs{\n\t\t\t\t\tName: pulumi.String(\"Create medium priority alerts\"),\n\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"SEVERE\"),\n\t\t\t\t\t\tpulumi.String(\"SEV-1\"),\n\t\t\t\t\t},\n\t\t\t\t\tPriority: pulumi.String(\"P3\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionCreateFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all-conditions\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionCreateFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"priority\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"equals\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"P2\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026opsgenie.IntegrationActionCreateArgs{\n\t\t\t\t\tName:           pulumi.String(\"Create alert with priority from message\"),\n\t\t\t\t\tCustomPriority: pulumi.String(\"{{message.substringAfter(\\\"[custom]\\\")}}\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionCreateFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all-conditions\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionCreateFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"tags\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"contains\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"P5\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCreateFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"message\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"Starts With\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"[custom]\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCloses: opsgenie.IntegrationActionCloseArray{\n\t\t\t\t\u0026opsgenie.IntegrationActionCloseArgs{\n\t\t\t\t\tName: pulumi.String(\"Low priority alerts\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionCloseFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCloseFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-any-condition\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionCloseFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCloseFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"priority\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"equals\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"P5\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionCloseFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"message\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"contains\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"DEBUG\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tAcknowledges: opsgenie.IntegrationActionAcknowledgeArray{\n\t\t\t\t\u0026opsgenie.IntegrationActionAcknowledgeArgs{\n\t\t\t\t\tName: pulumi.String(\"Auto-ack test alerts\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionAcknowledgeFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionAcknowledgeFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all-conditions\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionAcknowledgeFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionAcknowledgeFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"message\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"contains\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"TEST\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionAcknowledgeFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"priority\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"equals\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"P5\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tAddNotes: opsgenie.IntegrationActionAddNoteArray{\n\t\t\t\t\u0026opsgenie.IntegrationActionAddNoteArgs{\n\t\t\t\t\tName: pulumi.String(\"Add note to all alerts\"),\n\t\t\t\t\tNote: pulumi.String(\"Created from test integration\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionAddNoteFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionAddNoteFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tIgnores: opsgenie.IntegrationActionIgnoreArray{\n\t\t\t\t\u0026opsgenie.IntegrationActionIgnoreArgs{\n\t\t\t\t\tName: pulumi.String(\"Ignore alerts with ignore tag\"),\n\t\t\t\t\tFilters: opsgenie.IntegrationActionIgnoreFilterArray{\n\t\t\t\t\t\t\u0026opsgenie.IntegrationActionIgnoreFilterArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"match-all-conditions\"),\n\t\t\t\t\t\t\tConditions: opsgenie.IntegrationActionIgnoreFilterConditionArray{\n\t\t\t\t\t\t\t\t\u0026opsgenie.IntegrationActionIgnoreFilterConditionArgs{\n\t\t\t\t\t\t\t\t\tField:         pulumi.String(\"tags\"),\n\t\t\t\t\t\t\t\t\tOperation:     pulumi.String(\"contains\"),\n\t\t\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"ignore\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "acknowledges": {
                     "type": "array",
@@ -4226,7 +4229,7 @@
             }
         },
         "opsgenie:index/notificationPolicy:NotificationPolicy": {
-            "description": "Manages a Notification Policy within Opsgenie.\n\n\n## Import\n\nNotification policies can be imported using the `team id` and `id`, e.g.\n\n```sh\n $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test teamId/Id`\n```\n\n For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`\n\n- Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`\n\n```sh\n $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`\n```\n\n ",
+            "description": "Manages a Notification Policy within Opsgenie.\n\n\n## Import\n\nNotification policies can be imported using the `team id` and `id`, e.g.\n\n```sh\n $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test teamId/Id`\n```\n\n For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`\n\n```sh\n $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`\n```\n\n ",
             "properties": {
                 "autoCloseActions": {
                     "type": "array",
@@ -4258,14 +4261,14 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "If policy should be enabled. Default: true\n"
+                    "description": "If policy should be enabled. Default: `true`\n"
                 },
                 "filters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/NotificationPolicyFilter:NotificationPolicyFilter"
                     },
-                    "description": "A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.\n"
+                    "description": "A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4277,7 +4280,7 @@
                 },
                 "suppress": {
                     "type": "boolean",
-                    "description": "Suppress value of the policy. Values are: true, false. Default: false\n"
+                    "description": "Suppress value of the policy. Values are: `true`, `false`. Default: `false`\n"
                 },
                 "teamId": {
                     "type": "string",
@@ -4327,14 +4330,14 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "If policy should be enabled. Default: true\n"
+                    "description": "If policy should be enabled. Default: `true`\n"
                 },
                 "filters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/NotificationPolicyFilter:NotificationPolicyFilter"
                     },
-                    "description": "A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.\n"
+                    "description": "A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4346,7 +4349,7 @@
                 },
                 "suppress": {
                     "type": "boolean",
-                    "description": "Suppress value of the policy. Values are: true, false. Default: false\n"
+                    "description": "Suppress value of the policy. Values are: `true`, `false`. Default: `false`\n"
                 },
                 "teamId": {
                     "type": "string",
@@ -4397,14 +4400,14 @@
                     },
                     "enabled": {
                         "type": "boolean",
-                        "description": "If policy should be enabled. Default: true\n"
+                        "description": "If policy should be enabled. Default: `true`\n"
                     },
                     "filters": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/opsgenie:index/NotificationPolicyFilter:NotificationPolicyFilter"
                         },
-                        "description": "A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.\n"
+                        "description": "A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.\n"
                     },
                     "name": {
                         "type": "string",
@@ -4416,7 +4419,7 @@
                     },
                     "suppress": {
                         "type": "boolean",
-                        "description": "Suppress value of the policy. Values are: true, false. Default: false\n"
+                        "description": "Suppress value of the policy. Values are: `true`, `false`. Default: `false`\n"
                     },
                     "teamId": {
                         "type": "string",

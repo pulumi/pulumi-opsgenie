@@ -12,15 +12,15 @@ import (
 )
 
 // Manages advanced actions for Integrations within Opsgenie. This applies for the following resources:
-// * ApiIntegration
-// * EmailIntegration
+// * `ApiIntegration`
+// * `EmailIntegration`
 //
 // The actions that are supported are:
-// * create
-// * close
-// * acknowledge
-// * addNote
-// * ignore
+// * `create`
+// * `close`
+// * `acknowledge`
+// * `addNote`
+// * `ignore`
 //
 // ## Example Usage
 //

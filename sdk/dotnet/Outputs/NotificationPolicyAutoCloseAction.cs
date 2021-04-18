@@ -14,7 +14,7 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class NotificationPolicyAutoCloseAction
     {
         /// <summary>
-        /// Duration of this action. If `delay_option` = "for-duration" this has to be set. This is a block, structure is documented below.
+        /// Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationPolicyAutoCloseActionDuration> Durations;
 

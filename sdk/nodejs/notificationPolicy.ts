@@ -16,9 +16,7 @@ import * as utilities from "./utilities";
  *  $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test teamId/Id`
  * ```
  *
- *  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
- *
- * - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+ *  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
  *
  * ```sh
  *  $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
@@ -69,11 +67,11 @@ export class NotificationPolicy extends pulumi.CustomResource {
      */
     public readonly delayActions!: pulumi.Output<outputs.NotificationPolicyDelayAction[] | undefined>;
     /**
-     * If policy should be enabled. Default: true
+     * If policy should be enabled. Default: `true`
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+     * A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      */
     public readonly filters!: pulumi.Output<outputs.NotificationPolicyFilter[]>;
     /**
@@ -85,7 +83,7 @@ export class NotificationPolicy extends pulumi.CustomResource {
      */
     public readonly policyDescription!: pulumi.Output<string | undefined>;
     /**
-     * Suppress value of the policy. Values are: true, false. Default: false
+     * Suppress value of the policy. Values are: `true`, `false`. Default: `false`
      */
     public readonly suppress!: pulumi.Output<boolean | undefined>;
     /**
@@ -169,11 +167,11 @@ export interface NotificationPolicyState {
      */
     readonly delayActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDelayAction>[]>;
     /**
-     * If policy should be enabled. Default: true
+     * If policy should be enabled. Default: `true`
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+     * A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      */
     readonly filters?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyFilter>[]>;
     /**
@@ -185,7 +183,7 @@ export interface NotificationPolicyState {
      */
     readonly policyDescription?: pulumi.Input<string>;
     /**
-     * Suppress value of the policy. Values are: true, false. Default: false
+     * Suppress value of the policy. Values are: `true`, `false`. Default: `false`
      */
     readonly suppress?: pulumi.Input<boolean>;
     /**
@@ -219,11 +217,11 @@ export interface NotificationPolicyArgs {
      */
     readonly delayActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDelayAction>[]>;
     /**
-     * If policy should be enabled. Default: true
+     * If policy should be enabled. Default: `true`
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * A notification filter which will be applied. This filter can be empty: filter {} - this means 'match-all'. This is a block, structure is documented below.
+     * A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      */
     readonly filters: pulumi.Input<pulumi.Input<inputs.NotificationPolicyFilter>[]>;
     /**
@@ -235,7 +233,7 @@ export interface NotificationPolicyArgs {
      */
     readonly policyDescription?: pulumi.Input<string>;
     /**
-     * Suppress value of the policy. Values are: true, false. Default: false
+     * Suppress value of the policy. Values are: `true`, `false`. Default: `false`
      */
     readonly suppress?: pulumi.Input<boolean>;
     /**

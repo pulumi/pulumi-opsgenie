@@ -14,7 +14,7 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class AlertPolicyTimeRestrictionRestriction
     {
         /// <summary>
-        /// Ending day of restriction (eg. "wednesday)
+        /// Ending day of restriction (eg. `wednesday`)
         /// </summary>
         public readonly string EndDay;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly int EndMin;
         /// <summary>
-        /// Starting day of restriction (eg. "monday")
+        /// Starting day of restriction (eg. `monday`)
         /// </summary>
         public readonly string StartDay;
         /// <summary>
