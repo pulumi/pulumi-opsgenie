@@ -26,10 +26,10 @@ class EmailIntegrationArgs:
         The set of arguments for constructing a EmailIntegration resource.
         :param pulumi.Input[str] email_username: The username part of the email address. It must be unique for each integration.
         :param pulumi.Input[bool] enabled: A Member block as documented below.
-        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
-        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         pulumi.set(__self__, "email_username", email_username)
         if enabled is not None:
@@ -73,7 +73,7 @@ class EmailIntegrationArgs:
     @pulumi.getter(name="ignoreRespondersFromPayload")
     def ignore_responders_from_payload(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         """
         return pulumi.get(self, "ignore_responders_from_payload")
 
@@ -118,7 +118,7 @@ class EmailIntegrationArgs:
     @pulumi.getter(name="suppressNotifications")
     def suppress_notifications(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         return pulumi.get(self, "suppress_notifications")
 
@@ -141,10 +141,10 @@ class _EmailIntegrationState:
         Input properties used for looking up and filtering EmailIntegration resources.
         :param pulumi.Input[str] email_username: The username part of the email address. It must be unique for each integration.
         :param pulumi.Input[bool] enabled: A Member block as documented below.
-        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
-        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         if email_username is not None:
             pulumi.set(__self__, "email_username", email_username)
@@ -189,7 +189,7 @@ class _EmailIntegrationState:
     @pulumi.getter(name="ignoreRespondersFromPayload")
     def ignore_responders_from_payload(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         """
         return pulumi.get(self, "ignore_responders_from_payload")
 
@@ -234,7 +234,7 @@ class _EmailIntegrationState:
     @pulumi.getter(name="suppressNotifications")
     def suppress_notifications(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         return pulumi.get(self, "suppress_notifications")
 
@@ -306,17 +306,17 @@ class EmailIntegration(pulumi.CustomResource):
         Email Integrations can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+         $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] email_username: The username part of the email address. It must be unique for each integration.
         :param pulumi.Input[bool] enabled: A Member block as documented below.
-        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
-        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         ...
     @overload
@@ -374,7 +374,7 @@ class EmailIntegration(pulumi.CustomResource):
         Email Integrations can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+         $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -446,10 +446,10 @@ class EmailIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] email_username: The username part of the email address. It must be unique for each integration.
         :param pulumi.Input[bool] enabled: A Member block as documented below.
-        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
-        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -484,7 +484,7 @@ class EmailIntegration(pulumi.CustomResource):
     @pulumi.getter(name="ignoreRespondersFromPayload")
     def ignore_responders_from_payload(self) -> pulumi.Output[Optional[bool]]:
         """
-        If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         """
         return pulumi.get(self, "ignore_responders_from_payload")
 
@@ -513,7 +513,7 @@ class EmailIntegration(pulumi.CustomResource):
     @pulumi.getter(name="suppressNotifications")
     def suppress_notifications(self) -> pulumi.Output[Optional[bool]]:
         """
-        If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         return pulumi.get(self, "suppress_notifications")
 

@@ -123,7 +123,7 @@ type AlertPolicyFilterCondition struct {
 	Field string `pulumi:"field"`
 	// If `field` is set as extra-properties, key could be used for key-value pair
 	Key *string `pulumi:"key"`
-	// Indicates behaviour of the given operation. Default:`false`
+	// Indicates behaviour of the given operation. Default: `false`
 	Not *bool `pulumi:"not"`
 	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
 	Operation string `pulumi:"operation"`
@@ -149,7 +149,7 @@ type AlertPolicyFilterConditionArgs struct {
 	Field pulumi.StringInput `pulumi:"field"`
 	// If `field` is set as extra-properties, key could be used for key-value pair
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Indicates behaviour of the given operation. Default:`false`
+	// Indicates behaviour of the given operation. Default: `false`
 	Not pulumi.BoolPtrInput `pulumi:"not"`
 	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
 	Operation pulumi.StringInput `pulumi:"operation"`
@@ -223,7 +223,7 @@ func (o AlertPolicyFilterConditionOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertPolicyFilterCondition) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Indicates behaviour of the given operation. Default:`false`
+// Indicates behaviour of the given operation. Default: `false`
 func (o AlertPolicyFilterConditionOutput) Not() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AlertPolicyFilterCondition) *bool { return v.Not }).(pulumi.BoolPtrOutput)
 }
@@ -5156,7 +5156,7 @@ func (o NotificationPolicyTimeRestrictionRestrictionArrayOutput) Index(i pulumi.
 type NotificationRuleCriteria struct {
 	// Defines the fields and values when the condition applies
 	Conditions []NotificationRuleCriteriaCondition `pulumi:"conditions"`
-	// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 	Type string `pulumi:"type"`
 }
 
@@ -5174,7 +5174,7 @@ type NotificationRuleCriteriaInput interface {
 type NotificationRuleCriteriaArgs struct {
 	// Defines the fields and values when the condition applies
 	Conditions NotificationRuleCriteriaConditionArrayInput `pulumi:"conditions"`
-	// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5234,7 +5234,7 @@ func (o NotificationRuleCriteriaOutput) Conditions() NotificationRuleCriteriaCon
 	return o.ApplyT(func(v NotificationRuleCriteria) []NotificationRuleCriteriaCondition { return v.Conditions }).(NotificationRuleCriteriaConditionArrayOutput)
 }
 
-// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 func (o NotificationRuleCriteriaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleCriteria) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5260,14 +5260,15 @@ func (o NotificationRuleCriteriaArrayOutput) Index(i pulumi.IntInput) Notificati
 }
 
 type NotificationRuleCriteriaCondition struct {
+	// User defined value that will be compared with alert field according to the operation. Default: empty string
 	ExpectedValue *string `pulumi:"expectedValue"`
-	// Possible values: "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+	// Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
 	Field string `pulumi:"field"`
 	// If 'field' is set as 'extra-properties', key could be used for key-value pair
 	Key *string `pulumi:"key"`
-	// Indicates behaviour of the given operation. Default value is false
+	// Indicates behaviour of the given operation. Default: `false`
 	Not *bool `pulumi:"not"`
-	// Possible values: "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace
+	// Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
 	Operation string `pulumi:"operation"`
 	// Order of the condition in conditions list
 	Order *int `pulumi:"order"`
@@ -5285,14 +5286,15 @@ type NotificationRuleCriteriaConditionInput interface {
 }
 
 type NotificationRuleCriteriaConditionArgs struct {
+	// User defined value that will be compared with alert field according to the operation. Default: empty string
 	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
-	// Possible values: "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+	// Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
 	Field pulumi.StringInput `pulumi:"field"`
 	// If 'field' is set as 'extra-properties', key could be used for key-value pair
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Indicates behaviour of the given operation. Default value is false
+	// Indicates behaviour of the given operation. Default: `false`
 	Not pulumi.BoolPtrInput `pulumi:"not"`
-	// Possible values: "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace
+	// Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
 	Operation pulumi.StringInput `pulumi:"operation"`
 	// Order of the condition in conditions list
 	Order pulumi.IntPtrInput `pulumi:"order"`
@@ -5349,11 +5351,12 @@ func (o NotificationRuleCriteriaConditionOutput) ToNotificationRuleCriteriaCondi
 	return o
 }
 
+// User defined value that will be compared with alert field according to the operation. Default: empty string
 func (o NotificationRuleCriteriaConditionOutput) ExpectedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationRuleCriteriaCondition) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
 }
 
-// Possible values: "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+// Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
 func (o NotificationRuleCriteriaConditionOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleCriteriaCondition) string { return v.Field }).(pulumi.StringOutput)
 }
@@ -5363,12 +5366,12 @@ func (o NotificationRuleCriteriaConditionOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationRuleCriteriaCondition) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Indicates behaviour of the given operation. Default value is false
+// Indicates behaviour of the given operation. Default: `false`
 func (o NotificationRuleCriteriaConditionOutput) Not() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NotificationRuleCriteriaCondition) *bool { return v.Not }).(pulumi.BoolPtrOutput)
 }
 
-// Possible values: "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace
+// Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
 func (o NotificationRuleCriteriaConditionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleCriteriaCondition) string { return v.Operation }).(pulumi.StringOutput)
 }
@@ -5399,7 +5402,7 @@ func (o NotificationRuleCriteriaConditionArrayOutput) Index(i pulumi.IntInput) N
 }
 
 type NotificationRuleRepeat struct {
-	// Defined if this step is enabled. Default: true
+	// Defined if this step is enabled. Default: `true`
 	Enabled   *bool `pulumi:"enabled"`
 	LoopAfter int   `pulumi:"loopAfter"`
 }
@@ -5416,7 +5419,7 @@ type NotificationRuleRepeatInput interface {
 }
 
 type NotificationRuleRepeatArgs struct {
-	// Defined if this step is enabled. Default: true
+	// Defined if this step is enabled. Default: `true`
 	Enabled   pulumi.BoolPtrInput `pulumi:"enabled"`
 	LoopAfter pulumi.IntInput     `pulumi:"loopAfter"`
 }
@@ -5472,7 +5475,7 @@ func (o NotificationRuleRepeatOutput) ToNotificationRuleRepeatOutputWithContext(
 	return o
 }
 
-// Defined if this step is enabled. Default: true
+// Defined if this step is enabled. Default: `true`
 func (o NotificationRuleRepeatOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NotificationRuleRepeat) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -5504,7 +5507,7 @@ func (o NotificationRuleRepeatArrayOutput) Index(i pulumi.IntInput) Notification
 type NotificationRuleSchedule struct {
 	// Name of the notification policy
 	Name string `pulumi:"name"`
-	// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 	Type string `pulumi:"type"`
 }
 
@@ -5522,7 +5525,7 @@ type NotificationRuleScheduleInput interface {
 type NotificationRuleScheduleArgs struct {
 	// Name of the notification policy
 	Name pulumi.StringInput `pulumi:"name"`
-	// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5582,7 +5585,7 @@ func (o NotificationRuleScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleSchedule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 func (o NotificationRuleScheduleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleSchedule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5610,9 +5613,9 @@ func (o NotificationRuleScheduleArrayOutput) Index(i pulumi.IntInput) Notificati
 type NotificationRuleStep struct {
 	// Defines the contact that notification will be sent to. This is a block, structure is documented below.
 	Contacts []NotificationRuleStepContact `pulumi:"contacts"`
-	// Defined if this step is enabled. Default: true
+	// Defined if this step is enabled. Default: `true`
 	Enabled *bool `pulumi:"enabled"`
-	// Minute time period notification will be sent after.
+	// Time period, in minutes, notification will be sent after.
 	SendAfter *int `pulumi:"sendAfter"`
 }
 
@@ -5630,9 +5633,9 @@ type NotificationRuleStepInput interface {
 type NotificationRuleStepArgs struct {
 	// Defines the contact that notification will be sent to. This is a block, structure is documented below.
 	Contacts NotificationRuleStepContactArrayInput `pulumi:"contacts"`
-	// Defined if this step is enabled. Default: true
+	// Defined if this step is enabled. Default: `true`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Minute time period notification will be sent after.
+	// Time period, in minutes, notification will be sent after.
 	SendAfter pulumi.IntPtrInput `pulumi:"sendAfter"`
 }
 
@@ -5692,12 +5695,12 @@ func (o NotificationRuleStepOutput) Contacts() NotificationRuleStepContactArrayO
 	return o.ApplyT(func(v NotificationRuleStep) []NotificationRuleStepContact { return v.Contacts }).(NotificationRuleStepContactArrayOutput)
 }
 
-// Defined if this step is enabled. Default: true
+// Defined if this step is enabled. Default: `true`
 func (o NotificationRuleStepOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NotificationRuleStep) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Minute time period notification will be sent after.
+// Time period, in minutes, notification will be sent after.
 func (o NotificationRuleStepOutput) SendAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NotificationRuleStep) *int { return v.SendAfter }).(pulumi.IntPtrOutput)
 }
@@ -5723,9 +5726,9 @@ func (o NotificationRuleStepArrayOutput) Index(i pulumi.IntInput) NotificationRu
 }
 
 type NotificationRuleStepContact struct {
-	// Contact method. Possible values: "email", "sms", "voice", "mobile"
+	// Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
 	Method string `pulumi:"method"`
-	// Address of a given method (eg. phone number for sms/voice or email address for email)
+	// Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
 	To string `pulumi:"to"`
 }
 
@@ -5741,9 +5744,9 @@ type NotificationRuleStepContactInput interface {
 }
 
 type NotificationRuleStepContactArgs struct {
-	// Contact method. Possible values: "email", "sms", "voice", "mobile"
+	// Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
 	Method pulumi.StringInput `pulumi:"method"`
-	// Address of a given method (eg. phone number for sms/voice or email address for email)
+	// Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
 	To pulumi.StringInput `pulumi:"to"`
 }
 
@@ -5798,12 +5801,12 @@ func (o NotificationRuleStepContactOutput) ToNotificationRuleStepContactOutputWi
 	return o
 }
 
-// Contact method. Possible values: "email", "sms", "voice", "mobile"
+// Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
 func (o NotificationRuleStepContactOutput) Method() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleStepContact) string { return v.Method }).(pulumi.StringOutput)
 }
 
-// Address of a given method (eg. phone number for sms/voice or email address for email)
+// Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
 func (o NotificationRuleStepContactOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleStepContact) string { return v.To }).(pulumi.StringOutput)
 }
@@ -5830,7 +5833,7 @@ func (o NotificationRuleStepContactArrayOutput) Index(i pulumi.IntInput) Notific
 
 type NotificationRuleTimeRestriction struct {
 	Restrictions []NotificationRuleTimeRestrictionRestriction `pulumi:"restrictions"`
-	// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 	Type string `pulumi:"type"`
 }
 
@@ -5847,7 +5850,7 @@ type NotificationRuleTimeRestrictionInput interface {
 
 type NotificationRuleTimeRestrictionArgs struct {
 	Restrictions NotificationRuleTimeRestrictionRestrictionArrayInput `pulumi:"restrictions"`
-	// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5908,7 +5911,7 @@ func (o NotificationRuleTimeRestrictionOutput) Restrictions() NotificationRuleTi
 	}).(NotificationRuleTimeRestrictionRestrictionArrayOutput)
 }
 
-// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 func (o NotificationRuleTimeRestrictionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleTimeRestriction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6414,7 +6417,7 @@ func (o ScheduleRotationTimeRestrictionRestrictionArrayOutput) Index(i pulumi.In
 }
 
 type ServiceIncidentRuleIncidentRule struct {
-	// A Condition type, supported types are: "match-all", "match-any-condition", "match-all-conditions". Default: "match-all"
+	// A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
 	ConditionMatchType *string `pulumi:"conditionMatchType"`
 	// Conditions applied to incident. This is a block, structure is documented below.
 	Conditions []ServiceIncidentRuleIncidentRuleCondition `pulumi:"conditions"`
@@ -6434,7 +6437,7 @@ type ServiceIncidentRuleIncidentRuleInput interface {
 }
 
 type ServiceIncidentRuleIncidentRuleArgs struct {
-	// A Condition type, supported types are: "match-all", "match-any-condition", "match-all-conditions". Default: "match-all"
+	// A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
 	ConditionMatchType pulumi.StringPtrInput `pulumi:"conditionMatchType"`
 	// Conditions applied to incident. This is a block, structure is documented below.
 	Conditions ServiceIncidentRuleIncidentRuleConditionArrayInput `pulumi:"conditions"`
@@ -6493,7 +6496,7 @@ func (o ServiceIncidentRuleIncidentRuleOutput) ToServiceIncidentRuleIncidentRule
 	return o
 }
 
-// A Condition type, supported types are: "match-all", "match-any-condition", "match-all-conditions". Default: "match-all"
+// A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
 func (o ServiceIncidentRuleIncidentRuleOutput) ConditionMatchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentRuleIncidentRule) *string { return v.ConditionMatchType }).(pulumi.StringPtrOutput)
 }
@@ -6535,12 +6538,12 @@ func (o ServiceIncidentRuleIncidentRuleArrayOutput) Index(i pulumi.IntInput) Ser
 type ServiceIncidentRuleIncidentRuleCondition struct {
 	// User defined value that will be compared with alert field according to the operation. Default: empty string
 	ExpectedValue *string `pulumi:"expectedValue"`
-	// Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
 	Field string  `pulumi:"field"`
 	Key   *string `pulumi:"key"`
 	// Indicates behaviour of the given operation. Default: false
 	Not *bool `pulumi:"not"`
-	// It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
 	Operation string `pulumi:"operation"`
 }
 
@@ -6558,12 +6561,12 @@ type ServiceIncidentRuleIncidentRuleConditionInput interface {
 type ServiceIncidentRuleIncidentRuleConditionArgs struct {
 	// User defined value that will be compared with alert field according to the operation. Default: empty string
 	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
-	// Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
 	Field pulumi.StringInput    `pulumi:"field"`
 	Key   pulumi.StringPtrInput `pulumi:"key"`
 	// Indicates behaviour of the given operation. Default: false
 	Not pulumi.BoolPtrInput `pulumi:"not"`
-	// It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
 	Operation pulumi.StringInput `pulumi:"operation"`
 }
 
@@ -6623,7 +6626,7 @@ func (o ServiceIncidentRuleIncidentRuleConditionOutput) ExpectedValue() pulumi.S
 	return o.ApplyT(func(v ServiceIncidentRuleIncidentRuleCondition) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
 }
 
-// Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
 func (o ServiceIncidentRuleIncidentRuleConditionOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceIncidentRuleIncidentRuleCondition) string { return v.Field }).(pulumi.StringOutput)
 }
@@ -6637,7 +6640,7 @@ func (o ServiceIncidentRuleIncidentRuleConditionOutput) Not() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v ServiceIncidentRuleIncidentRuleCondition) *bool { return v.Not }).(pulumi.BoolPtrOutput)
 }
 
-// It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
 func (o ServiceIncidentRuleIncidentRuleConditionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceIncidentRuleIncidentRuleCondition) string { return v.Operation }).(pulumi.StringOutput)
 }
@@ -6669,7 +6672,7 @@ type ServiceIncidentRuleIncidentRuleIncidentProperty struct {
 	Details map[string]string `pulumi:"details"`
 	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
 	Message string `pulumi:"message"`
-	// Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
+	// Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
 	Priority string `pulumi:"priority"`
 	// DEtails about stakeholders for this rule. This is a block, structure is documented below.
 	StakeholderProperties []ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty `pulumi:"stakeholderProperties"`
@@ -6695,7 +6698,7 @@ type ServiceIncidentRuleIncidentRuleIncidentPropertyArgs struct {
 	Details pulumi.StringMapInput `pulumi:"details"`
 	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
 	Message pulumi.StringInput `pulumi:"message"`
-	// Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
+	// Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
 	Priority pulumi.StringInput `pulumi:"priority"`
 	// DEtails about stakeholders for this rule. This is a block, structure is documented below.
 	StakeholderProperties ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayInput `pulumi:"stakeholderProperties"`
@@ -6769,7 +6772,7 @@ func (o ServiceIncidentRuleIncidentRuleIncidentPropertyOutput) Message() pulumi.
 	return o.ApplyT(func(v ServiceIncidentRuleIncidentRuleIncidentProperty) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
+// Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
 func (o ServiceIncidentRuleIncidentRuleIncidentPropertyOutput) Priority() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceIncidentRuleIncidentRuleIncidentProperty) string { return v.Priority }).(pulumi.StringOutput)
 }
@@ -6926,7 +6929,7 @@ func (o ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayO
 type TeamMember struct {
 	// The UUID for the member to add to this Team.
 	Id string `pulumi:"id"`
-	// The role for the user within the Team - can be either 'admin' or 'user', defaults to 'user' if not set.
+	// The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
 	Role *string `pulumi:"role"`
 }
 
@@ -6944,7 +6947,7 @@ type TeamMemberInput interface {
 type TeamMemberArgs struct {
 	// The UUID for the member to add to this Team.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The role for the user within the Team - can be either 'admin' or 'user', defaults to 'user' if not set.
+	// The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
 	Role pulumi.StringPtrInput `pulumi:"role"`
 }
 
@@ -7004,7 +7007,7 @@ func (o TeamMemberOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamMember) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The role for the user within the Team - can be either 'admin' or 'user', defaults to 'user' if not set.
+// The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
 func (o TeamMemberOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamMember) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
@@ -7032,7 +7035,7 @@ func (o TeamMemberArrayOutput) Index(i pulumi.IntInput) TeamMemberOutput {
 type TeamRoutingRuleCriteria struct {
 	// List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
 	Conditions []TeamRoutingRuleCriteriaCondition `pulumi:"conditions"`
-	// Type of the operation will be applied on conditions. Should be one of match-all, match-any-condition or match-all-conditions.
+	// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
 	Type string `pulumi:"type"`
 }
 
@@ -7050,7 +7053,7 @@ type TeamRoutingRuleCriteriaInput interface {
 type TeamRoutingRuleCriteriaArgs struct {
 	// List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
 	Conditions TeamRoutingRuleCriteriaConditionArrayInput `pulumi:"conditions"`
-	// Type of the operation will be applied on conditions. Should be one of match-all, match-any-condition or match-all-conditions.
+	// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7110,7 +7113,7 @@ func (o TeamRoutingRuleCriteriaOutput) Conditions() TeamRoutingRuleCriteriaCondi
 	return o.ApplyT(func(v TeamRoutingRuleCriteria) []TeamRoutingRuleCriteriaCondition { return v.Conditions }).(TeamRoutingRuleCriteriaConditionArrayOutput)
 }
 
-// Type of the operation will be applied on conditions. Should be one of match-all, match-any-condition or match-all-conditions.
+// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
 func (o TeamRoutingRuleCriteriaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamRoutingRuleCriteria) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7137,13 +7140,13 @@ func (o TeamRoutingRuleCriteriaArrayOutput) Index(i pulumi.IntInput) TeamRouting
 
 type TeamRoutingRuleCriteriaCondition struct {
 	ExpectedValue *string `pulumi:"expectedValue"`
-	// Specifies which alert field will be used in condition. Possible values are message, alias, description, source, entity, tags, actions, extra-properties, recipients, teams or priority.
+	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
 	Field string `pulumi:"field"`
 	// If field is set as extra-properties, key could be used for key-value pair.
 	Key *string `pulumi:"key"`
 	// Indicates behaviour of the given operation. Default value is false.
 	Not *bool `pulumi:"not"`
-	// It is the operation that will be executed for the given field and key. Possible operations are matches, contains, starts-with, ends-with, equals, contains-key, contains-value, greater-than, less-than, is-empty and equals-ignore-whitespace.
+	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
 	Operation string `pulumi:"operation"`
 	// Order of the condition in conditions list.
 	Order *int `pulumi:"order"`
@@ -7162,13 +7165,13 @@ type TeamRoutingRuleCriteriaConditionInput interface {
 
 type TeamRoutingRuleCriteriaConditionArgs struct {
 	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
-	// Specifies which alert field will be used in condition. Possible values are message, alias, description, source, entity, tags, actions, extra-properties, recipients, teams or priority.
+	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
 	Field pulumi.StringInput `pulumi:"field"`
 	// If field is set as extra-properties, key could be used for key-value pair.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Indicates behaviour of the given operation. Default value is false.
 	Not pulumi.BoolPtrInput `pulumi:"not"`
-	// It is the operation that will be executed for the given field and key. Possible operations are matches, contains, starts-with, ends-with, equals, contains-key, contains-value, greater-than, less-than, is-empty and equals-ignore-whitespace.
+	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
 	Operation pulumi.StringInput `pulumi:"operation"`
 	// Order of the condition in conditions list.
 	Order pulumi.IntPtrInput `pulumi:"order"`
@@ -7229,7 +7232,7 @@ func (o TeamRoutingRuleCriteriaConditionOutput) ExpectedValue() pulumi.StringPtr
 	return o.ApplyT(func(v TeamRoutingRuleCriteriaCondition) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
 }
 
-// Specifies which alert field will be used in condition. Possible values are message, alias, description, source, entity, tags, actions, extra-properties, recipients, teams or priority.
+// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
 func (o TeamRoutingRuleCriteriaConditionOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamRoutingRuleCriteriaCondition) string { return v.Field }).(pulumi.StringOutput)
 }
@@ -7244,7 +7247,7 @@ func (o TeamRoutingRuleCriteriaConditionOutput) Not() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TeamRoutingRuleCriteriaCondition) *bool { return v.Not }).(pulumi.BoolPtrOutput)
 }
 
-// It is the operation that will be executed for the given field and key. Possible operations are matches, contains, starts-with, ends-with, equals, contains-key, contains-value, greater-than, less-than, is-empty and equals-ignore-whitespace.
+// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
 func (o TeamRoutingRuleCriteriaConditionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamRoutingRuleCriteriaCondition) string { return v.Operation }).(pulumi.StringOutput)
 }

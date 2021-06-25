@@ -88,18 +88,10 @@ import (
 //
 // ## Import
 //
-// Team Routing Rules can be imported using the `id`, e.g.
+// Team Routing Rules can be imported using the `team_id/routing_rule_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest teamId/routingRuleId`
-// ```
-//
-//  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-//
-// - Routing Rule Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
-//
-// ```sh
-//  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+//  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`
 // ```
 type TeamRoutingRule struct {
 	pulumi.CustomResourceState
@@ -108,7 +100,7 @@ type TeamRoutingRule struct {
 	Criterias TeamRoutingRuleCriteriaArrayOutput `pulumi:"criterias"`
 	// Name of the team routing rule
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
 	Notifies TeamRoutingRuleNotifyArrayOutput `pulumi:"notifies"`
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
 	Order pulumi.IntPtrOutput `pulumi:"order"`
@@ -158,7 +150,7 @@ type teamRoutingRuleState struct {
 	Criterias []TeamRoutingRuleCriteria `pulumi:"criterias"`
 	// Name of the team routing rule
 	Name *string `pulumi:"name"`
-	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
 	Notifies []TeamRoutingRuleNotify `pulumi:"notifies"`
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
 	Order *int `pulumi:"order"`
@@ -174,7 +166,7 @@ type TeamRoutingRuleState struct {
 	Criterias TeamRoutingRuleCriteriaArrayInput
 	// Name of the team routing rule
 	Name pulumi.StringPtrInput
-	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
 	Notifies TeamRoutingRuleNotifyArrayInput
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
 	Order pulumi.IntPtrInput
@@ -194,7 +186,7 @@ type teamRoutingRuleArgs struct {
 	Criterias []TeamRoutingRuleCriteria `pulumi:"criterias"`
 	// Name of the team routing rule
 	Name *string `pulumi:"name"`
-	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
 	Notifies []TeamRoutingRuleNotify `pulumi:"notifies"`
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
 	Order *int `pulumi:"order"`
@@ -211,7 +203,7 @@ type TeamRoutingRuleArgs struct {
 	Criterias TeamRoutingRuleCriteriaArrayInput
 	// Name of the team routing rule
 	Name pulumi.StringPtrInput
-	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
 	Notifies TeamRoutingRuleNotifyArrayInput
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
 	Order pulumi.IntPtrInput

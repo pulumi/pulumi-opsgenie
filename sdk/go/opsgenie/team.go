@@ -71,10 +71,10 @@ import (
 //
 // ## Import
 //
-// Teams can be imported using the `id`, e.g.
+// Teams can be imported using the `team_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/team:Team team1 812be1a1-32c8-4666-a7fb-03ecc385106c`
+//  $ pulumi import opsgenie:index/team:Team team1 team_id`
 // ```
 type Team struct {
 	pulumi.CustomResourceState
@@ -83,7 +83,7 @@ type Team struct {
 	DeleteDefaultResources pulumi.BoolPtrOutput `pulumi:"deleteDefaultResources"`
 	// A description for this team.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+	// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
 	IgnoreMembers pulumi.BoolPtrOutput `pulumi:"ignoreMembers"`
 	// A Member block as documented below.
 	Members TeamMemberArrayOutput `pulumi:"members"`
@@ -124,7 +124,7 @@ type teamState struct {
 	DeleteDefaultResources *bool `pulumi:"deleteDefaultResources"`
 	// A description for this team.
 	Description *string `pulumi:"description"`
-	// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+	// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
 	IgnoreMembers *bool `pulumi:"ignoreMembers"`
 	// A Member block as documented below.
 	Members []TeamMember `pulumi:"members"`
@@ -137,7 +137,7 @@ type TeamState struct {
 	DeleteDefaultResources pulumi.BoolPtrInput
 	// A description for this team.
 	Description pulumi.StringPtrInput
-	// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+	// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
 	IgnoreMembers pulumi.BoolPtrInput
 	// A Member block as documented below.
 	Members TeamMemberArrayInput
@@ -154,7 +154,7 @@ type teamArgs struct {
 	DeleteDefaultResources *bool `pulumi:"deleteDefaultResources"`
 	// A description for this team.
 	Description *string `pulumi:"description"`
-	// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+	// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
 	IgnoreMembers *bool `pulumi:"ignoreMembers"`
 	// A Member block as documented below.
 	Members []TeamMember `pulumi:"members"`
@@ -168,7 +168,7 @@ type TeamArgs struct {
 	DeleteDefaultResources pulumi.BoolPtrInput
 	// A description for this team.
 	Description pulumi.StringPtrInput
-	// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+	// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
 	IgnoreMembers pulumi.BoolPtrInput
 	// A Member block as documented below.
 	Members TeamMemberArrayInput

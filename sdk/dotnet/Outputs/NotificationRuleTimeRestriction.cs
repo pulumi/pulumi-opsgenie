@@ -15,7 +15,7 @@ namespace Pulumi.Opsgenie.Outputs
     {
         public readonly ImmutableArray<Outputs.NotificationRuleTimeRestrictionRestriction> Restrictions;
         /// <summary>
-        /// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+        /// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         /// </summary>
         public readonly string Type;
 

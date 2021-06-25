@@ -29,7 +29,7 @@ export interface AlertPolicyFilterCondition {
      */
     key?: pulumi.Input<string>;
     /**
-     * Indicates behaviour of the given operation. Default:`false`
+     * Indicates behaviour of the given operation. Default: `false`
      */
     not?: pulumi.Input<boolean>;
     /**
@@ -733,15 +733,18 @@ export interface NotificationRuleCriteria {
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteriaCondition>[]>;
     /**
-     * Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+     * Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
      */
     type: pulumi.Input<string>;
 }
 
 export interface NotificationRuleCriteriaCondition {
+    /**
+     * User defined value that will be compared with alert field according to the operation. Default: empty string
+     */
     expectedValue?: pulumi.Input<string>;
     /**
-     * Possible values: "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+     * Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
      */
     field: pulumi.Input<string>;
     /**
@@ -749,11 +752,11 @@ export interface NotificationRuleCriteriaCondition {
      */
     key?: pulumi.Input<string>;
     /**
-     * Indicates behaviour of the given operation. Default value is false
+     * Indicates behaviour of the given operation. Default: `false`
      */
     not?: pulumi.Input<boolean>;
     /**
-     * Possible values: "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace
+     * Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
      */
     operation: pulumi.Input<string>;
     /**
@@ -764,7 +767,7 @@ export interface NotificationRuleCriteriaCondition {
 
 export interface NotificationRuleRepeat {
     /**
-     * Defined if this step is enabled. Default: true
+     * Defined if this step is enabled. Default: `true`
      */
     enabled?: pulumi.Input<boolean>;
     loopAfter: pulumi.Input<number>;
@@ -776,7 +779,7 @@ export interface NotificationRuleSchedule {
      */
     name: pulumi.Input<string>;
     /**
-     * Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+     * Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
      */
     type: pulumi.Input<string>;
 }
@@ -787,22 +790,22 @@ export interface NotificationRuleStep {
      */
     contacts: pulumi.Input<pulumi.Input<inputs.NotificationRuleStepContact>[]>;
     /**
-     * Defined if this step is enabled. Default: true
+     * Defined if this step is enabled. Default: `true`
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Minute time period notification will be sent after.
+     * Time period, in minutes, notification will be sent after.
      */
     sendAfter?: pulumi.Input<number>;
 }
 
 export interface NotificationRuleStepContact {
     /**
-     * Contact method. Possible values: "email", "sms", "voice", "mobile"
+     * Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
      */
     method: pulumi.Input<string>;
     /**
-     * Address of a given method (eg. phone number for sms/voice or email address for email)
+     * Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
      */
     to: pulumi.Input<string>;
 }
@@ -810,7 +813,7 @@ export interface NotificationRuleStepContact {
 export interface NotificationRuleTimeRestriction {
     restrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestrictionRestriction>[]>;
     /**
-     * Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+     * Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
      */
     type: pulumi.Input<string>;
 }
@@ -875,7 +878,7 @@ export interface ScheduleRotationTimeRestrictionRestriction {
 
 export interface ServiceIncidentRuleIncidentRule {
     /**
-     * A Condition type, supported types are: "match-all", "match-any-condition", "match-all-conditions". Default: "match-all"
+     * A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      */
     conditionMatchType?: pulumi.Input<string>;
     /**
@@ -894,7 +897,7 @@ export interface ServiceIncidentRuleIncidentRuleCondition {
      */
     expectedValue?: pulumi.Input<string>;
     /**
-     * Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
      */
     field: pulumi.Input<string>;
     key?: pulumi.Input<string>;
@@ -903,7 +906,7 @@ export interface ServiceIncidentRuleIncidentRuleCondition {
      */
     not?: pulumi.Input<boolean>;
     /**
-     * It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+     * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
      */
     operation: pulumi.Input<string>;
 }
@@ -922,7 +925,7 @@ export interface ServiceIncidentRuleIncidentRuleIncidentProperty {
      */
     message: pulumi.Input<string>;
     /**
-     * Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
+     * Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
      */
     priority: pulumi.Input<string>;
     /**
@@ -956,7 +959,7 @@ export interface TeamMember {
      */
     id: pulumi.Input<string>;
     /**
-     * The role for the user within the Team - can be either 'admin' or 'user', defaults to 'user' if not set.
+     * The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
      */
     role?: pulumi.Input<string>;
 }
@@ -967,7 +970,7 @@ export interface TeamRoutingRuleCriteria {
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteriaCondition>[]>;
     /**
-     * Type of the operation will be applied on conditions. Should be one of match-all, match-any-condition or match-all-conditions.
+     * Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
      */
     type: pulumi.Input<string>;
 }
@@ -975,7 +978,7 @@ export interface TeamRoutingRuleCriteria {
 export interface TeamRoutingRuleCriteriaCondition {
     expectedValue?: pulumi.Input<string>;
     /**
-     * Specifies which alert field will be used in condition. Possible values are message, alias, description, source, entity, tags, actions, extra-properties, recipients, teams or priority.
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
      */
     field: pulumi.Input<string>;
     /**
@@ -987,7 +990,7 @@ export interface TeamRoutingRuleCriteriaCondition {
      */
     not?: pulumi.Input<boolean>;
     /**
-     * It is the operation that will be executed for the given field and key. Possible operations are matches, contains, starts-with, ends-with, equals, contains-key, contains-value, greater-than, less-than, is-empty and equals-ignore-whitespace.
+     * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
      */
     operation: pulumi.Input<string>;
     /**

@@ -27,13 +27,13 @@ class ApiIntegrationArgs:
                  webhook_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiIntegration resource.
-        :param pulumi.Input[bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
-        :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Defaults to true
-        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        :param pulumi.Input[bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
+        :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
+        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
         :param pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
-        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
@@ -62,7 +62,7 @@ class ApiIntegrationArgs:
     @pulumi.getter(name="allowWriteAccess")
     def allow_write_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+        This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         """
         return pulumi.get(self, "allow_write_access")
 
@@ -74,7 +74,7 @@ class ApiIntegrationArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+        This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -95,7 +95,7 @@ class ApiIntegrationArgs:
     @pulumi.getter(name="ignoreRespondersFromPayload")
     def ignore_responders_from_payload(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         """
         return pulumi.get(self, "ignore_responders_from_payload")
 
@@ -143,7 +143,7 @@ class ApiIntegrationArgs:
     @pulumi.getter(name="suppressNotifications")
     def suppress_notifications(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         return pulumi.get(self, "suppress_notifications")
 
@@ -192,14 +192,14 @@ class _ApiIntegrationState:
                  webhook_url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiIntegration resources.
-        :param pulumi.Input[bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+        :param pulumi.Input[bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         :param pulumi.Input[str] api_key: (Computed) API key of the created integration
-        :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Defaults to true
-        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
+        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
         :param pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
-        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
@@ -230,7 +230,7 @@ class _ApiIntegrationState:
     @pulumi.getter(name="allowWriteAccess")
     def allow_write_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+        This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         """
         return pulumi.get(self, "allow_write_access")
 
@@ -254,7 +254,7 @@ class _ApiIntegrationState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+        This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -275,7 +275,7 @@ class _ApiIntegrationState:
     @pulumi.getter(name="ignoreRespondersFromPayload")
     def ignore_responders_from_payload(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         """
         return pulumi.get(self, "ignore_responders_from_payload")
 
@@ -323,7 +323,7 @@ class _ApiIntegrationState:
     @pulumi.getter(name="suppressNotifications")
     def suppress_notifications(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         return pulumi.get(self, "suppress_notifications")
 
@@ -421,21 +421,21 @@ class ApiIntegration(pulumi.CustomResource):
 
         ## Import
 
-        API Integrations can be imported using the `id`, e.g.
+        API Integrations can be imported using the `integration_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/apiIntegration:ApiIntegration defaultintegration 812be1a1-32c8-4666-a7fb-03ecc385106c`
+         $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
-        :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Defaults to true
-        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        :param pulumi.Input[bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
+        :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
+        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiIntegrationResponderArgs']]]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
-        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
@@ -494,10 +494,10 @@ class ApiIntegration(pulumi.CustomResource):
 
         ## Import
 
-        API Integrations can be imported using the `id`, e.g.
+        API Integrations can be imported using the `integration_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/apiIntegration:ApiIntegration defaultintegration 812be1a1-32c8-4666-a7fb-03ecc385106c`
+         $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -576,14 +576,14 @@ class ApiIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+        :param pulumi.Input[bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         :param pulumi.Input[str] api_key: (Computed) API key of the created integration
-        :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Defaults to true
-        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
+        :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiIntegrationResponderArgs']]]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
-        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
@@ -608,7 +608,7 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter(name="allowWriteAccess")
     def allow_write_access(self) -> pulumi.Output[Optional[bool]]:
         """
-        This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+        This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         """
         return pulumi.get(self, "allow_write_access")
 
@@ -624,7 +624,7 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+        This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -637,7 +637,7 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter(name="ignoreRespondersFromPayload")
     def ignore_responders_from_payload(self) -> pulumi.Output[Optional[bool]]:
         """
-        If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         """
         return pulumi.get(self, "ignore_responders_from_payload")
 
@@ -669,7 +669,7 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter(name="suppressNotifications")
     def suppress_notifications(self) -> pulumi.Output[Optional[bool]]:
         """
-        If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         return pulumi.get(self, "suppress_notifications")
 

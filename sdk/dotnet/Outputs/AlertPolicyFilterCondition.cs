@@ -26,7 +26,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// Indicates behaviour of the given operation. Default:`false`
+        /// Indicates behaviour of the given operation. Default: `false`
         /// </summary>
         public readonly bool? Not;
         /// <summary>

@@ -132,7 +132,7 @@ class AlertPolicyFilterConditionArgs:
         :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         :param pulumi.Input[str] expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param pulumi.Input[str] key: If `field` is set as extra-properties, key could be used for key-value pair
-        :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default:`false`
+        :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default: `false`
         :param pulumi.Input[int] order: Order of the condition in conditions list
         """
         pulumi.set(__self__, "field", field)
@@ -198,7 +198,7 @@ class AlertPolicyFilterConditionArgs:
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates behaviour of the given operation. Default:`false`
+        Indicates behaviour of the given operation. Default: `false`
         """
         return pulumi.get(self, "not_")
 
@@ -2876,7 +2876,7 @@ class NotificationRuleCriteriaArgs:
                  type: pulumi.Input[str],
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+        :param pulumi.Input[str] type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]] conditions: Defines the fields and values when the condition applies
         """
         pulumi.set(__self__, "type", type)
@@ -2887,7 +2887,7 @@ class NotificationRuleCriteriaArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+        Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
         return pulumi.get(self, "type")
 
@@ -2918,10 +2918,11 @@ class NotificationRuleCriteriaConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] field: Possible values: "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
-        :param pulumi.Input[str] operation: Possible values: "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace
+        :param pulumi.Input[str] field: Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        :param pulumi.Input[str] operation: Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
+        :param pulumi.Input[str] expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param pulumi.Input[str] key: If 'field' is set as 'extra-properties', key could be used for key-value pair
-        :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default value is false
+        :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default: `false`
         :param pulumi.Input[int] order: Order of the condition in conditions list
         """
         pulumi.set(__self__, "field", field)
@@ -2939,7 +2940,7 @@ class NotificationRuleCriteriaConditionArgs:
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
         """
-        Possible values: "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+        Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
         """
         return pulumi.get(self, "field")
 
@@ -2951,7 +2952,7 @@ class NotificationRuleCriteriaConditionArgs:
     @pulumi.getter
     def operation(self) -> pulumi.Input[str]:
         """
-        Possible values: "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace
+        Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
         """
         return pulumi.get(self, "operation")
 
@@ -2962,6 +2963,9 @@ class NotificationRuleCriteriaConditionArgs:
     @property
     @pulumi.getter(name="expectedValue")
     def expected_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        User defined value that will be compared with alert field according to the operation. Default: empty string
+        """
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
@@ -2984,7 +2988,7 @@ class NotificationRuleCriteriaConditionArgs:
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates behaviour of the given operation. Default value is false
+        Indicates behaviour of the given operation. Default: `false`
         """
         return pulumi.get(self, "not_")
 
@@ -3011,7 +3015,7 @@ class NotificationRuleRepeatArgs:
                  loop_after: pulumi.Input[int],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] enabled: Defined if this step is enabled. Default: true
+        :param pulumi.Input[bool] enabled: Defined if this step is enabled. Default: `true`
         """
         pulumi.set(__self__, "loop_after", loop_after)
         if enabled is not None:
@@ -3030,7 +3034,7 @@ class NotificationRuleRepeatArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defined if this step is enabled. Default: true
+        Defined if this step is enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -3046,7 +3050,7 @@ class NotificationRuleScheduleArgs:
                  type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: Name of the notification policy
-        :param pulumi.Input[str] type: Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+        :param pulumi.Input[str] type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -3067,7 +3071,7 @@ class NotificationRuleScheduleArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+        Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
         return pulumi.get(self, "type")
 
@@ -3084,8 +3088,8 @@ class NotificationRuleStepArgs:
                  send_after: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepContactArgs']]] contacts: Defines the contact that notification will be sent to. This is a block, structure is documented below.
-        :param pulumi.Input[bool] enabled: Defined if this step is enabled. Default: true
-        :param pulumi.Input[int] send_after: Minute time period notification will be sent after.
+        :param pulumi.Input[bool] enabled: Defined if this step is enabled. Default: `true`
+        :param pulumi.Input[int] send_after: Time period, in minutes, notification will be sent after.
         """
         pulumi.set(__self__, "contacts", contacts)
         if enabled is not None:
@@ -3109,7 +3113,7 @@ class NotificationRuleStepArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defined if this step is enabled. Default: true
+        Defined if this step is enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -3121,7 +3125,7 @@ class NotificationRuleStepArgs:
     @pulumi.getter(name="sendAfter")
     def send_after(self) -> Optional[pulumi.Input[int]]:
         """
-        Minute time period notification will be sent after.
+        Time period, in minutes, notification will be sent after.
         """
         return pulumi.get(self, "send_after")
 
@@ -3136,8 +3140,8 @@ class NotificationRuleStepContactArgs:
                  method: pulumi.Input[str],
                  to: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] method: Contact method. Possible values: "email", "sms", "voice", "mobile"
-        :param pulumi.Input[str] to: Address of a given method (eg. phone number for sms/voice or email address for email)
+        :param pulumi.Input[str] method: Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
+        :param pulumi.Input[str] to: Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
         """
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "to", to)
@@ -3146,7 +3150,7 @@ class NotificationRuleStepContactArgs:
     @pulumi.getter
     def method(self) -> pulumi.Input[str]:
         """
-        Contact method. Possible values: "email", "sms", "voice", "mobile"
+        Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
         """
         return pulumi.get(self, "method")
 
@@ -3158,7 +3162,7 @@ class NotificationRuleStepContactArgs:
     @pulumi.getter
     def to(self) -> pulumi.Input[str]:
         """
-        Address of a given method (eg. phone number for sms/voice or email address for email)
+        Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
         """
         return pulumi.get(self, "to")
 
@@ -3173,7 +3177,7 @@ class NotificationRuleTimeRestrictionArgs:
                  type: pulumi.Input[str],
                  restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+        :param pulumi.Input[str] type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
         pulumi.set(__self__, "type", type)
         if restrictions is not None:
@@ -3183,7 +3187,7 @@ class NotificationRuleTimeRestrictionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+        Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
         return pulumi.get(self, "type")
 
@@ -3453,7 +3457,7 @@ class ServiceIncidentRuleIncidentRuleArgs:
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleIncidentPropertyArgs']]] incident_properties: Properties for incident rule. This is a block, structure is documented below.
-        :param pulumi.Input[str] condition_match_type: A Condition type, supported types are: "match-all", "match-any-condition", "match-all-conditions". Default: "match-all"
+        :param pulumi.Input[str] condition_match_type: A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         :param pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]] conditions: Conditions applied to incident. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "incident_properties", incident_properties)
@@ -3478,7 +3482,7 @@ class ServiceIncidentRuleIncidentRuleArgs:
     @pulumi.getter(name="conditionMatchType")
     def condition_match_type(self) -> Optional[pulumi.Input[str]]:
         """
-        A Condition type, supported types are: "match-all", "match-any-condition", "match-all-conditions". Default: "match-all"
+        A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
         return pulumi.get(self, "condition_match_type")
 
@@ -3508,8 +3512,8 @@ class ServiceIncidentRuleIncidentRuleConditionArgs:
                  key: Optional[pulumi.Input[str]] = None,
                  not_: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
-        :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         :param pulumi.Input[str] expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default: false
         """
@@ -3526,7 +3530,7 @@ class ServiceIncidentRuleIncidentRuleConditionArgs:
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
         """
-        Specifies which alert field will be used in condition. Possible values are "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
         """
         return pulumi.get(self, "field")
 
@@ -3538,7 +3542,7 @@ class ServiceIncidentRuleIncidentRuleConditionArgs:
     @pulumi.getter
     def operation(self) -> pulumi.Input[str]:
         """
-        It is the operation that will be executed for the given field and key. Possible operations are "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace".
+        It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         """
         return pulumi.get(self, "operation")
 
@@ -3591,7 +3595,7 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
-        :param pulumi.Input[str] priority: Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
+        :param pulumi.Input[str] priority: Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
         :param pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs']]] stakeholder_properties: DEtails about stakeholders for this rule. This is a block, structure is documented below.
         :param pulumi.Input[str] description: Description that is generally used to provide a detailed information about the alert.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the alert.
@@ -3623,7 +3627,7 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
     @pulumi.getter
     def priority(self) -> pulumi.Input[str]:
         """
-        Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
+        Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
         """
         return pulumi.get(self, "priority")
 
@@ -3741,7 +3745,7 @@ class TeamMemberArgs:
                  role: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] id: The UUID for the member to add to this Team.
-        :param pulumi.Input[str] role: The role for the user within the Team - can be either 'admin' or 'user', defaults to 'user' if not set.
+        :param pulumi.Input[str] role: The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
         """
         pulumi.set(__self__, "id", id)
         if role is not None:
@@ -3763,7 +3767,7 @@ class TeamMemberArgs:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The role for the user within the Team - can be either 'admin' or 'user', defaults to 'user' if not set.
+        The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
         """
         return pulumi.get(self, "role")
 
@@ -3778,7 +3782,7 @@ class TeamRoutingRuleCriteriaArgs:
                  type: pulumi.Input[str],
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: Type of the operation will be applied on conditions. Should be one of match-all, match-any-condition or match-all-conditions.
+        :param pulumi.Input[str] type: Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
         :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]] conditions: List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
         """
         pulumi.set(__self__, "type", type)
@@ -3789,7 +3793,7 @@ class TeamRoutingRuleCriteriaArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the operation will be applied on conditions. Should be one of match-all, match-any-condition or match-all-conditions.
+        Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
         """
         return pulumi.get(self, "type")
 
@@ -3820,8 +3824,8 @@ class TeamRoutingRuleCriteriaConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are message, alias, description, source, entity, tags, actions, extra-properties, recipients, teams or priority.
-        :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are matches, contains, starts-with, ends-with, equals, contains-key, contains-value, greater-than, less-than, is-empty and equals-ignore-whitespace.
+        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
+        :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
         :param pulumi.Input[str] key: If field is set as extra-properties, key could be used for key-value pair.
         :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default value is false.
         :param pulumi.Input[int] order: Order of the condition in conditions list.
@@ -3841,7 +3845,7 @@ class TeamRoutingRuleCriteriaConditionArgs:
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
         """
-        Specifies which alert field will be used in condition. Possible values are message, alias, description, source, entity, tags, actions, extra-properties, recipients, teams or priority.
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
         """
         return pulumi.get(self, "field")
 
@@ -3853,7 +3857,7 @@ class TeamRoutingRuleCriteriaConditionArgs:
     @pulumi.getter
     def operation(self) -> pulumi.Input[str]:
         """
-        It is the operation that will be executed for the given field and key. Possible operations are matches, contains, starts-with, ends-with, equals, contains-key, contains-value, greater-than, less-than, is-empty and equals-ignore-whitespace.
+        It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
         """
         return pulumi.get(self, "operation")
 

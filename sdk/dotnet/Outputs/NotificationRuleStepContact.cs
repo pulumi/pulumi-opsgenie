@@ -14,11 +14,11 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class NotificationRuleStepContact
     {
         /// <summary>
-        /// Contact method. Possible values: "email", "sms", "voice", "mobile"
+        /// Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
         /// </summary>
         public readonly string Method;
         /// <summary>
-        /// Address of a given method (eg. phone number for sms/voice or email address for email)
+        /// Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
         /// </summary>
         public readonly string To;
 

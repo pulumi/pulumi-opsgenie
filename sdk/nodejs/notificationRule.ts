@@ -37,18 +37,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Notification policies can be imported using the `user id` and `id`, e.g.
+ * Notification policies can be imported using the `user_id/notification_rule_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/notificationRule:NotificationRule test userId/Id`
- * ```
- *
- *  For this example- User Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
- *
- * - Notification Rule Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
- *
- * ```sh
- *  $ pulumi import opsgenie:index/notificationRule:NotificationRule test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+ *  $ pulumi import opsgenie:index/notificationRule:NotificationRule test user_id/notification_rule_id`
  * ```
  */
 export class NotificationRule extends pulumi.CustomResource {
@@ -80,12 +72,12 @@ export class NotificationRule extends pulumi.CustomResource {
     }
 
     /**
-     * Type of the action that notification rule will have. Allowed values: "create-alert", "acknowledged-alert", "closed-alert", "assigned-alert", "add-note", "schedule-start", "schedule-end", "incoming-call-routing"
+     * Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
      */
     public readonly actionType!: pulumi.Output<string>;
     public readonly criterias!: pulumi.Output<outputs.NotificationRuleCriteria[] | undefined>;
     /**
-     * Defined if this step is enabled. Default: true
+     * Defined if this step is enabled. Default: `true`
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -93,7 +85,7 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * List of Time Periods that notification for schedule start/end will be sent. Allowed values: "just-before", "15-minutes-ago", "1-hour-ago", "1-day-ago". If `actionType` is "schedule-start" or "schedule-end" then it is required.
+     * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
     public readonly notificationTimes!: pulumi.Output<string[] | undefined>;
     /**
@@ -168,12 +160,12 @@ export class NotificationRule extends pulumi.CustomResource {
  */
 export interface NotificationRuleState {
     /**
-     * Type of the action that notification rule will have. Allowed values: "create-alert", "acknowledged-alert", "closed-alert", "assigned-alert", "add-note", "schedule-start", "schedule-end", "incoming-call-routing"
+     * Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
      */
     readonly actionType?: pulumi.Input<string>;
     readonly criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[]>;
     /**
-     * Defined if this step is enabled. Default: true
+     * Defined if this step is enabled. Default: `true`
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -181,7 +173,7 @@ export interface NotificationRuleState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * List of Time Periods that notification for schedule start/end will be sent. Allowed values: "just-before", "15-minutes-ago", "1-hour-ago", "1-day-ago". If `actionType` is "schedule-start" or "schedule-end" then it is required.
+     * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
     readonly notificationTimes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -206,12 +198,12 @@ export interface NotificationRuleState {
  */
 export interface NotificationRuleArgs {
     /**
-     * Type of the action that notification rule will have. Allowed values: "create-alert", "acknowledged-alert", "closed-alert", "assigned-alert", "add-note", "schedule-start", "schedule-end", "incoming-call-routing"
+     * Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
      */
     readonly actionType: pulumi.Input<string>;
     readonly criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[]>;
     /**
-     * Defined if this step is enabled. Default: true
+     * Defined if this step is enabled. Default: `true`
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -219,7 +211,7 @@ export interface NotificationRuleArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * List of Time Periods that notification for schedule start/end will be sent. Allowed values: "just-before", "15-minutes-ago", "1-hour-ago", "1-day-ago". If `actionType` is "schedule-start" or "schedule-end" then it is required.
+     * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
     readonly notificationTimes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

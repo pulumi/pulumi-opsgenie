@@ -18,11 +18,11 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationRuleStepContact> Contacts;
         /// <summary>
-        /// Defined if this step is enabled. Default: true
+        /// Defined if this step is enabled. Default: `true`
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Minute time period notification will be sent after.
+        /// Time period, in minutes, notification will be sent after.
         /// </summary>
         public readonly int? SendAfter;
 

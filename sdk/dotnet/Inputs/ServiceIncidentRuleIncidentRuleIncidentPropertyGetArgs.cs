@@ -37,7 +37,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string> Message { get; set; } = null!;
 
         /// <summary>
-        /// Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
+        /// Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
         /// </summary>
         [Input("priority", required: true)]
         public Input<string> Priority { get; set; } = null!;

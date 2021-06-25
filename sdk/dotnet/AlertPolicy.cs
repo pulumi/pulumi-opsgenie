@@ -71,22 +71,16 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// Alert policies can be imported using the `team id` and `policy_id`, e.g.
+    /// Alert policies can be imported using the `team_id/policy_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test teamId/Id`
-    /// ```
-    /// 
-    ///  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Alert Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
-    /// 
-    /// ```sh
-    ///  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+    ///  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
     /// ```
     /// 
     ///  You can import global polices using only policy identifier
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c`
+    ///  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/alertPolicy:AlertPolicy")]

@@ -24,7 +24,7 @@ class ScheduleArgs:
         :param pulumi.Input[bool] enabled: Enable/disable state of schedule
         :param pulumi.Input[str] name: Name of the schedule.
         :param pulumi.Input[str] owner_team_id: Owner team id of the schedule.
-        :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -89,7 +89,7 @@ class ScheduleArgs:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
         return pulumi.get(self, "timezone")
 
@@ -112,7 +112,7 @@ class _ScheduleState:
         :param pulumi.Input[bool] enabled: Enable/disable state of schedule
         :param pulumi.Input[str] name: Name of the schedule.
         :param pulumi.Input[str] owner_team_id: Owner team id of the schedule.
-        :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -177,7 +177,7 @@ class _ScheduleState:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
         return pulumi.get(self, "timezone")
 
@@ -215,10 +215,10 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
-        Schedule can be imported using the `id`, e.g.
+        Schedule can be imported using the `schedule_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/schedule:Schedule test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+         $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -227,7 +227,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Enable/disable state of schedule
         :param pulumi.Input[str] name: Name of the schedule.
         :param pulumi.Input[str] owner_team_id: Owner team id of the schedule.
-        :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
         ...
     @overload
@@ -253,10 +253,10 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
-        Schedule can be imported using the `id`, e.g.
+        Schedule can be imported using the `schedule_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/schedule:Schedule test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+         $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -322,7 +322,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Enable/disable state of schedule
         :param pulumi.Input[str] name: Name of the schedule.
         :param pulumi.Input[str] owner_team_id: Owner team id of the schedule.
-        :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -371,7 +371,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter
     def timezone(self) -> pulumi.Output[Optional[str]]:
         """
-        Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
         return pulumi.get(self, "timezone")
 

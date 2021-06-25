@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Kind of matching filter  "match-all", "match-any-condition", "match-all-conditions"
+        /// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         /// </summary>
         public readonly string Type;
 

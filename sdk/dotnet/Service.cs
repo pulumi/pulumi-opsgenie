@@ -37,10 +37,10 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// Teams can be imported using the `id`, e.g.
+    /// Teams can be imported using the `service_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/service:Service this 812be1a1-32c8-4666-a7fb-03ecc385106c`
+    ///  $ pulumi import opsgenie:index/service:Service this service_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/service:Service")]

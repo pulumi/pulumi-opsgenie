@@ -318,18 +318,10 @@ class ScheduleRotation(pulumi.CustomResource):
 
         ## Import
 
-        Schedule Rotations can be imported using the `id` and `schedule_id`, e.g.
+        Schedule Rotations can be imported using the `schedule_id/rotation_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/id`
-        ```
-
-         For this example- Schedule Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-
-        - Rotation Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
-
-        ```sh
-         $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+         $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/rotation_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -380,18 +372,10 @@ class ScheduleRotation(pulumi.CustomResource):
 
         ## Import
 
-        Schedule Rotations can be imported using the `id` and `schedule_id`, e.g.
+        Schedule Rotations can be imported using the `schedule_id/rotation_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/id`
-        ```
-
-         For this example- Schedule Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-
-        - Rotation Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
-
-        ```sh
-         $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+         $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/rotation_id`
         ```
 
         :param str resource_name: The name of the resource.

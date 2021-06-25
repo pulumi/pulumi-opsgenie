@@ -14,22 +14,22 @@ import (
 //
 // ## Import
 //
-// API Integrations can be imported using the `id`, e.g.
+// API Integrations can be imported using the `integration_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration defaultintegration 812be1a1-32c8-4666-a7fb-03ecc385106c`
+//  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
 // ```
 type ApiIntegration struct {
 	pulumi.CustomResourceState
 
-	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
 	AllowWriteAccess pulumi.BoolPtrOutput `pulumi:"allowWriteAccess"`
 	// (Computed) API key of the created integration
 	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
-	// This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+	// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
 	Enabled pulumi.BoolPtrOutput   `pulumi:"enabled"`
 	Headers pulumi.StringMapOutput `pulumi:"headers"`
-	// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload pulumi.BoolPtrOutput `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -37,7 +37,7 @@ type ApiIntegration struct {
 	OwnerTeamId pulumi.StringPtrOutput `pulumi:"ownerTeamId"`
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
 	Responders ApiIntegrationResponderArrayOutput `pulumi:"responders"`
-	// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+	// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
 	SuppressNotifications pulumi.BoolPtrOutput `pulumi:"suppressNotifications"`
 	// Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -74,14 +74,14 @@ func GetApiIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiIntegration resources.
 type apiIntegrationState struct {
-	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
 	AllowWriteAccess *bool `pulumi:"allowWriteAccess"`
 	// (Computed) API key of the created integration
 	ApiKey *string `pulumi:"apiKey"`
-	// This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+	// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
 	Enabled *bool             `pulumi:"enabled"`
 	Headers map[string]string `pulumi:"headers"`
-	// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload *bool `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
 	Name *string `pulumi:"name"`
@@ -89,7 +89,7 @@ type apiIntegrationState struct {
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
 	Responders []ApiIntegrationResponder `pulumi:"responders"`
-	// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+	// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
 	SuppressNotifications *bool `pulumi:"suppressNotifications"`
 	// Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
 	Type *string `pulumi:"type"`
@@ -98,14 +98,14 @@ type apiIntegrationState struct {
 }
 
 type ApiIntegrationState struct {
-	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
 	AllowWriteAccess pulumi.BoolPtrInput
 	// (Computed) API key of the created integration
 	ApiKey pulumi.StringPtrInput
-	// This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+	// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
 	Enabled pulumi.BoolPtrInput
 	Headers pulumi.StringMapInput
-	// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload pulumi.BoolPtrInput
 	// Name of the integration. Name must be unique for each integration.
 	Name pulumi.StringPtrInput
@@ -113,7 +113,7 @@ type ApiIntegrationState struct {
 	OwnerTeamId pulumi.StringPtrInput
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
 	Responders ApiIntegrationResponderArrayInput
-	// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+	// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
 	SuppressNotifications pulumi.BoolPtrInput
 	// Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
 	Type pulumi.StringPtrInput
@@ -126,12 +126,12 @@ func (ApiIntegrationState) ElementType() reflect.Type {
 }
 
 type apiIntegrationArgs struct {
-	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
 	AllowWriteAccess *bool `pulumi:"allowWriteAccess"`
-	// This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+	// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
 	Enabled *bool             `pulumi:"enabled"`
 	Headers map[string]string `pulumi:"headers"`
-	// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload *bool `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
 	Name *string `pulumi:"name"`
@@ -139,7 +139,7 @@ type apiIntegrationArgs struct {
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
 	Responders []ApiIntegrationResponder `pulumi:"responders"`
-	// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+	// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
 	SuppressNotifications *bool `pulumi:"suppressNotifications"`
 	// Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
 	Type *string `pulumi:"type"`
@@ -149,12 +149,12 @@ type apiIntegrationArgs struct {
 
 // The set of arguments for constructing a ApiIntegration resource.
 type ApiIntegrationArgs struct {
-	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
 	AllowWriteAccess pulumi.BoolPtrInput
-	// This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+	// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
 	Enabled pulumi.BoolPtrInput
 	Headers pulumi.StringMapInput
-	// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload pulumi.BoolPtrInput
 	// Name of the integration. Name must be unique for each integration.
 	Name pulumi.StringPtrInput
@@ -162,7 +162,7 @@ type ApiIntegrationArgs struct {
 	OwnerTeamId pulumi.StringPtrInput
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
 	Responders ApiIntegrationResponderArrayInput
-	// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+	// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
 	SuppressNotifications pulumi.BoolPtrInput
 	// Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
 	Type pulumi.StringPtrInput

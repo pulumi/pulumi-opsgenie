@@ -25,7 +25,7 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// Type of the operation will be applied on conditions. Should be one of match-all, match-any-condition or match-all-conditions.
+        /// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

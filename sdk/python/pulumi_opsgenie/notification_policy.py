@@ -400,16 +400,10 @@ class NotificationPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Notification policies can be imported using the `team id` and `id`, e.g.
+        Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test teamId/Id`
-        ```
-
-         For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
-
-        ```sh
-         $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+         $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test team_id/notification_policy_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -437,16 +431,10 @@ class NotificationPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Notification policies can be imported using the `team id` and `id`, e.g.
+        Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test teamId/Id`
-        ```
-
-         For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c` - Notification Policy Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
-
-        ```sh
-         $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+         $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test team_id/notification_policy_id`
         ```
 
         :param str resource_name: The name of the resource.

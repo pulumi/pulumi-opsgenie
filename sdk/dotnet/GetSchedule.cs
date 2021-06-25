@@ -45,7 +45,7 @@ namespace Pulumi.Opsgenie
     public sealed class GetScheduleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        /// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         /// </summary>
         [Input("description")]
         public string? Description { get; set; }
@@ -84,7 +84,7 @@ namespace Pulumi.Opsgenie
     public sealed class GetScheduleResult
     {
         /// <summary>
-        /// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        /// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         /// </summary>
         public readonly string? Description;
         /// <summary>

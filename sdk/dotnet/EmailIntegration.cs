@@ -82,7 +82,7 @@ namespace Pulumi.Opsgenie
     /// Email Integrations can be imported using the `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+    ///  $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/emailIntegration:EmailIntegration")]
@@ -101,7 +101,7 @@ namespace Pulumi.Opsgenie
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        /// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         /// </summary>
         [Output("ignoreRespondersFromPayload")]
         public Output<bool?> IgnoreRespondersFromPayload { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Opsgenie
         public Output<ImmutableArray<Outputs.EmailIntegrationResponder>> Responders { get; private set; } = null!;
 
         /// <summary>
-        /// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        /// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         /// </summary>
         [Output("suppressNotifications")]
         public Output<bool?> SuppressNotifications { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Opsgenie
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        /// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         /// </summary>
         [Input("ignoreRespondersFromPayload")]
         public Input<bool>? IgnoreRespondersFromPayload { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        /// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         /// </summary>
         [Input("suppressNotifications")]
         public Input<bool>? SuppressNotifications { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Opsgenie
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        /// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         /// </summary>
         [Input("ignoreRespondersFromPayload")]
         public Input<bool>? IgnoreRespondersFromPayload { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        /// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         /// </summary>
         [Input("suppressNotifications")]
         public Input<bool>? SuppressNotifications { get; set; }

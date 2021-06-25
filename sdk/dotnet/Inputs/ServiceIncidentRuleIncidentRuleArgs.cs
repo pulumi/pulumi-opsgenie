@@ -13,7 +13,7 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class ServiceIncidentRuleIncidentRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Condition type, supported types are: "match-all", "match-any-condition", "match-all-conditions". Default: "match-all"
+        /// A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         /// </summary>
         [Input("conditionMatchType")]
         public Input<string>? ConditionMatchType { get; set; }

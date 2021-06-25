@@ -84,7 +84,7 @@ import (
 // Service Incident Rule can be imported using the `service_id/service_incident_rule_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/serviceIncidentRule:ServiceIncidentRule this 812be1a1-32c8-4666-a7fb-03ecc385106c/b84ed86f-6ce3-4388-91ac-7638ac0a8052`
+//  $ pulumi import opsgenie:index/serviceIncidentRule:ServiceIncidentRule this service_id/service_incident_rule_id`
 // ```
 type ServiceIncidentRule struct {
 	pulumi.CustomResourceState

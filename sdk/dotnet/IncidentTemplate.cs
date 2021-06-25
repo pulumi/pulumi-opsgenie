@@ -66,10 +66,10 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// Service can be imported using the `id`, e.g.
+    /// Service can be imported using the `template_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+    ///  $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/incidentTemplate:IncidentTemplate")]
@@ -103,7 +103,7 @@ namespace Pulumi.Opsgenie
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Priority level of the incident. Possible values are P1, P2, P3, P4 and P5.
+        /// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
         /// </summary>
         [Output("priority")]
         public Output<string> Priority { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Priority level of the incident. Possible values are P1, P2, P3, P4 and P5.
+        /// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
         /// </summary>
         [Input("priority", required: true)]
         public Input<string> Priority { get; set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Priority level of the incident. Possible values are P1, P2, P3, P4 and P5.
+        /// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
