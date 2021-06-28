@@ -71,10 +71,10 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// Escalations can be imported using the `id`, e.g.
+    /// Escalations can be imported using the `escalation_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/escalation:Escalation test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+    ///  $ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/escalation:Escalation")]

@@ -31,7 +31,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Indicates behaviour of the given operation. Default:`false`
+        /// Indicates behaviour of the given operation. Default: `false`
         /// </summary>
         [Input("not")]
         public Input<bool>? Not { get; set; }

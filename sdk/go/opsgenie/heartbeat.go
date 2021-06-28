@@ -51,7 +51,7 @@ import (
 // Heartbeat Integrations can be imported using the `name`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/heartbeat:Heartbeat test geniehearbeat-%s`
+//  $ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
 // ```
 type Heartbeat struct {
 	pulumi.CustomResourceState

@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The role for the user within the Team - can be either 'admin' or 'user', defaults to 'user' if not set.
+        /// The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
         /// </summary>
         public readonly string? Role;
 

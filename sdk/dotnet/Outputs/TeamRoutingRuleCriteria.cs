@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TeamRoutingRuleCriteriaCondition> Conditions;
         /// <summary>
-        /// Type of the operation will be applied on conditions. Should be one of match-all, match-any-condition or match-all-conditions.
+        /// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
         /// </summary>
         public readonly string Type;
 

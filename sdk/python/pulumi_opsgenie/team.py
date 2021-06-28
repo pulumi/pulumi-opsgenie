@@ -24,7 +24,7 @@ class TeamArgs:
         The set of arguments for constructing a Team resource.
         :param pulumi.Input[bool] delete_default_resources: Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
         :param pulumi.Input[str] description: A description for this team.
-        :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+        :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]] members: A Member block as documented below.
         :param pulumi.Input[str] name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
@@ -67,7 +67,7 @@ class TeamArgs:
     @pulumi.getter(name="ignoreMembers")
     def ignore_members(self) -> Optional[pulumi.Input[bool]]:
         """
-        Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+        Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
         """
         return pulumi.get(self, "ignore_members")
 
@@ -112,7 +112,7 @@ class _TeamState:
         Input properties used for looking up and filtering Team resources.
         :param pulumi.Input[bool] delete_default_resources: Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
         :param pulumi.Input[str] description: A description for this team.
-        :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+        :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]] members: A Member block as documented below.
         :param pulumi.Input[str] name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
@@ -155,7 +155,7 @@ class _TeamState:
     @pulumi.getter(name="ignoreMembers")
     def ignore_members(self) -> Optional[pulumi.Input[bool]]:
         """
-        Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+        Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
         """
         return pulumi.get(self, "ignore_members")
 
@@ -236,17 +236,17 @@ class Team(pulumi.CustomResource):
 
         ## Import
 
-        Teams can be imported using the `id`, e.g.
+        Teams can be imported using the `team_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/team:Team team1 812be1a1-32c8-4666-a7fb-03ecc385106c`
+         $ pulumi import opsgenie:index/team:Team team1 team_id`
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_default_resources: Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
         :param pulumi.Input[str] description: A description for this team.
-        :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+        :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMemberArgs']]]] members: A Member block as documented below.
         :param pulumi.Input[str] name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
@@ -293,10 +293,10 @@ class Team(pulumi.CustomResource):
 
         ## Import
 
-        Teams can be imported using the `id`, e.g.
+        Teams can be imported using the `team_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/team:Team team1 812be1a1-32c8-4666-a7fb-03ecc385106c`
+         $ pulumi import opsgenie:index/team:Team team1 team_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -360,7 +360,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_default_resources: Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
         :param pulumi.Input[str] description: A description for this team.
-        :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+        :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMemberArgs']]]] members: A Member block as documented below.
         :param pulumi.Input[str] name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
@@ -395,7 +395,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="ignoreMembers")
     def ignore_members(self) -> pulumi.Output[Optional[bool]]:
         """
-        Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+        Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
         """
         return pulumi.get(self, "ignore_members")
 

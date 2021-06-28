@@ -46,10 +46,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Teams can be imported using the `id`, e.g.
+ * Teams can be imported using the `team_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/team:Team team1 812be1a1-32c8-4666-a7fb-03ecc385106c`
+ *  $ pulumi import opsgenie:index/team:Team team1 team_id`
  * ```
  */
 export class Team extends pulumi.CustomResource {
@@ -89,7 +89,7 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+     * Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
      */
     public readonly ignoreMembers!: pulumi.Output<boolean | undefined>;
     /**
@@ -147,7 +147,7 @@ export interface TeamState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+     * Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
      */
     readonly ignoreMembers?: pulumi.Input<boolean>;
     /**
@@ -173,7 +173,7 @@ export interface TeamArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Defaults to false.
+     * Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
      */
     readonly ignoreMembers?: pulumi.Input<boolean>;
     /**

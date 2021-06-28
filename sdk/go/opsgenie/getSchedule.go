@@ -42,7 +42,7 @@ func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulum
 
 // A collection of arguments for invoking getSchedule.
 type LookupScheduleArgs struct {
-	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
 	Description *string `pulumi:"description"`
 	// Enable/disable state of schedule
 	Enabled *bool `pulumi:"enabled"`
@@ -56,7 +56,7 @@ type LookupScheduleArgs struct {
 
 // A collection of values returned by getSchedule.
 type LookupScheduleResult struct {
-	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
 	Description *string `pulumi:"description"`
 	// Enable/disable state of schedule
 	Enabled *bool `pulumi:"enabled"`

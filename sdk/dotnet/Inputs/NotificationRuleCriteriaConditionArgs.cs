@@ -12,11 +12,14 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class NotificationRuleCriteriaConditionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// User defined value that will be compared with alert field according to the operation. Default: empty string
+        /// </summary>
         [Input("expectedValue")]
         public Input<string>? ExpectedValue { get; set; }
 
         /// <summary>
-        /// Possible values: "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+        /// Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
         /// </summary>
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
@@ -28,13 +31,13 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Indicates behaviour of the given operation. Default value is false
+        /// Indicates behaviour of the given operation. Default: `false`
         /// </summary>
         [Input("not")]
         public Input<bool>? Not { get; set; }
 
         /// <summary>
-        /// Possible values: "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace
+        /// Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
         /// </summary>
         [Input("operation", required: true)]
         public Input<string> Operation { get; set; } = null!;

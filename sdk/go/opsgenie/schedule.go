@@ -40,10 +40,10 @@ import (
 //
 // ## Import
 //
-// Schedule can be imported using the `id`, e.g.
+// Schedule can be imported using the `schedule_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/schedule:Schedule test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+//  $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState
@@ -56,7 +56,7 @@ type Schedule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner team id of the schedule.
 	OwnerTeamId pulumi.StringPtrOutput `pulumi:"ownerTeamId"`
-	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 }
 
@@ -97,7 +97,7 @@ type scheduleState struct {
 	Name *string `pulumi:"name"`
 	// Owner team id of the schedule.
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
-	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -110,7 +110,7 @@ type ScheduleState struct {
 	Name pulumi.StringPtrInput
 	// Owner team id of the schedule.
 	OwnerTeamId pulumi.StringPtrInput
-	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
 	Timezone pulumi.StringPtrInput
 }
 
@@ -127,7 +127,7 @@ type scheduleArgs struct {
 	Name *string `pulumi:"name"`
 	// Owner team id of the schedule.
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
-	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -141,7 +141,7 @@ type ScheduleArgs struct {
 	Name pulumi.StringPtrInput
 	// Owner team id of the schedule.
 	OwnerTeamId pulumi.StringPtrInput
-	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
 	Timezone pulumi.StringPtrInput
 }
 

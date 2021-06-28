@@ -25,13 +25,13 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// Defined if this step is enabled. Default: true
+        /// Defined if this step is enabled. Default: `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Minute time period notification will be sent after.
+        /// Time period, in minutes, notification will be sent after.
         /// </summary>
         [Input("sendAfter")]
         public Input<int>? SendAfter { get; set; }

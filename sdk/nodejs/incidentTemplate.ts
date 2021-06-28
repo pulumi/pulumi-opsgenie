@@ -39,10 +39,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Service can be imported using the `id`, e.g.
+ * Service can be imported using the `template_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+ *  $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
  * ```
  */
 export class IncidentTemplate extends pulumi.CustomResource {
@@ -91,7 +91,7 @@ export class IncidentTemplate extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Priority level of the incident. Possible values are P1, P2, P3, P4 and P5.
+     * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      */
     public readonly priority!: pulumi.Output<string>;
     public readonly stakeholderProperties!: pulumi.Output<outputs.IncidentTemplateStakeholderProperty[]>;
@@ -170,7 +170,7 @@ export interface IncidentTemplateState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Priority level of the incident. Possible values are P1, P2, P3, P4 and P5.
+     * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      */
     readonly priority?: pulumi.Input<string>;
     readonly stakeholderProperties?: pulumi.Input<pulumi.Input<inputs.IncidentTemplateStakeholderProperty>[]>;
@@ -202,7 +202,7 @@ export interface IncidentTemplateArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Priority level of the incident. Possible values are P1, P2, P3, P4 and P5.
+     * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      */
     readonly priority: pulumi.Input<string>;
     readonly stakeholderProperties: pulumi.Input<pulumi.Input<inputs.IncidentTemplateStakeholderProperty>[]>;

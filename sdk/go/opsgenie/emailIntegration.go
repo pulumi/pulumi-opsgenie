@@ -84,7 +84,7 @@ import (
 // Email Integrations can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+//  $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
 // ```
 type EmailIntegration struct {
 	pulumi.CustomResourceState
@@ -93,14 +93,14 @@ type EmailIntegration struct {
 	EmailUsername pulumi.StringOutput `pulumi:"emailUsername"`
 	// A Member block as documented below.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload pulumi.BoolPtrOutput `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner team id of the integration.
 	OwnerTeamId pulumi.StringPtrOutput               `pulumi:"ownerTeamId"`
 	Responders  EmailIntegrationResponderArrayOutput `pulumi:"responders"`
-	// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+	// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
 	SuppressNotifications pulumi.BoolPtrOutput `pulumi:"suppressNotifications"`
 }
 
@@ -140,14 +140,14 @@ type emailIntegrationState struct {
 	EmailUsername *string `pulumi:"emailUsername"`
 	// A Member block as documented below.
 	Enabled *bool `pulumi:"enabled"`
-	// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload *bool `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
 	Name *string `pulumi:"name"`
 	// Owner team id of the integration.
 	OwnerTeamId *string                     `pulumi:"ownerTeamId"`
 	Responders  []EmailIntegrationResponder `pulumi:"responders"`
-	// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+	// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
 	SuppressNotifications *bool `pulumi:"suppressNotifications"`
 }
 
@@ -156,14 +156,14 @@ type EmailIntegrationState struct {
 	EmailUsername pulumi.StringPtrInput
 	// A Member block as documented below.
 	Enabled pulumi.BoolPtrInput
-	// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload pulumi.BoolPtrInput
 	// Name of the integration. Name must be unique for each integration.
 	Name pulumi.StringPtrInput
 	// Owner team id of the integration.
 	OwnerTeamId pulumi.StringPtrInput
 	Responders  EmailIntegrationResponderArrayInput
-	// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+	// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
 	SuppressNotifications pulumi.BoolPtrInput
 }
 
@@ -176,14 +176,14 @@ type emailIntegrationArgs struct {
 	EmailUsername string `pulumi:"emailUsername"`
 	// A Member block as documented below.
 	Enabled *bool `pulumi:"enabled"`
-	// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload *bool `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
 	Name *string `pulumi:"name"`
 	// Owner team id of the integration.
 	OwnerTeamId *string                     `pulumi:"ownerTeamId"`
 	Responders  []EmailIntegrationResponder `pulumi:"responders"`
-	// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+	// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
 	SuppressNotifications *bool `pulumi:"suppressNotifications"`
 }
 
@@ -193,14 +193,14 @@ type EmailIntegrationArgs struct {
 	EmailUsername pulumi.StringInput
 	// A Member block as documented below.
 	Enabled pulumi.BoolPtrInput
-	// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload pulumi.BoolPtrInput
 	// Name of the integration. Name must be unique for each integration.
 	Name pulumi.StringPtrInput
 	// Owner team id of the integration.
 	OwnerTeamId pulumi.StringPtrInput
 	Responders  EmailIntegrationResponderArrayInput
-	// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+	// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
 	SuppressNotifications pulumi.BoolPtrInput
 }
 

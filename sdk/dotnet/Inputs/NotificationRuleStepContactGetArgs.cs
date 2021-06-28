@@ -13,13 +13,13 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class NotificationRuleStepContactGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contact method. Possible values: "email", "sms", "voice", "mobile"
+        /// Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
         /// </summary>
         [Input("method", required: true)]
         public Input<string> Method { get; set; } = null!;
 
         /// <summary>
-        /// Address of a given method (eg. phone number for sms/voice or email address for email)
+        /// Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
         /// </summary>
         [Input("to", required: true)]
         public Input<string> To { get; set; } = null!;

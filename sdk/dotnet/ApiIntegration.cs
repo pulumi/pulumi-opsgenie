@@ -83,17 +83,17 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// API Integrations can be imported using the `id`, e.g.
+    /// API Integrations can be imported using the `integration_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration defaultintegration 812be1a1-32c8-4666-a7fb-03ecc385106c`
+    ///  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/apiIntegration:ApiIntegration")]
     public partial class ApiIntegration : Pulumi.CustomResource
     {
         /// <summary>
-        /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+        /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         /// </summary>
         [Output("allowWriteAccess")]
         public Output<bool?> AllowWriteAccess { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Opsgenie
         public Output<string> ApiKey { get; private set; } = null!;
 
         /// <summary>
-        /// This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+        /// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Opsgenie
         public Output<ImmutableDictionary<string, string>?> Headers { get; private set; } = null!;
 
         /// <summary>
-        /// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        /// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         /// </summary>
         [Output("ignoreRespondersFromPayload")]
         public Output<bool?> IgnoreRespondersFromPayload { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Opsgenie
         public Output<ImmutableArray<Outputs.ApiIntegrationResponder>> Responders { get; private set; } = null!;
 
         /// <summary>
-        /// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        /// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         /// </summary>
         [Output("suppressNotifications")]
         public Output<bool?> SuppressNotifications { get; private set; } = null!;
@@ -202,13 +202,13 @@ namespace Pulumi.Opsgenie
     public sealed class ApiIntegrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+        /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         /// </summary>
         [Input("allowWriteAccess")]
         public Input<bool>? AllowWriteAccess { get; set; }
 
         /// <summary>
-        /// This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+        /// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        /// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         /// </summary>
         [Input("ignoreRespondersFromPayload")]
         public Input<bool>? IgnoreRespondersFromPayload { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        /// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         /// </summary>
         [Input("suppressNotifications")]
         public Input<bool>? SuppressNotifications { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Opsgenie
     public sealed class ApiIntegrationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+        /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         /// </summary>
         [Input("allowWriteAccess")]
         public Input<bool>? AllowWriteAccess { get; set; }
@@ -289,7 +289,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? ApiKey { get; set; }
 
         /// <summary>
-        /// This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+        /// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+        /// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         /// </summary>
         [Input("ignoreRespondersFromPayload")]
         public Input<bool>? IgnoreRespondersFromPayload { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+        /// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         /// </summary>
         [Input("suppressNotifications")]
         public Input<bool>? SuppressNotifications { get; set; }

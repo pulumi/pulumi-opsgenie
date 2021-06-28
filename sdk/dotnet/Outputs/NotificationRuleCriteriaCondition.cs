@@ -13,9 +13,12 @@ namespace Pulumi.Opsgenie.Outputs
     [OutputType]
     public sealed class NotificationRuleCriteriaCondition
     {
+        /// <summary>
+        /// User defined value that will be compared with alert field according to the operation. Default: empty string
+        /// </summary>
         public readonly string? ExpectedValue;
         /// <summary>
-        /// Possible values: "message", "alias", "description", "source", "entity", "tags", "actions", "details", "extra-properties", "recipients", "teams", "priority"
+        /// Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
         /// </summary>
         public readonly string Field;
         /// <summary>
@@ -23,11 +26,11 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// Indicates behaviour of the given operation. Default value is false
+        /// Indicates behaviour of the given operation. Default: `false`
         /// </summary>
         public readonly bool? Not;
         /// <summary>
-        /// Possible values: "matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace
+        /// Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
         /// </summary>
         public readonly string Operation;
         /// <summary>

@@ -24,7 +24,7 @@ class TeamRoutingRuleArgs:
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TeamRoutingRule resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[str] team_id: Id of the team owning the routing rule
         :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]] criterias: You can refer Criteria for detailed information about criteria and its fields
         :param pulumi.Input[str] name: Name of the team routing rule
@@ -48,7 +48,7 @@ class TeamRoutingRuleArgs:
     @pulumi.getter
     def notifies(self) -> pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]]:
         """
-        Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         """
         return pulumi.get(self, "notifies")
 
@@ -140,7 +140,7 @@ class _TeamRoutingRuleState:
         Input properties used for looking up and filtering TeamRoutingRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]] criterias: You can refer Criteria for detailed information about criteria and its fields
         :param pulumi.Input[str] name: Name of the team routing rule
-        :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
         :param pulumi.Input[str] team_id: Id of the team owning the routing rule
         :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
@@ -188,7 +188,7 @@ class _TeamRoutingRuleState:
     @pulumi.getter
     def notifies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]]]:
         """
-        Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         """
         return pulumi.get(self, "notifies")
 
@@ -301,25 +301,17 @@ class TeamRoutingRule(pulumi.CustomResource):
 
         ## Import
 
-        Team Routing Rules can be imported using the `id`, e.g.
+        Team Routing Rules can be imported using the `team_id/routing_rule_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest teamId/routingRuleId`
-        ```
-
-         For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-
-        - Routing Rule Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
-
-        ```sh
-         $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+         $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleCriteriaArgs']]]] criterias: You can refer Criteria for detailed information about criteria and its fields
         :param pulumi.Input[str] name: Name of the team routing rule
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
         :param pulumi.Input[str] team_id: Id of the team owning the routing rule
         :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
@@ -376,18 +368,10 @@ class TeamRoutingRule(pulumi.CustomResource):
 
         ## Import
 
-        Team Routing Rules can be imported using the `id`, e.g.
+        Team Routing Rules can be imported using the `team_id/routing_rule_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest teamId/routingRuleId`
-        ```
-
-         For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-
-        - Routing Rule Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
-
-        ```sh
-         $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+         $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -461,7 +445,7 @@ class TeamRoutingRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleCriteriaArgs']]]] criterias: You can refer Criteria for detailed information about criteria and its fields
         :param pulumi.Input[str] name: Name of the team routing rule
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
         :param pulumi.Input[str] team_id: Id of the team owning the routing rule
         :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
@@ -499,7 +483,7 @@ class TeamRoutingRule(pulumi.CustomResource):
     @pulumi.getter
     def notifies(self) -> pulumi.Output[Sequence['outputs.TeamRoutingRuleNotify']]:
         """
-        Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         """
         return pulumi.get(self, "notifies")
 

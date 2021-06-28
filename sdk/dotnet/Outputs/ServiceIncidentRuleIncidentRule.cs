@@ -14,7 +14,7 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class ServiceIncidentRuleIncidentRule
     {
         /// <summary>
-        /// A Condition type, supported types are: "match-all", "match-any-condition", "match-all-conditions". Default: "match-all"
+        /// A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         /// </summary>
         public readonly string? ConditionMatchType;
         /// <summary>

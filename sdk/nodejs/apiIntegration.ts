@@ -57,10 +57,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * API Integrations can be imported using the `id`, e.g.
+ * API Integrations can be imported using the `integration_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration defaultintegration 812be1a1-32c8-4666-a7fb-03ecc385106c`
+ *  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
  * ```
  */
 export class ApiIntegration extends pulumi.CustomResource {
@@ -92,7 +92,7 @@ export class ApiIntegration extends pulumi.CustomResource {
     }
 
     /**
-     * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+     * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      */
     public readonly allowWriteAccess!: pulumi.Output<boolean | undefined>;
     /**
@@ -100,12 +100,12 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiKey!: pulumi.Output<string>;
     /**
-     * This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+     * This parameter is for specifying whether the integration will be enabled or not. Default: `true`
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly headers!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+     * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
     public readonly ignoreRespondersFromPayload!: pulumi.Output<boolean | undefined>;
     /**
@@ -121,7 +121,7 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     public readonly responders!: pulumi.Output<outputs.ApiIntegrationResponder[] | undefined>;
     /**
-     * If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+     * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
     public readonly suppressNotifications!: pulumi.Output<boolean | undefined>;
     /**
@@ -183,7 +183,7 @@ export class ApiIntegration extends pulumi.CustomResource {
  */
 export interface ApiIntegrationState {
     /**
-     * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+     * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      */
     readonly allowWriteAccess?: pulumi.Input<boolean>;
     /**
@@ -191,12 +191,12 @@ export interface ApiIntegrationState {
      */
     readonly apiKey?: pulumi.Input<string>;
     /**
-     * This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+     * This parameter is for specifying whether the integration will be enabled or not. Default: `true`
      */
     readonly enabled?: pulumi.Input<boolean>;
     readonly headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+     * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
     readonly ignoreRespondersFromPayload?: pulumi.Input<boolean>;
     /**
@@ -212,7 +212,7 @@ export interface ApiIntegrationState {
      */
     readonly responders?: pulumi.Input<pulumi.Input<inputs.ApiIntegrationResponder>[]>;
     /**
-     * If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+     * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
     readonly suppressNotifications?: pulumi.Input<boolean>;
     /**
@@ -230,16 +230,16 @@ export interface ApiIntegrationState {
  */
 export interface ApiIntegrationArgs {
     /**
-     * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Defaults to true.
+     * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      */
     readonly allowWriteAccess?: pulumi.Input<boolean>;
     /**
-     * This parameter is for specifying whether the integration will be enabled or not. Defaults to true
+     * This parameter is for specifying whether the integration will be enabled or not. Default: `true`
      */
     readonly enabled?: pulumi.Input<boolean>;
     readonly headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+     * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
     readonly ignoreRespondersFromPayload?: pulumi.Input<boolean>;
     /**
@@ -255,7 +255,7 @@ export interface ApiIntegrationArgs {
      */
     readonly responders?: pulumi.Input<pulumi.Input<inputs.ApiIntegrationResponder>[]>;
     /**
-     * If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+     * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
     readonly suppressNotifications?: pulumi.Input<boolean>;
     /**

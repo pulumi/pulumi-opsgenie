@@ -23,10 +23,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Schedule can be imported using the `id`, e.g.
+ * Schedule can be imported using the `schedule_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/schedule:Schedule test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+ *  $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
  * ```
  */
 export class Schedule extends pulumi.CustomResource {
@@ -74,7 +74,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly ownerTeamId!: pulumi.Output<string | undefined>;
     /**
-     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
 
@@ -132,7 +132,7 @@ export interface ScheduleState {
      */
     readonly ownerTeamId?: pulumi.Input<string>;
     /**
-     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
      */
     readonly timezone?: pulumi.Input<string>;
 }
@@ -158,7 +158,7 @@ export interface ScheduleArgs {
      */
     readonly ownerTeamId?: pulumi.Input<string>;
     /**
-     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
      */
     readonly timezone?: pulumi.Input<string>;
 }

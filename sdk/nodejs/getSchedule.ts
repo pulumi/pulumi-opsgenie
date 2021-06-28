@@ -41,7 +41,7 @@ export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetScheduleArgs {
     /**
-     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
      */
     readonly description?: string;
     /**
@@ -67,7 +67,7 @@ export interface GetScheduleArgs {
  */
 export interface GetScheduleResult {
     /**
-     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
      */
     readonly description?: string;
     /**

@@ -55,18 +55,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Team Routing Rules can be imported using the `id`, e.g.
+ * Team Routing Rules can be imported using the `team_id/routing_rule_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest teamId/routingRuleId`
- * ```
- *
- *  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
- *
- * - Routing Rule Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
- *
- * ```sh
- *  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+ *  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`
  * ```
  */
 export class TeamRoutingRule extends pulumi.CustomResource {
@@ -106,7 +98,7 @@ export class TeamRoutingRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+     * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
      */
     public readonly notifies!: pulumi.Output<outputs.TeamRoutingRuleNotify[]>;
     /**
@@ -179,7 +171,7 @@ export interface TeamRoutingRuleState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+     * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
      */
     readonly notifies?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleNotify>[]>;
     /**
@@ -210,7 +202,7 @@ export interface TeamRoutingRuleArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+     * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
      */
     readonly notifies: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleNotify>[]>;
     /**

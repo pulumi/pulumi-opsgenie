@@ -57,7 +57,7 @@ import * as utilities from "./utilities";
  * Email Integrations can be imported using the `id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test 812be1a1-32c8-4666-a7fb-03ecc385106c`
+ *  $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
  * ```
  */
 export class EmailIntegration extends pulumi.CustomResource {
@@ -97,7 +97,7 @@ export class EmailIntegration extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+     * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
     public readonly ignoreRespondersFromPayload!: pulumi.Output<boolean | undefined>;
     /**
@@ -110,7 +110,7 @@ export class EmailIntegration extends pulumi.CustomResource {
     public readonly ownerTeamId!: pulumi.Output<string | undefined>;
     public readonly responders!: pulumi.Output<outputs.EmailIntegrationResponder[] | undefined>;
     /**
-     * If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+     * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
     public readonly suppressNotifications!: pulumi.Output<boolean | undefined>;
 
@@ -167,7 +167,7 @@ export interface EmailIntegrationState {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+     * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
     readonly ignoreRespondersFromPayload?: pulumi.Input<boolean>;
     /**
@@ -180,7 +180,7 @@ export interface EmailIntegrationState {
     readonly ownerTeamId?: pulumi.Input<string>;
     readonly responders?: pulumi.Input<pulumi.Input<inputs.EmailIntegrationResponder>[]>;
     /**
-     * If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+     * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
     readonly suppressNotifications?: pulumi.Input<boolean>;
 }
@@ -198,7 +198,7 @@ export interface EmailIntegrationArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * If enabled, the integration will ignore recipients sent in request payloads. Defaults to false.
+     * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
     readonly ignoreRespondersFromPayload?: pulumi.Input<boolean>;
     /**
@@ -211,7 +211,7 @@ export interface EmailIntegrationArgs {
     readonly ownerTeamId?: pulumi.Input<string>;
     readonly responders?: pulumi.Input<pulumi.Input<inputs.EmailIntegrationResponder>[]>;
     /**
-     * If enabled, notifications that come from alerts will be suppressed. Defaults to false.
+     * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
     readonly suppressNotifications?: pulumi.Input<boolean>;
 }

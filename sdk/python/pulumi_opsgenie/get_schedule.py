@@ -43,7 +43,7 @@ class GetScheduleResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+        Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
         return pulumi.get(self, "description")
 
@@ -118,7 +118,7 @@ def get_schedule(description: Optional[str] = None,
     ```
 
 
-    :param str description: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Defaults to "America/New_York".
+    :param str description: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
     :param bool enabled: Enable/disable state of schedule
     :param str name: Name of the schedule.
     :param str owner_team_id: Owner team id of the schedule.

@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  * Heartbeat Integrations can be imported using the `name`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/heartbeat:Heartbeat test geniehearbeat-%s`
+ *  $ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
  * ```
  */
 export class Heartbeat extends pulumi.CustomResource {

@@ -26,7 +26,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string Message;
         /// <summary>
-        /// Priority level of the alert. Possible values are P1, P2, P3, P4 and P5
+        /// Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
         /// </summary>
         public readonly string Priority;
         /// <summary>

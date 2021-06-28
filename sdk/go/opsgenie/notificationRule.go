@@ -61,30 +61,22 @@ import (
 //
 // ## Import
 //
-// Notification policies can be imported using the `user id` and `id`, e.g.
+// Notification policies can be imported using the `user_id/notification_rule_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/notificationRule:NotificationRule test userId/Id`
-// ```
-//
-//  For this example- User Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-//
-// - Notification Rule Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
-//
-// ```sh
-//  $ pulumi import opsgenie:index/notificationRule:NotificationRule test c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+//  $ pulumi import opsgenie:index/notificationRule:NotificationRule test user_id/notification_rule_id`
 // ```
 type NotificationRule struct {
 	pulumi.CustomResourceState
 
-	// Type of the action that notification rule will have. Allowed values: "create-alert", "acknowledged-alert", "closed-alert", "assigned-alert", "add-note", "schedule-start", "schedule-end", "incoming-call-routing"
+	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType pulumi.StringOutput                 `pulumi:"actionType"`
 	Criterias  NotificationRuleCriteriaArrayOutput `pulumi:"criterias"`
-	// Defined if this step is enabled. Default: true
+	// Defined if this step is enabled. Default: `true`
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Name of the notification policy
 	Name pulumi.StringOutput `pulumi:"name"`
-	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: "just-before", "15-minutes-ago", "1-hour-ago", "1-day-ago". If `actionType` is "schedule-start" or "schedule-end" then it is required.
+	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
 	NotificationTimes pulumi.StringArrayOutput `pulumi:"notificationTimes"`
 	// Order of the condition in conditions list
 	Order     pulumi.IntOutput                    `pulumi:"order"`
@@ -132,14 +124,14 @@ func GetNotificationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationRule resources.
 type notificationRuleState struct {
-	// Type of the action that notification rule will have. Allowed values: "create-alert", "acknowledged-alert", "closed-alert", "assigned-alert", "add-note", "schedule-start", "schedule-end", "incoming-call-routing"
+	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType *string                    `pulumi:"actionType"`
 	Criterias  []NotificationRuleCriteria `pulumi:"criterias"`
-	// Defined if this step is enabled. Default: true
+	// Defined if this step is enabled. Default: `true`
 	Enabled *bool `pulumi:"enabled"`
 	// Name of the notification policy
 	Name *string `pulumi:"name"`
-	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: "just-before", "15-minutes-ago", "1-hour-ago", "1-day-ago". If `actionType` is "schedule-start" or "schedule-end" then it is required.
+	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
 	NotificationTimes []string `pulumi:"notificationTimes"`
 	// Order of the condition in conditions list
 	Order     *int                       `pulumi:"order"`
@@ -153,14 +145,14 @@ type notificationRuleState struct {
 }
 
 type NotificationRuleState struct {
-	// Type of the action that notification rule will have. Allowed values: "create-alert", "acknowledged-alert", "closed-alert", "assigned-alert", "add-note", "schedule-start", "schedule-end", "incoming-call-routing"
+	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType pulumi.StringPtrInput
 	Criterias  NotificationRuleCriteriaArrayInput
-	// Defined if this step is enabled. Default: true
+	// Defined if this step is enabled. Default: `true`
 	Enabled pulumi.BoolPtrInput
 	// Name of the notification policy
 	Name pulumi.StringPtrInput
-	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: "just-before", "15-minutes-ago", "1-hour-ago", "1-day-ago". If `actionType` is "schedule-start" or "schedule-end" then it is required.
+	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
 	NotificationTimes pulumi.StringArrayInput
 	// Order of the condition in conditions list
 	Order     pulumi.IntPtrInput
@@ -178,14 +170,14 @@ func (NotificationRuleState) ElementType() reflect.Type {
 }
 
 type notificationRuleArgs struct {
-	// Type of the action that notification rule will have. Allowed values: "create-alert", "acknowledged-alert", "closed-alert", "assigned-alert", "add-note", "schedule-start", "schedule-end", "incoming-call-routing"
+	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType string                     `pulumi:"actionType"`
 	Criterias  []NotificationRuleCriteria `pulumi:"criterias"`
-	// Defined if this step is enabled. Default: true
+	// Defined if this step is enabled. Default: `true`
 	Enabled *bool `pulumi:"enabled"`
 	// Name of the notification policy
 	Name *string `pulumi:"name"`
-	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: "just-before", "15-minutes-ago", "1-hour-ago", "1-day-ago". If `actionType` is "schedule-start" or "schedule-end" then it is required.
+	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
 	NotificationTimes []string `pulumi:"notificationTimes"`
 	// Order of the condition in conditions list
 	Order     *int                       `pulumi:"order"`
@@ -200,14 +192,14 @@ type notificationRuleArgs struct {
 
 // The set of arguments for constructing a NotificationRule resource.
 type NotificationRuleArgs struct {
-	// Type of the action that notification rule will have. Allowed values: "create-alert", "acknowledged-alert", "closed-alert", "assigned-alert", "add-note", "schedule-start", "schedule-end", "incoming-call-routing"
+	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType pulumi.StringInput
 	Criterias  NotificationRuleCriteriaArrayInput
-	// Defined if this step is enabled. Default: true
+	// Defined if this step is enabled. Default: `true`
 	Enabled pulumi.BoolPtrInput
 	// Name of the notification policy
 	Name pulumi.StringPtrInput
-	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: "just-before", "15-minutes-ago", "1-hour-ago", "1-day-ago". If `actionType` is "schedule-start" or "schedule-end" then it is required.
+	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
 	NotificationTimes pulumi.StringArrayInput
 	// Order of the condition in conditions list
 	Order     pulumi.IntPtrInput

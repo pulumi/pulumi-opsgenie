@@ -89,18 +89,10 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// Team Routing Rules can be imported using the `id`, e.g.
+    /// Team Routing Rules can be imported using the `team_id/routing_rule_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest teamId/routingRuleId`
-    /// ```
-    /// 
-    ///  For this example- Team Id = `c827c472-31f2-497b-9ec6-8ec855d7d94c`
-    /// 
-    /// - Routing Rule Id = `2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
-    /// 
-    /// ```sh
-    ///  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest c827c472-31f2-497b-9ec6-8ec855d7d94c/2d1a78d0-c13e-47d3-af0a-8b6d0cc2b7b1`
+    ///  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/teamRoutingRule:TeamRoutingRule")]
@@ -119,7 +111,7 @@ namespace Pulumi.Opsgenie
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         /// </summary>
         [Output("notifies")]
         public Output<ImmutableArray<Outputs.TeamRoutingRuleNotify>> Notifies { get; private set; } = null!;
@@ -213,7 +205,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.TeamRoutingRuleNotifyArgs>? _notifies;
 
         /// <summary>
-        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         /// </summary>
         public InputList<Inputs.TeamRoutingRuleNotifyArgs> Notifies
         {
@@ -276,7 +268,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.TeamRoutingRuleNotifyGetArgs>? _notifies;
 
         /// <summary>
-        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values for notify type : schedule, escalation, none
+        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         /// </summary>
         public InputList<Inputs.TeamRoutingRuleNotifyGetArgs> Notifies
         {
