@@ -305,7 +305,7 @@ class ScheduleRotation(pulumi.CustomResource):
             schedule_id=opsgenie_schedule["test"]["id"],
             start_date="2019-06-18T17:00:00Z",
             time_restrictions=[opsgenie.ScheduleRotationTimeRestrictionArgs(
-                restrictions=[opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs(
+                restriction=[opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs(
                     end_hour=10,
                     end_min=1,
                     start_hour=1,
@@ -359,7 +359,7 @@ class ScheduleRotation(pulumi.CustomResource):
             schedule_id=opsgenie_schedule["test"]["id"],
             start_date="2019-06-18T17:00:00Z",
             time_restrictions=[opsgenie.ScheduleRotationTimeRestrictionArgs(
-                restrictions=[opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs(
+                restriction=[opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs(
                     end_hour=10,
                     end_min=1,
                     start_hour=1,

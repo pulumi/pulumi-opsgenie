@@ -38,7 +38,7 @@ import (
 // 			StartDate:  pulumi.String("2019-06-18T17:00:00Z"),
 // 			TimeRestrictions: opsgenie.ScheduleRotationTimeRestrictionArray{
 // 				&opsgenie.ScheduleRotationTimeRestrictionArgs{
-// 					Restrictions: opsgenie.ScheduleRotationTimeRestrictionRestrictionArray{
+// 					Restriction: opsgenie.ScheduleRotationTimeRestrictionRestrictionArray{
 // 						&opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs{
 // 							EndHour:   pulumi.Int(10),
 // 							EndMin:    pulumi.Int(1),

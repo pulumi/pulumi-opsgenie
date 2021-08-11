@@ -40,7 +40,7 @@ namespace Pulumi.Opsgenie
     ///             {
     ///                 new Opsgenie.Inputs.ScheduleRotationTimeRestrictionArgs
     ///                 {
-    ///                     Restrictions = 
+    ///                     Restriction = 
     ///                     {
     ///                         new Opsgenie.Inputs.ScheduleRotationTimeRestrictionRestrictionArgs
     ///                         {

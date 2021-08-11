@@ -12,6 +12,18 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class ScheduleRotationTimeRestrictionArgs : Pulumi.ResourceArgs
     {
+        [Input("restriction")]
+        private InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionArgs>? _restriction;
+
+        /// <summary>
+        /// It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
+        /// </summary>
+        public InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionArgs> Restriction
+        {
+            get => _restriction ?? (_restriction = new InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionArgs>());
+            set => _restriction = value;
+        }
+
         [Input("restrictions")]
         private InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionArgs>? _restrictions;
 

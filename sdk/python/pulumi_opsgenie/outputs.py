@@ -3027,12 +3027,16 @@ class ScheduleRotationParticipant(dict):
 class ScheduleRotationTimeRestriction(dict):
     def __init__(__self__, *,
                  type: str,
+                 restriction: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestriction']] = None,
                  restrictions: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestriction']] = None):
         """
         :param str type: This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
+        :param Sequence['ScheduleRotationTimeRestrictionRestrictionArgs'] restriction: It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
         :param Sequence['ScheduleRotationTimeRestrictionRestrictionArgs'] restrictions: It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         """
         pulumi.set(__self__, "type", type)
+        if restriction is not None:
+            pulumi.set(__self__, "restriction", restriction)
         if restrictions is not None:
             pulumi.set(__self__, "restrictions", restrictions)
 
@@ -3043,6 +3047,14 @@ class ScheduleRotationTimeRestriction(dict):
         This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def restriction(self) -> Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestriction']]:
+        """
+        It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
+        """
+        return pulumi.get(self, "restriction")
 
     @property
     @pulumi.getter

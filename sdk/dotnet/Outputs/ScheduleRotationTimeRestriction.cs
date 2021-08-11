@@ -14,6 +14,10 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class ScheduleRotationTimeRestriction
     {
         /// <summary>
+        /// It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ScheduleRotationTimeRestrictionRestriction> Restriction;
+        /// <summary>
         /// It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduleRotationTimeRestrictionRestriction> Restrictions;
@@ -24,10 +28,13 @@ namespace Pulumi.Opsgenie.Outputs
 
         [OutputConstructor]
         private ScheduleRotationTimeRestriction(
+            ImmutableArray<Outputs.ScheduleRotationTimeRestrictionRestriction> restriction,
+
             ImmutableArray<Outputs.ScheduleRotationTimeRestrictionRestriction> restrictions,
 
             string type)
         {
+            Restriction = restriction;
             Restrictions = restrictions;
             Type = type;
         }

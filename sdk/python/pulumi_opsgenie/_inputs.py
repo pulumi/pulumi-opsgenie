@@ -3318,12 +3318,16 @@ class ScheduleRotationParticipantArgs:
 class ScheduleRotationTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 restriction: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]] = None,
                  restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]] = None):
         """
         :param pulumi.Input[str] type: This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]] restriction: It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]] restrictions: It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         """
         pulumi.set(__self__, "type", type)
+        if restriction is not None:
+            pulumi.set(__self__, "restriction", restriction)
         if restrictions is not None:
             pulumi.set(__self__, "restrictions", restrictions)
 
@@ -3338,6 +3342,18 @@ class ScheduleRotationTimeRestrictionArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def restriction(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]]:
+        """
+        It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
+        """
+        return pulumi.get(self, "restriction")
+
+    @restriction.setter
+    def restriction(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]]):
+        pulumi.set(self, "restriction", value)
 
     @property
     @pulumi.getter
