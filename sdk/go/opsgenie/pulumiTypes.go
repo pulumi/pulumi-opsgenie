@@ -6167,6 +6167,8 @@ func (o ScheduleRotationParticipantArrayOutput) Index(i pulumi.IntInput) Schedul
 }
 
 type ScheduleRotationTimeRestriction struct {
+	// It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
+	Restriction []ScheduleRotationTimeRestrictionRestriction `pulumi:"restriction"`
 	// It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
 	Restrictions []ScheduleRotationTimeRestrictionRestriction `pulumi:"restrictions"`
 	// This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
@@ -6185,6 +6187,8 @@ type ScheduleRotationTimeRestrictionInput interface {
 }
 
 type ScheduleRotationTimeRestrictionArgs struct {
+	// It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
+	Restriction ScheduleRotationTimeRestrictionRestrictionArrayInput `pulumi:"restriction"`
 	// It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
 	Restrictions ScheduleRotationTimeRestrictionRestrictionArrayInput `pulumi:"restrictions"`
 	// This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
@@ -6240,6 +6244,13 @@ func (o ScheduleRotationTimeRestrictionOutput) ToScheduleRotationTimeRestriction
 
 func (o ScheduleRotationTimeRestrictionOutput) ToScheduleRotationTimeRestrictionOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionOutput {
 	return o
+}
+
+// It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
+func (o ScheduleRotationTimeRestrictionOutput) Restriction() ScheduleRotationTimeRestrictionRestrictionArrayOutput {
+	return o.ApplyT(func(v ScheduleRotationTimeRestriction) []ScheduleRotationTimeRestrictionRestriction {
+		return v.Restriction
+	}).(ScheduleRotationTimeRestrictionRestrictionArrayOutput)
 }
 
 // It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.

@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensure that `opsgenie.scheduleRotation` allows both a `restriction` and a `restrictions` parameter. The presence of both and being lists
+  meant that the `restriction` was mapping to `restrictions.
 
 ---
 

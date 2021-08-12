@@ -840,6 +840,10 @@ export interface ScheduleRotationParticipant {
 
 export interface ScheduleRotationTimeRestriction {
     /**
+     * It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
+     */
+    restriction?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestrictionRestriction>[]>;
+    /**
      * It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
      */
     restrictions?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestrictionRestriction>[]>;

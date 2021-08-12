@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     scheduleId: opsgenie_schedule_test.id,
  *     startDate: "2019-06-18T17:00:00Z",
  *     timeRestrictions: [{
- *         restrictions: [{
+ *         restriction: [{
  *             endHour: 10,
  *             endMin: 1,
  *             startHour: 1,

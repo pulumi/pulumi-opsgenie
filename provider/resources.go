@@ -127,6 +127,18 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"opsgenie_schedule_rotation": {
 				Tok: makeResource(mainMod, "ScheduleRotation"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"time_restriction": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								// there is both a restriction and restrictions parameters so we want to stop
+								// the bridge automatically pluralising the values to prevent any issues
+								"restriction":  {Name: "restriction"},
+								"restrictions": {Name: "restrictions"},
+							},
+						},
+					},
+				},
 			},
 			"opsgenie_maintenance": {
 				Tok: makeResource(mainMod, "Maintenance"),
