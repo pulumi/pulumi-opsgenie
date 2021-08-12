@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Ensure that `opsgenie.scheduleRotation` allows both a `restriction` and a `restrictions` parameter. The presence of both and being lists
-  meant that the `restriction` was mapping to `restrictions.
+_(none)_
 
 ---
+
+## 1.0.2 (2021-08-12)
+* Ensure that `opsgenie.scheduleRotation` allows both a `restriction` and a `restrictions` parameter. The presence of both and being lists
+  meant that the `restriction` was mapping to `restrictions.
 
 ## 1.0.1 (2021-06-28)
 * Upgrade to v0.6.5 of the OpsGenie Terraform Provider
