@@ -202,7 +202,7 @@ type CustomRoleArrayInput interface {
 type CustomRoleArray []CustomRoleInput
 
 func (CustomRoleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CustomRole)(nil))
+	return reflect.TypeOf((*[]*CustomRole)(nil)).Elem()
 }
 
 func (i CustomRoleArray) ToCustomRoleArrayOutput() CustomRoleArrayOutput {
@@ -227,7 +227,7 @@ type CustomRoleMapInput interface {
 type CustomRoleMap map[string]CustomRoleInput
 
 func (CustomRoleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CustomRole)(nil))
+	return reflect.TypeOf((*map[string]*CustomRole)(nil)).Elem()
 }
 
 func (i CustomRoleMap) ToCustomRoleMapOutput() CustomRoleMapOutput {
@@ -238,9 +238,7 @@ func (i CustomRoleMap) ToCustomRoleMapOutputWithContext(ctx context.Context) Cus
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoleMapOutput)
 }
 
-type CustomRoleOutput struct {
-	*pulumi.OutputState
-}
+type CustomRoleOutput struct{ *pulumi.OutputState }
 
 func (CustomRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomRole)(nil))
@@ -259,14 +257,12 @@ func (o CustomRoleOutput) ToCustomRolePtrOutput() CustomRolePtrOutput {
 }
 
 func (o CustomRoleOutput) ToCustomRolePtrOutputWithContext(ctx context.Context) CustomRolePtrOutput {
-	return o.ApplyT(func(v CustomRole) *CustomRole {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomRole) *CustomRole {
 		return &v
 	}).(CustomRolePtrOutput)
 }
 
-type CustomRolePtrOutput struct {
-	*pulumi.OutputState
-}
+type CustomRolePtrOutput struct{ *pulumi.OutputState }
 
 func (CustomRolePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CustomRole)(nil))
@@ -278,6 +274,16 @@ func (o CustomRolePtrOutput) ToCustomRolePtrOutput() CustomRolePtrOutput {
 
 func (o CustomRolePtrOutput) ToCustomRolePtrOutputWithContext(ctx context.Context) CustomRolePtrOutput {
 	return o
+}
+
+func (o CustomRolePtrOutput) Elem() CustomRoleOutput {
+	return o.ApplyT(func(v *CustomRole) CustomRole {
+		if v != nil {
+			return *v
+		}
+		var ret CustomRole
+		return ret
+	}).(CustomRoleOutput)
 }
 
 type CustomRoleArrayOutput struct{ *pulumi.OutputState }
@@ -321,6 +327,10 @@ func (o CustomRoleMapOutput) MapIndex(k pulumi.StringInput) CustomRoleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoleInput)(nil)).Elem(), &CustomRole{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRolePtrInput)(nil)).Elem(), &CustomRole{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoleArrayInput)(nil)).Elem(), CustomRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomRoleMapInput)(nil)).Elem(), CustomRoleMap{})
 	pulumi.RegisterOutputType(CustomRoleOutput{})
 	pulumi.RegisterOutputType(CustomRolePtrOutput{})
 	pulumi.RegisterOutputType(CustomRoleArrayOutput{})

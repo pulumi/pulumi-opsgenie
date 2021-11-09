@@ -10,21 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class GetEscalationRepeatInputArgs : Pulumi.ResourceArgs
+    public sealed class GetEscalationRepeatArgs : Pulumi.InvokeArgs
     {
         [Input("closeAlertAfterAll")]
-        public Input<bool>? CloseAlertAfterAll { get; set; }
+        public bool? CloseAlertAfterAll { get; set; }
 
         [Input("count")]
-        public Input<int>? Count { get; set; }
+        public int? Count { get; set; }
 
         [Input("resetRecipientStates")]
-        public Input<bool>? ResetRecipientStates { get; set; }
+        public bool? ResetRecipientStates { get; set; }
 
         [Input("waitInterval")]
-        public Input<int>? WaitInterval { get; set; }
+        public int? WaitInterval { get; set; }
 
-        public GetEscalationRepeatInputArgs()
+        public GetEscalationRepeatArgs()
         {
         }
     }

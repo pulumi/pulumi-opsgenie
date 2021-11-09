@@ -12,6 +12,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,32 @@ def get_user(full_name: Optional[str] = None,
         role=__ret__.role,
         timezone=__ret__.timezone,
         username=__ret__.username)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(full_name: Optional[pulumi.Input[Optional[str]]] = None,
+                    locale: Optional[pulumi.Input[Optional[str]]] = None,
+                    role: Optional[pulumi.Input[Optional[str]]] = None,
+                    timezone: Optional[pulumi.Input[Optional[str]]] = None,
+                    username: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    Manages existing User within Opsgenie.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_opsgenie as opsgenie
+
+    test = opsgenie.get_user(username="user@domain.com")
+    ```
+
+
+    :param str full_name: The Full Name of the User.
+    :param str locale: Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
+    :param str role: The Role assigned to the User. Either a built-in such as 'Owner', 'Admin' or 'User' - or the name of a custom role.
+    :param str timezone: Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
+    :param str username: The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters.
+    """
+    ...

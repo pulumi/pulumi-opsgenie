@@ -35,14 +35,14 @@ import (
 // 			TeamId:            testTeam.ID(),
 // 			PolicyDescription: pulumi.String("This is sample policy"),
 // 			Message:           pulumi.String("{{message}}"),
-// 			Filters: opsgenie.AlertPolicyFilterArray{
+// 			Filters: AlertPolicyFilterArray{
 // 				nil,
 // 			},
-// 			TimeRestrictions: opsgenie.AlertPolicyTimeRestrictionArray{
-// 				&opsgenie.AlertPolicyTimeRestrictionArgs{
+// 			TimeRestrictions: AlertPolicyTimeRestrictionArray{
+// 				&AlertPolicyTimeRestrictionArgs{
 // 					Type: pulumi.String("weekday-and-time-of-day"),
-// 					Restrictions: opsgenie.AlertPolicyTimeRestrictionRestrictionArray{
-// 						&opsgenie.AlertPolicyTimeRestrictionRestrictionArgs{
+// 					Restrictions: AlertPolicyTimeRestrictionRestrictionArray{
+// 						&AlertPolicyTimeRestrictionRestrictionArgs{
 // 							EndDay:    pulumi.String("monday"),
 // 							EndHour:   pulumi.Int(7),
 // 							EndMin:    pulumi.Int(0),
@@ -50,7 +50,7 @@ import (
 // 							StartHour: pulumi.Int(21),
 // 							StartMin:  pulumi.Int(0),
 // 						},
-// 						&opsgenie.AlertPolicyTimeRestrictionRestrictionArgs{
+// 						&AlertPolicyTimeRestrictionRestrictionArgs{
 // 							EndDay:    pulumi.String("tuesday"),
 // 							EndHour:   pulumi.Int(7),
 // 							EndMin:    pulumi.Int(0),
@@ -402,7 +402,7 @@ type AlertPolicyArrayInput interface {
 type AlertPolicyArray []AlertPolicyInput
 
 func (AlertPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AlertPolicy)(nil))
+	return reflect.TypeOf((*[]*AlertPolicy)(nil)).Elem()
 }
 
 func (i AlertPolicyArray) ToAlertPolicyArrayOutput() AlertPolicyArrayOutput {
@@ -427,7 +427,7 @@ type AlertPolicyMapInput interface {
 type AlertPolicyMap map[string]AlertPolicyInput
 
 func (AlertPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AlertPolicy)(nil))
+	return reflect.TypeOf((*map[string]*AlertPolicy)(nil)).Elem()
 }
 
 func (i AlertPolicyMap) ToAlertPolicyMapOutput() AlertPolicyMapOutput {
@@ -438,9 +438,7 @@ func (i AlertPolicyMap) ToAlertPolicyMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyMapOutput)
 }
 
-type AlertPolicyOutput struct {
-	*pulumi.OutputState
-}
+type AlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertPolicy)(nil))
@@ -459,14 +457,12 @@ func (o AlertPolicyOutput) ToAlertPolicyPtrOutput() AlertPolicyPtrOutput {
 }
 
 func (o AlertPolicyOutput) ToAlertPolicyPtrOutputWithContext(ctx context.Context) AlertPolicyPtrOutput {
-	return o.ApplyT(func(v AlertPolicy) *AlertPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertPolicy) *AlertPolicy {
 		return &v
 	}).(AlertPolicyPtrOutput)
 }
 
-type AlertPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type AlertPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AlertPolicy)(nil))
@@ -478,6 +474,16 @@ func (o AlertPolicyPtrOutput) ToAlertPolicyPtrOutput() AlertPolicyPtrOutput {
 
 func (o AlertPolicyPtrOutput) ToAlertPolicyPtrOutputWithContext(ctx context.Context) AlertPolicyPtrOutput {
 	return o
+}
+
+func (o AlertPolicyPtrOutput) Elem() AlertPolicyOutput {
+	return o.ApplyT(func(v *AlertPolicy) AlertPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AlertPolicy
+		return ret
+	}).(AlertPolicyOutput)
 }
 
 type AlertPolicyArrayOutput struct{ *pulumi.OutputState }
@@ -521,6 +527,10 @@ func (o AlertPolicyMapOutput) MapIndex(k pulumi.StringInput) AlertPolicyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyInput)(nil)).Elem(), &AlertPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyPtrInput)(nil)).Elem(), &AlertPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyArrayInput)(nil)).Elem(), AlertPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyMapInput)(nil)).Elem(), AlertPolicyMap{})
 	pulumi.RegisterOutputType(AlertPolicyOutput{})
 	pulumi.RegisterOutputType(AlertPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AlertPolicyArrayOutput{})

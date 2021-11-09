@@ -28,18 +28,18 @@ import (
 // 		_, err := opsgenie.NewScheduleRotation(ctx, "test", &opsgenie.ScheduleRotationArgs{
 // 			EndDate: pulumi.String("2019-06-20T17:30:00Z"),
 // 			Length:  pulumi.Int(6),
-// 			Participants: opsgenie.ScheduleRotationParticipantArray{
-// 				&opsgenie.ScheduleRotationParticipantArgs{
+// 			Participants: ScheduleRotationParticipantArray{
+// 				&ScheduleRotationParticipantArgs{
 // 					Id:   pulumi.Any(opsgenie_user.Test.Id),
 // 					Type: pulumi.String("user"),
 // 				},
 // 			},
 // 			ScheduleId: pulumi.Any(opsgenie_schedule.Test.Id),
 // 			StartDate:  pulumi.String("2019-06-18T17:00:00Z"),
-// 			TimeRestrictions: opsgenie.ScheduleRotationTimeRestrictionArray{
-// 				&opsgenie.ScheduleRotationTimeRestrictionArgs{
-// 					Restriction: opsgenie.ScheduleRotationTimeRestrictionRestrictionArray{
-// 						&opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs{
+// 			TimeRestrictions: ScheduleRotationTimeRestrictionArray{
+// 				&ScheduleRotationTimeRestrictionArgs{
+// 					Restriction: ScheduleRotationTimeRestrictionRestrictionArray{
+// 						&ScheduleRotationTimeRestrictionRestrictionArgs{
 // 							EndHour:   pulumi.Int(10),
 // 							EndMin:    pulumi.Int(1),
 // 							StartHour: pulumi.Int(1),
@@ -269,7 +269,7 @@ type ScheduleRotationArrayInput interface {
 type ScheduleRotationArray []ScheduleRotationInput
 
 func (ScheduleRotationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ScheduleRotation)(nil))
+	return reflect.TypeOf((*[]*ScheduleRotation)(nil)).Elem()
 }
 
 func (i ScheduleRotationArray) ToScheduleRotationArrayOutput() ScheduleRotationArrayOutput {
@@ -294,7 +294,7 @@ type ScheduleRotationMapInput interface {
 type ScheduleRotationMap map[string]ScheduleRotationInput
 
 func (ScheduleRotationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ScheduleRotation)(nil))
+	return reflect.TypeOf((*map[string]*ScheduleRotation)(nil)).Elem()
 }
 
 func (i ScheduleRotationMap) ToScheduleRotationMapOutput() ScheduleRotationMapOutput {
@@ -305,9 +305,7 @@ func (i ScheduleRotationMap) ToScheduleRotationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationMapOutput)
 }
 
-type ScheduleRotationOutput struct {
-	*pulumi.OutputState
-}
+type ScheduleRotationOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduleRotation)(nil))
@@ -326,14 +324,12 @@ func (o ScheduleRotationOutput) ToScheduleRotationPtrOutput() ScheduleRotationPt
 }
 
 func (o ScheduleRotationOutput) ToScheduleRotationPtrOutputWithContext(ctx context.Context) ScheduleRotationPtrOutput {
-	return o.ApplyT(func(v ScheduleRotation) *ScheduleRotation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleRotation) *ScheduleRotation {
 		return &v
 	}).(ScheduleRotationPtrOutput)
 }
 
-type ScheduleRotationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ScheduleRotationPtrOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScheduleRotation)(nil))
@@ -345,6 +341,16 @@ func (o ScheduleRotationPtrOutput) ToScheduleRotationPtrOutput() ScheduleRotatio
 
 func (o ScheduleRotationPtrOutput) ToScheduleRotationPtrOutputWithContext(ctx context.Context) ScheduleRotationPtrOutput {
 	return o
+}
+
+func (o ScheduleRotationPtrOutput) Elem() ScheduleRotationOutput {
+	return o.ApplyT(func(v *ScheduleRotation) ScheduleRotation {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleRotation
+		return ret
+	}).(ScheduleRotationOutput)
 }
 
 type ScheduleRotationArrayOutput struct{ *pulumi.OutputState }
@@ -388,6 +394,10 @@ func (o ScheduleRotationMapOutput) MapIndex(k pulumi.StringInput) ScheduleRotati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationInput)(nil)).Elem(), &ScheduleRotation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationPtrInput)(nil)).Elem(), &ScheduleRotation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationArrayInput)(nil)).Elem(), ScheduleRotationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationMapInput)(nil)).Elem(), ScheduleRotationMap{})
 	pulumi.RegisterOutputType(ScheduleRotationOutput{})
 	pulumi.RegisterOutputType(ScheduleRotationPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleRotationArrayOutput{})

@@ -32,20 +32,20 @@ import (
 // 			return err
 // 		}
 // 		_, err = opsgenie.NewEmailIntegration(ctx, "testIndex_emailIntegrationEmailIntegration", &opsgenie.EmailIntegrationArgs{
-// 			Responders: opsgenie.EmailIntegrationResponderArray{
-// 				&opsgenie.EmailIntegrationResponderArgs{
+// 			Responders: EmailIntegrationResponderArray{
+// 				&EmailIntegrationResponderArgs{
 // 					Type: pulumi.String("user"),
 // 					Id:   pulumi.Any(opsgenie_user.Test.Id),
 // 				},
-// 				&opsgenie.EmailIntegrationResponderArgs{
+// 				&EmailIntegrationResponderArgs{
 // 					Type: pulumi.String("schedule"),
 // 					Id:   pulumi.Any(opsgenie_schedule.Test.Id),
 // 				},
-// 				&opsgenie.EmailIntegrationResponderArgs{
+// 				&EmailIntegrationResponderArgs{
 // 					Type: pulumi.String("escalation"),
 // 					Id:   pulumi.Any(opsgenie_escalation.Test.Id),
 // 				},
-// 				&opsgenie.EmailIntegrationResponderArgs{
+// 				&EmailIntegrationResponderArgs{
 // 					Type: pulumi.String("team"),
 // 					Id:   pulumi.Any(opsgenie_team.Test2.Id),
 // 				},
@@ -59,8 +59,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = opsgenie.NewEmailIntegration(ctx, "testOpsgenieIndex_emailIntegrationEmailIntegration", &opsgenie.EmailIntegrationArgs{
-// 			Responders: opsgenie.EmailIntegrationResponderArray{
-// 				&opsgenie.EmailIntegrationResponderArgs{
+// 			Responders: EmailIntegrationResponderArray{
+// 				&EmailIntegrationResponderArgs{
 // 					Type: pulumi.String("user"),
 // 					Id:   pulumi.Any(opsgenie_user.Test.Id),
 // 				},
@@ -270,7 +270,7 @@ type EmailIntegrationArrayInput interface {
 type EmailIntegrationArray []EmailIntegrationInput
 
 func (EmailIntegrationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EmailIntegration)(nil))
+	return reflect.TypeOf((*[]*EmailIntegration)(nil)).Elem()
 }
 
 func (i EmailIntegrationArray) ToEmailIntegrationArrayOutput() EmailIntegrationArrayOutput {
@@ -295,7 +295,7 @@ type EmailIntegrationMapInput interface {
 type EmailIntegrationMap map[string]EmailIntegrationInput
 
 func (EmailIntegrationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EmailIntegration)(nil))
+	return reflect.TypeOf((*map[string]*EmailIntegration)(nil)).Elem()
 }
 
 func (i EmailIntegrationMap) ToEmailIntegrationMapOutput() EmailIntegrationMapOutput {
@@ -306,9 +306,7 @@ func (i EmailIntegrationMap) ToEmailIntegrationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationMapOutput)
 }
 
-type EmailIntegrationOutput struct {
-	*pulumi.OutputState
-}
+type EmailIntegrationOutput struct{ *pulumi.OutputState }
 
 func (EmailIntegrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EmailIntegration)(nil))
@@ -327,14 +325,12 @@ func (o EmailIntegrationOutput) ToEmailIntegrationPtrOutput() EmailIntegrationPt
 }
 
 func (o EmailIntegrationOutput) ToEmailIntegrationPtrOutputWithContext(ctx context.Context) EmailIntegrationPtrOutput {
-	return o.ApplyT(func(v EmailIntegration) *EmailIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailIntegration) *EmailIntegration {
 		return &v
 	}).(EmailIntegrationPtrOutput)
 }
 
-type EmailIntegrationPtrOutput struct {
-	*pulumi.OutputState
-}
+type EmailIntegrationPtrOutput struct{ *pulumi.OutputState }
 
 func (EmailIntegrationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EmailIntegration)(nil))
@@ -346,6 +342,16 @@ func (o EmailIntegrationPtrOutput) ToEmailIntegrationPtrOutput() EmailIntegratio
 
 func (o EmailIntegrationPtrOutput) ToEmailIntegrationPtrOutputWithContext(ctx context.Context) EmailIntegrationPtrOutput {
 	return o
+}
+
+func (o EmailIntegrationPtrOutput) Elem() EmailIntegrationOutput {
+	return o.ApplyT(func(v *EmailIntegration) EmailIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret EmailIntegration
+		return ret
+	}).(EmailIntegrationOutput)
 }
 
 type EmailIntegrationArrayOutput struct{ *pulumi.OutputState }
@@ -389,6 +395,10 @@ func (o EmailIntegrationMapOutput) MapIndex(k pulumi.StringInput) EmailIntegrati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIntegrationInput)(nil)).Elem(), &EmailIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIntegrationPtrInput)(nil)).Elem(), &EmailIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIntegrationArrayInput)(nil)).Elem(), EmailIntegrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIntegrationMapInput)(nil)).Elem(), EmailIntegrationMap{})
 	pulumi.RegisterOutputType(EmailIntegrationOutput{})
 	pulumi.RegisterOutputType(EmailIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(EmailIntegrationArrayOutput{})

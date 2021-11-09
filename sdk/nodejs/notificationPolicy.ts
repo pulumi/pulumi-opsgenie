@@ -147,47 +147,47 @@ export interface NotificationPolicyState {
     /**
      * Auto Restart Action of the policy. This is a block, structure is documented below.
      */
-    readonly autoCloseActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoCloseAction>[]>;
+    autoCloseActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoCloseAction>[]>;
     /**
      * Auto Restart Action of the policy. This is a block, structure is documented below.
      */
-    readonly autoRestartActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoRestartAction>[]>;
+    autoRestartActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoRestartAction>[]>;
     /**
      * Deduplication Action of the policy. This is a block, structure is documented below.
      */
-    readonly deDuplicationActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDeDuplicationAction>[]>;
+    deDuplicationActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDeDuplicationAction>[]>;
     /**
      * Delay notifications. This is a block, structure is documented below.
      */
-    readonly delayActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDelayAction>[]>;
+    delayActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDelayAction>[]>;
     /**
      * If policy should be enabled. Default: `true`
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      */
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyFilter>[]>;
     /**
      * Name of the notification policy
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Description of the policy. This can be max 512 characters.
      */
-    readonly policyDescription?: pulumi.Input<string>;
+    policyDescription?: pulumi.Input<string>;
     /**
      * Suppress value of the policy. Values are: `true`, `false`. Default: `false`
      */
-    readonly suppress?: pulumi.Input<boolean>;
+    suppress?: pulumi.Input<boolean>;
     /**
      * Id of team that this policy belons to.
      */
-    readonly teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string>;
     /**
      * Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
      */
-    readonly timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestriction>[]>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestriction>[]>;
 }
 
 /**
@@ -197,45 +197,45 @@ export interface NotificationPolicyArgs {
     /**
      * Auto Restart Action of the policy. This is a block, structure is documented below.
      */
-    readonly autoCloseActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoCloseAction>[]>;
+    autoCloseActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoCloseAction>[]>;
     /**
      * Auto Restart Action of the policy. This is a block, structure is documented below.
      */
-    readonly autoRestartActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoRestartAction>[]>;
+    autoRestartActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoRestartAction>[]>;
     /**
      * Deduplication Action of the policy. This is a block, structure is documented below.
      */
-    readonly deDuplicationActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDeDuplicationAction>[]>;
+    deDuplicationActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDeDuplicationAction>[]>;
     /**
      * Delay notifications. This is a block, structure is documented below.
      */
-    readonly delayActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDelayAction>[]>;
+    delayActions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDelayAction>[]>;
     /**
      * If policy should be enabled. Default: `true`
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      */
-    readonly filters: pulumi.Input<pulumi.Input<inputs.NotificationPolicyFilter>[]>;
+    filters: pulumi.Input<pulumi.Input<inputs.NotificationPolicyFilter>[]>;
     /**
      * Name of the notification policy
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Description of the policy. This can be max 512 characters.
      */
-    readonly policyDescription?: pulumi.Input<string>;
+    policyDescription?: pulumi.Input<string>;
     /**
      * Suppress value of the policy. Values are: `true`, `false`. Default: `false`
      */
-    readonly suppress?: pulumi.Input<boolean>;
+    suppress?: pulumi.Input<boolean>;
     /**
      * Id of team that this policy belons to.
      */
-    readonly teamId: pulumi.Input<string>;
+    teamId: pulumi.Input<string>;
     /**
      * Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
      */
-    readonly timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestriction>[]>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestriction>[]>;
 }

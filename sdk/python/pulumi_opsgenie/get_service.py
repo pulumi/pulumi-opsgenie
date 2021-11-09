@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,28 @@ def get_service(description: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         team_id=__ret__.team_id)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(description: Optional[pulumi.Input[Optional[str]]] = None,
+                       name: Optional[pulumi.Input[str]] = None,
+                       team_id: Optional[pulumi.Input[Optional[str]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    Manages existing Service within Opsgenie.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_opsgenie as opsgenie
+
+    this = opsgenie.get_service(name="Payment")
+    ```
+
+
+    :param str description: Description field of the service that is generally used to provide a detailed information about the service.
+    :param str name: Name of the service. This field must not be longer than 100 characters.
+    :param str team_id: Team id of the service.
+    """
+    ...

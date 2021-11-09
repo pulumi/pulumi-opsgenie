@@ -4,7 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("opsgenie");
+declare var exports: any;
+const __config = new pulumi.Config("opsgenie");
 
-export let apiKey: string | undefined = __config.get("apiKey");
-export let apiUrl: string | undefined = __config.get("apiUrl") || utilities.getEnv("OPSGENIE_API_URL");
+export declare const apiKey: string | undefined;
+Object.defineProperty(exports, "apiKey", {
+    get() {
+        return __config.get("apiKey");
+    },
+    enumerable: true,
+});
+
+export declare const apiUrl: string | undefined;
+Object.defineProperty(exports, "apiUrl", {
+    get() {
+        return __config.get("apiUrl") ?? utilities.getEnv("OPSGENIE_API_URL");
+    },
+    enumerable: true,
+});
+

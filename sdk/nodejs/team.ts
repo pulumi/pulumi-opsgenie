@@ -141,23 +141,23 @@ export interface TeamState {
     /**
      * Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
      */
-    readonly deleteDefaultResources?: pulumi.Input<boolean>;
+    deleteDefaultResources?: pulumi.Input<boolean>;
     /**
      * A description for this team.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
      */
-    readonly ignoreMembers?: pulumi.Input<boolean>;
+    ignoreMembers?: pulumi.Input<boolean>;
     /**
      * A Member block as documented below.
      */
-    readonly members?: pulumi.Input<pulumi.Input<inputs.TeamMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.TeamMember>[]>;
     /**
      * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -167,21 +167,21 @@ export interface TeamArgs {
     /**
      * Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
      */
-    readonly deleteDefaultResources?: pulumi.Input<boolean>;
+    deleteDefaultResources?: pulumi.Input<boolean>;
     /**
      * A description for this team.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
      */
-    readonly ignoreMembers?: pulumi.Input<boolean>;
+    ignoreMembers?: pulumi.Input<boolean>;
     /**
      * A Member block as documented below.
      */
-    readonly members?: pulumi.Input<pulumi.Input<inputs.TeamMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.TeamMember>[]>;
     /**
      * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

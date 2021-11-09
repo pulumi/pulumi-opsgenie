@@ -18,6 +18,13 @@ namespace Pulumi.Opsgenie
     [OpsgenieResourceType("pulumi:providers:opsgenie")]
     public partial class Provider : Pulumi.ProviderResource
     {
+        [Output("apiKey")]
+        public Output<string> ApiKey { get; private set; } = null!;
+
+        [Output("apiUrl")]
+        public Output<string?> ApiUrl { get; private set; } = null!;
+
+
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>

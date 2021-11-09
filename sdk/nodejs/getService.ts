@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -16,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * const thisService = pulumi.output(opsgenie.getService({
  *     name: "Payment",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
@@ -41,15 +40,15 @@ export interface GetServiceArgs {
     /**
      * Description field of the service that is generally used to provide a detailed information about the service.
      */
-    readonly description?: string;
+    description?: string;
     /**
      * Name of the service. This field must not be longer than 100 characters.
      */
-    readonly name: string;
+    name: string;
     /**
      * Team id of the service.
      */
-    readonly teamId?: string;
+    teamId?: string;
 }
 
 /**
@@ -63,4 +62,26 @@ export interface GetServiceResult {
     readonly id: string;
     readonly name: string;
     readonly teamId?: string;
+}
+
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+    return pulumi.output(args).apply(a => getService(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getService.
+ */
+export interface GetServiceOutputArgs {
+    /**
+     * Description field of the service that is generally used to provide a detailed information about the service.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Name of the service. This field must not be longer than 100 characters.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Team id of the service.
+     */
+    teamId?: pulumi.Input<string>;
 }

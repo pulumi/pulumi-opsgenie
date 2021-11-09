@@ -4,6 +4,9 @@
 package opsgenie
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.LookupUser(ctx, &opsgenie.LookupUserArgs{
+// 		_, err := opsgenie.LookupUser(ctx, &GetUserArgs{
 // 			Username: "user@domain.com",
 // 		}, nil)
 // 		if err != nil {
@@ -67,4 +70,79 @@ type LookupUserResult struct {
 	// Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
 	Timezone *string `pulumi:"timezone"`
 	Username string  `pulumi:"username"`
+}
+
+func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupUserResult, error) {
+			args := v.(LookupUserArgs)
+			r, err := LookupUser(ctx, &args, opts...)
+			return *r, err
+		}).(LookupUserResultOutput)
+}
+
+// A collection of arguments for invoking getUser.
+type LookupUserOutputArgs struct {
+	// The Full Name of the User.
+	FullName pulumi.StringPtrInput `pulumi:"fullName"`
+	// Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
+	Locale pulumi.StringPtrInput `pulumi:"locale"`
+	// The Role assigned to the User. Either a built-in such as 'Owner', 'Admin' or 'User' - or the name of a custom role.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	// The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (LookupUserOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getUser.
+type LookupUserResultOutput struct{ *pulumi.OutputState }
+
+func (LookupUserResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserResult)(nil)).Elem()
+}
+
+func (o LookupUserResultOutput) ToLookupUserResultOutput() LookupUserResultOutput {
+	return o
+}
+
+func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.Context) LookupUserResultOutput {
+	return o
+}
+
+// The Full Name of the User.
+func (o LookupUserResultOutput) FullName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.FullName }).(pulumi.StringPtrOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupUserResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
+func (o LookupUserResultOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+// The Role assigned to the User. Either a built-in such as 'Owner', 'Admin' or 'User' - or the name of a custom role.
+func (o LookupUserResultOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
+func (o LookupUserResultOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupUserResultOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Username }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupUserResultOutput{})
 }

@@ -131,11 +131,11 @@ export interface ServiceIncidentRuleState {
     /**
      * This is the rule configuration for this incident rule. This is a block, structure is documented below.
      */
-    readonly incidentRules?: pulumi.Input<pulumi.Input<inputs.ServiceIncidentRuleIncidentRule>[]>;
+    incidentRules?: pulumi.Input<pulumi.Input<inputs.ServiceIncidentRuleIncidentRule>[]>;
     /**
      * ID of the service associated
      */
-    readonly serviceId?: pulumi.Input<string>;
+    serviceId?: pulumi.Input<string>;
 }
 
 /**
@@ -145,9 +145,9 @@ export interface ServiceIncidentRuleArgs {
     /**
      * This is the rule configuration for this incident rule. This is a block, structure is documented below.
      */
-    readonly incidentRules: pulumi.Input<pulumi.Input<inputs.ServiceIncidentRuleIncidentRule>[]>;
+    incidentRules: pulumi.Input<pulumi.Input<inputs.ServiceIncidentRuleIncidentRule>[]>;
     /**
      * ID of the service associated
      */
-    readonly serviceId: pulumi.Input<string>;
+    serviceId: pulumi.Input<string>;
 }

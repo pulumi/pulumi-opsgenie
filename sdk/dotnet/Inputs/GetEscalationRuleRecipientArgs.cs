@@ -10,18 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class GetEscalationRuleRecipientArgs : Pulumi.InvokeArgs
+    public sealed class GetEscalationRuleRecipientInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Opsgenie Escalation.
         /// </summary>
         [Input("id")]
-        public string? Id { get; set; }
+        public Input<string>? Id { get; set; }
 
         [Input("type")]
-        public string? Type { get; set; }
+        public Input<string>? Type { get; set; }
 
-        public GetEscalationRuleRecipientArgs()
+        public GetEscalationRuleRecipientInputArgs()
         {
         }
     }

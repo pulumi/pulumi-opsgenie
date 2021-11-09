@@ -28,29 +28,29 @@ import (
 // 		_, err := opsgenie.NewEscalation(ctx, "test", &opsgenie.EscalationArgs{
 // 			Description: pulumi.String("test"),
 // 			OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
-// 			Repeats: opsgenie.EscalationRepeatArray{
-// 				&opsgenie.EscalationRepeatArgs{
+// 			Repeats: EscalationRepeatArray{
+// 				&EscalationRepeatArgs{
 // 					CloseAlertAfterAll:   pulumi.Bool(false),
 // 					Count:                pulumi.Int(1),
 // 					ResetRecipientStates: pulumi.Bool(true),
 // 					WaitInterval:         pulumi.Int(10),
 // 				},
 // 			},
-// 			Rules: opsgenie.EscalationRuleArray{
-// 				&opsgenie.EscalationRuleArgs{
+// 			Rules: EscalationRuleArray{
+// 				&EscalationRuleArgs{
 // 					Condition:  pulumi.String("if-not-acked"),
 // 					Delay:      pulumi.Int(1),
 // 					NotifyType: pulumi.String("default"),
-// 					Recipients: opsgenie.EscalationRuleRecipientArray{
-// 						&opsgenie.EscalationRuleRecipientArgs{
+// 					Recipients: EscalationRuleRecipientArray{
+// 						&EscalationRuleRecipientArgs{
 // 							Id:   pulumi.Any(opsgenie_user.Test.Id),
 // 							Type: pulumi.String("user"),
 // 						},
-// 						&opsgenie.EscalationRuleRecipientArgs{
+// 						&EscalationRuleRecipientArgs{
 // 							Id:   pulumi.Any(opsgenie_team.Test.Id),
 // 							Type: pulumi.String("team"),
 // 						},
-// 						&opsgenie.EscalationRuleRecipientArgs{
+// 						&EscalationRuleRecipientArgs{
 // 							Id:   pulumi.Any(opsgenie_schedule.Test.Id),
 // 							Type: pulumi.String("schedule"),
 // 						},
@@ -242,7 +242,7 @@ type EscalationArrayInput interface {
 type EscalationArray []EscalationInput
 
 func (EscalationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Escalation)(nil))
+	return reflect.TypeOf((*[]*Escalation)(nil)).Elem()
 }
 
 func (i EscalationArray) ToEscalationArrayOutput() EscalationArrayOutput {
@@ -267,7 +267,7 @@ type EscalationMapInput interface {
 type EscalationMap map[string]EscalationInput
 
 func (EscalationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Escalation)(nil))
+	return reflect.TypeOf((*map[string]*Escalation)(nil)).Elem()
 }
 
 func (i EscalationMap) ToEscalationMapOutput() EscalationMapOutput {
@@ -278,9 +278,7 @@ func (i EscalationMap) ToEscalationMapOutputWithContext(ctx context.Context) Esc
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationMapOutput)
 }
 
-type EscalationOutput struct {
-	*pulumi.OutputState
-}
+type EscalationOutput struct{ *pulumi.OutputState }
 
 func (EscalationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Escalation)(nil))
@@ -299,14 +297,12 @@ func (o EscalationOutput) ToEscalationPtrOutput() EscalationPtrOutput {
 }
 
 func (o EscalationOutput) ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput {
-	return o.ApplyT(func(v Escalation) *Escalation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Escalation) *Escalation {
 		return &v
 	}).(EscalationPtrOutput)
 }
 
-type EscalationPtrOutput struct {
-	*pulumi.OutputState
-}
+type EscalationPtrOutput struct{ *pulumi.OutputState }
 
 func (EscalationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Escalation)(nil))
@@ -318,6 +314,16 @@ func (o EscalationPtrOutput) ToEscalationPtrOutput() EscalationPtrOutput {
 
 func (o EscalationPtrOutput) ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput {
 	return o
+}
+
+func (o EscalationPtrOutput) Elem() EscalationOutput {
+	return o.ApplyT(func(v *Escalation) Escalation {
+		if v != nil {
+			return *v
+		}
+		var ret Escalation
+		return ret
+	}).(EscalationOutput)
 }
 
 type EscalationArrayOutput struct{ *pulumi.OutputState }
@@ -361,6 +367,10 @@ func (o EscalationMapOutput) MapIndex(k pulumi.StringInput) EscalationOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EscalationInput)(nil)).Elem(), &Escalation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPtrInput)(nil)).Elem(), &Escalation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EscalationArrayInput)(nil)).Elem(), EscalationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EscalationMapInput)(nil)).Elem(), EscalationMap{})
 	pulumi.RegisterOutputType(EscalationOutput{})
 	pulumi.RegisterOutputType(EscalationPtrOutput{})
 	pulumi.RegisterOutputType(EscalationArrayOutput{})

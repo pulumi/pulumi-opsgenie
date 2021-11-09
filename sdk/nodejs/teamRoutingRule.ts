@@ -165,28 +165,28 @@ export interface TeamRoutingRuleState {
     /**
      * You can refer Criteria for detailed information about criteria and its fields
      */
-    readonly criterias?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteria>[]>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteria>[]>;
     /**
      * Name of the team routing rule
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
      */
-    readonly notifies?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleNotify>[]>;
+    notifies?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleNotify>[]>;
     /**
      * The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
      */
-    readonly order?: pulumi.Input<number>;
+    order?: pulumi.Input<number>;
     /**
      * Id of the team owning the routing rule
      */
-    readonly teamId?: pulumi.Input<string>;
-    readonly timeRestrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestriction>[]>;
+    teamId?: pulumi.Input<string>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestriction>[]>;
     /**
      * Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
 }
 
 /**
@@ -196,26 +196,26 @@ export interface TeamRoutingRuleArgs {
     /**
      * You can refer Criteria for detailed information about criteria and its fields
      */
-    readonly criterias?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteria>[]>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteria>[]>;
     /**
      * Name of the team routing rule
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
      */
-    readonly notifies: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleNotify>[]>;
+    notifies: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleNotify>[]>;
     /**
      * The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
      */
-    readonly order?: pulumi.Input<number>;
+    order?: pulumi.Input<number>;
     /**
      * Id of the team owning the routing rule
      */
-    readonly teamId: pulumi.Input<string>;
-    readonly timeRestrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestriction>[]>;
+    teamId: pulumi.Input<string>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestriction>[]>;
     /**
      * Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
 }

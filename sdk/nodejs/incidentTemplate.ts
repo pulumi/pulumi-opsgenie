@@ -155,29 +155,29 @@ export interface IncidentTemplateState {
     /**
      * Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
      */
-    readonly details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly impactedServices?: pulumi.Input<pulumi.Input<string>[]>;
+    details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    impactedServices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Message that is to be passed to audience that is generally used to provide a content information about the alert.
      */
-    readonly message?: pulumi.Input<string>;
+    message?: pulumi.Input<string>;
     /**
      * Name of the incident template.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      */
-    readonly priority?: pulumi.Input<string>;
-    readonly stakeholderProperties?: pulumi.Input<pulumi.Input<inputs.IncidentTemplateStakeholderProperty>[]>;
+    priority?: pulumi.Input<string>;
+    stakeholderProperties?: pulumi.Input<pulumi.Input<inputs.IncidentTemplateStakeholderProperty>[]>;
     /**
      * Tags of the incident template.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -187,27 +187,27 @@ export interface IncidentTemplateArgs {
     /**
      * Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
      */
-    readonly details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly impactedServices?: pulumi.Input<pulumi.Input<string>[]>;
+    details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    impactedServices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Message that is to be passed to audience that is generally used to provide a content information about the alert.
      */
-    readonly message: pulumi.Input<string>;
+    message: pulumi.Input<string>;
     /**
      * Name of the incident template.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      */
-    readonly priority: pulumi.Input<string>;
-    readonly stakeholderProperties: pulumi.Input<pulumi.Input<inputs.IncidentTemplateStakeholderProperty>[]>;
+    priority: pulumi.Input<string>;
+    stakeholderProperties: pulumi.Input<pulumi.Input<inputs.IncidentTemplateStakeholderProperty>[]>;
     /**
      * Tags of the incident template.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
 }

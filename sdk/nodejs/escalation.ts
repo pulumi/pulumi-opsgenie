@@ -145,23 +145,23 @@ export interface EscalationState {
     /**
      * Description of the escalation.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of the escalation.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Owner team id of the escalation.
      */
-    readonly ownerTeamId?: pulumi.Input<string>;
+    ownerTeamId?: pulumi.Input<string>;
     /**
      * Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
      */
-    readonly repeats?: pulumi.Input<pulumi.Input<inputs.EscalationRepeat>[]>;
+    repeats?: pulumi.Input<pulumi.Input<inputs.EscalationRepeat>[]>;
     /**
      * List of the escalation rules.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.EscalationRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EscalationRule>[]>;
 }
 
 /**
@@ -171,21 +171,21 @@ export interface EscalationArgs {
     /**
      * Description of the escalation.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of the escalation.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Owner team id of the escalation.
      */
-    readonly ownerTeamId?: pulumi.Input<string>;
+    ownerTeamId?: pulumi.Input<string>;
     /**
      * Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
      */
-    readonly repeats?: pulumi.Input<pulumi.Input<inputs.EscalationRepeat>[]>;
+    repeats?: pulumi.Input<pulumi.Input<inputs.EscalationRepeat>[]>;
     /**
      * List of the escalation rules.
      */
-    readonly rules: pulumi.Input<pulumi.Input<inputs.EscalationRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.EscalationRule>[]>;
 }

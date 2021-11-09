@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -16,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * const test = pulumi.output(opsgenie.getHeartbeat({
  *     name: "genieheartbeat-existing",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getHeartbeat(args: GetHeartbeatArgs, opts?: pulumi.InvokeOptions): Promise<GetHeartbeatResult> {
@@ -47,39 +46,39 @@ export interface GetHeartbeatArgs {
     /**
      * Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
      */
-    readonly alertMessage?: string;
+    alertMessage?: string;
     /**
      * Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
      */
-    readonly alertPriority?: string;
+    alertPriority?: string;
     /**
      * Specifies the alert tags for heartbeat expiration alert.
      */
-    readonly alertTags?: string[];
+    alertTags?: string[];
     /**
      * An optional description of the heartbeat
      */
-    readonly description?: string;
+    description?: string;
     /**
      * Enable/disable heartbeat monitoring.
      */
-    readonly enabled?: boolean;
+    enabled?: boolean;
     /**
      * Specifies how often a heartbeat message should be expected.
      */
-    readonly interval?: number;
+    interval?: number;
     /**
      * Interval specified as minutes, hours or days.
      */
-    readonly intervalUnit?: string;
+    intervalUnit?: string;
     /**
      * Name of the heartbeat
      */
-    readonly name: string;
+    name: string;
     /**
      * Owner team of the heartbeat.
      */
-    readonly ownerTeamId?: string;
+    ownerTeamId?: string;
 }
 
 /**
@@ -123,4 +122,50 @@ export interface GetHeartbeatResult {
      * Owner team of the heartbeat.
      */
     readonly ownerTeamId?: string;
+}
+
+export function getHeartbeatOutput(args: GetHeartbeatOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHeartbeatResult> {
+    return pulumi.output(args).apply(a => getHeartbeat(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getHeartbeat.
+ */
+export interface GetHeartbeatOutputArgs {
+    /**
+     * Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
+     */
+    alertMessage?: pulumi.Input<string>;
+    /**
+     * Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
+     */
+    alertPriority?: pulumi.Input<string>;
+    /**
+     * Specifies the alert tags for heartbeat expiration alert.
+     */
+    alertTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An optional description of the heartbeat
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Enable/disable heartbeat monitoring.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies how often a heartbeat message should be expected.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * Interval specified as minutes, hours or days.
+     */
+    intervalUnit?: pulumi.Input<string>;
+    /**
+     * Name of the heartbeat
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Owner team of the heartbeat.
+     */
+    ownerTeamId?: pulumi.Input<string>;
 }

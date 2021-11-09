@@ -122,15 +122,15 @@ export interface MaintenanceState {
     /**
      * Description for the maintenance.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.MaintenanceRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.MaintenanceRule>[]>;
     /**
      * Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
      */
-    readonly times?: pulumi.Input<pulumi.Input<inputs.MaintenanceTime>[]>;
+    times?: pulumi.Input<pulumi.Input<inputs.MaintenanceTime>[]>;
 }
 
 /**
@@ -140,13 +140,13 @@ export interface MaintenanceArgs {
     /**
      * Description for the maintenance.
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
      */
-    readonly rules: pulumi.Input<pulumi.Input<inputs.MaintenanceRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.MaintenanceRule>[]>;
     /**
      * Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
      */
-    readonly times?: pulumi.Input<pulumi.Input<inputs.MaintenanceTime>[]>;
+    times?: pulumi.Input<pulumi.Input<inputs.MaintenanceTime>[]>;
 }

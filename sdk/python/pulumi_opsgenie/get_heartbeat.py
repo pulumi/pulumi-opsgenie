@@ -12,6 +12,7 @@ __all__ = [
     'GetHeartbeatResult',
     'AwaitableGetHeartbeatResult',
     'get_heartbeat',
+    'get_heartbeat_output',
 ]
 
 @pulumi.output_type
@@ -207,3 +208,40 @@ def get_heartbeat(alert_message: Optional[str] = None,
         interval_unit=__ret__.interval_unit,
         name=__ret__.name,
         owner_team_id=__ret__.owner_team_id)
+
+
+@_utilities.lift_output_func(get_heartbeat)
+def get_heartbeat_output(alert_message: Optional[pulumi.Input[Optional[str]]] = None,
+                         alert_priority: Optional[pulumi.Input[Optional[str]]] = None,
+                         alert_tags: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                         description: Optional[pulumi.Input[Optional[str]]] = None,
+                         enabled: Optional[pulumi.Input[Optional[bool]]] = None,
+                         interval: Optional[pulumi.Input[Optional[int]]] = None,
+                         interval_unit: Optional[pulumi.Input[Optional[str]]] = None,
+                         name: Optional[pulumi.Input[str]] = None,
+                         owner_team_id: Optional[pulumi.Input[Optional[str]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHeartbeatResult]:
+    """
+    Manages existing heartbeat within Opsgenie.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_opsgenie as opsgenie
+
+    test = opsgenie.get_heartbeat(name="genieheartbeat-existing")
+    ```
+
+
+    :param str alert_message: Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
+    :param str alert_priority: Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
+    :param Sequence[str] alert_tags: Specifies the alert tags for heartbeat expiration alert.
+    :param str description: An optional description of the heartbeat
+    :param bool enabled: Enable/disable heartbeat monitoring.
+    :param int interval: Specifies how often a heartbeat message should be expected.
+    :param str interval_unit: Interval specified as minutes, hours or days.
+    :param str name: Name of the heartbeat
+    :param str owner_team_id: Owner team of the heartbeat.
+    """
+    ...
