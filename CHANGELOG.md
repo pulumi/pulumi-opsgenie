@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to terraform-bridge 3.11.0
-* Upgrade to pulumi 3.17.0
+_(none)_
 
 ---
+
+## 1.1.0 (2021-11-11)
+* Upgrade to terraform-bridge 3.11.0
+* Upgrade to pulumi 3.17.0
 
 ## 1.0.2 (2021-08-12)
 * Ensure that `opsgenie.scheduleRotation` allows both a `restriction` and a `restrictions` parameter. The presence of both and being lists
