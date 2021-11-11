@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const sre_team = pulumi.output(opsgenie.getTeam({
  *     name: "sre-team",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
@@ -41,15 +41,15 @@ export interface GetTeamArgs {
     /**
      * A description for this team.
      */
-    readonly description?: string;
+    description?: string;
     /**
      * A Member block as documented below.
      */
-    readonly members?: inputs.GetTeamMember[];
+    members?: inputs.GetTeamMember[];
     /**
      * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -63,4 +63,26 @@ export interface GetTeamResult {
     readonly id: string;
     readonly members?: outputs.GetTeamMember[];
     readonly name: string;
+}
+
+export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
+    return pulumi.output(args).apply(a => getTeam(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTeam.
+ */
+export interface GetTeamOutputArgs {
+    /**
+     * A description for this team.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * A Member block as documented below.
+     */
+    members?: pulumi.Input<pulumi.Input<inputs.GetTeamMemberArgs>[]>;
+    /**
+     * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+     */
+    name: pulumi.Input<string>;
 }

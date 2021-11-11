@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -16,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * const test = pulumi.output(opsgenie.getSchedule({
  *     name: "sre-team schedule",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
@@ -43,23 +42,23 @@ export interface GetScheduleArgs {
     /**
      * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
      */
-    readonly description?: string;
+    description?: string;
     /**
      * Enable/disable state of schedule
      */
-    readonly enabled?: boolean;
+    enabled?: boolean;
     /**
      * Name of the schedule.
      */
-    readonly name: string;
+    name: string;
     /**
      * Owner team id of the schedule.
      */
-    readonly ownerTeamId?: string;
+    ownerTeamId?: string;
     /**
      * The description of schedule.
      */
-    readonly timezone?: string;
+    timezone?: string;
 }
 
 /**
@@ -87,4 +86,34 @@ export interface GetScheduleResult {
      * The description of schedule.
      */
     readonly timezone?: string;
+}
+
+export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
+    return pulumi.output(args).apply(a => getSchedule(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSchedule.
+ */
+export interface GetScheduleOutputArgs {
+    /**
+     * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Enable/disable state of schedule
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the schedule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Owner team id of the schedule.
+     */
+    ownerTeamId?: pulumi.Input<string>;
+    /**
+     * The description of schedule.
+     */
+    timezone?: pulumi.Input<string>;
 }

@@ -161,28 +161,28 @@ export interface EmailIntegrationState {
     /**
      * The username part of the email address. It must be unique for each integration.
      */
-    readonly emailUsername?: pulumi.Input<string>;
+    emailUsername?: pulumi.Input<string>;
     /**
      * A Member block as documented below.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
-    readonly ignoreRespondersFromPayload?: pulumi.Input<boolean>;
+    ignoreRespondersFromPayload?: pulumi.Input<boolean>;
     /**
      * Name of the integration. Name must be unique for each integration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Owner team id of the integration.
      */
-    readonly ownerTeamId?: pulumi.Input<string>;
-    readonly responders?: pulumi.Input<pulumi.Input<inputs.EmailIntegrationResponder>[]>;
+    ownerTeamId?: pulumi.Input<string>;
+    responders?: pulumi.Input<pulumi.Input<inputs.EmailIntegrationResponder>[]>;
     /**
      * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
-    readonly suppressNotifications?: pulumi.Input<boolean>;
+    suppressNotifications?: pulumi.Input<boolean>;
 }
 
 /**
@@ -192,26 +192,26 @@ export interface EmailIntegrationArgs {
     /**
      * The username part of the email address. It must be unique for each integration.
      */
-    readonly emailUsername: pulumi.Input<string>;
+    emailUsername: pulumi.Input<string>;
     /**
      * A Member block as documented below.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
-    readonly ignoreRespondersFromPayload?: pulumi.Input<boolean>;
+    ignoreRespondersFromPayload?: pulumi.Input<boolean>;
     /**
      * Name of the integration. Name must be unique for each integration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Owner team id of the integration.
      */
-    readonly ownerTeamId?: pulumi.Input<string>;
-    readonly responders?: pulumi.Input<pulumi.Input<inputs.EmailIntegrationResponder>[]>;
+    ownerTeamId?: pulumi.Input<string>;
+    responders?: pulumi.Input<pulumi.Input<inputs.EmailIntegrationResponder>[]>;
     /**
      * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
-    readonly suppressNotifications?: pulumi.Input<boolean>;
+    suppressNotifications?: pulumi.Input<boolean>;
 }

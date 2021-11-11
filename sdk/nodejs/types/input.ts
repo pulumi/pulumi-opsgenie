@@ -162,11 +162,33 @@ export interface GetEscalationRepeat {
     waitInterval?: number;
 }
 
+export interface GetEscalationRepeatArgs {
+    closeAlertAfterAll?: pulumi.Input<boolean>;
+    count?: pulumi.Input<number>;
+    resetRecipientStates?: pulumi.Input<boolean>;
+    waitInterval?: pulumi.Input<number>;
+}
+
+export interface GetEscalationRuleArgs {
+    condition: pulumi.Input<string>;
+    delay: pulumi.Input<number>;
+    notifyType: pulumi.Input<string>;
+    recipients: pulumi.Input<pulumi.Input<inputs.GetEscalationRuleRecipientArgs>[]>;
+}
+
 export interface GetEscalationRule {
     condition: string;
     delay: number;
     notifyType: string;
     recipients: inputs.GetEscalationRuleRecipient[];
+}
+
+export interface GetEscalationRuleRecipientArgs {
+    /**
+     * The ID of the Opsgenie Escalation.
+     */
+    id?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 export interface GetEscalationRuleRecipient {
@@ -183,6 +205,14 @@ export interface GetTeamMember {
      */
     id?: string;
     role?: string;
+}
+
+export interface GetTeamMemberArgs {
+    /**
+     * The ID of the Opsgenie Team.
+     */
+    id?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
 }
 
 export interface IncidentTemplateStakeholderProperty {
@@ -1036,3 +1066,4 @@ export interface UserUserAddress {
     state: pulumi.Input<string>;
     zipcode: pulumi.Input<string>;
 }
+

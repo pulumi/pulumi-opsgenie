@@ -14,6 +14,7 @@ __all__ = [
     'GetTeamResult',
     'AwaitableGetTeamResult',
     'get_team',
+    'get_team_output',
 ]
 
 @pulumi.output_type
@@ -107,3 +108,28 @@ def get_team(description: Optional[str] = None,
         id=__ret__.id,
         members=__ret__.members,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_team)
+def get_team_output(description: Optional[pulumi.Input[Optional[str]]] = None,
+                    members: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTeamMemberArgs']]]]] = None,
+                    name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
+    """
+    Manages existing Team within Opsgenie.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_opsgenie as opsgenie
+
+    sre_team = opsgenie.get_team(name="sre-team")
+    ```
+
+
+    :param str description: A description for this team.
+    :param Sequence[pulumi.InputType['GetTeamMemberArgs']] members: A Member block as documented below.
+    :param str name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+    """
+    ...

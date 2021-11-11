@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const test = pulumi.output(opsgenie.getEscalation({
  *     name: "existing-escalation",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getEscalation(args: GetEscalationArgs, opts?: pulumi.InvokeOptions): Promise<GetEscalationResult> {
@@ -43,23 +43,23 @@ export interface GetEscalationArgs {
     /**
      * Escalation Description
      */
-    readonly description?: string;
+    description?: string;
     /**
      * Name of the escalation.
      */
-    readonly name: string;
+    name: string;
     /**
      * If owner team exist the id of the team is exported
      */
-    readonly ownerTeamId?: string;
+    ownerTeamId?: string;
     /**
      * Escalation repeat preferences
      */
-    readonly repeats?: inputs.GetEscalationRepeat[];
+    repeats?: inputs.GetEscalationRepeat[];
     /**
      * Escalation rules
      */
-    readonly rules?: inputs.GetEscalationRule[];
+    rules?: inputs.GetEscalationRule[];
 }
 
 /**
@@ -87,4 +87,34 @@ export interface GetEscalationResult {
      * Escalation rules
      */
     readonly rules?: outputs.GetEscalationRule[];
+}
+
+export function getEscalationOutput(args: GetEscalationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEscalationResult> {
+    return pulumi.output(args).apply(a => getEscalation(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEscalation.
+ */
+export interface GetEscalationOutputArgs {
+    /**
+     * Escalation Description
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Name of the escalation.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * If owner team exist the id of the team is exported
+     */
+    ownerTeamId?: pulumi.Input<string>;
+    /**
+     * Escalation repeat preferences
+     */
+    repeats?: pulumi.Input<pulumi.Input<inputs.GetEscalationRepeatArgs>[]>;
+    /**
+     * Escalation rules
+     */
+    rules?: pulumi.Input<pulumi.Input<inputs.GetEscalationRuleArgs>[]>;
 }

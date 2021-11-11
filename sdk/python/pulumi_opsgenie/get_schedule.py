@@ -12,6 +12,7 @@ __all__ = [
     'GetScheduleResult',
     'AwaitableGetScheduleResult',
     'get_schedule',
+    'get_schedule_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,32 @@ def get_schedule(description: Optional[str] = None,
         name=__ret__.name,
         owner_team_id=__ret__.owner_team_id,
         timezone=__ret__.timezone)
+
+
+@_utilities.lift_output_func(get_schedule)
+def get_schedule_output(description: Optional[pulumi.Input[Optional[str]]] = None,
+                        enabled: Optional[pulumi.Input[Optional[bool]]] = None,
+                        name: Optional[pulumi.Input[str]] = None,
+                        owner_team_id: Optional[pulumi.Input[Optional[str]]] = None,
+                        timezone: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
+    """
+    Manages a Schedule within Opsgenie.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_opsgenie as opsgenie
+
+    test = opsgenie.get_schedule(name="sre-team schedule")
+    ```
+
+
+    :param str description: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
+    :param bool enabled: Enable/disable state of schedule
+    :param str name: Name of the schedule.
+    :param str owner_team_id: Owner team id of the schedule.
+    :param str timezone: The description of schedule.
+    """
+    ...

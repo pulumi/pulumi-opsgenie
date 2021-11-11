@@ -110,19 +110,19 @@ export interface CustomRoleState {
     /**
      * The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      */
-    readonly disallowedRights?: pulumi.Input<pulumi.Input<string>[]>;
+    disallowedRights?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
      */
-    readonly extendedRole?: pulumi.Input<string>;
+    extendedRole?: pulumi.Input<string>;
     /**
      * The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      */
-    readonly grantedRights?: pulumi.Input<pulumi.Input<string>[]>;
+    grantedRights?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the custom role.
      */
-    readonly roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string>;
 }
 
 /**
@@ -132,17 +132,17 @@ export interface CustomRoleArgs {
     /**
      * The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      */
-    readonly disallowedRights?: pulumi.Input<pulumi.Input<string>[]>;
+    disallowedRights?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
      */
-    readonly extendedRole?: pulumi.Input<string>;
+    extendedRole?: pulumi.Input<string>;
     /**
      * The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      */
-    readonly grantedRights?: pulumi.Input<pulumi.Input<string>[]>;
+    grantedRights?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the custom role.
      */
-    readonly roleName: pulumi.Input<string>;
+    roleName: pulumi.Input<string>;
 }

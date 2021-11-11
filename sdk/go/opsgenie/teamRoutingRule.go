@@ -40,10 +40,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = opsgenie.NewTeamRoutingRule(ctx, "testTeamRoutingRule", &opsgenie.TeamRoutingRuleArgs{
-// 			Criterias: opsgenie.TeamRoutingRuleCriteriaArray{
-// 				&opsgenie.TeamRoutingRuleCriteriaArgs{
-// 					Conditions: opsgenie.TeamRoutingRuleCriteriaConditionArray{
-// 						&opsgenie.TeamRoutingRuleCriteriaConditionArgs{
+// 			Criterias: TeamRoutingRuleCriteriaArray{
+// 				&TeamRoutingRuleCriteriaArgs{
+// 					Conditions: TeamRoutingRuleCriteriaConditionArray{
+// 						&TeamRoutingRuleCriteriaConditionArgs{
 // 							ExpectedValue: pulumi.String("expected1"),
 // 							Field:         pulumi.String("message"),
 // 							Not:           pulumi.Bool(false),
@@ -53,18 +53,18 @@ import (
 // 					Type: pulumi.String("match-any-condition"),
 // 				},
 // 			},
-// 			Notifies: opsgenie.TeamRoutingRuleNotifyArray{
-// 				&opsgenie.TeamRoutingRuleNotifyArgs{
+// 			Notifies: TeamRoutingRuleNotifyArray{
+// 				&TeamRoutingRuleNotifyArgs{
 // 					Name: testSchedule.Name,
 // 					Type: pulumi.String("schedule"),
 // 				},
 // 			},
 // 			Order:  pulumi.Int(0),
 // 			TeamId: testTeam.ID(),
-// 			TimeRestrictions: opsgenie.TeamRoutingRuleTimeRestrictionArray{
-// 				&opsgenie.TeamRoutingRuleTimeRestrictionArgs{
-// 					Restrictions: opsgenie.TeamRoutingRuleTimeRestrictionRestrictionArray{
-// 						&opsgenie.TeamRoutingRuleTimeRestrictionRestrictionArgs{
+// 			TimeRestrictions: TeamRoutingRuleTimeRestrictionArray{
+// 				&TeamRoutingRuleTimeRestrictionArgs{
+// 					Restrictions: TeamRoutingRuleTimeRestrictionRestrictionArray{
+// 						&TeamRoutingRuleTimeRestrictionRestrictionArgs{
 // 							EndDay:    pulumi.String("tuesday"),
 // 							EndHour:   pulumi.Int(18),
 // 							EndMin:    pulumi.Int(30),
@@ -280,7 +280,7 @@ type TeamRoutingRuleArrayInput interface {
 type TeamRoutingRuleArray []TeamRoutingRuleInput
 
 func (TeamRoutingRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TeamRoutingRule)(nil))
+	return reflect.TypeOf((*[]*TeamRoutingRule)(nil)).Elem()
 }
 
 func (i TeamRoutingRuleArray) ToTeamRoutingRuleArrayOutput() TeamRoutingRuleArrayOutput {
@@ -305,7 +305,7 @@ type TeamRoutingRuleMapInput interface {
 type TeamRoutingRuleMap map[string]TeamRoutingRuleInput
 
 func (TeamRoutingRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TeamRoutingRule)(nil))
+	return reflect.TypeOf((*map[string]*TeamRoutingRule)(nil)).Elem()
 }
 
 func (i TeamRoutingRuleMap) ToTeamRoutingRuleMapOutput() TeamRoutingRuleMapOutput {
@@ -316,9 +316,7 @@ func (i TeamRoutingRuleMap) ToTeamRoutingRuleMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleMapOutput)
 }
 
-type TeamRoutingRuleOutput struct {
-	*pulumi.OutputState
-}
+type TeamRoutingRuleOutput struct{ *pulumi.OutputState }
 
 func (TeamRoutingRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TeamRoutingRule)(nil))
@@ -337,14 +335,12 @@ func (o TeamRoutingRuleOutput) ToTeamRoutingRulePtrOutput() TeamRoutingRulePtrOu
 }
 
 func (o TeamRoutingRuleOutput) ToTeamRoutingRulePtrOutputWithContext(ctx context.Context) TeamRoutingRulePtrOutput {
-	return o.ApplyT(func(v TeamRoutingRule) *TeamRoutingRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamRoutingRule) *TeamRoutingRule {
 		return &v
 	}).(TeamRoutingRulePtrOutput)
 }
 
-type TeamRoutingRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type TeamRoutingRulePtrOutput struct{ *pulumi.OutputState }
 
 func (TeamRoutingRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TeamRoutingRule)(nil))
@@ -356,6 +352,16 @@ func (o TeamRoutingRulePtrOutput) ToTeamRoutingRulePtrOutput() TeamRoutingRulePt
 
 func (o TeamRoutingRulePtrOutput) ToTeamRoutingRulePtrOutputWithContext(ctx context.Context) TeamRoutingRulePtrOutput {
 	return o
+}
+
+func (o TeamRoutingRulePtrOutput) Elem() TeamRoutingRuleOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) TeamRoutingRule {
+		if v != nil {
+			return *v
+		}
+		var ret TeamRoutingRule
+		return ret
+	}).(TeamRoutingRuleOutput)
 }
 
 type TeamRoutingRuleArrayOutput struct{ *pulumi.OutputState }
@@ -399,6 +405,10 @@ func (o TeamRoutingRuleMapOutput) MapIndex(k pulumi.StringInput) TeamRoutingRule
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamRoutingRuleInput)(nil)).Elem(), &TeamRoutingRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamRoutingRulePtrInput)(nil)).Elem(), &TeamRoutingRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamRoutingRuleArrayInput)(nil)).Elem(), TeamRoutingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamRoutingRuleMapInput)(nil)).Elem(), TeamRoutingRuleMap{})
 	pulumi.RegisterOutputType(TeamRoutingRuleOutput{})
 	pulumi.RegisterOutputType(TeamRoutingRulePtrOutput{})
 	pulumi.RegisterOutputType(TeamRoutingRuleArrayOutput{})

@@ -10,26 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class GetEscalationRuleInputArgs : Pulumi.ResourceArgs
+    public sealed class GetEscalationRuleArgs : Pulumi.InvokeArgs
     {
         [Input("condition", required: true)]
-        public Input<string> Condition { get; set; } = null!;
+        public string Condition { get; set; } = null!;
 
         [Input("delay", required: true)]
-        public Input<int> Delay { get; set; } = null!;
+        public int Delay { get; set; }
 
         [Input("notifyType", required: true)]
-        public Input<string> NotifyType { get; set; } = null!;
+        public string NotifyType { get; set; } = null!;
 
         [Input("recipients", required: true)]
-        private InputList<Inputs.GetEscalationRuleRecipientInputArgs>? _recipients;
-        public InputList<Inputs.GetEscalationRuleRecipientInputArgs> Recipients
+        private List<Inputs.GetEscalationRuleRecipientArgs>? _recipients;
+        public List<Inputs.GetEscalationRuleRecipientArgs> Recipients
         {
-            get => _recipients ?? (_recipients = new InputList<Inputs.GetEscalationRuleRecipientInputArgs>());
+            get => _recipients ?? (_recipients = new List<Inputs.GetEscalationRuleRecipientArgs>());
             set => _recipients = value;
         }
 
-        public GetEscalationRuleInputArgs()
+        public GetEscalationRuleArgs()
         {
         }
     }

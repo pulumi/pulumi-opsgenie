@@ -12,6 +12,75 @@ import (
 
 // Manages an API Integration within Opsgenie.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := opsgenie.NewApiIntegration(ctx, "example_api_integrationApiIntegration", &opsgenie.ApiIntegrationArgs{
+// 			Type: pulumi.String("API"),
+// 			Responders: ApiIntegrationResponderArray{
+// 				&ApiIntegrationResponderArgs{
+// 					Type: pulumi.String("user"),
+// 					Id:   pulumi.Any(opsgenie_user.User.Id),
+// 				},
+// 				&ApiIntegrationResponderArgs{
+// 					Type: pulumi.String("user"),
+// 					Id:   pulumi.Any(opsgenie_user.Fahri.Id),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = opsgenie.NewApiIntegration(ctx, "example_api_integrationIndex_apiIntegrationApiIntegration", &opsgenie.ApiIntegrationArgs{
+// 			Type: pulumi.String("Prometheus"),
+// 			Responders: ApiIntegrationResponderArray{
+// 				&ApiIntegrationResponderArgs{
+// 					Type: pulumi.String("user"),
+// 					Id:   pulumi.Any(opsgenie_user.User.Id),
+// 				},
+// 			},
+// 			Enabled:                     pulumi.Bool(false),
+// 			AllowWriteAccess:            pulumi.Bool(false),
+// 			IgnoreRespondersFromPayload: pulumi.Bool(true),
+// 			SuppressNotifications:       pulumi.Bool(true),
+// 			OwnerTeamId:                 pulumi.Any(opsgenie_team.Team.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = opsgenie.NewApiIntegration(ctx, "test3", &opsgenie.ApiIntegrationArgs{
+// 			Type: pulumi.String("Webhook"),
+// 			Responders: ApiIntegrationResponderArray{
+// 				&ApiIntegrationResponderArgs{
+// 					Type: pulumi.String("user"),
+// 					Id:   pulumi.Any(opsgenie_user.User.Id),
+// 				},
+// 			},
+// 			Enabled:               pulumi.Bool(false),
+// 			AllowWriteAccess:      pulumi.Bool(false),
+// 			SuppressNotifications: pulumi.Bool(true),
+// 			WebhookUrl:            pulumi.String("https://api.example.com/v1"),
+// 			Headers: pulumi.StringMap{
+// 				"header1": pulumi.Any(value1),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // API Integrations can be imported using the `integration_id`, e.g.
@@ -236,7 +305,7 @@ type ApiIntegrationArrayInput interface {
 type ApiIntegrationArray []ApiIntegrationInput
 
 func (ApiIntegrationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiIntegration)(nil))
+	return reflect.TypeOf((*[]*ApiIntegration)(nil)).Elem()
 }
 
 func (i ApiIntegrationArray) ToApiIntegrationArrayOutput() ApiIntegrationArrayOutput {
@@ -261,7 +330,7 @@ type ApiIntegrationMapInput interface {
 type ApiIntegrationMap map[string]ApiIntegrationInput
 
 func (ApiIntegrationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiIntegration)(nil))
+	return reflect.TypeOf((*map[string]*ApiIntegration)(nil)).Elem()
 }
 
 func (i ApiIntegrationMap) ToApiIntegrationMapOutput() ApiIntegrationMapOutput {
@@ -272,9 +341,7 @@ func (i ApiIntegrationMap) ToApiIntegrationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationMapOutput)
 }
 
-type ApiIntegrationOutput struct {
-	*pulumi.OutputState
-}
+type ApiIntegrationOutput struct{ *pulumi.OutputState }
 
 func (ApiIntegrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiIntegration)(nil))
@@ -293,14 +360,12 @@ func (o ApiIntegrationOutput) ToApiIntegrationPtrOutput() ApiIntegrationPtrOutpu
 }
 
 func (o ApiIntegrationOutput) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
-	return o.ApplyT(func(v ApiIntegration) *ApiIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiIntegration) *ApiIntegration {
 		return &v
 	}).(ApiIntegrationPtrOutput)
 }
 
-type ApiIntegrationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiIntegrationPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiIntegrationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiIntegration)(nil))
@@ -312,6 +377,16 @@ func (o ApiIntegrationPtrOutput) ToApiIntegrationPtrOutput() ApiIntegrationPtrOu
 
 func (o ApiIntegrationPtrOutput) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
 	return o
+}
+
+func (o ApiIntegrationPtrOutput) Elem() ApiIntegrationOutput {
+	return o.ApplyT(func(v *ApiIntegration) ApiIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret ApiIntegration
+		return ret
+	}).(ApiIntegrationOutput)
 }
 
 type ApiIntegrationArrayOutput struct{ *pulumi.OutputState }
@@ -355,6 +430,10 @@ func (o ApiIntegrationMapOutput) MapIndex(k pulumi.StringInput) ApiIntegrationOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiIntegrationInput)(nil)).Elem(), &ApiIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiIntegrationPtrInput)(nil)).Elem(), &ApiIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiIntegrationArrayInput)(nil)).Elem(), ApiIntegrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiIntegrationMapInput)(nil)).Elem(), ApiIntegrationMap{})
 	pulumi.RegisterOutputType(ApiIntegrationOutput{})
 	pulumi.RegisterOutputType(ApiIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(ApiIntegrationArrayOutput{})

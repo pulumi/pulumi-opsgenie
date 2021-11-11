@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -16,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * const test = pulumi.output(opsgenie.getUser({
  *     username: "user@domain.com",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
@@ -43,23 +42,23 @@ export interface GetUserArgs {
     /**
      * The Full Name of the User.
      */
-    readonly fullName?: string;
+    fullName?: string;
     /**
      * Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
      */
-    readonly locale?: string;
+    locale?: string;
     /**
      * The Role assigned to the User. Either a built-in such as 'Owner', 'Admin' or 'User' - or the name of a custom role.
      */
-    readonly role?: string;
+    role?: string;
     /**
      * Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
      */
-    readonly timezone?: string;
+    timezone?: string;
     /**
      * The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters.
      */
-    readonly username: string;
+    username: string;
 }
 
 /**
@@ -87,4 +86,34 @@ export interface GetUserResult {
      */
     readonly timezone?: string;
     readonly username: string;
+}
+
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+    return pulumi.output(args).apply(a => getUser(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUser.
+ */
+export interface GetUserOutputArgs {
+    /**
+     * The Full Name of the User.
+     */
+    fullName?: pulumi.Input<string>;
+    /**
+     * Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
+     */
+    locale?: pulumi.Input<string>;
+    /**
+     * The Role assigned to the User. Either a built-in such as 'Owner', 'Admin' or 'User' - or the name of a custom role.
+     */
+    role?: pulumi.Input<string>;
+    /**
+     * Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
+     */
+    timezone?: pulumi.Input<string>;
+    /**
+     * The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters.
+     */
+    username: pulumi.Input<string>;
 }

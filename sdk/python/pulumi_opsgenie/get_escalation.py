@@ -14,6 +14,7 @@ __all__ = [
     'GetEscalationResult',
     'AwaitableGetEscalationResult',
     'get_escalation',
+    'get_escalation_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,32 @@ def get_escalation(description: Optional[str] = None,
         owner_team_id=__ret__.owner_team_id,
         repeats=__ret__.repeats,
         rules=__ret__.rules)
+
+
+@_utilities.lift_output_func(get_escalation)
+def get_escalation_output(description: Optional[pulumi.Input[Optional[str]]] = None,
+                          name: Optional[pulumi.Input[str]] = None,
+                          owner_team_id: Optional[pulumi.Input[Optional[str]]] = None,
+                          repeats: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEscalationRepeatArgs']]]]] = None,
+                          rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEscalationRuleArgs']]]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEscalationResult]:
+    """
+    Manages an Escalation within Opsgenie.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_opsgenie as opsgenie
+
+    test = opsgenie.get_escalation(name="existing-escalation")
+    ```
+
+
+    :param str description: Escalation Description
+    :param str name: Name of the escalation.
+    :param str owner_team_id: If owner team exist the id of the team is exported
+    :param Sequence[pulumi.InputType['GetEscalationRepeatArgs']] repeats: Escalation repeat preferences
+    :param Sequence[pulumi.InputType['GetEscalationRuleArgs']] rules: Escalation rules
+    """
+    ...

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Opsgenie
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Opsgenie
         /// </summary>
         public static Task<GetHeartbeatResult> InvokeAsync(GetHeartbeatArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHeartbeatResult>("opsgenie:index/getHeartbeat:getHeartbeat", args ?? new GetHeartbeatArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Manages existing heartbeat within Opsgenie.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Opsgenie = Pulumi.Opsgenie;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Opsgenie.GetHeartbeat.InvokeAsync(new Opsgenie.GetHeartbeatArgs
+        ///         {
+        ///             Name = "genieheartbeat-existing",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetHeartbeatResult> Invoke(GetHeartbeatInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHeartbeatResult>("opsgenie:index/getHeartbeat:getHeartbeat", args ?? new GetHeartbeatInvokeArgs(), options.WithVersion());
     }
 
 
@@ -105,6 +135,73 @@ namespace Pulumi.Opsgenie
         public string? OwnerTeamId { get; set; }
 
         public GetHeartbeatArgs()
+        {
+        }
+    }
+
+    public sealed class GetHeartbeatInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
+        /// </summary>
+        [Input("alertMessage")]
+        public Input<string>? AlertMessage { get; set; }
+
+        /// <summary>
+        /// Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
+        /// </summary>
+        [Input("alertPriority")]
+        public Input<string>? AlertPriority { get; set; }
+
+        [Input("alertTags")]
+        private InputList<string>? _alertTags;
+
+        /// <summary>
+        /// Specifies the alert tags for heartbeat expiration alert.
+        /// </summary>
+        public InputList<string> AlertTags
+        {
+            get => _alertTags ?? (_alertTags = new InputList<string>());
+            set => _alertTags = value;
+        }
+
+        /// <summary>
+        /// An optional description of the heartbeat
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Enable/disable heartbeat monitoring.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Specifies how often a heartbeat message should be expected.
+        /// </summary>
+        [Input("interval")]
+        public Input<int>? Interval { get; set; }
+
+        /// <summary>
+        /// Interval specified as minutes, hours or days.
+        /// </summary>
+        [Input("intervalUnit")]
+        public Input<string>? IntervalUnit { get; set; }
+
+        /// <summary>
+        /// Name of the heartbeat
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Owner team of the heartbeat.
+        /// </summary>
+        [Input("ownerTeamId")]
+        public Input<string>? OwnerTeamId { get; set; }
+
+        public GetHeartbeatInvokeArgs()
         {
         }
     }

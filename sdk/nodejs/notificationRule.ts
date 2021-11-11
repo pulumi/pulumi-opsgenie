@@ -162,35 +162,35 @@ export interface NotificationRuleState {
     /**
      * Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
      */
-    readonly actionType?: pulumi.Input<string>;
-    readonly criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[]>;
+    actionType?: pulumi.Input<string>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[]>;
     /**
      * Defined if this step is enabled. Default: `true`
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Name of the notification policy
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
-    readonly notificationTimes?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationTimes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Order of the condition in conditions list
      */
-    readonly order?: pulumi.Input<number>;
-    readonly repeats?: pulumi.Input<pulumi.Input<inputs.NotificationRuleRepeat>[]>;
-    readonly schedules?: pulumi.Input<pulumi.Input<inputs.NotificationRuleSchedule>[]>;
+    order?: pulumi.Input<number>;
+    repeats?: pulumi.Input<pulumi.Input<inputs.NotificationRuleRepeat>[]>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.NotificationRuleSchedule>[]>;
     /**
      * Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
      */
-    readonly steps?: pulumi.Input<pulumi.Input<inputs.NotificationRuleStep>[]>;
-    readonly timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestriction>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.NotificationRuleStep>[]>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestriction>[]>;
     /**
      * Username of user to which this notification rule belongs to.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -200,33 +200,33 @@ export interface NotificationRuleArgs {
     /**
      * Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
      */
-    readonly actionType: pulumi.Input<string>;
-    readonly criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[]>;
+    actionType: pulumi.Input<string>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[]>;
     /**
      * Defined if this step is enabled. Default: `true`
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Name of the notification policy
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
-    readonly notificationTimes?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationTimes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Order of the condition in conditions list
      */
-    readonly order?: pulumi.Input<number>;
-    readonly repeats?: pulumi.Input<pulumi.Input<inputs.NotificationRuleRepeat>[]>;
-    readonly schedules?: pulumi.Input<pulumi.Input<inputs.NotificationRuleSchedule>[]>;
+    order?: pulumi.Input<number>;
+    repeats?: pulumi.Input<pulumi.Input<inputs.NotificationRuleRepeat>[]>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.NotificationRuleSchedule>[]>;
     /**
      * Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
      */
-    readonly steps?: pulumi.Input<pulumi.Input<inputs.NotificationRuleStep>[]>;
-    readonly timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestriction>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.NotificationRuleStep>[]>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestriction>[]>;
     /**
      * Username of user to which this notification rule belongs to.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

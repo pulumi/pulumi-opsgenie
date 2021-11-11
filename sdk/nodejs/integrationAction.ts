@@ -226,28 +226,28 @@ export class IntegrationAction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationAction resources.
  */
 export interface IntegrationActionState {
-    readonly acknowledges?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledge>[]>;
-    readonly addNotes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNote>[]>;
-    readonly closes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionClose>[]>;
-    readonly creates?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreate>[]>;
-    readonly ignores?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnore>[]>;
+    acknowledges?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledge>[]>;
+    addNotes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNote>[]>;
+    closes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionClose>[]>;
+    creates?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreate>[]>;
+    ignores?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnore>[]>;
     /**
      * ID of the parent integration resource to bind to.
      */
-    readonly integrationId?: pulumi.Input<string>;
+    integrationId?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a IntegrationAction resource.
  */
 export interface IntegrationActionArgs {
-    readonly acknowledges?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledge>[]>;
-    readonly addNotes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNote>[]>;
-    readonly closes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionClose>[]>;
-    readonly creates?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreate>[]>;
-    readonly ignores?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnore>[]>;
+    acknowledges?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledge>[]>;
+    addNotes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNote>[]>;
+    closes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionClose>[]>;
+    creates?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreate>[]>;
+    ignores?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnore>[]>;
     /**
      * ID of the parent integration resource to bind to.
      */
-    readonly integrationId: pulumi.Input<string>;
+    integrationId: pulumi.Input<string>;
 }

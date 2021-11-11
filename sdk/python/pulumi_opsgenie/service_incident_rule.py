@@ -130,10 +130,10 @@ class ServiceIncidentRule(pulumi.CustomResource):
                 incident_properties=[opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs(
                     message="This is a test message",
                     priority="P3",
-                    stakeholder_properties=[{
-                        "message": "Message for stakeholders",
-                        "enable": "true",
-                    }],
+                    stakeholder_properties=[opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs(
+                        message="Message for stakeholders",
+                        enable=True,
+                    )],
                 )],
             )])
         ```
@@ -189,10 +189,10 @@ class ServiceIncidentRule(pulumi.CustomResource):
                 incident_properties=[opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs(
                     message="This is a test message",
                     priority="P3",
-                    stakeholder_properties=[{
-                        "message": "Message for stakeholders",
-                        "enable": "true",
-                    }],
+                    stakeholder_properties=[opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs(
+                        message="Message for stakeholders",
+                        enable=True,
+                    )],
                 )],
             )])
         ```

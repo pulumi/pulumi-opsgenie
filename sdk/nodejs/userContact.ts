@@ -130,19 +130,19 @@ export interface UserContactState {
     /**
      * Enable contact of the user in OpsGenie. Default value is true.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
      */
-    readonly method?: pulumi.Input<string>;
+    method?: pulumi.Input<string>;
     /**
      * to field is the address of given method.
      */
-    readonly to?: pulumi.Input<string>;
+    to?: pulumi.Input<string>;
     /**
      * The username for contact.(reference)
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -152,17 +152,17 @@ export interface UserContactArgs {
     /**
      * Enable contact of the user in OpsGenie. Default value is true.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
      */
-    readonly method: pulumi.Input<string>;
+    method: pulumi.Input<string>;
     /**
      * to field is the address of given method.
      */
-    readonly to: pulumi.Input<string>;
+    to: pulumi.Input<string>;
     /**
      * The username for contact.(reference)
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

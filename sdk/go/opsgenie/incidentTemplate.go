@@ -40,8 +40,8 @@ import (
 // 		_, err = opsgenie.NewIncidentTemplate(ctx, "testIncidentTemplate", &opsgenie.IncidentTemplateArgs{
 // 			Message:  pulumi.String("Incident Message"),
 // 			Priority: pulumi.String("P2"),
-// 			StakeholderProperties: opsgenie.IncidentTemplateStakeholderPropertyArray{
-// 				&opsgenie.IncidentTemplateStakeholderPropertyArgs{
+// 			StakeholderProperties: IncidentTemplateStakeholderPropertyArray{
+// 				&IncidentTemplateStakeholderPropertyArgs{
 // 					Enable:      pulumi.Bool(true),
 // 					Message:     pulumi.String("Stakeholder Message"),
 // 					Description: pulumi.String("Stakeholder Description"),
@@ -270,7 +270,7 @@ type IncidentTemplateArrayInput interface {
 type IncidentTemplateArray []IncidentTemplateInput
 
 func (IncidentTemplateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IncidentTemplate)(nil))
+	return reflect.TypeOf((*[]*IncidentTemplate)(nil)).Elem()
 }
 
 func (i IncidentTemplateArray) ToIncidentTemplateArrayOutput() IncidentTemplateArrayOutput {
@@ -295,7 +295,7 @@ type IncidentTemplateMapInput interface {
 type IncidentTemplateMap map[string]IncidentTemplateInput
 
 func (IncidentTemplateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IncidentTemplate)(nil))
+	return reflect.TypeOf((*map[string]*IncidentTemplate)(nil)).Elem()
 }
 
 func (i IncidentTemplateMap) ToIncidentTemplateMapOutput() IncidentTemplateMapOutput {
@@ -306,9 +306,7 @@ func (i IncidentTemplateMap) ToIncidentTemplateMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateMapOutput)
 }
 
-type IncidentTemplateOutput struct {
-	*pulumi.OutputState
-}
+type IncidentTemplateOutput struct{ *pulumi.OutputState }
 
 func (IncidentTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IncidentTemplate)(nil))
@@ -327,14 +325,12 @@ func (o IncidentTemplateOutput) ToIncidentTemplatePtrOutput() IncidentTemplatePt
 }
 
 func (o IncidentTemplateOutput) ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput {
-	return o.ApplyT(func(v IncidentTemplate) *IncidentTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentTemplate) *IncidentTemplate {
 		return &v
 	}).(IncidentTemplatePtrOutput)
 }
 
-type IncidentTemplatePtrOutput struct {
-	*pulumi.OutputState
-}
+type IncidentTemplatePtrOutput struct{ *pulumi.OutputState }
 
 func (IncidentTemplatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IncidentTemplate)(nil))
@@ -346,6 +342,16 @@ func (o IncidentTemplatePtrOutput) ToIncidentTemplatePtrOutput() IncidentTemplat
 
 func (o IncidentTemplatePtrOutput) ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput {
 	return o
+}
+
+func (o IncidentTemplatePtrOutput) Elem() IncidentTemplateOutput {
+	return o.ApplyT(func(v *IncidentTemplate) IncidentTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret IncidentTemplate
+		return ret
+	}).(IncidentTemplateOutput)
 }
 
 type IncidentTemplateArrayOutput struct{ *pulumi.OutputState }
@@ -389,6 +395,10 @@ func (o IncidentTemplateMapOutput) MapIndex(k pulumi.StringInput) IncidentTempla
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentTemplateInput)(nil)).Elem(), &IncidentTemplate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentTemplatePtrInput)(nil)).Elem(), &IncidentTemplate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentTemplateArrayInput)(nil)).Elem(), IncidentTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentTemplateMapInput)(nil)).Elem(), IncidentTemplateMap{})
 	pulumi.RegisterOutputType(IncidentTemplateOutput{})
 	pulumi.RegisterOutputType(IncidentTemplatePtrOutput{})
 	pulumi.RegisterOutputType(IncidentTemplateArrayOutput{})

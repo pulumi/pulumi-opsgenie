@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Opsgenie
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Opsgenie
         /// </summary>
         public static Task<GetTeamResult> InvokeAsync(GetTeamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("opsgenie:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Manages existing Team within Opsgenie.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Opsgenie = Pulumi.Opsgenie;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var sre_team = Output.Create(Opsgenie.GetTeam.InvokeAsync(new Opsgenie.GetTeamArgs
+        ///         {
+        ///             Name = "sre-team",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTeamResult> Invoke(GetTeamInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTeamResult>("opsgenie:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithVersion());
     }
 
 
@@ -69,6 +99,37 @@ namespace Pulumi.Opsgenie
         public string Name { get; set; } = null!;
 
         public GetTeamArgs()
+        {
+        }
+    }
+
+    public sealed class GetTeamInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// A description for this team.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        [Input("members")]
+        private InputList<Inputs.GetTeamMemberInputArgs>? _members;
+
+        /// <summary>
+        /// A Member block as documented below.
+        /// </summary>
+        public InputList<Inputs.GetTeamMemberInputArgs> Members
+        {
+            get => _members ?? (_members = new InputList<Inputs.GetTeamMemberInputArgs>());
+            set => _members = value;
+        }
+
+        /// <summary>
+        /// The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetTeamInvokeArgs()
         {
         }
     }

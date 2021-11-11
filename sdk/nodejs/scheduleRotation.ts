@@ -160,32 +160,32 @@ export interface ScheduleRotationState {
     /**
      * This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
      */
-    readonly endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string>;
     /**
      * Length of the rotation with default value 1.
      */
-    readonly length?: pulumi.Input<number>;
+    length?: pulumi.Input<number>;
     /**
      * Name of rotation.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
      */
-    readonly participants?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationParticipant>[]>;
+    participants?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationParticipant>[]>;
     /**
      * Identifier of the schedule.
      */
-    readonly scheduleId?: pulumi.Input<string>;
+    scheduleId?: pulumi.Input<string>;
     /**
      * This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
      */
-    readonly startDate?: pulumi.Input<string>;
-    readonly timeRestrictions?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestriction>[]>;
+    startDate?: pulumi.Input<string>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestriction>[]>;
     /**
      * Type of rotation. May be one of daily, weekly and hourly.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -195,30 +195,30 @@ export interface ScheduleRotationArgs {
     /**
      * This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
      */
-    readonly endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string>;
     /**
      * Length of the rotation with default value 1.
      */
-    readonly length?: pulumi.Input<number>;
+    length?: pulumi.Input<number>;
     /**
      * Name of rotation.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
      */
-    readonly participants: pulumi.Input<pulumi.Input<inputs.ScheduleRotationParticipant>[]>;
+    participants: pulumi.Input<pulumi.Input<inputs.ScheduleRotationParticipant>[]>;
     /**
      * Identifier of the schedule.
      */
-    readonly scheduleId: pulumi.Input<string>;
+    scheduleId: pulumi.Input<string>;
     /**
      * This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
      */
-    readonly startDate: pulumi.Input<string>;
-    readonly timeRestrictions?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestriction>[]>;
+    startDate: pulumi.Input<string>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestriction>[]>;
     /**
      * Type of rotation. May be one of daily, weekly and hourly.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

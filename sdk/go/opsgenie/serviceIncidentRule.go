@@ -39,29 +39,29 @@ import (
 // 		}
 // 		_, err = opsgenie.NewServiceIncidentRule(ctx, "testServiceIncidentRule", &opsgenie.ServiceIncidentRuleArgs{
 // 			ServiceId: testService.ID(),
-// 			IncidentRules: opsgenie.ServiceIncidentRuleIncidentRuleArray{
-// 				&opsgenie.ServiceIncidentRuleIncidentRuleArgs{
+// 			IncidentRules: ServiceIncidentRuleIncidentRuleArray{
+// 				&ServiceIncidentRuleIncidentRuleArgs{
 // 					ConditionMatchType: pulumi.String("match-any-condition"),
-// 					Conditions: opsgenie.ServiceIncidentRuleIncidentRuleConditionArray{
-// 						&opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs{
+// 					Conditions: ServiceIncidentRuleIncidentRuleConditionArray{
+// 						&ServiceIncidentRuleIncidentRuleConditionArgs{
 // 							Field:         pulumi.String("message"),
 // 							Not:           pulumi.Bool(false),
 // 							Operation:     pulumi.String("contains"),
 // 							ExpectedValue: pulumi.String("expected1"),
 // 						},
-// 						&opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs{
+// 						&ServiceIncidentRuleIncidentRuleConditionArgs{
 // 							Field:         pulumi.String("message"),
 // 							Not:           pulumi.Bool(false),
 // 							Operation:     pulumi.String("contains"),
 // 							ExpectedValue: pulumi.String("expected2"),
 // 						},
 // 					},
-// 					IncidentProperties: opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArray{
-// 						&opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs{
+// 					IncidentProperties: ServiceIncidentRuleIncidentRuleIncidentPropertyArray{
+// 						&ServiceIncidentRuleIncidentRuleIncidentPropertyArgs{
 // 							Message:  pulumi.String("This is a test message"),
 // 							Priority: pulumi.String("P3"),
-// 							StakeholderProperties: opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArray{
-// 								&opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs{
+// 							StakeholderProperties: ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArray{
+// 								&ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs{
 // 									Message: pulumi.String("Message for stakeholders"),
 // 									Enable:  pulumi.Bool(true),
 // 								},
@@ -228,7 +228,7 @@ type ServiceIncidentRuleArrayInput interface {
 type ServiceIncidentRuleArray []ServiceIncidentRuleInput
 
 func (ServiceIncidentRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceIncidentRule)(nil))
+	return reflect.TypeOf((*[]*ServiceIncidentRule)(nil)).Elem()
 }
 
 func (i ServiceIncidentRuleArray) ToServiceIncidentRuleArrayOutput() ServiceIncidentRuleArrayOutput {
@@ -253,7 +253,7 @@ type ServiceIncidentRuleMapInput interface {
 type ServiceIncidentRuleMap map[string]ServiceIncidentRuleInput
 
 func (ServiceIncidentRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceIncidentRule)(nil))
+	return reflect.TypeOf((*map[string]*ServiceIncidentRule)(nil)).Elem()
 }
 
 func (i ServiceIncidentRuleMap) ToServiceIncidentRuleMapOutput() ServiceIncidentRuleMapOutput {
@@ -264,9 +264,7 @@ func (i ServiceIncidentRuleMap) ToServiceIncidentRuleMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleMapOutput)
 }
 
-type ServiceIncidentRuleOutput struct {
-	*pulumi.OutputState
-}
+type ServiceIncidentRuleOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceIncidentRule)(nil))
@@ -285,14 +283,12 @@ func (o ServiceIncidentRuleOutput) ToServiceIncidentRulePtrOutput() ServiceIncid
 }
 
 func (o ServiceIncidentRuleOutput) ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput {
-	return o.ApplyT(func(v ServiceIncidentRule) *ServiceIncidentRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIncidentRule) *ServiceIncidentRule {
 		return &v
 	}).(ServiceIncidentRulePtrOutput)
 }
 
-type ServiceIncidentRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceIncidentRulePtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceIncidentRule)(nil))
@@ -304,6 +300,16 @@ func (o ServiceIncidentRulePtrOutput) ToServiceIncidentRulePtrOutput() ServiceIn
 
 func (o ServiceIncidentRulePtrOutput) ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput {
 	return o
+}
+
+func (o ServiceIncidentRulePtrOutput) Elem() ServiceIncidentRuleOutput {
+	return o.ApplyT(func(v *ServiceIncidentRule) ServiceIncidentRule {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceIncidentRule
+		return ret
+	}).(ServiceIncidentRuleOutput)
 }
 
 type ServiceIncidentRuleArrayOutput struct{ *pulumi.OutputState }
@@ -347,6 +353,10 @@ func (o ServiceIncidentRuleMapOutput) MapIndex(k pulumi.StringInput) ServiceInci
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRuleInput)(nil)).Elem(), &ServiceIncidentRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRulePtrInput)(nil)).Elem(), &ServiceIncidentRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRuleArrayInput)(nil)).Elem(), ServiceIncidentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRuleMapInput)(nil)).Elem(), ServiceIncidentRuleMap{})
 	pulumi.RegisterOutputType(ServiceIncidentRuleOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentRulePtrOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentRuleArrayOutput{})

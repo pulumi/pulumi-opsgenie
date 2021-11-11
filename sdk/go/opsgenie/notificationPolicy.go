@@ -252,7 +252,7 @@ type NotificationPolicyArrayInput interface {
 type NotificationPolicyArray []NotificationPolicyInput
 
 func (NotificationPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NotificationPolicy)(nil))
+	return reflect.TypeOf((*[]*NotificationPolicy)(nil)).Elem()
 }
 
 func (i NotificationPolicyArray) ToNotificationPolicyArrayOutput() NotificationPolicyArrayOutput {
@@ -277,7 +277,7 @@ type NotificationPolicyMapInput interface {
 type NotificationPolicyMap map[string]NotificationPolicyInput
 
 func (NotificationPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NotificationPolicy)(nil))
+	return reflect.TypeOf((*map[string]*NotificationPolicy)(nil)).Elem()
 }
 
 func (i NotificationPolicyMap) ToNotificationPolicyMapOutput() NotificationPolicyMapOutput {
@@ -288,9 +288,7 @@ func (i NotificationPolicyMap) ToNotificationPolicyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyMapOutput)
 }
 
-type NotificationPolicyOutput struct {
-	*pulumi.OutputState
-}
+type NotificationPolicyOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationPolicy)(nil))
@@ -309,14 +307,12 @@ func (o NotificationPolicyOutput) ToNotificationPolicyPtrOutput() NotificationPo
 }
 
 func (o NotificationPolicyOutput) ToNotificationPolicyPtrOutputWithContext(ctx context.Context) NotificationPolicyPtrOutput {
-	return o.ApplyT(func(v NotificationPolicy) *NotificationPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationPolicy) *NotificationPolicy {
 		return &v
 	}).(NotificationPolicyPtrOutput)
 }
 
-type NotificationPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type NotificationPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NotificationPolicy)(nil))
@@ -328,6 +324,16 @@ func (o NotificationPolicyPtrOutput) ToNotificationPolicyPtrOutput() Notificatio
 
 func (o NotificationPolicyPtrOutput) ToNotificationPolicyPtrOutputWithContext(ctx context.Context) NotificationPolicyPtrOutput {
 	return o
+}
+
+func (o NotificationPolicyPtrOutput) Elem() NotificationPolicyOutput {
+	return o.ApplyT(func(v *NotificationPolicy) NotificationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationPolicy
+		return ret
+	}).(NotificationPolicyOutput)
 }
 
 type NotificationPolicyArrayOutput struct{ *pulumi.OutputState }
@@ -371,6 +377,10 @@ func (o NotificationPolicyMapOutput) MapIndex(k pulumi.StringInput) Notification
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPolicyInput)(nil)).Elem(), &NotificationPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPolicyPtrInput)(nil)).Elem(), &NotificationPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPolicyArrayInput)(nil)).Elem(), NotificationPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPolicyMapInput)(nil)).Elem(), NotificationPolicyMap{})
 	pulumi.RegisterOutputType(NotificationPolicyOutput{})
 	pulumi.RegisterOutputType(NotificationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(NotificationPolicyArrayOutput{})

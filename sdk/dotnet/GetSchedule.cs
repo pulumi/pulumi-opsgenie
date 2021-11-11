@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Opsgenie
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Opsgenie
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("opsgenie:index/getSchedule:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Manages a Schedule within Opsgenie.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Opsgenie = Pulumi.Opsgenie;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Opsgenie.GetSchedule.InvokeAsync(new Opsgenie.GetScheduleArgs
+        ///         {
+        ///             Name = "sre-team schedule",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("opsgenie:index/getSchedule:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -75,6 +105,43 @@ namespace Pulumi.Opsgenie
         public string? Timezone { get; set; }
 
         public GetScheduleArgs()
+        {
+        }
+    }
+
+    public sealed class GetScheduleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Enable/disable state of schedule
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Name of the schedule.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Owner team id of the schedule.
+        /// </summary>
+        [Input("ownerTeamId")]
+        public Input<string>? OwnerTeamId { get; set; }
+
+        /// <summary>
+        /// The description of schedule.
+        /// </summary>
+        [Input("timezone")]
+        public Input<string>? Timezone { get; set; }
+
+        public GetScheduleInvokeArgs()
         {
         }
     }
