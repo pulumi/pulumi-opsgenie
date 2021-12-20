@@ -94,6 +94,10 @@ export class TeamRoutingRule extends pulumi.CustomResource {
      */
     public readonly criterias!: pulumi.Output<outputs.TeamRoutingRuleCriteria[] | undefined>;
     /**
+     * Only use when importing default routing rule
+     */
+    public readonly isDefault!: pulumi.Output<boolean | undefined>;
+    /**
      * Name of the team routing rule
      */
     public readonly name!: pulumi.Output<string>;
@@ -129,6 +133,7 @@ export class TeamRoutingRule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TeamRoutingRuleState | undefined;
             inputs["criterias"] = state ? state.criterias : undefined;
+            inputs["isDefault"] = state ? state.isDefault : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notifies"] = state ? state.notifies : undefined;
             inputs["order"] = state ? state.order : undefined;
@@ -144,6 +149,7 @@ export class TeamRoutingRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'teamId'");
             }
             inputs["criterias"] = args ? args.criterias : undefined;
+            inputs["isDefault"] = args ? args.isDefault : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notifies"] = args ? args.notifies : undefined;
             inputs["order"] = args ? args.order : undefined;
@@ -166,6 +172,10 @@ export interface TeamRoutingRuleState {
      * You can refer Criteria for detailed information about criteria and its fields
      */
     criterias?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteria>[]>;
+    /**
+     * Only use when importing default routing rule
+     */
+    isDefault?: pulumi.Input<boolean>;
     /**
      * Name of the team routing rule
      */
@@ -197,6 +207,10 @@ export interface TeamRoutingRuleArgs {
      * You can refer Criteria for detailed information about criteria and its fields
      */
     criterias?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteria>[]>;
+    /**
+     * Only use when importing default routing rule
+     */
+    isDefault?: pulumi.Input<boolean>;
     /**
      * Name of the team routing rule
      */

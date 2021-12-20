@@ -98,6 +98,8 @@ type TeamRoutingRule struct {
 
 	// You can refer Criteria for detailed information about criteria and its fields
 	Criterias TeamRoutingRuleCriteriaArrayOutput `pulumi:"criterias"`
+	// Only use when importing default routing rule
+	IsDefault pulumi.BoolPtrOutput `pulumi:"isDefault"`
 	// Name of the team routing rule
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
@@ -148,6 +150,8 @@ func GetTeamRoutingRule(ctx *pulumi.Context,
 type teamRoutingRuleState struct {
 	// You can refer Criteria for detailed information about criteria and its fields
 	Criterias []TeamRoutingRuleCriteria `pulumi:"criterias"`
+	// Only use when importing default routing rule
+	IsDefault *bool `pulumi:"isDefault"`
 	// Name of the team routing rule
 	Name *string `pulumi:"name"`
 	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
@@ -164,6 +168,8 @@ type teamRoutingRuleState struct {
 type TeamRoutingRuleState struct {
 	// You can refer Criteria for detailed information about criteria and its fields
 	Criterias TeamRoutingRuleCriteriaArrayInput
+	// Only use when importing default routing rule
+	IsDefault pulumi.BoolPtrInput
 	// Name of the team routing rule
 	Name pulumi.StringPtrInput
 	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
@@ -184,6 +190,8 @@ func (TeamRoutingRuleState) ElementType() reflect.Type {
 type teamRoutingRuleArgs struct {
 	// You can refer Criteria for detailed information about criteria and its fields
 	Criterias []TeamRoutingRuleCriteria `pulumi:"criterias"`
+	// Only use when importing default routing rule
+	IsDefault *bool `pulumi:"isDefault"`
 	// Name of the team routing rule
 	Name *string `pulumi:"name"`
 	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
@@ -201,6 +209,8 @@ type teamRoutingRuleArgs struct {
 type TeamRoutingRuleArgs struct {
 	// You can refer Criteria for detailed information about criteria and its fields
 	Criterias TeamRoutingRuleCriteriaArrayInput
+	// Only use when importing default routing rule
+	IsDefault pulumi.BoolPtrInput
 	// Name of the team routing rule
 	Name pulumi.StringPtrInput
 	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`

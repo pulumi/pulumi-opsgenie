@@ -82,7 +82,7 @@ import * as utilities from "./utilities";
  *                     },
  *                     {
  *                         field: "message",
- *                         operation: "Starts With",
+ *                         operation: "starts-with",
  *                         expectedValue: "[custom]",
  *                     },
  *                 ],
@@ -114,6 +114,7 @@ import * as utilities from "./utilities";
  *             conditions: [
  *                 {
  *                     field: "message",
+ *                     not: true,
  *                     operation: "contains",
  *                     expectedValue: "TEST",
  *                 },

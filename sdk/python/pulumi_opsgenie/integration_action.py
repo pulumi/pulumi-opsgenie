@@ -268,7 +268,7 @@ class IntegrationAction(pulumi.CustomResource):
                             ),
                             opsgenie.IntegrationActionCreateFilterConditionArgs(
                                 field="message",
-                                operation="Starts With",
+                                operation="starts-with",
                                 expected_value="[custom]",
                             ),
                         ],
@@ -300,6 +300,7 @@ class IntegrationAction(pulumi.CustomResource):
                     conditions=[
                         opsgenie.IntegrationActionAcknowledgeFilterConditionArgs(
                             field="message",
+                            not_=True,
                             operation="contains",
                             expected_value="TEST",
                         ),
@@ -418,7 +419,7 @@ class IntegrationAction(pulumi.CustomResource):
                             ),
                             opsgenie.IntegrationActionCreateFilterConditionArgs(
                                 field="message",
-                                operation="Starts With",
+                                operation="starts-with",
                                 expected_value="[custom]",
                             ),
                         ],
@@ -450,6 +451,7 @@ class IntegrationAction(pulumi.CustomResource):
                     conditions=[
                         opsgenie.IntegrationActionAcknowledgeFilterConditionArgs(
                             field="message",
+                            not_=True,
                             operation="contains",
                             expected_value="TEST",
                         ),
