@@ -105,6 +105,12 @@ namespace Pulumi.Opsgenie
         public Output<ImmutableArray<Outputs.TeamRoutingRuleCriteria>> Criterias { get; private set; } = null!;
 
         /// <summary>
+        /// Only use when importing default routing rule
+        /// </summary>
+        [Output("isDefault")]
+        public Output<bool?> IsDefault { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the team routing rule
         /// </summary>
         [Output("name")]
@@ -196,6 +202,12 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
+        /// Only use when importing default routing rule
+        /// </summary>
+        [Input("isDefault")]
+        public Input<bool>? IsDefault { get; set; }
+
+        /// <summary>
         /// Name of the team routing rule
         /// </summary>
         [Input("name")]
@@ -257,6 +269,12 @@ namespace Pulumi.Opsgenie
             get => _criterias ?? (_criterias = new InputList<Inputs.TeamRoutingRuleCriteriaGetArgs>());
             set => _criterias = value;
         }
+
+        /// <summary>
+        /// Only use when importing default routing rule
+        /// </summary>
+        [Input("isDefault")]
+        public Input<bool>? IsDefault { get; set; }
 
         /// <summary>
         /// Name of the team routing rule

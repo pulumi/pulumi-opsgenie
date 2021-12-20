@@ -18,6 +18,7 @@ class TeamRoutingRuleArgs:
                  notifies: pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]],
                  team_id: pulumi.Input[str],
                  criterias: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]]] = None,
+                 is_default: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]] = None,
@@ -27,6 +28,7 @@ class TeamRoutingRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[str] team_id: Id of the team owning the routing rule
         :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]] criterias: You can refer Criteria for detailed information about criteria and its fields
+        :param pulumi.Input[bool] is_default: Only use when importing default routing rule
         :param pulumi.Input[str] name: Name of the team routing rule
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
         :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
@@ -35,6 +37,8 @@ class TeamRoutingRuleArgs:
         pulumi.set(__self__, "team_id", team_id)
         if criterias is not None:
             pulumi.set(__self__, "criterias", criterias)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if order is not None:
@@ -79,6 +83,18 @@ class TeamRoutingRuleArgs:
     @criterias.setter
     def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]]]):
         pulumi.set(self, "criterias", value)
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Only use when importing default routing rule
+        """
+        return pulumi.get(self, "is_default")
+
+    @is_default.setter
+    def is_default(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_default", value)
 
     @property
     @pulumi.getter
@@ -130,6 +146,7 @@ class TeamRoutingRuleArgs:
 class _TeamRoutingRuleState:
     def __init__(__self__, *,
                  criterias: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]]] = None,
+                 is_default: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notifies: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]]] = None,
                  order: Optional[pulumi.Input[int]] = None,
@@ -139,6 +156,7 @@ class _TeamRoutingRuleState:
         """
         Input properties used for looking up and filtering TeamRoutingRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]] criterias: You can refer Criteria for detailed information about criteria and its fields
+        :param pulumi.Input[bool] is_default: Only use when importing default routing rule
         :param pulumi.Input[str] name: Name of the team routing rule
         :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
@@ -147,6 +165,8 @@ class _TeamRoutingRuleState:
         """
         if criterias is not None:
             pulumi.set(__self__, "criterias", criterias)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notifies is not None:
@@ -171,6 +191,18 @@ class _TeamRoutingRuleState:
     @criterias.setter
     def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]]]):
         pulumi.set(self, "criterias", value)
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Only use when importing default routing rule
+        """
+        return pulumi.get(self, "is_default")
+
+    @is_default.setter
+    def is_default(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_default", value)
 
     @property
     @pulumi.getter
@@ -248,6 +280,7 @@ class TeamRoutingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleCriteriaArgs']]]]] = None,
+                 is_default: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notifies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]]] = None,
                  order: Optional[pulumi.Input[int]] = None,
@@ -310,6 +343,7 @@ class TeamRoutingRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleCriteriaArgs']]]] criterias: You can refer Criteria for detailed information about criteria and its fields
+        :param pulumi.Input[bool] is_default: Only use when importing default routing rule
         :param pulumi.Input[str] name: Name of the team routing rule
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
@@ -390,6 +424,7 @@ class TeamRoutingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleCriteriaArgs']]]]] = None,
+                 is_default: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notifies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]]] = None,
                  order: Optional[pulumi.Input[int]] = None,
@@ -409,6 +444,7 @@ class TeamRoutingRule(pulumi.CustomResource):
             __props__ = TeamRoutingRuleArgs.__new__(TeamRoutingRuleArgs)
 
             __props__.__dict__["criterias"] = criterias
+            __props__.__dict__["is_default"] = is_default
             __props__.__dict__["name"] = name
             if notifies is None and not opts.urn:
                 raise TypeError("Missing required property 'notifies'")
@@ -430,6 +466,7 @@ class TeamRoutingRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleCriteriaArgs']]]]] = None,
+            is_default: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notifies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]]] = None,
             order: Optional[pulumi.Input[int]] = None,
@@ -444,6 +481,7 @@ class TeamRoutingRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleCriteriaArgs']]]] criterias: You can refer Criteria for detailed information about criteria and its fields
+        :param pulumi.Input[bool] is_default: Only use when importing default routing rule
         :param pulumi.Input[str] name: Name of the team routing rule
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
@@ -455,6 +493,7 @@ class TeamRoutingRule(pulumi.CustomResource):
         __props__ = _TeamRoutingRuleState.__new__(_TeamRoutingRuleState)
 
         __props__.__dict__["criterias"] = criterias
+        __props__.__dict__["is_default"] = is_default
         __props__.__dict__["name"] = name
         __props__.__dict__["notifies"] = notifies
         __props__.__dict__["order"] = order
@@ -470,6 +509,14 @@ class TeamRoutingRule(pulumi.CustomResource):
         You can refer Criteria for detailed information about criteria and its fields
         """
         return pulumi.get(self, "criterias")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Only use when importing default routing rule
+        """
+        return pulumi.get(self, "is_default")
 
     @property
     @pulumi.getter

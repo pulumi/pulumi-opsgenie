@@ -126,7 +126,7 @@ namespace Pulumi.Opsgenie
     ///                                 new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs
     ///                                 {
     ///                                     Field = "message",
-    ///                                     Operation = "Starts With",
+    ///                                     Operation = "starts-with",
     ///                                     ExpectedValue = "[custom]",
     ///                                 },
     ///                             },
@@ -178,6 +178,7 @@ namespace Pulumi.Opsgenie
     ///                                 new Opsgenie.Inputs.IntegrationActionAcknowledgeFilterConditionArgs
     ///                                 {
     ///                                     Field = "message",
+    ///                                     Not = true,
     ///                                     Operation = "contains",
     ///                                     ExpectedValue = "TEST",
     ///                                 },

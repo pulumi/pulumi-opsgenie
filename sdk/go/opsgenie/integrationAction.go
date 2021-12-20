@@ -106,7 +106,7 @@ import (
 // 								},
 // 								&IntegrationActionCreateFilterConditionArgs{
 // 									Field:         pulumi.String("message"),
-// 									Operation:     pulumi.String("Starts With"),
+// 									Operation:     pulumi.String("starts-with"),
 // 									ExpectedValue: pulumi.String("[custom]"),
 // 								},
 // 							},
@@ -145,6 +145,7 @@ import (
 // 							Conditions: IntegrationActionAcknowledgeFilterConditionArray{
 // 								&IntegrationActionAcknowledgeFilterConditionArgs{
 // 									Field:         pulumi.String("message"),
+// 									Not:           pulumi.Bool(true),
 // 									Operation:     pulumi.String("contains"),
 // 									ExpectedValue: pulumi.String("TEST"),
 // 								},
