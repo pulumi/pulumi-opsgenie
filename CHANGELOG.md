@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v0.6.6 of the OpsGenie Terraform Provider
+_(none)_
 
 ---
+
+## 1.1.1 (2021-12-20)
+* Upgrade to v0.6.6 of the OpsGenie Terraform Provider
 
 ## 1.1.0 (2021-11-11)
 * Upgrade to terraform-bridge 3.11.0
