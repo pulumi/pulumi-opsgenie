@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade terraform-provider-opsgenie to v0.6.7
+_(none)_
 
 ---
+
+## 1.1.2 (2021-12-30)
+* Upgrade terraform-provider-opsgenie to v0.6.7
 
 ## 1.1.1 (2021-12-20)
 * Upgrade to v0.6.6 of the OpsGenie Terraform Provider
