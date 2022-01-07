@@ -28,7 +28,8 @@ builds:
   - -X github.com/pulumi/pulumi-opsgenie/provider/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-opsgenie/
 changelog:
-  skip: true
+  use: git
+  sort: asc
 release:
   disable: false
 snapshot:
