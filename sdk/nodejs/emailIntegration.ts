@@ -123,34 +123,32 @@ export class EmailIntegration extends pulumi.CustomResource {
      */
     constructor(name: string, args: EmailIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EmailIntegrationArgs | EmailIntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailIntegrationState | undefined;
-            inputs["emailUsername"] = state ? state.emailUsername : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["ignoreRespondersFromPayload"] = state ? state.ignoreRespondersFromPayload : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
-            inputs["responders"] = state ? state.responders : undefined;
-            inputs["suppressNotifications"] = state ? state.suppressNotifications : undefined;
+            resourceInputs["emailUsername"] = state ? state.emailUsername : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["ignoreRespondersFromPayload"] = state ? state.ignoreRespondersFromPayload : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
+            resourceInputs["responders"] = state ? state.responders : undefined;
+            resourceInputs["suppressNotifications"] = state ? state.suppressNotifications : undefined;
         } else {
             const args = argsOrState as EmailIntegrationArgs | undefined;
             if ((!args || args.emailUsername === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailUsername'");
             }
-            inputs["emailUsername"] = args ? args.emailUsername : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["ignoreRespondersFromPayload"] = args ? args.ignoreRespondersFromPayload : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
-            inputs["responders"] = args ? args.responders : undefined;
-            inputs["suppressNotifications"] = args ? args.suppressNotifications : undefined;
+            resourceInputs["emailUsername"] = args ? args.emailUsername : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["ignoreRespondersFromPayload"] = args ? args.ignoreRespondersFromPayload : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
+            resourceInputs["responders"] = args ? args.responders : undefined;
+            resourceInputs["suppressNotifications"] = args ? args.suppressNotifications : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EmailIntegration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EmailIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

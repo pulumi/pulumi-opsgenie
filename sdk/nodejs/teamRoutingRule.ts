@@ -128,18 +128,18 @@ export class TeamRoutingRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: TeamRoutingRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamRoutingRuleArgs | TeamRoutingRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamRoutingRuleState | undefined;
-            inputs["criterias"] = state ? state.criterias : undefined;
-            inputs["isDefault"] = state ? state.isDefault : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notifies"] = state ? state.notifies : undefined;
-            inputs["order"] = state ? state.order : undefined;
-            inputs["teamId"] = state ? state.teamId : undefined;
-            inputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
-            inputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["criterias"] = state ? state.criterias : undefined;
+            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notifies"] = state ? state.notifies : undefined;
+            resourceInputs["order"] = state ? state.order : undefined;
+            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as TeamRoutingRuleArgs | undefined;
             if ((!args || args.notifies === undefined) && !opts.urn) {
@@ -148,19 +148,17 @@ export class TeamRoutingRule extends pulumi.CustomResource {
             if ((!args || args.teamId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            inputs["criterias"] = args ? args.criterias : undefined;
-            inputs["isDefault"] = args ? args.isDefault : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notifies"] = args ? args.notifies : undefined;
-            inputs["order"] = args ? args.order : undefined;
-            inputs["teamId"] = args ? args.teamId : undefined;
-            inputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
-            inputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["criterias"] = args ? args.criterias : undefined;
+            resourceInputs["isDefault"] = args ? args.isDefault : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notifies"] = args ? args.notifies : undefined;
+            resourceInputs["order"] = args ? args.order : undefined;
+            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TeamRoutingRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TeamRoutingRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

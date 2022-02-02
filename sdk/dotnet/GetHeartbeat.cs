@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Opsgenie
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Opsgenie
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetHeartbeatResult> InvokeAsync(GetHeartbeatArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHeartbeatResult>("opsgenie:index/getHeartbeat:getHeartbeat", args ?? new GetHeartbeatArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHeartbeatResult>("opsgenie:index/getHeartbeat:getHeartbeat", args ?? new GetHeartbeatArgs(), options.WithDefaults());
 
         /// <summary>
         /// Manages existing heartbeat within Opsgenie.
@@ -68,7 +67,7 @@ namespace Pulumi.Opsgenie
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetHeartbeatResult> Invoke(GetHeartbeatInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHeartbeatResult>("opsgenie:index/getHeartbeat:getHeartbeat", args ?? new GetHeartbeatInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHeartbeatResult>("opsgenie:index/getHeartbeat:getHeartbeat", args ?? new GetHeartbeatInvokeArgs(), options.WithDefaults());
     }
 
 

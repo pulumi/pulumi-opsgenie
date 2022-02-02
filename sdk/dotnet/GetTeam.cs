@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Opsgenie
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Opsgenie
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTeamResult> InvokeAsync(GetTeamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("opsgenie:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("opsgenie:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Manages existing Team within Opsgenie.
@@ -68,7 +67,7 @@ namespace Pulumi.Opsgenie
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTeamResult> Invoke(GetTeamInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTeamResult>("opsgenie:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTeamResult>("opsgenie:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithDefaults());
     }
 
 

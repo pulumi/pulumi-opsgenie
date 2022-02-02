@@ -87,27 +87,25 @@ export class Schedule extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
-            inputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
-            inputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Schedule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Schedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

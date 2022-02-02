@@ -214,7 +214,7 @@ type HeartbeatInput interface {
 }
 
 func (*Heartbeat) ElementType() reflect.Type {
-	return reflect.TypeOf((*Heartbeat)(nil))
+	return reflect.TypeOf((**Heartbeat)(nil)).Elem()
 }
 
 func (i *Heartbeat) ToHeartbeatOutput() HeartbeatOutput {
@@ -223,35 +223,6 @@ func (i *Heartbeat) ToHeartbeatOutput() HeartbeatOutput {
 
 func (i *Heartbeat) ToHeartbeatOutputWithContext(ctx context.Context) HeartbeatOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HeartbeatOutput)
-}
-
-func (i *Heartbeat) ToHeartbeatPtrOutput() HeartbeatPtrOutput {
-	return i.ToHeartbeatPtrOutputWithContext(context.Background())
-}
-
-func (i *Heartbeat) ToHeartbeatPtrOutputWithContext(ctx context.Context) HeartbeatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HeartbeatPtrOutput)
-}
-
-type HeartbeatPtrInput interface {
-	pulumi.Input
-
-	ToHeartbeatPtrOutput() HeartbeatPtrOutput
-	ToHeartbeatPtrOutputWithContext(ctx context.Context) HeartbeatPtrOutput
-}
-
-type heartbeatPtrType HeartbeatArgs
-
-func (*heartbeatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Heartbeat)(nil))
-}
-
-func (i *heartbeatPtrType) ToHeartbeatPtrOutput() HeartbeatPtrOutput {
-	return i.ToHeartbeatPtrOutputWithContext(context.Background())
-}
-
-func (i *heartbeatPtrType) ToHeartbeatPtrOutputWithContext(ctx context.Context) HeartbeatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HeartbeatPtrOutput)
 }
 
 // HeartbeatArrayInput is an input type that accepts HeartbeatArray and HeartbeatArrayOutput values.
@@ -307,7 +278,7 @@ func (i HeartbeatMap) ToHeartbeatMapOutputWithContext(ctx context.Context) Heart
 type HeartbeatOutput struct{ *pulumi.OutputState }
 
 func (HeartbeatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Heartbeat)(nil))
+	return reflect.TypeOf((**Heartbeat)(nil)).Elem()
 }
 
 func (o HeartbeatOutput) ToHeartbeatOutput() HeartbeatOutput {
@@ -318,44 +289,10 @@ func (o HeartbeatOutput) ToHeartbeatOutputWithContext(ctx context.Context) Heart
 	return o
 }
 
-func (o HeartbeatOutput) ToHeartbeatPtrOutput() HeartbeatPtrOutput {
-	return o.ToHeartbeatPtrOutputWithContext(context.Background())
-}
-
-func (o HeartbeatOutput) ToHeartbeatPtrOutputWithContext(ctx context.Context) HeartbeatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Heartbeat) *Heartbeat {
-		return &v
-	}).(HeartbeatPtrOutput)
-}
-
-type HeartbeatPtrOutput struct{ *pulumi.OutputState }
-
-func (HeartbeatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Heartbeat)(nil))
-}
-
-func (o HeartbeatPtrOutput) ToHeartbeatPtrOutput() HeartbeatPtrOutput {
-	return o
-}
-
-func (o HeartbeatPtrOutput) ToHeartbeatPtrOutputWithContext(ctx context.Context) HeartbeatPtrOutput {
-	return o
-}
-
-func (o HeartbeatPtrOutput) Elem() HeartbeatOutput {
-	return o.ApplyT(func(v *Heartbeat) Heartbeat {
-		if v != nil {
-			return *v
-		}
-		var ret Heartbeat
-		return ret
-	}).(HeartbeatOutput)
-}
-
 type HeartbeatArrayOutput struct{ *pulumi.OutputState }
 
 func (HeartbeatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Heartbeat)(nil))
+	return reflect.TypeOf((*[]*Heartbeat)(nil)).Elem()
 }
 
 func (o HeartbeatArrayOutput) ToHeartbeatArrayOutput() HeartbeatArrayOutput {
@@ -367,15 +304,15 @@ func (o HeartbeatArrayOutput) ToHeartbeatArrayOutputWithContext(ctx context.Cont
 }
 
 func (o HeartbeatArrayOutput) Index(i pulumi.IntInput) HeartbeatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Heartbeat {
-		return vs[0].([]Heartbeat)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Heartbeat {
+		return vs[0].([]*Heartbeat)[vs[1].(int)]
 	}).(HeartbeatOutput)
 }
 
 type HeartbeatMapOutput struct{ *pulumi.OutputState }
 
 func (HeartbeatMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Heartbeat)(nil))
+	return reflect.TypeOf((*map[string]*Heartbeat)(nil)).Elem()
 }
 
 func (o HeartbeatMapOutput) ToHeartbeatMapOutput() HeartbeatMapOutput {
@@ -387,18 +324,16 @@ func (o HeartbeatMapOutput) ToHeartbeatMapOutputWithContext(ctx context.Context)
 }
 
 func (o HeartbeatMapOutput) MapIndex(k pulumi.StringInput) HeartbeatOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Heartbeat {
-		return vs[0].(map[string]Heartbeat)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Heartbeat {
+		return vs[0].(map[string]*Heartbeat)[vs[1].(string)]
 	}).(HeartbeatOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HeartbeatInput)(nil)).Elem(), &Heartbeat{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HeartbeatPtrInput)(nil)).Elem(), &Heartbeat{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HeartbeatArrayInput)(nil)).Elem(), HeartbeatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HeartbeatMapInput)(nil)).Elem(), HeartbeatMap{})
 	pulumi.RegisterOutputType(HeartbeatOutput{})
-	pulumi.RegisterOutputType(HeartbeatPtrOutput{})
 	pulumi.RegisterOutputType(HeartbeatArrayOutput{})
 	pulumi.RegisterOutputType(HeartbeatMapOutput{})
 }

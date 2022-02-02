@@ -215,7 +215,7 @@ type ScheduleRotationInput interface {
 }
 
 func (*ScheduleRotation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleRotation)(nil))
+	return reflect.TypeOf((**ScheduleRotation)(nil)).Elem()
 }
 
 func (i *ScheduleRotation) ToScheduleRotationOutput() ScheduleRotationOutput {
@@ -224,35 +224,6 @@ func (i *ScheduleRotation) ToScheduleRotationOutput() ScheduleRotationOutput {
 
 func (i *ScheduleRotation) ToScheduleRotationOutputWithContext(ctx context.Context) ScheduleRotationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationOutput)
-}
-
-func (i *ScheduleRotation) ToScheduleRotationPtrOutput() ScheduleRotationPtrOutput {
-	return i.ToScheduleRotationPtrOutputWithContext(context.Background())
-}
-
-func (i *ScheduleRotation) ToScheduleRotationPtrOutputWithContext(ctx context.Context) ScheduleRotationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationPtrOutput)
-}
-
-type ScheduleRotationPtrInput interface {
-	pulumi.Input
-
-	ToScheduleRotationPtrOutput() ScheduleRotationPtrOutput
-	ToScheduleRotationPtrOutputWithContext(ctx context.Context) ScheduleRotationPtrOutput
-}
-
-type scheduleRotationPtrType ScheduleRotationArgs
-
-func (*scheduleRotationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduleRotation)(nil))
-}
-
-func (i *scheduleRotationPtrType) ToScheduleRotationPtrOutput() ScheduleRotationPtrOutput {
-	return i.ToScheduleRotationPtrOutputWithContext(context.Background())
-}
-
-func (i *scheduleRotationPtrType) ToScheduleRotationPtrOutputWithContext(ctx context.Context) ScheduleRotationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationPtrOutput)
 }
 
 // ScheduleRotationArrayInput is an input type that accepts ScheduleRotationArray and ScheduleRotationArrayOutput values.
@@ -308,7 +279,7 @@ func (i ScheduleRotationMap) ToScheduleRotationMapOutputWithContext(ctx context.
 type ScheduleRotationOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleRotation)(nil))
+	return reflect.TypeOf((**ScheduleRotation)(nil)).Elem()
 }
 
 func (o ScheduleRotationOutput) ToScheduleRotationOutput() ScheduleRotationOutput {
@@ -319,44 +290,10 @@ func (o ScheduleRotationOutput) ToScheduleRotationOutputWithContext(ctx context.
 	return o
 }
 
-func (o ScheduleRotationOutput) ToScheduleRotationPtrOutput() ScheduleRotationPtrOutput {
-	return o.ToScheduleRotationPtrOutputWithContext(context.Background())
-}
-
-func (o ScheduleRotationOutput) ToScheduleRotationPtrOutputWithContext(ctx context.Context) ScheduleRotationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleRotation) *ScheduleRotation {
-		return &v
-	}).(ScheduleRotationPtrOutput)
-}
-
-type ScheduleRotationPtrOutput struct{ *pulumi.OutputState }
-
-func (ScheduleRotationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduleRotation)(nil))
-}
-
-func (o ScheduleRotationPtrOutput) ToScheduleRotationPtrOutput() ScheduleRotationPtrOutput {
-	return o
-}
-
-func (o ScheduleRotationPtrOutput) ToScheduleRotationPtrOutputWithContext(ctx context.Context) ScheduleRotationPtrOutput {
-	return o
-}
-
-func (o ScheduleRotationPtrOutput) Elem() ScheduleRotationOutput {
-	return o.ApplyT(func(v *ScheduleRotation) ScheduleRotation {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduleRotation
-		return ret
-	}).(ScheduleRotationOutput)
-}
-
 type ScheduleRotationArrayOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleRotation)(nil))
+	return reflect.TypeOf((*[]*ScheduleRotation)(nil)).Elem()
 }
 
 func (o ScheduleRotationArrayOutput) ToScheduleRotationArrayOutput() ScheduleRotationArrayOutput {
@@ -368,15 +305,15 @@ func (o ScheduleRotationArrayOutput) ToScheduleRotationArrayOutputWithContext(ct
 }
 
 func (o ScheduleRotationArrayOutput) Index(i pulumi.IntInput) ScheduleRotationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleRotation {
-		return vs[0].([]ScheduleRotation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScheduleRotation {
+		return vs[0].([]*ScheduleRotation)[vs[1].(int)]
 	}).(ScheduleRotationOutput)
 }
 
 type ScheduleRotationMapOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ScheduleRotation)(nil))
+	return reflect.TypeOf((*map[string]*ScheduleRotation)(nil)).Elem()
 }
 
 func (o ScheduleRotationMapOutput) ToScheduleRotationMapOutput() ScheduleRotationMapOutput {
@@ -388,18 +325,16 @@ func (o ScheduleRotationMapOutput) ToScheduleRotationMapOutputWithContext(ctx co
 }
 
 func (o ScheduleRotationMapOutput) MapIndex(k pulumi.StringInput) ScheduleRotationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScheduleRotation {
-		return vs[0].(map[string]ScheduleRotation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ScheduleRotation {
+		return vs[0].(map[string]*ScheduleRotation)[vs[1].(string)]
 	}).(ScheduleRotationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationInput)(nil)).Elem(), &ScheduleRotation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationPtrInput)(nil)).Elem(), &ScheduleRotation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationArrayInput)(nil)).Elem(), ScheduleRotationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationMapInput)(nil)).Elem(), ScheduleRotationMap{})
 	pulumi.RegisterOutputType(ScheduleRotationOutput{})
-	pulumi.RegisterOutputType(ScheduleRotationPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleRotationArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleRotationMapOutput{})
 }

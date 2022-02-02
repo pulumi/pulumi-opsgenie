@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Opsgenie
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Opsgenie
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("opsgenie:index/getSchedule:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("opsgenie:index/getSchedule:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Manages a Schedule within Opsgenie.
@@ -68,7 +67,7 @@ namespace Pulumi.Opsgenie
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("opsgenie:index/getSchedule:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("opsgenie:index/getSchedule:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

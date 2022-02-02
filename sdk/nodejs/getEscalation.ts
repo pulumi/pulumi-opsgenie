@@ -24,9 +24,7 @@ export function getEscalation(args: GetEscalationArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("opsgenie:index/getEscalation:getEscalation", {
         "description": args.description,
         "name": args.name,

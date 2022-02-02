@@ -113,21 +113,21 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: NotificationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationRuleArgs | NotificationRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationRuleState | undefined;
-            inputs["actionType"] = state ? state.actionType : undefined;
-            inputs["criterias"] = state ? state.criterias : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notificationTimes"] = state ? state.notificationTimes : undefined;
-            inputs["order"] = state ? state.order : undefined;
-            inputs["repeats"] = state ? state.repeats : undefined;
-            inputs["schedules"] = state ? state.schedules : undefined;
-            inputs["steps"] = state ? state.steps : undefined;
-            inputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["actionType"] = state ? state.actionType : undefined;
+            resourceInputs["criterias"] = state ? state.criterias : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationTimes"] = state ? state.notificationTimes : undefined;
+            resourceInputs["order"] = state ? state.order : undefined;
+            resourceInputs["repeats"] = state ? state.repeats : undefined;
+            resourceInputs["schedules"] = state ? state.schedules : undefined;
+            resourceInputs["steps"] = state ? state.steps : undefined;
+            resourceInputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as NotificationRuleArgs | undefined;
             if ((!args || args.actionType === undefined) && !opts.urn) {
@@ -136,22 +136,20 @@ export class NotificationRule extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["actionType"] = args ? args.actionType : undefined;
-            inputs["criterias"] = args ? args.criterias : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationTimes"] = args ? args.notificationTimes : undefined;
-            inputs["order"] = args ? args.order : undefined;
-            inputs["repeats"] = args ? args.repeats : undefined;
-            inputs["schedules"] = args ? args.schedules : undefined;
-            inputs["steps"] = args ? args.steps : undefined;
-            inputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["actionType"] = args ? args.actionType : undefined;
+            resourceInputs["criterias"] = args ? args.criterias : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationTimes"] = args ? args.notificationTimes : undefined;
+            resourceInputs["order"] = args ? args.order : undefined;
+            resourceInputs["repeats"] = args ? args.repeats : undefined;
+            resourceInputs["schedules"] = args ? args.schedules : undefined;
+            resourceInputs["steps"] = args ? args.steps : undefined;
+            resourceInputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NotificationRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NotificationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

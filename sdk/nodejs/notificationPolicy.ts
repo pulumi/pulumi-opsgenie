@@ -98,21 +98,21 @@ export class NotificationPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: NotificationPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationPolicyArgs | NotificationPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationPolicyState | undefined;
-            inputs["autoCloseActions"] = state ? state.autoCloseActions : undefined;
-            inputs["autoRestartActions"] = state ? state.autoRestartActions : undefined;
-            inputs["deDuplicationActions"] = state ? state.deDuplicationActions : undefined;
-            inputs["delayActions"] = state ? state.delayActions : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["filters"] = state ? state.filters : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyDescription"] = state ? state.policyDescription : undefined;
-            inputs["suppress"] = state ? state.suppress : undefined;
-            inputs["teamId"] = state ? state.teamId : undefined;
-            inputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
+            resourceInputs["autoCloseActions"] = state ? state.autoCloseActions : undefined;
+            resourceInputs["autoRestartActions"] = state ? state.autoRestartActions : undefined;
+            resourceInputs["deDuplicationActions"] = state ? state.deDuplicationActions : undefined;
+            resourceInputs["delayActions"] = state ? state.delayActions : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyDescription"] = state ? state.policyDescription : undefined;
+            resourceInputs["suppress"] = state ? state.suppress : undefined;
+            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
         } else {
             const args = argsOrState as NotificationPolicyArgs | undefined;
             if ((!args || args.filters === undefined) && !opts.urn) {
@@ -121,22 +121,20 @@ export class NotificationPolicy extends pulumi.CustomResource {
             if ((!args || args.teamId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            inputs["autoCloseActions"] = args ? args.autoCloseActions : undefined;
-            inputs["autoRestartActions"] = args ? args.autoRestartActions : undefined;
-            inputs["deDuplicationActions"] = args ? args.deDuplicationActions : undefined;
-            inputs["delayActions"] = args ? args.delayActions : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyDescription"] = args ? args.policyDescription : undefined;
-            inputs["suppress"] = args ? args.suppress : undefined;
-            inputs["teamId"] = args ? args.teamId : undefined;
-            inputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
+            resourceInputs["autoCloseActions"] = args ? args.autoCloseActions : undefined;
+            resourceInputs["autoRestartActions"] = args ? args.autoRestartActions : undefined;
+            resourceInputs["deDuplicationActions"] = args ? args.deDuplicationActions : undefined;
+            resourceInputs["delayActions"] = args ? args.delayActions : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyDescription"] = args ? args.policyDescription : undefined;
+            resourceInputs["suppress"] = args ? args.suppress : undefined;
+            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NotificationPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NotificationPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

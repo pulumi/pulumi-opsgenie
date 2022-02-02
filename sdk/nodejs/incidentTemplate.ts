@@ -109,18 +109,18 @@ export class IncidentTemplate extends pulumi.CustomResource {
      */
     constructor(name: string, args: IncidentTemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IncidentTemplateArgs | IncidentTemplateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IncidentTemplateState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["details"] = state ? state.details : undefined;
-            inputs["impactedServices"] = state ? state.impactedServices : undefined;
-            inputs["message"] = state ? state.message : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["stakeholderProperties"] = state ? state.stakeholderProperties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["details"] = state ? state.details : undefined;
+            resourceInputs["impactedServices"] = state ? state.impactedServices : undefined;
+            resourceInputs["message"] = state ? state.message : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["stakeholderProperties"] = state ? state.stakeholderProperties : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as IncidentTemplateArgs | undefined;
             if ((!args || args.message === undefined) && !opts.urn) {
@@ -132,19 +132,17 @@ export class IncidentTemplate extends pulumi.CustomResource {
             if ((!args || args.stakeholderProperties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stakeholderProperties'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["details"] = args ? args.details : undefined;
-            inputs["impactedServices"] = args ? args.impactedServices : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["stakeholderProperties"] = args ? args.stakeholderProperties : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["impactedServices"] = args ? args.impactedServices : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["stakeholderProperties"] = args ? args.stakeholderProperties : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IncidentTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IncidentTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

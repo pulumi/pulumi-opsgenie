@@ -92,14 +92,14 @@ export class UserContact extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserContactArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserContactArgs | UserContactState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserContactState | undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["method"] = state ? state.method : undefined;
-            inputs["to"] = state ? state.to : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["method"] = state ? state.method : undefined;
+            resourceInputs["to"] = state ? state.to : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as UserContactArgs | undefined;
             if ((!args || args.method === undefined) && !opts.urn) {
@@ -111,15 +111,13 @@ export class UserContact extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["method"] = args ? args.method : undefined;
-            inputs["to"] = args ? args.to : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["method"] = args ? args.method : undefined;
+            resourceInputs["to"] = args ? args.to : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserContact.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserContact.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -121,19 +121,19 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["fullName"] = state ? state.fullName : undefined;
-            inputs["locale"] = state ? state.locale : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["skypeUsername"] = state ? state.skypeUsername : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["timezone"] = state ? state.timezone : undefined;
-            inputs["userAddresses"] = state ? state.userAddresses : undefined;
-            inputs["userDetails"] = state ? state.userDetails : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["fullName"] = state ? state.fullName : undefined;
+            resourceInputs["locale"] = state ? state.locale : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["skypeUsername"] = state ? state.skypeUsername : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["userAddresses"] = state ? state.userAddresses : undefined;
+            resourceInputs["userDetails"] = state ? state.userDetails : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.fullName === undefined) && !opts.urn) {
@@ -145,20 +145,18 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["fullName"] = args ? args.fullName : undefined;
-            inputs["locale"] = args ? args.locale : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["skypeUsername"] = args ? args.skypeUsername : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timezone"] = args ? args.timezone : undefined;
-            inputs["userAddresses"] = args ? args.userAddresses : undefined;
-            inputs["userDetails"] = args ? args.userDetails : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["fullName"] = args ? args.fullName : undefined;
+            resourceInputs["locale"] = args ? args.locale : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["skypeUsername"] = args ? args.skypeUsername : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["userAddresses"] = args ? args.userAddresses : undefined;
+            resourceInputs["userDetails"] = args ? args.userDetails : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

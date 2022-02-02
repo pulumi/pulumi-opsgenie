@@ -142,39 +142,37 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ApiIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiIntegrationArgs | ApiIntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiIntegrationState | undefined;
-            inputs["allowWriteAccess"] = state ? state.allowWriteAccess : undefined;
-            inputs["apiKey"] = state ? state.apiKey : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["headers"] = state ? state.headers : undefined;
-            inputs["ignoreRespondersFromPayload"] = state ? state.ignoreRespondersFromPayload : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
-            inputs["responders"] = state ? state.responders : undefined;
-            inputs["suppressNotifications"] = state ? state.suppressNotifications : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["webhookUrl"] = state ? state.webhookUrl : undefined;
+            resourceInputs["allowWriteAccess"] = state ? state.allowWriteAccess : undefined;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["headers"] = state ? state.headers : undefined;
+            resourceInputs["ignoreRespondersFromPayload"] = state ? state.ignoreRespondersFromPayload : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
+            resourceInputs["responders"] = state ? state.responders : undefined;
+            resourceInputs["suppressNotifications"] = state ? state.suppressNotifications : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["webhookUrl"] = state ? state.webhookUrl : undefined;
         } else {
             const args = argsOrState as ApiIntegrationArgs | undefined;
-            inputs["allowWriteAccess"] = args ? args.allowWriteAccess : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["headers"] = args ? args.headers : undefined;
-            inputs["ignoreRespondersFromPayload"] = args ? args.ignoreRespondersFromPayload : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
-            inputs["responders"] = args ? args.responders : undefined;
-            inputs["suppressNotifications"] = args ? args.suppressNotifications : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["webhookUrl"] = args ? args.webhookUrl : undefined;
-            inputs["apiKey"] = undefined /*out*/;
+            resourceInputs["allowWriteAccess"] = args ? args.allowWriteAccess : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["headers"] = args ? args.headers : undefined;
+            resourceInputs["ignoreRespondersFromPayload"] = args ? args.ignoreRespondersFromPayload : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
+            resourceInputs["responders"] = args ? args.responders : undefined;
+            resourceInputs["suppressNotifications"] = args ? args.suppressNotifications : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["webhookUrl"] = args ? args.webhookUrl : undefined;
+            resourceInputs["apiKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiIntegration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }
 
