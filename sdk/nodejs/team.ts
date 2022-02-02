@@ -110,27 +110,25 @@ export class Team extends pulumi.CustomResource {
      */
     constructor(name: string, args?: TeamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamArgs | TeamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamState | undefined;
-            inputs["deleteDefaultResources"] = state ? state.deleteDefaultResources : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ignoreMembers"] = state ? state.ignoreMembers : undefined;
-            inputs["members"] = state ? state.members : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["deleteDefaultResources"] = state ? state.deleteDefaultResources : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["ignoreMembers"] = state ? state.ignoreMembers : undefined;
+            resourceInputs["members"] = state ? state.members : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as TeamArgs | undefined;
-            inputs["deleteDefaultResources"] = args ? args.deleteDefaultResources : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ignoreMembers"] = args ? args.ignoreMembers : undefined;
-            inputs["members"] = args ? args.members : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["deleteDefaultResources"] = args ? args.deleteDefaultResources : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ignoreMembers"] = args ? args.ignoreMembers : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Team.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Team.__pulumiType, name, resourceInputs, opts);
     }
 }
 

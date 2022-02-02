@@ -174,7 +174,7 @@ type ServiceIncidentRuleInput interface {
 }
 
 func (*ServiceIncidentRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceIncidentRule)(nil))
+	return reflect.TypeOf((**ServiceIncidentRule)(nil)).Elem()
 }
 
 func (i *ServiceIncidentRule) ToServiceIncidentRuleOutput() ServiceIncidentRuleOutput {
@@ -183,35 +183,6 @@ func (i *ServiceIncidentRule) ToServiceIncidentRuleOutput() ServiceIncidentRuleO
 
 func (i *ServiceIncidentRule) ToServiceIncidentRuleOutputWithContext(ctx context.Context) ServiceIncidentRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleOutput)
-}
-
-func (i *ServiceIncidentRule) ToServiceIncidentRulePtrOutput() ServiceIncidentRulePtrOutput {
-	return i.ToServiceIncidentRulePtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceIncidentRule) ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRulePtrOutput)
-}
-
-type ServiceIncidentRulePtrInput interface {
-	pulumi.Input
-
-	ToServiceIncidentRulePtrOutput() ServiceIncidentRulePtrOutput
-	ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput
-}
-
-type serviceIncidentRulePtrType ServiceIncidentRuleArgs
-
-func (*serviceIncidentRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceIncidentRule)(nil))
-}
-
-func (i *serviceIncidentRulePtrType) ToServiceIncidentRulePtrOutput() ServiceIncidentRulePtrOutput {
-	return i.ToServiceIncidentRulePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceIncidentRulePtrType) ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRulePtrOutput)
 }
 
 // ServiceIncidentRuleArrayInput is an input type that accepts ServiceIncidentRuleArray and ServiceIncidentRuleArrayOutput values.
@@ -267,7 +238,7 @@ func (i ServiceIncidentRuleMap) ToServiceIncidentRuleMapOutputWithContext(ctx co
 type ServiceIncidentRuleOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceIncidentRule)(nil))
+	return reflect.TypeOf((**ServiceIncidentRule)(nil)).Elem()
 }
 
 func (o ServiceIncidentRuleOutput) ToServiceIncidentRuleOutput() ServiceIncidentRuleOutput {
@@ -278,44 +249,10 @@ func (o ServiceIncidentRuleOutput) ToServiceIncidentRuleOutputWithContext(ctx co
 	return o
 }
 
-func (o ServiceIncidentRuleOutput) ToServiceIncidentRulePtrOutput() ServiceIncidentRulePtrOutput {
-	return o.ToServiceIncidentRulePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceIncidentRuleOutput) ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIncidentRule) *ServiceIncidentRule {
-		return &v
-	}).(ServiceIncidentRulePtrOutput)
-}
-
-type ServiceIncidentRulePtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceIncidentRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceIncidentRule)(nil))
-}
-
-func (o ServiceIncidentRulePtrOutput) ToServiceIncidentRulePtrOutput() ServiceIncidentRulePtrOutput {
-	return o
-}
-
-func (o ServiceIncidentRulePtrOutput) ToServiceIncidentRulePtrOutputWithContext(ctx context.Context) ServiceIncidentRulePtrOutput {
-	return o
-}
-
-func (o ServiceIncidentRulePtrOutput) Elem() ServiceIncidentRuleOutput {
-	return o.ApplyT(func(v *ServiceIncidentRule) ServiceIncidentRule {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceIncidentRule
-		return ret
-	}).(ServiceIncidentRuleOutput)
-}
-
 type ServiceIncidentRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceIncidentRule)(nil))
+	return reflect.TypeOf((*[]*ServiceIncidentRule)(nil)).Elem()
 }
 
 func (o ServiceIncidentRuleArrayOutput) ToServiceIncidentRuleArrayOutput() ServiceIncidentRuleArrayOutput {
@@ -327,15 +264,15 @@ func (o ServiceIncidentRuleArrayOutput) ToServiceIncidentRuleArrayOutputWithCont
 }
 
 func (o ServiceIncidentRuleArrayOutput) Index(i pulumi.IntInput) ServiceIncidentRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceIncidentRule {
-		return vs[0].([]ServiceIncidentRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceIncidentRule {
+		return vs[0].([]*ServiceIncidentRule)[vs[1].(int)]
 	}).(ServiceIncidentRuleOutput)
 }
 
 type ServiceIncidentRuleMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceIncidentRule)(nil))
+	return reflect.TypeOf((*map[string]*ServiceIncidentRule)(nil)).Elem()
 }
 
 func (o ServiceIncidentRuleMapOutput) ToServiceIncidentRuleMapOutput() ServiceIncidentRuleMapOutput {
@@ -347,18 +284,16 @@ func (o ServiceIncidentRuleMapOutput) ToServiceIncidentRuleMapOutputWithContext(
 }
 
 func (o ServiceIncidentRuleMapOutput) MapIndex(k pulumi.StringInput) ServiceIncidentRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceIncidentRule {
-		return vs[0].(map[string]ServiceIncidentRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceIncidentRule {
+		return vs[0].(map[string]*ServiceIncidentRule)[vs[1].(string)]
 	}).(ServiceIncidentRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRuleInput)(nil)).Elem(), &ServiceIncidentRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRulePtrInput)(nil)).Elem(), &ServiceIncidentRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRuleArrayInput)(nil)).Elem(), ServiceIncidentRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRuleMapInput)(nil)).Elem(), ServiceIncidentRuleMap{})
 	pulumi.RegisterOutputType(ServiceIncidentRuleOutput{})
-	pulumi.RegisterOutputType(ServiceIncidentRulePtrOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentRuleArrayOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentRuleMapOutput{})
 }

@@ -188,7 +188,7 @@ type EscalationInput interface {
 }
 
 func (*Escalation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Escalation)(nil))
+	return reflect.TypeOf((**Escalation)(nil)).Elem()
 }
 
 func (i *Escalation) ToEscalationOutput() EscalationOutput {
@@ -197,35 +197,6 @@ func (i *Escalation) ToEscalationOutput() EscalationOutput {
 
 func (i *Escalation) ToEscalationOutputWithContext(ctx context.Context) EscalationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationOutput)
-}
-
-func (i *Escalation) ToEscalationPtrOutput() EscalationPtrOutput {
-	return i.ToEscalationPtrOutputWithContext(context.Background())
-}
-
-func (i *Escalation) ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EscalationPtrOutput)
-}
-
-type EscalationPtrInput interface {
-	pulumi.Input
-
-	ToEscalationPtrOutput() EscalationPtrOutput
-	ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput
-}
-
-type escalationPtrType EscalationArgs
-
-func (*escalationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Escalation)(nil))
-}
-
-func (i *escalationPtrType) ToEscalationPtrOutput() EscalationPtrOutput {
-	return i.ToEscalationPtrOutputWithContext(context.Background())
-}
-
-func (i *escalationPtrType) ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EscalationPtrOutput)
 }
 
 // EscalationArrayInput is an input type that accepts EscalationArray and EscalationArrayOutput values.
@@ -281,7 +252,7 @@ func (i EscalationMap) ToEscalationMapOutputWithContext(ctx context.Context) Esc
 type EscalationOutput struct{ *pulumi.OutputState }
 
 func (EscalationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Escalation)(nil))
+	return reflect.TypeOf((**Escalation)(nil)).Elem()
 }
 
 func (o EscalationOutput) ToEscalationOutput() EscalationOutput {
@@ -292,44 +263,10 @@ func (o EscalationOutput) ToEscalationOutputWithContext(ctx context.Context) Esc
 	return o
 }
 
-func (o EscalationOutput) ToEscalationPtrOutput() EscalationPtrOutput {
-	return o.ToEscalationPtrOutputWithContext(context.Background())
-}
-
-func (o EscalationOutput) ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Escalation) *Escalation {
-		return &v
-	}).(EscalationPtrOutput)
-}
-
-type EscalationPtrOutput struct{ *pulumi.OutputState }
-
-func (EscalationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Escalation)(nil))
-}
-
-func (o EscalationPtrOutput) ToEscalationPtrOutput() EscalationPtrOutput {
-	return o
-}
-
-func (o EscalationPtrOutput) ToEscalationPtrOutputWithContext(ctx context.Context) EscalationPtrOutput {
-	return o
-}
-
-func (o EscalationPtrOutput) Elem() EscalationOutput {
-	return o.ApplyT(func(v *Escalation) Escalation {
-		if v != nil {
-			return *v
-		}
-		var ret Escalation
-		return ret
-	}).(EscalationOutput)
-}
-
 type EscalationArrayOutput struct{ *pulumi.OutputState }
 
 func (EscalationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Escalation)(nil))
+	return reflect.TypeOf((*[]*Escalation)(nil)).Elem()
 }
 
 func (o EscalationArrayOutput) ToEscalationArrayOutput() EscalationArrayOutput {
@@ -341,15 +278,15 @@ func (o EscalationArrayOutput) ToEscalationArrayOutputWithContext(ctx context.Co
 }
 
 func (o EscalationArrayOutput) Index(i pulumi.IntInput) EscalationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Escalation {
-		return vs[0].([]Escalation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Escalation {
+		return vs[0].([]*Escalation)[vs[1].(int)]
 	}).(EscalationOutput)
 }
 
 type EscalationMapOutput struct{ *pulumi.OutputState }
 
 func (EscalationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Escalation)(nil))
+	return reflect.TypeOf((*map[string]*Escalation)(nil)).Elem()
 }
 
 func (o EscalationMapOutput) ToEscalationMapOutput() EscalationMapOutput {
@@ -361,18 +298,16 @@ func (o EscalationMapOutput) ToEscalationMapOutputWithContext(ctx context.Contex
 }
 
 func (o EscalationMapOutput) MapIndex(k pulumi.StringInput) EscalationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Escalation {
-		return vs[0].(map[string]Escalation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Escalation {
+		return vs[0].(map[string]*Escalation)[vs[1].(string)]
 	}).(EscalationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationInput)(nil)).Elem(), &Escalation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPtrInput)(nil)).Elem(), &Escalation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationArrayInput)(nil)).Elem(), EscalationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationMapInput)(nil)).Elem(), EscalationMap{})
 	pulumi.RegisterOutputType(EscalationOutput{})
-	pulumi.RegisterOutputType(EscalationPtrOutput{})
 	pulumi.RegisterOutputType(EscalationArrayOutput{})
 	pulumi.RegisterOutputType(EscalationMapOutput{})
 }

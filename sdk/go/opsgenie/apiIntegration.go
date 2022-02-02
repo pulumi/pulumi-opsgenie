@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewApiIntegration(ctx, "example_api_integrationApiIntegration", &opsgenie.ApiIntegrationArgs{
+// 		_, err := opsgenie.NewApiIntegration(ctx, "example-api-integrationApiIntegration", &opsgenie.ApiIntegrationArgs{
 // 			Type: pulumi.String("API"),
 // 			Responders: ApiIntegrationResponderArray{
 // 				&ApiIntegrationResponderArgs{
@@ -40,7 +40,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = opsgenie.NewApiIntegration(ctx, "example_api_integrationIndex_apiIntegrationApiIntegration", &opsgenie.ApiIntegrationArgs{
+// 		_, err = opsgenie.NewApiIntegration(ctx, "example-api-integrationIndex/apiIntegrationApiIntegration", &opsgenie.ApiIntegrationArgs{
 // 			Type: pulumi.String("Prometheus"),
 // 			Responders: ApiIntegrationResponderArray{
 // 				&ApiIntegrationResponderArgs{
@@ -251,7 +251,7 @@ type ApiIntegrationInput interface {
 }
 
 func (*ApiIntegration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiIntegration)(nil))
+	return reflect.TypeOf((**ApiIntegration)(nil)).Elem()
 }
 
 func (i *ApiIntegration) ToApiIntegrationOutput() ApiIntegrationOutput {
@@ -260,35 +260,6 @@ func (i *ApiIntegration) ToApiIntegrationOutput() ApiIntegrationOutput {
 
 func (i *ApiIntegration) ToApiIntegrationOutputWithContext(ctx context.Context) ApiIntegrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationOutput)
-}
-
-func (i *ApiIntegration) ToApiIntegrationPtrOutput() ApiIntegrationPtrOutput {
-	return i.ToApiIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (i *ApiIntegration) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationPtrOutput)
-}
-
-type ApiIntegrationPtrInput interface {
-	pulumi.Input
-
-	ToApiIntegrationPtrOutput() ApiIntegrationPtrOutput
-	ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput
-}
-
-type apiIntegrationPtrType ApiIntegrationArgs
-
-func (*apiIntegrationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiIntegration)(nil))
-}
-
-func (i *apiIntegrationPtrType) ToApiIntegrationPtrOutput() ApiIntegrationPtrOutput {
-	return i.ToApiIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (i *apiIntegrationPtrType) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationPtrOutput)
 }
 
 // ApiIntegrationArrayInput is an input type that accepts ApiIntegrationArray and ApiIntegrationArrayOutput values.
@@ -344,7 +315,7 @@ func (i ApiIntegrationMap) ToApiIntegrationMapOutputWithContext(ctx context.Cont
 type ApiIntegrationOutput struct{ *pulumi.OutputState }
 
 func (ApiIntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiIntegration)(nil))
+	return reflect.TypeOf((**ApiIntegration)(nil)).Elem()
 }
 
 func (o ApiIntegrationOutput) ToApiIntegrationOutput() ApiIntegrationOutput {
@@ -355,44 +326,10 @@ func (o ApiIntegrationOutput) ToApiIntegrationOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ApiIntegrationOutput) ToApiIntegrationPtrOutput() ApiIntegrationPtrOutput {
-	return o.ToApiIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (o ApiIntegrationOutput) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiIntegration) *ApiIntegration {
-		return &v
-	}).(ApiIntegrationPtrOutput)
-}
-
-type ApiIntegrationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiIntegrationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiIntegration)(nil))
-}
-
-func (o ApiIntegrationPtrOutput) ToApiIntegrationPtrOutput() ApiIntegrationPtrOutput {
-	return o
-}
-
-func (o ApiIntegrationPtrOutput) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
-	return o
-}
-
-func (o ApiIntegrationPtrOutput) Elem() ApiIntegrationOutput {
-	return o.ApplyT(func(v *ApiIntegration) ApiIntegration {
-		if v != nil {
-			return *v
-		}
-		var ret ApiIntegration
-		return ret
-	}).(ApiIntegrationOutput)
-}
-
 type ApiIntegrationArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiIntegrationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiIntegration)(nil))
+	return reflect.TypeOf((*[]*ApiIntegration)(nil)).Elem()
 }
 
 func (o ApiIntegrationArrayOutput) ToApiIntegrationArrayOutput() ApiIntegrationArrayOutput {
@@ -404,15 +341,15 @@ func (o ApiIntegrationArrayOutput) ToApiIntegrationArrayOutputWithContext(ctx co
 }
 
 func (o ApiIntegrationArrayOutput) Index(i pulumi.IntInput) ApiIntegrationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiIntegration {
-		return vs[0].([]ApiIntegration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiIntegration {
+		return vs[0].([]*ApiIntegration)[vs[1].(int)]
 	}).(ApiIntegrationOutput)
 }
 
 type ApiIntegrationMapOutput struct{ *pulumi.OutputState }
 
 func (ApiIntegrationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApiIntegration)(nil))
+	return reflect.TypeOf((*map[string]*ApiIntegration)(nil)).Elem()
 }
 
 func (o ApiIntegrationMapOutput) ToApiIntegrationMapOutput() ApiIntegrationMapOutput {
@@ -424,18 +361,16 @@ func (o ApiIntegrationMapOutput) ToApiIntegrationMapOutputWithContext(ctx contex
 }
 
 func (o ApiIntegrationMapOutput) MapIndex(k pulumi.StringInput) ApiIntegrationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiIntegration {
-		return vs[0].(map[string]ApiIntegration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApiIntegration {
+		return vs[0].(map[string]*ApiIntegration)[vs[1].(string)]
 	}).(ApiIntegrationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiIntegrationInput)(nil)).Elem(), &ApiIntegration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiIntegrationPtrInput)(nil)).Elem(), &ApiIntegration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiIntegrationArrayInput)(nil)).Elem(), ApiIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiIntegrationMapInput)(nil)).Elem(), ApiIntegrationMap{})
 	pulumi.RegisterOutputType(ApiIntegrationOutput{})
-	pulumi.RegisterOutputType(ApiIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(ApiIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(ApiIntegrationMapOutput{})
 }

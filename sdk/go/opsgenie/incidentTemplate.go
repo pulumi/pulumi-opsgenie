@@ -216,7 +216,7 @@ type IncidentTemplateInput interface {
 }
 
 func (*IncidentTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentTemplate)(nil))
+	return reflect.TypeOf((**IncidentTemplate)(nil)).Elem()
 }
 
 func (i *IncidentTemplate) ToIncidentTemplateOutput() IncidentTemplateOutput {
@@ -225,35 +225,6 @@ func (i *IncidentTemplate) ToIncidentTemplateOutput() IncidentTemplateOutput {
 
 func (i *IncidentTemplate) ToIncidentTemplateOutputWithContext(ctx context.Context) IncidentTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateOutput)
-}
-
-func (i *IncidentTemplate) ToIncidentTemplatePtrOutput() IncidentTemplatePtrOutput {
-	return i.ToIncidentTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *IncidentTemplate) ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplatePtrOutput)
-}
-
-type IncidentTemplatePtrInput interface {
-	pulumi.Input
-
-	ToIncidentTemplatePtrOutput() IncidentTemplatePtrOutput
-	ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput
-}
-
-type incidentTemplatePtrType IncidentTemplateArgs
-
-func (*incidentTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IncidentTemplate)(nil))
-}
-
-func (i *incidentTemplatePtrType) ToIncidentTemplatePtrOutput() IncidentTemplatePtrOutput {
-	return i.ToIncidentTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *incidentTemplatePtrType) ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplatePtrOutput)
 }
 
 // IncidentTemplateArrayInput is an input type that accepts IncidentTemplateArray and IncidentTemplateArrayOutput values.
@@ -309,7 +280,7 @@ func (i IncidentTemplateMap) ToIncidentTemplateMapOutputWithContext(ctx context.
 type IncidentTemplateOutput struct{ *pulumi.OutputState }
 
 func (IncidentTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentTemplate)(nil))
+	return reflect.TypeOf((**IncidentTemplate)(nil)).Elem()
 }
 
 func (o IncidentTemplateOutput) ToIncidentTemplateOutput() IncidentTemplateOutput {
@@ -320,44 +291,10 @@ func (o IncidentTemplateOutput) ToIncidentTemplateOutputWithContext(ctx context.
 	return o
 }
 
-func (o IncidentTemplateOutput) ToIncidentTemplatePtrOutput() IncidentTemplatePtrOutput {
-	return o.ToIncidentTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o IncidentTemplateOutput) ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentTemplate) *IncidentTemplate {
-		return &v
-	}).(IncidentTemplatePtrOutput)
-}
-
-type IncidentTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (IncidentTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IncidentTemplate)(nil))
-}
-
-func (o IncidentTemplatePtrOutput) ToIncidentTemplatePtrOutput() IncidentTemplatePtrOutput {
-	return o
-}
-
-func (o IncidentTemplatePtrOutput) ToIncidentTemplatePtrOutputWithContext(ctx context.Context) IncidentTemplatePtrOutput {
-	return o
-}
-
-func (o IncidentTemplatePtrOutput) Elem() IncidentTemplateOutput {
-	return o.ApplyT(func(v *IncidentTemplate) IncidentTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentTemplate
-		return ret
-	}).(IncidentTemplateOutput)
-}
-
 type IncidentTemplateArrayOutput struct{ *pulumi.OutputState }
 
 func (IncidentTemplateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IncidentTemplate)(nil))
+	return reflect.TypeOf((*[]*IncidentTemplate)(nil)).Elem()
 }
 
 func (o IncidentTemplateArrayOutput) ToIncidentTemplateArrayOutput() IncidentTemplateArrayOutput {
@@ -369,15 +306,15 @@ func (o IncidentTemplateArrayOutput) ToIncidentTemplateArrayOutputWithContext(ct
 }
 
 func (o IncidentTemplateArrayOutput) Index(i pulumi.IntInput) IncidentTemplateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentTemplate {
-		return vs[0].([]IncidentTemplate)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IncidentTemplate {
+		return vs[0].([]*IncidentTemplate)[vs[1].(int)]
 	}).(IncidentTemplateOutput)
 }
 
 type IncidentTemplateMapOutput struct{ *pulumi.OutputState }
 
 func (IncidentTemplateMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IncidentTemplate)(nil))
+	return reflect.TypeOf((*map[string]*IncidentTemplate)(nil)).Elem()
 }
 
 func (o IncidentTemplateMapOutput) ToIncidentTemplateMapOutput() IncidentTemplateMapOutput {
@@ -389,18 +326,16 @@ func (o IncidentTemplateMapOutput) ToIncidentTemplateMapOutputWithContext(ctx co
 }
 
 func (o IncidentTemplateMapOutput) MapIndex(k pulumi.StringInput) IncidentTemplateOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IncidentTemplate {
-		return vs[0].(map[string]IncidentTemplate)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IncidentTemplate {
+		return vs[0].(map[string]*IncidentTemplate)[vs[1].(string)]
 	}).(IncidentTemplateOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentTemplateInput)(nil)).Elem(), &IncidentTemplate{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentTemplatePtrInput)(nil)).Elem(), &IncidentTemplate{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentTemplateArrayInput)(nil)).Elem(), IncidentTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentTemplateMapInput)(nil)).Elem(), IncidentTemplateMap{})
 	pulumi.RegisterOutputType(IncidentTemplateOutput{})
-	pulumi.RegisterOutputType(IncidentTemplatePtrOutput{})
 	pulumi.RegisterOutputType(IncidentTemplateArrayOutput{})
 	pulumi.RegisterOutputType(IncidentTemplateMapOutput{})
 }

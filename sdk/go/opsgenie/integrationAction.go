@@ -295,7 +295,7 @@ type IntegrationActionInput interface {
 }
 
 func (*IntegrationAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAction)(nil))
+	return reflect.TypeOf((**IntegrationAction)(nil)).Elem()
 }
 
 func (i *IntegrationAction) ToIntegrationActionOutput() IntegrationActionOutput {
@@ -304,35 +304,6 @@ func (i *IntegrationAction) ToIntegrationActionOutput() IntegrationActionOutput 
 
 func (i *IntegrationAction) ToIntegrationActionOutputWithContext(ctx context.Context) IntegrationActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionOutput)
-}
-
-func (i *IntegrationAction) ToIntegrationActionPtrOutput() IntegrationActionPtrOutput {
-	return i.ToIntegrationActionPtrOutputWithContext(context.Background())
-}
-
-func (i *IntegrationAction) ToIntegrationActionPtrOutputWithContext(ctx context.Context) IntegrationActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionPtrOutput)
-}
-
-type IntegrationActionPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationActionPtrOutput() IntegrationActionPtrOutput
-	ToIntegrationActionPtrOutputWithContext(ctx context.Context) IntegrationActionPtrOutput
-}
-
-type integrationActionPtrType IntegrationActionArgs
-
-func (*integrationActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAction)(nil))
-}
-
-func (i *integrationActionPtrType) ToIntegrationActionPtrOutput() IntegrationActionPtrOutput {
-	return i.ToIntegrationActionPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationActionPtrType) ToIntegrationActionPtrOutputWithContext(ctx context.Context) IntegrationActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionPtrOutput)
 }
 
 // IntegrationActionArrayInput is an input type that accepts IntegrationActionArray and IntegrationActionArrayOutput values.
@@ -388,7 +359,7 @@ func (i IntegrationActionMap) ToIntegrationActionMapOutputWithContext(ctx contex
 type IntegrationActionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAction)(nil))
+	return reflect.TypeOf((**IntegrationAction)(nil)).Elem()
 }
 
 func (o IntegrationActionOutput) ToIntegrationActionOutput() IntegrationActionOutput {
@@ -399,44 +370,10 @@ func (o IntegrationActionOutput) ToIntegrationActionOutputWithContext(ctx contex
 	return o
 }
 
-func (o IntegrationActionOutput) ToIntegrationActionPtrOutput() IntegrationActionPtrOutput {
-	return o.ToIntegrationActionPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationActionOutput) ToIntegrationActionPtrOutputWithContext(ctx context.Context) IntegrationActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAction) *IntegrationAction {
-		return &v
-	}).(IntegrationActionPtrOutput)
-}
-
-type IntegrationActionPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAction)(nil))
-}
-
-func (o IntegrationActionPtrOutput) ToIntegrationActionPtrOutput() IntegrationActionPtrOutput {
-	return o
-}
-
-func (o IntegrationActionPtrOutput) ToIntegrationActionPtrOutputWithContext(ctx context.Context) IntegrationActionPtrOutput {
-	return o
-}
-
-func (o IntegrationActionPtrOutput) Elem() IntegrationActionOutput {
-	return o.ApplyT(func(v *IntegrationAction) IntegrationAction {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationAction
-		return ret
-	}).(IntegrationActionOutput)
-}
-
 type IntegrationActionArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IntegrationAction)(nil))
+	return reflect.TypeOf((*[]*IntegrationAction)(nil)).Elem()
 }
 
 func (o IntegrationActionArrayOutput) ToIntegrationActionArrayOutput() IntegrationActionArrayOutput {
@@ -448,15 +385,15 @@ func (o IntegrationActionArrayOutput) ToIntegrationActionArrayOutputWithContext(
 }
 
 func (o IntegrationActionArrayOutput) Index(i pulumi.IntInput) IntegrationActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAction {
-		return vs[0].([]IntegrationAction)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAction {
+		return vs[0].([]*IntegrationAction)[vs[1].(int)]
 	}).(IntegrationActionOutput)
 }
 
 type IntegrationActionMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IntegrationAction)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAction)(nil)).Elem()
 }
 
 func (o IntegrationActionMapOutput) ToIntegrationActionMapOutput() IntegrationActionMapOutput {
@@ -468,18 +405,16 @@ func (o IntegrationActionMapOutput) ToIntegrationActionMapOutputWithContext(ctx 
 }
 
 func (o IntegrationActionMapOutput) MapIndex(k pulumi.StringInput) IntegrationActionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationAction {
-		return vs[0].(map[string]IntegrationAction)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationAction {
+		return vs[0].(map[string]*IntegrationAction)[vs[1].(string)]
 	}).(IntegrationActionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationActionInput)(nil)).Elem(), &IntegrationAction{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationActionPtrInput)(nil)).Elem(), &IntegrationAction{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationActionArrayInput)(nil)).Elem(), IntegrationActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationActionMapInput)(nil)).Elem(), IntegrationActionMap{})
 	pulumi.RegisterOutputType(IntegrationActionOutput{})
-	pulumi.RegisterOutputType(IntegrationActionPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationActionArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationActionMapOutput{})
 }

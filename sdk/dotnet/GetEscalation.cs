@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Opsgenie
 {
@@ -39,7 +38,7 @@ namespace Pulumi.Opsgenie
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEscalationResult> InvokeAsync(GetEscalationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Manages an Escalation within Opsgenie.
@@ -68,7 +67,7 @@ namespace Pulumi.Opsgenie
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEscalationResult> Invoke(GetEscalationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationInvokeArgs(), options.WithDefaults());
     }
 
 

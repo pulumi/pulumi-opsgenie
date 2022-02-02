@@ -89,13 +89,13 @@ export class Maintenance extends pulumi.CustomResource {
      */
     constructor(name: string, args: MaintenanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MaintenanceArgs | MaintenanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaintenanceState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["times"] = state ? state.times : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["times"] = state ? state.times : undefined;
         } else {
             const args = argsOrState as MaintenanceArgs | undefined;
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -104,14 +104,12 @@ export class Maintenance extends pulumi.CustomResource {
             if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["times"] = args ? args.times : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["times"] = args ? args.times : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Maintenance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Maintenance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

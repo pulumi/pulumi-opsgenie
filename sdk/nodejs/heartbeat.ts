@@ -110,19 +110,19 @@ export class Heartbeat extends pulumi.CustomResource {
      */
     constructor(name: string, args: HeartbeatArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HeartbeatArgs | HeartbeatState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HeartbeatState | undefined;
-            inputs["alertMessage"] = state ? state.alertMessage : undefined;
-            inputs["alertPriority"] = state ? state.alertPriority : undefined;
-            inputs["alertTags"] = state ? state.alertTags : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["interval"] = state ? state.interval : undefined;
-            inputs["intervalUnit"] = state ? state.intervalUnit : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
+            resourceInputs["alertMessage"] = state ? state.alertMessage : undefined;
+            resourceInputs["alertPriority"] = state ? state.alertPriority : undefined;
+            resourceInputs["alertTags"] = state ? state.alertTags : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["interval"] = state ? state.interval : undefined;
+            resourceInputs["intervalUnit"] = state ? state.intervalUnit : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
         } else {
             const args = argsOrState as HeartbeatArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -134,20 +134,18 @@ export class Heartbeat extends pulumi.CustomResource {
             if ((!args || args.intervalUnit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'intervalUnit'");
             }
-            inputs["alertMessage"] = args ? args.alertMessage : undefined;
-            inputs["alertPriority"] = args ? args.alertPriority : undefined;
-            inputs["alertTags"] = args ? args.alertTags : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["interval"] = args ? args.interval : undefined;
-            inputs["intervalUnit"] = args ? args.intervalUnit : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
+            resourceInputs["alertMessage"] = args ? args.alertMessage : undefined;
+            resourceInputs["alertPriority"] = args ? args.alertPriority : undefined;
+            resourceInputs["alertTags"] = args ? args.alertTags : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["interval"] = args ? args.interval : undefined;
+            resourceInputs["intervalUnit"] = args ? args.intervalUnit : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Heartbeat.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Heartbeat.__pulumiType, name, resourceInputs, opts);
     }
 }
 

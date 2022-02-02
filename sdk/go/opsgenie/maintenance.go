@@ -161,7 +161,7 @@ type MaintenanceInput interface {
 }
 
 func (*Maintenance) ElementType() reflect.Type {
-	return reflect.TypeOf((*Maintenance)(nil))
+	return reflect.TypeOf((**Maintenance)(nil)).Elem()
 }
 
 func (i *Maintenance) ToMaintenanceOutput() MaintenanceOutput {
@@ -170,35 +170,6 @@ func (i *Maintenance) ToMaintenanceOutput() MaintenanceOutput {
 
 func (i *Maintenance) ToMaintenanceOutputWithContext(ctx context.Context) MaintenanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceOutput)
-}
-
-func (i *Maintenance) ToMaintenancePtrOutput() MaintenancePtrOutput {
-	return i.ToMaintenancePtrOutputWithContext(context.Background())
-}
-
-func (i *Maintenance) ToMaintenancePtrOutputWithContext(ctx context.Context) MaintenancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaintenancePtrOutput)
-}
-
-type MaintenancePtrInput interface {
-	pulumi.Input
-
-	ToMaintenancePtrOutput() MaintenancePtrOutput
-	ToMaintenancePtrOutputWithContext(ctx context.Context) MaintenancePtrOutput
-}
-
-type maintenancePtrType MaintenanceArgs
-
-func (*maintenancePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Maintenance)(nil))
-}
-
-func (i *maintenancePtrType) ToMaintenancePtrOutput() MaintenancePtrOutput {
-	return i.ToMaintenancePtrOutputWithContext(context.Background())
-}
-
-func (i *maintenancePtrType) ToMaintenancePtrOutputWithContext(ctx context.Context) MaintenancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaintenancePtrOutput)
 }
 
 // MaintenanceArrayInput is an input type that accepts MaintenanceArray and MaintenanceArrayOutput values.
@@ -254,7 +225,7 @@ func (i MaintenanceMap) ToMaintenanceMapOutputWithContext(ctx context.Context) M
 type MaintenanceOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Maintenance)(nil))
+	return reflect.TypeOf((**Maintenance)(nil)).Elem()
 }
 
 func (o MaintenanceOutput) ToMaintenanceOutput() MaintenanceOutput {
@@ -265,44 +236,10 @@ func (o MaintenanceOutput) ToMaintenanceOutputWithContext(ctx context.Context) M
 	return o
 }
 
-func (o MaintenanceOutput) ToMaintenancePtrOutput() MaintenancePtrOutput {
-	return o.ToMaintenancePtrOutputWithContext(context.Background())
-}
-
-func (o MaintenanceOutput) ToMaintenancePtrOutputWithContext(ctx context.Context) MaintenancePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Maintenance) *Maintenance {
-		return &v
-	}).(MaintenancePtrOutput)
-}
-
-type MaintenancePtrOutput struct{ *pulumi.OutputState }
-
-func (MaintenancePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Maintenance)(nil))
-}
-
-func (o MaintenancePtrOutput) ToMaintenancePtrOutput() MaintenancePtrOutput {
-	return o
-}
-
-func (o MaintenancePtrOutput) ToMaintenancePtrOutputWithContext(ctx context.Context) MaintenancePtrOutput {
-	return o
-}
-
-func (o MaintenancePtrOutput) Elem() MaintenanceOutput {
-	return o.ApplyT(func(v *Maintenance) Maintenance {
-		if v != nil {
-			return *v
-		}
-		var ret Maintenance
-		return ret
-	}).(MaintenanceOutput)
-}
-
 type MaintenanceArrayOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Maintenance)(nil))
+	return reflect.TypeOf((*[]*Maintenance)(nil)).Elem()
 }
 
 func (o MaintenanceArrayOutput) ToMaintenanceArrayOutput() MaintenanceArrayOutput {
@@ -314,15 +251,15 @@ func (o MaintenanceArrayOutput) ToMaintenanceArrayOutputWithContext(ctx context.
 }
 
 func (o MaintenanceArrayOutput) Index(i pulumi.IntInput) MaintenanceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Maintenance {
-		return vs[0].([]Maintenance)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Maintenance {
+		return vs[0].([]*Maintenance)[vs[1].(int)]
 	}).(MaintenanceOutput)
 }
 
 type MaintenanceMapOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Maintenance)(nil))
+	return reflect.TypeOf((*map[string]*Maintenance)(nil)).Elem()
 }
 
 func (o MaintenanceMapOutput) ToMaintenanceMapOutput() MaintenanceMapOutput {
@@ -334,18 +271,16 @@ func (o MaintenanceMapOutput) ToMaintenanceMapOutputWithContext(ctx context.Cont
 }
 
 func (o MaintenanceMapOutput) MapIndex(k pulumi.StringInput) MaintenanceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Maintenance {
-		return vs[0].(map[string]Maintenance)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Maintenance {
+		return vs[0].(map[string]*Maintenance)[vs[1].(string)]
 	}).(MaintenanceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceInput)(nil)).Elem(), &Maintenance{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MaintenancePtrInput)(nil)).Elem(), &Maintenance{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceArrayInput)(nil)).Elem(), MaintenanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceMapInput)(nil)).Elem(), MaintenanceMap{})
 	pulumi.RegisterOutputType(MaintenanceOutput{})
-	pulumi.RegisterOutputType(MaintenancePtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceArrayOutput{})
 	pulumi.RegisterOutputType(MaintenanceMapOutput{})
 }

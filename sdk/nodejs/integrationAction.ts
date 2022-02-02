@@ -194,32 +194,30 @@ export class IntegrationAction extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationActionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationActionArgs | IntegrationActionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationActionState | undefined;
-            inputs["acknowledges"] = state ? state.acknowledges : undefined;
-            inputs["addNotes"] = state ? state.addNotes : undefined;
-            inputs["closes"] = state ? state.closes : undefined;
-            inputs["creates"] = state ? state.creates : undefined;
-            inputs["ignores"] = state ? state.ignores : undefined;
-            inputs["integrationId"] = state ? state.integrationId : undefined;
+            resourceInputs["acknowledges"] = state ? state.acknowledges : undefined;
+            resourceInputs["addNotes"] = state ? state.addNotes : undefined;
+            resourceInputs["closes"] = state ? state.closes : undefined;
+            resourceInputs["creates"] = state ? state.creates : undefined;
+            resourceInputs["ignores"] = state ? state.ignores : undefined;
+            resourceInputs["integrationId"] = state ? state.integrationId : undefined;
         } else {
             const args = argsOrState as IntegrationActionArgs | undefined;
             if ((!args || args.integrationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationId'");
             }
-            inputs["acknowledges"] = args ? args.acknowledges : undefined;
-            inputs["addNotes"] = args ? args.addNotes : undefined;
-            inputs["closes"] = args ? args.closes : undefined;
-            inputs["creates"] = args ? args.creates : undefined;
-            inputs["ignores"] = args ? args.ignores : undefined;
-            inputs["integrationId"] = args ? args.integrationId : undefined;
+            resourceInputs["acknowledges"] = args ? args.acknowledges : undefined;
+            resourceInputs["addNotes"] = args ? args.addNotes : undefined;
+            resourceInputs["closes"] = args ? args.closes : undefined;
+            resourceInputs["creates"] = args ? args.creates : undefined;
+            resourceInputs["ignores"] = args ? args.ignores : undefined;
+            resourceInputs["integrationId"] = args ? args.integrationId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IntegrationAction.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IntegrationAction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

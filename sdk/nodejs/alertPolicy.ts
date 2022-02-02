@@ -176,60 +176,58 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertPolicyArgs | AlertPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertPolicyState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["alertDescription"] = state ? state.alertDescription : undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["continuePolicy"] = state ? state.continuePolicy : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["entity"] = state ? state.entity : undefined;
-            inputs["filters"] = state ? state.filters : undefined;
-            inputs["ignoreOriginalActions"] = state ? state.ignoreOriginalActions : undefined;
-            inputs["ignoreOriginalDetails"] = state ? state.ignoreOriginalDetails : undefined;
-            inputs["ignoreOriginalResponders"] = state ? state.ignoreOriginalResponders : undefined;
-            inputs["ignoreOriginalTags"] = state ? state.ignoreOriginalTags : undefined;
-            inputs["message"] = state ? state.message : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyDescription"] = state ? state.policyDescription : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["responders"] = state ? state.responders : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["teamId"] = state ? state.teamId : undefined;
-            inputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["alertDescription"] = state ? state.alertDescription : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["continuePolicy"] = state ? state.continuePolicy : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["entity"] = state ? state.entity : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["ignoreOriginalActions"] = state ? state.ignoreOriginalActions : undefined;
+            resourceInputs["ignoreOriginalDetails"] = state ? state.ignoreOriginalDetails : undefined;
+            resourceInputs["ignoreOriginalResponders"] = state ? state.ignoreOriginalResponders : undefined;
+            resourceInputs["ignoreOriginalTags"] = state ? state.ignoreOriginalTags : undefined;
+            resourceInputs["message"] = state ? state.message : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyDescription"] = state ? state.policyDescription : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["responders"] = state ? state.responders : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
         } else {
             const args = argsOrState as AlertPolicyArgs | undefined;
             if ((!args || args.message === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["alertDescription"] = args ? args.alertDescription : undefined;
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["continuePolicy"] = args ? args.continuePolicy : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["entity"] = args ? args.entity : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["ignoreOriginalActions"] = args ? args.ignoreOriginalActions : undefined;
-            inputs["ignoreOriginalDetails"] = args ? args.ignoreOriginalDetails : undefined;
-            inputs["ignoreOriginalResponders"] = args ? args.ignoreOriginalResponders : undefined;
-            inputs["ignoreOriginalTags"] = args ? args.ignoreOriginalTags : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyDescription"] = args ? args.policyDescription : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["responders"] = args ? args.responders : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["teamId"] = args ? args.teamId : undefined;
-            inputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["alertDescription"] = args ? args.alertDescription : undefined;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["continuePolicy"] = args ? args.continuePolicy : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["entity"] = args ? args.entity : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["ignoreOriginalActions"] = args ? args.ignoreOriginalActions : undefined;
+            resourceInputs["ignoreOriginalDetails"] = args ? args.ignoreOriginalDetails : undefined;
+            resourceInputs["ignoreOriginalResponders"] = args ? args.ignoreOriginalResponders : undefined;
+            resourceInputs["ignoreOriginalTags"] = args ? args.ignoreOriginalTags : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyDescription"] = args ? args.policyDescription : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["responders"] = args ? args.responders : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlertPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlertPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 
