@@ -642,10 +642,10 @@ github.com/opentracing/basictracer-go v1.0.0 h1:YyUAhaEfjoWXclZVJ9sGoNct7j4TVk7l
 github.com/opentracing/basictracer-go v1.0.0/go.mod h1:QfBfYuafItcjQuMwinw9GhYKwFXS9KnPs5lxoYwgW74=
 github.com/opentracing/opentracing-go v1.1.0 h1:pWlfV3Bxv7k65HYwkikxat0+s3pV4bsqf19k25Ur8rU=
 github.com/opentracing/opentracing-go v1.1.0/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFStlNbqXla1AfSYxPUl2o=
-github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.9-0.20220105104804-b14b16d483ab h1:7fzAUOMkb+SuhUsKbBrr8KOxmGWTtPTt2fqL+RcqGUA=
-github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.9-0.20220105104804-b14b16d483ab/go.mod h1:4OjcxgwdXzezqytxN534MooNmrxRD50geWZxTD7845s=
-github.com/opsgenie/terraform-provider-opsgenie v0.6.8 h1:+b+WDPy+arvGFSWXeJ2CvR/fcT6PGrFvT7CvZp0KRao=
-github.com/opsgenie/terraform-provider-opsgenie v0.6.8/go.mod h1:Gfm5BGkkAd2uqcpdVsYrbGZ9cSzxCyLnfpNOdVsPnqI=
+github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.11-0.20220210080402-2a8f79978ae0 h1:qlSiuCdXCgw/fwoQA+SV2Ek3peiq6G9cR9meP1Ux8Ys=
+github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.11-0.20220210080402-2a8f79978ae0/go.mod h1:4OjcxgwdXzezqytxN534MooNmrxRD50geWZxTD7845s=
+github.com/opsgenie/terraform-provider-opsgenie v0.6.9 h1:zAc2O25I3yvM6JyYqKA8jLCq1IodR1vU80A1bk26yAk=
+github.com/opsgenie/terraform-provider-opsgenie v0.6.9/go.mod h1:qhaR4O4IXj72GbqFnGfXDhQdeLiYf7cusBWSuOm/0gc=
 github.com/pascaldekloe/goe v0.1.0/go.mod h1:lzWF7FIEvWOWxwDKqyGYQf6ZUaNfKdP144TG7ZOy1lc=
 github.com/pelletier/go-buffruneio v0.2.0/go.mod h1:JkE26KsDizTr40EUHkXVtNPvgGtbSNq5BcowyYOWdKo=
 github.com/pelletier/go-toml v1.2.0/go.mod h1:5z9KED0ma1S8pY6P1sdut58dfprrGBbd/94hg7ilaic=
