@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  *             priority: "P3",
  *             stakeholderProperties: [{
  *                 message: "Message for stakeholders",
- *                 enable: "true",
+ *                 enable: true,
  *             }],
  *         }],
  *     }],
