@@ -14,6 +14,10 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class NotificationPolicyTimeRestriction
     {
         /// <summary>
+        /// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NotificationPolicyTimeRestrictionRestriction> Restriction;
+        /// <summary>
         /// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationPolicyTimeRestrictionRestriction> Restrictions;
@@ -24,10 +28,13 @@ namespace Pulumi.Opsgenie.Outputs
 
         [OutputConstructor]
         private NotificationPolicyTimeRestriction(
+            ImmutableArray<Outputs.NotificationPolicyTimeRestrictionRestriction> restriction,
+
             ImmutableArray<Outputs.NotificationPolicyTimeRestrictionRestriction> restrictions,
 
             string type)
         {
+            Restriction = restriction;
             Restrictions = restrictions;
             Type = type;
         }

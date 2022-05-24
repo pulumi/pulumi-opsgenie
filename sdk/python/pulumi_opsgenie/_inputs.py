@@ -2739,12 +2739,16 @@ class NotificationPolicyFilterConditionArgs:
 class NotificationPolicyTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 restriction: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]] = None,
                  restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]] = None):
         """
         :param pulumi.Input[str] type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]] restrictions: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "type", type)
+        if restriction is not None:
+            pulumi.set(__self__, "restriction", restriction)
         if restrictions is not None:
             pulumi.set(__self__, "restrictions", restrictions)
 
@@ -2759,6 +2763,18 @@ class NotificationPolicyTimeRestrictionArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def restriction(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]:
+        """
+        A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+        """
+        return pulumi.get(self, "restriction")
+
+    @restriction.setter
+    def restriction(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]):
+        pulumi.set(self, "restriction", value)
 
     @property
     @pulumi.getter

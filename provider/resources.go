@@ -116,6 +116,18 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"opsgenie_notification_policy": {
 				Tok: makeResource(mainMod, "NotificationPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"time_restriction": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								// Again, we have both a `restrictions` and a `restriction` parameter so we need
+								// to explicitly declare both here to avoid overwriting one field with the other.
+								"restriction":  {Name: "restriction"},
+								"restrictions": {Name: "restrictions"},
+							},
+						},
+					},
+				},
 			},
 			"opsgenie_notification_rule": {
 				Tok: makeResource(mainMod, "NotificationRule"),

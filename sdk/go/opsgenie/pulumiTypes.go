@@ -4904,6 +4904,8 @@ func (o NotificationPolicyFilterConditionArrayOutput) Index(i pulumi.IntInput) N
 }
 
 type NotificationPolicyTimeRestriction struct {
+	// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+	Restriction []NotificationPolicyTimeRestrictionRestriction `pulumi:"restriction"`
 	// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
 	Restrictions []NotificationPolicyTimeRestrictionRestriction `pulumi:"restrictions"`
 	// Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
@@ -4922,6 +4924,8 @@ type NotificationPolicyTimeRestrictionInput interface {
 }
 
 type NotificationPolicyTimeRestrictionArgs struct {
+	// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+	Restriction NotificationPolicyTimeRestrictionRestrictionArrayInput `pulumi:"restriction"`
 	// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
 	Restrictions NotificationPolicyTimeRestrictionRestrictionArrayInput `pulumi:"restrictions"`
 	// Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
@@ -4977,6 +4981,13 @@ func (o NotificationPolicyTimeRestrictionOutput) ToNotificationPolicyTimeRestric
 
 func (o NotificationPolicyTimeRestrictionOutput) ToNotificationPolicyTimeRestrictionOutputWithContext(ctx context.Context) NotificationPolicyTimeRestrictionOutput {
 	return o
+}
+
+// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+func (o NotificationPolicyTimeRestrictionOutput) Restriction() NotificationPolicyTimeRestrictionRestrictionArrayOutput {
+	return o.ApplyT(func(v NotificationPolicyTimeRestriction) []NotificationPolicyTimeRestrictionRestriction {
+		return v.Restriction
+	}).(NotificationPolicyTimeRestrictionRestrictionArrayOutput)
 }
 
 // List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.

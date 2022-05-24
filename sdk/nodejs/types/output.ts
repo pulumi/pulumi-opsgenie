@@ -691,6 +691,10 @@ export interface NotificationPolicyFilterCondition {
 
 export interface NotificationPolicyTimeRestriction {
     /**
+     * A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+     */
+    restriction?: outputs.NotificationPolicyTimeRestrictionRestriction[];
+    /**
      * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
     restrictions?: outputs.NotificationPolicyTimeRestrictionRestriction[];

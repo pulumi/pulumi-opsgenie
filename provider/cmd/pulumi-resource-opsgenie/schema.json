@@ -1820,6 +1820,18 @@
         },
         "opsgenie:index/NotificationPolicyTimeRestriction:NotificationPolicyTimeRestriction": {
             "properties": {
+                "restriction": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/opsgenie:index/NotificationPolicyTimeRestrictionRestriction:NotificationPolicyTimeRestrictionRestriction"
+                    },
+                    "description": "A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "restrictions": {
                     "type": "array",
                     "items": {

@@ -12,6 +12,18 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class NotificationPolicyTimeRestrictionArgs : Pulumi.ResourceArgs
     {
+        [Input("restriction")]
+        private InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionArgs>? _restriction;
+
+        /// <summary>
+        /// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+        /// </summary>
+        public InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionArgs> Restriction
+        {
+            get => _restriction ?? (_restriction = new InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionArgs>());
+            set => _restriction = value;
+        }
+
         [Input("restrictions")]
         private InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionArgs>? _restrictions;
 
