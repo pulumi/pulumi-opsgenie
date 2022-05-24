@@ -3635,8 +3635,11 @@ class TeamRoutingRuleNotify(dict):
 class TeamRoutingRuleTimeRestriction(dict):
     def __init__(__self__, *,
                  type: str,
+                 restriction: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']] = None,
                  restrictions: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']] = None):
         pulumi.set(__self__, "type", type)
+        if restriction is not None:
+            pulumi.set(__self__, "restriction", restriction)
         if restrictions is not None:
             pulumi.set(__self__, "restrictions", restrictions)
 
@@ -3644,6 +3647,11 @@ class TeamRoutingRuleTimeRestriction(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def restriction(self) -> Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']]:
+        return pulumi.get(self, "restriction")
 
     @property
     @pulumi.getter

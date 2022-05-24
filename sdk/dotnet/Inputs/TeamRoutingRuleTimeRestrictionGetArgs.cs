@@ -12,6 +12,14 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class TeamRoutingRuleTimeRestrictionGetArgs : Pulumi.ResourceArgs
     {
+        [Input("restriction")]
+        private InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionGetArgs>? _restriction;
+        public InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionGetArgs> Restriction
+        {
+            get => _restriction ?? (_restriction = new InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionGetArgs>());
+            set => _restriction = value;
+        }
+
         [Input("restrictions")]
         private InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionGetArgs>? _restrictions;
         public InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionGetArgs> Restrictions

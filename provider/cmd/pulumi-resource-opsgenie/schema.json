@@ -2710,6 +2710,17 @@
         },
         "opsgenie:index/TeamRoutingRuleTimeRestriction:TeamRoutingRuleTimeRestriction": {
             "properties": {
+                "restriction": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/opsgenie:index/TeamRoutingRuleTimeRestrictionRestriction:TeamRoutingRuleTimeRestrictionRestriction"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "restrictions": {
                     "type": "array",
                     "items": {

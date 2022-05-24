@@ -7401,6 +7401,7 @@ func (o TeamRoutingRuleNotifyArrayOutput) Index(i pulumi.IntInput) TeamRoutingRu
 }
 
 type TeamRoutingRuleTimeRestriction struct {
+	Restriction  []TeamRoutingRuleTimeRestrictionRestriction `pulumi:"restriction"`
 	Restrictions []TeamRoutingRuleTimeRestrictionRestriction `pulumi:"restrictions"`
 	Type         string                                      `pulumi:"type"`
 }
@@ -7417,6 +7418,7 @@ type TeamRoutingRuleTimeRestrictionInput interface {
 }
 
 type TeamRoutingRuleTimeRestrictionArgs struct {
+	Restriction  TeamRoutingRuleTimeRestrictionRestrictionArrayInput `pulumi:"restriction"`
 	Restrictions TeamRoutingRuleTimeRestrictionRestrictionArrayInput `pulumi:"restrictions"`
 	Type         pulumi.StringInput                                  `pulumi:"type"`
 }
@@ -7470,6 +7472,12 @@ func (o TeamRoutingRuleTimeRestrictionOutput) ToTeamRoutingRuleTimeRestrictionOu
 
 func (o TeamRoutingRuleTimeRestrictionOutput) ToTeamRoutingRuleTimeRestrictionOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionOutput {
 	return o
+}
+
+func (o TeamRoutingRuleTimeRestrictionOutput) Restriction() TeamRoutingRuleTimeRestrictionRestrictionArrayOutput {
+	return o.ApplyT(func(v TeamRoutingRuleTimeRestriction) []TeamRoutingRuleTimeRestrictionRestriction {
+		return v.Restriction
+	}).(TeamRoutingRuleTimeRestrictionRestrictionArrayOutput)
 }
 
 func (o TeamRoutingRuleTimeRestrictionOutput) Restrictions() TeamRoutingRuleTimeRestrictionRestrictionArrayOutput {

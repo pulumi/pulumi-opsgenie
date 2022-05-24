@@ -1016,6 +1016,7 @@ export interface TeamRoutingRuleNotify {
 }
 
 export interface TeamRoutingRuleTimeRestriction {
+    restriction?: outputs.TeamRoutingRuleTimeRestrictionRestriction[];
     restrictions?: outputs.TeamRoutingRuleTimeRestrictionRestriction[];
     type: string;
 }

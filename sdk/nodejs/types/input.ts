@@ -1046,6 +1046,7 @@ export interface TeamRoutingRuleNotify {
 }
 
 export interface TeamRoutingRuleTimeRestriction {
+    restriction?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestriction>[]>;
     restrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestriction>[]>;
     type: pulumi.Input<string>;
 }
