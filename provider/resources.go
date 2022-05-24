@@ -98,7 +98,6 @@ func Provider() tfbridge.ProviderInfo {
 								// Similar to ScheduleRotation below, we have both a `restrictions` and a `restriction`
 								// parameter so we need to explicitly declare both here to avoid overwriting one field
 								// with the other.
-								// See more at https://github.com/opsgenie/terraform-provider-opsgenie/blob/master/opsgenie/resource_opsgenie_team_routing_rule.go#L135
 								"restriction":  {Name: "restriction"},
 								"restrictions": {Name: "restrictions"},
 							},
