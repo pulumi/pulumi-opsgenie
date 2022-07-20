@@ -63,8 +63,8 @@ import (
 // 			TeamId: testTeam.ID(),
 // 			TimeRestrictions: TeamRoutingRuleTimeRestrictionArray{
 // 				&TeamRoutingRuleTimeRestrictionArgs{
-// 					Restrictions: TeamRoutingRuleTimeRestrictionRestrictionArray{
-// 						&TeamRoutingRuleTimeRestrictionRestrictionArgs{
+// 					RestrictionList: TeamRoutingRuleTimeRestrictionRestrictionListArray{
+// 						&TeamRoutingRuleTimeRestrictionRestrictionListArgs{
 // 							EndDay:    pulumi.String("tuesday"),
 // 							EndHour:   pulumi.Int(18),
 // 							EndMin:    pulumi.Int(30),

@@ -11,37 +11,51 @@ namespace Pulumi.Opsgenie.Outputs
 {
 
     [OutputType]
-    public sealed class AlertPolicyTimeRestrictionRestriction
+    public sealed class ScheduleRotationTimeRestrictionRestrictionList
     {
         /// <summary>
-        /// Ending hour of restriction.
+        /// Value of the day that frame will end.
+        /// </summary>
+        public readonly string EndDay;
+        /// <summary>
+        /// Value of the hour that frame will end.
         /// </summary>
         public readonly int EndHour;
         /// <summary>
-        /// Ending minute of restriction on defined `end_hour`
+        /// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
         /// </summary>
         public readonly int EndMin;
         /// <summary>
-        /// Starting hour of restriction.
+        /// Value of the day that frame will start.
+        /// </summary>
+        public readonly string StartDay;
+        /// <summary>
+        /// Value of the hour that frame will start
         /// </summary>
         public readonly int StartHour;
         /// <summary>
-        /// Staring minute of restriction on defined `start_hour`
+        /// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
         /// </summary>
         public readonly int StartMin;
 
         [OutputConstructor]
-        private AlertPolicyTimeRestrictionRestriction(
+        private ScheduleRotationTimeRestrictionRestrictionList(
+            string endDay,
+
             int endHour,
 
             int endMin,
+
+            string startDay,
 
             int startHour,
 
             int startMin)
         {
+            EndDay = endDay;
             EndHour = endHour;
             EndMin = endMin;
+            StartDay = startDay;
             StartHour = startHour;
             StartMin = startMin;
         }

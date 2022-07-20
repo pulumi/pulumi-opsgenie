@@ -20,12 +20,12 @@ namespace Pulumi.Opsgenie.Inputs
             set => _restriction = value;
         }
 
-        [Input("restrictions")]
-        private InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionGetArgs>? _restrictions;
-        public InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionGetArgs> Restrictions
+        [Input("restrictionList")]
+        private InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionListGetArgs>? _restrictionList;
+        public InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionListGetArgs> RestrictionList
         {
-            get => _restrictions ?? (_restrictions = new InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionGetArgs>());
-            set => _restrictions = value;
+            get => _restrictionList ?? (_restrictionList = new InputList<Inputs.TeamRoutingRuleTimeRestrictionRestrictionListGetArgs>());
+            set => _restrictionList = value;
         }
 
         [Input("type", required: true)]

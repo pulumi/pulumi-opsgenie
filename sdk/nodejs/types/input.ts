@@ -63,9 +63,13 @@ export interface AlertPolicyResponder {
 
 export interface AlertPolicyTimeRestriction {
     /**
+     * A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+     */
+    restriction?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestrictionRestriction>[]>;
+    /**
      * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
-    restrictions?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestrictionRestriction>[]>;
+    restrictionList?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestrictionRestrictionList>[]>;
     /**
      * Type of responder. Acceptable values are: `user` or `team`
      */
@@ -73,6 +77,25 @@ export interface AlertPolicyTimeRestriction {
 }
 
 export interface AlertPolicyTimeRestrictionRestriction {
+    /**
+     * Ending hour of restriction.
+     */
+    endHour: pulumi.Input<number>;
+    /**
+     * Ending minute of restriction on defined `endHour`
+     */
+    endMin: pulumi.Input<number>;
+    /**
+     * Starting hour of restriction.
+     */
+    startHour: pulumi.Input<number>;
+    /**
+     * Staring minute of restriction on defined `startHour`
+     */
+    startMin: pulumi.Input<number>;
+}
+
+export interface AlertPolicyTimeRestrictionRestrictionList {
     /**
      * Ending day of restriction (eg. `wednesday`)
      */
@@ -169,18 +192,18 @@ export interface GetEscalationRepeatArgs {
     waitInterval?: pulumi.Input<number>;
 }
 
-export interface GetEscalationRuleArgs {
-    condition: pulumi.Input<string>;
-    delay: pulumi.Input<number>;
-    notifyType: pulumi.Input<string>;
-    recipients: pulumi.Input<pulumi.Input<inputs.GetEscalationRuleRecipientArgs>[]>;
-}
-
 export interface GetEscalationRule {
     condition: string;
     delay: number;
     notifyType: string;
     recipients: inputs.GetEscalationRuleRecipient[];
+}
+
+export interface GetEscalationRuleArgs {
+    condition: pulumi.Input<string>;
+    delay: pulumi.Input<number>;
+    notifyType: pulumi.Input<string>;
+    recipients: pulumi.Input<pulumi.Input<inputs.GetEscalationRuleRecipientArgs>[]>;
 }
 
 export interface GetEscalationRuleRecipientArgs {
@@ -199,20 +222,20 @@ export interface GetEscalationRuleRecipient {
     type?: string;
 }
 
-export interface GetTeamMember {
-    /**
-     * The ID of the Opsgenie Team.
-     */
-    id?: string;
-    role?: string;
-}
-
 export interface GetTeamMemberArgs {
     /**
      * The ID of the Opsgenie Team.
      */
     id?: pulumi.Input<string>;
     role?: pulumi.Input<string>;
+}
+
+export interface GetTeamMember {
+    /**
+     * The ID of the Opsgenie Team.
+     */
+    id?: string;
+    role?: string;
 }
 
 export interface IncidentTemplateStakeholderProperty {
@@ -727,7 +750,7 @@ export interface NotificationPolicyTimeRestriction {
     /**
      * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
-    restrictions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestrictionRestriction>[]>;
+    restrictionList?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestrictionRestrictionList>[]>;
     /**
      * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      */
@@ -735,6 +758,25 @@ export interface NotificationPolicyTimeRestriction {
 }
 
 export interface NotificationPolicyTimeRestrictionRestriction {
+    /**
+     * Ending hour of restriction.
+     */
+    endHour: pulumi.Input<number>;
+    /**
+     * Ending minute of restriction on defined `endHour`
+     */
+    endMin: pulumi.Input<number>;
+    /**
+     * Starting hour of restriction.
+     */
+    startHour: pulumi.Input<number>;
+    /**
+     * Staring minute of restriction on defined `startHour`
+     */
+    startMin: pulumi.Input<number>;
+}
+
+export interface NotificationPolicyTimeRestrictionRestrictionList {
     /**
      * Ending day of restriction (eg. `wednesday`)
      */
@@ -880,7 +922,7 @@ export interface ScheduleRotationTimeRestriction {
     /**
      * It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
      */
-    restrictions?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestrictionRestriction>[]>;
+    restrictionList?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestrictionRestrictionList>[]>;
     /**
      * This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
      */
@@ -888,6 +930,25 @@ export interface ScheduleRotationTimeRestriction {
 }
 
 export interface ScheduleRotationTimeRestrictionRestriction {
+    /**
+     * Value of the hour that frame will end.
+     */
+    endHour: pulumi.Input<number>;
+    /**
+     * Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+     */
+    endMin: pulumi.Input<number>;
+    /**
+     * Value of the hour that frame will start.
+     */
+    startHour: pulumi.Input<number>;
+    /**
+     * Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+     */
+    startMin: pulumi.Input<number>;
+}
+
+export interface ScheduleRotationTimeRestrictionRestrictionList {
     /**
      * Value of the day that frame will end.
      */
@@ -1051,11 +1112,18 @@ export interface TeamRoutingRuleNotify {
 
 export interface TeamRoutingRuleTimeRestriction {
     restriction?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestriction>[]>;
-    restrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestriction>[]>;
+    restrictionList?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestrictionList>[]>;
     type: pulumi.Input<string>;
 }
 
 export interface TeamRoutingRuleTimeRestrictionRestriction {
+    endHour: pulumi.Input<number>;
+    endMin: pulumi.Input<number>;
+    startHour: pulumi.Input<number>;
+    startMin: pulumi.Input<number>;
+}
+
+export interface TeamRoutingRuleTimeRestrictionRestrictionList {
     endDay: pulumi.Input<string>;
     endHour: pulumi.Input<number>;
     endMin: pulumi.Input<number>;
@@ -1071,4 +1139,3 @@ export interface UserUserAddress {
     state: pulumi.Input<string>;
     zipcode: pulumi.Input<string>;
 }
-

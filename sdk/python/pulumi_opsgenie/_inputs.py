@@ -14,6 +14,7 @@ __all__ = [
     'AlertPolicyResponderArgs',
     'AlertPolicyTimeRestrictionArgs',
     'AlertPolicyTimeRestrictionRestrictionArgs',
+    'AlertPolicyTimeRestrictionRestrictionListArgs',
     'ApiIntegrationResponderArgs',
     'EmailIntegrationResponderArgs',
     'EscalationRepeatArgs',
@@ -51,6 +52,7 @@ __all__ = [
     'NotificationPolicyFilterConditionArgs',
     'NotificationPolicyTimeRestrictionArgs',
     'NotificationPolicyTimeRestrictionRestrictionArgs',
+    'NotificationPolicyTimeRestrictionRestrictionListArgs',
     'NotificationRuleCriteriaArgs',
     'NotificationRuleCriteriaConditionArgs',
     'NotificationRuleRepeatArgs',
@@ -62,6 +64,7 @@ __all__ = [
     'ScheduleRotationParticipantArgs',
     'ScheduleRotationTimeRestrictionArgs',
     'ScheduleRotationTimeRestrictionRestrictionArgs',
+    'ScheduleRotationTimeRestrictionRestrictionListArgs',
     'ServiceIncidentRuleIncidentRuleArgs',
     'ServiceIncidentRuleIncidentRuleConditionArgs',
     'ServiceIncidentRuleIncidentRuleIncidentPropertyArgs',
@@ -72,6 +75,7 @@ __all__ = [
     'TeamRoutingRuleNotifyArgs',
     'TeamRoutingRuleTimeRestrictionArgs',
     'TeamRoutingRuleTimeRestrictionRestrictionArgs',
+    'TeamRoutingRuleTimeRestrictionRestrictionListArgs',
     'UserUserAddressArgs',
     'GetEscalationRepeatArgs',
     'GetEscalationRuleArgs',
@@ -292,14 +296,18 @@ class AlertPolicyResponderArgs:
 class AlertPolicyTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]] = None):
+                 restriction: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]] = None,
+                 restriction_list: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]] = None):
         """
         :param pulumi.Input[str] type: Type of responder. Acceptable values are: `user` or `team`
-        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]] restrictions: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]] restriction_list: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "type", type)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+        if restriction is not None:
+            pulumi.set(__self__, "restriction", restriction)
+        if restriction_list is not None:
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -315,19 +323,98 @@ class AlertPolicyTimeRestrictionArgs:
 
     @property
     @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]:
+    def restriction(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]:
+        """
+        A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+        """
+        return pulumi.get(self, "restriction")
+
+    @restriction.setter
+    def restriction(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]):
+        pulumi.set(self, "restriction", value)
+
+    @property
+    @pulumi.getter(name="restrictionList")
+    def restriction_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]]:
         """
         List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
-        return pulumi.get(self, "restrictions")
+        return pulumi.get(self, "restriction_list")
 
-    @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]):
-        pulumi.set(self, "restrictions", value)
+    @restriction_list.setter
+    def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]]):
+        pulumi.set(self, "restriction_list", value)
 
 
 @pulumi.input_type
 class AlertPolicyTimeRestrictionRestrictionArgs:
+    def __init__(__self__, *,
+                 end_hour: pulumi.Input[int],
+                 end_min: pulumi.Input[int],
+                 start_hour: pulumi.Input[int],
+                 start_min: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] end_hour: Ending hour of restriction.
+        :param pulumi.Input[int] end_min: Ending minute of restriction on defined `end_hour`
+        :param pulumi.Input[int] start_hour: Starting hour of restriction.
+        :param pulumi.Input[int] start_min: Staring minute of restriction on defined `start_hour`
+        """
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
+
+    @property
+    @pulumi.getter(name="endHour")
+    def end_hour(self) -> pulumi.Input[int]:
+        """
+        Ending hour of restriction.
+        """
+        return pulumi.get(self, "end_hour")
+
+    @end_hour.setter
+    def end_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_hour", value)
+
+    @property
+    @pulumi.getter(name="endMin")
+    def end_min(self) -> pulumi.Input[int]:
+        """
+        Ending minute of restriction on defined `end_hour`
+        """
+        return pulumi.get(self, "end_min")
+
+    @end_min.setter
+    def end_min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_min", value)
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> pulumi.Input[int]:
+        """
+        Starting hour of restriction.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @start_hour.setter
+    def start_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_hour", value)
+
+    @property
+    @pulumi.getter(name="startMin")
+    def start_min(self) -> pulumi.Input[int]:
+        """
+        Staring minute of restriction on defined `start_hour`
+        """
+        return pulumi.get(self, "start_min")
+
+    @start_min.setter
+    def start_min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_min", value)
+
+
+@pulumi.input_type
+class AlertPolicyTimeRestrictionRestrictionListArgs:
     def __init__(__self__, *,
                  end_day: pulumi.Input[str],
                  end_hour: pulumi.Input[int],
@@ -2740,17 +2827,17 @@ class NotificationPolicyTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  restriction: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]] = None,
-                 restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]] = None):
+                 restriction_list: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]] = None):
         """
         :param pulumi.Input[str] type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]] restrictions: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]] restriction_list: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "type", type)
         if restriction is not None:
             pulumi.set(__self__, "restriction", restriction)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+        if restriction_list is not None:
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -2777,20 +2864,87 @@ class NotificationPolicyTimeRestrictionArgs:
         pulumi.set(self, "restriction", value)
 
     @property
-    @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]:
+    @pulumi.getter(name="restrictionList")
+    def restriction_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]]:
         """
         List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
-        return pulumi.get(self, "restrictions")
+        return pulumi.get(self, "restriction_list")
 
-    @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]):
-        pulumi.set(self, "restrictions", value)
+    @restriction_list.setter
+    def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]]):
+        pulumi.set(self, "restriction_list", value)
 
 
 @pulumi.input_type
 class NotificationPolicyTimeRestrictionRestrictionArgs:
+    def __init__(__self__, *,
+                 end_hour: pulumi.Input[int],
+                 end_min: pulumi.Input[int],
+                 start_hour: pulumi.Input[int],
+                 start_min: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] end_hour: Ending hour of restriction.
+        :param pulumi.Input[int] end_min: Ending minute of restriction on defined `end_hour`
+        :param pulumi.Input[int] start_hour: Starting hour of restriction.
+        :param pulumi.Input[int] start_min: Staring minute of restriction on defined `start_hour`
+        """
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
+
+    @property
+    @pulumi.getter(name="endHour")
+    def end_hour(self) -> pulumi.Input[int]:
+        """
+        Ending hour of restriction.
+        """
+        return pulumi.get(self, "end_hour")
+
+    @end_hour.setter
+    def end_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_hour", value)
+
+    @property
+    @pulumi.getter(name="endMin")
+    def end_min(self) -> pulumi.Input[int]:
+        """
+        Ending minute of restriction on defined `end_hour`
+        """
+        return pulumi.get(self, "end_min")
+
+    @end_min.setter
+    def end_min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_min", value)
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> pulumi.Input[int]:
+        """
+        Starting hour of restriction.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @start_hour.setter
+    def start_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_hour", value)
+
+    @property
+    @pulumi.getter(name="startMin")
+    def start_min(self) -> pulumi.Input[int]:
+        """
+        Staring minute of restriction on defined `start_hour`
+        """
+        return pulumi.get(self, "start_min")
+
+    @start_min.setter
+    def start_min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_min", value)
+
+
+@pulumi.input_type
+class NotificationPolicyTimeRestrictionRestrictionListArgs:
     def __init__(__self__, *,
                  end_day: pulumi.Input[str],
                  end_hour: pulumi.Input[int],
@@ -3335,17 +3489,17 @@ class ScheduleRotationTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  restriction: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]] = None,
-                 restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]] = None):
+                 restriction_list: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]] = None):
         """
         :param pulumi.Input[str] type: This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]] restriction: It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
-        :param pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]] restrictions: It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]] restriction_list: It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         """
         pulumi.set(__self__, "type", type)
         if restriction is not None:
             pulumi.set(__self__, "restriction", restriction)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+        if restriction_list is not None:
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -3372,20 +3526,87 @@ class ScheduleRotationTimeRestrictionArgs:
         pulumi.set(self, "restriction", value)
 
     @property
-    @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]]:
+    @pulumi.getter(name="restrictionList")
+    def restriction_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]]:
         """
         It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         """
-        return pulumi.get(self, "restrictions")
+        return pulumi.get(self, "restriction_list")
 
-    @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]]):
-        pulumi.set(self, "restrictions", value)
+    @restriction_list.setter
+    def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]]):
+        pulumi.set(self, "restriction_list", value)
 
 
 @pulumi.input_type
 class ScheduleRotationTimeRestrictionRestrictionArgs:
+    def __init__(__self__, *,
+                 end_hour: pulumi.Input[int],
+                 end_min: pulumi.Input[int],
+                 start_hour: pulumi.Input[int],
+                 start_min: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] end_hour: Value of the hour that frame will end.
+        :param pulumi.Input[int] end_min: Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        :param pulumi.Input[int] start_hour: Value of the hour that frame will start.
+        :param pulumi.Input[int] start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
+
+    @property
+    @pulumi.getter(name="endHour")
+    def end_hour(self) -> pulumi.Input[int]:
+        """
+        Value of the hour that frame will end.
+        """
+        return pulumi.get(self, "end_hour")
+
+    @end_hour.setter
+    def end_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_hour", value)
+
+    @property
+    @pulumi.getter(name="endMin")
+    def end_min(self) -> pulumi.Input[int]:
+        """
+        Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
+        return pulumi.get(self, "end_min")
+
+    @end_min.setter
+    def end_min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_min", value)
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> pulumi.Input[int]:
+        """
+        Value of the hour that frame will start.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @start_hour.setter
+    def start_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_hour", value)
+
+    @property
+    @pulumi.getter(name="startMin")
+    def start_min(self) -> pulumi.Input[int]:
+        """
+        Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
+        return pulumi.get(self, "start_min")
+
+    @start_min.setter
+    def start_min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_min", value)
+
+
+@pulumi.input_type
+class ScheduleRotationTimeRestrictionRestrictionListArgs:
     def __init__(__self__, *,
                  end_day: pulumi.Input[str],
                  end_hour: pulumi.Input[int],
@@ -3998,12 +4219,12 @@ class TeamRoutingRuleTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  restriction: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]] = None,
-                 restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]] = None):
+                 restriction_list: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]] = None):
         pulumi.set(__self__, "type", type)
         if restriction is not None:
             pulumi.set(__self__, "restriction", restriction)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+        if restriction_list is not None:
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -4024,17 +4245,66 @@ class TeamRoutingRuleTimeRestrictionArgs:
         pulumi.set(self, "restriction", value)
 
     @property
-    @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]]:
-        return pulumi.get(self, "restrictions")
+    @pulumi.getter(name="restrictionList")
+    def restriction_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]]:
+        return pulumi.get(self, "restriction_list")
 
-    @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]]):
-        pulumi.set(self, "restrictions", value)
+    @restriction_list.setter
+    def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]]):
+        pulumi.set(self, "restriction_list", value)
 
 
 @pulumi.input_type
 class TeamRoutingRuleTimeRestrictionRestrictionArgs:
+    def __init__(__self__, *,
+                 end_hour: pulumi.Input[int],
+                 end_min: pulumi.Input[int],
+                 start_hour: pulumi.Input[int],
+                 start_min: pulumi.Input[int]):
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
+
+    @property
+    @pulumi.getter(name="endHour")
+    def end_hour(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "end_hour")
+
+    @end_hour.setter
+    def end_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_hour", value)
+
+    @property
+    @pulumi.getter(name="endMin")
+    def end_min(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "end_min")
+
+    @end_min.setter
+    def end_min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_min", value)
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "start_hour")
+
+    @start_hour.setter
+    def start_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_hour", value)
+
+    @property
+    @pulumi.getter(name="startMin")
+    def start_min(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "start_min")
+
+    @start_min.setter
+    def start_min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_min", value)
+
+
+@pulumi.input_type
+class TeamRoutingRuleTimeRestrictionRestrictionListArgs:
     def __init__(__self__, *,
                  end_day: pulumi.Input[str],
                  end_hour: pulumi.Input[int],

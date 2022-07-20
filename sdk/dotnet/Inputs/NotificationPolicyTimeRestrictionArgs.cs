@@ -24,16 +24,16 @@ namespace Pulumi.Opsgenie.Inputs
             set => _restriction = value;
         }
 
-        [Input("restrictions")]
-        private InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionArgs>? _restrictions;
+        [Input("restrictionList")]
+        private InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionListArgs>? _restrictionList;
 
         /// <summary>
         /// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         /// </summary>
-        public InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionArgs> Restrictions
+        public InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionListArgs> RestrictionList
         {
-            get => _restrictions ?? (_restrictions = new InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionArgs>());
-            set => _restrictions = value;
+            get => _restrictionList ?? (_restrictionList = new InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionListArgs>());
+            set => _restrictionList = value;
         }
 
         /// <summary>

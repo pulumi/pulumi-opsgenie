@@ -383,8 +383,10 @@ func (o AlertPolicyResponderArrayOutput) Index(i pulumi.IntInput) AlertPolicyRes
 }
 
 type AlertPolicyTimeRestriction struct {
+	// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+	Restriction []AlertPolicyTimeRestrictionRestriction `pulumi:"restriction"`
 	// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
-	Restrictions []AlertPolicyTimeRestrictionRestriction `pulumi:"restrictions"`
+	RestrictionList []AlertPolicyTimeRestrictionRestrictionList `pulumi:"restrictionList"`
 	// Type of responder. Acceptable values are: `user` or `team`
 	Type string `pulumi:"type"`
 }
@@ -401,8 +403,10 @@ type AlertPolicyTimeRestrictionInput interface {
 }
 
 type AlertPolicyTimeRestrictionArgs struct {
+	// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+	Restriction AlertPolicyTimeRestrictionRestrictionArrayInput `pulumi:"restriction"`
 	// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
-	Restrictions AlertPolicyTimeRestrictionRestrictionArrayInput `pulumi:"restrictions"`
+	RestrictionList AlertPolicyTimeRestrictionRestrictionListArrayInput `pulumi:"restrictionList"`
 	// Type of responder. Acceptable values are: `user` or `team`
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -458,9 +462,16 @@ func (o AlertPolicyTimeRestrictionOutput) ToAlertPolicyTimeRestrictionOutputWith
 	return o
 }
 
+// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+func (o AlertPolicyTimeRestrictionOutput) Restriction() AlertPolicyTimeRestrictionRestrictionArrayOutput {
+	return o.ApplyT(func(v AlertPolicyTimeRestriction) []AlertPolicyTimeRestrictionRestriction { return v.Restriction }).(AlertPolicyTimeRestrictionRestrictionArrayOutput)
+}
+
 // List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
-func (o AlertPolicyTimeRestrictionOutput) Restrictions() AlertPolicyTimeRestrictionRestrictionArrayOutput {
-	return o.ApplyT(func(v AlertPolicyTimeRestriction) []AlertPolicyTimeRestrictionRestriction { return v.Restrictions }).(AlertPolicyTimeRestrictionRestrictionArrayOutput)
+func (o AlertPolicyTimeRestrictionOutput) RestrictionList() AlertPolicyTimeRestrictionRestrictionListArrayOutput {
+	return o.ApplyT(func(v AlertPolicyTimeRestriction) []AlertPolicyTimeRestrictionRestrictionList {
+		return v.RestrictionList
+	}).(AlertPolicyTimeRestrictionRestrictionListArrayOutput)
 }
 
 // Type of responder. Acceptable values are: `user` or `team`
@@ -489,14 +500,10 @@ func (o AlertPolicyTimeRestrictionArrayOutput) Index(i pulumi.IntInput) AlertPol
 }
 
 type AlertPolicyTimeRestrictionRestriction struct {
-	// Ending day of restriction (eg. `wednesday`)
-	EndDay string `pulumi:"endDay"`
 	// Ending hour of restriction.
 	EndHour int `pulumi:"endHour"`
 	// Ending minute of restriction on defined `endHour`
 	EndMin int `pulumi:"endMin"`
-	// Starting day of restriction (eg. `monday`)
-	StartDay string `pulumi:"startDay"`
 	// Starting hour of restriction.
 	StartHour int `pulumi:"startHour"`
 	// Staring minute of restriction on defined `startHour`
@@ -515,14 +522,10 @@ type AlertPolicyTimeRestrictionRestrictionInput interface {
 }
 
 type AlertPolicyTimeRestrictionRestrictionArgs struct {
-	// Ending day of restriction (eg. `wednesday`)
-	EndDay pulumi.StringInput `pulumi:"endDay"`
 	// Ending hour of restriction.
 	EndHour pulumi.IntInput `pulumi:"endHour"`
 	// Ending minute of restriction on defined `endHour`
 	EndMin pulumi.IntInput `pulumi:"endMin"`
-	// Starting day of restriction (eg. `monday`)
-	StartDay pulumi.StringInput `pulumi:"startDay"`
 	// Starting hour of restriction.
 	StartHour pulumi.IntInput `pulumi:"startHour"`
 	// Staring minute of restriction on defined `startHour`
@@ -580,11 +583,6 @@ func (o AlertPolicyTimeRestrictionRestrictionOutput) ToAlertPolicyTimeRestrictio
 	return o
 }
 
-// Ending day of restriction (eg. `wednesday`)
-func (o AlertPolicyTimeRestrictionRestrictionOutput) EndDay() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertPolicyTimeRestrictionRestriction) string { return v.EndDay }).(pulumi.StringOutput)
-}
-
 // Ending hour of restriction.
 func (o AlertPolicyTimeRestrictionRestrictionOutput) EndHour() pulumi.IntOutput {
 	return o.ApplyT(func(v AlertPolicyTimeRestrictionRestriction) int { return v.EndHour }).(pulumi.IntOutput)
@@ -593,11 +591,6 @@ func (o AlertPolicyTimeRestrictionRestrictionOutput) EndHour() pulumi.IntOutput 
 // Ending minute of restriction on defined `endHour`
 func (o AlertPolicyTimeRestrictionRestrictionOutput) EndMin() pulumi.IntOutput {
 	return o.ApplyT(func(v AlertPolicyTimeRestrictionRestriction) int { return v.EndMin }).(pulumi.IntOutput)
-}
-
-// Starting day of restriction (eg. `monday`)
-func (o AlertPolicyTimeRestrictionRestrictionOutput) StartDay() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertPolicyTimeRestrictionRestriction) string { return v.StartDay }).(pulumi.StringOutput)
 }
 
 // Starting hour of restriction.
@@ -628,6 +621,148 @@ func (o AlertPolicyTimeRestrictionRestrictionArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertPolicyTimeRestrictionRestriction {
 		return vs[0].([]AlertPolicyTimeRestrictionRestriction)[vs[1].(int)]
 	}).(AlertPolicyTimeRestrictionRestrictionOutput)
+}
+
+type AlertPolicyTimeRestrictionRestrictionList struct {
+	// Ending day of restriction (eg. `wednesday`)
+	EndDay string `pulumi:"endDay"`
+	// Ending hour of restriction.
+	EndHour int `pulumi:"endHour"`
+	// Ending minute of restriction on defined `endHour`
+	EndMin int `pulumi:"endMin"`
+	// Starting day of restriction (eg. `monday`)
+	StartDay string `pulumi:"startDay"`
+	// Starting hour of restriction.
+	StartHour int `pulumi:"startHour"`
+	// Staring minute of restriction on defined `startHour`
+	StartMin int `pulumi:"startMin"`
+}
+
+// AlertPolicyTimeRestrictionRestrictionListInput is an input type that accepts AlertPolicyTimeRestrictionRestrictionListArgs and AlertPolicyTimeRestrictionRestrictionListOutput values.
+// You can construct a concrete instance of `AlertPolicyTimeRestrictionRestrictionListInput` via:
+//
+//          AlertPolicyTimeRestrictionRestrictionListArgs{...}
+type AlertPolicyTimeRestrictionRestrictionListInput interface {
+	pulumi.Input
+
+	ToAlertPolicyTimeRestrictionRestrictionListOutput() AlertPolicyTimeRestrictionRestrictionListOutput
+	ToAlertPolicyTimeRestrictionRestrictionListOutputWithContext(context.Context) AlertPolicyTimeRestrictionRestrictionListOutput
+}
+
+type AlertPolicyTimeRestrictionRestrictionListArgs struct {
+	// Ending day of restriction (eg. `wednesday`)
+	EndDay pulumi.StringInput `pulumi:"endDay"`
+	// Ending hour of restriction.
+	EndHour pulumi.IntInput `pulumi:"endHour"`
+	// Ending minute of restriction on defined `endHour`
+	EndMin pulumi.IntInput `pulumi:"endMin"`
+	// Starting day of restriction (eg. `monday`)
+	StartDay pulumi.StringInput `pulumi:"startDay"`
+	// Starting hour of restriction.
+	StartHour pulumi.IntInput `pulumi:"startHour"`
+	// Staring minute of restriction on defined `startHour`
+	StartMin pulumi.IntInput `pulumi:"startMin"`
+}
+
+func (AlertPolicyTimeRestrictionRestrictionListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPolicyTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (i AlertPolicyTimeRestrictionRestrictionListArgs) ToAlertPolicyTimeRestrictionRestrictionListOutput() AlertPolicyTimeRestrictionRestrictionListOutput {
+	return i.ToAlertPolicyTimeRestrictionRestrictionListOutputWithContext(context.Background())
+}
+
+func (i AlertPolicyTimeRestrictionRestrictionListArgs) ToAlertPolicyTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) AlertPolicyTimeRestrictionRestrictionListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyTimeRestrictionRestrictionListOutput)
+}
+
+// AlertPolicyTimeRestrictionRestrictionListArrayInput is an input type that accepts AlertPolicyTimeRestrictionRestrictionListArray and AlertPolicyTimeRestrictionRestrictionListArrayOutput values.
+// You can construct a concrete instance of `AlertPolicyTimeRestrictionRestrictionListArrayInput` via:
+//
+//          AlertPolicyTimeRestrictionRestrictionListArray{ AlertPolicyTimeRestrictionRestrictionListArgs{...} }
+type AlertPolicyTimeRestrictionRestrictionListArrayInput interface {
+	pulumi.Input
+
+	ToAlertPolicyTimeRestrictionRestrictionListArrayOutput() AlertPolicyTimeRestrictionRestrictionListArrayOutput
+	ToAlertPolicyTimeRestrictionRestrictionListArrayOutputWithContext(context.Context) AlertPolicyTimeRestrictionRestrictionListArrayOutput
+}
+
+type AlertPolicyTimeRestrictionRestrictionListArray []AlertPolicyTimeRestrictionRestrictionListInput
+
+func (AlertPolicyTimeRestrictionRestrictionListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertPolicyTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (i AlertPolicyTimeRestrictionRestrictionListArray) ToAlertPolicyTimeRestrictionRestrictionListArrayOutput() AlertPolicyTimeRestrictionRestrictionListArrayOutput {
+	return i.ToAlertPolicyTimeRestrictionRestrictionListArrayOutputWithContext(context.Background())
+}
+
+func (i AlertPolicyTimeRestrictionRestrictionListArray) ToAlertPolicyTimeRestrictionRestrictionListArrayOutputWithContext(ctx context.Context) AlertPolicyTimeRestrictionRestrictionListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyTimeRestrictionRestrictionListArrayOutput)
+}
+
+type AlertPolicyTimeRestrictionRestrictionListOutput struct{ *pulumi.OutputState }
+
+func (AlertPolicyTimeRestrictionRestrictionListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPolicyTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (o AlertPolicyTimeRestrictionRestrictionListOutput) ToAlertPolicyTimeRestrictionRestrictionListOutput() AlertPolicyTimeRestrictionRestrictionListOutput {
+	return o
+}
+
+func (o AlertPolicyTimeRestrictionRestrictionListOutput) ToAlertPolicyTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) AlertPolicyTimeRestrictionRestrictionListOutput {
+	return o
+}
+
+// Ending day of restriction (eg. `wednesday`)
+func (o AlertPolicyTimeRestrictionRestrictionListOutput) EndDay() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertPolicyTimeRestrictionRestrictionList) string { return v.EndDay }).(pulumi.StringOutput)
+}
+
+// Ending hour of restriction.
+func (o AlertPolicyTimeRestrictionRestrictionListOutput) EndHour() pulumi.IntOutput {
+	return o.ApplyT(func(v AlertPolicyTimeRestrictionRestrictionList) int { return v.EndHour }).(pulumi.IntOutput)
+}
+
+// Ending minute of restriction on defined `endHour`
+func (o AlertPolicyTimeRestrictionRestrictionListOutput) EndMin() pulumi.IntOutput {
+	return o.ApplyT(func(v AlertPolicyTimeRestrictionRestrictionList) int { return v.EndMin }).(pulumi.IntOutput)
+}
+
+// Starting day of restriction (eg. `monday`)
+func (o AlertPolicyTimeRestrictionRestrictionListOutput) StartDay() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertPolicyTimeRestrictionRestrictionList) string { return v.StartDay }).(pulumi.StringOutput)
+}
+
+// Starting hour of restriction.
+func (o AlertPolicyTimeRestrictionRestrictionListOutput) StartHour() pulumi.IntOutput {
+	return o.ApplyT(func(v AlertPolicyTimeRestrictionRestrictionList) int { return v.StartHour }).(pulumi.IntOutput)
+}
+
+// Staring minute of restriction on defined `startHour`
+func (o AlertPolicyTimeRestrictionRestrictionListOutput) StartMin() pulumi.IntOutput {
+	return o.ApplyT(func(v AlertPolicyTimeRestrictionRestrictionList) int { return v.StartMin }).(pulumi.IntOutput)
+}
+
+type AlertPolicyTimeRestrictionRestrictionListArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertPolicyTimeRestrictionRestrictionListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertPolicyTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (o AlertPolicyTimeRestrictionRestrictionListArrayOutput) ToAlertPolicyTimeRestrictionRestrictionListArrayOutput() AlertPolicyTimeRestrictionRestrictionListArrayOutput {
+	return o
+}
+
+func (o AlertPolicyTimeRestrictionRestrictionListArrayOutput) ToAlertPolicyTimeRestrictionRestrictionListArrayOutputWithContext(ctx context.Context) AlertPolicyTimeRestrictionRestrictionListArrayOutput {
+	return o
+}
+
+func (o AlertPolicyTimeRestrictionRestrictionListArrayOutput) Index(i pulumi.IntInput) AlertPolicyTimeRestrictionRestrictionListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertPolicyTimeRestrictionRestrictionList {
+		return vs[0].([]AlertPolicyTimeRestrictionRestrictionList)[vs[1].(int)]
+	}).(AlertPolicyTimeRestrictionRestrictionListOutput)
 }
 
 type ApiIntegrationResponder struct {
@@ -4907,7 +5042,7 @@ type NotificationPolicyTimeRestriction struct {
 	// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
 	Restriction []NotificationPolicyTimeRestrictionRestriction `pulumi:"restriction"`
 	// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
-	Restrictions []NotificationPolicyTimeRestrictionRestriction `pulumi:"restrictions"`
+	RestrictionList []NotificationPolicyTimeRestrictionRestrictionList `pulumi:"restrictionList"`
 	// Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
 	Type string `pulumi:"type"`
 }
@@ -4927,7 +5062,7 @@ type NotificationPolicyTimeRestrictionArgs struct {
 	// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
 	Restriction NotificationPolicyTimeRestrictionRestrictionArrayInput `pulumi:"restriction"`
 	// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
-	Restrictions NotificationPolicyTimeRestrictionRestrictionArrayInput `pulumi:"restrictions"`
+	RestrictionList NotificationPolicyTimeRestrictionRestrictionListArrayInput `pulumi:"restrictionList"`
 	// Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -4991,10 +5126,10 @@ func (o NotificationPolicyTimeRestrictionOutput) Restriction() NotificationPolic
 }
 
 // List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
-func (o NotificationPolicyTimeRestrictionOutput) Restrictions() NotificationPolicyTimeRestrictionRestrictionArrayOutput {
-	return o.ApplyT(func(v NotificationPolicyTimeRestriction) []NotificationPolicyTimeRestrictionRestriction {
-		return v.Restrictions
-	}).(NotificationPolicyTimeRestrictionRestrictionArrayOutput)
+func (o NotificationPolicyTimeRestrictionOutput) RestrictionList() NotificationPolicyTimeRestrictionRestrictionListArrayOutput {
+	return o.ApplyT(func(v NotificationPolicyTimeRestriction) []NotificationPolicyTimeRestrictionRestrictionList {
+		return v.RestrictionList
+	}).(NotificationPolicyTimeRestrictionRestrictionListArrayOutput)
 }
 
 // Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
@@ -5023,14 +5158,10 @@ func (o NotificationPolicyTimeRestrictionArrayOutput) Index(i pulumi.IntInput) N
 }
 
 type NotificationPolicyTimeRestrictionRestriction struct {
-	// Ending day of restriction (eg. `wednesday`)
-	EndDay string `pulumi:"endDay"`
 	// Ending hour of restriction.
 	EndHour int `pulumi:"endHour"`
 	// Ending minute of restriction on defined `endHour`
 	EndMin int `pulumi:"endMin"`
-	// Starting day of restriction (eg. `monday`)
-	StartDay string `pulumi:"startDay"`
 	// Starting hour of restriction.
 	StartHour int `pulumi:"startHour"`
 	// Staring minute of restriction on defined `startHour`
@@ -5049,14 +5180,10 @@ type NotificationPolicyTimeRestrictionRestrictionInput interface {
 }
 
 type NotificationPolicyTimeRestrictionRestrictionArgs struct {
-	// Ending day of restriction (eg. `wednesday`)
-	EndDay pulumi.StringInput `pulumi:"endDay"`
 	// Ending hour of restriction.
 	EndHour pulumi.IntInput `pulumi:"endHour"`
 	// Ending minute of restriction on defined `endHour`
 	EndMin pulumi.IntInput `pulumi:"endMin"`
-	// Starting day of restriction (eg. `monday`)
-	StartDay pulumi.StringInput `pulumi:"startDay"`
 	// Starting hour of restriction.
 	StartHour pulumi.IntInput `pulumi:"startHour"`
 	// Staring minute of restriction on defined `startHour`
@@ -5114,11 +5241,6 @@ func (o NotificationPolicyTimeRestrictionRestrictionOutput) ToNotificationPolicy
 	return o
 }
 
-// Ending day of restriction (eg. `wednesday`)
-func (o NotificationPolicyTimeRestrictionRestrictionOutput) EndDay() pulumi.StringOutput {
-	return o.ApplyT(func(v NotificationPolicyTimeRestrictionRestriction) string { return v.EndDay }).(pulumi.StringOutput)
-}
-
 // Ending hour of restriction.
 func (o NotificationPolicyTimeRestrictionRestrictionOutput) EndHour() pulumi.IntOutput {
 	return o.ApplyT(func(v NotificationPolicyTimeRestrictionRestriction) int { return v.EndHour }).(pulumi.IntOutput)
@@ -5127,11 +5249,6 @@ func (o NotificationPolicyTimeRestrictionRestrictionOutput) EndHour() pulumi.Int
 // Ending minute of restriction on defined `endHour`
 func (o NotificationPolicyTimeRestrictionRestrictionOutput) EndMin() pulumi.IntOutput {
 	return o.ApplyT(func(v NotificationPolicyTimeRestrictionRestriction) int { return v.EndMin }).(pulumi.IntOutput)
-}
-
-// Starting day of restriction (eg. `monday`)
-func (o NotificationPolicyTimeRestrictionRestrictionOutput) StartDay() pulumi.StringOutput {
-	return o.ApplyT(func(v NotificationPolicyTimeRestrictionRestriction) string { return v.StartDay }).(pulumi.StringOutput)
 }
 
 // Starting hour of restriction.
@@ -5162,6 +5279,148 @@ func (o NotificationPolicyTimeRestrictionRestrictionArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationPolicyTimeRestrictionRestriction {
 		return vs[0].([]NotificationPolicyTimeRestrictionRestriction)[vs[1].(int)]
 	}).(NotificationPolicyTimeRestrictionRestrictionOutput)
+}
+
+type NotificationPolicyTimeRestrictionRestrictionList struct {
+	// Ending day of restriction (eg. `wednesday`)
+	EndDay string `pulumi:"endDay"`
+	// Ending hour of restriction.
+	EndHour int `pulumi:"endHour"`
+	// Ending minute of restriction on defined `endHour`
+	EndMin int `pulumi:"endMin"`
+	// Starting day of restriction (eg. `monday`)
+	StartDay string `pulumi:"startDay"`
+	// Starting hour of restriction.
+	StartHour int `pulumi:"startHour"`
+	// Staring minute of restriction on defined `startHour`
+	StartMin int `pulumi:"startMin"`
+}
+
+// NotificationPolicyTimeRestrictionRestrictionListInput is an input type that accepts NotificationPolicyTimeRestrictionRestrictionListArgs and NotificationPolicyTimeRestrictionRestrictionListOutput values.
+// You can construct a concrete instance of `NotificationPolicyTimeRestrictionRestrictionListInput` via:
+//
+//          NotificationPolicyTimeRestrictionRestrictionListArgs{...}
+type NotificationPolicyTimeRestrictionRestrictionListInput interface {
+	pulumi.Input
+
+	ToNotificationPolicyTimeRestrictionRestrictionListOutput() NotificationPolicyTimeRestrictionRestrictionListOutput
+	ToNotificationPolicyTimeRestrictionRestrictionListOutputWithContext(context.Context) NotificationPolicyTimeRestrictionRestrictionListOutput
+}
+
+type NotificationPolicyTimeRestrictionRestrictionListArgs struct {
+	// Ending day of restriction (eg. `wednesday`)
+	EndDay pulumi.StringInput `pulumi:"endDay"`
+	// Ending hour of restriction.
+	EndHour pulumi.IntInput `pulumi:"endHour"`
+	// Ending minute of restriction on defined `endHour`
+	EndMin pulumi.IntInput `pulumi:"endMin"`
+	// Starting day of restriction (eg. `monday`)
+	StartDay pulumi.StringInput `pulumi:"startDay"`
+	// Starting hour of restriction.
+	StartHour pulumi.IntInput `pulumi:"startHour"`
+	// Staring minute of restriction on defined `startHour`
+	StartMin pulumi.IntInput `pulumi:"startMin"`
+}
+
+func (NotificationPolicyTimeRestrictionRestrictionListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationPolicyTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (i NotificationPolicyTimeRestrictionRestrictionListArgs) ToNotificationPolicyTimeRestrictionRestrictionListOutput() NotificationPolicyTimeRestrictionRestrictionListOutput {
+	return i.ToNotificationPolicyTimeRestrictionRestrictionListOutputWithContext(context.Background())
+}
+
+func (i NotificationPolicyTimeRestrictionRestrictionListArgs) ToNotificationPolicyTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) NotificationPolicyTimeRestrictionRestrictionListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyTimeRestrictionRestrictionListOutput)
+}
+
+// NotificationPolicyTimeRestrictionRestrictionListArrayInput is an input type that accepts NotificationPolicyTimeRestrictionRestrictionListArray and NotificationPolicyTimeRestrictionRestrictionListArrayOutput values.
+// You can construct a concrete instance of `NotificationPolicyTimeRestrictionRestrictionListArrayInput` via:
+//
+//          NotificationPolicyTimeRestrictionRestrictionListArray{ NotificationPolicyTimeRestrictionRestrictionListArgs{...} }
+type NotificationPolicyTimeRestrictionRestrictionListArrayInput interface {
+	pulumi.Input
+
+	ToNotificationPolicyTimeRestrictionRestrictionListArrayOutput() NotificationPolicyTimeRestrictionRestrictionListArrayOutput
+	ToNotificationPolicyTimeRestrictionRestrictionListArrayOutputWithContext(context.Context) NotificationPolicyTimeRestrictionRestrictionListArrayOutput
+}
+
+type NotificationPolicyTimeRestrictionRestrictionListArray []NotificationPolicyTimeRestrictionRestrictionListInput
+
+func (NotificationPolicyTimeRestrictionRestrictionListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationPolicyTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (i NotificationPolicyTimeRestrictionRestrictionListArray) ToNotificationPolicyTimeRestrictionRestrictionListArrayOutput() NotificationPolicyTimeRestrictionRestrictionListArrayOutput {
+	return i.ToNotificationPolicyTimeRestrictionRestrictionListArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationPolicyTimeRestrictionRestrictionListArray) ToNotificationPolicyTimeRestrictionRestrictionListArrayOutputWithContext(ctx context.Context) NotificationPolicyTimeRestrictionRestrictionListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyTimeRestrictionRestrictionListArrayOutput)
+}
+
+type NotificationPolicyTimeRestrictionRestrictionListOutput struct{ *pulumi.OutputState }
+
+func (NotificationPolicyTimeRestrictionRestrictionListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationPolicyTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (o NotificationPolicyTimeRestrictionRestrictionListOutput) ToNotificationPolicyTimeRestrictionRestrictionListOutput() NotificationPolicyTimeRestrictionRestrictionListOutput {
+	return o
+}
+
+func (o NotificationPolicyTimeRestrictionRestrictionListOutput) ToNotificationPolicyTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) NotificationPolicyTimeRestrictionRestrictionListOutput {
+	return o
+}
+
+// Ending day of restriction (eg. `wednesday`)
+func (o NotificationPolicyTimeRestrictionRestrictionListOutput) EndDay() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationPolicyTimeRestrictionRestrictionList) string { return v.EndDay }).(pulumi.StringOutput)
+}
+
+// Ending hour of restriction.
+func (o NotificationPolicyTimeRestrictionRestrictionListOutput) EndHour() pulumi.IntOutput {
+	return o.ApplyT(func(v NotificationPolicyTimeRestrictionRestrictionList) int { return v.EndHour }).(pulumi.IntOutput)
+}
+
+// Ending minute of restriction on defined `endHour`
+func (o NotificationPolicyTimeRestrictionRestrictionListOutput) EndMin() pulumi.IntOutput {
+	return o.ApplyT(func(v NotificationPolicyTimeRestrictionRestrictionList) int { return v.EndMin }).(pulumi.IntOutput)
+}
+
+// Starting day of restriction (eg. `monday`)
+func (o NotificationPolicyTimeRestrictionRestrictionListOutput) StartDay() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationPolicyTimeRestrictionRestrictionList) string { return v.StartDay }).(pulumi.StringOutput)
+}
+
+// Starting hour of restriction.
+func (o NotificationPolicyTimeRestrictionRestrictionListOutput) StartHour() pulumi.IntOutput {
+	return o.ApplyT(func(v NotificationPolicyTimeRestrictionRestrictionList) int { return v.StartHour }).(pulumi.IntOutput)
+}
+
+// Staring minute of restriction on defined `startHour`
+func (o NotificationPolicyTimeRestrictionRestrictionListOutput) StartMin() pulumi.IntOutput {
+	return o.ApplyT(func(v NotificationPolicyTimeRestrictionRestrictionList) int { return v.StartMin }).(pulumi.IntOutput)
+}
+
+type NotificationPolicyTimeRestrictionRestrictionListArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationPolicyTimeRestrictionRestrictionListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationPolicyTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (o NotificationPolicyTimeRestrictionRestrictionListArrayOutput) ToNotificationPolicyTimeRestrictionRestrictionListArrayOutput() NotificationPolicyTimeRestrictionRestrictionListArrayOutput {
+	return o
+}
+
+func (o NotificationPolicyTimeRestrictionRestrictionListArrayOutput) ToNotificationPolicyTimeRestrictionRestrictionListArrayOutputWithContext(ctx context.Context) NotificationPolicyTimeRestrictionRestrictionListArrayOutput {
+	return o
+}
+
+func (o NotificationPolicyTimeRestrictionRestrictionListArrayOutput) Index(i pulumi.IntInput) NotificationPolicyTimeRestrictionRestrictionListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationPolicyTimeRestrictionRestrictionList {
+		return vs[0].([]NotificationPolicyTimeRestrictionRestrictionList)[vs[1].(int)]
+	}).(NotificationPolicyTimeRestrictionRestrictionListOutput)
 }
 
 type NotificationRuleCriteria struct {
@@ -6181,7 +6440,7 @@ type ScheduleRotationTimeRestriction struct {
 	// It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
 	Restriction []ScheduleRotationTimeRestrictionRestriction `pulumi:"restriction"`
 	// It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
-	Restrictions []ScheduleRotationTimeRestrictionRestriction `pulumi:"restrictions"`
+	RestrictionList []ScheduleRotationTimeRestrictionRestrictionList `pulumi:"restrictionList"`
 	// This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
 	Type string `pulumi:"type"`
 }
@@ -6201,7 +6460,7 @@ type ScheduleRotationTimeRestrictionArgs struct {
 	// It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
 	Restriction ScheduleRotationTimeRestrictionRestrictionArrayInput `pulumi:"restriction"`
 	// It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
-	Restrictions ScheduleRotationTimeRestrictionRestrictionArrayInput `pulumi:"restrictions"`
+	RestrictionList ScheduleRotationTimeRestrictionRestrictionListArrayInput `pulumi:"restrictionList"`
 	// This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -6265,10 +6524,10 @@ func (o ScheduleRotationTimeRestrictionOutput) Restriction() ScheduleRotationTim
 }
 
 // It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
-func (o ScheduleRotationTimeRestrictionOutput) Restrictions() ScheduleRotationTimeRestrictionRestrictionArrayOutput {
-	return o.ApplyT(func(v ScheduleRotationTimeRestriction) []ScheduleRotationTimeRestrictionRestriction {
-		return v.Restrictions
-	}).(ScheduleRotationTimeRestrictionRestrictionArrayOutput)
+func (o ScheduleRotationTimeRestrictionOutput) RestrictionList() ScheduleRotationTimeRestrictionRestrictionListArrayOutput {
+	return o.ApplyT(func(v ScheduleRotationTimeRestriction) []ScheduleRotationTimeRestrictionRestrictionList {
+		return v.RestrictionList
+	}).(ScheduleRotationTimeRestrictionRestrictionListArrayOutput)
 }
 
 // This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
@@ -6297,15 +6556,11 @@ func (o ScheduleRotationTimeRestrictionArrayOutput) Index(i pulumi.IntInput) Sch
 }
 
 type ScheduleRotationTimeRestrictionRestriction struct {
-	// Value of the day that frame will end.
-	EndDay string `pulumi:"endDay"`
 	// Value of the hour that frame will end.
 	EndHour int `pulumi:"endHour"`
 	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
 	EndMin int `pulumi:"endMin"`
-	// Value of the day that frame will start.
-	StartDay string `pulumi:"startDay"`
-	// Value of the hour that frame will start
+	// Value of the hour that frame will start.
 	StartHour int `pulumi:"startHour"`
 	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
 	StartMin int `pulumi:"startMin"`
@@ -6323,15 +6578,11 @@ type ScheduleRotationTimeRestrictionRestrictionInput interface {
 }
 
 type ScheduleRotationTimeRestrictionRestrictionArgs struct {
-	// Value of the day that frame will end.
-	EndDay pulumi.StringInput `pulumi:"endDay"`
 	// Value of the hour that frame will end.
 	EndHour pulumi.IntInput `pulumi:"endHour"`
 	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
 	EndMin pulumi.IntInput `pulumi:"endMin"`
-	// Value of the day that frame will start.
-	StartDay pulumi.StringInput `pulumi:"startDay"`
-	// Value of the hour that frame will start
+	// Value of the hour that frame will start.
 	StartHour pulumi.IntInput `pulumi:"startHour"`
 	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
 	StartMin pulumi.IntInput `pulumi:"startMin"`
@@ -6388,11 +6639,6 @@ func (o ScheduleRotationTimeRestrictionRestrictionOutput) ToScheduleRotationTime
 	return o
 }
 
-// Value of the day that frame will end.
-func (o ScheduleRotationTimeRestrictionRestrictionOutput) EndDay() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) string { return v.EndDay }).(pulumi.StringOutput)
-}
-
 // Value of the hour that frame will end.
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) EndHour() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.EndHour }).(pulumi.IntOutput)
@@ -6403,12 +6649,7 @@ func (o ScheduleRotationTimeRestrictionRestrictionOutput) EndMin() pulumi.IntOut
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.EndMin }).(pulumi.IntOutput)
 }
 
-// Value of the day that frame will start.
-func (o ScheduleRotationTimeRestrictionRestrictionOutput) StartDay() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) string { return v.StartDay }).(pulumi.StringOutput)
-}
-
-// Value of the hour that frame will start
+// Value of the hour that frame will start.
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) StartHour() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.StartHour }).(pulumi.IntOutput)
 }
@@ -6436,6 +6677,148 @@ func (o ScheduleRotationTimeRestrictionRestrictionArrayOutput) Index(i pulumi.In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleRotationTimeRestrictionRestriction {
 		return vs[0].([]ScheduleRotationTimeRestrictionRestriction)[vs[1].(int)]
 	}).(ScheduleRotationTimeRestrictionRestrictionOutput)
+}
+
+type ScheduleRotationTimeRestrictionRestrictionList struct {
+	// Value of the day that frame will end.
+	EndDay string `pulumi:"endDay"`
+	// Value of the hour that frame will end.
+	EndHour int `pulumi:"endHour"`
+	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	EndMin int `pulumi:"endMin"`
+	// Value of the day that frame will start.
+	StartDay string `pulumi:"startDay"`
+	// Value of the hour that frame will start
+	StartHour int `pulumi:"startHour"`
+	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	StartMin int `pulumi:"startMin"`
+}
+
+// ScheduleRotationTimeRestrictionRestrictionListInput is an input type that accepts ScheduleRotationTimeRestrictionRestrictionListArgs and ScheduleRotationTimeRestrictionRestrictionListOutput values.
+// You can construct a concrete instance of `ScheduleRotationTimeRestrictionRestrictionListInput` via:
+//
+//          ScheduleRotationTimeRestrictionRestrictionListArgs{...}
+type ScheduleRotationTimeRestrictionRestrictionListInput interface {
+	pulumi.Input
+
+	ToScheduleRotationTimeRestrictionRestrictionListOutput() ScheduleRotationTimeRestrictionRestrictionListOutput
+	ToScheduleRotationTimeRestrictionRestrictionListOutputWithContext(context.Context) ScheduleRotationTimeRestrictionRestrictionListOutput
+}
+
+type ScheduleRotationTimeRestrictionRestrictionListArgs struct {
+	// Value of the day that frame will end.
+	EndDay pulumi.StringInput `pulumi:"endDay"`
+	// Value of the hour that frame will end.
+	EndHour pulumi.IntInput `pulumi:"endHour"`
+	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	EndMin pulumi.IntInput `pulumi:"endMin"`
+	// Value of the day that frame will start.
+	StartDay pulumi.StringInput `pulumi:"startDay"`
+	// Value of the hour that frame will start
+	StartHour pulumi.IntInput `pulumi:"startHour"`
+	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	StartMin pulumi.IntInput `pulumi:"startMin"`
+}
+
+func (ScheduleRotationTimeRestrictionRestrictionListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleRotationTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (i ScheduleRotationTimeRestrictionRestrictionListArgs) ToScheduleRotationTimeRestrictionRestrictionListOutput() ScheduleRotationTimeRestrictionRestrictionListOutput {
+	return i.ToScheduleRotationTimeRestrictionRestrictionListOutputWithContext(context.Background())
+}
+
+func (i ScheduleRotationTimeRestrictionRestrictionListArgs) ToScheduleRotationTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionRestrictionListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationTimeRestrictionRestrictionListOutput)
+}
+
+// ScheduleRotationTimeRestrictionRestrictionListArrayInput is an input type that accepts ScheduleRotationTimeRestrictionRestrictionListArray and ScheduleRotationTimeRestrictionRestrictionListArrayOutput values.
+// You can construct a concrete instance of `ScheduleRotationTimeRestrictionRestrictionListArrayInput` via:
+//
+//          ScheduleRotationTimeRestrictionRestrictionListArray{ ScheduleRotationTimeRestrictionRestrictionListArgs{...} }
+type ScheduleRotationTimeRestrictionRestrictionListArrayInput interface {
+	pulumi.Input
+
+	ToScheduleRotationTimeRestrictionRestrictionListArrayOutput() ScheduleRotationTimeRestrictionRestrictionListArrayOutput
+	ToScheduleRotationTimeRestrictionRestrictionListArrayOutputWithContext(context.Context) ScheduleRotationTimeRestrictionRestrictionListArrayOutput
+}
+
+type ScheduleRotationTimeRestrictionRestrictionListArray []ScheduleRotationTimeRestrictionRestrictionListInput
+
+func (ScheduleRotationTimeRestrictionRestrictionListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleRotationTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (i ScheduleRotationTimeRestrictionRestrictionListArray) ToScheduleRotationTimeRestrictionRestrictionListArrayOutput() ScheduleRotationTimeRestrictionRestrictionListArrayOutput {
+	return i.ToScheduleRotationTimeRestrictionRestrictionListArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduleRotationTimeRestrictionRestrictionListArray) ToScheduleRotationTimeRestrictionRestrictionListArrayOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionRestrictionListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationTimeRestrictionRestrictionListArrayOutput)
+}
+
+type ScheduleRotationTimeRestrictionRestrictionListOutput struct{ *pulumi.OutputState }
+
+func (ScheduleRotationTimeRestrictionRestrictionListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleRotationTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (o ScheduleRotationTimeRestrictionRestrictionListOutput) ToScheduleRotationTimeRestrictionRestrictionListOutput() ScheduleRotationTimeRestrictionRestrictionListOutput {
+	return o
+}
+
+func (o ScheduleRotationTimeRestrictionRestrictionListOutput) ToScheduleRotationTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionRestrictionListOutput {
+	return o
+}
+
+// Value of the day that frame will end.
+func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndDay() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) string { return v.EndDay }).(pulumi.StringOutput)
+}
+
+// Value of the hour that frame will end.
+func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndHour() pulumi.IntOutput {
+	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.EndHour }).(pulumi.IntOutput)
+}
+
+// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndMin() pulumi.IntOutput {
+	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.EndMin }).(pulumi.IntOutput)
+}
+
+// Value of the day that frame will start.
+func (o ScheduleRotationTimeRestrictionRestrictionListOutput) StartDay() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) string { return v.StartDay }).(pulumi.StringOutput)
+}
+
+// Value of the hour that frame will start
+func (o ScheduleRotationTimeRestrictionRestrictionListOutput) StartHour() pulumi.IntOutput {
+	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.StartHour }).(pulumi.IntOutput)
+}
+
+// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+func (o ScheduleRotationTimeRestrictionRestrictionListOutput) StartMin() pulumi.IntOutput {
+	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.StartMin }).(pulumi.IntOutput)
+}
+
+type ScheduleRotationTimeRestrictionRestrictionListArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduleRotationTimeRestrictionRestrictionListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleRotationTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (o ScheduleRotationTimeRestrictionRestrictionListArrayOutput) ToScheduleRotationTimeRestrictionRestrictionListArrayOutput() ScheduleRotationTimeRestrictionRestrictionListArrayOutput {
+	return o
+}
+
+func (o ScheduleRotationTimeRestrictionRestrictionListArrayOutput) ToScheduleRotationTimeRestrictionRestrictionListArrayOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionRestrictionListArrayOutput {
+	return o
+}
+
+func (o ScheduleRotationTimeRestrictionRestrictionListArrayOutput) Index(i pulumi.IntInput) ScheduleRotationTimeRestrictionRestrictionListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleRotationTimeRestrictionRestrictionList {
+		return vs[0].([]ScheduleRotationTimeRestrictionRestrictionList)[vs[1].(int)]
+	}).(ScheduleRotationTimeRestrictionRestrictionListOutput)
 }
 
 type ServiceIncidentRuleIncidentRule struct {
@@ -7412,9 +7795,9 @@ func (o TeamRoutingRuleNotifyArrayOutput) Index(i pulumi.IntInput) TeamRoutingRu
 }
 
 type TeamRoutingRuleTimeRestriction struct {
-	Restriction  []TeamRoutingRuleTimeRestrictionRestriction `pulumi:"restriction"`
-	Restrictions []TeamRoutingRuleTimeRestrictionRestriction `pulumi:"restrictions"`
-	Type         string                                      `pulumi:"type"`
+	Restriction     []TeamRoutingRuleTimeRestrictionRestriction     `pulumi:"restriction"`
+	RestrictionList []TeamRoutingRuleTimeRestrictionRestrictionList `pulumi:"restrictionList"`
+	Type            string                                          `pulumi:"type"`
 }
 
 // TeamRoutingRuleTimeRestrictionInput is an input type that accepts TeamRoutingRuleTimeRestrictionArgs and TeamRoutingRuleTimeRestrictionOutput values.
@@ -7429,9 +7812,9 @@ type TeamRoutingRuleTimeRestrictionInput interface {
 }
 
 type TeamRoutingRuleTimeRestrictionArgs struct {
-	Restriction  TeamRoutingRuleTimeRestrictionRestrictionArrayInput `pulumi:"restriction"`
-	Restrictions TeamRoutingRuleTimeRestrictionRestrictionArrayInput `pulumi:"restrictions"`
-	Type         pulumi.StringInput                                  `pulumi:"type"`
+	Restriction     TeamRoutingRuleTimeRestrictionRestrictionArrayInput     `pulumi:"restriction"`
+	RestrictionList TeamRoutingRuleTimeRestrictionRestrictionListArrayInput `pulumi:"restrictionList"`
+	Type            pulumi.StringInput                                      `pulumi:"type"`
 }
 
 func (TeamRoutingRuleTimeRestrictionArgs) ElementType() reflect.Type {
@@ -7491,10 +7874,10 @@ func (o TeamRoutingRuleTimeRestrictionOutput) Restriction() TeamRoutingRuleTimeR
 	}).(TeamRoutingRuleTimeRestrictionRestrictionArrayOutput)
 }
 
-func (o TeamRoutingRuleTimeRestrictionOutput) Restrictions() TeamRoutingRuleTimeRestrictionRestrictionArrayOutput {
-	return o.ApplyT(func(v TeamRoutingRuleTimeRestriction) []TeamRoutingRuleTimeRestrictionRestriction {
-		return v.Restrictions
-	}).(TeamRoutingRuleTimeRestrictionRestrictionArrayOutput)
+func (o TeamRoutingRuleTimeRestrictionOutput) RestrictionList() TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput {
+	return o.ApplyT(func(v TeamRoutingRuleTimeRestriction) []TeamRoutingRuleTimeRestrictionRestrictionList {
+		return v.RestrictionList
+	}).(TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput)
 }
 
 func (o TeamRoutingRuleTimeRestrictionOutput) Type() pulumi.StringOutput {
@@ -7522,12 +7905,10 @@ func (o TeamRoutingRuleTimeRestrictionArrayOutput) Index(i pulumi.IntInput) Team
 }
 
 type TeamRoutingRuleTimeRestrictionRestriction struct {
-	EndDay    string `pulumi:"endDay"`
-	EndHour   int    `pulumi:"endHour"`
-	EndMin    int    `pulumi:"endMin"`
-	StartDay  string `pulumi:"startDay"`
-	StartHour int    `pulumi:"startHour"`
-	StartMin  int    `pulumi:"startMin"`
+	EndHour   int `pulumi:"endHour"`
+	EndMin    int `pulumi:"endMin"`
+	StartHour int `pulumi:"startHour"`
+	StartMin  int `pulumi:"startMin"`
 }
 
 // TeamRoutingRuleTimeRestrictionRestrictionInput is an input type that accepts TeamRoutingRuleTimeRestrictionRestrictionArgs and TeamRoutingRuleTimeRestrictionRestrictionOutput values.
@@ -7542,12 +7923,10 @@ type TeamRoutingRuleTimeRestrictionRestrictionInput interface {
 }
 
 type TeamRoutingRuleTimeRestrictionRestrictionArgs struct {
-	EndDay    pulumi.StringInput `pulumi:"endDay"`
-	EndHour   pulumi.IntInput    `pulumi:"endHour"`
-	EndMin    pulumi.IntInput    `pulumi:"endMin"`
-	StartDay  pulumi.StringInput `pulumi:"startDay"`
-	StartHour pulumi.IntInput    `pulumi:"startHour"`
-	StartMin  pulumi.IntInput    `pulumi:"startMin"`
+	EndHour   pulumi.IntInput `pulumi:"endHour"`
+	EndMin    pulumi.IntInput `pulumi:"endMin"`
+	StartHour pulumi.IntInput `pulumi:"startHour"`
+	StartMin  pulumi.IntInput `pulumi:"startMin"`
 }
 
 func (TeamRoutingRuleTimeRestrictionRestrictionArgs) ElementType() reflect.Type {
@@ -7601,20 +7980,12 @@ func (o TeamRoutingRuleTimeRestrictionRestrictionOutput) ToTeamRoutingRuleTimeRe
 	return o
 }
 
-func (o TeamRoutingRuleTimeRestrictionRestrictionOutput) EndDay() pulumi.StringOutput {
-	return o.ApplyT(func(v TeamRoutingRuleTimeRestrictionRestriction) string { return v.EndDay }).(pulumi.StringOutput)
-}
-
 func (o TeamRoutingRuleTimeRestrictionRestrictionOutput) EndHour() pulumi.IntOutput {
 	return o.ApplyT(func(v TeamRoutingRuleTimeRestrictionRestriction) int { return v.EndHour }).(pulumi.IntOutput)
 }
 
 func (o TeamRoutingRuleTimeRestrictionRestrictionOutput) EndMin() pulumi.IntOutput {
 	return o.ApplyT(func(v TeamRoutingRuleTimeRestrictionRestriction) int { return v.EndMin }).(pulumi.IntOutput)
-}
-
-func (o TeamRoutingRuleTimeRestrictionRestrictionOutput) StartDay() pulumi.StringOutput {
-	return o.ApplyT(func(v TeamRoutingRuleTimeRestrictionRestriction) string { return v.StartDay }).(pulumi.StringOutput)
 }
 
 func (o TeamRoutingRuleTimeRestrictionRestrictionOutput) StartHour() pulumi.IntOutput {
@@ -7643,6 +8014,130 @@ func (o TeamRoutingRuleTimeRestrictionRestrictionArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamRoutingRuleTimeRestrictionRestriction {
 		return vs[0].([]TeamRoutingRuleTimeRestrictionRestriction)[vs[1].(int)]
 	}).(TeamRoutingRuleTimeRestrictionRestrictionOutput)
+}
+
+type TeamRoutingRuleTimeRestrictionRestrictionList struct {
+	EndDay    string `pulumi:"endDay"`
+	EndHour   int    `pulumi:"endHour"`
+	EndMin    int    `pulumi:"endMin"`
+	StartDay  string `pulumi:"startDay"`
+	StartHour int    `pulumi:"startHour"`
+	StartMin  int    `pulumi:"startMin"`
+}
+
+// TeamRoutingRuleTimeRestrictionRestrictionListInput is an input type that accepts TeamRoutingRuleTimeRestrictionRestrictionListArgs and TeamRoutingRuleTimeRestrictionRestrictionListOutput values.
+// You can construct a concrete instance of `TeamRoutingRuleTimeRestrictionRestrictionListInput` via:
+//
+//          TeamRoutingRuleTimeRestrictionRestrictionListArgs{...}
+type TeamRoutingRuleTimeRestrictionRestrictionListInput interface {
+	pulumi.Input
+
+	ToTeamRoutingRuleTimeRestrictionRestrictionListOutput() TeamRoutingRuleTimeRestrictionRestrictionListOutput
+	ToTeamRoutingRuleTimeRestrictionRestrictionListOutputWithContext(context.Context) TeamRoutingRuleTimeRestrictionRestrictionListOutput
+}
+
+type TeamRoutingRuleTimeRestrictionRestrictionListArgs struct {
+	EndDay    pulumi.StringInput `pulumi:"endDay"`
+	EndHour   pulumi.IntInput    `pulumi:"endHour"`
+	EndMin    pulumi.IntInput    `pulumi:"endMin"`
+	StartDay  pulumi.StringInput `pulumi:"startDay"`
+	StartHour pulumi.IntInput    `pulumi:"startHour"`
+	StartMin  pulumi.IntInput    `pulumi:"startMin"`
+}
+
+func (TeamRoutingRuleTimeRestrictionRestrictionListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamRoutingRuleTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (i TeamRoutingRuleTimeRestrictionRestrictionListArgs) ToTeamRoutingRuleTimeRestrictionRestrictionListOutput() TeamRoutingRuleTimeRestrictionRestrictionListOutput {
+	return i.ToTeamRoutingRuleTimeRestrictionRestrictionListOutputWithContext(context.Background())
+}
+
+func (i TeamRoutingRuleTimeRestrictionRestrictionListArgs) ToTeamRoutingRuleTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionRestrictionListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleTimeRestrictionRestrictionListOutput)
+}
+
+// TeamRoutingRuleTimeRestrictionRestrictionListArrayInput is an input type that accepts TeamRoutingRuleTimeRestrictionRestrictionListArray and TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput values.
+// You can construct a concrete instance of `TeamRoutingRuleTimeRestrictionRestrictionListArrayInput` via:
+//
+//          TeamRoutingRuleTimeRestrictionRestrictionListArray{ TeamRoutingRuleTimeRestrictionRestrictionListArgs{...} }
+type TeamRoutingRuleTimeRestrictionRestrictionListArrayInput interface {
+	pulumi.Input
+
+	ToTeamRoutingRuleTimeRestrictionRestrictionListArrayOutput() TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput
+	ToTeamRoutingRuleTimeRestrictionRestrictionListArrayOutputWithContext(context.Context) TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput
+}
+
+type TeamRoutingRuleTimeRestrictionRestrictionListArray []TeamRoutingRuleTimeRestrictionRestrictionListInput
+
+func (TeamRoutingRuleTimeRestrictionRestrictionListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamRoutingRuleTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (i TeamRoutingRuleTimeRestrictionRestrictionListArray) ToTeamRoutingRuleTimeRestrictionRestrictionListArrayOutput() TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput {
+	return i.ToTeamRoutingRuleTimeRestrictionRestrictionListArrayOutputWithContext(context.Background())
+}
+
+func (i TeamRoutingRuleTimeRestrictionRestrictionListArray) ToTeamRoutingRuleTimeRestrictionRestrictionListArrayOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput)
+}
+
+type TeamRoutingRuleTimeRestrictionRestrictionListOutput struct{ *pulumi.OutputState }
+
+func (TeamRoutingRuleTimeRestrictionRestrictionListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamRoutingRuleTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) ToTeamRoutingRuleTimeRestrictionRestrictionListOutput() TeamRoutingRuleTimeRestrictionRestrictionListOutput {
+	return o
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) ToTeamRoutingRuleTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionRestrictionListOutput {
+	return o
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) EndDay() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamRoutingRuleTimeRestrictionRestrictionList) string { return v.EndDay }).(pulumi.StringOutput)
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) EndHour() pulumi.IntOutput {
+	return o.ApplyT(func(v TeamRoutingRuleTimeRestrictionRestrictionList) int { return v.EndHour }).(pulumi.IntOutput)
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) EndMin() pulumi.IntOutput {
+	return o.ApplyT(func(v TeamRoutingRuleTimeRestrictionRestrictionList) int { return v.EndMin }).(pulumi.IntOutput)
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) StartDay() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamRoutingRuleTimeRestrictionRestrictionList) string { return v.StartDay }).(pulumi.StringOutput)
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) StartHour() pulumi.IntOutput {
+	return o.ApplyT(func(v TeamRoutingRuleTimeRestrictionRestrictionList) int { return v.StartHour }).(pulumi.IntOutput)
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) StartMin() pulumi.IntOutput {
+	return o.ApplyT(func(v TeamRoutingRuleTimeRestrictionRestrictionList) int { return v.StartMin }).(pulumi.IntOutput)
+}
+
+type TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamRoutingRuleTimeRestrictionRestrictionList)(nil)).Elem()
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput) ToTeamRoutingRuleTimeRestrictionRestrictionListArrayOutput() TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput {
+	return o
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput) ToTeamRoutingRuleTimeRestrictionRestrictionListArrayOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput {
+	return o
+}
+
+func (o TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput) Index(i pulumi.IntInput) TeamRoutingRuleTimeRestrictionRestrictionListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamRoutingRuleTimeRestrictionRestrictionList {
+		return vs[0].([]TeamRoutingRuleTimeRestrictionRestrictionList)[vs[1].(int)]
+	}).(TeamRoutingRuleTimeRestrictionRestrictionListOutput)
 }
 
 type UserUserAddress struct {
@@ -8204,6 +8699,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyTimeRestrictionArrayInput)(nil)).Elem(), AlertPolicyTimeRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyTimeRestrictionRestrictionInput)(nil)).Elem(), AlertPolicyTimeRestrictionRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyTimeRestrictionRestrictionArrayInput)(nil)).Elem(), AlertPolicyTimeRestrictionRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyTimeRestrictionRestrictionListInput)(nil)).Elem(), AlertPolicyTimeRestrictionRestrictionListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyTimeRestrictionRestrictionListArrayInput)(nil)).Elem(), AlertPolicyTimeRestrictionRestrictionListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiIntegrationResponderInput)(nil)).Elem(), ApiIntegrationResponderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiIntegrationResponderArrayInput)(nil)).Elem(), ApiIntegrationResponderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIntegrationResponderInput)(nil)).Elem(), EmailIntegrationResponderArgs{})
@@ -8278,6 +8775,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPolicyTimeRestrictionArrayInput)(nil)).Elem(), NotificationPolicyTimeRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPolicyTimeRestrictionRestrictionInput)(nil)).Elem(), NotificationPolicyTimeRestrictionRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPolicyTimeRestrictionRestrictionArrayInput)(nil)).Elem(), NotificationPolicyTimeRestrictionRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPolicyTimeRestrictionRestrictionListInput)(nil)).Elem(), NotificationPolicyTimeRestrictionRestrictionListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPolicyTimeRestrictionRestrictionListArrayInput)(nil)).Elem(), NotificationPolicyTimeRestrictionRestrictionListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleCriteriaInput)(nil)).Elem(), NotificationRuleCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleCriteriaArrayInput)(nil)).Elem(), NotificationRuleCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleCriteriaConditionInput)(nil)).Elem(), NotificationRuleCriteriaConditionArgs{})
@@ -8300,6 +8799,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationTimeRestrictionArrayInput)(nil)).Elem(), ScheduleRotationTimeRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationTimeRestrictionRestrictionInput)(nil)).Elem(), ScheduleRotationTimeRestrictionRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationTimeRestrictionRestrictionArrayInput)(nil)).Elem(), ScheduleRotationTimeRestrictionRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationTimeRestrictionRestrictionListInput)(nil)).Elem(), ScheduleRotationTimeRestrictionRestrictionListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRotationTimeRestrictionRestrictionListArrayInput)(nil)).Elem(), ScheduleRotationTimeRestrictionRestrictionListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRuleIncidentRuleInput)(nil)).Elem(), ServiceIncidentRuleIncidentRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRuleIncidentRuleArrayInput)(nil)).Elem(), ServiceIncidentRuleIncidentRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentRuleIncidentRuleConditionInput)(nil)).Elem(), ServiceIncidentRuleIncidentRuleConditionArgs{})
@@ -8320,6 +8821,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamRoutingRuleTimeRestrictionArrayInput)(nil)).Elem(), TeamRoutingRuleTimeRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamRoutingRuleTimeRestrictionRestrictionInput)(nil)).Elem(), TeamRoutingRuleTimeRestrictionRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamRoutingRuleTimeRestrictionRestrictionArrayInput)(nil)).Elem(), TeamRoutingRuleTimeRestrictionRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamRoutingRuleTimeRestrictionRestrictionListInput)(nil)).Elem(), TeamRoutingRuleTimeRestrictionRestrictionListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamRoutingRuleTimeRestrictionRestrictionListArrayInput)(nil)).Elem(), TeamRoutingRuleTimeRestrictionRestrictionListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserUserAddressInput)(nil)).Elem(), UserUserAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserUserAddressArrayInput)(nil)).Elem(), UserUserAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationRepeatInput)(nil)).Elem(), GetEscalationRepeatArgs{})
@@ -8340,6 +8843,8 @@ func init() {
 	pulumi.RegisterOutputType(AlertPolicyTimeRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(AlertPolicyTimeRestrictionRestrictionOutput{})
 	pulumi.RegisterOutputType(AlertPolicyTimeRestrictionRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(AlertPolicyTimeRestrictionRestrictionListOutput{})
+	pulumi.RegisterOutputType(AlertPolicyTimeRestrictionRestrictionListArrayOutput{})
 	pulumi.RegisterOutputType(ApiIntegrationResponderOutput{})
 	pulumi.RegisterOutputType(ApiIntegrationResponderArrayOutput{})
 	pulumi.RegisterOutputType(EmailIntegrationResponderOutput{})
@@ -8414,6 +8919,8 @@ func init() {
 	pulumi.RegisterOutputType(NotificationPolicyTimeRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(NotificationPolicyTimeRestrictionRestrictionOutput{})
 	pulumi.RegisterOutputType(NotificationPolicyTimeRestrictionRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(NotificationPolicyTimeRestrictionRestrictionListOutput{})
+	pulumi.RegisterOutputType(NotificationPolicyTimeRestrictionRestrictionListArrayOutput{})
 	pulumi.RegisterOutputType(NotificationRuleCriteriaOutput{})
 	pulumi.RegisterOutputType(NotificationRuleCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(NotificationRuleCriteriaConditionOutput{})
@@ -8436,6 +8943,8 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleRotationTimeRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleRotationTimeRestrictionRestrictionOutput{})
 	pulumi.RegisterOutputType(ScheduleRotationTimeRestrictionRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(ScheduleRotationTimeRestrictionRestrictionListOutput{})
+	pulumi.RegisterOutputType(ScheduleRotationTimeRestrictionRestrictionListArrayOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentRuleIncidentRuleOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentRuleIncidentRuleArrayOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentRuleIncidentRuleConditionOutput{})
@@ -8456,6 +8965,8 @@ func init() {
 	pulumi.RegisterOutputType(TeamRoutingRuleTimeRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(TeamRoutingRuleTimeRestrictionRestrictionOutput{})
 	pulumi.RegisterOutputType(TeamRoutingRuleTimeRestrictionRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(TeamRoutingRuleTimeRestrictionRestrictionListOutput{})
+	pulumi.RegisterOutputType(TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput{})
 	pulumi.RegisterOutputType(UserUserAddressOutput{})
 	pulumi.RegisterOutputType(UserUserAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetEscalationRepeatOutput{})

@@ -13,12 +13,6 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class ScheduleRotationTimeRestrictionRestrictionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Value of the day that frame will end.
-        /// </summary>
-        [Input("endDay", required: true)]
-        public Input<string> EndDay { get; set; } = null!;
-
-        /// <summary>
         /// Value of the hour that frame will end.
         /// </summary>
         [Input("endHour", required: true)]
@@ -31,13 +25,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<int> EndMin { get; set; } = null!;
 
         /// <summary>
-        /// Value of the day that frame will start.
-        /// </summary>
-        [Input("startDay", required: true)]
-        public Input<string> StartDay { get; set; } = null!;
-
-        /// <summary>
-        /// Value of the hour that frame will start
+        /// Value of the hour that frame will start.
         /// </summary>
         [Input("startHour", required: true)]
         public Input<int> StartHour { get; set; } = null!;

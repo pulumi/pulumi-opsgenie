@@ -24,16 +24,16 @@ namespace Pulumi.Opsgenie.Inputs
             set => _restriction = value;
         }
 
-        [Input("restrictions")]
-        private InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionArgs>? _restrictions;
+        [Input("restrictionList")]
+        private InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionListArgs>? _restrictionList;
 
         /// <summary>
         /// It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         /// </summary>
-        public InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionArgs> Restrictions
+        public InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionListArgs> RestrictionList
         {
-            get => _restrictions ?? (_restrictions = new InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionArgs>());
-            set => _restrictions = value;
+            get => _restrictionList ?? (_restrictionList = new InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionListArgs>());
+            set => _restrictionList = value;
         }
 
         /// <summary>

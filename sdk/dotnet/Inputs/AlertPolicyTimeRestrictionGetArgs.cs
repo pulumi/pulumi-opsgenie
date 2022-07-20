@@ -12,16 +12,28 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class AlertPolicyTimeRestrictionGetArgs : Pulumi.ResourceArgs
     {
-        [Input("restrictions")]
-        private InputList<Inputs.AlertPolicyTimeRestrictionRestrictionGetArgs>? _restrictions;
+        [Input("restriction")]
+        private InputList<Inputs.AlertPolicyTimeRestrictionRestrictionGetArgs>? _restriction;
+
+        /// <summary>
+        /// A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+        /// </summary>
+        public InputList<Inputs.AlertPolicyTimeRestrictionRestrictionGetArgs> Restriction
+        {
+            get => _restriction ?? (_restriction = new InputList<Inputs.AlertPolicyTimeRestrictionRestrictionGetArgs>());
+            set => _restriction = value;
+        }
+
+        [Input("restrictionList")]
+        private InputList<Inputs.AlertPolicyTimeRestrictionRestrictionListGetArgs>? _restrictionList;
 
         /// <summary>
         /// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         /// </summary>
-        public InputList<Inputs.AlertPolicyTimeRestrictionRestrictionGetArgs> Restrictions
+        public InputList<Inputs.AlertPolicyTimeRestrictionRestrictionListGetArgs> RestrictionList
         {
-            get => _restrictions ?? (_restrictions = new InputList<Inputs.AlertPolicyTimeRestrictionRestrictionGetArgs>());
-            set => _restrictions = value;
+            get => _restrictionList ?? (_restrictionList = new InputList<Inputs.AlertPolicyTimeRestrictionRestrictionListGetArgs>());
+            set => _restrictionList = value;
         }
 
         /// <summary>

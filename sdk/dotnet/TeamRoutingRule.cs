@@ -65,9 +65,9 @@ namespace Pulumi.Opsgenie
     ///             {
     ///                 new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionArgs
     ///                 {
-    ///                     Restrictions = 
+    ///                     RestrictionList = 
     ///                     {
-    ///                         new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionRestrictionArgs
+    ///                         new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionRestrictionListArgs
     ///                         {
     ///                             EndDay = "tuesday",
     ///                             EndHour = 18,

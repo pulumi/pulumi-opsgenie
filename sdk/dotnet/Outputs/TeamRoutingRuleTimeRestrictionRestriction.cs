@@ -13,31 +13,23 @@ namespace Pulumi.Opsgenie.Outputs
     [OutputType]
     public sealed class TeamRoutingRuleTimeRestrictionRestriction
     {
-        public readonly string EndDay;
         public readonly int EndHour;
         public readonly int EndMin;
-        public readonly string StartDay;
         public readonly int StartHour;
         public readonly int StartMin;
 
         [OutputConstructor]
         private TeamRoutingRuleTimeRestrictionRestriction(
-            string endDay,
-
             int endHour,
 
             int endMin,
-
-            string startDay,
 
             int startHour,
 
             int startMin)
         {
-            EndDay = endDay;
             EndHour = endHour;
             EndMin = endMin;
-            StartDay = startDay;
             StartHour = startHour;
             StartMin = startMin;
         }

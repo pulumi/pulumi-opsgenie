@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  *     order: 0,
  *     teamId: testTeam.id,
  *     timeRestrictions: [{
- *         restrictions: [{
+ *         restrictionList: [{
  *             endDay: "tuesday",
  *             endHour: 18,
  *             endMin: 30,

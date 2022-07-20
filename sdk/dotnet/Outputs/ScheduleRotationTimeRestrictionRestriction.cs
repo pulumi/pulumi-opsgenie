@@ -14,10 +14,6 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class ScheduleRotationTimeRestrictionRestriction
     {
         /// <summary>
-        /// Value of the day that frame will end.
-        /// </summary>
-        public readonly string EndDay;
-        /// <summary>
         /// Value of the hour that frame will end.
         /// </summary>
         public readonly int EndHour;
@@ -26,11 +22,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly int EndMin;
         /// <summary>
-        /// Value of the day that frame will start.
-        /// </summary>
-        public readonly string StartDay;
-        /// <summary>
-        /// Value of the hour that frame will start
+        /// Value of the hour that frame will start.
         /// </summary>
         public readonly int StartHour;
         /// <summary>
@@ -40,22 +32,16 @@ namespace Pulumi.Opsgenie.Outputs
 
         [OutputConstructor]
         private ScheduleRotationTimeRestrictionRestriction(
-            string endDay,
-
             int endHour,
 
             int endMin,
-
-            string startDay,
 
             int startHour,
 
             int startMin)
         {
-            EndDay = endDay;
             EndHour = endHour;
             EndMin = endMin;
-            StartDay = startDay;
             StartHour = startHour;
             StartMin = startMin;
         }

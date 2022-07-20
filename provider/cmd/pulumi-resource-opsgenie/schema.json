@@ -167,10 +167,22 @@
         },
         "opsgenie:index/AlertPolicyTimeRestriction:AlertPolicyTimeRestriction": {
             "properties": {
-                "restrictions": {
+                "restriction": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/AlertPolicyTimeRestrictionRestriction:AlertPolicyTimeRestrictionRestriction"
+                    },
+                    "description": "A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "restrictionList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/opsgenie:index/AlertPolicyTimeRestrictionRestrictionList:AlertPolicyTimeRestrictionRestrictionList"
                     },
                     "description": "List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.\n",
                     "language": {
@@ -195,6 +207,53 @@
             ]
         },
         "opsgenie:index/AlertPolicyTimeRestrictionRestriction:AlertPolicyTimeRestrictionRestriction": {
+            "properties": {
+                "endHour": {
+                    "type": "integer",
+                    "description": "Ending hour of restriction.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endMin": {
+                    "type": "integer",
+                    "description": "Ending minute of restriction on defined `end_hour`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startHour": {
+                    "type": "integer",
+                    "description": "Starting hour of restriction.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startMin": {
+                    "type": "integer",
+                    "description": "Staring minute of restriction on defined `start_hour`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "endHour",
+                "endMin",
+                "startHour",
+                "startMin"
+            ]
+        },
+        "opsgenie:index/AlertPolicyTimeRestrictionRestrictionList:AlertPolicyTimeRestrictionRestrictionList": {
             "properties": {
                 "endDay": {
                     "type": "string",
@@ -1832,10 +1891,10 @@
                         }
                     }
                 },
-                "restrictions": {
+                "restrictionList": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/opsgenie:index/NotificationPolicyTimeRestrictionRestriction:NotificationPolicyTimeRestrictionRestriction"
+                        "$ref": "#/types/opsgenie:index/NotificationPolicyTimeRestrictionRestrictionList:NotificationPolicyTimeRestrictionRestrictionList"
                     },
                     "description": "List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.\n",
                     "language": {
@@ -1860,6 +1919,53 @@
             ]
         },
         "opsgenie:index/NotificationPolicyTimeRestrictionRestriction:NotificationPolicyTimeRestrictionRestriction": {
+            "properties": {
+                "endHour": {
+                    "type": "integer",
+                    "description": "Ending hour of restriction.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endMin": {
+                    "type": "integer",
+                    "description": "Ending minute of restriction on defined `end_hour`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startHour": {
+                    "type": "integer",
+                    "description": "Starting hour of restriction.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startMin": {
+                    "type": "integer",
+                    "description": "Staring minute of restriction on defined `start_hour`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "endHour",
+                "endMin",
+                "startHour",
+                "startMin"
+            ]
+        },
+        "opsgenie:index/NotificationPolicyTimeRestrictionRestrictionList:NotificationPolicyTimeRestrictionRestrictionList": {
             "properties": {
                 "endDay": {
                     "type": "string",
@@ -2264,10 +2370,10 @@
                         }
                     }
                 },
-                "restrictions": {
+                "restrictionList": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/opsgenie:index/ScheduleRotationTimeRestrictionRestriction:ScheduleRotationTimeRestrictionRestriction"
+                        "$ref": "#/types/opsgenie:index/ScheduleRotationTimeRestrictionRestrictionList:ScheduleRotationTimeRestrictionRestrictionList"
                     },
                     "description": "It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.\n",
                     "language": {
@@ -2292,6 +2398,53 @@
             ]
         },
         "opsgenie:index/ScheduleRotationTimeRestrictionRestriction:ScheduleRotationTimeRestrictionRestriction": {
+            "properties": {
+                "endHour": {
+                    "type": "integer",
+                    "description": "Value of the hour that frame will end.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endMin": {
+                    "type": "integer",
+                    "description": "Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startHour": {
+                    "type": "integer",
+                    "description": "Value of the hour that frame will start.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startMin": {
+                    "type": "integer",
+                    "description": "Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "endHour",
+                "endMin",
+                "startHour",
+                "startMin"
+            ]
+        },
+        "opsgenie:index/ScheduleRotationTimeRestrictionRestrictionList:ScheduleRotationTimeRestrictionRestrictionList": {
             "properties": {
                 "endDay": {
                     "type": "string",
@@ -2733,10 +2886,10 @@
                         }
                     }
                 },
-                "restrictions": {
+                "restrictionList": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/opsgenie:index/TeamRoutingRuleTimeRestrictionRestriction:TeamRoutingRuleTimeRestrictionRestriction"
+                        "$ref": "#/types/opsgenie:index/TeamRoutingRuleTimeRestrictionRestrictionList:TeamRoutingRuleTimeRestrictionRestrictionList"
                     },
                     "language": {
                         "python": {
@@ -2759,6 +2912,49 @@
             ]
         },
         "opsgenie:index/TeamRoutingRuleTimeRestrictionRestriction:TeamRoutingRuleTimeRestrictionRestriction": {
+            "properties": {
+                "endHour": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endMin": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startHour": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startMin": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "endHour",
+                "endMin",
+                "startHour",
+                "startMin"
+            ]
+        },
+        "opsgenie:index/TeamRoutingRuleTimeRestrictionRestrictionList:TeamRoutingRuleTimeRestrictionRestrictionList": {
             "properties": {
                 "endDay": {
                     "type": "string",
@@ -3031,7 +3227,7 @@
     },
     "resources": {
         "opsgenie:index/alertPolicy:AlertPolicy": {
-            "description": "Manages a Alert Policy within Opsgenie.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as opsgenie from \"@pulumi/opsgenie\";\n\nconst testTeam = new opsgenie.Team(\"testTeam\", {description: \"This team deals with all the things\"});\nconst testAlertPolicy = new opsgenie.AlertPolicy(\"testAlertPolicy\", {\n    teamId: testTeam.id,\n    policyDescription: \"This is sample policy\",\n    message: \"{{message}}\",\n    filters: [{}],\n    timeRestrictions: [{\n        type: \"weekday-and-time-of-day\",\n        restrictions: [\n            {\n                endDay: \"monday\",\n                endHour: 7,\n                endMin: 0,\n                startDay: \"sunday\",\n                startHour: 21,\n                startMin: 0,\n            },\n            {\n                endDay: \"tuesday\",\n                endHour: 7,\n                endMin: 0,\n                startDay: \"monday\",\n                startHour: 22,\n                startMin: 0,\n            },\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_opsgenie as opsgenie\n\ntest_team = opsgenie.Team(\"testTeam\", description=\"This team deals with all the things\")\ntest_alert_policy = opsgenie.AlertPolicy(\"testAlertPolicy\",\n    team_id=test_team.id,\n    policy_description=\"This is sample policy\",\n    message=\"{{message}}\",\n    filters=[opsgenie.AlertPolicyFilterArgs()],\n    time_restrictions=[opsgenie.AlertPolicyTimeRestrictionArgs(\n        type=\"weekday-and-time-of-day\",\n        restrictions=[\n            opsgenie.AlertPolicyTimeRestrictionRestrictionArgs(\n                end_day=\"monday\",\n                end_hour=7,\n                end_min=0,\n                start_day=\"sunday\",\n                start_hour=21,\n                start_min=0,\n            ),\n            opsgenie.AlertPolicyTimeRestrictionRestrictionArgs(\n                end_day=\"tuesday\",\n                end_hour=7,\n                end_min=0,\n                start_day=\"monday\",\n                start_hour=22,\n                start_min=0,\n            ),\n        ],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Opsgenie = Pulumi.Opsgenie;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testTeam = new Opsgenie.Team(\"testTeam\", new Opsgenie.TeamArgs\n        {\n            Description = \"This team deals with all the things\",\n        });\n        var testAlertPolicy = new Opsgenie.AlertPolicy(\"testAlertPolicy\", new Opsgenie.AlertPolicyArgs\n        {\n            TeamId = testTeam.Id,\n            PolicyDescription = \"This is sample policy\",\n            Message = \"{{message}}\",\n            Filters = \n            {\n                ,\n            },\n            TimeRestrictions = \n            {\n                new Opsgenie.Inputs.AlertPolicyTimeRestrictionArgs\n                {\n                    Type = \"weekday-and-time-of-day\",\n                    Restrictions = \n                    {\n                        new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionArgs\n                        {\n                            EndDay = \"monday\",\n                            EndHour = 7,\n                            EndMin = 0,\n                            StartDay = \"sunday\",\n                            StartHour = 21,\n                            StartMin = 0,\n                        },\n                        new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionArgs\n                        {\n                            EndDay = \"tuesday\",\n                            EndHour = 7,\n                            EndMin = 0,\n                            StartDay = \"monday\",\n                            StartHour = 22,\n                            StartMin = 0,\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestTeam, err := opsgenie.NewTeam(ctx, \"testTeam\", \u0026opsgenie.TeamArgs{\n\t\t\tDescription: pulumi.String(\"This team deals with all the things\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = opsgenie.NewAlertPolicy(ctx, \"testAlertPolicy\", \u0026opsgenie.AlertPolicyArgs{\n\t\t\tTeamId:            testTeam.ID(),\n\t\t\tPolicyDescription: pulumi.String(\"This is sample policy\"),\n\t\t\tMessage:           pulumi.String(\"{{message}}\"),\n\t\t\tFilters: AlertPolicyFilterArray{\n\t\t\t\tnil,\n\t\t\t},\n\t\t\tTimeRestrictions: AlertPolicyTimeRestrictionArray{\n\t\t\t\t\u0026AlertPolicyTimeRestrictionArgs{\n\t\t\t\t\tType: pulumi.String(\"weekday-and-time-of-day\"),\n\t\t\t\t\tRestrictions: AlertPolicyTimeRestrictionRestrictionArray{\n\t\t\t\t\t\t\u0026AlertPolicyTimeRestrictionRestrictionArgs{\n\t\t\t\t\t\t\tEndDay:    pulumi.String(\"monday\"),\n\t\t\t\t\t\t\tEndHour:   pulumi.Int(7),\n\t\t\t\t\t\t\tEndMin:    pulumi.Int(0),\n\t\t\t\t\t\t\tStartDay:  pulumi.String(\"sunday\"),\n\t\t\t\t\t\t\tStartHour: pulumi.Int(21),\n\t\t\t\t\t\t\tStartMin:  pulumi.Int(0),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026AlertPolicyTimeRestrictionRestrictionArgs{\n\t\t\t\t\t\t\tEndDay:    pulumi.String(\"tuesday\"),\n\t\t\t\t\t\t\tEndHour:   pulumi.Int(7),\n\t\t\t\t\t\t\tEndMin:    pulumi.Int(0),\n\t\t\t\t\t\t\tStartDay:  pulumi.String(\"monday\"),\n\t\t\t\t\t\t\tStartHour: pulumi.Int(22),\n\t\t\t\t\t\t\tStartMin:  pulumi.Int(0),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAlert policies can be imported using the `team_id/policy_id`, e.g.\n\n```sh\n $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`\n```\n\n You can import global polices using only policy identifier\n\n```sh\n $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`\n```\n\n ",
+            "description": "Manages a Alert Policy within Opsgenie.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as opsgenie from \"@pulumi/opsgenie\";\n\nconst testTeam = new opsgenie.Team(\"testTeam\", {description: \"This team deals with all the things\"});\nconst testAlertPolicy = new opsgenie.AlertPolicy(\"testAlertPolicy\", {\n    teamId: testTeam.id,\n    policyDescription: \"This is sample policy\",\n    message: \"{{message}}\",\n    filters: [{}],\n    timeRestrictions: [{\n        type: \"weekday-and-time-of-day\",\n        restrictionList: [\n            {\n                endDay: \"monday\",\n                endHour: 7,\n                endMin: 0,\n                startDay: \"sunday\",\n                startHour: 21,\n                startMin: 0,\n            },\n            {\n                endDay: \"tuesday\",\n                endHour: 7,\n                endMin: 0,\n                startDay: \"monday\",\n                startHour: 22,\n                startMin: 0,\n            },\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_opsgenie as opsgenie\n\ntest_team = opsgenie.Team(\"testTeam\", description=\"This team deals with all the things\")\ntest_alert_policy = opsgenie.AlertPolicy(\"testAlertPolicy\",\n    team_id=test_team.id,\n    policy_description=\"This is sample policy\",\n    message=\"{{message}}\",\n    filters=[opsgenie.AlertPolicyFilterArgs()],\n    time_restrictions=[opsgenie.AlertPolicyTimeRestrictionArgs(\n        type=\"weekday-and-time-of-day\",\n        restriction_list=[\n            opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs(\n                end_day=\"monday\",\n                end_hour=7,\n                end_min=0,\n                start_day=\"sunday\",\n                start_hour=21,\n                start_min=0,\n            ),\n            opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs(\n                end_day=\"tuesday\",\n                end_hour=7,\n                end_min=0,\n                start_day=\"monday\",\n                start_hour=22,\n                start_min=0,\n            ),\n        ],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Opsgenie = Pulumi.Opsgenie;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testTeam = new Opsgenie.Team(\"testTeam\", new Opsgenie.TeamArgs\n        {\n            Description = \"This team deals with all the things\",\n        });\n        var testAlertPolicy = new Opsgenie.AlertPolicy(\"testAlertPolicy\", new Opsgenie.AlertPolicyArgs\n        {\n            TeamId = testTeam.Id,\n            PolicyDescription = \"This is sample policy\",\n            Message = \"{{message}}\",\n            Filters = \n            {\n                ,\n            },\n            TimeRestrictions = \n            {\n                new Opsgenie.Inputs.AlertPolicyTimeRestrictionArgs\n                {\n                    Type = \"weekday-and-time-of-day\",\n                    RestrictionList = \n                    {\n                        new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionListArgs\n                        {\n                            EndDay = \"monday\",\n                            EndHour = 7,\n                            EndMin = 0,\n                            StartDay = \"sunday\",\n                            StartHour = 21,\n                            StartMin = 0,\n                        },\n                        new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionListArgs\n                        {\n                            EndDay = \"tuesday\",\n                            EndHour = 7,\n                            EndMin = 0,\n                            StartDay = \"monday\",\n                            StartHour = 22,\n                            StartMin = 0,\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestTeam, err := opsgenie.NewTeam(ctx, \"testTeam\", \u0026opsgenie.TeamArgs{\n\t\t\tDescription: pulumi.String(\"This team deals with all the things\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = opsgenie.NewAlertPolicy(ctx, \"testAlertPolicy\", \u0026opsgenie.AlertPolicyArgs{\n\t\t\tTeamId:            testTeam.ID(),\n\t\t\tPolicyDescription: pulumi.String(\"This is sample policy\"),\n\t\t\tMessage:           pulumi.String(\"{{message}}\"),\n\t\t\tFilters: AlertPolicyFilterArray{\n\t\t\t\tnil,\n\t\t\t},\n\t\t\tTimeRestrictions: AlertPolicyTimeRestrictionArray{\n\t\t\t\t\u0026AlertPolicyTimeRestrictionArgs{\n\t\t\t\t\tType: pulumi.String(\"weekday-and-time-of-day\"),\n\t\t\t\t\tRestrictionList: AlertPolicyTimeRestrictionRestrictionListArray{\n\t\t\t\t\t\t\u0026AlertPolicyTimeRestrictionRestrictionListArgs{\n\t\t\t\t\t\t\tEndDay:    pulumi.String(\"monday\"),\n\t\t\t\t\t\t\tEndHour:   pulumi.Int(7),\n\t\t\t\t\t\t\tEndMin:    pulumi.Int(0),\n\t\t\t\t\t\t\tStartDay:  pulumi.String(\"sunday\"),\n\t\t\t\t\t\t\tStartHour: pulumi.Int(21),\n\t\t\t\t\t\t\tStartMin:  pulumi.Int(0),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026AlertPolicyTimeRestrictionRestrictionListArgs{\n\t\t\t\t\t\t\tEndDay:    pulumi.String(\"tuesday\"),\n\t\t\t\t\t\t\tEndHour:   pulumi.Int(7),\n\t\t\t\t\t\t\tEndMin:    pulumi.Int(0),\n\t\t\t\t\t\t\tStartDay:  pulumi.String(\"monday\"),\n\t\t\t\t\t\t\tStartHour: pulumi.Int(22),\n\t\t\t\t\t\t\tStartMin:  pulumi.Int(0),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAlert policies can be imported using the `team_id/policy_id`, e.g.\n\n```sh\n $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`\n```\n\n You can import global polices using only policy identifier\n\n```sh\n $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`\n```\n\n ",
             "properties": {
                 "actions": {
                     "type": "array",
@@ -5089,7 +5285,7 @@
             }
         },
         "opsgenie:index/teamRoutingRule:TeamRoutingRule": {
-            "description": "Manages a Team Routing Rule within Opsgenie.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as opsgenie from \"@pulumi/opsgenie\";\n\nconst testSchedule = new opsgenie.Schedule(\"test\", {\n    description: \"schedule test\",\n    enabled: false,\n    timezone: \"Europe/Rome\",\n});\nconst testTeam = new opsgenie.Team(\"test\", {\n    description: \"This team deals with all the things\",\n});\nconst testTeamRoutingRule = new opsgenie.TeamRoutingRule(\"test\", {\n    criterias: [{\n        conditions: [{\n            expectedValue: \"expected1\",\n            field: \"message\",\n            not: false,\n            operation: \"contains\",\n        }],\n        type: \"match-any-condition\",\n    }],\n    notifies: [{\n        name: testSchedule.name,\n        type: \"schedule\",\n    }],\n    order: 0,\n    teamId: testTeam.id,\n    timeRestrictions: [{\n        restrictions: [{\n            endDay: \"tuesday\",\n            endHour: 18,\n            endMin: 30,\n            startDay: \"monday\",\n            startHour: 8,\n            startMin: 0,\n        }],\n        type: \"weekday-and-time-of-day\",\n    }],\n    timezone: \"America/Los_Angeles\",\n});\n```\n```python\nimport pulumi\nimport pulumi_opsgenie as opsgenie\n\ntest_schedule = opsgenie.Schedule(\"testSchedule\",\n    description=\"schedule test\",\n    enabled=False,\n    timezone=\"Europe/Rome\")\ntest_team = opsgenie.Team(\"testTeam\", description=\"This team deals with all the things\")\ntest_team_routing_rule = opsgenie.TeamRoutingRule(\"testTeamRoutingRule\",\n    criterias=[opsgenie.TeamRoutingRuleCriteriaArgs(\n        conditions=[opsgenie.TeamRoutingRuleCriteriaConditionArgs(\n            expected_value=\"expected1\",\n            field=\"message\",\n            not_=False,\n            operation=\"contains\",\n        )],\n        type=\"match-any-condition\",\n    )],\n    notifies=[opsgenie.TeamRoutingRuleNotifyArgs(\n        name=test_schedule.name,\n        type=\"schedule\",\n    )],\n    order=0,\n    team_id=test_team.id,\n    time_restrictions=[opsgenie.TeamRoutingRuleTimeRestrictionArgs(\n        restrictions=[opsgenie.TeamRoutingRuleTimeRestrictionRestrictionArgs(\n            end_day=\"tuesday\",\n            end_hour=18,\n            end_min=30,\n            start_day=\"monday\",\n            start_hour=8,\n            start_min=0,\n        )],\n        type=\"weekday-and-time-of-day\",\n    )],\n    timezone=\"America/Los_Angeles\")\n```\n```csharp\nusing Pulumi;\nusing Opsgenie = Pulumi.Opsgenie;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testSchedule = new Opsgenie.Schedule(\"testSchedule\", new Opsgenie.ScheduleArgs\n        {\n            Description = \"schedule test\",\n            Enabled = false,\n            Timezone = \"Europe/Rome\",\n        });\n        var testTeam = new Opsgenie.Team(\"testTeam\", new Opsgenie.TeamArgs\n        {\n            Description = \"This team deals with all the things\",\n        });\n        var testTeamRoutingRule = new Opsgenie.TeamRoutingRule(\"testTeamRoutingRule\", new Opsgenie.TeamRoutingRuleArgs\n        {\n            Criterias = \n            {\n                new Opsgenie.Inputs.TeamRoutingRuleCriteriaArgs\n                {\n                    Conditions = \n                    {\n                        new Opsgenie.Inputs.TeamRoutingRuleCriteriaConditionArgs\n                        {\n                            ExpectedValue = \"expected1\",\n                            Field = \"message\",\n                            Not = false,\n                            Operation = \"contains\",\n                        },\n                    },\n                    Type = \"match-any-condition\",\n                },\n            },\n            Notifies = \n            {\n                new Opsgenie.Inputs.TeamRoutingRuleNotifyArgs\n                {\n                    Name = testSchedule.Name,\n                    Type = \"schedule\",\n                },\n            },\n            Order = 0,\n            TeamId = testTeam.Id,\n            TimeRestrictions = \n            {\n                new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionArgs\n                {\n                    Restrictions = \n                    {\n                        new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionRestrictionArgs\n                        {\n                            EndDay = \"tuesday\",\n                            EndHour = 18,\n                            EndMin = 30,\n                            StartDay = \"monday\",\n                            StartHour = 8,\n                            StartMin = 0,\n                        },\n                    },\n                    Type = \"weekday-and-time-of-day\",\n                },\n            },\n            Timezone = \"America/Los_Angeles\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestSchedule, err := opsgenie.NewSchedule(ctx, \"testSchedule\", \u0026opsgenie.ScheduleArgs{\n\t\t\tDescription: pulumi.String(\"schedule test\"),\n\t\t\tEnabled:     pulumi.Bool(false),\n\t\t\tTimezone:    pulumi.String(\"Europe/Rome\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttestTeam, err := opsgenie.NewTeam(ctx, \"testTeam\", \u0026opsgenie.TeamArgs{\n\t\t\tDescription: pulumi.String(\"This team deals with all the things\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = opsgenie.NewTeamRoutingRule(ctx, \"testTeamRoutingRule\", \u0026opsgenie.TeamRoutingRuleArgs{\n\t\t\tCriterias: TeamRoutingRuleCriteriaArray{\n\t\t\t\t\u0026TeamRoutingRuleCriteriaArgs{\n\t\t\t\t\tConditions: TeamRoutingRuleCriteriaConditionArray{\n\t\t\t\t\t\t\u0026TeamRoutingRuleCriteriaConditionArgs{\n\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"expected1\"),\n\t\t\t\t\t\t\tField:         pulumi.String(\"message\"),\n\t\t\t\t\t\t\tNot:           pulumi.Bool(false),\n\t\t\t\t\t\t\tOperation:     pulumi.String(\"contains\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tType: pulumi.String(\"match-any-condition\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tNotifies: TeamRoutingRuleNotifyArray{\n\t\t\t\t\u0026TeamRoutingRuleNotifyArgs{\n\t\t\t\t\tName: testSchedule.Name,\n\t\t\t\t\tType: pulumi.String(\"schedule\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tOrder:  pulumi.Int(0),\n\t\t\tTeamId: testTeam.ID(),\n\t\t\tTimeRestrictions: TeamRoutingRuleTimeRestrictionArray{\n\t\t\t\t\u0026TeamRoutingRuleTimeRestrictionArgs{\n\t\t\t\t\tRestrictions: TeamRoutingRuleTimeRestrictionRestrictionArray{\n\t\t\t\t\t\t\u0026TeamRoutingRuleTimeRestrictionRestrictionArgs{\n\t\t\t\t\t\t\tEndDay:    pulumi.String(\"tuesday\"),\n\t\t\t\t\t\t\tEndHour:   pulumi.Int(18),\n\t\t\t\t\t\t\tEndMin:    pulumi.Int(30),\n\t\t\t\t\t\t\tStartDay:  pulumi.String(\"monday\"),\n\t\t\t\t\t\t\tStartHour: pulumi.Int(8),\n\t\t\t\t\t\t\tStartMin:  pulumi.Int(0),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tType: pulumi.String(\"weekday-and-time-of-day\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTimezone: pulumi.String(\"America/Los_Angeles\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nTeam Routing Rules can be imported using the `team_id/routing_rule_id`, e.g.\n\n```sh\n $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`\n```\n\n ",
+            "description": "Manages a Team Routing Rule within Opsgenie.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as opsgenie from \"@pulumi/opsgenie\";\n\nconst testSchedule = new opsgenie.Schedule(\"test\", {\n    description: \"schedule test\",\n    enabled: false,\n    timezone: \"Europe/Rome\",\n});\nconst testTeam = new opsgenie.Team(\"test\", {\n    description: \"This team deals with all the things\",\n});\nconst testTeamRoutingRule = new opsgenie.TeamRoutingRule(\"test\", {\n    criterias: [{\n        conditions: [{\n            expectedValue: \"expected1\",\n            field: \"message\",\n            not: false,\n            operation: \"contains\",\n        }],\n        type: \"match-any-condition\",\n    }],\n    notifies: [{\n        name: testSchedule.name,\n        type: \"schedule\",\n    }],\n    order: 0,\n    teamId: testTeam.id,\n    timeRestrictions: [{\n        restrictionList: [{\n            endDay: \"tuesday\",\n            endHour: 18,\n            endMin: 30,\n            startDay: \"monday\",\n            startHour: 8,\n            startMin: 0,\n        }],\n        type: \"weekday-and-time-of-day\",\n    }],\n    timezone: \"America/Los_Angeles\",\n});\n```\n```python\nimport pulumi\nimport pulumi_opsgenie as opsgenie\n\ntest_schedule = opsgenie.Schedule(\"testSchedule\",\n    description=\"schedule test\",\n    enabled=False,\n    timezone=\"Europe/Rome\")\ntest_team = opsgenie.Team(\"testTeam\", description=\"This team deals with all the things\")\ntest_team_routing_rule = opsgenie.TeamRoutingRule(\"testTeamRoutingRule\",\n    criterias=[opsgenie.TeamRoutingRuleCriteriaArgs(\n        conditions=[opsgenie.TeamRoutingRuleCriteriaConditionArgs(\n            expected_value=\"expected1\",\n            field=\"message\",\n            not_=False,\n            operation=\"contains\",\n        )],\n        type=\"match-any-condition\",\n    )],\n    notifies=[opsgenie.TeamRoutingRuleNotifyArgs(\n        name=test_schedule.name,\n        type=\"schedule\",\n    )],\n    order=0,\n    team_id=test_team.id,\n    time_restrictions=[opsgenie.TeamRoutingRuleTimeRestrictionArgs(\n        restriction_list=[opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArgs(\n            end_day=\"tuesday\",\n            end_hour=18,\n            end_min=30,\n            start_day=\"monday\",\n            start_hour=8,\n            start_min=0,\n        )],\n        type=\"weekday-and-time-of-day\",\n    )],\n    timezone=\"America/Los_Angeles\")\n```\n```csharp\nusing Pulumi;\nusing Opsgenie = Pulumi.Opsgenie;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testSchedule = new Opsgenie.Schedule(\"testSchedule\", new Opsgenie.ScheduleArgs\n        {\n            Description = \"schedule test\",\n            Enabled = false,\n            Timezone = \"Europe/Rome\",\n        });\n        var testTeam = new Opsgenie.Team(\"testTeam\", new Opsgenie.TeamArgs\n        {\n            Description = \"This team deals with all the things\",\n        });\n        var testTeamRoutingRule = new Opsgenie.TeamRoutingRule(\"testTeamRoutingRule\", new Opsgenie.TeamRoutingRuleArgs\n        {\n            Criterias = \n            {\n                new Opsgenie.Inputs.TeamRoutingRuleCriteriaArgs\n                {\n                    Conditions = \n                    {\n                        new Opsgenie.Inputs.TeamRoutingRuleCriteriaConditionArgs\n                        {\n                            ExpectedValue = \"expected1\",\n                            Field = \"message\",\n                            Not = false,\n                            Operation = \"contains\",\n                        },\n                    },\n                    Type = \"match-any-condition\",\n                },\n            },\n            Notifies = \n            {\n                new Opsgenie.Inputs.TeamRoutingRuleNotifyArgs\n                {\n                    Name = testSchedule.Name,\n                    Type = \"schedule\",\n                },\n            },\n            Order = 0,\n            TeamId = testTeam.Id,\n            TimeRestrictions = \n            {\n                new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionArgs\n                {\n                    RestrictionList = \n                    {\n                        new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionRestrictionListArgs\n                        {\n                            EndDay = \"tuesday\",\n                            EndHour = 18,\n                            EndMin = 30,\n                            StartDay = \"monday\",\n                            StartHour = 8,\n                            StartMin = 0,\n                        },\n                    },\n                    Type = \"weekday-and-time-of-day\",\n                },\n            },\n            Timezone = \"America/Los_Angeles\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestSchedule, err := opsgenie.NewSchedule(ctx, \"testSchedule\", \u0026opsgenie.ScheduleArgs{\n\t\t\tDescription: pulumi.String(\"schedule test\"),\n\t\t\tEnabled:     pulumi.Bool(false),\n\t\t\tTimezone:    pulumi.String(\"Europe/Rome\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttestTeam, err := opsgenie.NewTeam(ctx, \"testTeam\", \u0026opsgenie.TeamArgs{\n\t\t\tDescription: pulumi.String(\"This team deals with all the things\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = opsgenie.NewTeamRoutingRule(ctx, \"testTeamRoutingRule\", \u0026opsgenie.TeamRoutingRuleArgs{\n\t\t\tCriterias: TeamRoutingRuleCriteriaArray{\n\t\t\t\t\u0026TeamRoutingRuleCriteriaArgs{\n\t\t\t\t\tConditions: TeamRoutingRuleCriteriaConditionArray{\n\t\t\t\t\t\t\u0026TeamRoutingRuleCriteriaConditionArgs{\n\t\t\t\t\t\t\tExpectedValue: pulumi.String(\"expected1\"),\n\t\t\t\t\t\t\tField:         pulumi.String(\"message\"),\n\t\t\t\t\t\t\tNot:           pulumi.Bool(false),\n\t\t\t\t\t\t\tOperation:     pulumi.String(\"contains\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tType: pulumi.String(\"match-any-condition\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tNotifies: TeamRoutingRuleNotifyArray{\n\t\t\t\t\u0026TeamRoutingRuleNotifyArgs{\n\t\t\t\t\tName: testSchedule.Name,\n\t\t\t\t\tType: pulumi.String(\"schedule\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tOrder:  pulumi.Int(0),\n\t\t\tTeamId: testTeam.ID(),\n\t\t\tTimeRestrictions: TeamRoutingRuleTimeRestrictionArray{\n\t\t\t\t\u0026TeamRoutingRuleTimeRestrictionArgs{\n\t\t\t\t\tRestrictionList: TeamRoutingRuleTimeRestrictionRestrictionListArray{\n\t\t\t\t\t\t\u0026TeamRoutingRuleTimeRestrictionRestrictionListArgs{\n\t\t\t\t\t\t\tEndDay:    pulumi.String(\"tuesday\"),\n\t\t\t\t\t\t\tEndHour:   pulumi.Int(18),\n\t\t\t\t\t\t\tEndMin:    pulumi.Int(30),\n\t\t\t\t\t\t\tStartDay:  pulumi.String(\"monday\"),\n\t\t\t\t\t\t\tStartHour: pulumi.Int(8),\n\t\t\t\t\t\t\tStartMin:  pulumi.Int(0),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tType: pulumi.String(\"weekday-and-time-of-day\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTimezone: pulumi.String(\"America/Los_Angeles\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nTeam Routing Rules can be imported using the `team_id/routing_rule_id`, e.g.\n\n```sh\n $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`\n```\n\n ",
             "properties": {
                 "criterias": {
                     "type": "array",

@@ -710,8 +710,8 @@ class AlertPolicy(pulumi.CustomResource):
             filters=[opsgenie.AlertPolicyFilterArgs()],
             time_restrictions=[opsgenie.AlertPolicyTimeRestrictionArgs(
                 type="weekday-and-time-of-day",
-                restrictions=[
-                    opsgenie.AlertPolicyTimeRestrictionRestrictionArgs(
+                restriction_list=[
+                    opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs(
                         end_day="monday",
                         end_hour=7,
                         end_min=0,
@@ -719,7 +719,7 @@ class AlertPolicy(pulumi.CustomResource):
                         start_hour=21,
                         start_min=0,
                     ),
-                    opsgenie.AlertPolicyTimeRestrictionRestrictionArgs(
+                    opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs(
                         end_day="tuesday",
                         end_hour=7,
                         end_min=0,
@@ -791,8 +791,8 @@ class AlertPolicy(pulumi.CustomResource):
             filters=[opsgenie.AlertPolicyFilterArgs()],
             time_restrictions=[opsgenie.AlertPolicyTimeRestrictionArgs(
                 type="weekday-and-time-of-day",
-                restrictions=[
-                    opsgenie.AlertPolicyTimeRestrictionRestrictionArgs(
+                restriction_list=[
+                    opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs(
                         end_day="monday",
                         end_hour=7,
                         end_min=0,
@@ -800,7 +800,7 @@ class AlertPolicy(pulumi.CustomResource):
                         start_hour=21,
                         start_min=0,
                     ),
-                    opsgenie.AlertPolicyTimeRestrictionRestrictionArgs(
+                    opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs(
                         end_day="tuesday",
                         end_hour=7,
                         end_min=0,
