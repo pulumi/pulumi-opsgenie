@@ -12,17 +12,11 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class TeamRoutingRuleTimeRestrictionRestrictionGetArgs : Pulumi.ResourceArgs
     {
-        [Input("endDay", required: true)]
-        public Input<string> EndDay { get; set; } = null!;
-
         [Input("endHour", required: true)]
         public Input<int> EndHour { get; set; } = null!;
 
         [Input("endMin", required: true)]
         public Input<int> EndMin { get; set; } = null!;
-
-        [Input("startDay", required: true)]
-        public Input<string> StartDay { get; set; } = null!;
 
         [Input("startHour", required: true)]
         public Input<int> StartHour { get; set; } = null!;

@@ -40,9 +40,9 @@ namespace Pulumi.Opsgenie
     ///                 new Opsgenie.Inputs.AlertPolicyTimeRestrictionArgs
     ///                 {
     ///                     Type = "weekday-and-time-of-day",
-    ///                     Restrictions = 
+    ///                     RestrictionList = 
     ///                     {
-    ///                         new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionArgs
+    ///                         new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionListArgs
     ///                         {
     ///                             EndDay = "monday",
     ///                             EndHour = 7,
@@ -51,7 +51,7 @@ namespace Pulumi.Opsgenie
     ///                             StartHour = 21,
     ///                             StartMin = 0,
     ///                         },
-    ///                         new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionArgs
+    ///                         new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionListArgs
     ///                         {
     ///                             EndDay = "tuesday",
     ///                             EndHour = 7,

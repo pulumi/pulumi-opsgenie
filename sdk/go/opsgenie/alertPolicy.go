@@ -41,8 +41,8 @@ import (
 // 			TimeRestrictions: AlertPolicyTimeRestrictionArray{
 // 				&AlertPolicyTimeRestrictionArgs{
 // 					Type: pulumi.String("weekday-and-time-of-day"),
-// 					Restrictions: AlertPolicyTimeRestrictionRestrictionArray{
-// 						&AlertPolicyTimeRestrictionRestrictionArgs{
+// 					RestrictionList: AlertPolicyTimeRestrictionRestrictionListArray{
+// 						&AlertPolicyTimeRestrictionRestrictionListArgs{
 // 							EndDay:    pulumi.String("monday"),
 // 							EndHour:   pulumi.Int(7),
 // 							EndMin:    pulumi.Int(0),
@@ -50,7 +50,7 @@ import (
 // 							StartHour: pulumi.Int(21),
 // 							StartMin:  pulumi.Int(0),
 // 						},
-// 						&AlertPolicyTimeRestrictionRestrictionArgs{
+// 						&AlertPolicyTimeRestrictionRestrictionListArgs{
 // 							EndDay:    pulumi.String("tuesday"),
 // 							EndHour:   pulumi.Int(7),
 // 							EndMin:    pulumi.Int(0),

@@ -20,7 +20,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// <summary>
         /// It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScheduleRotationTimeRestrictionRestriction> Restrictions;
+        public readonly ImmutableArray<Outputs.ScheduleRotationTimeRestrictionRestrictionList> RestrictionList;
         /// <summary>
         /// This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
         /// </summary>
@@ -30,12 +30,12 @@ namespace Pulumi.Opsgenie.Outputs
         private ScheduleRotationTimeRestriction(
             ImmutableArray<Outputs.ScheduleRotationTimeRestrictionRestriction> restriction,
 
-            ImmutableArray<Outputs.ScheduleRotationTimeRestrictionRestriction> restrictions,
+            ImmutableArray<Outputs.ScheduleRotationTimeRestrictionRestrictionList> restrictionList,
 
             string type)
         {
             Restriction = restriction;
-            Restrictions = restrictions;
+            RestrictionList = restrictionList;
             Type = type;
         }
     }

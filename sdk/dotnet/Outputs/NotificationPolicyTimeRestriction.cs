@@ -20,7 +20,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// <summary>
         /// List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NotificationPolicyTimeRestrictionRestriction> Restrictions;
+        public readonly ImmutableArray<Outputs.NotificationPolicyTimeRestrictionRestrictionList> RestrictionList;
         /// <summary>
         /// Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         /// </summary>
@@ -30,12 +30,12 @@ namespace Pulumi.Opsgenie.Outputs
         private NotificationPolicyTimeRestriction(
             ImmutableArray<Outputs.NotificationPolicyTimeRestrictionRestriction> restriction,
 
-            ImmutableArray<Outputs.NotificationPolicyTimeRestrictionRestriction> restrictions,
+            ImmutableArray<Outputs.NotificationPolicyTimeRestrictionRestrictionList> restrictionList,
 
             string type)
         {
             Restriction = restriction;
-            Restrictions = restrictions;
+            RestrictionList = restrictionList;
             Type = type;
         }
     }

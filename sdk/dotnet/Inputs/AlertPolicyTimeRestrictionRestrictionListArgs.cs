@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationPolicyTimeRestrictionRestrictionGetArgs : Pulumi.ResourceArgs
+    public sealed class AlertPolicyTimeRestrictionRestrictionListArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Ending day of restriction (eg. `wednesday`)
+        /// </summary>
+        [Input("endDay", required: true)]
+        public Input<string> EndDay { get; set; } = null!;
+
         /// <summary>
         /// Ending hour of restriction.
         /// </summary>
@@ -25,6 +31,12 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<int> EndMin { get; set; } = null!;
 
         /// <summary>
+        /// Starting day of restriction (eg. `monday`)
+        /// </summary>
+        [Input("startDay", required: true)]
+        public Input<string> StartDay { get; set; } = null!;
+
+        /// <summary>
         /// Starting hour of restriction.
         /// </summary>
         [Input("startHour", required: true)]
@@ -36,7 +48,7 @@ namespace Pulumi.Opsgenie.Inputs
         [Input("startMin", required: true)]
         public Input<int> StartMin { get; set; } = null!;
 
-        public NotificationPolicyTimeRestrictionRestrictionGetArgs()
+        public AlertPolicyTimeRestrictionRestrictionListArgs()
         {
         }
     }

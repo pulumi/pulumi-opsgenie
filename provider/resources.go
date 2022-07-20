@@ -95,11 +95,11 @@ func Provider() tfbridge.ProviderInfo {
 					"time_restriction": {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
-								// Similar to ScheduleRotation below, we have both a `restrictions` and a `restriction`
-								// parameter so we need to explicitly declare both here to avoid overwriting one field
-								// with the other.
+								// there is both a restriction and restrictions parameters so we want to stop
+								// the bridge automatically pluralising the values to prevent any issues
+								// See: https://github.com/pulumi/pulumi-opsgenie/issues/57
 								"restriction":  {Name: "restriction"},
-								"restrictions": {Name: "restrictions"},
+								"restrictions": {Name: "restrictionList"},
 							},
 						},
 					},
@@ -120,10 +120,11 @@ func Provider() tfbridge.ProviderInfo {
 					"time_restriction": {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
-								// Again, we have both a `restrictions` and a `restriction` parameter so we need
-								// to explicitly declare both here to avoid overwriting one field with the other.
+								// there is both a restriction and restrictions parameters so we want to stop
+								// the bridge automatically pluralising the values to prevent any issues
+								// See: https://github.com/pulumi/pulumi-opsgenie/issues/57
 								"restriction":  {Name: "restriction"},
-								"restrictions": {Name: "restrictions"},
+								"restrictions": {Name: "restrictionList"},
 							},
 						},
 					},
@@ -158,8 +159,9 @@ func Provider() tfbridge.ProviderInfo {
 							Fields: map[string]*tfbridge.SchemaInfo{
 								// there is both a restriction and restrictions parameters so we want to stop
 								// the bridge automatically pluralising the values to prevent any issues
+								// See: https://github.com/pulumi/pulumi-opsgenie/issues/57
 								"restriction":  {Name: "restriction"},
-								"restrictions": {Name: "restrictions"},
+								"restrictions": {Name: "restrictionList"},
 							},
 						},
 					},
@@ -173,6 +175,19 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"opsgenie_alert_policy": {
 				Tok: makeResource(mainMod, "AlertPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"time_restriction": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								// there is both a restriction and restrictions parameter so we want to stop
+								// the bridge automatically pluralising the values to prevent any issues
+								// See: https://github.com/pulumi/pulumi-opsgenie/issues/57
+								"restriction":  {Name: "restriction"},
+								"restrictions": {Name: "restrictionList"},
+							},
+						},
+					},
+				},
 			},
 			"opsgenie_service_incident_rule": {
 				Tok: makeResource(mainMod, "ServiceIncidentRule"),

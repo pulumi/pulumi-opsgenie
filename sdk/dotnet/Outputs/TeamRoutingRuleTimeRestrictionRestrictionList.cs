@@ -11,37 +11,33 @@ namespace Pulumi.Opsgenie.Outputs
 {
 
     [OutputType]
-    public sealed class AlertPolicyTimeRestrictionRestriction
+    public sealed class TeamRoutingRuleTimeRestrictionRestrictionList
     {
-        /// <summary>
-        /// Ending hour of restriction.
-        /// </summary>
+        public readonly string EndDay;
         public readonly int EndHour;
-        /// <summary>
-        /// Ending minute of restriction on defined `end_hour`
-        /// </summary>
         public readonly int EndMin;
-        /// <summary>
-        /// Starting hour of restriction.
-        /// </summary>
+        public readonly string StartDay;
         public readonly int StartHour;
-        /// <summary>
-        /// Staring minute of restriction on defined `start_hour`
-        /// </summary>
         public readonly int StartMin;
 
         [OutputConstructor]
-        private AlertPolicyTimeRestrictionRestriction(
+        private TeamRoutingRuleTimeRestrictionRestrictionList(
+            string endDay,
+
             int endHour,
 
             int endMin,
+
+            string startDay,
 
             int startHour,
 
             int startMin)
         {
+            EndDay = endDay;
             EndHour = endHour;
             EndMin = endMin;
+            StartDay = startDay;
             StartHour = startHour;
             StartMin = startMin;
         }

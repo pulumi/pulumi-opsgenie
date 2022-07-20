@@ -15,6 +15,7 @@ __all__ = [
     'AlertPolicyResponder',
     'AlertPolicyTimeRestriction',
     'AlertPolicyTimeRestrictionRestriction',
+    'AlertPolicyTimeRestrictionRestrictionList',
     'ApiIntegrationResponder',
     'EmailIntegrationResponder',
     'EscalationRepeat',
@@ -52,6 +53,7 @@ __all__ = [
     'NotificationPolicyFilterCondition',
     'NotificationPolicyTimeRestriction',
     'NotificationPolicyTimeRestrictionRestriction',
+    'NotificationPolicyTimeRestrictionRestrictionList',
     'NotificationRuleCriteria',
     'NotificationRuleCriteriaCondition',
     'NotificationRuleRepeat',
@@ -63,6 +65,7 @@ __all__ = [
     'ScheduleRotationParticipant',
     'ScheduleRotationTimeRestriction',
     'ScheduleRotationTimeRestrictionRestriction',
+    'ScheduleRotationTimeRestrictionRestrictionList',
     'ServiceIncidentRuleIncidentRule',
     'ServiceIncidentRuleIncidentRuleCondition',
     'ServiceIncidentRuleIncidentRuleIncidentProperty',
@@ -73,6 +76,7 @@ __all__ = [
     'TeamRoutingRuleNotify',
     'TeamRoutingRuleTimeRestriction',
     'TeamRoutingRuleTimeRestrictionRestriction',
+    'TeamRoutingRuleTimeRestrictionRestrictionList',
     'UserUserAddress',
     'GetEscalationRepeatResult',
     'GetEscalationRuleResult',
@@ -262,16 +266,37 @@ class AlertPolicyResponder(dict):
 
 @pulumi.output_type
 class AlertPolicyTimeRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictionList":
+            suggest = "restriction_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertPolicyTimeRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertPolicyTimeRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertPolicyTimeRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
-                 restrictions: Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestriction']] = None):
+                 restriction: Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestriction']] = None,
+                 restriction_list: Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestrictionList']] = None):
         """
         :param str type: Type of responder. Acceptable values are: `user` or `team`
-        :param Sequence['AlertPolicyTimeRestrictionRestrictionArgs'] restrictions: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
+        :param Sequence['AlertPolicyTimeRestrictionRestrictionArgs'] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+        :param Sequence['AlertPolicyTimeRestrictionRestrictionListArgs'] restriction_list: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "type", type)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+        if restriction is not None:
+            pulumi.set(__self__, "restriction", restriction)
+        if restriction_list is not None:
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -283,15 +308,97 @@ class AlertPolicyTimeRestriction(dict):
 
     @property
     @pulumi.getter
-    def restrictions(self) -> Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestriction']]:
+    def restriction(self) -> Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestriction']]:
+        """
+        A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+        """
+        return pulumi.get(self, "restriction")
+
+    @property
+    @pulumi.getter(name="restrictionList")
+    def restriction_list(self) -> Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestrictionList']]:
         """
         List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
-        return pulumi.get(self, "restrictions")
+        return pulumi.get(self, "restriction_list")
 
 
 @pulumi.output_type
 class AlertPolicyTimeRestrictionRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endHour":
+            suggest = "end_hour"
+        elif key == "endMin":
+            suggest = "end_min"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMin":
+            suggest = "start_min"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertPolicyTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertPolicyTimeRestrictionRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertPolicyTimeRestrictionRestriction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_hour: int,
+                 end_min: int,
+                 start_hour: int,
+                 start_min: int):
+        """
+        :param int end_hour: Ending hour of restriction.
+        :param int end_min: Ending minute of restriction on defined `end_hour`
+        :param int start_hour: Starting hour of restriction.
+        :param int start_min: Staring minute of restriction on defined `start_hour`
+        """
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
+
+    @property
+    @pulumi.getter(name="endHour")
+    def end_hour(self) -> int:
+        """
+        Ending hour of restriction.
+        """
+        return pulumi.get(self, "end_hour")
+
+    @property
+    @pulumi.getter(name="endMin")
+    def end_min(self) -> int:
+        """
+        Ending minute of restriction on defined `end_hour`
+        """
+        return pulumi.get(self, "end_min")
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> int:
+        """
+        Starting hour of restriction.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @property
+    @pulumi.getter(name="startMin")
+    def start_min(self) -> int:
+        """
+        Staring minute of restriction on defined `start_hour`
+        """
+        return pulumi.get(self, "start_min")
+
+
+@pulumi.output_type
+class AlertPolicyTimeRestrictionRestrictionList(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -309,14 +416,14 @@ class AlertPolicyTimeRestrictionRestriction(dict):
             suggest = "start_min"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlertPolicyTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AlertPolicyTimeRestrictionRestrictionList. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AlertPolicyTimeRestrictionRestriction.__key_warning(key)
+        AlertPolicyTimeRestrictionRestrictionList.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AlertPolicyTimeRestrictionRestriction.__key_warning(key)
+        AlertPolicyTimeRestrictionRestrictionList.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2479,20 +2586,37 @@ class NotificationPolicyFilterCondition(dict):
 
 @pulumi.output_type
 class NotificationPolicyTimeRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictionList":
+            suggest = "restriction_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyTimeRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyTimeRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyTimeRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  restriction: Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestriction']] = None,
-                 restrictions: Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestriction']] = None):
+                 restriction_list: Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestrictionList']] = None):
         """
         :param str type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         :param Sequence['NotificationPolicyTimeRestrictionRestrictionArgs'] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
-        :param Sequence['NotificationPolicyTimeRestrictionRestrictionArgs'] restrictions: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
+        :param Sequence['NotificationPolicyTimeRestrictionRestrictionListArgs'] restriction_list: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "type", type)
         if restriction is not None:
             pulumi.set(__self__, "restriction", restriction)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+        if restriction_list is not None:
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -2511,16 +2635,90 @@ class NotificationPolicyTimeRestriction(dict):
         return pulumi.get(self, "restriction")
 
     @property
-    @pulumi.getter
-    def restrictions(self) -> Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestriction']]:
+    @pulumi.getter(name="restrictionList")
+    def restriction_list(self) -> Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestrictionList']]:
         """
         List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
-        return pulumi.get(self, "restrictions")
+        return pulumi.get(self, "restriction_list")
 
 
 @pulumi.output_type
 class NotificationPolicyTimeRestrictionRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endHour":
+            suggest = "end_hour"
+        elif key == "endMin":
+            suggest = "end_min"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMin":
+            suggest = "start_min"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPolicyTimeRestrictionRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPolicyTimeRestrictionRestriction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_hour: int,
+                 end_min: int,
+                 start_hour: int,
+                 start_min: int):
+        """
+        :param int end_hour: Ending hour of restriction.
+        :param int end_min: Ending minute of restriction on defined `end_hour`
+        :param int start_hour: Starting hour of restriction.
+        :param int start_min: Staring minute of restriction on defined `start_hour`
+        """
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
+
+    @property
+    @pulumi.getter(name="endHour")
+    def end_hour(self) -> int:
+        """
+        Ending hour of restriction.
+        """
+        return pulumi.get(self, "end_hour")
+
+    @property
+    @pulumi.getter(name="endMin")
+    def end_min(self) -> int:
+        """
+        Ending minute of restriction on defined `end_hour`
+        """
+        return pulumi.get(self, "end_min")
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> int:
+        """
+        Starting hour of restriction.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @property
+    @pulumi.getter(name="startMin")
+    def start_min(self) -> int:
+        """
+        Staring minute of restriction on defined `start_hour`
+        """
+        return pulumi.get(self, "start_min")
+
+
+@pulumi.output_type
+class NotificationPolicyTimeRestrictionRestrictionList(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2538,14 +2736,14 @@ class NotificationPolicyTimeRestrictionRestriction(dict):
             suggest = "start_min"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPolicyTimeRestrictionRestrictionList. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        NotificationPolicyTimeRestrictionRestriction.__key_warning(key)
+        NotificationPolicyTimeRestrictionRestrictionList.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        NotificationPolicyTimeRestrictionRestriction.__key_warning(key)
+        NotificationPolicyTimeRestrictionRestrictionList.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3037,20 +3235,37 @@ class ScheduleRotationParticipant(dict):
 
 @pulumi.output_type
 class ScheduleRotationTimeRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictionList":
+            suggest = "restriction_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleRotationTimeRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleRotationTimeRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleRotationTimeRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  restriction: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestriction']] = None,
-                 restrictions: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestriction']] = None):
+                 restriction_list: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestrictionList']] = None):
         """
         :param str type: This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
         :param Sequence['ScheduleRotationTimeRestrictionRestrictionArgs'] restriction: It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
-        :param Sequence['ScheduleRotationTimeRestrictionRestrictionArgs'] restrictions: It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
+        :param Sequence['ScheduleRotationTimeRestrictionRestrictionListArgs'] restriction_list: It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         """
         pulumi.set(__self__, "type", type)
         if restriction is not None:
             pulumi.set(__self__, "restriction", restriction)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+        if restriction_list is not None:
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -3069,16 +3284,90 @@ class ScheduleRotationTimeRestriction(dict):
         return pulumi.get(self, "restriction")
 
     @property
-    @pulumi.getter
-    def restrictions(self) -> Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestriction']]:
+    @pulumi.getter(name="restrictionList")
+    def restriction_list(self) -> Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestrictionList']]:
         """
         It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         """
-        return pulumi.get(self, "restrictions")
+        return pulumi.get(self, "restriction_list")
 
 
 @pulumi.output_type
 class ScheduleRotationTimeRestrictionRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endHour":
+            suggest = "end_hour"
+        elif key == "endMin":
+            suggest = "end_min"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMin":
+            suggest = "start_min"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleRotationTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleRotationTimeRestrictionRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleRotationTimeRestrictionRestriction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_hour: int,
+                 end_min: int,
+                 start_hour: int,
+                 start_min: int):
+        """
+        :param int end_hour: Value of the hour that frame will end.
+        :param int end_min: Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        :param int start_hour: Value of the hour that frame will start.
+        :param int start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
+
+    @property
+    @pulumi.getter(name="endHour")
+    def end_hour(self) -> int:
+        """
+        Value of the hour that frame will end.
+        """
+        return pulumi.get(self, "end_hour")
+
+    @property
+    @pulumi.getter(name="endMin")
+    def end_min(self) -> int:
+        """
+        Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
+        return pulumi.get(self, "end_min")
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> int:
+        """
+        Value of the hour that frame will start.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @property
+    @pulumi.getter(name="startMin")
+    def start_min(self) -> int:
+        """
+        Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
+        return pulumi.get(self, "start_min")
+
+
+@pulumi.output_type
+class ScheduleRotationTimeRestrictionRestrictionList(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3096,14 +3385,14 @@ class ScheduleRotationTimeRestrictionRestriction(dict):
             suggest = "start_min"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScheduleRotationTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleRotationTimeRestrictionRestrictionList. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ScheduleRotationTimeRestrictionRestriction.__key_warning(key)
+        ScheduleRotationTimeRestrictionRestrictionList.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ScheduleRotationTimeRestrictionRestriction.__key_warning(key)
+        ScheduleRotationTimeRestrictionRestrictionList.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3645,15 +3934,32 @@ class TeamRoutingRuleNotify(dict):
 
 @pulumi.output_type
 class TeamRoutingRuleTimeRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictionList":
+            suggest = "restriction_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamRoutingRuleTimeRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamRoutingRuleTimeRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamRoutingRuleTimeRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  restriction: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']] = None,
-                 restrictions: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']] = None):
+                 restriction_list: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestrictionList']] = None):
         pulumi.set(__self__, "type", type)
         if restriction is not None:
             pulumi.set(__self__, "restriction", restriction)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+        if restriction_list is not None:
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -3666,13 +3972,69 @@ class TeamRoutingRuleTimeRestriction(dict):
         return pulumi.get(self, "restriction")
 
     @property
-    @pulumi.getter
-    def restrictions(self) -> Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']]:
-        return pulumi.get(self, "restrictions")
+    @pulumi.getter(name="restrictionList")
+    def restriction_list(self) -> Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestrictionList']]:
+        return pulumi.get(self, "restriction_list")
 
 
 @pulumi.output_type
 class TeamRoutingRuleTimeRestrictionRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endHour":
+            suggest = "end_hour"
+        elif key == "endMin":
+            suggest = "end_min"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMin":
+            suggest = "start_min"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamRoutingRuleTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamRoutingRuleTimeRestrictionRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamRoutingRuleTimeRestrictionRestriction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_hour: int,
+                 end_min: int,
+                 start_hour: int,
+                 start_min: int):
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
+
+    @property
+    @pulumi.getter(name="endHour")
+    def end_hour(self) -> int:
+        return pulumi.get(self, "end_hour")
+
+    @property
+    @pulumi.getter(name="endMin")
+    def end_min(self) -> int:
+        return pulumi.get(self, "end_min")
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> int:
+        return pulumi.get(self, "start_hour")
+
+    @property
+    @pulumi.getter(name="startMin")
+    def start_min(self) -> int:
+        return pulumi.get(self, "start_min")
+
+
+@pulumi.output_type
+class TeamRoutingRuleTimeRestrictionRestrictionList(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3690,14 +4052,14 @@ class TeamRoutingRuleTimeRestrictionRestriction(dict):
             suggest = "start_min"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TeamRoutingRuleTimeRestrictionRestriction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TeamRoutingRuleTimeRestrictionRestrictionList. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TeamRoutingRuleTimeRestrictionRestriction.__key_warning(key)
+        TeamRoutingRuleTimeRestrictionRestrictionList.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TeamRoutingRuleTimeRestrictionRestriction.__key_warning(key)
+        TeamRoutingRuleTimeRestrictionRestrictionList.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

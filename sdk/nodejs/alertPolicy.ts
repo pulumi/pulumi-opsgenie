@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     filters: [{}],
  *     timeRestrictions: [{
  *         type: "weekday-and-time-of-day",
- *         restrictions: [
+ *         restrictionList: [
  *             {
  *                 endDay: "monday",
  *                 endHour: 7,

@@ -319,7 +319,7 @@ class TeamRoutingRule(pulumi.CustomResource):
             order=0,
             team_id=test_team.id,
             time_restrictions=[opsgenie.TeamRoutingRuleTimeRestrictionArgs(
-                restrictions=[opsgenie.TeamRoutingRuleTimeRestrictionRestrictionArgs(
+                restriction_list=[opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArgs(
                     end_day="tuesday",
                     end_hour=18,
                     end_min=30,
@@ -387,7 +387,7 @@ class TeamRoutingRule(pulumi.CustomResource):
             order=0,
             team_id=test_team.id,
             time_restrictions=[opsgenie.TeamRoutingRuleTimeRestrictionArgs(
-                restrictions=[opsgenie.TeamRoutingRuleTimeRestrictionRestrictionArgs(
+                restriction_list=[opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArgs(
                     end_day="tuesday",
                     end_hour=18,
                     end_min=30,

@@ -14,19 +14,19 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class TeamRoutingRuleTimeRestriction
     {
         public readonly ImmutableArray<Outputs.TeamRoutingRuleTimeRestrictionRestriction> Restriction;
-        public readonly ImmutableArray<Outputs.TeamRoutingRuleTimeRestrictionRestriction> Restrictions;
+        public readonly ImmutableArray<Outputs.TeamRoutingRuleTimeRestrictionRestrictionList> RestrictionList;
         public readonly string Type;
 
         [OutputConstructor]
         private TeamRoutingRuleTimeRestriction(
             ImmutableArray<Outputs.TeamRoutingRuleTimeRestrictionRestriction> restriction,
 
-            ImmutableArray<Outputs.TeamRoutingRuleTimeRestrictionRestriction> restrictions,
+            ImmutableArray<Outputs.TeamRoutingRuleTimeRestrictionRestrictionList> restrictionList,
 
             string type)
         {
             Restriction = restriction;
-            Restrictions = restrictions;
+            RestrictionList = restrictionList;
             Type = type;
         }
     }

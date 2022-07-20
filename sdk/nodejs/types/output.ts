@@ -63,9 +63,13 @@ export interface AlertPolicyResponder {
 
 export interface AlertPolicyTimeRestriction {
     /**
+     * A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+     */
+    restriction?: outputs.AlertPolicyTimeRestrictionRestriction[];
+    /**
      * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
-    restrictions?: outputs.AlertPolicyTimeRestrictionRestriction[];
+    restrictionList?: outputs.AlertPolicyTimeRestrictionRestrictionList[];
     /**
      * Type of responder. Acceptable values are: `user` or `team`
      */
@@ -73,6 +77,25 @@ export interface AlertPolicyTimeRestriction {
 }
 
 export interface AlertPolicyTimeRestrictionRestriction {
+    /**
+     * Ending hour of restriction.
+     */
+    endHour: number;
+    /**
+     * Ending minute of restriction on defined `endHour`
+     */
+    endMin: number;
+    /**
+     * Starting hour of restriction.
+     */
+    startHour: number;
+    /**
+     * Staring minute of restriction on defined `startHour`
+     */
+    startMin: number;
+}
+
+export interface AlertPolicyTimeRestrictionRestrictionList {
     /**
      * Ending day of restriction (eg. `wednesday`)
      */
@@ -697,7 +720,7 @@ export interface NotificationPolicyTimeRestriction {
     /**
      * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
-    restrictions?: outputs.NotificationPolicyTimeRestrictionRestriction[];
+    restrictionList?: outputs.NotificationPolicyTimeRestrictionRestrictionList[];
     /**
      * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      */
@@ -705,6 +728,25 @@ export interface NotificationPolicyTimeRestriction {
 }
 
 export interface NotificationPolicyTimeRestrictionRestriction {
+    /**
+     * Ending hour of restriction.
+     */
+    endHour: number;
+    /**
+     * Ending minute of restriction on defined `endHour`
+     */
+    endMin: number;
+    /**
+     * Starting hour of restriction.
+     */
+    startHour: number;
+    /**
+     * Staring minute of restriction on defined `startHour`
+     */
+    startMin: number;
+}
+
+export interface NotificationPolicyTimeRestrictionRestrictionList {
     /**
      * Ending day of restriction (eg. `wednesday`)
      */
@@ -850,7 +892,7 @@ export interface ScheduleRotationTimeRestriction {
     /**
      * It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
      */
-    restrictions?: outputs.ScheduleRotationTimeRestrictionRestriction[];
+    restrictionList?: outputs.ScheduleRotationTimeRestrictionRestrictionList[];
     /**
      * This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
      */
@@ -858,6 +900,25 @@ export interface ScheduleRotationTimeRestriction {
 }
 
 export interface ScheduleRotationTimeRestrictionRestriction {
+    /**
+     * Value of the hour that frame will end.
+     */
+    endHour: number;
+    /**
+     * Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+     */
+    endMin: number;
+    /**
+     * Value of the hour that frame will start.
+     */
+    startHour: number;
+    /**
+     * Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+     */
+    startMin: number;
+}
+
+export interface ScheduleRotationTimeRestrictionRestrictionList {
     /**
      * Value of the day that frame will end.
      */
@@ -1021,11 +1082,18 @@ export interface TeamRoutingRuleNotify {
 
 export interface TeamRoutingRuleTimeRestriction {
     restriction?: outputs.TeamRoutingRuleTimeRestrictionRestriction[];
-    restrictions?: outputs.TeamRoutingRuleTimeRestrictionRestriction[];
+    restrictionList?: outputs.TeamRoutingRuleTimeRestrictionRestrictionList[];
     type: string;
 }
 
 export interface TeamRoutingRuleTimeRestrictionRestriction {
+    endHour: number;
+    endMin: number;
+    startHour: number;
+    startMin: number;
+}
+
+export interface TeamRoutingRuleTimeRestrictionRestrictionList {
     endDay: string;
     endHour: number;
     endMin: number;
@@ -1041,4 +1109,3 @@ export interface UserUserAddress {
     state: string;
     zipcode: string;
 }
-
