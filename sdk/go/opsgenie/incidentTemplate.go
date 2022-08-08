@@ -291,6 +291,46 @@ func (o IncidentTemplateOutput) ToIncidentTemplateOutputWithContext(ctx context.
 	return o
 }
 
+// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+func (o IncidentTemplateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
+func (o IncidentTemplateOutput) Details() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringMapOutput { return v.Details }).(pulumi.StringMapOutput)
+}
+
+func (o IncidentTemplateOutput) ImpactedServices() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringArrayOutput { return v.ImpactedServices }).(pulumi.StringArrayOutput)
+}
+
+// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+func (o IncidentTemplateOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
+}
+
+// Name of the incident template.
+func (o IncidentTemplateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+func (o IncidentTemplateOutput) Priority() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringOutput { return v.Priority }).(pulumi.StringOutput)
+}
+
+func (o IncidentTemplateOutput) StakeholderProperties() IncidentTemplateStakeholderPropertyArrayOutput {
+	return o.ApplyT(func(v *IncidentTemplate) IncidentTemplateStakeholderPropertyArrayOutput {
+		return v.StakeholderProperties
+	}).(IncidentTemplateStakeholderPropertyArrayOutput)
+}
+
+// Tags of the incident template.
+func (o IncidentTemplateOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
 type IncidentTemplateArrayOutput struct{ *pulumi.OutputState }
 
 func (IncidentTemplateArrayOutput) ElementType() reflect.Type {

@@ -289,6 +289,51 @@ func (o HeartbeatOutput) ToHeartbeatOutputWithContext(ctx context.Context) Heart
 	return o
 }
 
+// Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
+func (o HeartbeatOutput) AlertMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringPtrOutput { return v.AlertMessage }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
+func (o HeartbeatOutput) AlertPriority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringPtrOutput { return v.AlertPriority }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the alert tags for heartbeat expiration alert.
+func (o HeartbeatOutput) AlertTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringArrayOutput { return v.AlertTags }).(pulumi.StringArrayOutput)
+}
+
+// An optional description of the heartbeat
+func (o HeartbeatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Enable/disable heartbeat monitoring.
+func (o HeartbeatOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Specifies how often a heartbeat message should be expected.
+func (o HeartbeatOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.IntOutput { return v.Interval }).(pulumi.IntOutput)
+}
+
+// Interval specified as minutes, hours or days.
+func (o HeartbeatOutput) IntervalUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringOutput { return v.IntervalUnit }).(pulumi.StringOutput)
+}
+
+// Name of the heartbeat
+func (o HeartbeatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Owner team of the heartbeat.
+func (o HeartbeatOutput) OwnerTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringPtrOutput { return v.OwnerTeamId }).(pulumi.StringPtrOutput)
+}
+
 type HeartbeatArrayOutput struct{ *pulumi.OutputState }
 
 func (HeartbeatArrayOutput) ElementType() reflect.Type {

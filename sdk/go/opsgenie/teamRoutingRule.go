@@ -311,6 +311,45 @@ func (o TeamRoutingRuleOutput) ToTeamRoutingRuleOutputWithContext(ctx context.Co
 	return o
 }
 
+// You can refer Criteria for detailed information about criteria and its fields
+func (o TeamRoutingRuleOutput) Criterias() TeamRoutingRuleCriteriaArrayOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) TeamRoutingRuleCriteriaArrayOutput { return v.Criterias }).(TeamRoutingRuleCriteriaArrayOutput)
+}
+
+// Only use when importing default routing rule
+func (o TeamRoutingRuleOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.BoolPtrOutput { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the team routing rule
+func (o TeamRoutingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
+func (o TeamRoutingRuleOutput) Notifies() TeamRoutingRuleNotifyArrayOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) TeamRoutingRuleNotifyArrayOutput { return v.Notifies }).(TeamRoutingRuleNotifyArrayOutput)
+}
+
+// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
+func (o TeamRoutingRuleOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.IntPtrOutput { return v.Order }).(pulumi.IntPtrOutput)
+}
+
+// Id of the team owning the routing rule
+func (o TeamRoutingRuleOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
+}
+
+func (o TeamRoutingRuleOutput) TimeRestrictions() TeamRoutingRuleTimeRestrictionArrayOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) TeamRoutingRuleTimeRestrictionArrayOutput { return v.TimeRestrictions }).(TeamRoutingRuleTimeRestrictionArrayOutput)
+}
+
+// Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
+func (o TeamRoutingRuleOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
 type TeamRoutingRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamRoutingRuleArrayOutput) ElementType() reflect.Type {

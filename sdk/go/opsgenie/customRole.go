@@ -223,6 +223,26 @@ func (o CustomRoleOutput) ToCustomRoleOutputWithContext(ctx context.Context) Cus
 	return o
 }
 
+// The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
+func (o CustomRoleOutput) DisallowedRights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomRole) pulumi.StringArrayOutput { return v.DisallowedRights }).(pulumi.StringArrayOutput)
+}
+
+// The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
+func (o CustomRoleOutput) ExtendedRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomRole) pulumi.StringPtrOutput { return v.ExtendedRole }).(pulumi.StringPtrOutput)
+}
+
+// The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
+func (o CustomRoleOutput) GrantedRights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomRole) pulumi.StringArrayOutput { return v.GrantedRights }).(pulumi.StringArrayOutput)
+}
+
+// Name of the custom role.
+func (o CustomRoleOutput) RoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomRole) pulumi.StringOutput { return v.RoleName }).(pulumi.StringOutput)
+}
+
 type CustomRoleArrayOutput struct{ *pulumi.OutputState }
 
 func (CustomRoleArrayOutput) ElementType() reflect.Type {

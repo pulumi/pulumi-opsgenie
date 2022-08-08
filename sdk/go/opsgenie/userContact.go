@@ -247,6 +247,26 @@ func (o UserContactOutput) ToUserContactOutputWithContext(ctx context.Context) U
 	return o
 }
 
+// Enable contact of the user in OpsGenie. Default value is true.
+func (o UserContactOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserContact) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
+func (o UserContactOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserContact) pulumi.StringOutput { return v.Method }).(pulumi.StringOutput)
+}
+
+// to field is the address of given method.
+func (o UserContactOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserContact) pulumi.StringOutput { return v.To }).(pulumi.StringOutput)
+}
+
+// The username for contact.(reference)
+func (o UserContactOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserContact) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
 type UserContactArrayOutput struct{ *pulumi.OutputState }
 
 func (UserContactArrayOutput) ElementType() reflect.Type {

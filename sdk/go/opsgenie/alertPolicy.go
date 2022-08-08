@@ -423,6 +423,106 @@ func (o AlertPolicyOutput) ToAlertPolicyOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
+func (o AlertPolicyOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringArrayOutput { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
+func (o AlertPolicyOutput) AlertDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringPtrOutput { return v.AlertDescription }).(pulumi.StringPtrOutput)
+}
+
+// Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
+func (o AlertPolicyOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringPtrOutput { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// It will trigger other modify policies if set to `true`. Default: `false`
+func (o AlertPolicyOutput) ContinuePolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.BoolPtrOutput { return v.ContinuePolicy }).(pulumi.BoolPtrOutput)
+}
+
+// If policy should be enabled. Default: `true`
+func (o AlertPolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
+func (o AlertPolicyOutput) Entity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringPtrOutput { return v.Entity }).(pulumi.StringPtrOutput)
+}
+
+// A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+func (o AlertPolicyOutput) Filters() AlertPolicyFilterArrayOutput {
+	return o.ApplyT(func(v *AlertPolicy) AlertPolicyFilterArrayOutput { return v.Filters }).(AlertPolicyFilterArrayOutput)
+}
+
+// If set to `true`, policy will ignore the original actions of the alert. Default: `false`
+func (o AlertPolicyOutput) IgnoreOriginalActions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.BoolPtrOutput { return v.IgnoreOriginalActions }).(pulumi.BoolPtrOutput)
+}
+
+// If set to `true`, policy will ignore the original details of the alert. Default: `false`
+func (o AlertPolicyOutput) IgnoreOriginalDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.BoolPtrOutput { return v.IgnoreOriginalDetails }).(pulumi.BoolPtrOutput)
+}
+
+// If set to `true`, policy will ignore the original responders of the alert. Default: `false`
+func (o AlertPolicyOutput) IgnoreOriginalResponders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.BoolPtrOutput { return v.IgnoreOriginalResponders }).(pulumi.BoolPtrOutput)
+}
+
+// If set to `true`, policy will ignore the original tags of the alert. Default: `false`
+func (o AlertPolicyOutput) IgnoreOriginalTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.BoolPtrOutput { return v.IgnoreOriginalTags }).(pulumi.BoolPtrOutput)
+}
+
+// Message of the alerts
+func (o AlertPolicyOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
+}
+
+// Name of the responder
+func (o AlertPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Description of the policy. This can be max 512 characters.
+func (o AlertPolicyOutput) PolicyDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringPtrOutput { return v.PolicyDescription }).(pulumi.StringPtrOutput)
+}
+
+// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
+func (o AlertPolicyOutput) Priority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
+}
+
+// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+func (o AlertPolicyOutput) Responders() AlertPolicyResponderArrayOutput {
+	return o.ApplyT(func(v *AlertPolicy) AlertPolicyResponderArrayOutput { return v.Responders }).(AlertPolicyResponderArrayOutput)
+}
+
+// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
+func (o AlertPolicyOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
+func (o AlertPolicyOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// Id of team that this policy belongs to.
+func (o AlertPolicyOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringPtrOutput { return v.TeamId }).(pulumi.StringPtrOutput)
+}
+
+// Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
+func (o AlertPolicyOutput) TimeRestrictions() AlertPolicyTimeRestrictionArrayOutput {
+	return o.ApplyT(func(v *AlertPolicy) AlertPolicyTimeRestrictionArrayOutput { return v.TimeRestrictions }).(AlertPolicyTimeRestrictionArrayOutput)
+}
+
 type AlertPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyArrayOutput) ElementType() reflect.Type {

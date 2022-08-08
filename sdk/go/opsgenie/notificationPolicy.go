@@ -273,6 +273,65 @@ func (o NotificationPolicyOutput) ToNotificationPolicyOutputWithContext(ctx cont
 	return o
 }
 
+// Auto Restart Action of the policy. This is a block, structure is documented below.
+func (o NotificationPolicyOutput) AutoCloseActions() NotificationPolicyAutoCloseActionArrayOutput {
+	return o.ApplyT(func(v *NotificationPolicy) NotificationPolicyAutoCloseActionArrayOutput { return v.AutoCloseActions }).(NotificationPolicyAutoCloseActionArrayOutput)
+}
+
+// Auto Restart Action of the policy. This is a block, structure is documented below.
+func (o NotificationPolicyOutput) AutoRestartActions() NotificationPolicyAutoRestartActionArrayOutput {
+	return o.ApplyT(func(v *NotificationPolicy) NotificationPolicyAutoRestartActionArrayOutput {
+		return v.AutoRestartActions
+	}).(NotificationPolicyAutoRestartActionArrayOutput)
+}
+
+// Deduplication Action of the policy. This is a block, structure is documented below.
+func (o NotificationPolicyOutput) DeDuplicationActions() NotificationPolicyDeDuplicationActionArrayOutput {
+	return o.ApplyT(func(v *NotificationPolicy) NotificationPolicyDeDuplicationActionArrayOutput {
+		return v.DeDuplicationActions
+	}).(NotificationPolicyDeDuplicationActionArrayOutput)
+}
+
+// Delay notifications. This is a block, structure is documented below.
+func (o NotificationPolicyOutput) DelayActions() NotificationPolicyDelayActionArrayOutput {
+	return o.ApplyT(func(v *NotificationPolicy) NotificationPolicyDelayActionArrayOutput { return v.DelayActions }).(NotificationPolicyDelayActionArrayOutput)
+}
+
+// If policy should be enabled. Default: `true`
+func (o NotificationPolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NotificationPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+func (o NotificationPolicyOutput) Filters() NotificationPolicyFilterArrayOutput {
+	return o.ApplyT(func(v *NotificationPolicy) NotificationPolicyFilterArrayOutput { return v.Filters }).(NotificationPolicyFilterArrayOutput)
+}
+
+// Name of the notification policy
+func (o NotificationPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Description of the policy. This can be max 512 characters.
+func (o NotificationPolicyOutput) PolicyDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationPolicy) pulumi.StringPtrOutput { return v.PolicyDescription }).(pulumi.StringPtrOutput)
+}
+
+// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
+func (o NotificationPolicyOutput) Suppress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NotificationPolicy) pulumi.BoolPtrOutput { return v.Suppress }).(pulumi.BoolPtrOutput)
+}
+
+// Id of team that this policy belons to.
+func (o NotificationPolicyOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationPolicy) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
+}
+
+// Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
+func (o NotificationPolicyOutput) TimeRestrictions() NotificationPolicyTimeRestrictionArrayOutput {
+	return o.ApplyT(func(v *NotificationPolicy) NotificationPolicyTimeRestrictionArrayOutput { return v.TimeRestrictions }).(NotificationPolicyTimeRestrictionArrayOutput)
+}
+
 type NotificationPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyArrayOutput) ElementType() reflect.Type {

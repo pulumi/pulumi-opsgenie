@@ -370,6 +370,31 @@ func (o IntegrationActionOutput) ToIntegrationActionOutputWithContext(ctx contex
 	return o
 }
 
+func (o IntegrationActionOutput) Acknowledges() IntegrationActionAcknowledgeArrayOutput {
+	return o.ApplyT(func(v *IntegrationAction) IntegrationActionAcknowledgeArrayOutput { return v.Acknowledges }).(IntegrationActionAcknowledgeArrayOutput)
+}
+
+func (o IntegrationActionOutput) AddNotes() IntegrationActionAddNoteArrayOutput {
+	return o.ApplyT(func(v *IntegrationAction) IntegrationActionAddNoteArrayOutput { return v.AddNotes }).(IntegrationActionAddNoteArrayOutput)
+}
+
+func (o IntegrationActionOutput) Closes() IntegrationActionCloseArrayOutput {
+	return o.ApplyT(func(v *IntegrationAction) IntegrationActionCloseArrayOutput { return v.Closes }).(IntegrationActionCloseArrayOutput)
+}
+
+func (o IntegrationActionOutput) Creates() IntegrationActionCreateArrayOutput {
+	return o.ApplyT(func(v *IntegrationAction) IntegrationActionCreateArrayOutput { return v.Creates }).(IntegrationActionCreateArrayOutput)
+}
+
+func (o IntegrationActionOutput) Ignores() IntegrationActionIgnoreArrayOutput {
+	return o.ApplyT(func(v *IntegrationAction) IntegrationActionIgnoreArrayOutput { return v.Ignores }).(IntegrationActionIgnoreArrayOutput)
+}
+
+// ID of the parent integration resource to bind to.
+func (o IntegrationActionOutput) IntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAction) pulumi.StringOutput { return v.IntegrationId }).(pulumi.StringOutput)
+}
+
 type IntegrationActionArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionArrayOutput) ElementType() reflect.Type {

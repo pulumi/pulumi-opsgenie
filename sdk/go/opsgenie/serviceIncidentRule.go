@@ -249,6 +249,16 @@ func (o ServiceIncidentRuleOutput) ToServiceIncidentRuleOutputWithContext(ctx co
 	return o
 }
 
+// This is the rule configuration for this incident rule. This is a block, structure is documented below.
+func (o ServiceIncidentRuleOutput) IncidentRules() ServiceIncidentRuleIncidentRuleArrayOutput {
+	return o.ApplyT(func(v *ServiceIncidentRule) ServiceIncidentRuleIncidentRuleArrayOutput { return v.IncidentRules }).(ServiceIncidentRuleIncidentRuleArrayOutput)
+}
+
+// ID of the service associated
+func (o ServiceIncidentRuleOutput) ServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIncidentRule) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
+}
+
 type ServiceIncidentRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRuleArrayOutput) ElementType() reflect.Type {

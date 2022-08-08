@@ -28,7 +28,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := opsgenie.NewMaintenance(ctx, "test", &opsgenie.MaintenanceArgs{
-// 			Description: pulumi.String(fmt.Sprintf("%v%v%v", "geniemaintenance-", "%", "s")),
+// 			Description: pulumi.String(fmt.Sprintf("geniemaintenance-%vs", "%")),
 // 			Rules: MaintenanceRuleArray{
 // 				&MaintenanceRuleArgs{
 // 					Entities: MaintenanceRuleEntityArray{
@@ -42,7 +42,7 @@ import (
 // 			},
 // 			Times: MaintenanceTimeArray{
 // 				&MaintenanceTimeArgs{
-// 					EndDate:   pulumi.String(fmt.Sprintf("%v%v%v", "2019-06-", "%", "dT17:50:00Z")),
+// 					EndDate:   pulumi.String(fmt.Sprintf("2019-06-%vdT17:50:00Z", "%")),
 // 					StartDate: pulumi.String("2019-06-20T17:45:00Z"),
 // 					Type:      pulumi.String("schedule"),
 // 				},
@@ -234,6 +234,21 @@ func (o MaintenanceOutput) ToMaintenanceOutput() MaintenanceOutput {
 
 func (o MaintenanceOutput) ToMaintenanceOutputWithContext(ctx context.Context) MaintenanceOutput {
 	return o
+}
+
+// Description for the maintenance.
+func (o MaintenanceOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Maintenance) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
+func (o MaintenanceOutput) Rules() MaintenanceRuleArrayOutput {
+	return o.ApplyT(func(v *Maintenance) MaintenanceRuleArrayOutput { return v.Rules }).(MaintenanceRuleArrayOutput)
+}
+
+// Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
+func (o MaintenanceOutput) Times() MaintenanceTimeArrayOutput {
+	return o.ApplyT(func(v *Maintenance) MaintenanceTimeArrayOutput { return v.Times }).(MaintenanceTimeArrayOutput)
 }
 
 type MaintenanceArrayOutput struct{ *pulumi.OutputState }

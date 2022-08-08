@@ -301,6 +301,51 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// The Full Name of the User.
+func (o UserOutput) FullName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.FullName }).(pulumi.StringOutput)
+}
+
+// Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
+func (o UserOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+// The Role assigned to the User. Either a built-in such as 'Admin' or 'User' - or the name of a custom role.
+func (o UserOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+// Skype username of the user.
+func (o UserOutput) SkypeUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.SkypeUsername }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to be associated with the user.
+func (o UserOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
+func (o UserOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+// Address of the user.
+func (o UserOutput) UserAddresses() UserUserAddressArrayOutput {
+	return o.ApplyT(func(v *User) UserUserAddressArrayOutput { return v.UserAddresses }).(UserUserAddressArrayOutput)
+}
+
+// Details about the user in form of key and list. of values.
+func (o UserOutput) UserDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.UserDetails }).(pulumi.StringMapOutput)
+}
+
+// The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters and must contain lowercase characters only.
+func (o UserOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
 type UserArrayOutput struct{ *pulumi.OutputState }
 
 func (UserArrayOutput) ElementType() reflect.Type {

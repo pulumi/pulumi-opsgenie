@@ -263,6 +263,31 @@ func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return o
 }
 
+// Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
+func (o TeamOutput) DeleteDefaultResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DeleteDefaultResources }).(pulumi.BoolPtrOutput)
+}
+
+// A description for this team.
+func (o TeamOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
+func (o TeamOutput) IgnoreMembers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.IgnoreMembers }).(pulumi.BoolPtrOutput)
+}
+
+// A Member block as documented below.
+func (o TeamOutput) Members() TeamMemberArrayOutput {
+	return o.ApplyT(func(v *Team) TeamMemberArrayOutput { return v.Members }).(TeamMemberArrayOutput)
+}
+
+// The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+func (o TeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type TeamArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamArrayOutput) ElementType() reflect.Type {

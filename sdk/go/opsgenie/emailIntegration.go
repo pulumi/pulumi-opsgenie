@@ -291,6 +291,40 @@ func (o EmailIntegrationOutput) ToEmailIntegrationOutputWithContext(ctx context.
 	return o
 }
 
+// The username part of the email address. It must be unique for each integration.
+func (o EmailIntegrationOutput) EmailUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIntegration) pulumi.StringOutput { return v.EmailUsername }).(pulumi.StringOutput)
+}
+
+// A Member block as documented below.
+func (o EmailIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EmailIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
+func (o EmailIntegrationOutput) IgnoreRespondersFromPayload() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EmailIntegration) pulumi.BoolPtrOutput { return v.IgnoreRespondersFromPayload }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the integration. Name must be unique for each integration.
+func (o EmailIntegrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Owner team id of the integration.
+func (o EmailIntegrationOutput) OwnerTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIntegration) pulumi.StringPtrOutput { return v.OwnerTeamId }).(pulumi.StringPtrOutput)
+}
+
+func (o EmailIntegrationOutput) Responders() EmailIntegrationResponderArrayOutput {
+	return o.ApplyT(func(v *EmailIntegration) EmailIntegrationResponderArrayOutput { return v.Responders }).(EmailIntegrationResponderArrayOutput)
+}
+
+// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
+func (o EmailIntegrationOutput) SuppressNotifications() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EmailIntegration) pulumi.BoolPtrOutput { return v.SuppressNotifications }).(pulumi.BoolPtrOutput)
+}
+
 type EmailIntegrationArrayOutput struct{ *pulumi.OutputState }
 
 func (EmailIntegrationArrayOutput) ElementType() reflect.Type {

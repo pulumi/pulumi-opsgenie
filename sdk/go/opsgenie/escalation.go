@@ -263,6 +263,31 @@ func (o EscalationOutput) ToEscalationOutputWithContext(ctx context.Context) Esc
 	return o
 }
 
+// Description of the escalation.
+func (o EscalationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Escalation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the escalation.
+func (o EscalationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Escalation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Owner team id of the escalation.
+func (o EscalationOutput) OwnerTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Escalation) pulumi.StringPtrOutput { return v.OwnerTeamId }).(pulumi.StringPtrOutput)
+}
+
+// Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
+func (o EscalationOutput) Repeats() EscalationRepeatArrayOutput {
+	return o.ApplyT(func(v *Escalation) EscalationRepeatArrayOutput { return v.Repeats }).(EscalationRepeatArrayOutput)
+}
+
+// List of the escalation rules.
+func (o EscalationOutput) Rules() EscalationRuleArrayOutput {
+	return o.ApplyT(func(v *Escalation) EscalationRuleArrayOutput { return v.Rules }).(EscalationRuleArrayOutput)
+}
+
 type EscalationArrayOutput struct{ *pulumi.OutputState }
 
 func (EscalationArrayOutput) ElementType() reflect.Type {

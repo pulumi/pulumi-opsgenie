@@ -34,7 +34,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = opsgenie.NewService(ctx, "this", &opsgenie.ServiceArgs{
-// 			TeamId: pulumi.String(fmt.Sprintf("%v%v", "$", "opsgenie_team.payment.id")),
+// 			TeamId: pulumi.String(fmt.Sprintf("$opsgenie_team.payment.id")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -219,6 +219,21 @@ func (o ServiceOutput) ToServiceOutput() ServiceOutput {
 
 func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
 	return o
+}
+
+// Description field of the service that is generally used to provide a detailed information about the service.
+func (o ServiceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the service. This field must not be longer than 100 characters.
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Team id of the service. This field must not be longer than 512 characters.
+func (o ServiceOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }
 
 type ServiceArrayOutput struct{ *pulumi.OutputState }

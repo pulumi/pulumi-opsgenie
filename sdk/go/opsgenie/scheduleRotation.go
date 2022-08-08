@@ -290,6 +290,45 @@ func (o ScheduleRotationOutput) ToScheduleRotationOutputWithContext(ctx context.
 	return o
 }
 
+// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
+func (o ScheduleRotationOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleRotation) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// Length of the rotation with default value 1.
+func (o ScheduleRotationOutput) Length() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduleRotation) pulumi.IntPtrOutput { return v.Length }).(pulumi.IntPtrOutput)
+}
+
+// Name of rotation.
+func (o ScheduleRotationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduleRotation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
+func (o ScheduleRotationOutput) Participants() ScheduleRotationParticipantArrayOutput {
+	return o.ApplyT(func(v *ScheduleRotation) ScheduleRotationParticipantArrayOutput { return v.Participants }).(ScheduleRotationParticipantArrayOutput)
+}
+
+// Identifier of the schedule.
+func (o ScheduleRotationOutput) ScheduleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduleRotation) pulumi.StringOutput { return v.ScheduleId }).(pulumi.StringOutput)
+}
+
+// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
+func (o ScheduleRotationOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduleRotation) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
+}
+
+func (o ScheduleRotationOutput) TimeRestrictions() ScheduleRotationTimeRestrictionArrayOutput {
+	return o.ApplyT(func(v *ScheduleRotation) ScheduleRotationTimeRestrictionArrayOutput { return v.TimeRestrictions }).(ScheduleRotationTimeRestrictionArrayOutput)
+}
+
+// Type of rotation. May be one of daily, weekly and hourly.
+func (o ScheduleRotationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduleRotation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 type ScheduleRotationArrayOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationArrayOutput) ElementType() reflect.Type {
