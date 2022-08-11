@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationRuleStepContactArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleStepContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
@@ -27,5 +27,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationRuleStepContactArgs()
         {
         }
+        public static new NotificationRuleStepContactArgs Empty => new NotificationRuleStepContactArgs();
     }
 }

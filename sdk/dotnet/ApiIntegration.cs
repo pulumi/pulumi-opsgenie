@@ -15,70 +15,70 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example_api_integrationApiIntegration = new Opsgenie.ApiIntegration("example-api-integrationApiIntegration", new()
     ///     {
-    ///         var example_api_integrationApiIntegration = new Opsgenie.ApiIntegration("example-api-integrationApiIntegration", new Opsgenie.ApiIntegrationArgs
+    ///         Type = "API",
+    ///         Responders = new[]
     ///         {
-    ///             Type = "API",
-    ///             Responders = 
+    ///             new Opsgenie.Inputs.ApiIntegrationResponderArgs
     ///             {
-    ///                 new Opsgenie.Inputs.ApiIntegrationResponderArgs
-    ///                 {
-    ///                     Type = "user",
-    ///                     Id = opsgenie_user.User.Id,
-    ///                 },
-    ///                 new Opsgenie.Inputs.ApiIntegrationResponderArgs
-    ///                 {
-    ///                     Type = "user",
-    ///                     Id = opsgenie_user.Fahri.Id,
-    ///                 },
+    ///                 Type = "user",
+    ///                 Id = opsgenie_user.User.Id,
     ///             },
-    ///         });
-    ///         var example_api_integrationIndex_apiIntegrationApiIntegration = new Opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration", new Opsgenie.ApiIntegrationArgs
-    ///         {
-    ///             Type = "Prometheus",
-    ///             Responders = 
+    ///             new Opsgenie.Inputs.ApiIntegrationResponderArgs
     ///             {
-    ///                 new Opsgenie.Inputs.ApiIntegrationResponderArgs
-    ///                 {
-    ///                     Type = "user",
-    ///                     Id = opsgenie_user.User.Id,
-    ///                 },
+    ///                 Type = "user",
+    ///                 Id = opsgenie_user.Fahri.Id,
     ///             },
-    ///             Enabled = false,
-    ///             AllowWriteAccess = false,
-    ///             IgnoreRespondersFromPayload = true,
-    ///             SuppressNotifications = true,
-    ///             OwnerTeamId = opsgenie_team.Team.Id,
-    ///         });
-    ///         var test3 = new Opsgenie.ApiIntegration("test3", new Opsgenie.ApiIntegrationArgs
-    ///         {
-    ///             Type = "Webhook",
-    ///             Responders = 
-    ///             {
-    ///                 new Opsgenie.Inputs.ApiIntegrationResponderArgs
-    ///                 {
-    ///                     Type = "user",
-    ///                     Id = opsgenie_user.User.Id,
-    ///                 },
-    ///             },
-    ///             Enabled = false,
-    ///             AllowWriteAccess = false,
-    ///             SuppressNotifications = true,
-    ///             WebhookUrl = "https://api.example.com/v1",
-    ///             Headers = 
-    ///             {
-    ///                 { "header1", value1 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var example_api_integrationIndex_apiIntegrationApiIntegration = new Opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration", new()
+    ///     {
+    ///         Type = "Prometheus",
+    ///         Responders = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.ApiIntegrationResponderArgs
+    ///             {
+    ///                 Type = "user",
+    ///                 Id = opsgenie_user.User.Id,
+    ///             },
+    ///         },
+    ///         Enabled = false,
+    ///         AllowWriteAccess = false,
+    ///         IgnoreRespondersFromPayload = true,
+    ///         SuppressNotifications = true,
+    ///         OwnerTeamId = opsgenie_team.Team.Id,
+    ///     });
+    /// 
+    ///     var test3 = new Opsgenie.ApiIntegration("test3", new()
+    ///     {
+    ///         Type = "Webhook",
+    ///         Responders = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.ApiIntegrationResponderArgs
+    ///             {
+    ///                 Type = "user",
+    ///                 Id = opsgenie_user.User.Id,
+    ///             },
+    ///         },
+    ///         Enabled = false,
+    ///         AllowWriteAccess = false,
+    ///         SuppressNotifications = true,
+    ///         WebhookUrl = "https://api.example.com/v1",
+    ///         Headers = 
+    ///         {
+    ///             { "header1", value1 },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +90,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/apiIntegration:ApiIntegration")]
-    public partial class ApiIntegration : Pulumi.CustomResource
+    public partial class ApiIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
@@ -199,7 +199,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class ApiIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class ApiIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
@@ -272,9 +272,10 @@ namespace Pulumi.Opsgenie
         public ApiIntegrationArgs()
         {
         }
+        public static new ApiIntegrationArgs Empty => new ApiIntegrationArgs();
     }
 
-    public sealed class ApiIntegrationState : Pulumi.ResourceArgs
+    public sealed class ApiIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
@@ -353,5 +354,6 @@ namespace Pulumi.Opsgenie
         public ApiIntegrationState()
         {
         }
+        public static new ApiIntegrationState Empty => new ApiIntegrationState();
     }
 }

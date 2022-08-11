@@ -18,55 +18,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		first, err := opsgenie.NewUser(ctx, "first", &opsgenie.UserArgs{
-// 			FullName: pulumi.String("name "),
-// 			Role:     pulumi.String("User"),
-// 			Username: pulumi.String("user@domain.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		second, err := opsgenie.NewUser(ctx, "second", &opsgenie.UserArgs{
-// 			FullName: pulumi.String("name "),
-// 			Role:     pulumi.String("User"),
-// 			Username: pulumi.String("test@domain.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewTeam(ctx, "test", &opsgenie.TeamArgs{
-// 			Description: pulumi.String("This team deals with all the things"),
-// 			Members: TeamMemberArray{
-// 				&TeamMemberArgs{
-// 					Id:   first.ID(),
-// 					Role: pulumi.String("admin"),
-// 				},
-// 				&TeamMemberArgs{
-// 					Id:   second.ID(),
-// 					Role: pulumi.String("user"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewTeam(ctx, "self-service", &opsgenie.TeamArgs{
-// 			DeleteDefaultResources: pulumi.Bool(true),
-// 			Description:            pulumi.String("Membership in this team is managed via OpsGenie web UI only"),
-// 			IgnoreMembers:          pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			first, err := opsgenie.NewUser(ctx, "first", &opsgenie.UserArgs{
+//				FullName: pulumi.String("name "),
+//				Role:     pulumi.String("User"),
+//				Username: pulumi.String("user@domain.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			second, err := opsgenie.NewUser(ctx, "second", &opsgenie.UserArgs{
+//				FullName: pulumi.String("name "),
+//				Role:     pulumi.String("User"),
+//				Username: pulumi.String("test@domain.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewTeam(ctx, "test", &opsgenie.TeamArgs{
+//				Description: pulumi.String("This team deals with all the things"),
+//				Members: TeamMemberArray{
+//					&TeamMemberArgs{
+//						Id:   first.ID(),
+//						Role: pulumi.String("admin"),
+//					},
+//					&TeamMemberArgs{
+//						Id:   second.ID(),
+//						Role: pulumi.String("user"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewTeam(ctx, "self-service", &opsgenie.TeamArgs{
+//				DeleteDefaultResources: pulumi.Bool(true),
+//				Description:            pulumi.String("Membership in this team is managed via OpsGenie web UI only"),
+//				IgnoreMembers:          pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +77,9 @@ import (
 // Teams can be imported using the `team_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/team:Team team1 team_id`
+//
+//	$ pulumi import opsgenie:index/team:Team team1 team_id`
+//
 // ```
 type Team struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *Team) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 // TeamArrayInput is an input type that accepts TeamArray and TeamArrayOutput values.
 // You can construct a concrete instance of `TeamArrayInput` via:
 //
-//          TeamArray{ TeamArgs{...} }
+//	TeamArray{ TeamArgs{...} }
 type TeamArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i TeamArray) ToTeamArrayOutputWithContext(ctx context.Context) TeamArrayOu
 // TeamMapInput is an input type that accepts TeamMap and TeamMapOutput values.
 // You can construct a concrete instance of `TeamMapInput` via:
 //
-//          TeamMap{ "key": TeamArgs{...} }
+//	TeamMap{ "key": TeamArgs{...} }
 type TeamMapInput interface {
 	pulumi.Input
 

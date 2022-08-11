@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class IntegrationActionCloseFilterArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationActionCloseFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions")]
         private InputList<Inputs.IntegrationActionCloseFilterConditionArgs>? _conditions;
@@ -29,5 +29,6 @@ namespace Pulumi.Opsgenie.Inputs
         public IntegrationActionCloseFilterArgs()
         {
         }
+        public static new IntegrationActionCloseFilterArgs Empty => new IntegrationActionCloseFilterArgs();
     }
 }

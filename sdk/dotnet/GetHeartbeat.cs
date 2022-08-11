@@ -19,20 +19,18 @@ namespace Pulumi.Opsgenie
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Opsgenie.GetHeartbeat.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Opsgenie.GetHeartbeat.InvokeAsync(new Opsgenie.GetHeartbeatArgs
-        ///         {
-        ///             Name = "genieheartbeat-existing",
-        ///         }));
-        ///     }
+        ///         Name = "genieheartbeat-existing",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Opsgenie
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Opsgenie.GetHeartbeat.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Opsgenie.GetHeartbeat.InvokeAsync(new Opsgenie.GetHeartbeatArgs
-        ///         {
-        ///             Name = "genieheartbeat-existing",
-        ///         }));
-        ///     }
+        ///         Name = "genieheartbeat-existing",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Opsgenie
     }
 
 
-    public sealed class GetHeartbeatArgs : Pulumi.InvokeArgs
+    public sealed class GetHeartbeatArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
@@ -136,9 +132,10 @@ namespace Pulumi.Opsgenie
         public GetHeartbeatArgs()
         {
         }
+        public static new GetHeartbeatArgs Empty => new GetHeartbeatArgs();
     }
 
-    public sealed class GetHeartbeatInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHeartbeatInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
@@ -203,6 +200,7 @@ namespace Pulumi.Opsgenie
         public GetHeartbeatInvokeArgs()
         {
         }
+        public static new GetHeartbeatInvokeArgs Empty => new GetHeartbeatInvokeArgs();
     }
 
 

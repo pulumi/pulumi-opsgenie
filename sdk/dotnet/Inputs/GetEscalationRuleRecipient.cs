@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class GetEscalationRuleRecipientArgs : Pulumi.InvokeArgs
+    public sealed class GetEscalationRuleRecipientArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Opsgenie Escalation.
@@ -24,5 +24,6 @@ namespace Pulumi.Opsgenie.Inputs
         public GetEscalationRuleRecipientArgs()
         {
         }
+        public static new GetEscalationRuleRecipientArgs Empty => new GetEscalationRuleRecipientArgs();
     }
 }

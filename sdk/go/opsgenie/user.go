@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewUser(ctx, "test", &opsgenie.UserArgs{
-// 			FullName:      pulumi.String("Test User"),
-// 			Locale:        pulumi.String("en_US"),
-// 			Role:          pulumi.String("User"),
-// 			SkypeUsername: pulumi.String("skypename"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("sre"),
-// 				pulumi.String("opsgenie"),
-// 			},
-// 			Timezone: pulumi.String("America/New_York"),
-// 			UserAddresses: UserUserAddressArray{
-// 				&UserUserAddressArgs{
-// 					City:    pulumi.String("City"),
-// 					Country: pulumi.String("Country"),
-// 					Line:    pulumi.String("Line"),
-// 					State:   pulumi.String("State"),
-// 					Zipcode: pulumi.String("998877"),
-// 				},
-// 			},
-// 			UserDetails: pulumi.StringMap{
-// 				"key1": pulumi.String("val1,val2"),
-// 				"key2": pulumi.String("val3,val4"),
-// 			},
-// 			Username: pulumi.String("user@domain.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewUser(ctx, "test", &opsgenie.UserArgs{
+//				FullName:      pulumi.String("Test User"),
+//				Locale:        pulumi.String("en_US"),
+//				Role:          pulumi.String("User"),
+//				SkypeUsername: pulumi.String("skypename"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("sre"),
+//					pulumi.String("opsgenie"),
+//				},
+//				Timezone: pulumi.String("America/New_York"),
+//				UserAddresses: UserUserAddressArray{
+//					&UserUserAddressArgs{
+//						City:    pulumi.String("City"),
+//						Country: pulumi.String("Country"),
+//						Line:    pulumi.String("Line"),
+//						State:   pulumi.String("State"),
+//						Zipcode: pulumi.String("998877"),
+//					},
+//				},
+//				UserDetails: pulumi.StringMap{
+//					"key1": pulumi.String("val1,val2"),
+//					"key2": pulumi.String("val3,val4"),
+//				},
+//				Username: pulumi.String("user@domain.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Users can be imported using the `user_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/user:User user user_id`
+//
+//	$ pulumi import opsgenie:index/user:User user user_id`
+//
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -240,7 +245,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
-//          UserArray{ UserArgs{...} }
+//	UserArray{ UserArgs{...} }
 type UserArrayInput interface {
 	pulumi.Input
 
@@ -265,7 +270,7 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
-//          UserMap{ "key": UserArgs{...} }
+//	UserMap{ "key": UserArgs{...} }
 type UserMapInput interface {
 	pulumi.Input
 

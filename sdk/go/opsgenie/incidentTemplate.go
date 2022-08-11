@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
-// 			Description: pulumi.String("This team deals with all the things"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testService, err := opsgenie.NewService(ctx, "testService", &opsgenie.ServiceArgs{
-// 			TeamId: testTeam.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewIncidentTemplate(ctx, "testIncidentTemplate", &opsgenie.IncidentTemplateArgs{
-// 			Message:  pulumi.String("Incident Message"),
-// 			Priority: pulumi.String("P2"),
-// 			StakeholderProperties: IncidentTemplateStakeholderPropertyArray{
-// 				&IncidentTemplateStakeholderPropertyArgs{
-// 					Enable:      pulumi.Bool(true),
-// 					Message:     pulumi.String("Stakeholder Message"),
-// 					Description: pulumi.String("Stakeholder Description"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("tag1"),
-// 				pulumi.String("tag2"),
-// 			},
-// 			Description: pulumi.String("Incident Description"),
-// 			Details: pulumi.StringMap{
-// 				"key1": pulumi.String("value1"),
-// 				"key2": pulumi.String("value2"),
-// 			},
-// 			ImpactedServices: pulumi.StringArray{
-// 				testService.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//				Description: pulumi.String("This team deals with all the things"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testService, err := opsgenie.NewService(ctx, "testService", &opsgenie.ServiceArgs{
+//				TeamId: testTeam.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewIncidentTemplate(ctx, "testIncidentTemplate", &opsgenie.IncidentTemplateArgs{
+//				Message:  pulumi.String("Incident Message"),
+//				Priority: pulumi.String("P2"),
+//				StakeholderProperties: IncidentTemplateStakeholderPropertyArray{
+//					&IncidentTemplateStakeholderPropertyArgs{
+//						Enable:      pulumi.Bool(true),
+//						Message:     pulumi.String("Stakeholder Message"),
+//						Description: pulumi.String("Stakeholder Description"),
+//					},
+//				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("tag1"),
+//					pulumi.String("tag2"),
+//				},
+//				Description: pulumi.String("Incident Description"),
+//				Details: pulumi.StringMap{
+//					"key1": pulumi.String("value1"),
+//					"key2": pulumi.String("value2"),
+//				},
+//				ImpactedServices: pulumi.StringArray{
+//					testService.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Service can be imported using the `template_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
+//
+//	$ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
+//
 // ```
 type IncidentTemplate struct {
 	pulumi.CustomResourceState
@@ -230,7 +235,7 @@ func (i *IncidentTemplate) ToIncidentTemplateOutputWithContext(ctx context.Conte
 // IncidentTemplateArrayInput is an input type that accepts IncidentTemplateArray and IncidentTemplateArrayOutput values.
 // You can construct a concrete instance of `IncidentTemplateArrayInput` via:
 //
-//          IncidentTemplateArray{ IncidentTemplateArgs{...} }
+//	IncidentTemplateArray{ IncidentTemplateArgs{...} }
 type IncidentTemplateArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +260,7 @@ func (i IncidentTemplateArray) ToIncidentTemplateArrayOutputWithContext(ctx cont
 // IncidentTemplateMapInput is an input type that accepts IncidentTemplateMap and IncidentTemplateMapOutput values.
 // You can construct a concrete instance of `IncidentTemplateMapInput` via:
 //
-//          IncidentTemplateMap{ "key": IncidentTemplateArgs{...} }
+//	IncidentTemplateMap{ "key": IncidentTemplateArgs{...} }
 type IncidentTemplateMapInput interface {
 	pulumi.Input
 

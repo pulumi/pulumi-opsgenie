@@ -19,20 +19,18 @@ namespace Pulumi.Opsgenie
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sre_team = Opsgenie.GetTeam.Invoke(new()
         ///     {
-        ///         var sre_team = Output.Create(Opsgenie.GetTeam.InvokeAsync(new Opsgenie.GetTeamArgs
-        ///         {
-        ///             Name = "sre-team",
-        ///         }));
-        ///     }
+        ///         Name = "sre-team",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Opsgenie
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sre_team = Opsgenie.GetTeam.Invoke(new()
         ///     {
-        ///         var sre_team = Output.Create(Opsgenie.GetTeam.InvokeAsync(new Opsgenie.GetTeamArgs
-        ///         {
-        ///             Name = "sre-team",
-        ///         }));
-        ///     }
+        ///         Name = "sre-team",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Opsgenie
     }
 
 
-    public sealed class GetTeamArgs : Pulumi.InvokeArgs
+    public sealed class GetTeamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A description for this team.
@@ -100,9 +96,10 @@ namespace Pulumi.Opsgenie
         public GetTeamArgs()
         {
         }
+        public static new GetTeamArgs Empty => new GetTeamArgs();
     }
 
-    public sealed class GetTeamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTeamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A description for this team.
@@ -131,6 +128,7 @@ namespace Pulumi.Opsgenie
         public GetTeamInvokeArgs()
         {
         }
+        public static new GetTeamInvokeArgs Empty => new GetTeamInvokeArgs();
     }
 
 

@@ -18,67 +18,70 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewApiIntegration(ctx, "example-api-integrationApiIntegration", &opsgenie.ApiIntegrationArgs{
-// 			Type: pulumi.String("API"),
-// 			Responders: ApiIntegrationResponderArray{
-// 				&ApiIntegrationResponderArgs{
-// 					Type: pulumi.String("user"),
-// 					Id:   pulumi.Any(opsgenie_user.User.Id),
-// 				},
-// 				&ApiIntegrationResponderArgs{
-// 					Type: pulumi.String("user"),
-// 					Id:   pulumi.Any(opsgenie_user.Fahri.Id),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewApiIntegration(ctx, "example-api-integrationIndex/apiIntegrationApiIntegration", &opsgenie.ApiIntegrationArgs{
-// 			Type: pulumi.String("Prometheus"),
-// 			Responders: ApiIntegrationResponderArray{
-// 				&ApiIntegrationResponderArgs{
-// 					Type: pulumi.String("user"),
-// 					Id:   pulumi.Any(opsgenie_user.User.Id),
-// 				},
-// 			},
-// 			Enabled:                     pulumi.Bool(false),
-// 			AllowWriteAccess:            pulumi.Bool(false),
-// 			IgnoreRespondersFromPayload: pulumi.Bool(true),
-// 			SuppressNotifications:       pulumi.Bool(true),
-// 			OwnerTeamId:                 pulumi.Any(opsgenie_team.Team.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewApiIntegration(ctx, "test3", &opsgenie.ApiIntegrationArgs{
-// 			Type: pulumi.String("Webhook"),
-// 			Responders: ApiIntegrationResponderArray{
-// 				&ApiIntegrationResponderArgs{
-// 					Type: pulumi.String("user"),
-// 					Id:   pulumi.Any(opsgenie_user.User.Id),
-// 				},
-// 			},
-// 			Enabled:               pulumi.Bool(false),
-// 			AllowWriteAccess:      pulumi.Bool(false),
-// 			SuppressNotifications: pulumi.Bool(true),
-// 			WebhookUrl:            pulumi.String("https://api.example.com/v1"),
-// 			Headers: pulumi.StringMap{
-// 				"header1": pulumi.Any(value1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewApiIntegration(ctx, "example-api-integrationApiIntegration", &opsgenie.ApiIntegrationArgs{
+//				Type: pulumi.String("API"),
+//				Responders: ApiIntegrationResponderArray{
+//					&ApiIntegrationResponderArgs{
+//						Type: pulumi.String("user"),
+//						Id:   pulumi.Any(opsgenie_user.User.Id),
+//					},
+//					&ApiIntegrationResponderArgs{
+//						Type: pulumi.String("user"),
+//						Id:   pulumi.Any(opsgenie_user.Fahri.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewApiIntegration(ctx, "example-api-integrationIndex/apiIntegrationApiIntegration", &opsgenie.ApiIntegrationArgs{
+//				Type: pulumi.String("Prometheus"),
+//				Responders: ApiIntegrationResponderArray{
+//					&ApiIntegrationResponderArgs{
+//						Type: pulumi.String("user"),
+//						Id:   pulumi.Any(opsgenie_user.User.Id),
+//					},
+//				},
+//				Enabled:                     pulumi.Bool(false),
+//				AllowWriteAccess:            pulumi.Bool(false),
+//				IgnoreRespondersFromPayload: pulumi.Bool(true),
+//				SuppressNotifications:       pulumi.Bool(true),
+//				OwnerTeamId:                 pulumi.Any(opsgenie_team.Team.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewApiIntegration(ctx, "test3", &opsgenie.ApiIntegrationArgs{
+//				Type: pulumi.String("Webhook"),
+//				Responders: ApiIntegrationResponderArray{
+//					&ApiIntegrationResponderArgs{
+//						Type: pulumi.String("user"),
+//						Id:   pulumi.Any(opsgenie_user.User.Id),
+//					},
+//				},
+//				Enabled:               pulumi.Bool(false),
+//				AllowWriteAccess:      pulumi.Bool(false),
+//				SuppressNotifications: pulumi.Bool(true),
+//				WebhookUrl:            pulumi.String("https://api.example.com/v1"),
+//				Headers: pulumi.StringMap{
+//					"header1": pulumi.Any(value1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -86,7 +89,9 @@ import (
 // API Integrations can be imported using the `integration_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
+//
+//	$ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
+//
 // ```
 type ApiIntegration struct {
 	pulumi.CustomResourceState
@@ -265,7 +270,7 @@ func (i *ApiIntegration) ToApiIntegrationOutputWithContext(ctx context.Context) 
 // ApiIntegrationArrayInput is an input type that accepts ApiIntegrationArray and ApiIntegrationArrayOutput values.
 // You can construct a concrete instance of `ApiIntegrationArrayInput` via:
 //
-//          ApiIntegrationArray{ ApiIntegrationArgs{...} }
+//	ApiIntegrationArray{ ApiIntegrationArgs{...} }
 type ApiIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -290,7 +295,7 @@ func (i ApiIntegrationArray) ToApiIntegrationArrayOutputWithContext(ctx context.
 // ApiIntegrationMapInput is an input type that accepts ApiIntegrationMap and ApiIntegrationMapOutput values.
 // You can construct a concrete instance of `ApiIntegrationMapInput` via:
 //
-//          ApiIntegrationMap{ "key": ApiIntegrationArgs{...} }
+//	ApiIntegrationMap{ "key": ApiIntegrationArgs{...} }
 type ApiIntegrationMapInput interface {
 	pulumi.Input
 

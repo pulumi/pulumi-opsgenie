@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class ScheduleRotationParticipantArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleRotationParticipantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the responder.
@@ -27,5 +27,6 @@ namespace Pulumi.Opsgenie.Inputs
         public ScheduleRotationParticipantArgs()
         {
         }
+        public static new ScheduleRotationParticipantArgs Empty => new ScheduleRotationParticipantArgs();
     }
 }

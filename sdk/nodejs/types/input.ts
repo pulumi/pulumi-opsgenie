@@ -206,14 +206,6 @@ export interface GetEscalationRuleArgs {
     recipients: pulumi.Input<pulumi.Input<inputs.GetEscalationRuleRecipientArgs>[]>;
 }
 
-export interface GetEscalationRuleRecipientArgs {
-    /**
-     * The ID of the Opsgenie Escalation.
-     */
-    id?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-}
-
 export interface GetEscalationRuleRecipient {
     /**
      * The ID of the Opsgenie Escalation.
@@ -222,12 +214,12 @@ export interface GetEscalationRuleRecipient {
     type?: string;
 }
 
-export interface GetTeamMemberArgs {
+export interface GetEscalationRuleRecipientArgs {
     /**
-     * The ID of the Opsgenie Team.
+     * The ID of the Opsgenie Escalation.
      */
     id?: pulumi.Input<string>;
-    role?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 export interface GetTeamMember {
@@ -236,6 +228,14 @@ export interface GetTeamMember {
      */
     id?: string;
     role?: string;
+}
+
+export interface GetTeamMemberArgs {
+    /**
+     * The ID of the Opsgenie Team.
+     */
+    id?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
 }
 
 export interface IncidentTemplateStakeholderProperty {

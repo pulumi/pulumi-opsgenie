@@ -15,31 +15,29 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Opsgenie.Heartbeat("test", new()
     ///     {
-    ///         var test = new Opsgenie.Heartbeat("test", new Opsgenie.HeartbeatArgs
+    ///         AlertMessage = "Test",
+    ///         AlertPriority = "P3",
+    ///         AlertTags = new[]
     ///         {
-    ///             AlertMessage = "Test",
-    ///             AlertPriority = "P3",
-    ///             AlertTags = 
-    ///             {
-    ///                 "test",
-    ///                 "fahri",
-    ///             },
-    ///             Description = "test opsgenie heartbeat terraform",
-    ///             Enabled = false,
-    ///             Interval = 10,
-    ///             IntervalUnit = "minutes",
-    ///             OwnerTeamId = opsgenie_team.Test.Id,
-    ///         });
-    ///     }
+    ///             "test",
+    ///             "fahri",
+    ///         },
+    ///         Description = "test opsgenie heartbeat terraform",
+    ///         Enabled = false,
+    ///         Interval = 10,
+    ///         IntervalUnit = "minutes",
+    ///         OwnerTeamId = opsgenie_team.Test.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/heartbeat:Heartbeat")]
-    public partial class Heartbeat : Pulumi.CustomResource
+    public partial class Heartbeat : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
@@ -151,7 +149,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class HeartbeatArgs : Pulumi.ResourceArgs
+    public sealed class HeartbeatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
@@ -216,9 +214,10 @@ namespace Pulumi.Opsgenie
         public HeartbeatArgs()
         {
         }
+        public static new HeartbeatArgs Empty => new HeartbeatArgs();
     }
 
-    public sealed class HeartbeatState : Pulumi.ResourceArgs
+    public sealed class HeartbeatState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
@@ -283,5 +282,6 @@ namespace Pulumi.Opsgenie
         public HeartbeatState()
         {
         }
+        public static new HeartbeatState Empty => new HeartbeatState();
     }
 }

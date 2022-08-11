@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class TeamRoutingRuleCriteriaConditionArgs : Pulumi.ResourceArgs
+    public sealed class TeamRoutingRuleCriteriaConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("expectedValue")]
         public Input<string>? ExpectedValue { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.Opsgenie.Inputs
         public TeamRoutingRuleCriteriaConditionArgs()
         {
         }
+        public static new TeamRoutingRuleCriteriaConditionArgs Empty => new TeamRoutingRuleCriteriaConditionArgs();
     }
 }

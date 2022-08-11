@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewMaintenance(ctx, "test", &opsgenie.MaintenanceArgs{
-// 			Description: pulumi.String(fmt.Sprintf("geniemaintenance-%vs", "%")),
-// 			Rules: MaintenanceRuleArray{
-// 				&MaintenanceRuleArgs{
-// 					Entities: MaintenanceRuleEntityArray{
-// 						&MaintenanceRuleEntityArgs{
-// 							Id:   pulumi.Any(opsgenie_email_integration.Test.Id),
-// 							Type: pulumi.String("integration"),
-// 						},
-// 					},
-// 					State: pulumi.String("enabled"),
-// 				},
-// 			},
-// 			Times: MaintenanceTimeArray{
-// 				&MaintenanceTimeArgs{
-// 					EndDate:   pulumi.String(fmt.Sprintf("2019-06-%vdT17:50:00Z", "%")),
-// 					StartDate: pulumi.String("2019-06-20T17:45:00Z"),
-// 					Type:      pulumi.String("schedule"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewMaintenance(ctx, "test", &opsgenie.MaintenanceArgs{
+//				Description: pulumi.String(fmt.Sprintf("geniemaintenance-%vs", "%")),
+//				Rules: MaintenanceRuleArray{
+//					&MaintenanceRuleArgs{
+//						Entities: MaintenanceRuleEntityArray{
+//							&MaintenanceRuleEntityArgs{
+//								Id:   pulumi.Any(opsgenie_email_integration.Test.Id),
+//								Type: pulumi.String("integration"),
+//							},
+//						},
+//						State: pulumi.String("enabled"),
+//					},
+//				},
+//				Times: MaintenanceTimeArray{
+//					&MaintenanceTimeArgs{
+//						EndDate:   pulumi.String(fmt.Sprintf("2019-06-%vdT17:50:00Z", "%")),
+//						StartDate: pulumi.String("2019-06-20T17:45:00Z"),
+//						Type:      pulumi.String("schedule"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Maintenance policies can be imported using the `policy_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
+//
+//	$ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
+//
 // ```
 type Maintenance struct {
 	pulumi.CustomResourceState
@@ -175,7 +180,7 @@ func (i *Maintenance) ToMaintenanceOutputWithContext(ctx context.Context) Mainte
 // MaintenanceArrayInput is an input type that accepts MaintenanceArray and MaintenanceArrayOutput values.
 // You can construct a concrete instance of `MaintenanceArrayInput` via:
 //
-//          MaintenanceArray{ MaintenanceArgs{...} }
+//	MaintenanceArray{ MaintenanceArgs{...} }
 type MaintenanceArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +205,7 @@ func (i MaintenanceArray) ToMaintenanceArrayOutputWithContext(ctx context.Contex
 // MaintenanceMapInput is an input type that accepts MaintenanceMap and MaintenanceMapOutput values.
 // You can construct a concrete instance of `MaintenanceMapInput` via:
 //
-//          MaintenanceMap{ "key": MaintenanceArgs{...} }
+//	MaintenanceMap{ "key": MaintenanceArgs{...} }
 type MaintenanceMapInput interface {
 	pulumi.Input
 

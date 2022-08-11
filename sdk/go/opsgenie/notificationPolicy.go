@@ -18,7 +18,9 @@ import (
 // Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test team_id/notification_policy_id`
+//
+//	$ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test team_id/notification_policy_id`
+//
 // ```
 type NotificationPolicy struct {
 	pulumi.CustomResourceState
@@ -212,7 +214,7 @@ func (i *NotificationPolicy) ToNotificationPolicyOutputWithContext(ctx context.C
 // NotificationPolicyArrayInput is an input type that accepts NotificationPolicyArray and NotificationPolicyArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyArrayInput` via:
 //
-//          NotificationPolicyArray{ NotificationPolicyArgs{...} }
+//	NotificationPolicyArray{ NotificationPolicyArgs{...} }
 type NotificationPolicyArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +239,7 @@ func (i NotificationPolicyArray) ToNotificationPolicyArrayOutputWithContext(ctx 
 // NotificationPolicyMapInput is an input type that accepts NotificationPolicyMap and NotificationPolicyMapOutput values.
 // You can construct a concrete instance of `NotificationPolicyMapInput` via:
 //
-//          NotificationPolicyMap{ "key": NotificationPolicyArgs{...} }
+//	NotificationPolicyMap{ "key": NotificationPolicyArgs{...} }
 type NotificationPolicyMapInput interface {
 	pulumi.Input
 

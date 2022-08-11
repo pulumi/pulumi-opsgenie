@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class TeamRoutingRuleCriteriaGetArgs : Pulumi.ResourceArgs
+    public sealed class TeamRoutingRuleCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions")]
         private InputList<Inputs.TeamRoutingRuleCriteriaConditionGetArgs>? _conditions;
@@ -33,5 +33,6 @@ namespace Pulumi.Opsgenie.Inputs
         public TeamRoutingRuleCriteriaGetArgs()
         {
         }
+        public static new TeamRoutingRuleCriteriaGetArgs Empty => new TeamRoutingRuleCriteriaGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class IntegrationActionCreateFilterConditionArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationActionCreateFilterConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("expectedValue")]
         public Input<string>? ExpectedValue { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.Opsgenie.Inputs
         public IntegrationActionCreateFilterConditionArgs()
         {
         }
+        public static new IntegrationActionCreateFilterConditionArgs Empty => new IntegrationActionCreateFilterConditionArgs();
     }
 }

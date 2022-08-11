@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class TeamRoutingRuleTimeRestrictionRestrictionGetArgs : Pulumi.ResourceArgs
+    public sealed class TeamRoutingRuleTimeRestrictionRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("endHour", required: true)]
         public Input<int> EndHour { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.Opsgenie.Inputs
         public TeamRoutingRuleTimeRestrictionRestrictionGetArgs()
         {
         }
+        public static new TeamRoutingRuleTimeRestrictionRestrictionGetArgs Empty => new TeamRoutingRuleTimeRestrictionRestrictionGetArgs();
     }
 }

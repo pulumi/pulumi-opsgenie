@@ -19,55 +19,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
-// 			Description: pulumi.String("This team deals with all the things"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewAlertPolicy(ctx, "testAlertPolicy", &opsgenie.AlertPolicyArgs{
-// 			TeamId:            testTeam.ID(),
-// 			PolicyDescription: pulumi.String("This is sample policy"),
-// 			Message:           pulumi.String("{{message}}"),
-// 			Filters: AlertPolicyFilterArray{
-// 				nil,
-// 			},
-// 			TimeRestrictions: AlertPolicyTimeRestrictionArray{
-// 				&AlertPolicyTimeRestrictionArgs{
-// 					Type: pulumi.String("weekday-and-time-of-day"),
-// 					RestrictionList: AlertPolicyTimeRestrictionRestrictionListArray{
-// 						&AlertPolicyTimeRestrictionRestrictionListArgs{
-// 							EndDay:    pulumi.String("monday"),
-// 							EndHour:   pulumi.Int(7),
-// 							EndMin:    pulumi.Int(0),
-// 							StartDay:  pulumi.String("sunday"),
-// 							StartHour: pulumi.Int(21),
-// 							StartMin:  pulumi.Int(0),
-// 						},
-// 						&AlertPolicyTimeRestrictionRestrictionListArgs{
-// 							EndDay:    pulumi.String("tuesday"),
-// 							EndHour:   pulumi.Int(7),
-// 							EndMin:    pulumi.Int(0),
-// 							StartDay:  pulumi.String("monday"),
-// 							StartHour: pulumi.Int(22),
-// 							StartMin:  pulumi.Int(0),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//				Description: pulumi.String("This team deals with all the things"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewAlertPolicy(ctx, "testAlertPolicy", &opsgenie.AlertPolicyArgs{
+//				TeamId:            testTeam.ID(),
+//				PolicyDescription: pulumi.String("This is sample policy"),
+//				Message:           pulumi.String("{{message}}"),
+//				Filters: AlertPolicyFilterArray{
+//					nil,
+//				},
+//				TimeRestrictions: AlertPolicyTimeRestrictionArray{
+//					&AlertPolicyTimeRestrictionArgs{
+//						Type: pulumi.String("weekday-and-time-of-day"),
+//						RestrictionList: AlertPolicyTimeRestrictionRestrictionListArray{
+//							&AlertPolicyTimeRestrictionRestrictionListArgs{
+//								EndDay:    pulumi.String("monday"),
+//								EndHour:   pulumi.Int(7),
+//								EndMin:    pulumi.Int(0),
+//								StartDay:  pulumi.String("sunday"),
+//								StartHour: pulumi.Int(21),
+//								StartMin:  pulumi.Int(0),
+//							},
+//							&AlertPolicyTimeRestrictionRestrictionListArgs{
+//								EndDay:    pulumi.String("tuesday"),
+//								EndHour:   pulumi.Int(7),
+//								EndMin:    pulumi.Int(0),
+//								StartDay:  pulumi.String("monday"),
+//								StartHour: pulumi.Int(22),
+//								StartMin:  pulumi.Int(0),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,13 +78,17 @@ import (
 // Alert policies can be imported using the `team_id/policy_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
+//
+//	$ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
+//
 // ```
 //
-//  You can import global polices using only policy identifier
+//	You can import global polices using only policy identifier
 //
 // ```sh
-//  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`
+//
+//	$ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`
+//
 // ```
 type AlertPolicy struct {
 	pulumi.CustomResourceState
@@ -362,7 +369,7 @@ func (i *AlertPolicy) ToAlertPolicyOutputWithContext(ctx context.Context) AlertP
 // AlertPolicyArrayInput is an input type that accepts AlertPolicyArray and AlertPolicyArrayOutput values.
 // You can construct a concrete instance of `AlertPolicyArrayInput` via:
 //
-//          AlertPolicyArray{ AlertPolicyArgs{...} }
+//	AlertPolicyArray{ AlertPolicyArgs{...} }
 type AlertPolicyArrayInput interface {
 	pulumi.Input
 
@@ -387,7 +394,7 @@ func (i AlertPolicyArray) ToAlertPolicyArrayOutputWithContext(ctx context.Contex
 // AlertPolicyMapInput is an input type that accepts AlertPolicyMap and AlertPolicyMapOutput values.
 // You can construct a concrete instance of `AlertPolicyMapInput` via:
 //
-//          AlertPolicyMap{ "key": AlertPolicyArgs{...} }
+//	AlertPolicyMap{ "key": AlertPolicyArgs{...} }
 type AlertPolicyMapInput interface {
 	pulumi.Input
 

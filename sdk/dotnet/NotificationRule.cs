@@ -15,46 +15,45 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testUser = new Opsgenie.User("testUser", new()
     ///     {
-    ///         var testUser = new Opsgenie.User("testUser", new Opsgenie.UserArgs
+    ///         Username = "Example user",
+    ///         FullName = "Name Lastname",
+    ///         Role = "User",
+    ///     });
+    /// 
+    ///     var testNotificationRule = new Opsgenie.NotificationRule("testNotificationRule", new()
+    ///     {
+    ///         Username = testUser.Username,
+    ///         ActionType = "schedule-end",
+    ///         NotificationTimes = new[]
     ///         {
-    ///             Username = "Example user",
-    ///             FullName = "Name Lastname",
-    ///             Role = "User",
-    ///         });
-    ///         var testNotificationRule = new Opsgenie.NotificationRule("testNotificationRule", new Opsgenie.NotificationRuleArgs
+    ///             "just-before",
+    ///             "15-minutes-ago",
+    ///         },
+    ///         Steps = new[]
     ///         {
-    ///             Username = testUser.Username,
-    ///             ActionType = "schedule-end",
-    ///             NotificationTimes = 
+    ///             new Opsgenie.Inputs.NotificationRuleStepArgs
     ///             {
-    ///                 "just-before",
-    ///                 "15-minutes-ago",
-    ///             },
-    ///             Steps = 
-    ///             {
-    ///                 new Opsgenie.Inputs.NotificationRuleStepArgs
+    ///                 Contacts = new[]
     ///                 {
-    ///                     Contacts = 
+    ///                     new Opsgenie.Inputs.NotificationRuleStepContactArgs
     ///                     {
-    ///                         new Opsgenie.Inputs.NotificationRuleStepContactArgs
-    ///                         {
-    ///                             Method = "email",
-    ///                             To = "example@user.com",
-    ///                         },
+    ///                         Method = "email",
+    ///                         To = "example@user.com",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +65,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/notificationRule:NotificationRule")]
-    public partial class NotificationRule : Pulumi.CustomResource
+    public partial class NotificationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
@@ -166,7 +165,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class NotificationRuleArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
@@ -257,9 +256,10 @@ namespace Pulumi.Opsgenie
         public NotificationRuleArgs()
         {
         }
+        public static new NotificationRuleArgs Empty => new NotificationRuleArgs();
     }
 
-    public sealed class NotificationRuleState : Pulumi.ResourceArgs
+    public sealed class NotificationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
@@ -350,5 +350,6 @@ namespace Pulumi.Opsgenie
         public NotificationRuleState()
         {
         }
+        public static new NotificationRuleState Empty => new NotificationRuleState();
     }
 }

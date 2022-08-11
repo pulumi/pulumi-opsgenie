@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationPolicyAutoCloseActionArgs : Pulumi.ResourceArgs
+    public sealed class NotificationPolicyAutoCloseActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("durations", required: true)]
         private InputList<Inputs.NotificationPolicyAutoCloseActionDurationArgs>? _durations;
@@ -27,5 +27,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationPolicyAutoCloseActionArgs()
         {
         }
+        public static new NotificationPolicyAutoCloseActionArgs Empty => new NotificationPolicyAutoCloseActionArgs();
     }
 }

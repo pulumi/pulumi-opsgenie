@@ -15,44 +15,42 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Opsgenie.Maintenance("test", new()
     ///     {
-    ///         var test = new Opsgenie.Maintenance("test", new Opsgenie.MaintenanceArgs
+    ///         Description = "geniemaintenance-%s",
+    ///         Rules = new[]
     ///         {
-    ///             Description = "geniemaintenance-%s",
-    ///             Rules = 
+    ///             new Opsgenie.Inputs.MaintenanceRuleArgs
     ///             {
-    ///                 new Opsgenie.Inputs.MaintenanceRuleArgs
+    ///                 Entities = new[]
     ///                 {
-    ///                     Entities = 
+    ///                     new Opsgenie.Inputs.MaintenanceRuleEntityArgs
     ///                     {
-    ///                         new Opsgenie.Inputs.MaintenanceRuleEntityArgs
-    ///                         {
-    ///                             Id = opsgenie_email_integration.Test.Id,
-    ///                             Type = "integration",
-    ///                         },
+    ///                         Id = opsgenie_email_integration.Test.Id,
+    ///                         Type = "integration",
     ///                     },
-    ///                     State = "enabled",
     ///                 },
+    ///                 State = "enabled",
     ///             },
-    ///             Times = 
+    ///         },
+    ///         Times = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.MaintenanceTimeArgs
     ///             {
-    ///                 new Opsgenie.Inputs.MaintenanceTimeArgs
-    ///                 {
-    ///                     EndDate = "2019-06-%dT17:50:00Z",
-    ///                     StartDate = "2019-06-20T17:45:00Z",
-    ///                     Type = "schedule",
-    ///                 },
+    ///                 EndDate = "2019-06-%dT17:50:00Z",
+    ///                 StartDate = "2019-06-20T17:45:00Z",
+    ///                 Type = "schedule",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +62,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/maintenance:Maintenance")]
-    public partial class Maintenance : Pulumi.CustomResource
+    public partial class Maintenance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description for the maintenance.
@@ -128,7 +126,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class MaintenanceArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the maintenance.
@@ -163,9 +161,10 @@ namespace Pulumi.Opsgenie
         public MaintenanceArgs()
         {
         }
+        public static new MaintenanceArgs Empty => new MaintenanceArgs();
     }
 
-    public sealed class MaintenanceState : Pulumi.ResourceArgs
+    public sealed class MaintenanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the maintenance.
@@ -200,5 +199,6 @@ namespace Pulumi.Opsgenie
         public MaintenanceState()
         {
         }
+        public static new MaintenanceState Empty => new MaintenanceState();
     }
 }

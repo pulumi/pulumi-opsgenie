@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class IntegrationActionCreateGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationActionCreateGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("alertActions")]
         private InputList<string>? _alertActions;
@@ -170,5 +170,6 @@ namespace Pulumi.Opsgenie.Inputs
         public IntegrationActionCreateGetArgs()
         {
         }
+        public static new IntegrationActionCreateGetArgs Empty => new IntegrationActionCreateGetArgs();
     }
 }

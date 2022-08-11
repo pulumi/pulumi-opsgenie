@@ -19,71 +19,74 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testSchedule, err := opsgenie.NewSchedule(ctx, "testSchedule", &opsgenie.ScheduleArgs{
-// 			Description: pulumi.String("schedule test"),
-// 			Enabled:     pulumi.Bool(false),
-// 			Timezone:    pulumi.String("Europe/Rome"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
-// 			Description: pulumi.String("This team deals with all the things"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewTeamRoutingRule(ctx, "testTeamRoutingRule", &opsgenie.TeamRoutingRuleArgs{
-// 			Criterias: TeamRoutingRuleCriteriaArray{
-// 				&TeamRoutingRuleCriteriaArgs{
-// 					Conditions: TeamRoutingRuleCriteriaConditionArray{
-// 						&TeamRoutingRuleCriteriaConditionArgs{
-// 							ExpectedValue: pulumi.String("expected1"),
-// 							Field:         pulumi.String("message"),
-// 							Not:           pulumi.Bool(false),
-// 							Operation:     pulumi.String("contains"),
-// 						},
-// 					},
-// 					Type: pulumi.String("match-any-condition"),
-// 				},
-// 			},
-// 			Notifies: TeamRoutingRuleNotifyArray{
-// 				&TeamRoutingRuleNotifyArgs{
-// 					Name: testSchedule.Name,
-// 					Type: pulumi.String("schedule"),
-// 				},
-// 			},
-// 			Order:  pulumi.Int(0),
-// 			TeamId: testTeam.ID(),
-// 			TimeRestrictions: TeamRoutingRuleTimeRestrictionArray{
-// 				&TeamRoutingRuleTimeRestrictionArgs{
-// 					RestrictionList: TeamRoutingRuleTimeRestrictionRestrictionListArray{
-// 						&TeamRoutingRuleTimeRestrictionRestrictionListArgs{
-// 							EndDay:    pulumi.String("tuesday"),
-// 							EndHour:   pulumi.Int(18),
-// 							EndMin:    pulumi.Int(30),
-// 							StartDay:  pulumi.String("monday"),
-// 							StartHour: pulumi.Int(8),
-// 							StartMin:  pulumi.Int(0),
-// 						},
-// 					},
-// 					Type: pulumi.String("weekday-and-time-of-day"),
-// 				},
-// 			},
-// 			Timezone: pulumi.String("America/Los_Angeles"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testSchedule, err := opsgenie.NewSchedule(ctx, "testSchedule", &opsgenie.ScheduleArgs{
+//				Description: pulumi.String("schedule test"),
+//				Enabled:     pulumi.Bool(false),
+//				Timezone:    pulumi.String("Europe/Rome"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//				Description: pulumi.String("This team deals with all the things"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewTeamRoutingRule(ctx, "testTeamRoutingRule", &opsgenie.TeamRoutingRuleArgs{
+//				Criterias: TeamRoutingRuleCriteriaArray{
+//					&TeamRoutingRuleCriteriaArgs{
+//						Conditions: TeamRoutingRuleCriteriaConditionArray{
+//							&TeamRoutingRuleCriteriaConditionArgs{
+//								ExpectedValue: pulumi.String("expected1"),
+//								Field:         pulumi.String("message"),
+//								Not:           pulumi.Bool(false),
+//								Operation:     pulumi.String("contains"),
+//							},
+//						},
+//						Type: pulumi.String("match-any-condition"),
+//					},
+//				},
+//				Notifies: TeamRoutingRuleNotifyArray{
+//					&TeamRoutingRuleNotifyArgs{
+//						Name: testSchedule.Name,
+//						Type: pulumi.String("schedule"),
+//					},
+//				},
+//				Order:  pulumi.Int(0),
+//				TeamId: testTeam.ID(),
+//				TimeRestrictions: TeamRoutingRuleTimeRestrictionArray{
+//					&TeamRoutingRuleTimeRestrictionArgs{
+//						RestrictionList: TeamRoutingRuleTimeRestrictionRestrictionListArray{
+//							&TeamRoutingRuleTimeRestrictionRestrictionListArgs{
+//								EndDay:    pulumi.String("tuesday"),
+//								EndHour:   pulumi.Int(18),
+//								EndMin:    pulumi.Int(30),
+//								StartDay:  pulumi.String("monday"),
+//								StartHour: pulumi.Int(8),
+//								StartMin:  pulumi.Int(0),
+//							},
+//						},
+//						Type: pulumi.String("weekday-and-time-of-day"),
+//					},
+//				},
+//				Timezone: pulumi.String("America/Los_Angeles"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -91,7 +94,9 @@ import (
 // Team Routing Rules can be imported using the `team_id/routing_rule_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`
+//
+//	$ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`
+//
 // ```
 type TeamRoutingRule struct {
 	pulumi.CustomResourceState
@@ -250,7 +255,7 @@ func (i *TeamRoutingRule) ToTeamRoutingRuleOutputWithContext(ctx context.Context
 // TeamRoutingRuleArrayInput is an input type that accepts TeamRoutingRuleArray and TeamRoutingRuleArrayOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleArrayInput` via:
 //
-//          TeamRoutingRuleArray{ TeamRoutingRuleArgs{...} }
+//	TeamRoutingRuleArray{ TeamRoutingRuleArgs{...} }
 type TeamRoutingRuleArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +280,7 @@ func (i TeamRoutingRuleArray) ToTeamRoutingRuleArrayOutputWithContext(ctx contex
 // TeamRoutingRuleMapInput is an input type that accepts TeamRoutingRuleMap and TeamRoutingRuleMapOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleMapInput` via:
 //
-//          TeamRoutingRuleMap{ "key": TeamRoutingRuleArgs{...} }
+//	TeamRoutingRuleMap{ "key": TeamRoutingRuleArgs{...} }
 type TeamRoutingRuleMapInput interface {
 	pulumi.Input
 

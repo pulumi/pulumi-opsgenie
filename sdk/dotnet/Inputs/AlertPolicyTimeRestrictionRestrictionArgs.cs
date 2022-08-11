@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class AlertPolicyTimeRestrictionRestrictionArgs : Pulumi.ResourceArgs
+    public sealed class AlertPolicyTimeRestrictionRestrictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Ending hour of restriction.
@@ -39,5 +39,6 @@ namespace Pulumi.Opsgenie.Inputs
         public AlertPolicyTimeRestrictionRestrictionArgs()
         {
         }
+        public static new AlertPolicyTimeRestrictionRestrictionArgs Empty => new AlertPolicyTimeRestrictionRestrictionArgs();
     }
 }

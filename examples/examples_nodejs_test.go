@@ -1,4 +1,5 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
+//go:build nodejs || all
 // +build nodejs all
 
 package examples
@@ -13,7 +14,8 @@ import (
 func TestAccTeamTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "team", "ts"),
+			RunUpdateTest: false,
+			Dir:           path.Join(getCwd(t), "team", "ts"),
 		})
 
 	integration.ProgramTest(t, &test)

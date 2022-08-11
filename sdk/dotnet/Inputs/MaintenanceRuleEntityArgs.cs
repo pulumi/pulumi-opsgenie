@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class MaintenanceRuleEntityArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceRuleEntityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the entity that maintenance will be applied.
@@ -27,5 +27,6 @@ namespace Pulumi.Opsgenie.Inputs
         public MaintenanceRuleEntityArgs()
         {
         }
+        public static new MaintenanceRuleEntityArgs Empty => new MaintenanceRuleEntityArgs();
     }
 }

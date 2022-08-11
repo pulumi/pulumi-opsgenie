@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class ApiIntegrationResponderGetArgs : Pulumi.ResourceArgs
+    public sealed class ApiIntegrationResponderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the responder.
@@ -27,5 +27,6 @@ namespace Pulumi.Opsgenie.Inputs
         public ApiIntegrationResponderGetArgs()
         {
         }
+        public static new ApiIntegrationResponderGetArgs Empty => new ApiIntegrationResponderGetArgs();
     }
 }

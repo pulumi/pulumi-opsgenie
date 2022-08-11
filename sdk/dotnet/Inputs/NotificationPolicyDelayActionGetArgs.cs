@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationPolicyDelayActionGetArgs : Pulumi.ResourceArgs
+    public sealed class NotificationPolicyDelayActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
@@ -45,5 +45,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationPolicyDelayActionGetArgs()
         {
         }
+        public static new NotificationPolicyDelayActionGetArgs Empty => new NotificationPolicyDelayActionGetArgs();
     }
 }

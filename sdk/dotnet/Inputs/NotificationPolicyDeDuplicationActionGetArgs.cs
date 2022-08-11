@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationPolicyDeDuplicationActionGetArgs : Pulumi.ResourceArgs
+    public sealed class NotificationPolicyDeDuplicationActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - Count
@@ -39,5 +39,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationPolicyDeDuplicationActionGetArgs()
         {
         }
+        public static new NotificationPolicyDeDuplicationActionGetArgs Empty => new NotificationPolicyDeDuplicationActionGetArgs();
     }
 }

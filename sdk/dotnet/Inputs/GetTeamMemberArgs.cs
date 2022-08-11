@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class GetTeamMemberInputArgs : Pulumi.ResourceArgs
+    public sealed class GetTeamMemberInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Opsgenie Team.
@@ -24,5 +24,6 @@ namespace Pulumi.Opsgenie.Inputs
         public GetTeamMemberInputArgs()
         {
         }
+        public static new GetTeamMemberInputArgs Empty => new GetTeamMemberInputArgs();
     }
 }

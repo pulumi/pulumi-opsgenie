@@ -21,7 +21,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/notificationPolicy:NotificationPolicy")]
-    public partial class NotificationPolicy : Pulumi.CustomResource
+    public partial class NotificationPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Auto Restart Action of the policy. This is a block, structure is documented below.
@@ -133,7 +133,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class NotificationPolicyArgs : Pulumi.ResourceArgs
+    public sealed class NotificationPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoCloseActions")]
         private InputList<Inputs.NotificationPolicyAutoCloseActionArgs>? _autoCloseActions;
@@ -240,9 +240,10 @@ namespace Pulumi.Opsgenie
         public NotificationPolicyArgs()
         {
         }
+        public static new NotificationPolicyArgs Empty => new NotificationPolicyArgs();
     }
 
-    public sealed class NotificationPolicyState : Pulumi.ResourceArgs
+    public sealed class NotificationPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("autoCloseActions")]
         private InputList<Inputs.NotificationPolicyAutoCloseActionGetArgs>? _autoCloseActions;
@@ -349,5 +350,6 @@ namespace Pulumi.Opsgenie
         public NotificationPolicyState()
         {
         }
+        public static new NotificationPolicyState Empty => new NotificationPolicyState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class EscalationRuleArgs : Pulumi.ResourceArgs
+    public sealed class EscalationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
@@ -45,5 +45,6 @@ namespace Pulumi.Opsgenie.Inputs
         public EscalationRuleArgs()
         {
         }
+        public static new EscalationRuleArgs Empty => new EscalationRuleArgs();
     }
 }

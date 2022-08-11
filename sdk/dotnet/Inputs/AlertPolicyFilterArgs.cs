@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class AlertPolicyFilterArgs : Pulumi.ResourceArgs
+    public sealed class AlertPolicyFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions")]
         private InputList<Inputs.AlertPolicyFilterConditionArgs>? _conditions;
@@ -33,5 +33,6 @@ namespace Pulumi.Opsgenie.Inputs
         public AlertPolicyFilterArgs()
         {
         }
+        public static new AlertPolicyFilterArgs Empty => new AlertPolicyFilterArgs();
     }
 }

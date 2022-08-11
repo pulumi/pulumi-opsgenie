@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class ScheduleRotationTimeRestrictionRestrictionGetArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleRotationTimeRestrictionRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Value of the hour that frame will end.
@@ -39,5 +39,6 @@ namespace Pulumi.Opsgenie.Inputs
         public ScheduleRotationTimeRestrictionRestrictionGetArgs()
         {
         }
+        public static new ScheduleRotationTimeRestrictionRestrictionGetArgs Empty => new ScheduleRotationTimeRestrictionRestrictionGetArgs();
     }
 }

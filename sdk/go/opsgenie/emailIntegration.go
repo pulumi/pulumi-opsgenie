@@ -19,64 +19,67 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewEmailIntegration(ctx, "testEmailIntegration", &opsgenie.EmailIntegrationArgs{
-// 			EmailUsername: pulumi.String("fahri"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewEmailIntegration(ctx, "testIndex/emailIntegrationEmailIntegration", &opsgenie.EmailIntegrationArgs{
-// 			Responders: EmailIntegrationResponderArray{
-// 				&EmailIntegrationResponderArgs{
-// 					Type: pulumi.String("user"),
-// 					Id:   pulumi.Any(opsgenie_user.Test.Id),
-// 				},
-// 				&EmailIntegrationResponderArgs{
-// 					Type: pulumi.String("schedule"),
-// 					Id:   pulumi.Any(opsgenie_schedule.Test.Id),
-// 				},
-// 				&EmailIntegrationResponderArgs{
-// 					Type: pulumi.String("escalation"),
-// 					Id:   pulumi.Any(opsgenie_escalation.Test.Id),
-// 				},
-// 				&EmailIntegrationResponderArgs{
-// 					Type: pulumi.String("team"),
-// 					Id:   pulumi.Any(opsgenie_team.Test2.Id),
-// 				},
-// 			},
-// 			EmailUsername:               pulumi.String("test"),
-// 			Enabled:                     pulumi.Bool(true),
-// 			IgnoreRespondersFromPayload: pulumi.Bool(true),
-// 			SuppressNotifications:       pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewEmailIntegration(ctx, "testOpsgenieIndex/emailIntegrationEmailIntegration", &opsgenie.EmailIntegrationArgs{
-// 			Responders: EmailIntegrationResponderArray{
-// 				&EmailIntegrationResponderArgs{
-// 					Type: pulumi.String("user"),
-// 					Id:   pulumi.Any(opsgenie_user.Test.Id),
-// 				},
-// 			},
-// 			EmailUsername:               pulumi.String("test"),
-// 			Enabled:                     pulumi.Bool(true),
-// 			IgnoreRespondersFromPayload: pulumi.Bool(true),
-// 			SuppressNotifications:       pulumi.Bool(true),
-// 			OwnerTeamId:                 pulumi.Any(opsgenie_team_genies.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewEmailIntegration(ctx, "testEmailIntegration", &opsgenie.EmailIntegrationArgs{
+//				EmailUsername: pulumi.String("fahri"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewEmailIntegration(ctx, "testIndex/emailIntegrationEmailIntegration", &opsgenie.EmailIntegrationArgs{
+//				Responders: EmailIntegrationResponderArray{
+//					&EmailIntegrationResponderArgs{
+//						Type: pulumi.String("user"),
+//						Id:   pulumi.Any(opsgenie_user.Test.Id),
+//					},
+//					&EmailIntegrationResponderArgs{
+//						Type: pulumi.String("schedule"),
+//						Id:   pulumi.Any(opsgenie_schedule.Test.Id),
+//					},
+//					&EmailIntegrationResponderArgs{
+//						Type: pulumi.String("escalation"),
+//						Id:   pulumi.Any(opsgenie_escalation.Test.Id),
+//					},
+//					&EmailIntegrationResponderArgs{
+//						Type: pulumi.String("team"),
+//						Id:   pulumi.Any(opsgenie_team.Test2.Id),
+//					},
+//				},
+//				EmailUsername:               pulumi.String("test"),
+//				Enabled:                     pulumi.Bool(true),
+//				IgnoreRespondersFromPayload: pulumi.Bool(true),
+//				SuppressNotifications:       pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewEmailIntegration(ctx, "testOpsgenieIndex/emailIntegrationEmailIntegration", &opsgenie.EmailIntegrationArgs{
+//				Responders: EmailIntegrationResponderArray{
+//					&EmailIntegrationResponderArgs{
+//						Type: pulumi.String("user"),
+//						Id:   pulumi.Any(opsgenie_user.Test.Id),
+//					},
+//				},
+//				EmailUsername:               pulumi.String("test"),
+//				Enabled:                     pulumi.Bool(true),
+//				IgnoreRespondersFromPayload: pulumi.Bool(true),
+//				SuppressNotifications:       pulumi.Bool(true),
+//				OwnerTeamId:                 pulumi.Any(opsgenie_team_genies.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,7 +87,9 @@ import (
 // Email Integrations can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
+//
+//	$ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
+//
 // ```
 type EmailIntegration struct {
 	pulumi.CustomResourceState
@@ -230,7 +235,7 @@ func (i *EmailIntegration) ToEmailIntegrationOutputWithContext(ctx context.Conte
 // EmailIntegrationArrayInput is an input type that accepts EmailIntegrationArray and EmailIntegrationArrayOutput values.
 // You can construct a concrete instance of `EmailIntegrationArrayInput` via:
 //
-//          EmailIntegrationArray{ EmailIntegrationArgs{...} }
+//	EmailIntegrationArray{ EmailIntegrationArgs{...} }
 type EmailIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +260,7 @@ func (i EmailIntegrationArray) ToEmailIntegrationArrayOutputWithContext(ctx cont
 // EmailIntegrationMapInput is an input type that accepts EmailIntegrationMap and EmailIntegrationMapOutput values.
 // You can construct a concrete instance of `EmailIntegrationMapInput` via:
 //
-//          EmailIntegrationMap{ "key": EmailIntegrationArgs{...} }
+//	EmailIntegrationMap{ "key": EmailIntegrationArgs{...} }
 type EmailIntegrationMapInput interface {
 	pulumi.Input
 

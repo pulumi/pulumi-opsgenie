@@ -15,76 +15,76 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testSchedule = new Opsgenie.Schedule("testSchedule", new()
     ///     {
-    ///         var testSchedule = new Opsgenie.Schedule("testSchedule", new Opsgenie.ScheduleArgs
-    ///         {
-    ///             Description = "schedule test",
-    ///             Enabled = false,
-    ///             Timezone = "Europe/Rome",
-    ///         });
-    ///         var testTeam = new Opsgenie.Team("testTeam", new Opsgenie.TeamArgs
-    ///         {
-    ///             Description = "This team deals with all the things",
-    ///         });
-    ///         var testTeamRoutingRule = new Opsgenie.TeamRoutingRule("testTeamRoutingRule", new Opsgenie.TeamRoutingRuleArgs
-    ///         {
-    ///             Criterias = 
-    ///             {
-    ///                 new Opsgenie.Inputs.TeamRoutingRuleCriteriaArgs
-    ///                 {
-    ///                     Conditions = 
-    ///                     {
-    ///                         new Opsgenie.Inputs.TeamRoutingRuleCriteriaConditionArgs
-    ///                         {
-    ///                             ExpectedValue = "expected1",
-    ///                             Field = "message",
-    ///                             Not = false,
-    ///                             Operation = "contains",
-    ///                         },
-    ///                     },
-    ///                     Type = "match-any-condition",
-    ///                 },
-    ///             },
-    ///             Notifies = 
-    ///             {
-    ///                 new Opsgenie.Inputs.TeamRoutingRuleNotifyArgs
-    ///                 {
-    ///                     Name = testSchedule.Name,
-    ///                     Type = "schedule",
-    ///                 },
-    ///             },
-    ///             Order = 0,
-    ///             TeamId = testTeam.Id,
-    ///             TimeRestrictions = 
-    ///             {
-    ///                 new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionArgs
-    ///                 {
-    ///                     RestrictionList = 
-    ///                     {
-    ///                         new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionRestrictionListArgs
-    ///                         {
-    ///                             EndDay = "tuesday",
-    ///                             EndHour = 18,
-    ///                             EndMin = 30,
-    ///                             StartDay = "monday",
-    ///                             StartHour = 8,
-    ///                             StartMin = 0,
-    ///                         },
-    ///                     },
-    ///                     Type = "weekday-and-time-of-day",
-    ///                 },
-    ///             },
-    ///             Timezone = "America/Los_Angeles",
-    ///         });
-    ///     }
+    ///         Description = "schedule test",
+    ///         Enabled = false,
+    ///         Timezone = "Europe/Rome",
+    ///     });
     /// 
-    /// }
+    ///     var testTeam = new Opsgenie.Team("testTeam", new()
+    ///     {
+    ///         Description = "This team deals with all the things",
+    ///     });
+    /// 
+    ///     var testTeamRoutingRule = new Opsgenie.TeamRoutingRule("testTeamRoutingRule", new()
+    ///     {
+    ///         Criterias = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.TeamRoutingRuleCriteriaArgs
+    ///             {
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.TeamRoutingRuleCriteriaConditionArgs
+    ///                     {
+    ///                         ExpectedValue = "expected1",
+    ///                         Field = "message",
+    ///                         Not = false,
+    ///                         Operation = "contains",
+    ///                     },
+    ///                 },
+    ///                 Type = "match-any-condition",
+    ///             },
+    ///         },
+    ///         Notifies = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.TeamRoutingRuleNotifyArgs
+    ///             {
+    ///                 Name = testSchedule.Name,
+    ///                 Type = "schedule",
+    ///             },
+    ///         },
+    ///         Order = 0,
+    ///         TeamId = testTeam.Id,
+    ///         TimeRestrictions = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionArgs
+    ///             {
+    ///                 RestrictionList = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionRestrictionListArgs
+    ///                     {
+    ///                         EndDay = "tuesday",
+    ///                         EndHour = 18,
+    ///                         EndMin = 30,
+    ///                         StartDay = "monday",
+    ///                         StartHour = 8,
+    ///                         StartMin = 0,
+    ///                     },
+    ///                 },
+    ///                 Type = "weekday-and-time-of-day",
+    ///             },
+    ///         },
+    ///         Timezone = "America/Los_Angeles",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -96,7 +96,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/teamRoutingRule:TeamRoutingRule")]
-    public partial class TeamRoutingRule : Pulumi.CustomResource
+    public partial class TeamRoutingRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// You can refer Criteria for detailed information about criteria and its fields
@@ -187,7 +187,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class TeamRoutingRuleArgs : Pulumi.ResourceArgs
+    public sealed class TeamRoutingRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("criterias")]
         private InputList<Inputs.TeamRoutingRuleCriteriaArgs>? _criterias;
@@ -254,9 +254,10 @@ namespace Pulumi.Opsgenie
         public TeamRoutingRuleArgs()
         {
         }
+        public static new TeamRoutingRuleArgs Empty => new TeamRoutingRuleArgs();
     }
 
-    public sealed class TeamRoutingRuleState : Pulumi.ResourceArgs
+    public sealed class TeamRoutingRuleState : global::Pulumi.ResourceArgs
     {
         [Input("criterias")]
         private InputList<Inputs.TeamRoutingRuleCriteriaGetArgs>? _criterias;
@@ -323,5 +324,6 @@ namespace Pulumi.Opsgenie
         public TeamRoutingRuleState()
         {
         }
+        public static new TeamRoutingRuleState Empty => new TeamRoutingRuleState();
     }
 }

@@ -19,51 +19,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewEscalation(ctx, "test", &opsgenie.EscalationArgs{
-// 			Description: pulumi.String("test"),
-// 			OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
-// 			Repeats: EscalationRepeatArray{
-// 				&EscalationRepeatArgs{
-// 					CloseAlertAfterAll:   pulumi.Bool(false),
-// 					Count:                pulumi.Int(1),
-// 					ResetRecipientStates: pulumi.Bool(true),
-// 					WaitInterval:         pulumi.Int(10),
-// 				},
-// 			},
-// 			Rules: EscalationRuleArray{
-// 				&EscalationRuleArgs{
-// 					Condition:  pulumi.String("if-not-acked"),
-// 					Delay:      pulumi.Int(1),
-// 					NotifyType: pulumi.String("default"),
-// 					Recipients: EscalationRuleRecipientArray{
-// 						&EscalationRuleRecipientArgs{
-// 							Id:   pulumi.Any(opsgenie_user.Test.Id),
-// 							Type: pulumi.String("user"),
-// 						},
-// 						&EscalationRuleRecipientArgs{
-// 							Id:   pulumi.Any(opsgenie_team.Test.Id),
-// 							Type: pulumi.String("team"),
-// 						},
-// 						&EscalationRuleRecipientArgs{
-// 							Id:   pulumi.Any(opsgenie_schedule.Test.Id),
-// 							Type: pulumi.String("schedule"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewEscalation(ctx, "test", &opsgenie.EscalationArgs{
+//				Description: pulumi.String("test"),
+//				OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
+//				Repeats: EscalationRepeatArray{
+//					&EscalationRepeatArgs{
+//						CloseAlertAfterAll:   pulumi.Bool(false),
+//						Count:                pulumi.Int(1),
+//						ResetRecipientStates: pulumi.Bool(true),
+//						WaitInterval:         pulumi.Int(10),
+//					},
+//				},
+//				Rules: EscalationRuleArray{
+//					&EscalationRuleArgs{
+//						Condition:  pulumi.String("if-not-acked"),
+//						Delay:      pulumi.Int(1),
+//						NotifyType: pulumi.String("default"),
+//						Recipients: EscalationRuleRecipientArray{
+//							&EscalationRuleRecipientArgs{
+//								Id:   pulumi.Any(opsgenie_user.Test.Id),
+//								Type: pulumi.String("user"),
+//							},
+//							&EscalationRuleRecipientArgs{
+//								Id:   pulumi.Any(opsgenie_team.Test.Id),
+//								Type: pulumi.String("team"),
+//							},
+//							&EscalationRuleRecipientArgs{
+//								Id:   pulumi.Any(opsgenie_schedule.Test.Id),
+//								Type: pulumi.String("schedule"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // Escalations can be imported using the `escalation_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
+//
+//	$ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
+//
 // ```
 type Escalation struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *Escalation) ToEscalationOutputWithContext(ctx context.Context) Escalati
 // EscalationArrayInput is an input type that accepts EscalationArray and EscalationArrayOutput values.
 // You can construct a concrete instance of `EscalationArrayInput` via:
 //
-//          EscalationArray{ EscalationArgs{...} }
+//	EscalationArray{ EscalationArgs{...} }
 type EscalationArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i EscalationArray) ToEscalationArrayOutputWithContext(ctx context.Context)
 // EscalationMapInput is an input type that accepts EscalationMap and EscalationMapOutput values.
 // You can construct a concrete instance of `EscalationMapInput` via:
 //
-//          EscalationMap{ "key": EscalationArgs{...} }
+//	EscalationMap{ "key": EscalationArgs{...} }
 type EscalationMapInput interface {
 	pulumi.Input
 

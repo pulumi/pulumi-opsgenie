@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewUserContact(ctx, "sms", &opsgenie.UserContactArgs{
-// 			Method:   pulumi.String("sms"),
-// 			To:       pulumi.String("39-123"),
-// 			Username: pulumi.Any(opsgenie_user.Exampleuser.Username),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewUserContact(ctx, "email", &opsgenie.UserContactArgs{
-// 			Method:   pulumi.String("email"),
-// 			To:       pulumi.String("fahri@opsgenie.com"),
-// 			Username: pulumi.Any(opsgenie_user.Exampleuser.Username),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewUserContact(ctx, "voice", &opsgenie.UserContactArgs{
-// 			Method:   pulumi.String("voice"),
-// 			To:       pulumi.String("39-123"),
-// 			Username: pulumi.Any(opsgenie_user.Exampleuser.Username),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewUserContact(ctx, "sms", &opsgenie.UserContactArgs{
+//				Method:   pulumi.String("sms"),
+//				To:       pulumi.String("39-123"),
+//				Username: pulumi.Any(opsgenie_user.Exampleuser.Username),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewUserContact(ctx, "email", &opsgenie.UserContactArgs{
+//				Method:   pulumi.String("email"),
+//				To:       pulumi.String("fahri@opsgenie.com"),
+//				Username: pulumi.Any(opsgenie_user.Exampleuser.Username),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewUserContact(ctx, "voice", &opsgenie.UserContactArgs{
+//				Method:   pulumi.String("voice"),
+//				To:       pulumi.String("39-123"),
+//				Username: pulumi.Any(opsgenie_user.Exampleuser.Username),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Users can be imported using the `username/contact_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
+//
+//	$ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
+//
 // ```
 type UserContact struct {
 	pulumi.CustomResourceState
@@ -186,7 +191,7 @@ func (i *UserContact) ToUserContactOutputWithContext(ctx context.Context) UserCo
 // UserContactArrayInput is an input type that accepts UserContactArray and UserContactArrayOutput values.
 // You can construct a concrete instance of `UserContactArrayInput` via:
 //
-//          UserContactArray{ UserContactArgs{...} }
+//	UserContactArray{ UserContactArgs{...} }
 type UserContactArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +216,7 @@ func (i UserContactArray) ToUserContactArrayOutputWithContext(ctx context.Contex
 // UserContactMapInput is an input type that accepts UserContactMap and UserContactMapOutput values.
 // You can construct a concrete instance of `UserContactMapInput` via:
 //
-//          UserContactMap{ "key": UserContactArgs{...} }
+//	UserContactMap{ "key": UserContactArgs{...} }
 type UserContactMapInput interface {
 	pulumi.Input
 

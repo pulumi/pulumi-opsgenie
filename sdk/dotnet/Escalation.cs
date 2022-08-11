@@ -15,58 +15,56 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Opsgenie.Escalation("test", new()
     ///     {
-    ///         var test = new Opsgenie.Escalation("test", new Opsgenie.EscalationArgs
+    ///         Description = "test",
+    ///         OwnerTeamId = opsgenie_team.Test.Id,
+    ///         Repeats = new[]
     ///         {
-    ///             Description = "test",
-    ///             OwnerTeamId = opsgenie_team.Test.Id,
-    ///             Repeats = 
+    ///             new Opsgenie.Inputs.EscalationRepeatArgs
     ///             {
-    ///                 new Opsgenie.Inputs.EscalationRepeatArgs
-    ///                 {
-    ///                     CloseAlertAfterAll = false,
-    ///                     Count = 1,
-    ///                     ResetRecipientStates = true,
-    ///                     WaitInterval = 10,
-    ///                 },
+    ///                 CloseAlertAfterAll = false,
+    ///                 Count = 1,
+    ///                 ResetRecipientStates = true,
+    ///                 WaitInterval = 10,
     ///             },
-    ///             Rules = 
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.EscalationRuleArgs
     ///             {
-    ///                 new Opsgenie.Inputs.EscalationRuleArgs
+    ///                 Condition = "if-not-acked",
+    ///                 Delay = 1,
+    ///                 NotifyType = "default",
+    ///                 Recipients = new[]
     ///                 {
-    ///                     Condition = "if-not-acked",
-    ///                     Delay = 1,
-    ///                     NotifyType = "default",
-    ///                     Recipients = 
+    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
     ///                     {
-    ///                         new Opsgenie.Inputs.EscalationRuleRecipientArgs
-    ///                         {
-    ///                             Id = opsgenie_user.Test.Id,
-    ///                             Type = "user",
-    ///                         },
-    ///                         new Opsgenie.Inputs.EscalationRuleRecipientArgs
-    ///                         {
-    ///                             Id = opsgenie_team.Test.Id,
-    ///                             Type = "team",
-    ///                         },
-    ///                         new Opsgenie.Inputs.EscalationRuleRecipientArgs
-    ///                         {
-    ///                             Id = opsgenie_schedule.Test.Id,
-    ///                             Type = "schedule",
-    ///                         },
+    ///                         Id = opsgenie_user.Test.Id,
+    ///                         Type = "user",
+    ///                     },
+    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
+    ///                     {
+    ///                         Id = opsgenie_team.Test.Id,
+    ///                         Type = "team",
+    ///                     },
+    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
+    ///                     {
+    ///                         Id = opsgenie_schedule.Test.Id,
+    ///                         Type = "schedule",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +76,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/escalation:Escalation")]
-    public partial class Escalation : Pulumi.CustomResource
+    public partial class Escalation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the escalation.
@@ -154,7 +152,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class EscalationArgs : Pulumi.ResourceArgs
+    public sealed class EscalationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the escalation.
@@ -201,9 +199,10 @@ namespace Pulumi.Opsgenie
         public EscalationArgs()
         {
         }
+        public static new EscalationArgs Empty => new EscalationArgs();
     }
 
-    public sealed class EscalationState : Pulumi.ResourceArgs
+    public sealed class EscalationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the escalation.
@@ -250,5 +249,6 @@ namespace Pulumi.Opsgenie
         public EscalationState()
         {
         }
+        public static new EscalationState Empty => new EscalationState();
     }
 }

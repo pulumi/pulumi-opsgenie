@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewScheduleRotation(ctx, "test", &opsgenie.ScheduleRotationArgs{
-// 			EndDate: pulumi.String("2019-06-20T17:30:00Z"),
-// 			Length:  pulumi.Int(6),
-// 			Participants: ScheduleRotationParticipantArray{
-// 				&ScheduleRotationParticipantArgs{
-// 					Id:   pulumi.Any(opsgenie_user.Test.Id),
-// 					Type: pulumi.String("user"),
-// 				},
-// 			},
-// 			ScheduleId: pulumi.Any(opsgenie_schedule.Test.Id),
-// 			StartDate:  pulumi.String("2019-06-18T17:00:00Z"),
-// 			TimeRestrictions: ScheduleRotationTimeRestrictionArray{
-// 				&ScheduleRotationTimeRestrictionArgs{
-// 					Restriction: ScheduleRotationTimeRestrictionRestrictionArray{
-// 						&ScheduleRotationTimeRestrictionRestrictionArgs{
-// 							EndHour:   pulumi.Int(10),
-// 							EndMin:    pulumi.Int(1),
-// 							StartHour: pulumi.Int(1),
-// 							StartMin:  pulumi.Int(1),
-// 						},
-// 					},
-// 					Type: pulumi.String("time-of-day"),
-// 				},
-// 			},
-// 			Type: pulumi.String("hourly"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewScheduleRotation(ctx, "test", &opsgenie.ScheduleRotationArgs{
+//				EndDate: pulumi.String("2019-06-20T17:30:00Z"),
+//				Length:  pulumi.Int(6),
+//				Participants: ScheduleRotationParticipantArray{
+//					&ScheduleRotationParticipantArgs{
+//						Id:   pulumi.Any(opsgenie_user.Test.Id),
+//						Type: pulumi.String("user"),
+//					},
+//				},
+//				ScheduleId: pulumi.Any(opsgenie_schedule.Test.Id),
+//				StartDate:  pulumi.String("2019-06-18T17:00:00Z"),
+//				TimeRestrictions: ScheduleRotationTimeRestrictionArray{
+//					&ScheduleRotationTimeRestrictionArgs{
+//						Restriction: ScheduleRotationTimeRestrictionRestrictionArray{
+//							&ScheduleRotationTimeRestrictionRestrictionArgs{
+//								EndHour:   pulumi.Int(10),
+//								EndMin:    pulumi.Int(1),
+//								StartHour: pulumi.Int(1),
+//								StartMin:  pulumi.Int(1),
+//							},
+//						},
+//						Type: pulumi.String("time-of-day"),
+//					},
+//				},
+//				Type: pulumi.String("hourly"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Schedule Rotations can be imported using the `schedule_id/rotation_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/rotation_id`
+//
+//	$ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/rotation_id`
+//
 // ```
 type ScheduleRotation struct {
 	pulumi.CustomResourceState
@@ -229,7 +234,7 @@ func (i *ScheduleRotation) ToScheduleRotationOutputWithContext(ctx context.Conte
 // ScheduleRotationArrayInput is an input type that accepts ScheduleRotationArray and ScheduleRotationArrayOutput values.
 // You can construct a concrete instance of `ScheduleRotationArrayInput` via:
 //
-//          ScheduleRotationArray{ ScheduleRotationArgs{...} }
+//	ScheduleRotationArray{ ScheduleRotationArgs{...} }
 type ScheduleRotationArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +259,7 @@ func (i ScheduleRotationArray) ToScheduleRotationArrayOutputWithContext(ctx cont
 // ScheduleRotationMapInput is an input type that accepts ScheduleRotationMap and ScheduleRotationMapOutput values.
 // You can construct a concrete instance of `ScheduleRotationMapInput` via:
 //
-//          ScheduleRotationMap{ "key": ScheduleRotationArgs{...} }
+//	ScheduleRotationMap{ "key": ScheduleRotationArgs{...} }
 type ScheduleRotationMapInput interface {
 	pulumi.Input
 

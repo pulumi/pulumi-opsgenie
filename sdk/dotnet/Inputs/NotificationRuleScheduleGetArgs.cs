@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationRuleScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the notification policy
@@ -27,5 +27,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationRuleScheduleGetArgs()
         {
         }
+        public static new NotificationRuleScheduleGetArgs Empty => new NotificationRuleScheduleGetArgs();
     }
 }

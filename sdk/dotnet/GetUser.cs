@@ -19,20 +19,18 @@ namespace Pulumi.Opsgenie
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Opsgenie.GetUser.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Opsgenie.GetUser.InvokeAsync(new Opsgenie.GetUserArgs
-        ///         {
-        ///             Username = "user@domain.com",
-        ///         }));
-        ///     }
+        ///         Username = "user@domain.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Opsgenie
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Opsgenie.GetUser.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Opsgenie.GetUser.InvokeAsync(new Opsgenie.GetUserArgs
-        ///         {
-        ///             Username = "user@domain.com",
-        ///         }));
-        ///     }
+        ///         Username = "user@domain.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Opsgenie
     }
 
 
-    public sealed class GetUserArgs : Pulumi.InvokeArgs
+    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Full Name of the User.
@@ -106,9 +102,10 @@ namespace Pulumi.Opsgenie
         public GetUserArgs()
         {
         }
+        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Full Name of the User.
@@ -143,6 +140,7 @@ namespace Pulumi.Opsgenie
         public GetUserInvokeArgs()
         {
         }
+        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

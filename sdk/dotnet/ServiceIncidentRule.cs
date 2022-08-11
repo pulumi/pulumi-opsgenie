@@ -15,68 +15,68 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testTeam = new Opsgenie.Team("testTeam", new()
     ///     {
-    ///         var testTeam = new Opsgenie.Team("testTeam", new Opsgenie.TeamArgs
+    ///         Description = "This team deals with all the things",
+    ///     });
+    /// 
+    ///     var testService = new Opsgenie.Service("testService", new()
+    ///     {
+    ///         TeamId = testTeam.Id,
+    ///     });
+    /// 
+    ///     var testServiceIncidentRule = new Opsgenie.ServiceIncidentRule("testServiceIncidentRule", new()
+    ///     {
+    ///         ServiceId = testService.Id,
+    ///         IncidentRules = new[]
     ///         {
-    ///             Description = "This team deals with all the things",
-    ///         });
-    ///         var testService = new Opsgenie.Service("testService", new Opsgenie.ServiceArgs
-    ///         {
-    ///             TeamId = testTeam.Id,
-    ///         });
-    ///         var testServiceIncidentRule = new Opsgenie.ServiceIncidentRule("testServiceIncidentRule", new Opsgenie.ServiceIncidentRuleArgs
-    ///         {
-    ///             ServiceId = testService.Id,
-    ///             IncidentRules = 
+    ///             new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleArgs
     ///             {
-    ///                 new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleArgs
+    ///                 ConditionMatchType = "match-any-condition",
+    ///                 Conditions = new[]
     ///                 {
-    ///                     ConditionMatchType = "match-any-condition",
-    ///                     Conditions = 
+    ///                     new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleConditionArgs
     ///                     {
-    ///                         new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleConditionArgs
-    ///                         {
-    ///                             Field = "message",
-    ///                             Not = false,
-    ///                             Operation = "contains",
-    ///                             ExpectedValue = "expected1",
-    ///                         },
-    ///                         new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleConditionArgs
-    ///                         {
-    ///                             Field = "message",
-    ///                             Not = false,
-    ///                             Operation = "contains",
-    ///                             ExpectedValue = "expected2",
-    ///                         },
+    ///                         Field = "message",
+    ///                         Not = false,
+    ///                         Operation = "contains",
+    ///                         ExpectedValue = "expected1",
     ///                     },
-    ///                     IncidentProperties = 
+    ///                     new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleConditionArgs
     ///                     {
-    ///                         new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs
+    ///                         Field = "message",
+    ///                         Not = false,
+    ///                         Operation = "contains",
+    ///                         ExpectedValue = "expected2",
+    ///                     },
+    ///                 },
+    ///                 IncidentProperties = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs
+    ///                     {
+    ///                         Message = "This is a test message",
+    ///                         Priority = "P3",
+    ///                         StakeholderProperties = new[]
     ///                         {
-    ///                             Message = "This is a test message",
-    ///                             Priority = "P3",
-    ///                             StakeholderProperties = 
+    ///                             new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs
     ///                             {
-    ///                                 new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs
-    ///                                 {
-    ///                                     Message = "Message for stakeholders",
-    ///                                     Enable = true,
-    ///                                 },
+    ///                                 Message = "Message for stakeholders",
+    ///                                 Enable = true,
     ///                             },
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +88,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/serviceIncidentRule:ServiceIncidentRule")]
-    public partial class ServiceIncidentRule : Pulumi.CustomResource
+    public partial class ServiceIncidentRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// This is the rule configuration for this incident rule. This is a block, structure is documented below.
@@ -146,7 +146,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class ServiceIncidentRuleArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIncidentRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("incidentRules", required: true)]
         private InputList<Inputs.ServiceIncidentRuleIncidentRuleArgs>? _incidentRules;
@@ -169,9 +169,10 @@ namespace Pulumi.Opsgenie
         public ServiceIncidentRuleArgs()
         {
         }
+        public static new ServiceIncidentRuleArgs Empty => new ServiceIncidentRuleArgs();
     }
 
-    public sealed class ServiceIncidentRuleState : Pulumi.ResourceArgs
+    public sealed class ServiceIncidentRuleState : global::Pulumi.ResourceArgs
     {
         [Input("incidentRules")]
         private InputList<Inputs.ServiceIncidentRuleIncidentRuleGetArgs>? _incidentRules;
@@ -194,5 +195,6 @@ namespace Pulumi.Opsgenie
         public ServiceIncidentRuleState()
         {
         }
+        public static new ServiceIncidentRuleState Empty => new ServiceIncidentRuleState();
     }
 }

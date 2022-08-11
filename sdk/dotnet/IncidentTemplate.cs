@@ -15,53 +15,53 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testTeam = new Opsgenie.Team("testTeam", new()
     ///     {
-    ///         var testTeam = new Opsgenie.Team("testTeam", new Opsgenie.TeamArgs
-    ///         {
-    ///             Description = "This team deals with all the things",
-    ///         });
-    ///         var testService = new Opsgenie.Service("testService", new Opsgenie.ServiceArgs
-    ///         {
-    ///             TeamId = testTeam.Id,
-    ///         });
-    ///         var testIncidentTemplate = new Opsgenie.IncidentTemplate("testIncidentTemplate", new Opsgenie.IncidentTemplateArgs
-    ///         {
-    ///             Message = "Incident Message",
-    ///             Priority = "P2",
-    ///             StakeholderProperties = 
-    ///             {
-    ///                 new Opsgenie.Inputs.IncidentTemplateStakeholderPropertyArgs
-    ///                 {
-    ///                     Enable = true,
-    ///                     Message = "Stakeholder Message",
-    ///                     Description = "Stakeholder Description",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 "tag1",
-    ///                 "tag2",
-    ///             },
-    ///             Description = "Incident Description",
-    ///             Details = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///                 { "key2", "value2" },
-    ///             },
-    ///             ImpactedServices = 
-    ///             {
-    ///                 testService.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Description = "This team deals with all the things",
+    ///     });
     /// 
-    /// }
+    ///     var testService = new Opsgenie.Service("testService", new()
+    ///     {
+    ///         TeamId = testTeam.Id,
+    ///     });
+    /// 
+    ///     var testIncidentTemplate = new Opsgenie.IncidentTemplate("testIncidentTemplate", new()
+    ///     {
+    ///         Message = "Incident Message",
+    ///         Priority = "P2",
+    ///         StakeholderProperties = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.IncidentTemplateStakeholderPropertyArgs
+    ///             {
+    ///                 Enable = true,
+    ///                 Message = "Stakeholder Message",
+    ///                 Description = "Stakeholder Description",
+    ///             },
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "tag1",
+    ///             "tag2",
+    ///         },
+    ///         Description = "Incident Description",
+    ///         Details = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///         ImpactedServices = new[]
+    ///         {
+    ///             testService.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +73,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/incidentTemplate:IncidentTemplate")]
-    public partial class IncidentTemplate : Pulumi.CustomResource
+    public partial class IncidentTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
@@ -161,7 +161,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class IncidentTemplateArgs : Pulumi.ResourceArgs
+    public sealed class IncidentTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
@@ -230,9 +230,10 @@ namespace Pulumi.Opsgenie
         public IncidentTemplateArgs()
         {
         }
+        public static new IncidentTemplateArgs Empty => new IncidentTemplateArgs();
     }
 
-    public sealed class IncidentTemplateState : Pulumi.ResourceArgs
+    public sealed class IncidentTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
@@ -301,5 +302,6 @@ namespace Pulumi.Opsgenie
         public IncidentTemplateState()
         {
         }
+        public static new IncidentTemplateState Empty => new IncidentTemplateState();
     }
 }

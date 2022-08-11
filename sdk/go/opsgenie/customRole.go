@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewCustomRole(ctx, "test", &opsgenie.CustomRoleArgs{
-// 			DisallowedRights: pulumi.StringArray{
-// 				pulumi.String("profile-edit"),
-// 				pulumi.String("contacts-edit"),
-// 			},
-// 			ExtendedRole: pulumi.String("user"),
-// 			GrantedRights: pulumi.StringArray{
-// 				pulumi.String("alert-delete"),
-// 			},
-// 			RoleName: pulumi.String("genierole"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewCustomRole(ctx, "test", &opsgenie.CustomRoleArgs{
+//				DisallowedRights: pulumi.StringArray{
+//					pulumi.String("profile-edit"),
+//					pulumi.String("contacts-edit"),
+//				},
+//				ExtendedRole: pulumi.String("user"),
+//				GrantedRights: pulumi.StringArray{
+//					pulumi.String("alert-delete"),
+//				},
+//				RoleName: pulumi.String("genierole"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type CustomRole struct {
 	pulumi.CustomResourceState
@@ -162,7 +165,7 @@ func (i *CustomRole) ToCustomRoleOutputWithContext(ctx context.Context) CustomRo
 // CustomRoleArrayInput is an input type that accepts CustomRoleArray and CustomRoleArrayOutput values.
 // You can construct a concrete instance of `CustomRoleArrayInput` via:
 //
-//          CustomRoleArray{ CustomRoleArgs{...} }
+//	CustomRoleArray{ CustomRoleArgs{...} }
 type CustomRoleArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +190,7 @@ func (i CustomRoleArray) ToCustomRoleArrayOutputWithContext(ctx context.Context)
 // CustomRoleMapInput is an input type that accepts CustomRoleMap and CustomRoleMapOutput values.
 // You can construct a concrete instance of `CustomRoleMapInput` via:
 //
-//          CustomRoleMap{ "key": CustomRoleArgs{...} }
+//	CustomRoleMap{ "key": CustomRoleArgs{...} }
 type CustomRoleMapInput interface {
 	pulumi.Input
 

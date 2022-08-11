@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testUser, err := opsgenie.NewUser(ctx, "testUser", &opsgenie.UserArgs{
-// 			Username: pulumi.String("Example user"),
-// 			FullName: pulumi.String("Name Lastname"),
-// 			Role:     pulumi.String("User"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewNotificationRule(ctx, "testNotificationRule", &opsgenie.NotificationRuleArgs{
-// 			Username:   testUser.Username,
-// 			ActionType: pulumi.String("schedule-end"),
-// 			NotificationTimes: pulumi.StringArray{
-// 				pulumi.String("just-before"),
-// 				pulumi.String("15-minutes-ago"),
-// 			},
-// 			Steps: NotificationRuleStepArray{
-// 				&NotificationRuleStepArgs{
-// 					Contacts: NotificationRuleStepContactArray{
-// 						&NotificationRuleStepContactArgs{
-// 							Method: pulumi.String("email"),
-// 							To:     pulumi.String("example@user.com"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testUser, err := opsgenie.NewUser(ctx, "testUser", &opsgenie.UserArgs{
+//				Username: pulumi.String("Example user"),
+//				FullName: pulumi.String("Name Lastname"),
+//				Role:     pulumi.String("User"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewNotificationRule(ctx, "testNotificationRule", &opsgenie.NotificationRuleArgs{
+//				Username:   testUser.Username,
+//				ActionType: pulumi.String("schedule-end"),
+//				NotificationTimes: pulumi.StringArray{
+//					pulumi.String("just-before"),
+//					pulumi.String("15-minutes-ago"),
+//				},
+//				Steps: NotificationRuleStepArray{
+//					&NotificationRuleStepArgs{
+//						Contacts: NotificationRuleStepContactArray{
+//							&NotificationRuleStepContactArgs{
+//								Method: pulumi.String("email"),
+//								To:     pulumi.String("example@user.com"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Notification policies can be imported using the `user_id/notification_rule_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/notificationRule:NotificationRule test user_id/notification_rule_id`
+//
+//	$ pulumi import opsgenie:index/notificationRule:NotificationRule test user_id/notification_rule_id`
+//
 // ```
 type NotificationRule struct {
 	pulumi.CustomResourceState
@@ -238,7 +243,7 @@ func (i *NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Conte
 // NotificationRuleArrayInput is an input type that accepts NotificationRuleArray and NotificationRuleArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleArrayInput` via:
 //
-//          NotificationRuleArray{ NotificationRuleArgs{...} }
+//	NotificationRuleArray{ NotificationRuleArgs{...} }
 type NotificationRuleArrayInput interface {
 	pulumi.Input
 
@@ -263,7 +268,7 @@ func (i NotificationRuleArray) ToNotificationRuleArrayOutputWithContext(ctx cont
 // NotificationRuleMapInput is an input type that accepts NotificationRuleMap and NotificationRuleMapOutput values.
 // You can construct a concrete instance of `NotificationRuleMapInput` via:
 //
-//          NotificationRuleMap{ "key": NotificationRuleArgs{...} }
+//	NotificationRuleMap{ "key": NotificationRuleArgs{...} }
 type NotificationRuleMapInput interface {
 	pulumi.Input
 

@@ -16,7 +16,7 @@ namespace Pulumi.Opsgenie
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [OpsgenieResourceType("pulumi:providers:opsgenie")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         [Output("apiKey")]
         public Output<string> ApiKey { get; private set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
@@ -62,5 +62,6 @@ namespace Pulumi.Opsgenie
         {
             ApiUrl = Utilities.GetEnv("OPSGENIE_API_URL");
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }
