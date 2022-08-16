@@ -18,67 +18,70 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewApiIntegration(ctx, "example-api-integrationApiIntegration", &opsgenie.ApiIntegrationArgs{
-// 			Type: pulumi.String("API"),
-// 			Responders: ApiIntegrationResponderArray{
-// 				&ApiIntegrationResponderArgs{
-// 					Type: pulumi.String("user"),
-// 					Id:   pulumi.Any(opsgenie_user.User.Id),
-// 				},
-// 				&ApiIntegrationResponderArgs{
-// 					Type: pulumi.String("user"),
-// 					Id:   pulumi.Any(opsgenie_user.Fahri.Id),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewApiIntegration(ctx, "example-api-integrationIndex/apiIntegrationApiIntegration", &opsgenie.ApiIntegrationArgs{
-// 			Type: pulumi.String("Prometheus"),
-// 			Responders: ApiIntegrationResponderArray{
-// 				&ApiIntegrationResponderArgs{
-// 					Type: pulumi.String("user"),
-// 					Id:   pulumi.Any(opsgenie_user.User.Id),
-// 				},
-// 			},
-// 			Enabled:                     pulumi.Bool(false),
-// 			AllowWriteAccess:            pulumi.Bool(false),
-// 			IgnoreRespondersFromPayload: pulumi.Bool(true),
-// 			SuppressNotifications:       pulumi.Bool(true),
-// 			OwnerTeamId:                 pulumi.Any(opsgenie_team.Team.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewApiIntegration(ctx, "test3", &opsgenie.ApiIntegrationArgs{
-// 			Type: pulumi.String("Webhook"),
-// 			Responders: ApiIntegrationResponderArray{
-// 				&ApiIntegrationResponderArgs{
-// 					Type: pulumi.String("user"),
-// 					Id:   pulumi.Any(opsgenie_user.User.Id),
-// 				},
-// 			},
-// 			Enabled:               pulumi.Bool(false),
-// 			AllowWriteAccess:      pulumi.Bool(false),
-// 			SuppressNotifications: pulumi.Bool(true),
-// 			WebhookUrl:            pulumi.String("https://api.example.com/v1"),
-// 			Headers: pulumi.StringMap{
-// 				"header1": pulumi.Any(value1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewApiIntegration(ctx, "example-api-integrationApiIntegration", &opsgenie.ApiIntegrationArgs{
+//				Type: pulumi.String("API"),
+//				Responders: ApiIntegrationResponderArray{
+//					&ApiIntegrationResponderArgs{
+//						Type: pulumi.String("user"),
+//						Id:   pulumi.Any(opsgenie_user.User.Id),
+//					},
+//					&ApiIntegrationResponderArgs{
+//						Type: pulumi.String("user"),
+//						Id:   pulumi.Any(opsgenie_user.Fahri.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewApiIntegration(ctx, "example-api-integrationIndex/apiIntegrationApiIntegration", &opsgenie.ApiIntegrationArgs{
+//				Type: pulumi.String("Prometheus"),
+//				Responders: ApiIntegrationResponderArray{
+//					&ApiIntegrationResponderArgs{
+//						Type: pulumi.String("user"),
+//						Id:   pulumi.Any(opsgenie_user.User.Id),
+//					},
+//				},
+//				Enabled:                     pulumi.Bool(false),
+//				AllowWriteAccess:            pulumi.Bool(false),
+//				IgnoreRespondersFromPayload: pulumi.Bool(true),
+//				SuppressNotifications:       pulumi.Bool(true),
+//				OwnerTeamId:                 pulumi.Any(opsgenie_team.Team.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewApiIntegration(ctx, "test3", &opsgenie.ApiIntegrationArgs{
+//				Type: pulumi.String("Webhook"),
+//				Responders: ApiIntegrationResponderArray{
+//					&ApiIntegrationResponderArgs{
+//						Type: pulumi.String("user"),
+//						Id:   pulumi.Any(opsgenie_user.User.Id),
+//					},
+//				},
+//				Enabled:               pulumi.Bool(false),
+//				AllowWriteAccess:      pulumi.Bool(false),
+//				SuppressNotifications: pulumi.Bool(true),
+//				WebhookUrl:            pulumi.String("https://api.example.com/v1"),
+//				Headers: pulumi.StringMap{
+//					"header1": pulumi.Any(value1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -86,7 +89,9 @@ import (
 // API Integrations can be imported using the `integration_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
+//
+//	$ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
+//
 // ```
 type ApiIntegration struct {
 	pulumi.CustomResourceState
@@ -265,7 +270,7 @@ func (i *ApiIntegration) ToApiIntegrationOutputWithContext(ctx context.Context) 
 // ApiIntegrationArrayInput is an input type that accepts ApiIntegrationArray and ApiIntegrationArrayOutput values.
 // You can construct a concrete instance of `ApiIntegrationArrayInput` via:
 //
-//          ApiIntegrationArray{ ApiIntegrationArgs{...} }
+//	ApiIntegrationArray{ ApiIntegrationArgs{...} }
 type ApiIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -290,7 +295,7 @@ func (i ApiIntegrationArray) ToApiIntegrationArrayOutputWithContext(ctx context.
 // ApiIntegrationMapInput is an input type that accepts ApiIntegrationMap and ApiIntegrationMapOutput values.
 // You can construct a concrete instance of `ApiIntegrationMapInput` via:
 //
-//          ApiIntegrationMap{ "key": ApiIntegrationArgs{...} }
+//	ApiIntegrationMap{ "key": ApiIntegrationArgs{...} }
 type ApiIntegrationMapInput interface {
 	pulumi.Input
 
@@ -324,6 +329,60 @@ func (o ApiIntegrationOutput) ToApiIntegrationOutput() ApiIntegrationOutput {
 
 func (o ApiIntegrationOutput) ToApiIntegrationOutputWithContext(ctx context.Context) ApiIntegrationOutput {
 	return o
+}
+
+// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
+func (o ApiIntegrationOutput) AllowWriteAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.BoolPtrOutput { return v.AllowWriteAccess }).(pulumi.BoolPtrOutput)
+}
+
+// (Computed) API key of the created integration
+func (o ApiIntegrationOutput) ApiKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
+}
+
+// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
+func (o ApiIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApiIntegrationOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringMapOutput { return v.Headers }).(pulumi.StringMapOutput)
+}
+
+// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
+func (o ApiIntegrationOutput) IgnoreRespondersFromPayload() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.BoolPtrOutput { return v.IgnoreRespondersFromPayload }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the integration. Name must be unique for each integration.
+func (o ApiIntegrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Owner team id of the integration.
+func (o ApiIntegrationOutput) OwnerTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringPtrOutput { return v.OwnerTeamId }).(pulumi.StringPtrOutput)
+}
+
+// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
+func (o ApiIntegrationOutput) Responders() ApiIntegrationResponderArrayOutput {
+	return o.ApplyT(func(v *ApiIntegration) ApiIntegrationResponderArrayOutput { return v.Responders }).(ApiIntegrationResponderArrayOutput)
+}
+
+// If enabled, notifications that come from alerts will be suppressed. Default: `false`.
+func (o ApiIntegrationOutput) SuppressNotifications() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.BoolPtrOutput { return v.SuppressNotifications }).(pulumi.BoolPtrOutput)
+}
+
+// Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
+func (o ApiIntegrationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
+func (o ApiIntegrationOutput) WebhookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringPtrOutput { return v.WebhookUrl }).(pulumi.StringPtrOutput)
 }
 
 type ApiIntegrationArrayOutput struct{ *pulumi.OutputState }

@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewHeartbeat(ctx, "test", &opsgenie.HeartbeatArgs{
-// 			AlertMessage:  pulumi.String("Test"),
-// 			AlertPriority: pulumi.String("P3"),
-// 			AlertTags: pulumi.StringArray{
-// 				pulumi.String("test"),
-// 				pulumi.String("fahri"),
-// 			},
-// 			Description:  pulumi.String("test opsgenie heartbeat terraform"),
-// 			Enabled:      pulumi.Bool(false),
-// 			Interval:     pulumi.Int(10),
-// 			IntervalUnit: pulumi.String("minutes"),
-// 			OwnerTeamId:  pulumi.Any(opsgenie_team.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewHeartbeat(ctx, "test", &opsgenie.HeartbeatArgs{
+//				AlertMessage:  pulumi.String("Test"),
+//				AlertPriority: pulumi.String("P3"),
+//				AlertTags: pulumi.StringArray{
+//					pulumi.String("test"),
+//					pulumi.String("fahri"),
+//				},
+//				Description:  pulumi.String("test opsgenie heartbeat terraform"),
+//				Enabled:      pulumi.Bool(false),
+//				Interval:     pulumi.Int(10),
+//				IntervalUnit: pulumi.String("minutes"),
+//				OwnerTeamId:  pulumi.Any(opsgenie_team.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Heartbeat Integrations can be imported using the `name`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
+//
+//	$ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
+//
 // ```
 type Heartbeat struct {
 	pulumi.CustomResourceState
@@ -228,7 +233,7 @@ func (i *Heartbeat) ToHeartbeatOutputWithContext(ctx context.Context) HeartbeatO
 // HeartbeatArrayInput is an input type that accepts HeartbeatArray and HeartbeatArrayOutput values.
 // You can construct a concrete instance of `HeartbeatArrayInput` via:
 //
-//          HeartbeatArray{ HeartbeatArgs{...} }
+//	HeartbeatArray{ HeartbeatArgs{...} }
 type HeartbeatArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +258,7 @@ func (i HeartbeatArray) ToHeartbeatArrayOutputWithContext(ctx context.Context) H
 // HeartbeatMapInput is an input type that accepts HeartbeatMap and HeartbeatMapOutput values.
 // You can construct a concrete instance of `HeartbeatMapInput` via:
 //
-//          HeartbeatMap{ "key": HeartbeatArgs{...} }
+//	HeartbeatMap{ "key": HeartbeatArgs{...} }
 type HeartbeatMapInput interface {
 	pulumi.Input
 
@@ -287,6 +292,51 @@ func (o HeartbeatOutput) ToHeartbeatOutput() HeartbeatOutput {
 
 func (o HeartbeatOutput) ToHeartbeatOutputWithContext(ctx context.Context) HeartbeatOutput {
 	return o
+}
+
+// Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
+func (o HeartbeatOutput) AlertMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringPtrOutput { return v.AlertMessage }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
+func (o HeartbeatOutput) AlertPriority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringPtrOutput { return v.AlertPriority }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the alert tags for heartbeat expiration alert.
+func (o HeartbeatOutput) AlertTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringArrayOutput { return v.AlertTags }).(pulumi.StringArrayOutput)
+}
+
+// An optional description of the heartbeat
+func (o HeartbeatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Enable/disable heartbeat monitoring.
+func (o HeartbeatOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Specifies how often a heartbeat message should be expected.
+func (o HeartbeatOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.IntOutput { return v.Interval }).(pulumi.IntOutput)
+}
+
+// Interval specified as minutes, hours or days.
+func (o HeartbeatOutput) IntervalUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringOutput { return v.IntervalUnit }).(pulumi.StringOutput)
+}
+
+// Name of the heartbeat
+func (o HeartbeatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Owner team of the heartbeat.
+func (o HeartbeatOutput) OwnerTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Heartbeat) pulumi.StringPtrOutput { return v.OwnerTeamId }).(pulumi.StringPtrOutput)
 }
 
 type HeartbeatArrayOutput struct{ *pulumi.OutputState }

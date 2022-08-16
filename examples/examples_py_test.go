@@ -1,4 +1,5 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
+//go:build python || all
 // +build python all
 
 package examples
@@ -13,7 +14,8 @@ import (
 func TestAccTeamTs(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "team", "py"),
+			RunUpdateTest: false,
+			Dir:           filepath.Join(getCwd(t), "team", "py"),
 		})
 
 	integration.ProgramTest(t, &test)

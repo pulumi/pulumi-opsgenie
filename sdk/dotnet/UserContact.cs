@@ -15,34 +15,34 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sms = new Opsgenie.UserContact("sms", new()
     ///     {
-    ///         var sms = new Opsgenie.UserContact("sms", new Opsgenie.UserContactArgs
-    ///         {
-    ///             Method = "sms",
-    ///             To = "39-123",
-    ///             Username = opsgenie_user.Exampleuser.Username,
-    ///         });
-    ///         var email = new Opsgenie.UserContact("email", new Opsgenie.UserContactArgs
-    ///         {
-    ///             Method = "email",
-    ///             To = "fahri@opsgenie.com",
-    ///             Username = opsgenie_user.Exampleuser.Username,
-    ///         });
-    ///         var voice = new Opsgenie.UserContact("voice", new Opsgenie.UserContactArgs
-    ///         {
-    ///             Method = "voice",
-    ///             To = "39-123",
-    ///             Username = opsgenie_user.Exampleuser.Username,
-    ///         });
-    ///     }
+    ///         Method = "sms",
+    ///         To = "39-123",
+    ///         Username = opsgenie_user.Exampleuser.Username,
+    ///     });
     /// 
-    /// }
+    ///     var email = new Opsgenie.UserContact("email", new()
+    ///     {
+    ///         Method = "email",
+    ///         To = "fahri@opsgenie.com",
+    ///         Username = opsgenie_user.Exampleuser.Username,
+    ///     });
+    /// 
+    ///     var voice = new Opsgenie.UserContact("voice", new()
+    ///     {
+    ///         Method = "voice",
+    ///         To = "39-123",
+    ///         Username = opsgenie_user.Exampleuser.Username,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/userContact:UserContact")]
-    public partial class UserContact : Pulumi.CustomResource
+    public partial class UserContact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enable contact of the user in OpsGenie. Default value is true.
@@ -124,7 +124,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class UserContactArgs : Pulumi.ResourceArgs
+    public sealed class UserContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable contact of the user in OpsGenie. Default value is true.
@@ -153,9 +153,10 @@ namespace Pulumi.Opsgenie
         public UserContactArgs()
         {
         }
+        public static new UserContactArgs Empty => new UserContactArgs();
     }
 
-    public sealed class UserContactState : Pulumi.ResourceArgs
+    public sealed class UserContactState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable contact of the user in OpsGenie. Default value is true.
@@ -184,5 +185,6 @@ namespace Pulumi.Opsgenie
         public UserContactState()
         {
         }
+        public static new UserContactState Empty => new UserContactState();
     }
 }

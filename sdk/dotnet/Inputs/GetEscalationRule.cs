@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class GetEscalationRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetEscalationRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("condition", required: true)]
         public string Condition { get; set; } = null!;
@@ -32,5 +32,6 @@ namespace Pulumi.Opsgenie.Inputs
         public GetEscalationRuleArgs()
         {
         }
+        public static new GetEscalationRuleArgs Empty => new GetEscalationRuleArgs();
     }
 }

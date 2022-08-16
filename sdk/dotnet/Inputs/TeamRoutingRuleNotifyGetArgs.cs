@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class TeamRoutingRuleNotifyGetArgs : Pulumi.ResourceArgs
+    public sealed class TeamRoutingRuleNotifyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Opsgenie Team Routing Rule.
@@ -30,5 +30,6 @@ namespace Pulumi.Opsgenie.Inputs
         public TeamRoutingRuleNotifyGetArgs()
         {
         }
+        public static new TeamRoutingRuleNotifyGetArgs Empty => new TeamRoutingRuleNotifyGetArgs();
     }
 }

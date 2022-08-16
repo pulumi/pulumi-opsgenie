@@ -15,24 +15,23 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var payment = new Opsgenie.Team("payment", new()
     ///     {
-    ///         var payment = new Opsgenie.Team("payment", new Opsgenie.TeamArgs
-    ///         {
-    ///             Description = "This team deals with all the things",
-    ///         });
-    ///         var @this = new Opsgenie.Service("this", new Opsgenie.ServiceArgs
-    ///         {
-    ///             TeamId = "$opsgenie_team.payment.id",
-    ///         });
-    ///     }
+    ///         Description = "This team deals with all the things",
+    ///     });
     /// 
-    /// }
+    ///     var @this = new Opsgenie.Service("this", new()
+    ///     {
+    ///         TeamId = "$opsgenie_team.payment.id",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +43,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/service:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description field of the service that is generally used to provide a detailed information about the service.
@@ -108,7 +107,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description field of the service that is generally used to provide a detailed information about the service.
@@ -131,9 +130,10 @@ namespace Pulumi.Opsgenie
         public ServiceArgs()
         {
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 
-    public sealed class ServiceState : Pulumi.ResourceArgs
+    public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description field of the service that is generally used to provide a detailed information about the service.
@@ -156,5 +156,6 @@ namespace Pulumi.Opsgenie
         public ServiceState()
         {
         }
+        public static new ServiceState Empty => new ServiceState();
     }
 }

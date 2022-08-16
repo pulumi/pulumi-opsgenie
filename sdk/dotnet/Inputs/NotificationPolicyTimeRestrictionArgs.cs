@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationPolicyTimeRestrictionArgs : Pulumi.ResourceArgs
+    public sealed class NotificationPolicyTimeRestrictionArgs : global::Pulumi.ResourceArgs
     {
         [Input("restriction")]
         private InputList<Inputs.NotificationPolicyTimeRestrictionRestrictionArgs>? _restriction;
@@ -45,5 +45,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationPolicyTimeRestrictionArgs()
         {
         }
+        public static new NotificationPolicyTimeRestrictionArgs Empty => new NotificationPolicyTimeRestrictionArgs();
     }
 }

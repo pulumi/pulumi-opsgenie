@@ -15,23 +15,21 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Opsgenie.Schedule("test", new()
     ///     {
-    ///         var test = new Opsgenie.Schedule("test", new Opsgenie.ScheduleArgs
-    ///         {
-    ///             Description = "schedule test",
-    ///             Enabled = false,
-    ///             OwnerTeamId = opsgenie_team.Test.Id,
-    ///             Timezone = "Europe/Rome",
-    ///         });
-    ///     }
+    ///         Description = "schedule test",
+    ///         Enabled = false,
+    ///         OwnerTeamId = opsgenie_team.Test.Id,
+    ///         Timezone = "Europe/Rome",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/schedule:Schedule")]
-    public partial class Schedule : Pulumi.CustomResource
+    public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of schedule.
@@ -119,7 +117,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class ScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of schedule.
@@ -154,9 +152,10 @@ namespace Pulumi.Opsgenie
         public ScheduleArgs()
         {
         }
+        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 
-    public sealed class ScheduleState : Pulumi.ResourceArgs
+    public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of schedule.
@@ -191,5 +190,6 @@ namespace Pulumi.Opsgenie
         public ScheduleState()
         {
         }
+        public static new ScheduleState Empty => new ScheduleState();
     }
 }

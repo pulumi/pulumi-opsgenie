@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class UserUserAddressArgs : Pulumi.ResourceArgs
+    public sealed class UserUserAddressArgs : global::Pulumi.ResourceArgs
     {
         [Input("city", required: true)]
         public Input<string> City { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.Opsgenie.Inputs
         public UserUserAddressArgs()
         {
         }
+        public static new UserUserAddressArgs Empty => new UserUserAddressArgs();
     }
 }

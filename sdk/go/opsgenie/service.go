@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewTeam(ctx, "payment", &opsgenie.TeamArgs{
-// 			Description: pulumi.String("This team deals with all the things"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewService(ctx, "this", &opsgenie.ServiceArgs{
-// 			TeamId: pulumi.String(fmt.Sprintf("%v%v", "$", "opsgenie_team.payment.id")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewTeam(ctx, "payment", &opsgenie.TeamArgs{
+//				Description: pulumi.String("This team deals with all the things"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewService(ctx, "this", &opsgenie.ServiceArgs{
+//				TeamId: pulumi.String(fmt.Sprintf("$opsgenie_team.payment.id")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Teams can be imported using the `service_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/service:Service this service_id`
+//
+//	$ pulumi import opsgenie:index/service:Service this service_id`
+//
 // ```
 type Service struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
-//          ServiceArray{ ServiceArgs{...} }
+//	ServiceArray{ ServiceArgs{...} }
 type ServiceArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) Servi
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
 // You can construct a concrete instance of `ServiceMapInput` via:
 //
-//          ServiceMap{ "key": ServiceArgs{...} }
+//	ServiceMap{ "key": ServiceArgs{...} }
 type ServiceMapInput interface {
 	pulumi.Input
 
@@ -219,6 +224,21 @@ func (o ServiceOutput) ToServiceOutput() ServiceOutput {
 
 func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
 	return o
+}
+
+// Description field of the service that is generally used to provide a detailed information about the service.
+func (o ServiceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the service. This field must not be longer than 100 characters.
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Team id of the service. This field must not be longer than 512 characters.
+func (o ServiceOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }
 
 type ServiceArrayOutput struct{ *pulumi.OutputState }

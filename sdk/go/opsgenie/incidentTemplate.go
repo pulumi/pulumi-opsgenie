@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
-// 			Description: pulumi.String("This team deals with all the things"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testService, err := opsgenie.NewService(ctx, "testService", &opsgenie.ServiceArgs{
-// 			TeamId: testTeam.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewIncidentTemplate(ctx, "testIncidentTemplate", &opsgenie.IncidentTemplateArgs{
-// 			Message:  pulumi.String("Incident Message"),
-// 			Priority: pulumi.String("P2"),
-// 			StakeholderProperties: IncidentTemplateStakeholderPropertyArray{
-// 				&IncidentTemplateStakeholderPropertyArgs{
-// 					Enable:      pulumi.Bool(true),
-// 					Message:     pulumi.String("Stakeholder Message"),
-// 					Description: pulumi.String("Stakeholder Description"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("tag1"),
-// 				pulumi.String("tag2"),
-// 			},
-// 			Description: pulumi.String("Incident Description"),
-// 			Details: pulumi.StringMap{
-// 				"key1": pulumi.String("value1"),
-// 				"key2": pulumi.String("value2"),
-// 			},
-// 			ImpactedServices: pulumi.StringArray{
-// 				testService.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//				Description: pulumi.String("This team deals with all the things"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testService, err := opsgenie.NewService(ctx, "testService", &opsgenie.ServiceArgs{
+//				TeamId: testTeam.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewIncidentTemplate(ctx, "testIncidentTemplate", &opsgenie.IncidentTemplateArgs{
+//				Message:  pulumi.String("Incident Message"),
+//				Priority: pulumi.String("P2"),
+//				StakeholderProperties: IncidentTemplateStakeholderPropertyArray{
+//					&IncidentTemplateStakeholderPropertyArgs{
+//						Enable:      pulumi.Bool(true),
+//						Message:     pulumi.String("Stakeholder Message"),
+//						Description: pulumi.String("Stakeholder Description"),
+//					},
+//				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("tag1"),
+//					pulumi.String("tag2"),
+//				},
+//				Description: pulumi.String("Incident Description"),
+//				Details: pulumi.StringMap{
+//					"key1": pulumi.String("value1"),
+//					"key2": pulumi.String("value2"),
+//				},
+//				ImpactedServices: pulumi.StringArray{
+//					testService.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Service can be imported using the `template_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
+//
+//	$ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
+//
 // ```
 type IncidentTemplate struct {
 	pulumi.CustomResourceState
@@ -230,7 +235,7 @@ func (i *IncidentTemplate) ToIncidentTemplateOutputWithContext(ctx context.Conte
 // IncidentTemplateArrayInput is an input type that accepts IncidentTemplateArray and IncidentTemplateArrayOutput values.
 // You can construct a concrete instance of `IncidentTemplateArrayInput` via:
 //
-//          IncidentTemplateArray{ IncidentTemplateArgs{...} }
+//	IncidentTemplateArray{ IncidentTemplateArgs{...} }
 type IncidentTemplateArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +260,7 @@ func (i IncidentTemplateArray) ToIncidentTemplateArrayOutputWithContext(ctx cont
 // IncidentTemplateMapInput is an input type that accepts IncidentTemplateMap and IncidentTemplateMapOutput values.
 // You can construct a concrete instance of `IncidentTemplateMapInput` via:
 //
-//          IncidentTemplateMap{ "key": IncidentTemplateArgs{...} }
+//	IncidentTemplateMap{ "key": IncidentTemplateArgs{...} }
 type IncidentTemplateMapInput interface {
 	pulumi.Input
 
@@ -289,6 +294,46 @@ func (o IncidentTemplateOutput) ToIncidentTemplateOutput() IncidentTemplateOutpu
 
 func (o IncidentTemplateOutput) ToIncidentTemplateOutputWithContext(ctx context.Context) IncidentTemplateOutput {
 	return o
+}
+
+// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+func (o IncidentTemplateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
+func (o IncidentTemplateOutput) Details() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringMapOutput { return v.Details }).(pulumi.StringMapOutput)
+}
+
+func (o IncidentTemplateOutput) ImpactedServices() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringArrayOutput { return v.ImpactedServices }).(pulumi.StringArrayOutput)
+}
+
+// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+func (o IncidentTemplateOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
+}
+
+// Name of the incident template.
+func (o IncidentTemplateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+func (o IncidentTemplateOutput) Priority() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringOutput { return v.Priority }).(pulumi.StringOutput)
+}
+
+func (o IncidentTemplateOutput) StakeholderProperties() IncidentTemplateStakeholderPropertyArrayOutput {
+	return o.ApplyT(func(v *IncidentTemplate) IncidentTemplateStakeholderPropertyArrayOutput {
+		return v.StakeholderProperties
+	}).(IncidentTemplateStakeholderPropertyArrayOutput)
+}
+
+// Tags of the incident template.
+func (o IncidentTemplateOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 type IncidentTemplateArrayOutput struct{ *pulumi.OutputState }

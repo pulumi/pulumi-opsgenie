@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class ScheduleRotationTimeRestrictionGetArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleRotationTimeRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("restriction")]
         private InputList<Inputs.ScheduleRotationTimeRestrictionRestrictionGetArgs>? _restriction;
@@ -45,5 +45,6 @@ namespace Pulumi.Opsgenie.Inputs
         public ScheduleRotationTimeRestrictionGetArgs()
         {
         }
+        public static new ScheduleRotationTimeRestrictionGetArgs Empty => new ScheduleRotationTimeRestrictionGetArgs();
     }
 }

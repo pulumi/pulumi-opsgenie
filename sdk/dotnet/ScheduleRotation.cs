@@ -15,49 +15,47 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Opsgenie.ScheduleRotation("test", new()
     ///     {
-    ///         var test = new Opsgenie.ScheduleRotation("test", new Opsgenie.ScheduleRotationArgs
+    ///         EndDate = "2019-06-20T17:30:00Z",
+    ///         Length = 6,
+    ///         Participants = new[]
     ///         {
-    ///             EndDate = "2019-06-20T17:30:00Z",
-    ///             Length = 6,
-    ///             Participants = 
+    ///             new Opsgenie.Inputs.ScheduleRotationParticipantArgs
     ///             {
-    ///                 new Opsgenie.Inputs.ScheduleRotationParticipantArgs
-    ///                 {
-    ///                     Id = opsgenie_user.Test.Id,
-    ///                     Type = "user",
-    ///                 },
+    ///                 Id = opsgenie_user.Test.Id,
+    ///                 Type = "user",
     ///             },
-    ///             ScheduleId = opsgenie_schedule.Test.Id,
-    ///             StartDate = "2019-06-18T17:00:00Z",
-    ///             TimeRestrictions = 
+    ///         },
+    ///         ScheduleId = opsgenie_schedule.Test.Id,
+    ///         StartDate = "2019-06-18T17:00:00Z",
+    ///         TimeRestrictions = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.ScheduleRotationTimeRestrictionArgs
     ///             {
-    ///                 new Opsgenie.Inputs.ScheduleRotationTimeRestrictionArgs
+    ///                 Restriction = new[]
     ///                 {
-    ///                     Restriction = 
+    ///                     new Opsgenie.Inputs.ScheduleRotationTimeRestrictionRestrictionArgs
     ///                     {
-    ///                         new Opsgenie.Inputs.ScheduleRotationTimeRestrictionRestrictionArgs
-    ///                         {
-    ///                             EndHour = 10,
-    ///                             EndMin = 1,
-    ///                             StartHour = 1,
-    ///                             StartMin = 1,
-    ///                         },
+    ///                         EndHour = 10,
+    ///                         EndMin = 1,
+    ///                         StartHour = 1,
+    ///                         StartMin = 1,
     ///                     },
-    ///                     Type = "time-of-day",
     ///                 },
+    ///                 Type = "time-of-day",
     ///             },
-    ///             Type = "hourly",
-    ///         });
-    ///     }
+    ///         },
+    ///         Type = "hourly",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +67,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/scheduleRotation:ScheduleRotation")]
-    public partial class ScheduleRotation : Pulumi.CustomResource
+    public partial class ScheduleRotation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
@@ -160,7 +158,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class ScheduleRotationArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleRotationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
@@ -221,9 +219,10 @@ namespace Pulumi.Opsgenie
         public ScheduleRotationArgs()
         {
         }
+        public static new ScheduleRotationArgs Empty => new ScheduleRotationArgs();
     }
 
-    public sealed class ScheduleRotationState : Pulumi.ResourceArgs
+    public sealed class ScheduleRotationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
@@ -284,5 +283,6 @@ namespace Pulumi.Opsgenie
         public ScheduleRotationState()
         {
         }
+        public static new ScheduleRotationState Empty => new ScheduleRotationState();
     }
 }

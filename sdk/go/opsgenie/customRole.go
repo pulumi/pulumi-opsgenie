@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewCustomRole(ctx, "test", &opsgenie.CustomRoleArgs{
-// 			DisallowedRights: pulumi.StringArray{
-// 				pulumi.String("profile-edit"),
-// 				pulumi.String("contacts-edit"),
-// 			},
-// 			ExtendedRole: pulumi.String("user"),
-// 			GrantedRights: pulumi.StringArray{
-// 				pulumi.String("alert-delete"),
-// 			},
-// 			RoleName: pulumi.String("genierole"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewCustomRole(ctx, "test", &opsgenie.CustomRoleArgs{
+//				DisallowedRights: pulumi.StringArray{
+//					pulumi.String("profile-edit"),
+//					pulumi.String("contacts-edit"),
+//				},
+//				ExtendedRole: pulumi.String("user"),
+//				GrantedRights: pulumi.StringArray{
+//					pulumi.String("alert-delete"),
+//				},
+//				RoleName: pulumi.String("genierole"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type CustomRole struct {
 	pulumi.CustomResourceState
@@ -162,7 +165,7 @@ func (i *CustomRole) ToCustomRoleOutputWithContext(ctx context.Context) CustomRo
 // CustomRoleArrayInput is an input type that accepts CustomRoleArray and CustomRoleArrayOutput values.
 // You can construct a concrete instance of `CustomRoleArrayInput` via:
 //
-//          CustomRoleArray{ CustomRoleArgs{...} }
+//	CustomRoleArray{ CustomRoleArgs{...} }
 type CustomRoleArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +190,7 @@ func (i CustomRoleArray) ToCustomRoleArrayOutputWithContext(ctx context.Context)
 // CustomRoleMapInput is an input type that accepts CustomRoleMap and CustomRoleMapOutput values.
 // You can construct a concrete instance of `CustomRoleMapInput` via:
 //
-//          CustomRoleMap{ "key": CustomRoleArgs{...} }
+//	CustomRoleMap{ "key": CustomRoleArgs{...} }
 type CustomRoleMapInput interface {
 	pulumi.Input
 
@@ -221,6 +224,26 @@ func (o CustomRoleOutput) ToCustomRoleOutput() CustomRoleOutput {
 
 func (o CustomRoleOutput) ToCustomRoleOutputWithContext(ctx context.Context) CustomRoleOutput {
 	return o
+}
+
+// The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
+func (o CustomRoleOutput) DisallowedRights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomRole) pulumi.StringArrayOutput { return v.DisallowedRights }).(pulumi.StringArrayOutput)
+}
+
+// The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
+func (o CustomRoleOutput) ExtendedRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomRole) pulumi.StringPtrOutput { return v.ExtendedRole }).(pulumi.StringPtrOutput)
+}
+
+// The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
+func (o CustomRoleOutput) GrantedRights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomRole) pulumi.StringArrayOutput { return v.GrantedRights }).(pulumi.StringArrayOutput)
+}
+
+// Name of the custom role.
+func (o CustomRoleOutput) RoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomRole) pulumi.StringOutput { return v.RoleName }).(pulumi.StringOutput)
 }
 
 type CustomRoleArrayOutput struct{ *pulumi.OutputState }

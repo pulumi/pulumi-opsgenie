@@ -15,34 +15,32 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Opsgenie.CustomRole("test", new()
     ///     {
-    ///         var test = new Opsgenie.CustomRole("test", new Opsgenie.CustomRoleArgs
+    ///         DisallowedRights = new[]
     ///         {
-    ///             DisallowedRights = 
-    ///             {
-    ///                 "profile-edit",
-    ///                 "contacts-edit",
-    ///             },
-    ///             ExtendedRole = "user",
-    ///             GrantedRights = 
-    ///             {
-    ///                 "alert-delete",
-    ///             },
-    ///             RoleName = "genierole",
-    ///         });
-    ///     }
+    ///             "profile-edit",
+    ///             "contacts-edit",
+    ///         },
+    ///         ExtendedRole = "user",
+    ///         GrantedRights = new[]
+    ///         {
+    ///             "alert-delete",
+    ///         },
+    ///         RoleName = "genierole",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/customRole:CustomRole")]
-    public partial class CustomRole : Pulumi.CustomResource
+    public partial class CustomRole : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
@@ -112,7 +110,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class CustomRoleArgs : Pulumi.ResourceArgs
+    public sealed class CustomRoleArgs : global::Pulumi.ResourceArgs
     {
         [Input("disallowedRights")]
         private InputList<string>? _disallowedRights;
@@ -153,9 +151,10 @@ namespace Pulumi.Opsgenie
         public CustomRoleArgs()
         {
         }
+        public static new CustomRoleArgs Empty => new CustomRoleArgs();
     }
 
-    public sealed class CustomRoleState : Pulumi.ResourceArgs
+    public sealed class CustomRoleState : global::Pulumi.ResourceArgs
     {
         [Input("disallowedRights")]
         private InputList<string>? _disallowedRights;
@@ -196,5 +195,6 @@ namespace Pulumi.Opsgenie
         public CustomRoleState()
         {
         }
+        public static new CustomRoleState Empty => new CustomRoleState();
     }
 }

@@ -19,20 +19,18 @@ namespace Pulumi.Opsgenie
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Opsgenie.GetEscalation.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Opsgenie.GetEscalation.InvokeAsync(new Opsgenie.GetEscalationArgs
-        ///         {
-        ///             Name = "existing-escalation",
-        ///         }));
-        ///     }
+        ///         Name = "existing-escalation",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Opsgenie
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Opsgenie.GetEscalation.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Opsgenie.GetEscalation.InvokeAsync(new Opsgenie.GetEscalationArgs
-        ///         {
-        ///             Name = "existing-escalation",
-        ///         }));
-        ///     }
+        ///         Name = "existing-escalation",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Opsgenie
     }
 
 
-    public sealed class GetEscalationArgs : Pulumi.InvokeArgs
+    public sealed class GetEscalationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Escalation Description
@@ -118,9 +114,10 @@ namespace Pulumi.Opsgenie
         public GetEscalationArgs()
         {
         }
+        public static new GetEscalationArgs Empty => new GetEscalationArgs();
     }
 
-    public sealed class GetEscalationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEscalationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Escalation Description
@@ -167,6 +164,7 @@ namespace Pulumi.Opsgenie
         public GetEscalationInvokeArgs()
         {
         }
+        public static new GetEscalationInvokeArgs Empty => new GetEscalationInvokeArgs();
     }
 
 

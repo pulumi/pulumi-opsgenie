@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testUser, err := opsgenie.NewUser(ctx, "testUser", &opsgenie.UserArgs{
-// 			Username: pulumi.String("Example user"),
-// 			FullName: pulumi.String("Name Lastname"),
-// 			Role:     pulumi.String("User"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewNotificationRule(ctx, "testNotificationRule", &opsgenie.NotificationRuleArgs{
-// 			Username:   testUser.Username,
-// 			ActionType: pulumi.String("schedule-end"),
-// 			NotificationTimes: pulumi.StringArray{
-// 				pulumi.String("just-before"),
-// 				pulumi.String("15-minutes-ago"),
-// 			},
-// 			Steps: NotificationRuleStepArray{
-// 				&NotificationRuleStepArgs{
-// 					Contacts: NotificationRuleStepContactArray{
-// 						&NotificationRuleStepContactArgs{
-// 							Method: pulumi.String("email"),
-// 							To:     pulumi.String("example@user.com"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testUser, err := opsgenie.NewUser(ctx, "testUser", &opsgenie.UserArgs{
+//				Username: pulumi.String("Example user"),
+//				FullName: pulumi.String("Name Lastname"),
+//				Role:     pulumi.String("User"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewNotificationRule(ctx, "testNotificationRule", &opsgenie.NotificationRuleArgs{
+//				Username:   testUser.Username,
+//				ActionType: pulumi.String("schedule-end"),
+//				NotificationTimes: pulumi.StringArray{
+//					pulumi.String("just-before"),
+//					pulumi.String("15-minutes-ago"),
+//				},
+//				Steps: NotificationRuleStepArray{
+//					&NotificationRuleStepArgs{
+//						Contacts: NotificationRuleStepContactArray{
+//							&NotificationRuleStepContactArgs{
+//								Method: pulumi.String("email"),
+//								To:     pulumi.String("example@user.com"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Notification policies can be imported using the `user_id/notification_rule_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/notificationRule:NotificationRule test user_id/notification_rule_id`
+//
+//	$ pulumi import opsgenie:index/notificationRule:NotificationRule test user_id/notification_rule_id`
+//
 // ```
 type NotificationRule struct {
 	pulumi.CustomResourceState
@@ -238,7 +243,7 @@ func (i *NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Conte
 // NotificationRuleArrayInput is an input type that accepts NotificationRuleArray and NotificationRuleArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleArrayInput` via:
 //
-//          NotificationRuleArray{ NotificationRuleArgs{...} }
+//	NotificationRuleArray{ NotificationRuleArgs{...} }
 type NotificationRuleArrayInput interface {
 	pulumi.Input
 
@@ -263,7 +268,7 @@ func (i NotificationRuleArray) ToNotificationRuleArrayOutputWithContext(ctx cont
 // NotificationRuleMapInput is an input type that accepts NotificationRuleMap and NotificationRuleMapOutput values.
 // You can construct a concrete instance of `NotificationRuleMapInput` via:
 //
-//          NotificationRuleMap{ "key": NotificationRuleArgs{...} }
+//	NotificationRuleMap{ "key": NotificationRuleArgs{...} }
 type NotificationRuleMapInput interface {
 	pulumi.Input
 
@@ -297,6 +302,57 @@ func (o NotificationRuleOutput) ToNotificationRuleOutput() NotificationRuleOutpu
 
 func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
 	return o
+}
+
+// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
+func (o NotificationRuleOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.ActionType }).(pulumi.StringOutput)
+}
+
+func (o NotificationRuleOutput) Criterias() NotificationRuleCriteriaArrayOutput {
+	return o.ApplyT(func(v *NotificationRule) NotificationRuleCriteriaArrayOutput { return v.Criterias }).(NotificationRuleCriteriaArrayOutput)
+}
+
+// Defined if this step is enabled. Default: `true`
+func (o NotificationRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the notification policy
+func (o NotificationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
+func (o NotificationRuleOutput) NotificationTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringArrayOutput { return v.NotificationTimes }).(pulumi.StringArrayOutput)
+}
+
+// Order of the condition in conditions list
+func (o NotificationRuleOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
+}
+
+func (o NotificationRuleOutput) Repeats() NotificationRuleRepeatArrayOutput {
+	return o.ApplyT(func(v *NotificationRule) NotificationRuleRepeatArrayOutput { return v.Repeats }).(NotificationRuleRepeatArrayOutput)
+}
+
+func (o NotificationRuleOutput) Schedules() NotificationRuleScheduleArrayOutput {
+	return o.ApplyT(func(v *NotificationRule) NotificationRuleScheduleArrayOutput { return v.Schedules }).(NotificationRuleScheduleArrayOutput)
+}
+
+// Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
+func (o NotificationRuleOutput) Steps() NotificationRuleStepArrayOutput {
+	return o.ApplyT(func(v *NotificationRule) NotificationRuleStepArrayOutput { return v.Steps }).(NotificationRuleStepArrayOutput)
+}
+
+func (o NotificationRuleOutput) TimeRestrictions() NotificationRuleTimeRestrictionArrayOutput {
+	return o.ApplyT(func(v *NotificationRule) NotificationRuleTimeRestrictionArrayOutput { return v.TimeRestrictions }).(NotificationRuleTimeRestrictionArrayOutput)
+}
+
+// Username of user to which this notification rule belongs to.
+func (o NotificationRuleOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }
 
 type NotificationRuleArrayOutput struct{ *pulumi.OutputState }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class IncidentTemplateStakeholderPropertyGetArgs : Pulumi.ResourceArgs
+    public sealed class IncidentTemplateStakeholderPropertyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
@@ -33,5 +33,6 @@ namespace Pulumi.Opsgenie.Inputs
         public IncidentTemplateStakeholderPropertyGetArgs()
         {
         }
+        public static new IncidentTemplateStakeholderPropertyGetArgs Empty => new IncidentTemplateStakeholderPropertyGetArgs();
     }
 }

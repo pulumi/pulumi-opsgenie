@@ -19,71 +19,74 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testSchedule, err := opsgenie.NewSchedule(ctx, "testSchedule", &opsgenie.ScheduleArgs{
-// 			Description: pulumi.String("schedule test"),
-// 			Enabled:     pulumi.Bool(false),
-// 			Timezone:    pulumi.String("Europe/Rome"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
-// 			Description: pulumi.String("This team deals with all the things"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewTeamRoutingRule(ctx, "testTeamRoutingRule", &opsgenie.TeamRoutingRuleArgs{
-// 			Criterias: TeamRoutingRuleCriteriaArray{
-// 				&TeamRoutingRuleCriteriaArgs{
-// 					Conditions: TeamRoutingRuleCriteriaConditionArray{
-// 						&TeamRoutingRuleCriteriaConditionArgs{
-// 							ExpectedValue: pulumi.String("expected1"),
-// 							Field:         pulumi.String("message"),
-// 							Not:           pulumi.Bool(false),
-// 							Operation:     pulumi.String("contains"),
-// 						},
-// 					},
-// 					Type: pulumi.String("match-any-condition"),
-// 				},
-// 			},
-// 			Notifies: TeamRoutingRuleNotifyArray{
-// 				&TeamRoutingRuleNotifyArgs{
-// 					Name: testSchedule.Name,
-// 					Type: pulumi.String("schedule"),
-// 				},
-// 			},
-// 			Order:  pulumi.Int(0),
-// 			TeamId: testTeam.ID(),
-// 			TimeRestrictions: TeamRoutingRuleTimeRestrictionArray{
-// 				&TeamRoutingRuleTimeRestrictionArgs{
-// 					RestrictionList: TeamRoutingRuleTimeRestrictionRestrictionListArray{
-// 						&TeamRoutingRuleTimeRestrictionRestrictionListArgs{
-// 							EndDay:    pulumi.String("tuesday"),
-// 							EndHour:   pulumi.Int(18),
-// 							EndMin:    pulumi.Int(30),
-// 							StartDay:  pulumi.String("monday"),
-// 							StartHour: pulumi.Int(8),
-// 							StartMin:  pulumi.Int(0),
-// 						},
-// 					},
-// 					Type: pulumi.String("weekday-and-time-of-day"),
-// 				},
-// 			},
-// 			Timezone: pulumi.String("America/Los_Angeles"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testSchedule, err := opsgenie.NewSchedule(ctx, "testSchedule", &opsgenie.ScheduleArgs{
+//				Description: pulumi.String("schedule test"),
+//				Enabled:     pulumi.Bool(false),
+//				Timezone:    pulumi.String("Europe/Rome"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//				Description: pulumi.String("This team deals with all the things"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewTeamRoutingRule(ctx, "testTeamRoutingRule", &opsgenie.TeamRoutingRuleArgs{
+//				Criterias: TeamRoutingRuleCriteriaArray{
+//					&TeamRoutingRuleCriteriaArgs{
+//						Conditions: TeamRoutingRuleCriteriaConditionArray{
+//							&TeamRoutingRuleCriteriaConditionArgs{
+//								ExpectedValue: pulumi.String("expected1"),
+//								Field:         pulumi.String("message"),
+//								Not:           pulumi.Bool(false),
+//								Operation:     pulumi.String("contains"),
+//							},
+//						},
+//						Type: pulumi.String("match-any-condition"),
+//					},
+//				},
+//				Notifies: TeamRoutingRuleNotifyArray{
+//					&TeamRoutingRuleNotifyArgs{
+//						Name: testSchedule.Name,
+//						Type: pulumi.String("schedule"),
+//					},
+//				},
+//				Order:  pulumi.Int(0),
+//				TeamId: testTeam.ID(),
+//				TimeRestrictions: TeamRoutingRuleTimeRestrictionArray{
+//					&TeamRoutingRuleTimeRestrictionArgs{
+//						RestrictionList: TeamRoutingRuleTimeRestrictionRestrictionListArray{
+//							&TeamRoutingRuleTimeRestrictionRestrictionListArgs{
+//								EndDay:    pulumi.String("tuesday"),
+//								EndHour:   pulumi.Int(18),
+//								EndMin:    pulumi.Int(30),
+//								StartDay:  pulumi.String("monday"),
+//								StartHour: pulumi.Int(8),
+//								StartMin:  pulumi.Int(0),
+//							},
+//						},
+//						Type: pulumi.String("weekday-and-time-of-day"),
+//					},
+//				},
+//				Timezone: pulumi.String("America/Los_Angeles"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -91,7 +94,9 @@ import (
 // Team Routing Rules can be imported using the `team_id/routing_rule_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`
+//
+//	$ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`
+//
 // ```
 type TeamRoutingRule struct {
 	pulumi.CustomResourceState
@@ -250,7 +255,7 @@ func (i *TeamRoutingRule) ToTeamRoutingRuleOutputWithContext(ctx context.Context
 // TeamRoutingRuleArrayInput is an input type that accepts TeamRoutingRuleArray and TeamRoutingRuleArrayOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleArrayInput` via:
 //
-//          TeamRoutingRuleArray{ TeamRoutingRuleArgs{...} }
+//	TeamRoutingRuleArray{ TeamRoutingRuleArgs{...} }
 type TeamRoutingRuleArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +280,7 @@ func (i TeamRoutingRuleArray) ToTeamRoutingRuleArrayOutputWithContext(ctx contex
 // TeamRoutingRuleMapInput is an input type that accepts TeamRoutingRuleMap and TeamRoutingRuleMapOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleMapInput` via:
 //
-//          TeamRoutingRuleMap{ "key": TeamRoutingRuleArgs{...} }
+//	TeamRoutingRuleMap{ "key": TeamRoutingRuleArgs{...} }
 type TeamRoutingRuleMapInput interface {
 	pulumi.Input
 
@@ -309,6 +314,45 @@ func (o TeamRoutingRuleOutput) ToTeamRoutingRuleOutput() TeamRoutingRuleOutput {
 
 func (o TeamRoutingRuleOutput) ToTeamRoutingRuleOutputWithContext(ctx context.Context) TeamRoutingRuleOutput {
 	return o
+}
+
+// You can refer Criteria for detailed information about criteria and its fields
+func (o TeamRoutingRuleOutput) Criterias() TeamRoutingRuleCriteriaArrayOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) TeamRoutingRuleCriteriaArrayOutput { return v.Criterias }).(TeamRoutingRuleCriteriaArrayOutput)
+}
+
+// Only use when importing default routing rule
+func (o TeamRoutingRuleOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.BoolPtrOutput { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the team routing rule
+func (o TeamRoutingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
+func (o TeamRoutingRuleOutput) Notifies() TeamRoutingRuleNotifyArrayOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) TeamRoutingRuleNotifyArrayOutput { return v.Notifies }).(TeamRoutingRuleNotifyArrayOutput)
+}
+
+// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
+func (o TeamRoutingRuleOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.IntPtrOutput { return v.Order }).(pulumi.IntPtrOutput)
+}
+
+// Id of the team owning the routing rule
+func (o TeamRoutingRuleOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
+}
+
+func (o TeamRoutingRuleOutput) TimeRestrictions() TeamRoutingRuleTimeRestrictionArrayOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) TeamRoutingRuleTimeRestrictionArrayOutput { return v.TimeRestrictions }).(TeamRoutingRuleTimeRestrictionArrayOutput)
+}
+
+// Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
+func (o TeamRoutingRuleOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 type TeamRoutingRuleArrayOutput struct{ *pulumi.OutputState }

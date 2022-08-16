@@ -19,20 +19,18 @@ namespace Pulumi.Opsgenie
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var @this = Opsgenie.GetService.Invoke(new()
         ///     {
-        ///         var @this = Output.Create(Opsgenie.GetService.InvokeAsync(new Opsgenie.GetServiceArgs
-        ///         {
-        ///             Name = "Payment",
-        ///         }));
-        ///     }
+        ///         Name = "Payment",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Opsgenie
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var @this = Opsgenie.GetService.Invoke(new()
         ///     {
-        ///         var @this = Output.Create(Opsgenie.GetService.InvokeAsync(new Opsgenie.GetServiceArgs
-        ///         {
-        ///             Name = "Payment",
-        ///         }));
-        ///     }
+        ///         Name = "Payment",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Opsgenie
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Description field of the service that is generally used to provide a detailed information about the service.
@@ -94,9 +90,10 @@ namespace Pulumi.Opsgenie
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Description field of the service that is generally used to provide a detailed information about the service.
@@ -119,6 +116,7 @@ namespace Pulumi.Opsgenie
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

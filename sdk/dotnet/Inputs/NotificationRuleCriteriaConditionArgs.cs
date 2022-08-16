@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationRuleCriteriaConditionArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleCriteriaConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// User defined value that will be compared with alert field according to the operation. Default: empty string
@@ -51,5 +51,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationRuleCriteriaConditionArgs()
         {
         }
+        public static new NotificationRuleCriteriaConditionArgs Empty => new NotificationRuleCriteriaConditionArgs();
     }
 }

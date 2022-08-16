@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class IntegrationActionAddNoteGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationActionAddNoteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identifier that is used for alert deduplication. Default: `{{alias}}`.
@@ -66,5 +66,6 @@ namespace Pulumi.Opsgenie.Inputs
         public IntegrationActionAddNoteGetArgs()
         {
         }
+        public static new IntegrationActionAddNoteGetArgs Empty => new IntegrationActionAddNoteGetArgs();
     }
 }

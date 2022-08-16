@@ -15,46 +15,44 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Opsgenie.User("test", new()
     ///     {
-    ///         var test = new Opsgenie.User("test", new Opsgenie.UserArgs
+    ///         FullName = "Test User",
+    ///         Locale = "en_US",
+    ///         Role = "User",
+    ///         SkypeUsername = "skypename",
+    ///         Tags = new[]
     ///         {
-    ///             FullName = "Test User",
-    ///             Locale = "en_US",
-    ///             Role = "User",
-    ///             SkypeUsername = "skypename",
-    ///             Tags = 
+    ///             "sre",
+    ///             "opsgenie",
+    ///         },
+    ///         Timezone = "America/New_York",
+    ///         UserAddresses = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.UserUserAddressArgs
     ///             {
-    ///                 "sre",
-    ///                 "opsgenie",
+    ///                 City = "City",
+    ///                 Country = "Country",
+    ///                 Line = "Line",
+    ///                 State = "State",
+    ///                 Zipcode = "998877",
     ///             },
-    ///             Timezone = "America/New_York",
-    ///             UserAddresses = 
-    ///             {
-    ///                 new Opsgenie.Inputs.UserUserAddressArgs
-    ///                 {
-    ///                     City = "City",
-    ///                     Country = "Country",
-    ///                     Line = "Line",
-    ///                     State = "State",
-    ///                     Zipcode = "998877",
-    ///                 },
-    ///             },
-    ///             UserDetails = 
-    ///             {
-    ///                 { "key1", "val1,val2" },
-    ///                 { "key2", "val3,val4" },
-    ///             },
-    ///             Username = "user@domain.com",
-    ///         });
-    ///     }
+    ///         },
+    ///         UserDetails = 
+    ///         {
+    ///             { "key1", "val1,val2" },
+    ///             { "key2", "val3,val4" },
+    ///         },
+    ///         Username = "user@domain.com",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +64,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Full Name of the User.
@@ -166,7 +164,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Full Name of the User.
@@ -243,9 +241,10 @@ namespace Pulumi.Opsgenie
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Full Name of the User.
@@ -322,5 +321,6 @@ namespace Pulumi.Opsgenie
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

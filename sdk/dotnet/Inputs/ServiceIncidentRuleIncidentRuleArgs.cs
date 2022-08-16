@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class ServiceIncidentRuleIncidentRuleArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIncidentRuleIncidentRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
@@ -45,5 +45,6 @@ namespace Pulumi.Opsgenie.Inputs
         public ServiceIncidentRuleIncidentRuleArgs()
         {
         }
+        public static new ServiceIncidentRuleIncidentRuleArgs Empty => new ServiceIncidentRuleIncidentRuleArgs();
     }
 }

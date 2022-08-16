@@ -19,64 +19,67 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
-// 			Description: pulumi.String("This team deals with all the things"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testService, err := opsgenie.NewService(ctx, "testService", &opsgenie.ServiceArgs{
-// 			TeamId: testTeam.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = opsgenie.NewServiceIncidentRule(ctx, "testServiceIncidentRule", &opsgenie.ServiceIncidentRuleArgs{
-// 			ServiceId: testService.ID(),
-// 			IncidentRules: ServiceIncidentRuleIncidentRuleArray{
-// 				&ServiceIncidentRuleIncidentRuleArgs{
-// 					ConditionMatchType: pulumi.String("match-any-condition"),
-// 					Conditions: ServiceIncidentRuleIncidentRuleConditionArray{
-// 						&ServiceIncidentRuleIncidentRuleConditionArgs{
-// 							Field:         pulumi.String("message"),
-// 							Not:           pulumi.Bool(false),
-// 							Operation:     pulumi.String("contains"),
-// 							ExpectedValue: pulumi.String("expected1"),
-// 						},
-// 						&ServiceIncidentRuleIncidentRuleConditionArgs{
-// 							Field:         pulumi.String("message"),
-// 							Not:           pulumi.Bool(false),
-// 							Operation:     pulumi.String("contains"),
-// 							ExpectedValue: pulumi.String("expected2"),
-// 						},
-// 					},
-// 					IncidentProperties: ServiceIncidentRuleIncidentRuleIncidentPropertyArray{
-// 						&ServiceIncidentRuleIncidentRuleIncidentPropertyArgs{
-// 							Message:  pulumi.String("This is a test message"),
-// 							Priority: pulumi.String("P3"),
-// 							StakeholderProperties: ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArray{
-// 								&ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs{
-// 									Message: pulumi.String("Message for stakeholders"),
-// 									Enable:  pulumi.Bool(true),
-// 								},
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//				Description: pulumi.String("This team deals with all the things"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testService, err := opsgenie.NewService(ctx, "testService", &opsgenie.ServiceArgs{
+//				TeamId: testTeam.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewServiceIncidentRule(ctx, "testServiceIncidentRule", &opsgenie.ServiceIncidentRuleArgs{
+//				ServiceId: testService.ID(),
+//				IncidentRules: ServiceIncidentRuleIncidentRuleArray{
+//					&ServiceIncidentRuleIncidentRuleArgs{
+//						ConditionMatchType: pulumi.String("match-any-condition"),
+//						Conditions: ServiceIncidentRuleIncidentRuleConditionArray{
+//							&ServiceIncidentRuleIncidentRuleConditionArgs{
+//								Field:         pulumi.String("message"),
+//								Not:           pulumi.Bool(false),
+//								Operation:     pulumi.String("contains"),
+//								ExpectedValue: pulumi.String("expected1"),
+//							},
+//							&ServiceIncidentRuleIncidentRuleConditionArgs{
+//								Field:         pulumi.String("message"),
+//								Not:           pulumi.Bool(false),
+//								Operation:     pulumi.String("contains"),
+//								ExpectedValue: pulumi.String("expected2"),
+//							},
+//						},
+//						IncidentProperties: ServiceIncidentRuleIncidentRuleIncidentPropertyArray{
+//							&ServiceIncidentRuleIncidentRuleIncidentPropertyArgs{
+//								Message:  pulumi.String("This is a test message"),
+//								Priority: pulumi.String("P3"),
+//								StakeholderProperties: ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArray{
+//									&ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs{
+//										Message: pulumi.String("Message for stakeholders"),
+//										Enable:  pulumi.Bool(true),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,7 +87,9 @@ import (
 // Service Incident Rule can be imported using the `service_id/service_incident_rule_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/serviceIncidentRule:ServiceIncidentRule this service_id/service_incident_rule_id`
+//
+//	$ pulumi import opsgenie:index/serviceIncidentRule:ServiceIncidentRule this service_id/service_incident_rule_id`
+//
 // ```
 type ServiceIncidentRule struct {
 	pulumi.CustomResourceState
@@ -188,7 +193,7 @@ func (i *ServiceIncidentRule) ToServiceIncidentRuleOutputWithContext(ctx context
 // ServiceIncidentRuleArrayInput is an input type that accepts ServiceIncidentRuleArray and ServiceIncidentRuleArrayOutput values.
 // You can construct a concrete instance of `ServiceIncidentRuleArrayInput` via:
 //
-//          ServiceIncidentRuleArray{ ServiceIncidentRuleArgs{...} }
+//	ServiceIncidentRuleArray{ ServiceIncidentRuleArgs{...} }
 type ServiceIncidentRuleArrayInput interface {
 	pulumi.Input
 
@@ -213,7 +218,7 @@ func (i ServiceIncidentRuleArray) ToServiceIncidentRuleArrayOutputWithContext(ct
 // ServiceIncidentRuleMapInput is an input type that accepts ServiceIncidentRuleMap and ServiceIncidentRuleMapOutput values.
 // You can construct a concrete instance of `ServiceIncidentRuleMapInput` via:
 //
-//          ServiceIncidentRuleMap{ "key": ServiceIncidentRuleArgs{...} }
+//	ServiceIncidentRuleMap{ "key": ServiceIncidentRuleArgs{...} }
 type ServiceIncidentRuleMapInput interface {
 	pulumi.Input
 
@@ -247,6 +252,16 @@ func (o ServiceIncidentRuleOutput) ToServiceIncidentRuleOutput() ServiceIncident
 
 func (o ServiceIncidentRuleOutput) ToServiceIncidentRuleOutputWithContext(ctx context.Context) ServiceIncidentRuleOutput {
 	return o
+}
+
+// This is the rule configuration for this incident rule. This is a block, structure is documented below.
+func (o ServiceIncidentRuleOutput) IncidentRules() ServiceIncidentRuleIncidentRuleArrayOutput {
+	return o.ApplyT(func(v *ServiceIncidentRule) ServiceIncidentRuleIncidentRuleArrayOutput { return v.IncidentRules }).(ServiceIncidentRuleIncidentRuleArrayOutput)
+}
+
+// ID of the service associated
+func (o ServiceIncidentRuleOutput) ServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIncidentRule) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
 }
 
 type ServiceIncidentRuleArrayOutput struct{ *pulumi.OutputState }

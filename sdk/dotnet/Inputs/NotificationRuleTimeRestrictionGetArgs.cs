@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationRuleTimeRestrictionGetArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleTimeRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("restrictions")]
         private InputList<Inputs.NotificationRuleTimeRestrictionRestrictionGetArgs>? _restrictions;
@@ -29,5 +29,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationRuleTimeRestrictionGetArgs()
         {
         }
+        public static new NotificationRuleTimeRestrictionGetArgs Empty => new NotificationRuleTimeRestrictionGetArgs();
     }
 }

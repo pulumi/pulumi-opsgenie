@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description that is generally used to provide a detailed information about the alert.
@@ -69,5 +69,6 @@ namespace Pulumi.Opsgenie.Inputs
         public ServiceIncidentRuleIncidentRuleIncidentPropertyArgs()
         {
         }
+        public static new ServiceIncidentRuleIncidentRuleIncidentPropertyArgs Empty => new ServiceIncidentRuleIncidentRuleIncidentPropertyArgs();
     }
 }

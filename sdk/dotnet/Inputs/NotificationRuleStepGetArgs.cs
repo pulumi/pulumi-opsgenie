@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationRuleStepGetArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleStepGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("contacts", required: true)]
         private InputList<Inputs.NotificationRuleStepContactGetArgs>? _contacts;
@@ -39,5 +39,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationRuleStepGetArgs()
         {
         }
+        public static new NotificationRuleStepGetArgs Empty => new NotificationRuleStepGetArgs();
     }
 }

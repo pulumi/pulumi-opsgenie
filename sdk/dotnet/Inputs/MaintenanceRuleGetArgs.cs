@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class MaintenanceRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("entities", required: true)]
         private InputList<Inputs.MaintenanceRuleEntityGetArgs>? _entities;
@@ -33,5 +33,6 @@ namespace Pulumi.Opsgenie.Inputs
         public MaintenanceRuleGetArgs()
         {
         }
+        public static new MaintenanceRuleGetArgs Empty => new MaintenanceRuleGetArgs();
     }
 }

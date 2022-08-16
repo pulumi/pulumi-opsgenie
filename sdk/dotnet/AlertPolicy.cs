@@ -15,58 +15,57 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testTeam = new Opsgenie.Team("testTeam", new()
     ///     {
-    ///         var testTeam = new Opsgenie.Team("testTeam", new Opsgenie.TeamArgs
+    ///         Description = "This team deals with all the things",
+    ///     });
+    /// 
+    ///     var testAlertPolicy = new Opsgenie.AlertPolicy("testAlertPolicy", new()
+    ///     {
+    ///         TeamId = testTeam.Id,
+    ///         PolicyDescription = "This is sample policy",
+    ///         Message = "{{message}}",
+    ///         Filters = new[]
     ///         {
-    ///             Description = "This team deals with all the things",
-    ///         });
-    ///         var testAlertPolicy = new Opsgenie.AlertPolicy("testAlertPolicy", new Opsgenie.AlertPolicyArgs
+    ///             ,
+    ///         },
+    ///         TimeRestrictions = new[]
     ///         {
-    ///             TeamId = testTeam.Id,
-    ///             PolicyDescription = "This is sample policy",
-    ///             Message = "{{message}}",
-    ///             Filters = 
+    ///             new Opsgenie.Inputs.AlertPolicyTimeRestrictionArgs
     ///             {
-    ///                 ,
-    ///             },
-    ///             TimeRestrictions = 
-    ///             {
-    ///                 new Opsgenie.Inputs.AlertPolicyTimeRestrictionArgs
+    ///                 Type = "weekday-and-time-of-day",
+    ///                 RestrictionList = new[]
     ///                 {
-    ///                     Type = "weekday-and-time-of-day",
-    ///                     RestrictionList = 
+    ///                     new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionListArgs
     ///                     {
-    ///                         new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionListArgs
-    ///                         {
-    ///                             EndDay = "monday",
-    ///                             EndHour = 7,
-    ///                             EndMin = 0,
-    ///                             StartDay = "sunday",
-    ///                             StartHour = 21,
-    ///                             StartMin = 0,
-    ///                         },
-    ///                         new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionListArgs
-    ///                         {
-    ///                             EndDay = "tuesday",
-    ///                             EndHour = 7,
-    ///                             EndMin = 0,
-    ///                             StartDay = "monday",
-    ///                             StartHour = 22,
-    ///                             StartMin = 0,
-    ///                         },
+    ///                         EndDay = "monday",
+    ///                         EndHour = 7,
+    ///                         EndMin = 0,
+    ///                         StartDay = "sunday",
+    ///                         StartHour = 21,
+    ///                         StartMin = 0,
+    ///                     },
+    ///                     new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionListArgs
+    ///                     {
+    ///                         EndDay = "tuesday",
+    ///                         EndHour = 7,
+    ///                         EndMin = 0,
+    ///                         StartDay = "monday",
+    ///                         StartHour = 22,
+    ///                         StartMin = 0,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +83,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/alertPolicy:AlertPolicy")]
-    public partial class AlertPolicy : Pulumi.CustomResource
+    public partial class AlertPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
@@ -250,7 +249,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class AlertPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AlertPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<string>? _actions;
@@ -405,9 +404,10 @@ namespace Pulumi.Opsgenie
         public AlertPolicyArgs()
         {
         }
+        public static new AlertPolicyArgs Empty => new AlertPolicyArgs();
     }
 
-    public sealed class AlertPolicyState : Pulumi.ResourceArgs
+    public sealed class AlertPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<string>? _actions;
@@ -562,5 +562,6 @@ namespace Pulumi.Opsgenie
         public AlertPolicyState()
         {
         }
+        public static new AlertPolicyState Empty => new AlertPolicyState();
     }
 }

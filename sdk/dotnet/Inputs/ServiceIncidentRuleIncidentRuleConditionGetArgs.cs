@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class ServiceIncidentRuleIncidentRuleConditionGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIncidentRuleIncidentRuleConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// User defined value that will be compared with alert field according to the operation. Default: empty string
@@ -42,5 +42,6 @@ namespace Pulumi.Opsgenie.Inputs
         public ServiceIncidentRuleIncidentRuleConditionGetArgs()
         {
         }
+        public static new ServiceIncidentRuleIncidentRuleConditionGetArgs Empty => new ServiceIncidentRuleIncidentRuleConditionGetArgs();
     }
 }

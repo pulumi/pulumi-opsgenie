@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class TeamMemberGetArgs : Pulumi.ResourceArgs
+    public sealed class TeamMemberGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The UUID for the member to add to this Team.
@@ -27,5 +27,6 @@ namespace Pulumi.Opsgenie.Inputs
         public TeamMemberGetArgs()
         {
         }
+        public static new TeamMemberGetArgs Empty => new TeamMemberGetArgs();
     }
 }

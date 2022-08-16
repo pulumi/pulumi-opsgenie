@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.LookupHeartbeat(ctx, &GetHeartbeatArgs{
-// 			Name: "genieheartbeat-existing",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.LookupHeartbeat(ctx, &GetHeartbeatArgs{
+//				Name: "genieheartbeat-existing",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupHeartbeat(ctx *pulumi.Context, args *LookupHeartbeatArgs, opts ...pulumi.InvokeOption) (*LookupHeartbeatResult, error) {
 	var rv LookupHeartbeatResult

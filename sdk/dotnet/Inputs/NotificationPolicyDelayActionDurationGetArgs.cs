@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationPolicyDelayActionDurationGetArgs : Pulumi.ResourceArgs
+    public sealed class NotificationPolicyDelayActionDurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A amount of time in `time_units`. This is a integer attribute.
@@ -27,5 +27,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationPolicyDelayActionDurationGetArgs()
         {
         }
+        public static new NotificationPolicyDelayActionDurationGetArgs Empty => new NotificationPolicyDelayActionDurationGetArgs();
     }
 }

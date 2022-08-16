@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationRuleRepeatArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleRepeatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defined if this step is enabled. Default: `true`
@@ -24,5 +24,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationRuleRepeatArgs()
         {
         }
+        public static new NotificationRuleRepeatArgs Empty => new NotificationRuleRepeatArgs();
     }
 }

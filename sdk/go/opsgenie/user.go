@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewUser(ctx, "test", &opsgenie.UserArgs{
-// 			FullName:      pulumi.String("Test User"),
-// 			Locale:        pulumi.String("en_US"),
-// 			Role:          pulumi.String("User"),
-// 			SkypeUsername: pulumi.String("skypename"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("sre"),
-// 				pulumi.String("opsgenie"),
-// 			},
-// 			Timezone: pulumi.String("America/New_York"),
-// 			UserAddresses: UserUserAddressArray{
-// 				&UserUserAddressArgs{
-// 					City:    pulumi.String("City"),
-// 					Country: pulumi.String("Country"),
-// 					Line:    pulumi.String("Line"),
-// 					State:   pulumi.String("State"),
-// 					Zipcode: pulumi.String("998877"),
-// 				},
-// 			},
-// 			UserDetails: pulumi.StringMap{
-// 				"key1": pulumi.String("val1,val2"),
-// 				"key2": pulumi.String("val3,val4"),
-// 			},
-// 			Username: pulumi.String("user@domain.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewUser(ctx, "test", &opsgenie.UserArgs{
+//				FullName:      pulumi.String("Test User"),
+//				Locale:        pulumi.String("en_US"),
+//				Role:          pulumi.String("User"),
+//				SkypeUsername: pulumi.String("skypename"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("sre"),
+//					pulumi.String("opsgenie"),
+//				},
+//				Timezone: pulumi.String("America/New_York"),
+//				UserAddresses: UserUserAddressArray{
+//					&UserUserAddressArgs{
+//						City:    pulumi.String("City"),
+//						Country: pulumi.String("Country"),
+//						Line:    pulumi.String("Line"),
+//						State:   pulumi.String("State"),
+//						Zipcode: pulumi.String("998877"),
+//					},
+//				},
+//				UserDetails: pulumi.StringMap{
+//					"key1": pulumi.String("val1,val2"),
+//					"key2": pulumi.String("val3,val4"),
+//				},
+//				Username: pulumi.String("user@domain.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Users can be imported using the `user_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/user:User user user_id`
+//
+//	$ pulumi import opsgenie:index/user:User user user_id`
+//
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -240,7 +245,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
-//          UserArray{ UserArgs{...} }
+//	UserArray{ UserArgs{...} }
 type UserArrayInput interface {
 	pulumi.Input
 
@@ -265,7 +270,7 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
-//          UserMap{ "key": UserArgs{...} }
+//	UserMap{ "key": UserArgs{...} }
 type UserMapInput interface {
 	pulumi.Input
 
@@ -299,6 +304,51 @@ func (o UserOutput) ToUserOutput() UserOutput {
 
 func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
+}
+
+// The Full Name of the User.
+func (o UserOutput) FullName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.FullName }).(pulumi.StringOutput)
+}
+
+// Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
+func (o UserOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+// The Role assigned to the User. Either a built-in such as 'Admin' or 'User' - or the name of a custom role.
+func (o UserOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+// Skype username of the user.
+func (o UserOutput) SkypeUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.SkypeUsername }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to be associated with the user.
+func (o UserOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
+func (o UserOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+// Address of the user.
+func (o UserOutput) UserAddresses() UserUserAddressArrayOutput {
+	return o.ApplyT(func(v *User) UserUserAddressArrayOutput { return v.UserAddresses }).(UserUserAddressArrayOutput)
+}
+
+// Details about the user in form of key and list. of values.
+func (o UserOutput) UserDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.UserDetails }).(pulumi.StringMapOutput)
+}
+
+// The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters and must contain lowercase characters only.
+func (o UserOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }
 
 type UserArrayOutput struct{ *pulumi.OutputState }

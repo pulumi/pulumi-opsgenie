@@ -15,66 +15,66 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testEmailIntegration = new Opsgenie.EmailIntegration("testEmailIntegration", new()
     ///     {
-    ///         var testEmailIntegration = new Opsgenie.EmailIntegration("testEmailIntegration", new Opsgenie.EmailIntegrationArgs
-    ///         {
-    ///             EmailUsername = "fahri",
-    ///         });
-    ///         var testIndex_emailIntegrationEmailIntegration = new Opsgenie.EmailIntegration("testIndex/emailIntegrationEmailIntegration", new Opsgenie.EmailIntegrationArgs
-    ///         {
-    ///             Responders = 
-    ///             {
-    ///                 new Opsgenie.Inputs.EmailIntegrationResponderArgs
-    ///                 {
-    ///                     Type = "user",
-    ///                     Id = opsgenie_user.Test.Id,
-    ///                 },
-    ///                 new Opsgenie.Inputs.EmailIntegrationResponderArgs
-    ///                 {
-    ///                     Type = "schedule",
-    ///                     Id = opsgenie_schedule.Test.Id,
-    ///                 },
-    ///                 new Opsgenie.Inputs.EmailIntegrationResponderArgs
-    ///                 {
-    ///                     Type = "escalation",
-    ///                     Id = opsgenie_escalation.Test.Id,
-    ///                 },
-    ///                 new Opsgenie.Inputs.EmailIntegrationResponderArgs
-    ///                 {
-    ///                     Type = "team",
-    ///                     Id = opsgenie_team.Test2.Id,
-    ///                 },
-    ///             },
-    ///             EmailUsername = "test",
-    ///             Enabled = true,
-    ///             IgnoreRespondersFromPayload = true,
-    ///             SuppressNotifications = true,
-    ///         });
-    ///         var testOpsgenieIndex_emailIntegrationEmailIntegration = new Opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration", new Opsgenie.EmailIntegrationArgs
-    ///         {
-    ///             Responders = 
-    ///             {
-    ///                 new Opsgenie.Inputs.EmailIntegrationResponderArgs
-    ///                 {
-    ///                     Type = "user",
-    ///                     Id = opsgenie_user.Test.Id,
-    ///                 },
-    ///             },
-    ///             EmailUsername = "test",
-    ///             Enabled = true,
-    ///             IgnoreRespondersFromPayload = true,
-    ///             SuppressNotifications = true,
-    ///             OwnerTeamId = opsgenie_team_genies.Id,
-    ///         });
-    ///     }
+    ///         EmailUsername = "fahri",
+    ///     });
     /// 
-    /// }
+    ///     var testIndex_emailIntegrationEmailIntegration = new Opsgenie.EmailIntegration("testIndex/emailIntegrationEmailIntegration", new()
+    ///     {
+    ///         Responders = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.EmailIntegrationResponderArgs
+    ///             {
+    ///                 Type = "user",
+    ///                 Id = opsgenie_user.Test.Id,
+    ///             },
+    ///             new Opsgenie.Inputs.EmailIntegrationResponderArgs
+    ///             {
+    ///                 Type = "schedule",
+    ///                 Id = opsgenie_schedule.Test.Id,
+    ///             },
+    ///             new Opsgenie.Inputs.EmailIntegrationResponderArgs
+    ///             {
+    ///                 Type = "escalation",
+    ///                 Id = opsgenie_escalation.Test.Id,
+    ///             },
+    ///             new Opsgenie.Inputs.EmailIntegrationResponderArgs
+    ///             {
+    ///                 Type = "team",
+    ///                 Id = opsgenie_team.Test2.Id,
+    ///             },
+    ///         },
+    ///         EmailUsername = "test",
+    ///         Enabled = true,
+    ///         IgnoreRespondersFromPayload = true,
+    ///         SuppressNotifications = true,
+    ///     });
+    /// 
+    ///     var testOpsgenieIndex_emailIntegrationEmailIntegration = new Opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration", new()
+    ///     {
+    ///         Responders = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.EmailIntegrationResponderArgs
+    ///             {
+    ///                 Type = "user",
+    ///                 Id = opsgenie_user.Test.Id,
+    ///             },
+    ///         },
+    ///         EmailUsername = "test",
+    ///         Enabled = true,
+    ///         IgnoreRespondersFromPayload = true,
+    ///         SuppressNotifications = true,
+    ///         OwnerTeamId = opsgenie_team_genies.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -86,7 +86,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/emailIntegration:EmailIntegration")]
-    public partial class EmailIntegration : Pulumi.CustomResource
+    public partial class EmailIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The username part of the email address. It must be unique for each integration.
@@ -171,7 +171,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class EmailIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class EmailIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The username part of the email address. It must be unique for each integration.
@@ -220,9 +220,10 @@ namespace Pulumi.Opsgenie
         public EmailIntegrationArgs()
         {
         }
+        public static new EmailIntegrationArgs Empty => new EmailIntegrationArgs();
     }
 
-    public sealed class EmailIntegrationState : Pulumi.ResourceArgs
+    public sealed class EmailIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The username part of the email address. It must be unique for each integration.
@@ -271,5 +272,6 @@ namespace Pulumi.Opsgenie
         public EmailIntegrationState()
         {
         }
+        public static new EmailIntegrationState Empty => new EmailIntegrationState();
     }
 }

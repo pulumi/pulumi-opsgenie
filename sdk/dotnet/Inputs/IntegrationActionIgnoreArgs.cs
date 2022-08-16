@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class IntegrationActionIgnoreArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationActionIgnoreArgs : global::Pulumi.ResourceArgs
     {
         [Input("filters")]
         private InputList<Inputs.IntegrationActionIgnoreFilterArgs>? _filters;
@@ -48,5 +48,6 @@ namespace Pulumi.Opsgenie.Inputs
         public IntegrationActionIgnoreArgs()
         {
         }
+        public static new IntegrationActionIgnoreArgs Empty => new IntegrationActionIgnoreArgs();
     }
 }

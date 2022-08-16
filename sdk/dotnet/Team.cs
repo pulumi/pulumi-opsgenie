@@ -15,51 +15,52 @@ namespace Pulumi.Opsgenie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Opsgenie = Pulumi.Opsgenie;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var first = new Opsgenie.User("first", new()
     ///     {
-    ///         var first = new Opsgenie.User("first", new Opsgenie.UserArgs
-    ///         {
-    ///             FullName = "name ",
-    ///             Role = "User",
-    ///             Username = "user@domain.com",
-    ///         });
-    ///         var second = new Opsgenie.User("second", new Opsgenie.UserArgs
-    ///         {
-    ///             FullName = "name ",
-    ///             Role = "User",
-    ///             Username = "test@domain.com",
-    ///         });
-    ///         var test = new Opsgenie.Team("test", new Opsgenie.TeamArgs
-    ///         {
-    ///             Description = "This team deals with all the things",
-    ///             Members = 
-    ///             {
-    ///                 new Opsgenie.Inputs.TeamMemberArgs
-    ///                 {
-    ///                     Id = first.Id,
-    ///                     Role = "admin",
-    ///                 },
-    ///                 new Opsgenie.Inputs.TeamMemberArgs
-    ///                 {
-    ///                     Id = second.Id,
-    ///                     Role = "user",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var self_service = new Opsgenie.Team("self-service", new Opsgenie.TeamArgs
-    ///         {
-    ///             DeleteDefaultResources = true,
-    ///             Description = "Membership in this team is managed via OpsGenie web UI only",
-    ///             IgnoreMembers = true,
-    ///         });
-    ///     }
+    ///         FullName = "name ",
+    ///         Role = "User",
+    ///         Username = "user@domain.com",
+    ///     });
     /// 
-    /// }
+    ///     var second = new Opsgenie.User("second", new()
+    ///     {
+    ///         FullName = "name ",
+    ///         Role = "User",
+    ///         Username = "test@domain.com",
+    ///     });
+    /// 
+    ///     var test = new Opsgenie.Team("test", new()
+    ///     {
+    ///         Description = "This team deals with all the things",
+    ///         Members = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.TeamMemberArgs
+    ///             {
+    ///                 Id = first.Id,
+    ///                 Role = "admin",
+    ///             },
+    ///             new Opsgenie.Inputs.TeamMemberArgs
+    ///             {
+    ///                 Id = second.Id,
+    ///                 Role = "user",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var self_service = new Opsgenie.Team("self-service", new()
+    ///     {
+    ///         DeleteDefaultResources = true,
+    ///         Description = "Membership in this team is managed via OpsGenie web UI only",
+    ///         IgnoreMembers = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +72,7 @@ namespace Pulumi.Opsgenie
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/team:Team")]
-    public partial class Team : Pulumi.CustomResource
+    public partial class Team : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
@@ -147,7 +148,7 @@ namespace Pulumi.Opsgenie
         }
     }
 
-    public sealed class TeamArgs : Pulumi.ResourceArgs
+    public sealed class TeamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
@@ -188,9 +189,10 @@ namespace Pulumi.Opsgenie
         public TeamArgs()
         {
         }
+        public static new TeamArgs Empty => new TeamArgs();
     }
 
-    public sealed class TeamState : Pulumi.ResourceArgs
+    public sealed class TeamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
@@ -231,5 +233,6 @@ namespace Pulumi.Opsgenie
         public TeamState()
         {
         }
+        public static new TeamState Empty => new TeamState();
     }
 }

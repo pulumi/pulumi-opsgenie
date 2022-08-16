@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class NotificationRuleCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRuleCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions")]
         private InputList<Inputs.NotificationRuleCriteriaConditionArgs>? _conditions;
@@ -33,5 +33,6 @@ namespace Pulumi.Opsgenie.Inputs
         public NotificationRuleCriteriaArgs()
         {
         }
+        public static new NotificationRuleCriteriaArgs Empty => new NotificationRuleCriteriaArgs();
     }
 }

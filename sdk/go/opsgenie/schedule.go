@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsgenie.NewSchedule(ctx, "test", &opsgenie.ScheduleArgs{
-// 			Description: pulumi.String("schedule test"),
-// 			Enabled:     pulumi.Bool(false),
-// 			OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
-// 			Timezone:    pulumi.String("Europe/Rome"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewSchedule(ctx, "test", &opsgenie.ScheduleArgs{
+//				Description: pulumi.String("schedule test"),
+//				Enabled:     pulumi.Bool(false),
+//				OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
+//				Timezone:    pulumi.String("Europe/Rome"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Schedule can be imported using the `schedule_id`, e.g.
 //
 // ```sh
-//  $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
+//
+//	$ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
+//
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState
@@ -171,7 +176,7 @@ func (i *Schedule) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutp
 // ScheduleArrayInput is an input type that accepts ScheduleArray and ScheduleArrayOutput values.
 // You can construct a concrete instance of `ScheduleArrayInput` via:
 //
-//          ScheduleArray{ ScheduleArgs{...} }
+//	ScheduleArray{ ScheduleArgs{...} }
 type ScheduleArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +201,7 @@ func (i ScheduleArray) ToScheduleArrayOutputWithContext(ctx context.Context) Sch
 // ScheduleMapInput is an input type that accepts ScheduleMap and ScheduleMapOutput values.
 // You can construct a concrete instance of `ScheduleMapInput` via:
 //
-//          ScheduleMap{ "key": ScheduleArgs{...} }
+//	ScheduleMap{ "key": ScheduleArgs{...} }
 type ScheduleMapInput interface {
 	pulumi.Input
 
@@ -230,6 +235,31 @@ func (o ScheduleOutput) ToScheduleOutput() ScheduleOutput {
 
 func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
 	return o
+}
+
+// The description of schedule.
+func (o ScheduleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Enable/disable state of schedule
+func (o ScheduleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the schedule.
+func (o ScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Owner team id of the schedule.
+func (o ScheduleOutput) OwnerTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.OwnerTeamId }).(pulumi.StringPtrOutput)
+}
+
+// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
+func (o ScheduleOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 type ScheduleArrayOutput struct{ *pulumi.OutputState }

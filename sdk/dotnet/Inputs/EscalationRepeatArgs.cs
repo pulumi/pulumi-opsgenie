@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Opsgenie.Inputs
 {
 
-    public sealed class EscalationRepeatArgs : Pulumi.ResourceArgs
+    public sealed class EscalationRepeatArgs : global::Pulumi.ResourceArgs
     {
         [Input("closeAlertAfterAll")]
         public Input<bool>? CloseAlertAfterAll { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Opsgenie.Inputs
         public EscalationRepeatArgs()
         {
         }
+        public static new EscalationRepeatArgs Empty => new EscalationRepeatArgs();
     }
 }
