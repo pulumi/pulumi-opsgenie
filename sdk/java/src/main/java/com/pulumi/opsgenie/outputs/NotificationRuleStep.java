@@ -18,28 +18,19 @@ public final class NotificationRuleStep {
      * @return Defines the contact that notification will be sent to. This is a block, structure is documented below.
      * 
      */
-    private final List<NotificationRuleStepContact> contacts;
+    private List<NotificationRuleStepContact> contacts;
     /**
      * @return Defined if this step is enabled. Default: `true`
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Time period, in minutes, notification will be sent after.
      * 
      */
-    private final @Nullable Integer sendAfter;
+    private @Nullable Integer sendAfter;
 
-    @CustomType.Constructor
-    private NotificationRuleStep(
-        @CustomType.Parameter("contacts") List<NotificationRuleStepContact> contacts,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("sendAfter") @Nullable Integer sendAfter) {
-        this.contacts = contacts;
-        this.enabled = enabled;
-        this.sendAfter = sendAfter;
-    }
-
+    private NotificationRuleStep() {}
     /**
      * @return Defines the contact that notification will be sent to. This is a block, structure is documented below.
      * 
@@ -69,16 +60,12 @@ public final class NotificationRuleStep {
     public static Builder builder(NotificationRuleStep defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<NotificationRuleStepContact> contacts;
         private @Nullable Boolean enabled;
         private @Nullable Integer sendAfter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationRuleStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contacts = defaults.contacts;
@@ -86,6 +73,7 @@ public final class NotificationRuleStep {
     	      this.sendAfter = defaults.sendAfter;
         }
 
+        @CustomType.Setter
         public Builder contacts(List<NotificationRuleStepContact> contacts) {
             this.contacts = Objects.requireNonNull(contacts);
             return this;
@@ -93,15 +81,22 @@ public final class NotificationRuleStep {
         public Builder contacts(NotificationRuleStepContact... contacts) {
             return contacts(List.of(contacts));
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder sendAfter(@Nullable Integer sendAfter) {
             this.sendAfter = sendAfter;
             return this;
-        }        public NotificationRuleStep build() {
-            return new NotificationRuleStep(contacts, enabled, sendAfter);
+        }
+        public NotificationRuleStep build() {
+            final var o = new NotificationRuleStep();
+            o.contacts = contacts;
+            o.enabled = enabled;
+            o.sendAfter = sendAfter;
+            return o;
         }
     }
 }

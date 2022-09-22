@@ -15,24 +15,15 @@ public final class TeamRoutingRuleNotify {
      * @return The ID of the Opsgenie Team Routing Rule.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Name of the team routing rule
      * 
      */
-    private final @Nullable String name;
-    private final String type;
+    private @Nullable String name;
+    private String type;
 
-    @CustomType.Constructor
-    private TeamRoutingRuleNotify(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-    }
-
+    private TeamRoutingRuleNotify() {}
     /**
      * @return The ID of the Opsgenie Team Routing Rule.
      * 
@@ -58,16 +49,12 @@ public final class TeamRoutingRuleNotify {
     public static Builder builder(TeamRoutingRuleNotify defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TeamRoutingRuleNotify defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -75,19 +62,27 @@ public final class TeamRoutingRuleNotify {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public TeamRoutingRuleNotify build() {
-            return new TeamRoutingRuleNotify(id, name, type);
+        }
+        public TeamRoutingRuleNotify build() {
+            final var o = new TeamRoutingRuleNotify();
+            o.id = id;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

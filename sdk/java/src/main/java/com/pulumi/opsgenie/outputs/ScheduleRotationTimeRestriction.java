@@ -17,28 +17,19 @@ public final class ScheduleRotationTimeRestriction {
      * @return It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
      * 
      */
-    private final @Nullable List<ScheduleRotationTimeRestrictionRestriction> restriction;
+    private @Nullable List<ScheduleRotationTimeRestrictionRestriction> restriction;
     /**
      * @return It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
      * 
      */
-    private final @Nullable List<ScheduleRotationTimeRestrictionRestrictionList> restrictionList;
+    private @Nullable List<ScheduleRotationTimeRestrictionRestrictionList> restrictionList;
     /**
      * @return This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ScheduleRotationTimeRestriction(
-        @CustomType.Parameter("restriction") @Nullable List<ScheduleRotationTimeRestrictionRestriction> restriction,
-        @CustomType.Parameter("restrictionList") @Nullable List<ScheduleRotationTimeRestrictionRestrictionList> restrictionList,
-        @CustomType.Parameter("type") String type) {
-        this.restriction = restriction;
-        this.restrictionList = restrictionList;
-        this.type = type;
-    }
-
+    private ScheduleRotationTimeRestriction() {}
     /**
      * @return It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
      * 
@@ -68,16 +59,12 @@ public final class ScheduleRotationTimeRestriction {
     public static Builder builder(ScheduleRotationTimeRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ScheduleRotationTimeRestrictionRestriction> restriction;
         private @Nullable List<ScheduleRotationTimeRestrictionRestrictionList> restrictionList;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleRotationTimeRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.restriction = defaults.restriction;
@@ -85,6 +72,7 @@ public final class ScheduleRotationTimeRestriction {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder restriction(@Nullable List<ScheduleRotationTimeRestrictionRestriction> restriction) {
             this.restriction = restriction;
             return this;
@@ -92,6 +80,7 @@ public final class ScheduleRotationTimeRestriction {
         public Builder restriction(ScheduleRotationTimeRestrictionRestriction... restriction) {
             return restriction(List.of(restriction));
         }
+        @CustomType.Setter
         public Builder restrictionList(@Nullable List<ScheduleRotationTimeRestrictionRestrictionList> restrictionList) {
             this.restrictionList = restrictionList;
             return this;
@@ -99,11 +88,17 @@ public final class ScheduleRotationTimeRestriction {
         public Builder restrictionList(ScheduleRotationTimeRestrictionRestrictionList... restrictionList) {
             return restrictionList(List.of(restrictionList));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ScheduleRotationTimeRestriction build() {
-            return new ScheduleRotationTimeRestriction(restriction, restrictionList, type);
+        }
+        public ScheduleRotationTimeRestriction build() {
+            final var o = new ScheduleRotationTimeRestriction();
+            o.restriction = restriction;
+            o.restrictionList = restrictionList;
+            o.type = type;
+            return o;
         }
     }
 }

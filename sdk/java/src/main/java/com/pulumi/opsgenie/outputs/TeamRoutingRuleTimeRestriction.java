@@ -13,20 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TeamRoutingRuleTimeRestriction {
-    private final @Nullable List<TeamRoutingRuleTimeRestrictionRestriction> restriction;
-    private final @Nullable List<TeamRoutingRuleTimeRestrictionRestrictionList> restrictionList;
-    private final String type;
+    private @Nullable List<TeamRoutingRuleTimeRestrictionRestriction> restriction;
+    private @Nullable List<TeamRoutingRuleTimeRestrictionRestrictionList> restrictionList;
+    private String type;
 
-    @CustomType.Constructor
-    private TeamRoutingRuleTimeRestriction(
-        @CustomType.Parameter("restriction") @Nullable List<TeamRoutingRuleTimeRestrictionRestriction> restriction,
-        @CustomType.Parameter("restrictionList") @Nullable List<TeamRoutingRuleTimeRestrictionRestrictionList> restrictionList,
-        @CustomType.Parameter("type") String type) {
-        this.restriction = restriction;
-        this.restrictionList = restrictionList;
-        this.type = type;
-    }
-
+    private TeamRoutingRuleTimeRestriction() {}
     public List<TeamRoutingRuleTimeRestrictionRestriction> restriction() {
         return this.restriction == null ? List.of() : this.restriction;
     }
@@ -44,16 +35,12 @@ public final class TeamRoutingRuleTimeRestriction {
     public static Builder builder(TeamRoutingRuleTimeRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<TeamRoutingRuleTimeRestrictionRestriction> restriction;
         private @Nullable List<TeamRoutingRuleTimeRestrictionRestrictionList> restrictionList;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TeamRoutingRuleTimeRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.restriction = defaults.restriction;
@@ -61,6 +48,7 @@ public final class TeamRoutingRuleTimeRestriction {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder restriction(@Nullable List<TeamRoutingRuleTimeRestrictionRestriction> restriction) {
             this.restriction = restriction;
             return this;
@@ -68,6 +56,7 @@ public final class TeamRoutingRuleTimeRestriction {
         public Builder restriction(TeamRoutingRuleTimeRestrictionRestriction... restriction) {
             return restriction(List.of(restriction));
         }
+        @CustomType.Setter
         public Builder restrictionList(@Nullable List<TeamRoutingRuleTimeRestrictionRestrictionList> restrictionList) {
             this.restrictionList = restrictionList;
             return this;
@@ -75,11 +64,17 @@ public final class TeamRoutingRuleTimeRestriction {
         public Builder restrictionList(TeamRoutingRuleTimeRestrictionRestrictionList... restrictionList) {
             return restrictionList(List.of(restrictionList));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public TeamRoutingRuleTimeRestriction build() {
-            return new TeamRoutingRuleTimeRestriction(restriction, restrictionList, type);
+        }
+        public TeamRoutingRuleTimeRestriction build() {
+            final var o = new TeamRoutingRuleTimeRestriction();
+            o.restriction = restriction;
+            o.restrictionList = restrictionList;
+            o.type = type;
+            return o;
         }
     }
 }

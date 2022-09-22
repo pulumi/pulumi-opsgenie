@@ -15,21 +15,14 @@ public final class EmailIntegrationResponder {
      * @return The id of the responder.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The responder type.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private EmailIntegrationResponder(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private EmailIntegrationResponder() {}
     /**
      * @return The id of the responder.
      * 
@@ -52,30 +45,32 @@ public final class EmailIntegrationResponder {
     public static Builder builder(EmailIntegrationResponder defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EmailIntegrationResponder defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public EmailIntegrationResponder build() {
-            return new EmailIntegrationResponder(id, type);
+        }
+        public EmailIntegrationResponder build() {
+            final var o = new EmailIntegrationResponder();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

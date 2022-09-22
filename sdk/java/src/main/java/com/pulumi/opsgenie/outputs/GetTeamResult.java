@@ -13,27 +13,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTeamResult {
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable List<GetTeamMember> members;
-    private final String name;
+    private String id;
+    private @Nullable List<GetTeamMember> members;
+    private String name;
 
-    @CustomType.Constructor
-    private GetTeamResult(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("members") @Nullable List<GetTeamMember> members,
-        @CustomType.Parameter("name") String name) {
-        this.description = description;
-        this.id = id;
-        this.members = members;
-        this.name = name;
-    }
-
+    private GetTeamResult() {}
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
@@ -58,17 +47,13 @@ public final class GetTeamResult {
     public static Builder builder(GetTeamResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private String id;
         private @Nullable List<GetTeamMember> members;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTeamResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -77,14 +62,17 @@ public final class GetTeamResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder members(@Nullable List<GetTeamMember> members) {
             this.members = members;
             return this;
@@ -92,11 +80,18 @@ public final class GetTeamResult {
         public Builder members(GetTeamMember... members) {
             return members(List.of(members));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetTeamResult build() {
-            return new GetTeamResult(description, id, members, name);
+        }
+        public GetTeamResult build() {
+            final var o = new GetTeamResult();
+            o.description = description;
+            o.id = id;
+            o.members = members;
+            o.name = name;
+            return o;
         }
     }
 }

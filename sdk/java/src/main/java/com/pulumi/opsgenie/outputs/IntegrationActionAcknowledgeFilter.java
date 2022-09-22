@@ -12,21 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IntegrationActionAcknowledgeFilter {
-    private final @Nullable List<IntegrationActionAcknowledgeFilterCondition> conditions;
+    private @Nullable List<IntegrationActionAcknowledgeFilterCondition> conditions;
     /**
      * @return The responder type - can be `escalation`, `team` or `user`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private IntegrationActionAcknowledgeFilter(
-        @CustomType.Parameter("conditions") @Nullable List<IntegrationActionAcknowledgeFilterCondition> conditions,
-        @CustomType.Parameter("type") String type) {
-        this.conditions = conditions;
-        this.type = type;
-    }
-
+    private IntegrationActionAcknowledgeFilter() {}
     public List<IntegrationActionAcknowledgeFilterCondition> conditions() {
         return this.conditions == null ? List.of() : this.conditions;
     }
@@ -45,21 +38,18 @@ public final class IntegrationActionAcknowledgeFilter {
     public static Builder builder(IntegrationActionAcknowledgeFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<IntegrationActionAcknowledgeFilterCondition> conditions;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationActionAcknowledgeFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditions = defaults.conditions;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder conditions(@Nullable List<IntegrationActionAcknowledgeFilterCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -67,11 +57,16 @@ public final class IntegrationActionAcknowledgeFilter {
         public Builder conditions(IntegrationActionAcknowledgeFilterCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public IntegrationActionAcknowledgeFilter build() {
-            return new IntegrationActionAcknowledgeFilter(conditions, type);
+        }
+        public IntegrationActionAcknowledgeFilter build() {
+            final var o = new IntegrationActionAcknowledgeFilter();
+            o.conditions = conditions;
+            o.type = type;
+            return o;
         }
     }
 }

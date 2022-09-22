@@ -17,21 +17,14 @@ public final class AlertPolicyFilter {
      * @return Conditions applied to filter. This is a block, structure is documented below.
      * 
      */
-    private final @Nullable List<AlertPolicyFilterCondition> conditions;
+    private @Nullable List<AlertPolicyFilterCondition> conditions;
     /**
      * @return Type of responder. Acceptable values are: `user` or `team`
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private AlertPolicyFilter(
-        @CustomType.Parameter("conditions") @Nullable List<AlertPolicyFilterCondition> conditions,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.conditions = conditions;
-        this.type = type;
-    }
-
+    private AlertPolicyFilter() {}
     /**
      * @return Conditions applied to filter. This is a block, structure is documented below.
      * 
@@ -54,21 +47,18 @@ public final class AlertPolicyFilter {
     public static Builder builder(AlertPolicyFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<AlertPolicyFilterCondition> conditions;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AlertPolicyFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditions = defaults.conditions;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder conditions(@Nullable List<AlertPolicyFilterCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -76,11 +66,16 @@ public final class AlertPolicyFilter {
         public Builder conditions(AlertPolicyFilterCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public AlertPolicyFilter build() {
-            return new AlertPolicyFilter(conditions, type);
+        }
+        public AlertPolicyFilter build() {
+            final var o = new AlertPolicyFilter();
+            o.conditions = conditions;
+            o.type = type;
+            return o;
         }
     }
 }
