@@ -16,17 +16,10 @@ public final class NotificationRuleRepeat {
      * @return Defined if this step is enabled. Default: `true`
      * 
      */
-    private final @Nullable Boolean enabled;
-    private final Integer loopAfter;
+    private @Nullable Boolean enabled;
+    private Integer loopAfter;
 
-    @CustomType.Constructor
-    private NotificationRuleRepeat(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("loopAfter") Integer loopAfter) {
-        this.enabled = enabled;
-        this.loopAfter = loopAfter;
-    }
-
+    private NotificationRuleRepeat() {}
     /**
      * @return Defined if this step is enabled. Default: `true`
      * 
@@ -45,30 +38,32 @@ public final class NotificationRuleRepeat {
     public static Builder builder(NotificationRuleRepeat defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private Integer loopAfter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationRuleRepeat defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.loopAfter = defaults.loopAfter;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder loopAfter(Integer loopAfter) {
             this.loopAfter = Objects.requireNonNull(loopAfter);
             return this;
-        }        public NotificationRuleRepeat build() {
-            return new NotificationRuleRepeat(enabled, loopAfter);
+        }
+        public NotificationRuleRepeat build() {
+            final var o = new NotificationRuleRepeat();
+            o.enabled = enabled;
+            o.loopAfter = loopAfter;
+            return o;
         }
     }
 }

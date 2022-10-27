@@ -10,29 +10,14 @@ import java.util.Objects;
 
 @CustomType
 public final class TeamRoutingRuleTimeRestrictionRestrictionList {
-    private final String endDay;
-    private final Integer endHour;
-    private final Integer endMin;
-    private final String startDay;
-    private final Integer startHour;
-    private final Integer startMin;
+    private String endDay;
+    private Integer endHour;
+    private Integer endMin;
+    private String startDay;
+    private Integer startHour;
+    private Integer startMin;
 
-    @CustomType.Constructor
-    private TeamRoutingRuleTimeRestrictionRestrictionList(
-        @CustomType.Parameter("endDay") String endDay,
-        @CustomType.Parameter("endHour") Integer endHour,
-        @CustomType.Parameter("endMin") Integer endMin,
-        @CustomType.Parameter("startDay") String startDay,
-        @CustomType.Parameter("startHour") Integer startHour,
-        @CustomType.Parameter("startMin") Integer startMin) {
-        this.endDay = endDay;
-        this.endHour = endHour;
-        this.endMin = endMin;
-        this.startDay = startDay;
-        this.startHour = startHour;
-        this.startMin = startMin;
-    }
-
+    private TeamRoutingRuleTimeRestrictionRestrictionList() {}
     public String endDay() {
         return this.endDay;
     }
@@ -59,7 +44,7 @@ public final class TeamRoutingRuleTimeRestrictionRestrictionList {
     public static Builder builder(TeamRoutingRuleTimeRestrictionRestrictionList defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endDay;
         private Integer endHour;
@@ -67,11 +52,7 @@ public final class TeamRoutingRuleTimeRestrictionRestrictionList {
         private String startDay;
         private Integer startHour;
         private Integer startMin;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TeamRoutingRuleTimeRestrictionRestrictionList defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endDay = defaults.endDay;
@@ -82,31 +63,45 @@ public final class TeamRoutingRuleTimeRestrictionRestrictionList {
     	      this.startMin = defaults.startMin;
         }
 
+        @CustomType.Setter
         public Builder endDay(String endDay) {
             this.endDay = Objects.requireNonNull(endDay);
             return this;
         }
+        @CustomType.Setter
         public Builder endHour(Integer endHour) {
             this.endHour = Objects.requireNonNull(endHour);
             return this;
         }
+        @CustomType.Setter
         public Builder endMin(Integer endMin) {
             this.endMin = Objects.requireNonNull(endMin);
             return this;
         }
+        @CustomType.Setter
         public Builder startDay(String startDay) {
             this.startDay = Objects.requireNonNull(startDay);
             return this;
         }
+        @CustomType.Setter
         public Builder startHour(Integer startHour) {
             this.startHour = Objects.requireNonNull(startHour);
             return this;
         }
+        @CustomType.Setter
         public Builder startMin(Integer startMin) {
             this.startMin = Objects.requireNonNull(startMin);
             return this;
-        }        public TeamRoutingRuleTimeRestrictionRestrictionList build() {
-            return new TeamRoutingRuleTimeRestrictionRestrictionList(endDay, endHour, endMin, startDay, startHour, startMin);
+        }
+        public TeamRoutingRuleTimeRestrictionRestrictionList build() {
+            final var o = new TeamRoutingRuleTimeRestrictionRestrictionList();
+            o.endDay = endDay;
+            o.endHour = endHour;
+            o.endMin = endMin;
+            o.startDay = startDay;
+            o.startHour = startHour;
+            o.startMin = startMin;
+            return o;
         }
     }
 }

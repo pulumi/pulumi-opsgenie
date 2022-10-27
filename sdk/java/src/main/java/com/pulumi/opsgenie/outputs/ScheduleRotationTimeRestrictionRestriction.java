@@ -13,35 +13,24 @@ public final class ScheduleRotationTimeRestrictionRestriction {
      * @return Value of the hour that frame will end.
      * 
      */
-    private final Integer endHour;
+    private Integer endHour;
     /**
      * @return Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
      * 
      */
-    private final Integer endMin;
+    private Integer endMin;
     /**
      * @return Value of the hour that frame will start.
      * 
      */
-    private final Integer startHour;
+    private Integer startHour;
     /**
      * @return Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
      * 
      */
-    private final Integer startMin;
+    private Integer startMin;
 
-    @CustomType.Constructor
-    private ScheduleRotationTimeRestrictionRestriction(
-        @CustomType.Parameter("endHour") Integer endHour,
-        @CustomType.Parameter("endMin") Integer endMin,
-        @CustomType.Parameter("startHour") Integer startHour,
-        @CustomType.Parameter("startMin") Integer startMin) {
-        this.endHour = endHour;
-        this.endMin = endMin;
-        this.startHour = startHour;
-        this.startMin = startMin;
-    }
-
+    private ScheduleRotationTimeRestrictionRestriction() {}
     /**
      * @return Value of the hour that frame will end.
      * 
@@ -78,17 +67,13 @@ public final class ScheduleRotationTimeRestrictionRestriction {
     public static Builder builder(ScheduleRotationTimeRestrictionRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer endHour;
         private Integer endMin;
         private Integer startHour;
         private Integer startMin;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleRotationTimeRestrictionRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endHour = defaults.endHour;
@@ -97,23 +82,33 @@ public final class ScheduleRotationTimeRestrictionRestriction {
     	      this.startMin = defaults.startMin;
         }
 
+        @CustomType.Setter
         public Builder endHour(Integer endHour) {
             this.endHour = Objects.requireNonNull(endHour);
             return this;
         }
+        @CustomType.Setter
         public Builder endMin(Integer endMin) {
             this.endMin = Objects.requireNonNull(endMin);
             return this;
         }
+        @CustomType.Setter
         public Builder startHour(Integer startHour) {
             this.startHour = Objects.requireNonNull(startHour);
             return this;
         }
+        @CustomType.Setter
         public Builder startMin(Integer startMin) {
             this.startMin = Objects.requireNonNull(startMin);
             return this;
-        }        public ScheduleRotationTimeRestrictionRestriction build() {
-            return new ScheduleRotationTimeRestrictionRestriction(endHour, endMin, startHour, startMin);
+        }
+        public ScheduleRotationTimeRestrictionRestriction build() {
+            final var o = new ScheduleRotationTimeRestrictionRestriction();
+            o.endHour = endHour;
+            o.endMin = endMin;
+            o.startHour = startHour;
+            o.startMin = startMin;
+            return o;
         }
     }
 }

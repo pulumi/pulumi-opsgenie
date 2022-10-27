@@ -18,28 +18,19 @@ public final class ServiceIncidentRuleIncidentRule {
      * @return A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      * 
      */
-    private final @Nullable String conditionMatchType;
+    private @Nullable String conditionMatchType;
     /**
      * @return Conditions applied to incident. This is a block, structure is documented below.
      * 
      */
-    private final @Nullable List<ServiceIncidentRuleIncidentRuleCondition> conditions;
+    private @Nullable List<ServiceIncidentRuleIncidentRuleCondition> conditions;
     /**
      * @return Properties for incident rule. This is a block, structure is documented below.
      * 
      */
-    private final List<ServiceIncidentRuleIncidentRuleIncidentProperty> incidentProperties;
+    private List<ServiceIncidentRuleIncidentRuleIncidentProperty> incidentProperties;
 
-    @CustomType.Constructor
-    private ServiceIncidentRuleIncidentRule(
-        @CustomType.Parameter("conditionMatchType") @Nullable String conditionMatchType,
-        @CustomType.Parameter("conditions") @Nullable List<ServiceIncidentRuleIncidentRuleCondition> conditions,
-        @CustomType.Parameter("incidentProperties") List<ServiceIncidentRuleIncidentRuleIncidentProperty> incidentProperties) {
-        this.conditionMatchType = conditionMatchType;
-        this.conditions = conditions;
-        this.incidentProperties = incidentProperties;
-    }
-
+    private ServiceIncidentRuleIncidentRule() {}
     /**
      * @return A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      * 
@@ -69,16 +60,12 @@ public final class ServiceIncidentRuleIncidentRule {
     public static Builder builder(ServiceIncidentRuleIncidentRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String conditionMatchType;
         private @Nullable List<ServiceIncidentRuleIncidentRuleCondition> conditions;
         private List<ServiceIncidentRuleIncidentRuleIncidentProperty> incidentProperties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceIncidentRuleIncidentRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditionMatchType = defaults.conditionMatchType;
@@ -86,10 +73,12 @@ public final class ServiceIncidentRuleIncidentRule {
     	      this.incidentProperties = defaults.incidentProperties;
         }
 
+        @CustomType.Setter
         public Builder conditionMatchType(@Nullable String conditionMatchType) {
             this.conditionMatchType = conditionMatchType;
             return this;
         }
+        @CustomType.Setter
         public Builder conditions(@Nullable List<ServiceIncidentRuleIncidentRuleCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -97,14 +86,20 @@ public final class ServiceIncidentRuleIncidentRule {
         public Builder conditions(ServiceIncidentRuleIncidentRuleCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder incidentProperties(List<ServiceIncidentRuleIncidentRuleIncidentProperty> incidentProperties) {
             this.incidentProperties = Objects.requireNonNull(incidentProperties);
             return this;
         }
         public Builder incidentProperties(ServiceIncidentRuleIncidentRuleIncidentProperty... incidentProperties) {
             return incidentProperties(List.of(incidentProperties));
-        }        public ServiceIncidentRuleIncidentRule build() {
-            return new ServiceIncidentRuleIncidentRule(conditionMatchType, conditions, incidentProperties);
+        }
+        public ServiceIncidentRuleIncidentRule build() {
+            final var o = new ServiceIncidentRuleIncidentRule();
+            o.conditionMatchType = conditionMatchType;
+            o.conditions = conditions;
+            o.incidentProperties = incidentProperties;
+            return o;
         }
     }
 }

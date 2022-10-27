@@ -18,73 +18,50 @@ public final class GetHeartbeatResult {
      * @return Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is &#34;HeartbeatName is expired&#34;.
      * 
      */
-    private final @Nullable String alertMessage;
+    private @Nullable String alertMessage;
     /**
      * @return Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
      * 
      */
-    private final @Nullable String alertPriority;
+    private @Nullable String alertPriority;
     /**
      * @return Specifies the alert tags for heartbeat expiration alert.
      * 
      */
-    private final @Nullable List<String> alertTags;
+    private @Nullable List<String> alertTags;
     /**
      * @return An optional description of the heartbeat
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Enable/disable heartbeat monitoring.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies how often a heartbeat message should be expected.
      * 
      */
-    private final @Nullable Integer interval;
+    private @Nullable Integer interval;
     /**
      * @return Interval specified as minutes, hours or days.
      * 
      */
-    private final @Nullable String intervalUnit;
-    private final String name;
+    private @Nullable String intervalUnit;
+    private String name;
     /**
      * @return Owner team of the heartbeat.
      * 
      */
-    private final @Nullable String ownerTeamId;
+    private @Nullable String ownerTeamId;
 
-    @CustomType.Constructor
-    private GetHeartbeatResult(
-        @CustomType.Parameter("alertMessage") @Nullable String alertMessage,
-        @CustomType.Parameter("alertPriority") @Nullable String alertPriority,
-        @CustomType.Parameter("alertTags") @Nullable List<String> alertTags,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("interval") @Nullable Integer interval,
-        @CustomType.Parameter("intervalUnit") @Nullable String intervalUnit,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("ownerTeamId") @Nullable String ownerTeamId) {
-        this.alertMessage = alertMessage;
-        this.alertPriority = alertPriority;
-        this.alertTags = alertTags;
-        this.description = description;
-        this.enabled = enabled;
-        this.id = id;
-        this.interval = interval;
-        this.intervalUnit = intervalUnit;
-        this.name = name;
-        this.ownerTeamId = ownerTeamId;
-    }
-
+    private GetHeartbeatResult() {}
     /**
      * @return Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is &#34;HeartbeatName is expired&#34;.
      * 
@@ -159,7 +136,7 @@ public final class GetHeartbeatResult {
     public static Builder builder(GetHeartbeatResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String alertMessage;
         private @Nullable String alertPriority;
@@ -171,11 +148,7 @@ public final class GetHeartbeatResult {
         private @Nullable String intervalUnit;
         private String name;
         private @Nullable String ownerTeamId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetHeartbeatResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alertMessage = defaults.alertMessage;
@@ -190,14 +163,17 @@ public final class GetHeartbeatResult {
     	      this.ownerTeamId = defaults.ownerTeamId;
         }
 
+        @CustomType.Setter
         public Builder alertMessage(@Nullable String alertMessage) {
             this.alertMessage = alertMessage;
             return this;
         }
+        @CustomType.Setter
         public Builder alertPriority(@Nullable String alertPriority) {
             this.alertPriority = alertPriority;
             return this;
         }
+        @CustomType.Setter
         public Builder alertTags(@Nullable List<String> alertTags) {
             this.alertTags = alertTags;
             return this;
@@ -205,35 +181,54 @@ public final class GetHeartbeatResult {
         public Builder alertTags(String... alertTags) {
             return alertTags(List.of(alertTags));
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
             this.interval = interval;
             return this;
         }
+        @CustomType.Setter
         public Builder intervalUnit(@Nullable String intervalUnit) {
             this.intervalUnit = intervalUnit;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerTeamId(@Nullable String ownerTeamId) {
             this.ownerTeamId = ownerTeamId;
             return this;
-        }        public GetHeartbeatResult build() {
-            return new GetHeartbeatResult(alertMessage, alertPriority, alertTags, description, enabled, id, interval, intervalUnit, name, ownerTeamId);
+        }
+        public GetHeartbeatResult build() {
+            final var o = new GetHeartbeatResult();
+            o.alertMessage = alertMessage;
+            o.alertPriority = alertPriority;
+            o.alertTags = alertTags;
+            o.description = description;
+            o.enabled = enabled;
+            o.id = id;
+            o.interval = interval;
+            o.intervalUnit = intervalUnit;
+            o.name = name;
+            o.ownerTeamId = ownerTeamId;
+            return o;
         }
     }
 }

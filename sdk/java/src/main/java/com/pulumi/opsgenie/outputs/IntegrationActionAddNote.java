@@ -18,7 +18,7 @@ public final class IntegrationActionAddNote {
      * @return An identifier that is used for alert deduplication. Default: `{{alias}}`.
      * 
      */
-    private final @Nullable String alias;
+    private @Nullable String alias;
     /**
      * @return Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
      * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -26,51 +26,34 @@ public final class IntegrationActionAddNote {
      * * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
      * 
      */
-    private final @Nullable List<IntegrationActionAddNoteFilter> filters;
+    private @Nullable List<IntegrationActionAddNoteFilter> filters;
     /**
      * @return Name of the integration action.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Additional alert action note.
      * 
      */
-    private final @Nullable String note;
+    private @Nullable String note;
     /**
      * @return Integer value that defines in which order the action will be performed. Default: `1`.
      * 
      */
-    private final @Nullable Integer order;
+    private @Nullable Integer order;
     /**
      * @return The responder type - can be `escalation`, `team` or `user`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Owner of the execution for integration action.
      * 
      */
-    private final @Nullable String user;
+    private @Nullable String user;
 
-    @CustomType.Constructor
-    private IntegrationActionAddNote(
-        @CustomType.Parameter("alias") @Nullable String alias,
-        @CustomType.Parameter("filters") @Nullable List<IntegrationActionAddNoteFilter> filters,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("note") @Nullable String note,
-        @CustomType.Parameter("order") @Nullable Integer order,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("user") @Nullable String user) {
-        this.alias = alias;
-        this.filters = filters;
-        this.name = name;
-        this.note = note;
-        this.order = order;
-        this.type = type;
-        this.user = user;
-    }
-
+    private IntegrationActionAddNote() {}
     /**
      * @return An identifier that is used for alert deduplication. Default: `{{alias}}`.
      * 
@@ -131,7 +114,7 @@ public final class IntegrationActionAddNote {
     public static Builder builder(IntegrationActionAddNote defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String alias;
         private @Nullable List<IntegrationActionAddNoteFilter> filters;
@@ -140,11 +123,7 @@ public final class IntegrationActionAddNote {
         private @Nullable Integer order;
         private @Nullable String type;
         private @Nullable String user;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationActionAddNote defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alias = defaults.alias;
@@ -156,10 +135,12 @@ public final class IntegrationActionAddNote {
     	      this.user = defaults.user;
         }
 
+        @CustomType.Setter
         public Builder alias(@Nullable String alias) {
             this.alias = alias;
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<IntegrationActionAddNoteFilter> filters) {
             this.filters = filters;
             return this;
@@ -167,27 +148,41 @@ public final class IntegrationActionAddNote {
         public Builder filters(IntegrationActionAddNoteFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder note(@Nullable String note) {
             this.note = note;
             return this;
         }
+        @CustomType.Setter
         public Builder order(@Nullable Integer order) {
             this.order = order;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder user(@Nullable String user) {
             this.user = user;
             return this;
-        }        public IntegrationActionAddNote build() {
-            return new IntegrationActionAddNote(alias, filters, name, note, order, type, user);
+        }
+        public IntegrationActionAddNote build() {
+            final var o = new IntegrationActionAddNote();
+            o.alias = alias;
+            o.filters = filters;
+            o.name = name;
+            o.note = note;
+            o.order = order;
+            o.type = type;
+            o.user = user;
+            return o;
         }
     }
 }

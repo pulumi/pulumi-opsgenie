@@ -17,21 +17,14 @@ public final class NotificationPolicyFilter {
      * @return Conditions applied to filter. This is a block, structure is documented below.
      * 
      */
-    private final @Nullable List<NotificationPolicyFilterCondition> conditions;
+    private @Nullable List<NotificationPolicyFilterCondition> conditions;
     /**
      * @return Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private NotificationPolicyFilter(
-        @CustomType.Parameter("conditions") @Nullable List<NotificationPolicyFilterCondition> conditions,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.conditions = conditions;
-        this.type = type;
-    }
-
+    private NotificationPolicyFilter() {}
     /**
      * @return Conditions applied to filter. This is a block, structure is documented below.
      * 
@@ -54,21 +47,18 @@ public final class NotificationPolicyFilter {
     public static Builder builder(NotificationPolicyFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<NotificationPolicyFilterCondition> conditions;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationPolicyFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditions = defaults.conditions;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder conditions(@Nullable List<NotificationPolicyFilterCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -76,11 +66,16 @@ public final class NotificationPolicyFilter {
         public Builder conditions(NotificationPolicyFilterCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public NotificationPolicyFilter build() {
-            return new NotificationPolicyFilter(conditions, type);
+        }
+        public NotificationPolicyFilter build() {
+            final var o = new NotificationPolicyFilter();
+            o.conditions = conditions;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class NotificationRuleCriteria {
      * @return Defines the fields and values when the condition applies
      * 
      */
-    private final @Nullable List<NotificationRuleCriteriaCondition> conditions;
+    private @Nullable List<NotificationRuleCriteriaCondition> conditions;
     /**
      * @return Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private NotificationRuleCriteria(
-        @CustomType.Parameter("conditions") @Nullable List<NotificationRuleCriteriaCondition> conditions,
-        @CustomType.Parameter("type") String type) {
-        this.conditions = conditions;
-        this.type = type;
-    }
-
+    private NotificationRuleCriteria() {}
     /**
      * @return Defines the fields and values when the condition applies
      * 
@@ -53,21 +46,18 @@ public final class NotificationRuleCriteria {
     public static Builder builder(NotificationRuleCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<NotificationRuleCriteriaCondition> conditions;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationRuleCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditions = defaults.conditions;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder conditions(@Nullable List<NotificationRuleCriteriaCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -75,11 +65,16 @@ public final class NotificationRuleCriteria {
         public Builder conditions(NotificationRuleCriteriaCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public NotificationRuleCriteria build() {
-            return new NotificationRuleCriteria(conditions, type);
+        }
+        public NotificationRuleCriteria build() {
+            final var o = new NotificationRuleCriteria();
+            o.conditions = conditions;
+            o.type = type;
+            return o;
         }
     }
 }

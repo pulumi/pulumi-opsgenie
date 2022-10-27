@@ -12,23 +12,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEscalationRepeat {
-    private final @Nullable Boolean closeAlertAfterAll;
-    private final @Nullable Integer count;
-    private final @Nullable Boolean resetRecipientStates;
-    private final @Nullable Integer waitInterval;
+    private @Nullable Boolean closeAlertAfterAll;
+    private @Nullable Integer count;
+    private @Nullable Boolean resetRecipientStates;
+    private @Nullable Integer waitInterval;
 
-    @CustomType.Constructor
-    private GetEscalationRepeat(
-        @CustomType.Parameter("closeAlertAfterAll") @Nullable Boolean closeAlertAfterAll,
-        @CustomType.Parameter("count") @Nullable Integer count,
-        @CustomType.Parameter("resetRecipientStates") @Nullable Boolean resetRecipientStates,
-        @CustomType.Parameter("waitInterval") @Nullable Integer waitInterval) {
-        this.closeAlertAfterAll = closeAlertAfterAll;
-        this.count = count;
-        this.resetRecipientStates = resetRecipientStates;
-        this.waitInterval = waitInterval;
-    }
-
+    private GetEscalationRepeat() {}
     public Optional<Boolean> closeAlertAfterAll() {
         return Optional.ofNullable(this.closeAlertAfterAll);
     }
@@ -49,17 +38,13 @@ public final class GetEscalationRepeat {
     public static Builder builder(GetEscalationRepeat defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean closeAlertAfterAll;
         private @Nullable Integer count;
         private @Nullable Boolean resetRecipientStates;
         private @Nullable Integer waitInterval;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEscalationRepeat defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.closeAlertAfterAll = defaults.closeAlertAfterAll;
@@ -68,23 +53,33 @@ public final class GetEscalationRepeat {
     	      this.waitInterval = defaults.waitInterval;
         }
 
+        @CustomType.Setter
         public Builder closeAlertAfterAll(@Nullable Boolean closeAlertAfterAll) {
             this.closeAlertAfterAll = closeAlertAfterAll;
             return this;
         }
+        @CustomType.Setter
         public Builder count(@Nullable Integer count) {
             this.count = count;
             return this;
         }
+        @CustomType.Setter
         public Builder resetRecipientStates(@Nullable Boolean resetRecipientStates) {
             this.resetRecipientStates = resetRecipientStates;
             return this;
         }
+        @CustomType.Setter
         public Builder waitInterval(@Nullable Integer waitInterval) {
             this.waitInterval = waitInterval;
             return this;
-        }        public GetEscalationRepeat build() {
-            return new GetEscalationRepeat(closeAlertAfterAll, count, resetRecipientStates, waitInterval);
+        }
+        public GetEscalationRepeat build() {
+            final var o = new GetEscalationRepeat();
+            o.closeAlertAfterAll = closeAlertAfterAll;
+            o.count = count;
+            o.resetRecipientStates = resetRecipientStates;
+            o.waitInterval = waitInterval;
+            return o;
         }
     }
 }

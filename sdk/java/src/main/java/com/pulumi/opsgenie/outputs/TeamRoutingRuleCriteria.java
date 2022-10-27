@@ -16,21 +16,14 @@ public final class TeamRoutingRuleCriteria {
      * @return List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
      * 
      */
-    private final @Nullable List<TeamRoutingRuleCriteriaCondition> conditions;
+    private @Nullable List<TeamRoutingRuleCriteriaCondition> conditions;
     /**
      * @return Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private TeamRoutingRuleCriteria(
-        @CustomType.Parameter("conditions") @Nullable List<TeamRoutingRuleCriteriaCondition> conditions,
-        @CustomType.Parameter("type") String type) {
-        this.conditions = conditions;
-        this.type = type;
-    }
-
+    private TeamRoutingRuleCriteria() {}
     /**
      * @return List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
      * 
@@ -53,21 +46,18 @@ public final class TeamRoutingRuleCriteria {
     public static Builder builder(TeamRoutingRuleCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<TeamRoutingRuleCriteriaCondition> conditions;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TeamRoutingRuleCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditions = defaults.conditions;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder conditions(@Nullable List<TeamRoutingRuleCriteriaCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -75,11 +65,16 @@ public final class TeamRoutingRuleCriteria {
         public Builder conditions(TeamRoutingRuleCriteriaCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public TeamRoutingRuleCriteria build() {
-            return new TeamRoutingRuleCriteria(conditions, type);
+        }
+        public TeamRoutingRuleCriteria build() {
+            final var o = new TeamRoutingRuleCriteria();
+            o.conditions = conditions;
+            o.type = type;
+            return o;
         }
     }
 }
