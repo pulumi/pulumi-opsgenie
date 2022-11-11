@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string? ExpectedValue;
         /// <summary>
-        /// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        /// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         /// </summary>
         public readonly string Field;
         /// <summary>

@@ -16,21 +16,14 @@ public final class NotificationPolicyAutoRestartActionDuration {
      * @return A amount of time in `time_units`. This is a integer attribute.
      * 
      */
-    private final Integer timeAmount;
+    private Integer timeAmount;
     /**
      * @return Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      * 
      */
-    private final @Nullable String timeUnit;
+    private @Nullable String timeUnit;
 
-    @CustomType.Constructor
-    private NotificationPolicyAutoRestartActionDuration(
-        @CustomType.Parameter("timeAmount") Integer timeAmount,
-        @CustomType.Parameter("timeUnit") @Nullable String timeUnit) {
-        this.timeAmount = timeAmount;
-        this.timeUnit = timeUnit;
-    }
-
+    private NotificationPolicyAutoRestartActionDuration() {}
     /**
      * @return A amount of time in `time_units`. This is a integer attribute.
      * 
@@ -53,30 +46,32 @@ public final class NotificationPolicyAutoRestartActionDuration {
     public static Builder builder(NotificationPolicyAutoRestartActionDuration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer timeAmount;
         private @Nullable String timeUnit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationPolicyAutoRestartActionDuration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.timeAmount = defaults.timeAmount;
     	      this.timeUnit = defaults.timeUnit;
         }
 
+        @CustomType.Setter
         public Builder timeAmount(Integer timeAmount) {
             this.timeAmount = Objects.requireNonNull(timeAmount);
             return this;
         }
+        @CustomType.Setter
         public Builder timeUnit(@Nullable String timeUnit) {
             this.timeUnit = timeUnit;
             return this;
-        }        public NotificationPolicyAutoRestartActionDuration build() {
-            return new NotificationPolicyAutoRestartActionDuration(timeAmount, timeUnit);
+        }
+        public NotificationPolicyAutoRestartActionDuration build() {
+            final var o = new NotificationPolicyAutoRestartActionDuration();
+            o.timeAmount = timeAmount;
+            o.timeUnit = timeUnit;
+            return o;
         }
     }
 }

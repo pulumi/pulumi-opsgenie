@@ -15,17 +15,10 @@ public final class GetEscalationRuleRecipient {
      * @return The ID of the Opsgenie Escalation.
      * 
      */
-    private final @Nullable String id;
-    private final @Nullable String type;
+    private @Nullable String id;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private GetEscalationRuleRecipient(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private GetEscalationRuleRecipient() {}
     /**
      * @return The ID of the Opsgenie Escalation.
      * 
@@ -44,30 +37,32 @@ public final class GetEscalationRuleRecipient {
     public static Builder builder(GetEscalationRuleRecipient defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEscalationRuleRecipient defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public GetEscalationRuleRecipient build() {
-            return new GetEscalationRuleRecipient(id, type);
+        }
+        public GetEscalationRuleRecipient build() {
+            final var o = new GetEscalationRuleRecipient();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -18,49 +18,34 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
      * @return Description that is generally used to provide a detailed information about the alert.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Map of key-value pairs to use as custom properties of the alert.
      * 
      */
-    private final @Nullable Map<String,String> details;
+    private @Nullable Map<String,String> details;
     /**
      * @return Message that is to be passed to audience that is generally used to provide a content information about the alert.
      * 
      */
-    private final String message;
+    private String message;
     /**
      * @return Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
      * 
      */
-    private final String priority;
+    private String priority;
     /**
      * @return DEtails about stakeholders for this rule. This is a block, structure is documented below.
      * 
      */
-    private final List<ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty> stakeholderProperties;
+    private List<ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty> stakeholderProperties;
     /**
      * @return Tags of the alert.
      * 
      */
-    private final @Nullable List<String> tags;
+    private @Nullable List<String> tags;
 
-    @CustomType.Constructor
-    private ServiceIncidentRuleIncidentRuleIncidentProperty(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("details") @Nullable Map<String,String> details,
-        @CustomType.Parameter("message") String message,
-        @CustomType.Parameter("priority") String priority,
-        @CustomType.Parameter("stakeholderProperties") List<ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty> stakeholderProperties,
-        @CustomType.Parameter("tags") @Nullable List<String> tags) {
-        this.description = description;
-        this.details = details;
-        this.message = message;
-        this.priority = priority;
-        this.stakeholderProperties = stakeholderProperties;
-        this.tags = tags;
-    }
-
+    private ServiceIncidentRuleIncidentRuleIncidentProperty() {}
     /**
      * @return Description that is generally used to provide a detailed information about the alert.
      * 
@@ -111,7 +96,7 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
     public static Builder builder(ServiceIncidentRuleIncidentRuleIncidentProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable Map<String,String> details;
@@ -119,11 +104,7 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
         private String priority;
         private List<ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty> stakeholderProperties;
         private @Nullable List<String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceIncidentRuleIncidentRuleIncidentProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -134,22 +115,27 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder details(@Nullable Map<String,String> details) {
             this.details = details;
             return this;
         }
+        @CustomType.Setter
         public Builder message(String message) {
             this.message = Objects.requireNonNull(message);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(String priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder stakeholderProperties(List<ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty> stakeholderProperties) {
             this.stakeholderProperties = Objects.requireNonNull(stakeholderProperties);
             return this;
@@ -157,14 +143,23 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
         public Builder stakeholderProperties(ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty... stakeholderProperties) {
             return stakeholderProperties(List.of(stakeholderProperties));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable List<String> tags) {
             this.tags = tags;
             return this;
         }
         public Builder tags(String... tags) {
             return tags(List.of(tags));
-        }        public ServiceIncidentRuleIncidentRuleIncidentProperty build() {
-            return new ServiceIncidentRuleIncidentRuleIncidentProperty(description, details, message, priority, stakeholderProperties, tags);
+        }
+        public ServiceIncidentRuleIncidentRuleIncidentProperty build() {
+            final var o = new ServiceIncidentRuleIncidentRuleIncidentProperty();
+            o.description = description;
+            o.details = details;
+            o.message = message;
+            o.priority = priority;
+            o.stakeholderProperties = stakeholderProperties;
+            o.tags = tags;
+            return o;
         }
     }
 }

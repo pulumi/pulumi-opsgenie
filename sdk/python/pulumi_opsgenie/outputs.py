@@ -145,7 +145,7 @@ class AlertPolicyFilterCondition(dict):
                  not_: Optional[bool] = None,
                  order: Optional[int] = None):
         """
-        :param str field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        :param str field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         :param str operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         :param str expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param str key: If `field` is set as extra-properties, key could be used for key-value pair
@@ -167,7 +167,7 @@ class AlertPolicyFilterCondition(dict):
     @pulumi.getter
     def field(self) -> str:
         """
-        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         """
         return pulumi.get(self, "field")
 
@@ -2518,7 +2518,7 @@ class NotificationPolicyFilterCondition(dict):
                  not_: Optional[bool] = None,
                  order: Optional[int] = None):
         """
-        :param str field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        :param str field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         :param str operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         :param str expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param str key: If `field` is set as extra-properties, key could be used for key-value pair
@@ -2540,7 +2540,7 @@ class NotificationPolicyFilterCondition(dict):
     @pulumi.getter
     def field(self) -> str:
         """
-        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         """
         return pulumi.get(self, "field")
 

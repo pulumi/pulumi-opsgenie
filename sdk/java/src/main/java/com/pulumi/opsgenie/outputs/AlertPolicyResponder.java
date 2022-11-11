@@ -15,35 +15,24 @@ public final class AlertPolicyResponder {
      * @return ID of the responder
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Name of the responder
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Type of responder. Acceptable values are: `user` or `team`
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Username of the responder
      * 
      */
-    private final @Nullable String username;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private AlertPolicyResponder(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-        this.username = username;
-    }
-
+    private AlertPolicyResponder() {}
     /**
      * @return ID of the responder
      * 
@@ -80,17 +69,13 @@ public final class AlertPolicyResponder {
     public static Builder builder(AlertPolicyResponder defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String name;
         private String type;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AlertPolicyResponder defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -99,23 +84,33 @@ public final class AlertPolicyResponder {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public AlertPolicyResponder build() {
-            return new AlertPolicyResponder(id, name, type, username);
+        }
+        public AlertPolicyResponder build() {
+            final var o = new AlertPolicyResponder();
+            o.id = id;
+            o.name = name;
+            o.type = type;
+            o.username = username;
+            return o;
         }
     }
 }

@@ -119,7 +119,7 @@ func (o AlertPolicyFilterArrayOutput) Index(i pulumi.IntInput) AlertPolicyFilter
 type AlertPolicyFilterCondition struct {
 	// User defined value that will be compared with alert field according to the operation. Default: empty string
 	ExpectedValue *string `pulumi:"expectedValue"`
-	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
 	Field string `pulumi:"field"`
 	// If `field` is set as extra-properties, key could be used for key-value pair
 	Key *string `pulumi:"key"`
@@ -145,7 +145,7 @@ type AlertPolicyFilterConditionInput interface {
 type AlertPolicyFilterConditionArgs struct {
 	// User defined value that will be compared with alert field according to the operation. Default: empty string
 	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
-	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
 	Field pulumi.StringInput `pulumi:"field"`
 	// If `field` is set as extra-properties, key could be used for key-value pair
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -213,7 +213,7 @@ func (o AlertPolicyFilterConditionOutput) ExpectedValue() pulumi.StringPtrOutput
 	return o.ApplyT(func(v AlertPolicyFilterCondition) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
 }
 
-// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
 func (o AlertPolicyFilterConditionOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertPolicyFilterCondition) string { return v.Field }).(pulumi.StringOutput)
 }
@@ -4899,7 +4899,7 @@ func (o NotificationPolicyFilterArrayOutput) Index(i pulumi.IntInput) Notificati
 type NotificationPolicyFilterCondition struct {
 	// User defined value that will be compared with alert field according to the operation. Default: empty string
 	ExpectedValue *string `pulumi:"expectedValue"`
-	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
 	Field string `pulumi:"field"`
 	// If `field` is set as extra-properties, key could be used for key-value pair
 	Key *string `pulumi:"key"`
@@ -4925,7 +4925,7 @@ type NotificationPolicyFilterConditionInput interface {
 type NotificationPolicyFilterConditionArgs struct {
 	// User defined value that will be compared with alert field according to the operation. Default: empty string
 	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
-	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
 	Field pulumi.StringInput `pulumi:"field"`
 	// If `field` is set as extra-properties, key could be used for key-value pair
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -4993,7 +4993,7 @@ func (o NotificationPolicyFilterConditionOutput) ExpectedValue() pulumi.StringPt
 	return o.ApplyT(func(v NotificationPolicyFilterCondition) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
 }
 
-// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
 func (o NotificationPolicyFilterConditionOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationPolicyFilterCondition) string { return v.Field }).(pulumi.StringOutput)
 }

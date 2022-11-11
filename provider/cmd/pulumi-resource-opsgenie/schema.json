@@ -106,7 +106,7 @@
                 },
                 "field": {
                     "type": "string",
-                    "description": "Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`\n",
+                    "description": "Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1863,7 +1863,7 @@
                 },
                 "field": {
                     "type": "string",
-                    "description": "Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`\n",
+                    "description": "Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`\n",
                     "language": {
                         "python": {
                             "mapCase": false

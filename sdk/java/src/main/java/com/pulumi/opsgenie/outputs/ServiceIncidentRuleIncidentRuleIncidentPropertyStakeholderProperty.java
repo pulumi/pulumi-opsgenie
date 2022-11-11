@@ -16,28 +16,19 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPro
      * @return Description that is generally used to provide a detailed information about the alert.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Option to enable stakeholder notifications.Default value is true.
      * 
      */
-    private final @Nullable Boolean enable;
+    private @Nullable Boolean enable;
     /**
      * @return Message that is to be passed to audience that is generally used to provide a content information about the alert.
      * 
      */
-    private final String message;
+    private String message;
 
-    @CustomType.Constructor
-    private ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("enable") @Nullable Boolean enable,
-        @CustomType.Parameter("message") String message) {
-        this.description = description;
-        this.enable = enable;
-        this.message = message;
-    }
-
+    private ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty() {}
     /**
      * @return Description that is generally used to provide a detailed information about the alert.
      * 
@@ -67,16 +58,12 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPro
     public static Builder builder(ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable Boolean enable;
         private String message;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -84,19 +71,27 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPro
     	      this.message = defaults.message;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder enable(@Nullable Boolean enable) {
             this.enable = enable;
             return this;
         }
+        @CustomType.Setter
         public Builder message(String message) {
             this.message = Objects.requireNonNull(message);
             return this;
-        }        public ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty build() {
-            return new ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty(description, enable, message);
+        }
+        public ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty build() {
+            final var o = new ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty();
+            o.description = description;
+            o.enable = enable;
+            o.message = message;
+            return o;
         }
     }
 }

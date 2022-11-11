@@ -17,49 +17,34 @@ public final class NotificationPolicyFilterCondition {
      * @return User defined value that will be compared with alert field according to the operation. Default: empty string
      * 
      */
-    private final @Nullable String expectedValue;
+    private @Nullable String expectedValue;
     /**
-     * @return Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * @return Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      * 
      */
-    private final String field;
+    private String field;
     /**
      * @return If `field` is set as extra-properties, key could be used for key-value pair
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return Indicates behaviour of the given operation. Default: `false`
      * 
      */
-    private final @Nullable Boolean not;
+    private @Nullable Boolean not;
     /**
      * @return It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
      * 
      */
-    private final String operation;
+    private String operation;
     /**
      * @return Order of the condition in conditions list
      * 
      */
-    private final @Nullable Integer order;
+    private @Nullable Integer order;
 
-    @CustomType.Constructor
-    private NotificationPolicyFilterCondition(
-        @CustomType.Parameter("expectedValue") @Nullable String expectedValue,
-        @CustomType.Parameter("field") String field,
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("not") @Nullable Boolean not,
-        @CustomType.Parameter("operation") String operation,
-        @CustomType.Parameter("order") @Nullable Integer order) {
-        this.expectedValue = expectedValue;
-        this.field = field;
-        this.key = key;
-        this.not = not;
-        this.operation = operation;
-        this.order = order;
-    }
-
+    private NotificationPolicyFilterCondition() {}
     /**
      * @return User defined value that will be compared with alert field according to the operation. Default: empty string
      * 
@@ -68,7 +53,7 @@ public final class NotificationPolicyFilterCondition {
         return Optional.ofNullable(this.expectedValue);
     }
     /**
-     * @return Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * @return Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      * 
      */
     public String field() {
@@ -110,7 +95,7 @@ public final class NotificationPolicyFilterCondition {
     public static Builder builder(NotificationPolicyFilterCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String expectedValue;
         private String field;
@@ -118,11 +103,7 @@ public final class NotificationPolicyFilterCondition {
         private @Nullable Boolean not;
         private String operation;
         private @Nullable Integer order;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationPolicyFilterCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expectedValue = defaults.expectedValue;
@@ -133,31 +114,45 @@ public final class NotificationPolicyFilterCondition {
     	      this.order = defaults.order;
         }
 
+        @CustomType.Setter
         public Builder expectedValue(@Nullable String expectedValue) {
             this.expectedValue = expectedValue;
             return this;
         }
+        @CustomType.Setter
         public Builder field(String field) {
             this.field = Objects.requireNonNull(field);
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder not(@Nullable Boolean not) {
             this.not = not;
             return this;
         }
+        @CustomType.Setter
         public Builder operation(String operation) {
             this.operation = Objects.requireNonNull(operation);
             return this;
         }
+        @CustomType.Setter
         public Builder order(@Nullable Integer order) {
             this.order = order;
             return this;
-        }        public NotificationPolicyFilterCondition build() {
-            return new NotificationPolicyFilterCondition(expectedValue, field, key, not, operation, order);
+        }
+        public NotificationPolicyFilterCondition build() {
+            final var o = new NotificationPolicyFilterCondition();
+            o.expectedValue = expectedValue;
+            o.field = field;
+            o.key = key;
+            o.not = not;
+            o.operation = operation;
+            o.order = order;
+            return o;
         }
     }
 }

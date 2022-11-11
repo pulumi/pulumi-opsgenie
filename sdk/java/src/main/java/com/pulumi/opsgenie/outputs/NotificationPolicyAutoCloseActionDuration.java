@@ -16,21 +16,14 @@ public final class NotificationPolicyAutoCloseActionDuration {
      * @return A amount of time in `time_units`. This is a integer attribute.
      * 
      */
-    private final Integer timeAmount;
+    private Integer timeAmount;
     /**
      * @return Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      * 
      */
-    private final @Nullable String timeUnit;
+    private @Nullable String timeUnit;
 
-    @CustomType.Constructor
-    private NotificationPolicyAutoCloseActionDuration(
-        @CustomType.Parameter("timeAmount") Integer timeAmount,
-        @CustomType.Parameter("timeUnit") @Nullable String timeUnit) {
-        this.timeAmount = timeAmount;
-        this.timeUnit = timeUnit;
-    }
-
+    private NotificationPolicyAutoCloseActionDuration() {}
     /**
      * @return A amount of time in `time_units`. This is a integer attribute.
      * 
@@ -53,30 +46,32 @@ public final class NotificationPolicyAutoCloseActionDuration {
     public static Builder builder(NotificationPolicyAutoCloseActionDuration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer timeAmount;
         private @Nullable String timeUnit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationPolicyAutoCloseActionDuration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.timeAmount = defaults.timeAmount;
     	      this.timeUnit = defaults.timeUnit;
         }
 
+        @CustomType.Setter
         public Builder timeAmount(Integer timeAmount) {
             this.timeAmount = Objects.requireNonNull(timeAmount);
             return this;
         }
+        @CustomType.Setter
         public Builder timeUnit(@Nullable String timeUnit) {
             this.timeUnit = timeUnit;
             return this;
-        }        public NotificationPolicyAutoCloseActionDuration build() {
-            return new NotificationPolicyAutoCloseActionDuration(timeAmount, timeUnit);
+        }
+        public NotificationPolicyAutoCloseActionDuration build() {
+            final var o = new NotificationPolicyAutoCloseActionDuration();
+            o.timeAmount = timeAmount;
+            o.timeUnit = timeUnit;
+            return o;
         }
     }
 }

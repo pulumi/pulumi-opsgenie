@@ -17,28 +17,19 @@ public final class AlertPolicyTimeRestriction {
      * @return A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
      * 
      */
-    private final @Nullable List<AlertPolicyTimeRestrictionRestriction> restriction;
+    private @Nullable List<AlertPolicyTimeRestrictionRestriction> restriction;
     /**
      * @return List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      * 
      */
-    private final @Nullable List<AlertPolicyTimeRestrictionRestrictionList> restrictionList;
+    private @Nullable List<AlertPolicyTimeRestrictionRestrictionList> restrictionList;
     /**
      * @return Type of responder. Acceptable values are: `user` or `team`
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private AlertPolicyTimeRestriction(
-        @CustomType.Parameter("restriction") @Nullable List<AlertPolicyTimeRestrictionRestriction> restriction,
-        @CustomType.Parameter("restrictionList") @Nullable List<AlertPolicyTimeRestrictionRestrictionList> restrictionList,
-        @CustomType.Parameter("type") String type) {
-        this.restriction = restriction;
-        this.restrictionList = restrictionList;
-        this.type = type;
-    }
-
+    private AlertPolicyTimeRestriction() {}
     /**
      * @return A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
      * 
@@ -68,16 +59,12 @@ public final class AlertPolicyTimeRestriction {
     public static Builder builder(AlertPolicyTimeRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<AlertPolicyTimeRestrictionRestriction> restriction;
         private @Nullable List<AlertPolicyTimeRestrictionRestrictionList> restrictionList;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AlertPolicyTimeRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.restriction = defaults.restriction;
@@ -85,6 +72,7 @@ public final class AlertPolicyTimeRestriction {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder restriction(@Nullable List<AlertPolicyTimeRestrictionRestriction> restriction) {
             this.restriction = restriction;
             return this;
@@ -92,6 +80,7 @@ public final class AlertPolicyTimeRestriction {
         public Builder restriction(AlertPolicyTimeRestrictionRestriction... restriction) {
             return restriction(List.of(restriction));
         }
+        @CustomType.Setter
         public Builder restrictionList(@Nullable List<AlertPolicyTimeRestrictionRestrictionList> restrictionList) {
             this.restrictionList = restrictionList;
             return this;
@@ -99,11 +88,17 @@ public final class AlertPolicyTimeRestriction {
         public Builder restrictionList(AlertPolicyTimeRestrictionRestrictionList... restrictionList) {
             return restrictionList(List.of(restrictionList));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public AlertPolicyTimeRestriction build() {
-            return new AlertPolicyTimeRestriction(restriction, restrictionList, type);
+        }
+        public AlertPolicyTimeRestriction build() {
+            final var o = new AlertPolicyTimeRestriction();
+            o.restriction = restriction;
+            o.restrictionList = restrictionList;
+            o.type = type;
+            return o;
         }
     }
 }

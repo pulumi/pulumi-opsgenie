@@ -14,49 +14,34 @@ public final class ScheduleRotationTimeRestrictionRestrictionList {
      * @return Value of the day that frame will end.
      * 
      */
-    private final String endDay;
+    private String endDay;
     /**
      * @return Value of the hour that frame will end.
      * 
      */
-    private final Integer endHour;
+    private Integer endHour;
     /**
      * @return Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
      * 
      */
-    private final Integer endMin;
+    private Integer endMin;
     /**
      * @return Value of the day that frame will start.
      * 
      */
-    private final String startDay;
+    private String startDay;
     /**
      * @return Value of the hour that frame will start
      * 
      */
-    private final Integer startHour;
+    private Integer startHour;
     /**
      * @return Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
      * 
      */
-    private final Integer startMin;
+    private Integer startMin;
 
-    @CustomType.Constructor
-    private ScheduleRotationTimeRestrictionRestrictionList(
-        @CustomType.Parameter("endDay") String endDay,
-        @CustomType.Parameter("endHour") Integer endHour,
-        @CustomType.Parameter("endMin") Integer endMin,
-        @CustomType.Parameter("startDay") String startDay,
-        @CustomType.Parameter("startHour") Integer startHour,
-        @CustomType.Parameter("startMin") Integer startMin) {
-        this.endDay = endDay;
-        this.endHour = endHour;
-        this.endMin = endMin;
-        this.startDay = startDay;
-        this.startHour = startHour;
-        this.startMin = startMin;
-    }
-
+    private ScheduleRotationTimeRestrictionRestrictionList() {}
     /**
      * @return Value of the day that frame will end.
      * 
@@ -107,7 +92,7 @@ public final class ScheduleRotationTimeRestrictionRestrictionList {
     public static Builder builder(ScheduleRotationTimeRestrictionRestrictionList defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endDay;
         private Integer endHour;
@@ -115,11 +100,7 @@ public final class ScheduleRotationTimeRestrictionRestrictionList {
         private String startDay;
         private Integer startHour;
         private Integer startMin;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleRotationTimeRestrictionRestrictionList defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endDay = defaults.endDay;
@@ -130,31 +111,45 @@ public final class ScheduleRotationTimeRestrictionRestrictionList {
     	      this.startMin = defaults.startMin;
         }
 
+        @CustomType.Setter
         public Builder endDay(String endDay) {
             this.endDay = Objects.requireNonNull(endDay);
             return this;
         }
+        @CustomType.Setter
         public Builder endHour(Integer endHour) {
             this.endHour = Objects.requireNonNull(endHour);
             return this;
         }
+        @CustomType.Setter
         public Builder endMin(Integer endMin) {
             this.endMin = Objects.requireNonNull(endMin);
             return this;
         }
+        @CustomType.Setter
         public Builder startDay(String startDay) {
             this.startDay = Objects.requireNonNull(startDay);
             return this;
         }
+        @CustomType.Setter
         public Builder startHour(Integer startHour) {
             this.startHour = Objects.requireNonNull(startHour);
             return this;
         }
+        @CustomType.Setter
         public Builder startMin(Integer startMin) {
             this.startMin = Objects.requireNonNull(startMin);
             return this;
-        }        public ScheduleRotationTimeRestrictionRestrictionList build() {
-            return new ScheduleRotationTimeRestrictionRestrictionList(endDay, endHour, endMin, startDay, startHour, startMin);
+        }
+        public ScheduleRotationTimeRestrictionRestrictionList build() {
+            final var o = new ScheduleRotationTimeRestrictionRestrictionList();
+            o.endDay = endDay;
+            o.endHour = endHour;
+            o.endMin = endMin;
+            o.startDay = startDay;
+            o.startHour = startHour;
+            o.startMin = startMin;
+            return o;
         }
     }
 }

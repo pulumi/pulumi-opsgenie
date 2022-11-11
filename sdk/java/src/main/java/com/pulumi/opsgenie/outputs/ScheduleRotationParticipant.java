@@ -15,21 +15,14 @@ public final class ScheduleRotationParticipant {
      * @return The id of the responder.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The responder type.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ScheduleRotationParticipant(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private ScheduleRotationParticipant() {}
     /**
      * @return The id of the responder.
      * 
@@ -52,30 +45,32 @@ public final class ScheduleRotationParticipant {
     public static Builder builder(ScheduleRotationParticipant defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleRotationParticipant defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ScheduleRotationParticipant build() {
-            return new ScheduleRotationParticipant(id, type);
+        }
+        public ScheduleRotationParticipant build() {
+            final var o = new ScheduleRotationParticipant();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -21,7 +21,7 @@ export interface AlertPolicyFilterCondition {
      */
     expectedValue?: string;
     /**
-     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      */
     field: string;
     /**
@@ -691,7 +691,7 @@ export interface NotificationPolicyFilterCondition {
      */
     expectedValue?: string;
     /**
-     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      */
     field: string;
     /**

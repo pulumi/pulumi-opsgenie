@@ -15,21 +15,14 @@ public final class MaintenanceRuleEntity {
      * @return The id of the entity that maintenance will be applied.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private MaintenanceRuleEntity(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private MaintenanceRuleEntity() {}
     /**
      * @return The id of the entity that maintenance will be applied.
      * 
@@ -52,30 +45,32 @@ public final class MaintenanceRuleEntity {
     public static Builder builder(MaintenanceRuleEntity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceRuleEntity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public MaintenanceRuleEntity build() {
-            return new MaintenanceRuleEntity(id, type);
+        }
+        public MaintenanceRuleEntity build() {
+            final var o = new MaintenanceRuleEntity();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

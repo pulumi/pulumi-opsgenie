@@ -12,23 +12,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEscalationRule {
-    private final String condition;
-    private final Integer delay;
-    private final String notifyType;
-    private final List<GetEscalationRuleRecipient> recipients;
+    private String condition;
+    private Integer delay;
+    private String notifyType;
+    private List<GetEscalationRuleRecipient> recipients;
 
-    @CustomType.Constructor
-    private GetEscalationRule(
-        @CustomType.Parameter("condition") String condition,
-        @CustomType.Parameter("delay") Integer delay,
-        @CustomType.Parameter("notifyType") String notifyType,
-        @CustomType.Parameter("recipients") List<GetEscalationRuleRecipient> recipients) {
-        this.condition = condition;
-        this.delay = delay;
-        this.notifyType = notifyType;
-        this.recipients = recipients;
-    }
-
+    private GetEscalationRule() {}
     public String condition() {
         return this.condition;
     }
@@ -49,17 +38,13 @@ public final class GetEscalationRule {
     public static Builder builder(GetEscalationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String condition;
         private Integer delay;
         private String notifyType;
         private List<GetEscalationRuleRecipient> recipients;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEscalationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.condition = defaults.condition;
@@ -68,26 +53,36 @@ public final class GetEscalationRule {
     	      this.recipients = defaults.recipients;
         }
 
+        @CustomType.Setter
         public Builder condition(String condition) {
             this.condition = Objects.requireNonNull(condition);
             return this;
         }
+        @CustomType.Setter
         public Builder delay(Integer delay) {
             this.delay = Objects.requireNonNull(delay);
             return this;
         }
+        @CustomType.Setter
         public Builder notifyType(String notifyType) {
             this.notifyType = Objects.requireNonNull(notifyType);
             return this;
         }
+        @CustomType.Setter
         public Builder recipients(List<GetEscalationRuleRecipient> recipients) {
             this.recipients = Objects.requireNonNull(recipients);
             return this;
         }
         public Builder recipients(GetEscalationRuleRecipient... recipients) {
             return recipients(List.of(recipients));
-        }        public GetEscalationRule build() {
-            return new GetEscalationRule(condition, delay, notifyType, recipients);
+        }
+        public GetEscalationRule build() {
+            final var o = new GetEscalationRule();
+            o.condition = condition;
+            o.delay = delay;
+            o.notifyType = notifyType;
+            o.recipients = recipients;
+            return o;
         }
     }
 }

@@ -13,35 +13,24 @@ public final class AlertPolicyTimeRestrictionRestriction {
      * @return Ending hour of restriction.
      * 
      */
-    private final Integer endHour;
+    private Integer endHour;
     /**
      * @return Ending minute of restriction on defined `end_hour`
      * 
      */
-    private final Integer endMin;
+    private Integer endMin;
     /**
      * @return Starting hour of restriction.
      * 
      */
-    private final Integer startHour;
+    private Integer startHour;
     /**
      * @return Staring minute of restriction on defined `start_hour`
      * 
      */
-    private final Integer startMin;
+    private Integer startMin;
 
-    @CustomType.Constructor
-    private AlertPolicyTimeRestrictionRestriction(
-        @CustomType.Parameter("endHour") Integer endHour,
-        @CustomType.Parameter("endMin") Integer endMin,
-        @CustomType.Parameter("startHour") Integer startHour,
-        @CustomType.Parameter("startMin") Integer startMin) {
-        this.endHour = endHour;
-        this.endMin = endMin;
-        this.startHour = startHour;
-        this.startMin = startMin;
-    }
-
+    private AlertPolicyTimeRestrictionRestriction() {}
     /**
      * @return Ending hour of restriction.
      * 
@@ -78,17 +67,13 @@ public final class AlertPolicyTimeRestrictionRestriction {
     public static Builder builder(AlertPolicyTimeRestrictionRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer endHour;
         private Integer endMin;
         private Integer startHour;
         private Integer startMin;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AlertPolicyTimeRestrictionRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endHour = defaults.endHour;
@@ -97,23 +82,33 @@ public final class AlertPolicyTimeRestrictionRestriction {
     	      this.startMin = defaults.startMin;
         }
 
+        @CustomType.Setter
         public Builder endHour(Integer endHour) {
             this.endHour = Objects.requireNonNull(endHour);
             return this;
         }
+        @CustomType.Setter
         public Builder endMin(Integer endMin) {
             this.endMin = Objects.requireNonNull(endMin);
             return this;
         }
+        @CustomType.Setter
         public Builder startHour(Integer startHour) {
             this.startHour = Objects.requireNonNull(startHour);
             return this;
         }
+        @CustomType.Setter
         public Builder startMin(Integer startMin) {
             this.startMin = Objects.requireNonNull(startMin);
             return this;
-        }        public AlertPolicyTimeRestrictionRestriction build() {
-            return new AlertPolicyTimeRestrictionRestriction(endHour, endMin, startHour, startMin);
+        }
+        public AlertPolicyTimeRestrictionRestriction build() {
+            final var o = new AlertPolicyTimeRestrictionRestriction();
+            o.endHour = endHour;
+            o.endMin = endMin;
+            o.startHour = startHour;
+            o.startMin = startMin;
+            return o;
         }
     }
 }
