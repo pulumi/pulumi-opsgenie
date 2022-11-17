@@ -17,33 +17,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IntegrationActionCreate {
-    private final @Nullable List<String> alertActions;
+    private @Nullable List<String> alertActions;
     /**
      * @return An identifier that is used for alert deduplication. Default: `{{alias}}`.
      * 
      */
-    private final @Nullable String alias;
-    private final @Nullable Boolean appendAttachments;
+    private @Nullable String alias;
+    private @Nullable Boolean appendAttachments;
     /**
      * @return Custom alert priority. e.g. ``{{message.substring(0,2)}}``
      * 
      */
-    private final @Nullable String customPriority;
+    private @Nullable String customPriority;
     /**
      * @return Detailed description of the alert, anything that may not have fit in the `message` field.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The entity the alert is related to.
      * 
      */
-    private final @Nullable String entity;
+    private @Nullable String entity;
     /**
      * @return Set of user defined properties specified as a map.
      * 
      */
-    private final @Nullable Map<String,String> extraProperties;
+    private @Nullable Map<String,String> extraProperties;
     /**
      * @return Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
      * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -51,121 +51,72 @@ public final class IntegrationActionCreate {
      * * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
      * 
      */
-    private final @Nullable List<IntegrationActionCreateFilter> filters;
-    private final @Nullable Boolean ignoreAlertActionsFromPayload;
-    private final @Nullable Boolean ignoreExtraPropertiesFromPayload;
+    private @Nullable List<IntegrationActionCreateFilter> filters;
+    private @Nullable Boolean ignoreAlertActionsFromPayload;
+    private @Nullable Boolean ignoreExtraPropertiesFromPayload;
     /**
      * @return If enabled, the integration will ignore responders sent in request payloads.
      * 
      */
-    private final @Nullable Boolean ignoreRespondersFromPayload;
-    private final @Nullable Boolean ignoreTagsFromPayload;
+    private @Nullable Boolean ignoreRespondersFromPayload;
+    private @Nullable Boolean ignoreTagsFromPayload;
     /**
      * @return If enabled, the integration will ignore teams sent in request payloads.
      * 
      */
-    private final @Nullable Boolean ignoreTeamsFromPayload;
+    private @Nullable Boolean ignoreTeamsFromPayload;
     /**
      * @return Alert text limited to 130 characters.
      * 
      */
-    private final @Nullable String message;
+    private @Nullable String message;
     /**
      * @return Name of the integration action.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Additional alert action note.
      * 
      */
-    private final @Nullable String note;
+    private @Nullable String note;
     /**
      * @return Integer value that defines in which order the action will be performed. Default: `1`.
      * 
      */
-    private final @Nullable Integer order;
+    private @Nullable Integer order;
     /**
      * @return Alert priority.
      * 
      */
-    private final @Nullable String priority;
+    private @Nullable String priority;
     /**
      * @return User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
      * 
      */
-    private final @Nullable List<IntegrationActionCreateResponder> responders;
+    private @Nullable List<IntegrationActionCreateResponder> responders;
     /**
      * @return User defined field to specify source of action.
      * 
      */
-    private final @Nullable String source;
+    private @Nullable String source;
     /**
      * @return Comma separated list of labels to be attached to the alert.
      * 
      */
-    private final @Nullable List<String> tags;
+    private @Nullable List<String> tags;
     /**
      * @return The responder type - can be `escalation`, `team` or `user`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Owner of the execution for integration action.
      * 
      */
-    private final @Nullable String user;
+    private @Nullable String user;
 
-    @CustomType.Constructor
-    private IntegrationActionCreate(
-        @CustomType.Parameter("alertActions") @Nullable List<String> alertActions,
-        @CustomType.Parameter("alias") @Nullable String alias,
-        @CustomType.Parameter("appendAttachments") @Nullable Boolean appendAttachments,
-        @CustomType.Parameter("customPriority") @Nullable String customPriority,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("entity") @Nullable String entity,
-        @CustomType.Parameter("extraProperties") @Nullable Map<String,String> extraProperties,
-        @CustomType.Parameter("filters") @Nullable List<IntegrationActionCreateFilter> filters,
-        @CustomType.Parameter("ignoreAlertActionsFromPayload") @Nullable Boolean ignoreAlertActionsFromPayload,
-        @CustomType.Parameter("ignoreExtraPropertiesFromPayload") @Nullable Boolean ignoreExtraPropertiesFromPayload,
-        @CustomType.Parameter("ignoreRespondersFromPayload") @Nullable Boolean ignoreRespondersFromPayload,
-        @CustomType.Parameter("ignoreTagsFromPayload") @Nullable Boolean ignoreTagsFromPayload,
-        @CustomType.Parameter("ignoreTeamsFromPayload") @Nullable Boolean ignoreTeamsFromPayload,
-        @CustomType.Parameter("message") @Nullable String message,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("note") @Nullable String note,
-        @CustomType.Parameter("order") @Nullable Integer order,
-        @CustomType.Parameter("priority") @Nullable String priority,
-        @CustomType.Parameter("responders") @Nullable List<IntegrationActionCreateResponder> responders,
-        @CustomType.Parameter("source") @Nullable String source,
-        @CustomType.Parameter("tags") @Nullable List<String> tags,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("user") @Nullable String user) {
-        this.alertActions = alertActions;
-        this.alias = alias;
-        this.appendAttachments = appendAttachments;
-        this.customPriority = customPriority;
-        this.description = description;
-        this.entity = entity;
-        this.extraProperties = extraProperties;
-        this.filters = filters;
-        this.ignoreAlertActionsFromPayload = ignoreAlertActionsFromPayload;
-        this.ignoreExtraPropertiesFromPayload = ignoreExtraPropertiesFromPayload;
-        this.ignoreRespondersFromPayload = ignoreRespondersFromPayload;
-        this.ignoreTagsFromPayload = ignoreTagsFromPayload;
-        this.ignoreTeamsFromPayload = ignoreTeamsFromPayload;
-        this.message = message;
-        this.name = name;
-        this.note = note;
-        this.order = order;
-        this.priority = priority;
-        this.responders = responders;
-        this.source = source;
-        this.tags = tags;
-        this.type = type;
-        this.user = user;
-    }
-
+    private IntegrationActionCreate() {}
     public List<String> alertActions() {
         return this.alertActions == null ? List.of() : this.alertActions;
     }
@@ -318,7 +269,7 @@ public final class IntegrationActionCreate {
     public static Builder builder(IntegrationActionCreate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> alertActions;
         private @Nullable String alias;
@@ -343,11 +294,7 @@ public final class IntegrationActionCreate {
         private @Nullable List<String> tags;
         private @Nullable String type;
         private @Nullable String user;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationActionCreate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alertActions = defaults.alertActions;
@@ -375,6 +322,7 @@ public final class IntegrationActionCreate {
     	      this.user = defaults.user;
         }
 
+        @CustomType.Setter
         public Builder alertActions(@Nullable List<String> alertActions) {
             this.alertActions = alertActions;
             return this;
@@ -382,30 +330,37 @@ public final class IntegrationActionCreate {
         public Builder alertActions(String... alertActions) {
             return alertActions(List.of(alertActions));
         }
+        @CustomType.Setter
         public Builder alias(@Nullable String alias) {
             this.alias = alias;
             return this;
         }
+        @CustomType.Setter
         public Builder appendAttachments(@Nullable Boolean appendAttachments) {
             this.appendAttachments = appendAttachments;
             return this;
         }
+        @CustomType.Setter
         public Builder customPriority(@Nullable String customPriority) {
             this.customPriority = customPriority;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder entity(@Nullable String entity) {
             this.entity = entity;
             return this;
         }
+        @CustomType.Setter
         public Builder extraProperties(@Nullable Map<String,String> extraProperties) {
             this.extraProperties = extraProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable List<IntegrationActionCreateFilter> filters) {
             this.filters = filters;
             return this;
@@ -413,46 +368,57 @@ public final class IntegrationActionCreate {
         public Builder filters(IntegrationActionCreateFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder ignoreAlertActionsFromPayload(@Nullable Boolean ignoreAlertActionsFromPayload) {
             this.ignoreAlertActionsFromPayload = ignoreAlertActionsFromPayload;
             return this;
         }
+        @CustomType.Setter
         public Builder ignoreExtraPropertiesFromPayload(@Nullable Boolean ignoreExtraPropertiesFromPayload) {
             this.ignoreExtraPropertiesFromPayload = ignoreExtraPropertiesFromPayload;
             return this;
         }
+        @CustomType.Setter
         public Builder ignoreRespondersFromPayload(@Nullable Boolean ignoreRespondersFromPayload) {
             this.ignoreRespondersFromPayload = ignoreRespondersFromPayload;
             return this;
         }
+        @CustomType.Setter
         public Builder ignoreTagsFromPayload(@Nullable Boolean ignoreTagsFromPayload) {
             this.ignoreTagsFromPayload = ignoreTagsFromPayload;
             return this;
         }
+        @CustomType.Setter
         public Builder ignoreTeamsFromPayload(@Nullable Boolean ignoreTeamsFromPayload) {
             this.ignoreTeamsFromPayload = ignoreTeamsFromPayload;
             return this;
         }
+        @CustomType.Setter
         public Builder message(@Nullable String message) {
             this.message = message;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder note(@Nullable String note) {
             this.note = note;
             return this;
         }
+        @CustomType.Setter
         public Builder order(@Nullable Integer order) {
             this.order = order;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable String priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder responders(@Nullable List<IntegrationActionCreateResponder> responders) {
             this.responders = responders;
             return this;
@@ -460,10 +426,12 @@ public final class IntegrationActionCreate {
         public Builder responders(IntegrationActionCreateResponder... responders) {
             return responders(List.of(responders));
         }
+        @CustomType.Setter
         public Builder source(@Nullable String source) {
             this.source = source;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable List<String> tags) {
             this.tags = tags;
             return this;
@@ -471,15 +439,42 @@ public final class IntegrationActionCreate {
         public Builder tags(String... tags) {
             return tags(List.of(tags));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder user(@Nullable String user) {
             this.user = user;
             return this;
-        }        public IntegrationActionCreate build() {
-            return new IntegrationActionCreate(alertActions, alias, appendAttachments, customPriority, description, entity, extraProperties, filters, ignoreAlertActionsFromPayload, ignoreExtraPropertiesFromPayload, ignoreRespondersFromPayload, ignoreTagsFromPayload, ignoreTeamsFromPayload, message, name, note, order, priority, responders, source, tags, type, user);
+        }
+        public IntegrationActionCreate build() {
+            final var o = new IntegrationActionCreate();
+            o.alertActions = alertActions;
+            o.alias = alias;
+            o.appendAttachments = appendAttachments;
+            o.customPriority = customPriority;
+            o.description = description;
+            o.entity = entity;
+            o.extraProperties = extraProperties;
+            o.filters = filters;
+            o.ignoreAlertActionsFromPayload = ignoreAlertActionsFromPayload;
+            o.ignoreExtraPropertiesFromPayload = ignoreExtraPropertiesFromPayload;
+            o.ignoreRespondersFromPayload = ignoreRespondersFromPayload;
+            o.ignoreTagsFromPayload = ignoreTagsFromPayload;
+            o.ignoreTeamsFromPayload = ignoreTeamsFromPayload;
+            o.message = message;
+            o.name = name;
+            o.note = note;
+            o.order = order;
+            o.priority = priority;
+            o.responders = responders;
+            o.source = source;
+            o.tags = tags;
+            o.type = type;
+            o.user = user;
+            return o;
         }
     }
 }

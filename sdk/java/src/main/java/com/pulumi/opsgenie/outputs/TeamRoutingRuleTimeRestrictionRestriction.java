@@ -9,23 +9,12 @@ import java.util.Objects;
 
 @CustomType
 public final class TeamRoutingRuleTimeRestrictionRestriction {
-    private final Integer endHour;
-    private final Integer endMin;
-    private final Integer startHour;
-    private final Integer startMin;
+    private Integer endHour;
+    private Integer endMin;
+    private Integer startHour;
+    private Integer startMin;
 
-    @CustomType.Constructor
-    private TeamRoutingRuleTimeRestrictionRestriction(
-        @CustomType.Parameter("endHour") Integer endHour,
-        @CustomType.Parameter("endMin") Integer endMin,
-        @CustomType.Parameter("startHour") Integer startHour,
-        @CustomType.Parameter("startMin") Integer startMin) {
-        this.endHour = endHour;
-        this.endMin = endMin;
-        this.startHour = startHour;
-        this.startMin = startMin;
-    }
-
+    private TeamRoutingRuleTimeRestrictionRestriction() {}
     public Integer endHour() {
         return this.endHour;
     }
@@ -46,17 +35,13 @@ public final class TeamRoutingRuleTimeRestrictionRestriction {
     public static Builder builder(TeamRoutingRuleTimeRestrictionRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer endHour;
         private Integer endMin;
         private Integer startHour;
         private Integer startMin;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TeamRoutingRuleTimeRestrictionRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endHour = defaults.endHour;
@@ -65,23 +50,33 @@ public final class TeamRoutingRuleTimeRestrictionRestriction {
     	      this.startMin = defaults.startMin;
         }
 
+        @CustomType.Setter
         public Builder endHour(Integer endHour) {
             this.endHour = Objects.requireNonNull(endHour);
             return this;
         }
+        @CustomType.Setter
         public Builder endMin(Integer endMin) {
             this.endMin = Objects.requireNonNull(endMin);
             return this;
         }
+        @CustomType.Setter
         public Builder startHour(Integer startHour) {
             this.startHour = Objects.requireNonNull(startHour);
             return this;
         }
+        @CustomType.Setter
         public Builder startMin(Integer startMin) {
             this.startMin = Objects.requireNonNull(startMin);
             return this;
-        }        public TeamRoutingRuleTimeRestrictionRestriction build() {
-            return new TeamRoutingRuleTimeRestrictionRestriction(endHour, endMin, startHour, startMin);
+        }
+        public TeamRoutingRuleTimeRestrictionRestriction build() {
+            final var o = new TeamRoutingRuleTimeRestrictionRestriction();
+            o.endHour = endHour;
+            o.endMin = endMin;
+            o.startHour = startHour;
+            o.startMin = startMin;
+            return o;
         }
     }
 }

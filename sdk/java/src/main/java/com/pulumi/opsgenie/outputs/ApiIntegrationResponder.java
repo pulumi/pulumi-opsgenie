@@ -15,21 +15,14 @@ public final class ApiIntegrationResponder {
      * @return The id of the responder.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The responder type.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ApiIntegrationResponder(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private ApiIntegrationResponder() {}
     /**
      * @return The id of the responder.
      * 
@@ -52,30 +45,32 @@ public final class ApiIntegrationResponder {
     public static Builder builder(ApiIntegrationResponder defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiIntegrationResponder defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ApiIntegrationResponder build() {
-            return new ApiIntegrationResponder(id, type);
+        }
+        public ApiIntegrationResponder build() {
+            final var o = new ApiIntegrationResponder();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

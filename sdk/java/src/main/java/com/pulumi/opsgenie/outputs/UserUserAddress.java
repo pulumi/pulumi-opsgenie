@@ -9,26 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class UserUserAddress {
-    private final String city;
-    private final String country;
-    private final String line;
-    private final String state;
-    private final String zipcode;
+    private String city;
+    private String country;
+    private String line;
+    private String state;
+    private String zipcode;
 
-    @CustomType.Constructor
-    private UserUserAddress(
-        @CustomType.Parameter("city") String city,
-        @CustomType.Parameter("country") String country,
-        @CustomType.Parameter("line") String line,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("zipcode") String zipcode) {
-        this.city = city;
-        this.country = country;
-        this.line = line;
-        this.state = state;
-        this.zipcode = zipcode;
-    }
-
+    private UserUserAddress() {}
     public String city() {
         return this.city;
     }
@@ -52,18 +39,14 @@ public final class UserUserAddress {
     public static Builder builder(UserUserAddress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String city;
         private String country;
         private String line;
         private String state;
         private String zipcode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserUserAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.city = defaults.city;
@@ -73,27 +56,39 @@ public final class UserUserAddress {
     	      this.zipcode = defaults.zipcode;
         }
 
+        @CustomType.Setter
         public Builder city(String city) {
             this.city = Objects.requireNonNull(city);
             return this;
         }
+        @CustomType.Setter
         public Builder country(String country) {
             this.country = Objects.requireNonNull(country);
             return this;
         }
+        @CustomType.Setter
         public Builder line(String line) {
             this.line = Objects.requireNonNull(line);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder zipcode(String zipcode) {
             this.zipcode = Objects.requireNonNull(zipcode);
             return this;
-        }        public UserUserAddress build() {
-            return new UserUserAddress(city, country, line, state, zipcode);
+        }
+        public UserUserAddress build() {
+            final var o = new UserUserAddress();
+            o.city = city;
+            o.country = country;
+            o.line = line;
+            o.state = state;
+            o.zipcode = zipcode;
+            return o;
         }
     }
 }

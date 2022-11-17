@@ -15,21 +15,14 @@ public final class NotificationPolicyAutoRestartAction {
      * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
      * 
      */
-    private final List<NotificationPolicyAutoRestartActionDuration> durations;
+    private List<NotificationPolicyAutoRestartActionDuration> durations;
     /**
      * @return How many times to repeat. This is a integer attribute.
      * 
      */
-    private final Integer maxRepeatCount;
+    private Integer maxRepeatCount;
 
-    @CustomType.Constructor
-    private NotificationPolicyAutoRestartAction(
-        @CustomType.Parameter("durations") List<NotificationPolicyAutoRestartActionDuration> durations,
-        @CustomType.Parameter("maxRepeatCount") Integer maxRepeatCount) {
-        this.durations = durations;
-        this.maxRepeatCount = maxRepeatCount;
-    }
-
+    private NotificationPolicyAutoRestartAction() {}
     /**
      * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
      * 
@@ -52,21 +45,18 @@ public final class NotificationPolicyAutoRestartAction {
     public static Builder builder(NotificationPolicyAutoRestartAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<NotificationPolicyAutoRestartActionDuration> durations;
         private Integer maxRepeatCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationPolicyAutoRestartAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.durations = defaults.durations;
     	      this.maxRepeatCount = defaults.maxRepeatCount;
         }
 
+        @CustomType.Setter
         public Builder durations(List<NotificationPolicyAutoRestartActionDuration> durations) {
             this.durations = Objects.requireNonNull(durations);
             return this;
@@ -74,11 +64,16 @@ public final class NotificationPolicyAutoRestartAction {
         public Builder durations(NotificationPolicyAutoRestartActionDuration... durations) {
             return durations(List.of(durations));
         }
+        @CustomType.Setter
         public Builder maxRepeatCount(Integer maxRepeatCount) {
             this.maxRepeatCount = Objects.requireNonNull(maxRepeatCount);
             return this;
-        }        public NotificationPolicyAutoRestartAction build() {
-            return new NotificationPolicyAutoRestartAction(durations, maxRepeatCount);
+        }
+        public NotificationPolicyAutoRestartAction build() {
+            final var o = new NotificationPolicyAutoRestartAction();
+            o.durations = durations;
+            o.maxRepeatCount = maxRepeatCount;
+            return o;
         }
     }
 }

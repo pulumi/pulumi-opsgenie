@@ -13,21 +13,14 @@ public final class NotificationRuleStepContact {
      * @return Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
      * 
      */
-    private final String method;
+    private String method;
     /**
      * @return Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
      * 
      */
-    private final String to;
+    private String to;
 
-    @CustomType.Constructor
-    private NotificationRuleStepContact(
-        @CustomType.Parameter("method") String method,
-        @CustomType.Parameter("to") String to) {
-        this.method = method;
-        this.to = to;
-    }
-
+    private NotificationRuleStepContact() {}
     /**
      * @return Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
      * 
@@ -50,30 +43,32 @@ public final class NotificationRuleStepContact {
     public static Builder builder(NotificationRuleStepContact defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String method;
         private String to;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationRuleStepContact defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.method = defaults.method;
     	      this.to = defaults.to;
         }
 
+        @CustomType.Setter
         public Builder method(String method) {
             this.method = Objects.requireNonNull(method);
             return this;
         }
+        @CustomType.Setter
         public Builder to(String to) {
             this.to = Objects.requireNonNull(to);
             return this;
-        }        public NotificationRuleStepContact build() {
-            return new NotificationRuleStepContact(method, to);
+        }
+        public NotificationRuleStepContact build() {
+            final var o = new NotificationRuleStepContact();
+            o.method = method;
+            o.to = to;
+            return o;
         }
     }
 }

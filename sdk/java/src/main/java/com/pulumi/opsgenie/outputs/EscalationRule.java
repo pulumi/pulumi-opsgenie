@@ -16,35 +16,24 @@ public final class EscalationRule {
      * @return The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
      * 
      */
-    private final String condition;
+    private String condition;
     /**
      * @return Time delay of the escalation rule, in minutes.
      * 
      */
-    private final Integer delay;
+    private Integer delay;
     /**
      * @return Recipient calculation logic for schedules. Possible values are:
      * 
      */
-    private final String notifyType;
+    private String notifyType;
     /**
      * @return Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
      * 
      */
-    private final List<EscalationRuleRecipient> recipients;
+    private List<EscalationRuleRecipient> recipients;
 
-    @CustomType.Constructor
-    private EscalationRule(
-        @CustomType.Parameter("condition") String condition,
-        @CustomType.Parameter("delay") Integer delay,
-        @CustomType.Parameter("notifyType") String notifyType,
-        @CustomType.Parameter("recipients") List<EscalationRuleRecipient> recipients) {
-        this.condition = condition;
-        this.delay = delay;
-        this.notifyType = notifyType;
-        this.recipients = recipients;
-    }
-
+    private EscalationRule() {}
     /**
      * @return The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
      * 
@@ -81,17 +70,13 @@ public final class EscalationRule {
     public static Builder builder(EscalationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String condition;
         private Integer delay;
         private String notifyType;
         private List<EscalationRuleRecipient> recipients;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EscalationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.condition = defaults.condition;
@@ -100,26 +85,36 @@ public final class EscalationRule {
     	      this.recipients = defaults.recipients;
         }
 
+        @CustomType.Setter
         public Builder condition(String condition) {
             this.condition = Objects.requireNonNull(condition);
             return this;
         }
+        @CustomType.Setter
         public Builder delay(Integer delay) {
             this.delay = Objects.requireNonNull(delay);
             return this;
         }
+        @CustomType.Setter
         public Builder notifyType(String notifyType) {
             this.notifyType = Objects.requireNonNull(notifyType);
             return this;
         }
+        @CustomType.Setter
         public Builder recipients(List<EscalationRuleRecipient> recipients) {
             this.recipients = Objects.requireNonNull(recipients);
             return this;
         }
         public Builder recipients(EscalationRuleRecipient... recipients) {
             return recipients(List.of(recipients));
-        }        public EscalationRule build() {
-            return new EscalationRule(condition, delay, notifyType, recipients);
+        }
+        public EscalationRule build() {
+            final var o = new EscalationRule();
+            o.condition = condition;
+            o.delay = delay;
+            o.notifyType = notifyType;
+            o.recipients = recipients;
+            return o;
         }
     }
 }

@@ -11,27 +11,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceResult {
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final @Nullable String teamId;
+    private String id;
+    private String name;
+    private @Nullable String teamId;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("teamId") @Nullable String teamId) {
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.teamId = teamId;
-    }
-
+    private GetServiceResult() {}
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
@@ -56,17 +45,13 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private String id;
         private String name;
         private @Nullable String teamId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -75,23 +60,33 @@ public final class GetServiceResult {
     	      this.teamId = defaults.teamId;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder teamId(@Nullable String teamId) {
             this.teamId = teamId;
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(description, id, name, teamId);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.teamId = teamId;
+            return o;
         }
     }
 }

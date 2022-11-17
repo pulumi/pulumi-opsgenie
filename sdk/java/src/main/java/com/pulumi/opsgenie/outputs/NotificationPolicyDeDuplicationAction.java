@@ -17,28 +17,19 @@ public final class NotificationPolicyDeDuplicationAction {
      * @return - Count
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return Deduplication type. Possible values are: &#34;value-based&#34;, &#34;frequency-based&#34;
      * 
      */
-    private final String deDuplicationActionType;
+    private String deDuplicationActionType;
     /**
      * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
      * 
      */
-    private final @Nullable List<NotificationPolicyDeDuplicationActionDuration> durations;
+    private @Nullable List<NotificationPolicyDeDuplicationActionDuration> durations;
 
-    @CustomType.Constructor
-    private NotificationPolicyDeDuplicationAction(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("deDuplicationActionType") String deDuplicationActionType,
-        @CustomType.Parameter("durations") @Nullable List<NotificationPolicyDeDuplicationActionDuration> durations) {
-        this.count = count;
-        this.deDuplicationActionType = deDuplicationActionType;
-        this.durations = durations;
-    }
-
+    private NotificationPolicyDeDuplicationAction() {}
     /**
      * @return - Count
      * 
@@ -68,16 +59,12 @@ public final class NotificationPolicyDeDuplicationAction {
     public static Builder builder(NotificationPolicyDeDuplicationAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private String deDuplicationActionType;
         private @Nullable List<NotificationPolicyDeDuplicationActionDuration> durations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationPolicyDeDuplicationAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -85,22 +72,30 @@ public final class NotificationPolicyDeDuplicationAction {
     	      this.durations = defaults.durations;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder deDuplicationActionType(String deDuplicationActionType) {
             this.deDuplicationActionType = Objects.requireNonNull(deDuplicationActionType);
             return this;
         }
+        @CustomType.Setter
         public Builder durations(@Nullable List<NotificationPolicyDeDuplicationActionDuration> durations) {
             this.durations = durations;
             return this;
         }
         public Builder durations(NotificationPolicyDeDuplicationActionDuration... durations) {
             return durations(List.of(durations));
-        }        public NotificationPolicyDeDuplicationAction build() {
-            return new NotificationPolicyDeDuplicationAction(count, deDuplicationActionType, durations);
+        }
+        public NotificationPolicyDeDuplicationAction build() {
+            final var o = new NotificationPolicyDeDuplicationAction();
+            o.count = count;
+            o.deDuplicationActionType = deDuplicationActionType;
+            o.durations = durations;
+            return o;
         }
     }
 }

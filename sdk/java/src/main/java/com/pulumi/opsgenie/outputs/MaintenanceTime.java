@@ -15,28 +15,19 @@ public final class MaintenanceTime {
      * @return This parameter takes a date format as (yyyy-MM-dd&#39;T&#39;HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
      * 
      */
-    private final @Nullable String endDate;
+    private @Nullable String endDate;
     /**
      * @return This parameter takes a date format as (yyyy-MM-dd&#39;T&#39;HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
      * 
      */
-    private final @Nullable String startDate;
+    private @Nullable String startDate;
     /**
      * @return This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private MaintenanceTime(
-        @CustomType.Parameter("endDate") @Nullable String endDate,
-        @CustomType.Parameter("startDate") @Nullable String startDate,
-        @CustomType.Parameter("type") String type) {
-        this.endDate = endDate;
-        this.startDate = startDate;
-        this.type = type;
-    }
-
+    private MaintenanceTime() {}
     /**
      * @return This parameter takes a date format as (yyyy-MM-dd&#39;T&#39;HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
      * 
@@ -66,16 +57,12 @@ public final class MaintenanceTime {
     public static Builder builder(MaintenanceTime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String endDate;
         private @Nullable String startDate;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceTime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endDate = defaults.endDate;
@@ -83,19 +70,27 @@ public final class MaintenanceTime {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder endDate(@Nullable String endDate) {
             this.endDate = endDate;
             return this;
         }
+        @CustomType.Setter
         public Builder startDate(@Nullable String startDate) {
             this.startDate = startDate;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public MaintenanceTime build() {
-            return new MaintenanceTime(endDate, startDate, type);
+        }
+        public MaintenanceTime build() {
+            final var o = new MaintenanceTime();
+            o.endDate = endDate;
+            o.startDate = startDate;
+            o.type = type;
+            return o;
         }
     }
 }

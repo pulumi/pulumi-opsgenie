@@ -15,21 +15,14 @@ public final class TeamMember {
      * @return The UUID for the member to add to this Team.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
      * 
      */
-    private final @Nullable String role;
+    private @Nullable String role;
 
-    @CustomType.Constructor
-    private TeamMember(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("role") @Nullable String role) {
-        this.id = id;
-        this.role = role;
-    }
-
+    private TeamMember() {}
     /**
      * @return The UUID for the member to add to this Team.
      * 
@@ -52,30 +45,32 @@ public final class TeamMember {
     public static Builder builder(TeamMember defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String role;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TeamMember defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.role = defaults.role;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder role(@Nullable String role) {
             this.role = role;
             return this;
-        }        public TeamMember build() {
-            return new TeamMember(id, role);
+        }
+        public TeamMember build() {
+            final var o = new TeamMember();
+            o.id = id;
+            o.role = role;
+            return o;
         }
     }
 }

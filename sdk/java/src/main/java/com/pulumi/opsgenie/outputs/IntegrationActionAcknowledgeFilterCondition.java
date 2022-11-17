@@ -13,33 +13,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IntegrationActionAcknowledgeFilterCondition {
-    private final @Nullable String expectedValue;
-    private final String field;
-    private final @Nullable String key;
-    private final @Nullable Boolean not;
-    private final String operation;
+    private @Nullable String expectedValue;
+    private String field;
+    private @Nullable String key;
+    private @Nullable Boolean not;
+    private String operation;
     /**
      * @return Integer value that defines in which order the action will be performed. Default: `1`.
      * 
      */
-    private final @Nullable Integer order;
+    private @Nullable Integer order;
 
-    @CustomType.Constructor
-    private IntegrationActionAcknowledgeFilterCondition(
-        @CustomType.Parameter("expectedValue") @Nullable String expectedValue,
-        @CustomType.Parameter("field") String field,
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("not") @Nullable Boolean not,
-        @CustomType.Parameter("operation") String operation,
-        @CustomType.Parameter("order") @Nullable Integer order) {
-        this.expectedValue = expectedValue;
-        this.field = field;
-        this.key = key;
-        this.not = not;
-        this.operation = operation;
-        this.order = order;
-    }
-
+    private IntegrationActionAcknowledgeFilterCondition() {}
     public Optional<String> expectedValue() {
         return Optional.ofNullable(this.expectedValue);
     }
@@ -70,7 +55,7 @@ public final class IntegrationActionAcknowledgeFilterCondition {
     public static Builder builder(IntegrationActionAcknowledgeFilterCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String expectedValue;
         private String field;
@@ -78,11 +63,7 @@ public final class IntegrationActionAcknowledgeFilterCondition {
         private @Nullable Boolean not;
         private String operation;
         private @Nullable Integer order;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationActionAcknowledgeFilterCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expectedValue = defaults.expectedValue;
@@ -93,31 +74,45 @@ public final class IntegrationActionAcknowledgeFilterCondition {
     	      this.order = defaults.order;
         }
 
+        @CustomType.Setter
         public Builder expectedValue(@Nullable String expectedValue) {
             this.expectedValue = expectedValue;
             return this;
         }
+        @CustomType.Setter
         public Builder field(String field) {
             this.field = Objects.requireNonNull(field);
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder not(@Nullable Boolean not) {
             this.not = not;
             return this;
         }
+        @CustomType.Setter
         public Builder operation(String operation) {
             this.operation = Objects.requireNonNull(operation);
             return this;
         }
+        @CustomType.Setter
         public Builder order(@Nullable Integer order) {
             this.order = order;
             return this;
-        }        public IntegrationActionAcknowledgeFilterCondition build() {
-            return new IntegrationActionAcknowledgeFilterCondition(expectedValue, field, key, not, operation, order);
+        }
+        public IntegrationActionAcknowledgeFilterCondition build() {
+            final var o = new IntegrationActionAcknowledgeFilterCondition();
+            o.expectedValue = expectedValue;
+            o.field = field;
+            o.key = key;
+            o.not = not;
+            o.operation = operation;
+            o.order = order;
+            return o;
         }
     }
 }

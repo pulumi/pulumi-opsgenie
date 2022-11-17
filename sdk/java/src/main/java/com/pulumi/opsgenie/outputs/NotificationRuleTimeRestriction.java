@@ -12,21 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NotificationRuleTimeRestriction {
-    private final @Nullable List<NotificationRuleTimeRestrictionRestriction> restrictions;
+    private @Nullable List<NotificationRuleTimeRestrictionRestriction> restrictions;
     /**
      * @return Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private NotificationRuleTimeRestriction(
-        @CustomType.Parameter("restrictions") @Nullable List<NotificationRuleTimeRestrictionRestriction> restrictions,
-        @CustomType.Parameter("type") String type) {
-        this.restrictions = restrictions;
-        this.type = type;
-    }
-
+    private NotificationRuleTimeRestriction() {}
     public List<NotificationRuleTimeRestrictionRestriction> restrictions() {
         return this.restrictions == null ? List.of() : this.restrictions;
     }
@@ -45,21 +38,18 @@ public final class NotificationRuleTimeRestriction {
     public static Builder builder(NotificationRuleTimeRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<NotificationRuleTimeRestrictionRestriction> restrictions;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationRuleTimeRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.restrictions = defaults.restrictions;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder restrictions(@Nullable List<NotificationRuleTimeRestrictionRestriction> restrictions) {
             this.restrictions = restrictions;
             return this;
@@ -67,11 +57,16 @@ public final class NotificationRuleTimeRestriction {
         public Builder restrictions(NotificationRuleTimeRestrictionRestriction... restrictions) {
             return restrictions(List.of(restrictions));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public NotificationRuleTimeRestriction build() {
-            return new NotificationRuleTimeRestriction(restrictions, type);
+        }
+        public NotificationRuleTimeRestriction build() {
+            final var o = new NotificationRuleTimeRestriction();
+            o.restrictions = restrictions;
+            o.type = type;
+            return o;
         }
     }
 }
