@@ -21,35 +21,24 @@ public final class IntegrationActionIgnore {
      * * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
      * 
      */
-    private final @Nullable List<IntegrationActionIgnoreFilter> filters;
+    private @Nullable List<IntegrationActionIgnoreFilter> filters;
     /**
      * @return Name of the integration action.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Integer value that defines in which order the action will be performed. Default: `1`.
      * 
      */
-    private final @Nullable Integer order;
+    private @Nullable Integer order;
     /**
      * @return The responder type - can be `escalation`, `team` or `user`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private IntegrationActionIgnore(
-        @CustomType.Parameter("filters") @Nullable List<IntegrationActionIgnoreFilter> filters,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("order") @Nullable Integer order,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.filters = filters;
-        this.name = name;
-        this.order = order;
-        this.type = type;
-    }
-
+    private IntegrationActionIgnore() {}
     /**
      * @return Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
      * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -89,17 +78,13 @@ public final class IntegrationActionIgnore {
     public static Builder builder(IntegrationActionIgnore defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<IntegrationActionIgnoreFilter> filters;
         private String name;
         private @Nullable Integer order;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationActionIgnore defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
@@ -108,6 +93,7 @@ public final class IntegrationActionIgnore {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder filters(@Nullable List<IntegrationActionIgnoreFilter> filters) {
             this.filters = filters;
             return this;
@@ -115,19 +101,28 @@ public final class IntegrationActionIgnore {
         public Builder filters(IntegrationActionIgnoreFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder order(@Nullable Integer order) {
             this.order = order;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public IntegrationActionIgnore build() {
-            return new IntegrationActionIgnore(filters, name, order, type);
+        }
+        public IntegrationActionIgnore build() {
+            final var o = new IntegrationActionIgnore();
+            o.filters = filters;
+            o.name = name;
+            o.order = order;
+            o.type = type;
+            return o;
         }
     }
 }

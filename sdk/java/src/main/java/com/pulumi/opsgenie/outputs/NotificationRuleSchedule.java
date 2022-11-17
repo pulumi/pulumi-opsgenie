@@ -13,21 +13,14 @@ public final class NotificationRuleSchedule {
      * @return Name of the notification policy
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private NotificationRuleSchedule(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.name = name;
-        this.type = type;
-    }
-
+    private NotificationRuleSchedule() {}
     /**
      * @return Name of the notification policy
      * 
@@ -50,30 +43,32 @@ public final class NotificationRuleSchedule {
     public static Builder builder(NotificationRuleSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationRuleSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public NotificationRuleSchedule build() {
-            return new NotificationRuleSchedule(name, type);
+        }
+        public NotificationRuleSchedule build() {
+            final var o = new NotificationRuleSchedule();
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

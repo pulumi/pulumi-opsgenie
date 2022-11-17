@@ -14,49 +14,34 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
      * @return Ending day of restriction (eg. `wednesday`)
      * 
      */
-    private final String endDay;
+    private String endDay;
     /**
      * @return Ending hour of restriction.
      * 
      */
-    private final Integer endHour;
+    private Integer endHour;
     /**
      * @return Ending minute of restriction on defined `end_hour`
      * 
      */
-    private final Integer endMin;
+    private Integer endMin;
     /**
      * @return Starting day of restriction (eg. `monday`)
      * 
      */
-    private final String startDay;
+    private String startDay;
     /**
      * @return Starting hour of restriction.
      * 
      */
-    private final Integer startHour;
+    private Integer startHour;
     /**
      * @return Staring minute of restriction on defined `start_hour`
      * 
      */
-    private final Integer startMin;
+    private Integer startMin;
 
-    @CustomType.Constructor
-    private NotificationPolicyTimeRestrictionRestrictionList(
-        @CustomType.Parameter("endDay") String endDay,
-        @CustomType.Parameter("endHour") Integer endHour,
-        @CustomType.Parameter("endMin") Integer endMin,
-        @CustomType.Parameter("startDay") String startDay,
-        @CustomType.Parameter("startHour") Integer startHour,
-        @CustomType.Parameter("startMin") Integer startMin) {
-        this.endDay = endDay;
-        this.endHour = endHour;
-        this.endMin = endMin;
-        this.startDay = startDay;
-        this.startHour = startHour;
-        this.startMin = startMin;
-    }
-
+    private NotificationPolicyTimeRestrictionRestrictionList() {}
     /**
      * @return Ending day of restriction (eg. `wednesday`)
      * 
@@ -107,7 +92,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
     public static Builder builder(NotificationPolicyTimeRestrictionRestrictionList defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endDay;
         private Integer endHour;
@@ -115,11 +100,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
         private String startDay;
         private Integer startHour;
         private Integer startMin;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationPolicyTimeRestrictionRestrictionList defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endDay = defaults.endDay;
@@ -130,31 +111,45 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
     	      this.startMin = defaults.startMin;
         }
 
+        @CustomType.Setter
         public Builder endDay(String endDay) {
             this.endDay = Objects.requireNonNull(endDay);
             return this;
         }
+        @CustomType.Setter
         public Builder endHour(Integer endHour) {
             this.endHour = Objects.requireNonNull(endHour);
             return this;
         }
+        @CustomType.Setter
         public Builder endMin(Integer endMin) {
             this.endMin = Objects.requireNonNull(endMin);
             return this;
         }
+        @CustomType.Setter
         public Builder startDay(String startDay) {
             this.startDay = Objects.requireNonNull(startDay);
             return this;
         }
+        @CustomType.Setter
         public Builder startHour(Integer startHour) {
             this.startHour = Objects.requireNonNull(startHour);
             return this;
         }
+        @CustomType.Setter
         public Builder startMin(Integer startMin) {
             this.startMin = Objects.requireNonNull(startMin);
             return this;
-        }        public NotificationPolicyTimeRestrictionRestrictionList build() {
-            return new NotificationPolicyTimeRestrictionRestrictionList(endDay, endHour, endMin, startDay, startHour, startMin);
+        }
+        public NotificationPolicyTimeRestrictionRestrictionList build() {
+            final var o = new NotificationPolicyTimeRestrictionRestrictionList();
+            o.endDay = endDay;
+            o.endHour = endHour;
+            o.endMin = endMin;
+            o.startDay = startDay;
+            o.startHour = startHour;
+            o.startMin = startMin;
+            return o;
         }
     }
 }

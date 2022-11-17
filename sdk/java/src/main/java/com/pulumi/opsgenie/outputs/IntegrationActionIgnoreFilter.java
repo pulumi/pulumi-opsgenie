@@ -12,21 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IntegrationActionIgnoreFilter {
-    private final @Nullable List<IntegrationActionIgnoreFilterCondition> conditions;
+    private @Nullable List<IntegrationActionIgnoreFilterCondition> conditions;
     /**
      * @return The responder type - can be `escalation`, `team` or `user`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private IntegrationActionIgnoreFilter(
-        @CustomType.Parameter("conditions") @Nullable List<IntegrationActionIgnoreFilterCondition> conditions,
-        @CustomType.Parameter("type") String type) {
-        this.conditions = conditions;
-        this.type = type;
-    }
-
+    private IntegrationActionIgnoreFilter() {}
     public List<IntegrationActionIgnoreFilterCondition> conditions() {
         return this.conditions == null ? List.of() : this.conditions;
     }
@@ -45,21 +38,18 @@ public final class IntegrationActionIgnoreFilter {
     public static Builder builder(IntegrationActionIgnoreFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<IntegrationActionIgnoreFilterCondition> conditions;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationActionIgnoreFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditions = defaults.conditions;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder conditions(@Nullable List<IntegrationActionIgnoreFilterCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -67,11 +57,16 @@ public final class IntegrationActionIgnoreFilter {
         public Builder conditions(IntegrationActionIgnoreFilterCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public IntegrationActionIgnoreFilter build() {
-            return new IntegrationActionIgnoreFilter(conditions, type);
+        }
+        public IntegrationActionIgnoreFilter build() {
+            final var o = new IntegrationActionIgnoreFilter();
+            o.conditions = conditions;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -15,45 +15,30 @@ public final class GetUserResult {
      * @return The Full Name of the User.
      * 
      */
-    private final @Nullable String fullName;
+    private @Nullable String fullName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
      * 
      */
-    private final @Nullable String locale;
+    private @Nullable String locale;
     /**
      * @return The Role assigned to the User. Either a built-in such as &#39;Owner&#39;, &#39;Admin&#39; or &#39;User&#39; - or the name of a custom role.
      * 
      */
-    private final @Nullable String role;
+    private @Nullable String role;
     /**
      * @return Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
      * 
      */
-    private final @Nullable String timezone;
-    private final String username;
+    private @Nullable String timezone;
+    private String username;
 
-    @CustomType.Constructor
-    private GetUserResult(
-        @CustomType.Parameter("fullName") @Nullable String fullName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("locale") @Nullable String locale,
-        @CustomType.Parameter("role") @Nullable String role,
-        @CustomType.Parameter("timezone") @Nullable String timezone,
-        @CustomType.Parameter("username") String username) {
-        this.fullName = fullName;
-        this.id = id;
-        this.locale = locale;
-        this.role = role;
-        this.timezone = timezone;
-        this.username = username;
-    }
-
+    private GetUserResult() {}
     /**
      * @return The Full Name of the User.
      * 
@@ -100,7 +85,7 @@ public final class GetUserResult {
     public static Builder builder(GetUserResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String fullName;
         private String id;
@@ -108,11 +93,7 @@ public final class GetUserResult {
         private @Nullable String role;
         private @Nullable String timezone;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fullName = defaults.fullName;
@@ -123,31 +104,45 @@ public final class GetUserResult {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder fullName(@Nullable String fullName) {
             this.fullName = fullName;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder locale(@Nullable String locale) {
             this.locale = locale;
             return this;
         }
+        @CustomType.Setter
         public Builder role(@Nullable String role) {
             this.role = role;
             return this;
         }
+        @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
             this.timezone = timezone;
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GetUserResult build() {
-            return new GetUserResult(fullName, id, locale, role, timezone, username);
+        }
+        public GetUserResult build() {
+            final var o = new GetUserResult();
+            o.fullName = fullName;
+            o.id = id;
+            o.locale = locale;
+            o.role = role;
+            o.timezone = timezone;
+            o.username = username;
+            return o;
         }
     }
 }

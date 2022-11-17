@@ -15,17 +15,10 @@ public final class GetTeamMember {
      * @return The ID of the Opsgenie Team.
      * 
      */
-    private final @Nullable String id;
-    private final @Nullable String role;
+    private @Nullable String id;
+    private @Nullable String role;
 
-    @CustomType.Constructor
-    private GetTeamMember(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("role") @Nullable String role) {
-        this.id = id;
-        this.role = role;
-    }
-
+    private GetTeamMember() {}
     /**
      * @return The ID of the Opsgenie Team.
      * 
@@ -44,30 +37,32 @@ public final class GetTeamMember {
     public static Builder builder(GetTeamMember defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String role;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTeamMember defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.role = defaults.role;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder role(@Nullable String role) {
             this.role = role;
             return this;
-        }        public GetTeamMember build() {
-            return new GetTeamMember(id, role);
+        }
+        public GetTeamMember build() {
+            final var o = new GetTeamMember();
+            o.id = id;
+            o.role = role;
+            return o;
         }
     }
 }

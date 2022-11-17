@@ -17,21 +17,14 @@ public final class MaintenanceRule {
      * @return This field represents the entity that maintenance will be applied. Entity field takes two mandatory fields as id and type.
      * 
      */
-    private final List<MaintenanceRuleEntity> entities;
+    private List<MaintenanceRuleEntity> entities;
     /**
      * @return State of rule that will be defined in maintenance and can take either enabled or disabled for policy type rules. This field has to be disabled for integration type entity rules.
      * 
      */
-    private final @Nullable String state;
+    private @Nullable String state;
 
-    @CustomType.Constructor
-    private MaintenanceRule(
-        @CustomType.Parameter("entities") List<MaintenanceRuleEntity> entities,
-        @CustomType.Parameter("state") @Nullable String state) {
-        this.entities = entities;
-        this.state = state;
-    }
-
+    private MaintenanceRule() {}
     /**
      * @return This field represents the entity that maintenance will be applied. Entity field takes two mandatory fields as id and type.
      * 
@@ -54,21 +47,18 @@ public final class MaintenanceRule {
     public static Builder builder(MaintenanceRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<MaintenanceRuleEntity> entities;
         private @Nullable String state;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MaintenanceRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.entities = defaults.entities;
     	      this.state = defaults.state;
         }
 
+        @CustomType.Setter
         public Builder entities(List<MaintenanceRuleEntity> entities) {
             this.entities = Objects.requireNonNull(entities);
             return this;
@@ -76,11 +66,16 @@ public final class MaintenanceRule {
         public Builder entities(MaintenanceRuleEntity... entities) {
             return entities(List.of(entities));
         }
+        @CustomType.Setter
         public Builder state(@Nullable String state) {
             this.state = state;
             return this;
-        }        public MaintenanceRule build() {
-            return new MaintenanceRule(entities, state);
+        }
+        public MaintenanceRule build() {
+            final var o = new MaintenanceRule();
+            o.entities = entities;
+            o.state = state;
+            return o;
         }
     }
 }

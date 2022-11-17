@@ -18,45 +18,30 @@ public final class GetEscalationResult {
      * @return Escalation Description
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return If owner team exist the id of the team is exported
      * 
      */
-    private final @Nullable String ownerTeamId;
+    private @Nullable String ownerTeamId;
     /**
      * @return Escalation repeat preferences
      * 
      */
-    private final @Nullable List<GetEscalationRepeat> repeats;
+    private @Nullable List<GetEscalationRepeat> repeats;
     /**
      * @return Escalation rules
      * 
      */
-    private final @Nullable List<GetEscalationRule> rules;
+    private @Nullable List<GetEscalationRule> rules;
 
-    @CustomType.Constructor
-    private GetEscalationResult(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("ownerTeamId") @Nullable String ownerTeamId,
-        @CustomType.Parameter("repeats") @Nullable List<GetEscalationRepeat> repeats,
-        @CustomType.Parameter("rules") @Nullable List<GetEscalationRule> rules) {
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.ownerTeamId = ownerTeamId;
-        this.repeats = repeats;
-        this.rules = rules;
-    }
-
+    private GetEscalationResult() {}
     /**
      * @return Escalation Description
      * 
@@ -103,7 +88,7 @@ public final class GetEscalationResult {
     public static Builder builder(GetEscalationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private String id;
@@ -111,11 +96,7 @@ public final class GetEscalationResult {
         private @Nullable String ownerTeamId;
         private @Nullable List<GetEscalationRepeat> repeats;
         private @Nullable List<GetEscalationRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEscalationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -126,22 +107,27 @@ public final class GetEscalationResult {
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerTeamId(@Nullable String ownerTeamId) {
             this.ownerTeamId = ownerTeamId;
             return this;
         }
+        @CustomType.Setter
         public Builder repeats(@Nullable List<GetEscalationRepeat> repeats) {
             this.repeats = repeats;
             return this;
@@ -149,14 +135,23 @@ public final class GetEscalationResult {
         public Builder repeats(GetEscalationRepeat... repeats) {
             return repeats(List.of(repeats));
         }
+        @CustomType.Setter
         public Builder rules(@Nullable List<GetEscalationRule> rules) {
             this.rules = rules;
             return this;
         }
         public Builder rules(GetEscalationRule... rules) {
             return rules(List.of(rules));
-        }        public GetEscalationResult build() {
-            return new GetEscalationResult(description, id, name, ownerTeamId, repeats, rules);
+        }
+        public GetEscalationResult build() {
+            final var o = new GetEscalationResult();
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.ownerTeamId = ownerTeamId;
+            o.repeats = repeats;
+            o.rules = rules;
+            return o;
         }
     }
 }

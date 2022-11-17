@@ -17,28 +17,19 @@ public final class NotificationPolicyTimeRestriction {
      * @return A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
      * 
      */
-    private final @Nullable List<NotificationPolicyTimeRestrictionRestriction> restriction;
+    private @Nullable List<NotificationPolicyTimeRestrictionRestriction> restriction;
     /**
      * @return List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      * 
      */
-    private final @Nullable List<NotificationPolicyTimeRestrictionRestrictionList> restrictionList;
+    private @Nullable List<NotificationPolicyTimeRestrictionRestrictionList> restrictionList;
     /**
      * @return Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private NotificationPolicyTimeRestriction(
-        @CustomType.Parameter("restriction") @Nullable List<NotificationPolicyTimeRestrictionRestriction> restriction,
-        @CustomType.Parameter("restrictionList") @Nullable List<NotificationPolicyTimeRestrictionRestrictionList> restrictionList,
-        @CustomType.Parameter("type") String type) {
-        this.restriction = restriction;
-        this.restrictionList = restrictionList;
-        this.type = type;
-    }
-
+    private NotificationPolicyTimeRestriction() {}
     /**
      * @return A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
      * 
@@ -68,16 +59,12 @@ public final class NotificationPolicyTimeRestriction {
     public static Builder builder(NotificationPolicyTimeRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<NotificationPolicyTimeRestrictionRestriction> restriction;
         private @Nullable List<NotificationPolicyTimeRestrictionRestrictionList> restrictionList;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NotificationPolicyTimeRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.restriction = defaults.restriction;
@@ -85,6 +72,7 @@ public final class NotificationPolicyTimeRestriction {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder restriction(@Nullable List<NotificationPolicyTimeRestrictionRestriction> restriction) {
             this.restriction = restriction;
             return this;
@@ -92,6 +80,7 @@ public final class NotificationPolicyTimeRestriction {
         public Builder restriction(NotificationPolicyTimeRestrictionRestriction... restriction) {
             return restriction(List.of(restriction));
         }
+        @CustomType.Setter
         public Builder restrictionList(@Nullable List<NotificationPolicyTimeRestrictionRestrictionList> restrictionList) {
             this.restrictionList = restrictionList;
             return this;
@@ -99,11 +88,17 @@ public final class NotificationPolicyTimeRestriction {
         public Builder restrictionList(NotificationPolicyTimeRestrictionRestrictionList... restrictionList) {
             return restrictionList(List.of(restrictionList));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public NotificationPolicyTimeRestriction build() {
-            return new NotificationPolicyTimeRestriction(restriction, restrictionList, type);
+        }
+        public NotificationPolicyTimeRestriction build() {
+            final var o = new NotificationPolicyTimeRestriction();
+            o.restriction = restriction;
+            o.restrictionList = restrictionList;
+            o.type = type;
+            return o;
         }
     }
 }
