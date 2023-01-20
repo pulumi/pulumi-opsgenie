@@ -37,8 +37,8 @@ import (
 //					pulumi.String("opsgenie"),
 //				},
 //				Timezone: pulumi.String("America/New_York"),
-//				UserAddresses: UserUserAddressArray{
-//					&UserUserAddressArgs{
+//				UserAddresses: opsgenie.UserUserAddressArray{
+//					&opsgenie.UserUserAddressArgs{
 //						City:    pulumi.String("City"),
 //						Country: pulumi.String("Country"),
 //						Line:    pulumi.String("Line"),

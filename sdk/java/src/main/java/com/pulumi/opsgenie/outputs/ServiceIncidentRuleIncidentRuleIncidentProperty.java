@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
     /**
-     * @return Description that is generally used to provide a detailed information about the alert.
+     * @return Description field of the incident rule.
      * 
      */
     private @Nullable String description;
@@ -25,7 +25,7 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
      */
     private @Nullable Map<String,String> details;
     /**
-     * @return Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * @return Message of the related incident rule.
      * 
      */
     private String message;
@@ -47,7 +47,7 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
 
     private ServiceIncidentRuleIncidentRuleIncidentProperty() {}
     /**
-     * @return Description that is generally used to provide a detailed information about the alert.
+     * @return Description field of the incident rule.
      * 
      */
     public Optional<String> description() {
@@ -61,7 +61,7 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
         return this.details == null ? Map.of() : this.details;
     }
     /**
-     * @return Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * @return Message of the related incident rule.
      * 
      */
     public String message() {

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface AlertPolicyFilter {
     /**
@@ -10,7 +11,7 @@ export interface AlertPolicyFilter {
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.AlertPolicyFilterCondition>[]>;
     /**
-     * Type of responder. Acceptable values are: `user` or `team`
+     * A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      */
     type?: pulumi.Input<string>;
 }
@@ -21,7 +22,7 @@ export interface AlertPolicyFilterCondition {
      */
     expectedValue?: pulumi.Input<string>;
     /**
-     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      */
     field: pulumi.Input<string>;
     /**
@@ -71,7 +72,7 @@ export interface AlertPolicyTimeRestriction {
      */
     restrictionList?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestrictionRestrictionList>[]>;
     /**
-     * Type of responder. Acceptable values are: `user` or `team`
+     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      */
     type: pulumi.Input<string>;
 }
@@ -101,7 +102,7 @@ export interface AlertPolicyTimeRestrictionRestrictionList {
      */
     endDay: pulumi.Input<string>;
     /**
-     * Ending hour of restriction.
+     * Ending hour of restriction on defined `endDay`
      */
     endHour: pulumi.Input<number>;
     /**
@@ -113,7 +114,7 @@ export interface AlertPolicyTimeRestrictionRestrictionList {
      */
     startDay: pulumi.Input<string>;
     /**
-     * Starting hour of restriction.
+     * Starting hour of restriction on defined `startDay`
      */
     startHour: pulumi.Input<number>;
     /**
@@ -610,7 +611,7 @@ export interface MaintenanceTime {
 
 export interface NotificationPolicyAutoCloseAction {
     /**
-     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * Duration of this action. This is a block, structure is documented below.
      */
     durations: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoCloseActionDuration>[]>;
 }
@@ -628,7 +629,7 @@ export interface NotificationPolicyAutoCloseActionDuration {
 
 export interface NotificationPolicyAutoRestartAction {
     /**
-     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * Duration of this action. This is a block, structure is documented below.
      */
     durations: pulumi.Input<pulumi.Input<inputs.NotificationPolicyAutoRestartActionDuration>[]>;
     /**
@@ -650,7 +651,7 @@ export interface NotificationPolicyAutoRestartActionDuration {
 
 export interface NotificationPolicyDeDuplicationAction {
     /**
-     * - Count
+     * Count
      */
     count: pulumi.Input<number>;
     /**
@@ -658,7 +659,7 @@ export interface NotificationPolicyDeDuplicationAction {
      */
     deDuplicationActionType: pulumi.Input<string>;
     /**
-     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
      */
     durations?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDeDuplicationActionDuration>[]>;
 }
@@ -710,7 +711,7 @@ export interface NotificationPolicyFilter {
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyFilterCondition>[]>;
     /**
-     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+     * A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      */
     type?: pulumi.Input<string>;
 }
@@ -721,7 +722,7 @@ export interface NotificationPolicyFilterCondition {
      */
     expectedValue?: pulumi.Input<string>;
     /**
-     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      */
     field: pulumi.Input<string>;
     /**
@@ -782,7 +783,7 @@ export interface NotificationPolicyTimeRestrictionRestrictionList {
      */
     endDay: pulumi.Input<string>;
     /**
-     * Ending hour of restriction.
+     * Ending hour of restriction on defined `endDay`
      */
     endHour: pulumi.Input<number>;
     /**
@@ -794,7 +795,7 @@ export interface NotificationPolicyTimeRestrictionRestrictionList {
      */
     startDay: pulumi.Input<string>;
     /**
-     * Starting hour of restriction.
+     * Starting hour of restriction on defined `startDay`
      */
     startHour: pulumi.Input<number>;
     /**
@@ -843,7 +844,7 @@ export interface NotificationRuleCriteriaCondition {
 
 export interface NotificationRuleRepeat {
     /**
-     * Defined if this step is enabled. Default: `true`
+     * If policy should be enabled. Default: `true`
      */
     enabled?: pulumi.Input<boolean>;
     loopAfter: pulumi.Input<number>;
@@ -1012,7 +1013,7 @@ export interface ServiceIncidentRuleIncidentRuleCondition {
 
 export interface ServiceIncidentRuleIncidentRuleIncidentProperty {
     /**
-     * Description that is generally used to provide a detailed information about the alert.
+     * Description field of the incident rule.
      */
     description?: pulumi.Input<string>;
     /**
@@ -1020,7 +1021,7 @@ export interface ServiceIncidentRuleIncidentRuleIncidentProperty {
      */
     details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * Message of the related incident rule.
      */
     message: pulumi.Input<string>;
     /**

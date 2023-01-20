@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface AlertPolicyFilter {
     /**
@@ -10,7 +11,7 @@ export interface AlertPolicyFilter {
      */
     conditions?: outputs.AlertPolicyFilterCondition[];
     /**
-     * Type of responder. Acceptable values are: `user` or `team`
+     * A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      */
     type?: string;
 }
@@ -21,7 +22,7 @@ export interface AlertPolicyFilterCondition {
      */
     expectedValue?: string;
     /**
-     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      */
     field: string;
     /**
@@ -71,7 +72,7 @@ export interface AlertPolicyTimeRestriction {
      */
     restrictionList?: outputs.AlertPolicyTimeRestrictionRestrictionList[];
     /**
-     * Type of responder. Acceptable values are: `user` or `team`
+     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      */
     type: string;
 }
@@ -101,7 +102,7 @@ export interface AlertPolicyTimeRestrictionRestrictionList {
      */
     endDay: string;
     /**
-     * Ending hour of restriction.
+     * Ending hour of restriction on defined `endDay`
      */
     endHour: number;
     /**
@@ -113,7 +114,7 @@ export interface AlertPolicyTimeRestrictionRestrictionList {
      */
     startDay: string;
     /**
-     * Starting hour of restriction.
+     * Starting hour of restriction on defined `startDay`
      */
     startHour: number;
     /**
@@ -580,7 +581,7 @@ export interface MaintenanceTime {
 
 export interface NotificationPolicyAutoCloseAction {
     /**
-     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * Duration of this action. This is a block, structure is documented below.
      */
     durations: outputs.NotificationPolicyAutoCloseActionDuration[];
 }
@@ -598,7 +599,7 @@ export interface NotificationPolicyAutoCloseActionDuration {
 
 export interface NotificationPolicyAutoRestartAction {
     /**
-     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * Duration of this action. This is a block, structure is documented below.
      */
     durations: outputs.NotificationPolicyAutoRestartActionDuration[];
     /**
@@ -620,7 +621,7 @@ export interface NotificationPolicyAutoRestartActionDuration {
 
 export interface NotificationPolicyDeDuplicationAction {
     /**
-     * - Count
+     * Count
      */
     count: number;
     /**
@@ -628,7 +629,7 @@ export interface NotificationPolicyDeDuplicationAction {
      */
     deDuplicationActionType: string;
     /**
-     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
      */
     durations?: outputs.NotificationPolicyDeDuplicationActionDuration[];
 }
@@ -680,7 +681,7 @@ export interface NotificationPolicyFilter {
      */
     conditions?: outputs.NotificationPolicyFilterCondition[];
     /**
-     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+     * A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      */
     type?: string;
 }
@@ -691,7 +692,7 @@ export interface NotificationPolicyFilterCondition {
      */
     expectedValue?: string;
     /**
-     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      */
     field: string;
     /**
@@ -752,7 +753,7 @@ export interface NotificationPolicyTimeRestrictionRestrictionList {
      */
     endDay: string;
     /**
-     * Ending hour of restriction.
+     * Ending hour of restriction on defined `endDay`
      */
     endHour: number;
     /**
@@ -764,7 +765,7 @@ export interface NotificationPolicyTimeRestrictionRestrictionList {
      */
     startDay: string;
     /**
-     * Starting hour of restriction.
+     * Starting hour of restriction on defined `startDay`
      */
     startHour: number;
     /**
@@ -813,7 +814,7 @@ export interface NotificationRuleCriteriaCondition {
 
 export interface NotificationRuleRepeat {
     /**
-     * Defined if this step is enabled. Default: `true`
+     * If policy should be enabled. Default: `true`
      */
     enabled?: boolean;
     loopAfter: number;
@@ -982,7 +983,7 @@ export interface ServiceIncidentRuleIncidentRuleCondition {
 
 export interface ServiceIncidentRuleIncidentRuleIncidentProperty {
     /**
-     * Description that is generally used to provide a detailed information about the alert.
+     * Description field of the incident rule.
      */
     description?: string;
     /**
@@ -990,7 +991,7 @@ export interface ServiceIncidentRuleIncidentRuleIncidentProperty {
      */
     details?: {[key: string]: string};
     /**
-     * Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * Message of the related incident rule.
      */
     message: string;
     /**

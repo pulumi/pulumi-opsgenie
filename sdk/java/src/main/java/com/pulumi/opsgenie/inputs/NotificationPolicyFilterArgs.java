@@ -33,14 +33,14 @@ public final class NotificationPolicyFilterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+     * A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+     * @return A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      * 
      */
     public Optional<Output<String>> type() {
@@ -104,7 +104,7 @@ public final class NotificationPolicyFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+         * @param type A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class NotificationPolicyFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+         * @param type A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
          * 
          * @return builder
          * 

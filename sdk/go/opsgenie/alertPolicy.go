@@ -37,14 +37,14 @@ import (
 //				TeamId:            testTeam.ID(),
 //				PolicyDescription: pulumi.String("This is sample policy"),
 //				Message:           pulumi.String("{{message}}"),
-//				Filters: AlertPolicyFilterArray{
+//				Filters: opsgenie.AlertPolicyFilterArray{
 //					nil,
 //				},
-//				TimeRestrictions: AlertPolicyTimeRestrictionArray{
-//					&AlertPolicyTimeRestrictionArgs{
+//				TimeRestrictions: opsgenie.AlertPolicyTimeRestrictionArray{
+//					&opsgenie.AlertPolicyTimeRestrictionArgs{
 //						Type: pulumi.String("weekday-and-time-of-day"),
-//						RestrictionList: AlertPolicyTimeRestrictionRestrictionListArray{
-//							&AlertPolicyTimeRestrictionRestrictionListArgs{
+//						RestrictionList: opsgenie.AlertPolicyTimeRestrictionRestrictionListArray{
+//							&opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs{
 //								EndDay:    pulumi.String("monday"),
 //								EndHour:   pulumi.Int(7),
 //								EndMin:    pulumi.Int(0),
@@ -52,7 +52,7 @@ import (
 //								StartHour: pulumi.Int(21),
 //								StartMin:  pulumi.Int(0),
 //							},
-//							&AlertPolicyTimeRestrictionRestrictionListArgs{
+//							&opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs{
 //								EndDay:    pulumi.String("tuesday"),
 //								EndHour:   pulumi.Int(7),
 //								EndMin:    pulumi.Int(0),
@@ -117,7 +117,7 @@ type AlertPolicy struct {
 	IgnoreOriginalTags pulumi.BoolPtrOutput `pulumi:"ignoreOriginalTags"`
 	// Message of the alerts
 	Message pulumi.StringOutput `pulumi:"message"`
-	// Name of the responder
+	// Name of the alert policy
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrOutput `pulumi:"policyDescription"`
@@ -191,7 +191,7 @@ type alertPolicyState struct {
 	IgnoreOriginalTags *bool `pulumi:"ignoreOriginalTags"`
 	// Message of the alerts
 	Message *string `pulumi:"message"`
-	// Name of the responder
+	// Name of the alert policy
 	Name *string `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription *string `pulumi:"policyDescription"`
@@ -234,7 +234,7 @@ type AlertPolicyState struct {
 	IgnoreOriginalTags pulumi.BoolPtrInput
 	// Message of the alerts
 	Message pulumi.StringPtrInput
-	// Name of the responder
+	// Name of the alert policy
 	Name pulumi.StringPtrInput
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrInput
@@ -281,7 +281,7 @@ type alertPolicyArgs struct {
 	IgnoreOriginalTags *bool `pulumi:"ignoreOriginalTags"`
 	// Message of the alerts
 	Message string `pulumi:"message"`
-	// Name of the responder
+	// Name of the alert policy
 	Name *string `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription *string `pulumi:"policyDescription"`
@@ -325,7 +325,7 @@ type AlertPolicyArgs struct {
 	IgnoreOriginalTags pulumi.BoolPtrInput
 	// Message of the alerts
 	Message pulumi.StringInput
-	// Name of the responder
+	// Name of the alert policy
 	Name pulumi.StringPtrInput
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrInput
@@ -490,7 +490,7 @@ func (o AlertPolicyOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertPolicy) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
 }
 
-// Name of the responder
+// Name of the alert policy
 func (o AlertPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

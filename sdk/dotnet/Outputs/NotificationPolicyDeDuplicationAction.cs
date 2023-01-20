@@ -14,7 +14,7 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class NotificationPolicyDeDuplicationAction
     {
         /// <summary>
-        /// - Count
+        /// Count
         /// </summary>
         public readonly int Count;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string DeDuplicationActionType;
         /// <summary>
-        /// Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        /// Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationPolicyDeDuplicationActionDuration> Durations;
 

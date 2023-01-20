@@ -15,14 +15,14 @@ public final class NotificationPolicyAutoCloseActionArgs extends com.pulumi.reso
     public static final NotificationPolicyAutoCloseActionArgs Empty = new NotificationPolicyAutoCloseActionArgs();
 
     /**
-     * Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * Duration of this action. This is a block, structure is documented below.
      * 
      */
     @Import(name="durations", required=true)
     private Output<List<NotificationPolicyAutoCloseActionDurationArgs>> durations;
 
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action. This is a block, structure is documented below.
      * 
      */
     public Output<List<NotificationPolicyAutoCloseActionDurationArgs>> durations() {
@@ -54,7 +54,7 @@ public final class NotificationPolicyAutoCloseActionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param durations Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+         * @param durations Duration of this action. This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class NotificationPolicyAutoCloseActionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param durations Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+         * @param durations Duration of this action. This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class NotificationPolicyAutoCloseActionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param durations Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+         * @param durations Duration of this action. This is a block, structure is documented below.
          * 
          * @return builder
          * 

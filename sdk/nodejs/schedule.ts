@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * const test = new opsgenie.Schedule("test", {
  *     description: "schedule test",
  *     enabled: false,
- *     ownerTeamId: opsgenie_team_test.id,
+ *     ownerTeamId: opsgenie_team.test.id,
  *     timezone: "Europe/Rome",
  * });
  * ```

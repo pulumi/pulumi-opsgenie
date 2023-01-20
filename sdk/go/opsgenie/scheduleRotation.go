@@ -30,18 +30,18 @@ import (
 //			_, err := opsgenie.NewScheduleRotation(ctx, "test", &opsgenie.ScheduleRotationArgs{
 //				EndDate: pulumi.String("2019-06-20T17:30:00Z"),
 //				Length:  pulumi.Int(6),
-//				Participants: ScheduleRotationParticipantArray{
-//					&ScheduleRotationParticipantArgs{
+//				Participants: opsgenie.ScheduleRotationParticipantArray{
+//					&opsgenie.ScheduleRotationParticipantArgs{
 //						Id:   pulumi.Any(opsgenie_user.Test.Id),
 //						Type: pulumi.String("user"),
 //					},
 //				},
 //				ScheduleId: pulumi.Any(opsgenie_schedule.Test.Id),
 //				StartDate:  pulumi.String("2019-06-18T17:00:00Z"),
-//				TimeRestrictions: ScheduleRotationTimeRestrictionArray{
-//					&ScheduleRotationTimeRestrictionArgs{
-//						Restriction: ScheduleRotationTimeRestrictionRestrictionArray{
-//							&ScheduleRotationTimeRestrictionRestrictionArgs{
+//				TimeRestrictions: opsgenie.ScheduleRotationTimeRestrictionArray{
+//					&opsgenie.ScheduleRotationTimeRestrictionArgs{
+//						Restriction: opsgenie.ScheduleRotationTimeRestrictionRestrictionArray{
+//							&opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs{
 //								EndHour:   pulumi.Int(10),
 //								EndMin:    pulumi.Int(1),
 //								StartHour: pulumi.Int(1),

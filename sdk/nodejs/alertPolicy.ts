@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -135,7 +136,7 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     public readonly message!: pulumi.Output<string>;
     /**
-     * Name of the responder
+     * Name of the alert policy
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -284,7 +285,7 @@ export interface AlertPolicyState {
      */
     message?: pulumi.Input<string>;
     /**
-     * Name of the responder
+     * Name of the alert policy
      */
     name?: pulumi.Input<string>;
     /**
@@ -370,7 +371,7 @@ export interface AlertPolicyArgs {
      */
     message: pulumi.Input<string>;
     /**
-     * Name of the responder
+     * Name of the alert policy
      */
     name?: pulumi.Input<string>;
     /**

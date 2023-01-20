@@ -37,7 +37,7 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// Type of responder. Acceptable values are: `user` or `team`
+        /// Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

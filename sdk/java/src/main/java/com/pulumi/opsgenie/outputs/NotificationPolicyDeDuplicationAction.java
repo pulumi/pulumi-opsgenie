@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NotificationPolicyDeDuplicationAction {
     /**
-     * @return - Count
+     * @return Count
      * 
      */
     private Integer count;
@@ -24,14 +24,14 @@ public final class NotificationPolicyDeDuplicationAction {
      */
     private String deDuplicationActionType;
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action (only required for &#34;frequency-based&#34; de-duplication action). This is a block, structure is documented below.
      * 
      */
     private @Nullable List<NotificationPolicyDeDuplicationActionDuration> durations;
 
     private NotificationPolicyDeDuplicationAction() {}
     /**
-     * @return - Count
+     * @return Count
      * 
      */
     public Integer count() {
@@ -45,7 +45,7 @@ public final class NotificationPolicyDeDuplicationAction {
         return this.deDuplicationActionType;
     }
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action (only required for &#34;frequency-based&#34; de-duplication action). This is a block, structure is documented below.
      * 
      */
     public List<NotificationPolicyDeDuplicationActionDuration> durations() {

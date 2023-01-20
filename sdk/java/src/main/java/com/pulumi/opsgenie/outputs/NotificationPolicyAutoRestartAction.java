@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class NotificationPolicyAutoRestartAction {
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action. This is a block, structure is documented below.
      * 
      */
     private List<NotificationPolicyAutoRestartActionDuration> durations;
@@ -24,7 +24,7 @@ public final class NotificationPolicyAutoRestartAction {
 
     private NotificationPolicyAutoRestartAction() {}
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action. This is a block, structure is documented below.
      * 
      */
     public List<NotificationPolicyAutoRestartActionDuration> durations() {

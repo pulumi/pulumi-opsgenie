@@ -14,7 +14,7 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class ServiceIncidentRuleIncidentRuleIncidentProperty
     {
         /// <summary>
-        /// Description that is generally used to provide a detailed information about the alert.
+        /// Description field of the incident rule.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Details;
         /// <summary>
-        /// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        /// Message of the related incident rule.
         /// </summary>
         public readonly string Message;
         /// <summary>

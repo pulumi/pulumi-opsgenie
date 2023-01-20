@@ -25,7 +25,7 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// Type of responder. Acceptable values are: `user` or `team`
+        /// A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class NotificationPolicyAutoCloseAction {
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action. This is a block, structure is documented below.
      * 
      */
     private List<NotificationPolicyAutoCloseActionDuration> durations;
 
     private NotificationPolicyAutoCloseAction() {}
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action. This is a block, structure is documented below.
      * 
      */
     public List<NotificationPolicyAutoCloseActionDuration> durations() {

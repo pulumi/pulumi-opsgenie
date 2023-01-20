@@ -31,7 +31,7 @@ class NotificationRuleArgs:
         The set of arguments for constructing a NotificationRule resource.
         :param pulumi.Input[str] action_type: Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
         :param pulumi.Input[str] username: Username of user to which this notification rule belongs to.
-        :param pulumi.Input[bool] enabled: Defined if this step is enabled. Default: `true`
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_times: List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
         :param pulumi.Input[int] order: Order of the condition in conditions list
@@ -95,7 +95,7 @@ class NotificationRuleArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defined if this step is enabled. Default: `true`
+        If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -196,7 +196,7 @@ class _NotificationRuleState:
         """
         Input properties used for looking up and filtering NotificationRule resources.
         :param pulumi.Input[str] action_type: Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
-        :param pulumi.Input[bool] enabled: Defined if this step is enabled. Default: `true`
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_times: List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
         :param pulumi.Input[int] order: Order of the condition in conditions list
@@ -251,7 +251,7 @@ class _NotificationRuleState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defined if this step is enabled. Default: `true`
+        If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -403,7 +403,7 @@ class NotificationRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_type: Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
-        :param pulumi.Input[bool] enabled: Defined if this step is enabled. Default: `true`
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_times: List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
         :param pulumi.Input[int] order: Order of the condition in conditions list
@@ -531,7 +531,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_type: Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
-        :param pulumi.Input[bool] enabled: Defined if this step is enabled. Default: `true`
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_times: List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
         :param pulumi.Input[int] order: Order of the condition in conditions list
@@ -572,7 +572,7 @@ class NotificationRule(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Defined if this step is enabled. Default: `true`
+        If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 

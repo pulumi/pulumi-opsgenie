@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     enabled: false,
  *     interval: 10,
  *     intervalUnit: "minutes",
- *     ownerTeamId: opsgenie_team_test.id,
+ *     ownerTeamId: opsgenie_team.test.id,
  * });
  * ```
  *

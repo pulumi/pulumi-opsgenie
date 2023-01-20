@@ -17,14 +17,14 @@ public final class NotificationRuleRepeatArgs extends com.pulumi.resources.Resou
     public static final NotificationRuleRepeatArgs Empty = new NotificationRuleRepeatArgs();
 
     /**
-     * Defined if this step is enabled. Default: `true`
+     * If policy should be enabled. Default: `true`
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Defined if this step is enabled. Default: `true`
+     * @return If policy should be enabled. Default: `true`
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -64,7 +64,7 @@ public final class NotificationRuleRepeatArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enabled Defined if this step is enabled. Default: `true`
+         * @param enabled If policy should be enabled. Default: `true`
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class NotificationRuleRepeatArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enabled Defined if this step is enabled. Default: `true`
+         * @param enabled If policy should be enabled. Default: `true`
          * 
          * @return builder
          * 

@@ -16,7 +16,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
      */
     private String endDay;
     /**
-     * @return Ending hour of restriction.
+     * @return Ending hour of restriction on defined `end_day`
      * 
      */
     private Integer endHour;
@@ -31,7 +31,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
      */
     private String startDay;
     /**
-     * @return Starting hour of restriction.
+     * @return Starting hour of restriction on defined `start_day`
      * 
      */
     private Integer startHour;
@@ -50,7 +50,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
         return this.endDay;
     }
     /**
-     * @return Ending hour of restriction.
+     * @return Ending hour of restriction on defined `end_day`
      * 
      */
     public Integer endHour() {
@@ -71,7 +71,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
         return this.startDay;
     }
     /**
-     * @return Starting hour of restriction.
+     * @return Starting hour of restriction on defined `start_day`
      * 
      */
     public Integer startHour() {

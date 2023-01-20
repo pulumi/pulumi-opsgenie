@@ -42,10 +42,10 @@ import (
 //					pulumi.String("just-before"),
 //					pulumi.String("15-minutes-ago"),
 //				},
-//				Steps: NotificationRuleStepArray{
-//					&NotificationRuleStepArgs{
-//						Contacts: NotificationRuleStepContactArray{
-//							&NotificationRuleStepContactArgs{
+//				Steps: opsgenie.NotificationRuleStepArray{
+//					&opsgenie.NotificationRuleStepArgs{
+//						Contacts: opsgenie.NotificationRuleStepContactArray{
+//							&opsgenie.NotificationRuleStepContactArgs{
 //								Method: pulumi.String("email"),
 //								To:     pulumi.String("example@user.com"),
 //							},
@@ -77,7 +77,7 @@ type NotificationRule struct {
 	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType pulumi.StringOutput                 `pulumi:"actionType"`
 	Criterias  NotificationRuleCriteriaArrayOutput `pulumi:"criterias"`
-	// Defined if this step is enabled. Default: `true`
+	// If policy should be enabled. Default: `true`
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Name of the notification policy
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -132,7 +132,7 @@ type notificationRuleState struct {
 	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType *string                    `pulumi:"actionType"`
 	Criterias  []NotificationRuleCriteria `pulumi:"criterias"`
-	// Defined if this step is enabled. Default: `true`
+	// If policy should be enabled. Default: `true`
 	Enabled *bool `pulumi:"enabled"`
 	// Name of the notification policy
 	Name *string `pulumi:"name"`
@@ -153,7 +153,7 @@ type NotificationRuleState struct {
 	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType pulumi.StringPtrInput
 	Criterias  NotificationRuleCriteriaArrayInput
-	// Defined if this step is enabled. Default: `true`
+	// If policy should be enabled. Default: `true`
 	Enabled pulumi.BoolPtrInput
 	// Name of the notification policy
 	Name pulumi.StringPtrInput
@@ -178,7 +178,7 @@ type notificationRuleArgs struct {
 	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType string                     `pulumi:"actionType"`
 	Criterias  []NotificationRuleCriteria `pulumi:"criterias"`
-	// Defined if this step is enabled. Default: `true`
+	// If policy should be enabled. Default: `true`
 	Enabled *bool `pulumi:"enabled"`
 	// Name of the notification policy
 	Name *string `pulumi:"name"`
@@ -200,7 +200,7 @@ type NotificationRuleArgs struct {
 	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType pulumi.StringInput
 	Criterias  NotificationRuleCriteriaArrayInput
-	// Defined if this step is enabled. Default: `true`
+	// If policy should be enabled. Default: `true`
 	Enabled pulumi.BoolPtrInput
 	// Name of the notification policy
 	Name pulumi.StringPtrInput
@@ -313,7 +313,7 @@ func (o NotificationRuleOutput) Criterias() NotificationRuleCriteriaArrayOutput 
 	return o.ApplyT(func(v *NotificationRule) NotificationRuleCriteriaArrayOutput { return v.Criterias }).(NotificationRuleCriteriaArrayOutput)
 }
 
-// Defined if this step is enabled. Default: `true`
+// If policy should be enabled. Default: `true`
 func (o NotificationRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

@@ -30,14 +30,14 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
     }
 
     /**
-     * Ending hour of restriction.
+     * Ending hour of restriction on defined `end_day`
      * 
      */
     @Import(name="endHour", required=true)
     private Output<Integer> endHour;
 
     /**
-     * @return Ending hour of restriction.
+     * @return Ending hour of restriction on defined `end_day`
      * 
      */
     public Output<Integer> endHour() {
@@ -75,14 +75,14 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
     }
 
     /**
-     * Starting hour of restriction.
+     * Starting hour of restriction on defined `start_day`
      * 
      */
     @Import(name="startHour", required=true)
     private Output<Integer> startHour;
 
     /**
-     * @return Starting hour of restriction.
+     * @return Starting hour of restriction on defined `start_day`
      * 
      */
     public Output<Integer> startHour() {
@@ -155,7 +155,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param endHour Ending hour of restriction.
+         * @param endHour Ending hour of restriction on defined `end_day`
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param endHour Ending hour of restriction.
+         * @param endHour Ending hour of restriction on defined `end_day`
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param startHour Starting hour of restriction.
+         * @param startHour Starting hour of restriction on defined `start_day`
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param startHour Starting hour of restriction.
+         * @param startHour Starting hour of restriction on defined `start_day`
          * 
          * @return builder
          * 

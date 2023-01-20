@@ -24,7 +24,7 @@ public final class AlertPolicyTimeRestriction {
      */
     private @Nullable List<AlertPolicyTimeRestrictionRestrictionList> restrictionList;
     /**
-     * @return Type of responder. Acceptable values are: `user` or `team`
+     * @return Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      * 
      */
     private String type;
@@ -45,7 +45,7 @@ public final class AlertPolicyTimeRestriction {
         return this.restrictionList == null ? List.of() : this.restrictionList;
     }
     /**
-     * @return Type of responder. Acceptable values are: `user` or `team`
+     * @return Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      * 
      */
     public String type() {

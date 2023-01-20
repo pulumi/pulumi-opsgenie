@@ -13,7 +13,7 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class NotificationPolicyDeDuplicationActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - Count
+        /// Count
         /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Opsgenie.Inputs
         private InputList<Inputs.NotificationPolicyDeDuplicationActionDurationArgs>? _durations;
 
         /// <summary>
-        /// Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        /// Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.NotificationPolicyDeDuplicationActionDurationArgs> Durations
         {

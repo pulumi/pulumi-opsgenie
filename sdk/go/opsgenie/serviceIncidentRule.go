@@ -41,29 +41,29 @@ import (
 //			}
 //			_, err = opsgenie.NewServiceIncidentRule(ctx, "testServiceIncidentRule", &opsgenie.ServiceIncidentRuleArgs{
 //				ServiceId: testService.ID(),
-//				IncidentRules: ServiceIncidentRuleIncidentRuleArray{
-//					&ServiceIncidentRuleIncidentRuleArgs{
+//				IncidentRules: opsgenie.ServiceIncidentRuleIncidentRuleArray{
+//					&opsgenie.ServiceIncidentRuleIncidentRuleArgs{
 //						ConditionMatchType: pulumi.String("match-any-condition"),
-//						Conditions: ServiceIncidentRuleIncidentRuleConditionArray{
-//							&ServiceIncidentRuleIncidentRuleConditionArgs{
+//						Conditions: opsgenie.ServiceIncidentRuleIncidentRuleConditionArray{
+//							&opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs{
 //								Field:         pulumi.String("message"),
 //								Not:           pulumi.Bool(false),
 //								Operation:     pulumi.String("contains"),
 //								ExpectedValue: pulumi.String("expected1"),
 //							},
-//							&ServiceIncidentRuleIncidentRuleConditionArgs{
+//							&opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs{
 //								Field:         pulumi.String("message"),
 //								Not:           pulumi.Bool(false),
 //								Operation:     pulumi.String("contains"),
 //								ExpectedValue: pulumi.String("expected2"),
 //							},
 //						},
-//						IncidentProperties: ServiceIncidentRuleIncidentRuleIncidentPropertyArray{
-//							&ServiceIncidentRuleIncidentRuleIncidentPropertyArgs{
+//						IncidentProperties: opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArray{
+//							&opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs{
 //								Message:  pulumi.String("This is a test message"),
 //								Priority: pulumi.String("P3"),
-//								StakeholderProperties: ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArray{
-//									&ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs{
+//								StakeholderProperties: opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArray{
+//									&opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs{
 //										Message: pulumi.String("Message for stakeholders"),
 //										Enable:  pulumi.Bool(true),
 //									},

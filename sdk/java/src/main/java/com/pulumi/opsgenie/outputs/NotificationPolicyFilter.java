@@ -19,7 +19,7 @@ public final class NotificationPolicyFilter {
      */
     private @Nullable List<NotificationPolicyFilterCondition> conditions;
     /**
-     * @return Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+     * @return A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      * 
      */
     private @Nullable String type;
@@ -33,7 +33,7 @@ public final class NotificationPolicyFilter {
         return this.conditions == null ? List.of() : this.conditions;
     }
     /**
-     * @return Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+     * @return A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      * 
      */
     public Optional<String> type() {

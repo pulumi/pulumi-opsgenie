@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -18,10 +19,10 @@ import * as utilities from "./utilities";
  *     endDate: "2019-06-20T17:30:00Z",
  *     length: 6,
  *     participants: [{
- *         id: opsgenie_user_test.id,
+ *         id: opsgenie_user.test.id,
  *         type: "user",
  *     }],
- *     scheduleId: opsgenie_schedule_test.id,
+ *     scheduleId: opsgenie_schedule.test.id,
  *     startDate: "2019-06-18T17:00:00Z",
  *     timeRestrictions: [{
  *         restriction: [{

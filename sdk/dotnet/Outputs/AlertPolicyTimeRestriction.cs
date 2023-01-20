@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertPolicyTimeRestrictionRestrictionList> RestrictionList;
         /// <summary>
-        /// Type of responder. Acceptable values are: `user` or `team`
+        /// Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         /// </summary>
         public readonly string Type;
 

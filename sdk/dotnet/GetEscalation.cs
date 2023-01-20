@@ -36,7 +36,7 @@ namespace Pulumi.Opsgenie
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEscalationResult> InvokeAsync(GetEscalationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Manages an Escalation within Opsgenie.
@@ -63,7 +63,7 @@ namespace Pulumi.Opsgenie
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEscalationResult> Invoke(GetEscalationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationInvokeArgs(), options.WithDefaults());
     }
 
 

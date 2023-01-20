@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationPolicyFilterCondition> Conditions;
         /// <summary>
-        /// Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+        /// A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         /// </summary>
         public readonly string? Type;
 

@@ -44,12 +44,12 @@ import (
 //			}
 //			_, err = opsgenie.NewTeam(ctx, "test", &opsgenie.TeamArgs{
 //				Description: pulumi.String("This team deals with all the things"),
-//				Members: TeamMemberArray{
-//					&TeamMemberArgs{
+//				Members: opsgenie.TeamMemberArray{
+//					&opsgenie.TeamMemberArgs{
 //						Id:   first.ID(),
 //						Role: pulumi.String("admin"),
 //					},
-//					&TeamMemberArgs{
+//					&opsgenie.TeamMemberArgs{
 //						Id:   second.ID(),
 //						Role: pulumi.String("user"),
 //					},

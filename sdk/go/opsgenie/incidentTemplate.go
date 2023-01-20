@@ -42,8 +42,8 @@ import (
 //			_, err = opsgenie.NewIncidentTemplate(ctx, "testIncidentTemplate", &opsgenie.IncidentTemplateArgs{
 //				Message:  pulumi.String("Incident Message"),
 //				Priority: pulumi.String("P2"),
-//				StakeholderProperties: IncidentTemplateStakeholderPropertyArray{
-//					&IncidentTemplateStakeholderPropertyArgs{
+//				StakeholderProperties: opsgenie.IncidentTemplateStakeholderPropertyArray{
+//					&opsgenie.IncidentTemplateStakeholderPropertyArgs{
 //						Enable:      pulumi.Bool(true),
 //						Message:     pulumi.String("Stakeholder Message"),
 //						Description: pulumi.String("Stakeholder Description"),

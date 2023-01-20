@@ -33,7 +33,7 @@ namespace Pulumi.Opsgenie
     ///         Message = "{{message}}",
     ///         Filters = new[]
     ///         {
-    ///             ,
+    ///             null,
     ///         },
     ///         TimeRestrictions = new[]
     ///         {
@@ -158,7 +158,7 @@ namespace Pulumi.Opsgenie
         public Output<string> Message { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the responder
+        /// Name of the alert policy
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Opsgenie
         public Input<string> Message { get; set; } = null!;
 
         /// <summary>
-        /// Name of the responder
+        /// Name of the alert policy
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? Message { get; set; }
 
         /// <summary>
-        /// Name of the responder
+        /// Name of the alert policy
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

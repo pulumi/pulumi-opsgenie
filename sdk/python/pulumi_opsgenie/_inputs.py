@@ -91,7 +91,7 @@ class AlertPolicyFilterArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]] conditions: Conditions applied to filter. This is a block, structure is documented below.
-        :param pulumi.Input[str] type: Type of responder. Acceptable values are: `user` or `team`
+        :param pulumi.Input[str] type: A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -114,7 +114,7 @@ class AlertPolicyFilterArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of responder. Acceptable values are: `user` or `team`
+        A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
         return pulumi.get(self, "type")
 
@@ -133,7 +133,7 @@ class AlertPolicyFilterConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         :param pulumi.Input[str] expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param pulumi.Input[str] key: If `field` is set as extra-properties, key could be used for key-value pair
@@ -155,7 +155,7 @@ class AlertPolicyFilterConditionArgs:
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
         """
-        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         """
         return pulumi.get(self, "field")
 
@@ -300,7 +300,7 @@ class AlertPolicyTimeRestrictionArgs:
                  restriction: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]] = None,
                  restriction_list: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]] = None):
         """
-        :param pulumi.Input[str] type: Type of responder. Acceptable values are: `user` or `team`
+        :param pulumi.Input[str] type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]] restriction_list: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
@@ -314,7 +314,7 @@ class AlertPolicyTimeRestrictionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of responder. Acceptable values are: `user` or `team`
+        Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         """
         return pulumi.get(self, "type")
 
@@ -425,10 +425,10 @@ class AlertPolicyTimeRestrictionRestrictionListArgs:
                  start_min: pulumi.Input[int]):
         """
         :param pulumi.Input[str] end_day: Ending day of restriction (eg. `wednesday`)
-        :param pulumi.Input[int] end_hour: Ending hour of restriction.
+        :param pulumi.Input[int] end_hour: Ending hour of restriction on defined `end_day`
         :param pulumi.Input[int] end_min: Ending minute of restriction on defined `end_hour`
         :param pulumi.Input[str] start_day: Starting day of restriction (eg. `monday`)
-        :param pulumi.Input[int] start_hour: Starting hour of restriction.
+        :param pulumi.Input[int] start_hour: Starting hour of restriction on defined `start_day`
         :param pulumi.Input[int] start_min: Staring minute of restriction on defined `start_hour`
         """
         pulumi.set(__self__, "end_day", end_day)
@@ -454,7 +454,7 @@ class AlertPolicyTimeRestrictionRestrictionListArgs:
     @pulumi.getter(name="endHour")
     def end_hour(self) -> pulumi.Input[int]:
         """
-        Ending hour of restriction.
+        Ending hour of restriction on defined `end_day`
         """
         return pulumi.get(self, "end_hour")
 
@@ -490,7 +490,7 @@ class AlertPolicyTimeRestrictionRestrictionListArgs:
     @pulumi.getter(name="startHour")
     def start_hour(self) -> pulumi.Input[int]:
         """
-        Starting hour of restriction.
+        Starting hour of restriction on defined `start_day`
         """
         return pulumi.get(self, "start_hour")
 
@@ -2354,7 +2354,7 @@ class NotificationPolicyAutoCloseActionArgs:
     def __init__(__self__, *,
                  durations: pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionDurationArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionDurationArgs']]] durations: Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionDurationArgs']]] durations: Duration of this action. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "durations", durations)
 
@@ -2362,7 +2362,7 @@ class NotificationPolicyAutoCloseActionArgs:
     @pulumi.getter
     def durations(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionDurationArgs']]]:
         """
-        Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        Duration of this action. This is a block, structure is documented below.
         """
         return pulumi.get(self, "durations")
 
@@ -2415,7 +2415,7 @@ class NotificationPolicyAutoRestartActionArgs:
                  durations: pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionDurationArgs']]],
                  max_repeat_count: pulumi.Input[int]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionDurationArgs']]] durations: Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionDurationArgs']]] durations: Duration of this action. This is a block, structure is documented below.
         :param pulumi.Input[int] max_repeat_count: How many times to repeat. This is a integer attribute.
         """
         pulumi.set(__self__, "durations", durations)
@@ -2425,7 +2425,7 @@ class NotificationPolicyAutoRestartActionArgs:
     @pulumi.getter
     def durations(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionDurationArgs']]]:
         """
-        Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        Duration of this action. This is a block, structure is documented below.
         """
         return pulumi.get(self, "durations")
 
@@ -2491,9 +2491,9 @@ class NotificationPolicyDeDuplicationActionArgs:
                  de_duplication_action_type: pulumi.Input[str],
                  durations: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]] = None):
         """
-        :param pulumi.Input[int] count: - Count
+        :param pulumi.Input[int] count: Count
         :param pulumi.Input[str] de_duplication_action_type: Deduplication type. Possible values are: "value-based", "frequency-based"
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]] durations: Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]] durations: Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "de_duplication_action_type", de_duplication_action_type)
@@ -2504,7 +2504,7 @@ class NotificationPolicyDeDuplicationActionArgs:
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
         """
-        - Count
+        Count
         """
         return pulumi.get(self, "count")
 
@@ -2528,7 +2528,7 @@ class NotificationPolicyDeDuplicationActionArgs:
     @pulumi.getter
     def durations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]]:
         """
-        Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
         """
         return pulumi.get(self, "durations")
 
@@ -2690,7 +2690,7 @@ class NotificationPolicyFilterArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]] conditions: Conditions applied to filter. This is a block, structure is documented below.
-        :param pulumi.Input[str] type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+        :param pulumi.Input[str] type: A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -2713,7 +2713,7 @@ class NotificationPolicyFilterArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+        A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
         return pulumi.get(self, "type")
 
@@ -2732,7 +2732,7 @@ class NotificationPolicyFilterConditionArgs:
                  not_: Optional[pulumi.Input[bool]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         :param pulumi.Input[str] expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param pulumi.Input[str] key: If `field` is set as extra-properties, key could be used for key-value pair
@@ -2754,7 +2754,7 @@ class NotificationPolicyFilterConditionArgs:
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
         """
-        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         """
         return pulumi.get(self, "field")
 
@@ -2955,10 +2955,10 @@ class NotificationPolicyTimeRestrictionRestrictionListArgs:
                  start_min: pulumi.Input[int]):
         """
         :param pulumi.Input[str] end_day: Ending day of restriction (eg. `wednesday`)
-        :param pulumi.Input[int] end_hour: Ending hour of restriction.
+        :param pulumi.Input[int] end_hour: Ending hour of restriction on defined `end_day`
         :param pulumi.Input[int] end_min: Ending minute of restriction on defined `end_hour`
         :param pulumi.Input[str] start_day: Starting day of restriction (eg. `monday`)
-        :param pulumi.Input[int] start_hour: Starting hour of restriction.
+        :param pulumi.Input[int] start_hour: Starting hour of restriction on defined `start_day`
         :param pulumi.Input[int] start_min: Staring minute of restriction on defined `start_hour`
         """
         pulumi.set(__self__, "end_day", end_day)
@@ -2984,7 +2984,7 @@ class NotificationPolicyTimeRestrictionRestrictionListArgs:
     @pulumi.getter(name="endHour")
     def end_hour(self) -> pulumi.Input[int]:
         """
-        Ending hour of restriction.
+        Ending hour of restriction on defined `end_day`
         """
         return pulumi.get(self, "end_hour")
 
@@ -3020,7 +3020,7 @@ class NotificationPolicyTimeRestrictionRestrictionListArgs:
     @pulumi.getter(name="startHour")
     def start_hour(self) -> pulumi.Input[int]:
         """
-        Starting hour of restriction.
+        Starting hour of restriction on defined `start_day`
         """
         return pulumi.get(self, "start_hour")
 
@@ -3186,7 +3186,7 @@ class NotificationRuleRepeatArgs:
                  loop_after: pulumi.Input[int],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] enabled: Defined if this step is enabled. Default: `true`
+        :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         """
         pulumi.set(__self__, "loop_after", loop_after)
         if enabled is not None:
@@ -3205,7 +3205,7 @@ class NotificationRuleRepeatArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defined if this step is enabled. Default: `true`
+        If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -3848,10 +3848,10 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
                  details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        :param pulumi.Input[str] message: Message of the related incident rule.
         :param pulumi.Input[str] priority: Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
         :param pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs']]] stakeholder_properties: DEtails about stakeholders for this rule. This is a block, structure is documented below.
-        :param pulumi.Input[str] description: Description that is generally used to provide a detailed information about the alert.
+        :param pulumi.Input[str] description: Description field of the incident rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the alert.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the alert.
         """
@@ -3869,7 +3869,7 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
     @pulumi.getter
     def message(self) -> pulumi.Input[str]:
         """
-        Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        Message of the related incident rule.
         """
         return pulumi.get(self, "message")
 
@@ -3905,7 +3905,7 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description that is generally used to provide a detailed information about the alert.
+        Description field of the incident rule.
         """
         return pulumi.get(self, "description")
 

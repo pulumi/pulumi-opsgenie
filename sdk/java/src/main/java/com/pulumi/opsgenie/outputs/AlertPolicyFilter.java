@@ -19,7 +19,7 @@ public final class AlertPolicyFilter {
      */
     private @Nullable List<AlertPolicyFilterCondition> conditions;
     /**
-     * @return Type of responder. Acceptable values are: `user` or `team`
+     * @return A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      * 
      */
     private @Nullable String type;
@@ -33,7 +33,7 @@ public final class AlertPolicyFilter {
         return this.conditions == null ? List.of() : this.conditions;
     }
     /**
-     * @return Type of responder. Acceptable values are: `user` or `team`
+     * @return A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      * 
      */
     public Optional<String> type() {

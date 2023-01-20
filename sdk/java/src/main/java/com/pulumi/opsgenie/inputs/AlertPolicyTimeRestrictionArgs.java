@@ -49,14 +49,14 @@ public final class AlertPolicyTimeRestrictionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Type of responder. Acceptable values are: `user` or `team`
+     * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of responder. Acceptable values are: `user` or `team`
+     * @return Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      * 
      */
     public Output<String> type() {
@@ -152,7 +152,7 @@ public final class AlertPolicyTimeRestrictionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type Type of responder. Acceptable values are: `user` or `team`
+         * @param type Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class AlertPolicyTimeRestrictionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type Type of responder. Acceptable values are: `user` or `team`
+         * @param type Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
          * 
          * @return builder
          * 

@@ -19,14 +19,14 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs extends c
     public static final ServiceIncidentRuleIncidentRuleIncidentPropertyArgs Empty = new ServiceIncidentRuleIncidentRuleIncidentPropertyArgs();
 
     /**
-     * Description that is generally used to provide a detailed information about the alert.
+     * Description field of the incident rule.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description that is generally used to provide a detailed information about the alert.
+     * @return Description field of the incident rule.
      * 
      */
     public Optional<Output<String>> description() {
@@ -49,14 +49,14 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs extends c
     }
 
     /**
-     * Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * Message of the related incident rule.
      * 
      */
     @Import(name="message", required=true)
     private Output<String> message;
 
     /**
-     * @return Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * @return Message of the related incident rule.
      * 
      */
     public Output<String> message() {
@@ -138,7 +138,7 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs extends c
         }
 
         /**
-         * @param description Description that is generally used to provide a detailed information about the alert.
+         * @param description Description field of the incident rule.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs extends c
         }
 
         /**
-         * @param description Description that is generally used to provide a detailed information about the alert.
+         * @param description Description field of the incident rule.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs extends c
         }
 
         /**
-         * @param message Message that is to be passed to audience that is generally used to provide a content information about the alert.
+         * @param message Message of the related incident rule.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs extends c
         }
 
         /**
-         * @param message Message that is to be passed to audience that is generally used to provide a content information about the alert.
+         * @param message Message of the related incident rule.
          * 
          * @return builder
          * 

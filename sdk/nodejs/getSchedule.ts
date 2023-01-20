@@ -13,17 +13,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const test = pulumi.output(opsgenie.getSchedule({
+ * const test = opsgenie.getSchedule({
  *     name: "sre-team schedule",
- * }));
+ * });
  * ```
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("opsgenie:index/getSchedule:getSchedule", {
         "description": args.description,
         "enabled": args.enabled,
@@ -85,9 +82,22 @@ export interface GetScheduleResult {
      */
     readonly timezone?: string;
 }
-
+/**
+ * Manages a Schedule within Opsgenie.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as opsgenie from "@pulumi/opsgenie";
+ *
+ * const test = opsgenie.getSchedule({
+ *     name: "sre-team schedule",
+ * });
+ * ```
+ */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
-    return pulumi.output(args).apply(a => getSchedule(a, opts))
+    return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
 }
 
 /**

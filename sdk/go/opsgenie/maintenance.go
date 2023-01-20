@@ -31,10 +31,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewMaintenance(ctx, "test", &opsgenie.MaintenanceArgs{
 //				Description: pulumi.String(fmt.Sprintf("geniemaintenance-%vs", "%")),
-//				Rules: MaintenanceRuleArray{
-//					&MaintenanceRuleArgs{
-//						Entities: MaintenanceRuleEntityArray{
-//							&MaintenanceRuleEntityArgs{
+//				Rules: opsgenie.MaintenanceRuleArray{
+//					&opsgenie.MaintenanceRuleArgs{
+//						Entities: opsgenie.MaintenanceRuleEntityArray{
+//							&opsgenie.MaintenanceRuleEntityArgs{
 //								Id:   pulumi.Any(opsgenie_email_integration.Test.Id),
 //								Type: pulumi.String("integration"),
 //							},
@@ -42,8 +42,8 @@ import (
 //						State: pulumi.String("enabled"),
 //					},
 //				},
-//				Times: MaintenanceTimeArray{
-//					&MaintenanceTimeArgs{
+//				Times: opsgenie.MaintenanceTimeArray{
+//					&opsgenie.MaintenanceTimeArgs{
 //						EndDate:   pulumi.String(fmt.Sprintf("2019-06-%vdT17:50:00Z", "%")),
 //						StartDate: pulumi.String("2019-06-20T17:45:00Z"),
 //						Type:      pulumi.String("schedule"),
