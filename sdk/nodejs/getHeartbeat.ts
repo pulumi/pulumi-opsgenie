@@ -13,17 +13,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const test = pulumi.output(opsgenie.getHeartbeat({
+ * const test = opsgenie.getHeartbeat({
  *     name: "genieheartbeat-existing",
- * }));
+ * });
  * ```
  */
 export function getHeartbeat(args: GetHeartbeatArgs, opts?: pulumi.InvokeOptions): Promise<GetHeartbeatResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("opsgenie:index/getHeartbeat:getHeartbeat", {
         "alertMessage": args.alertMessage,
         "alertPriority": args.alertPriority,
@@ -121,9 +118,22 @@ export interface GetHeartbeatResult {
      */
     readonly ownerTeamId?: string;
 }
-
+/**
+ * Manages existing heartbeat within Opsgenie.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as opsgenie from "@pulumi/opsgenie";
+ *
+ * const test = opsgenie.getHeartbeat({
+ *     name: "genieheartbeat-existing",
+ * });
+ * ```
+ */
 export function getHeartbeatOutput(args: GetHeartbeatOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHeartbeatResult> {
-    return pulumi.output(args).apply(a => getHeartbeat(a, opts))
+    return pulumi.output(args).apply((a: any) => getHeartbeat(a, opts))
 }
 
 /**

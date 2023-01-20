@@ -28,12 +28,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewApiIntegration(ctx, "example-api-integrationApiIntegration", &opsgenie.ApiIntegrationArgs{
 //				Type: pulumi.String("API"),
-//				Responders: ApiIntegrationResponderArray{
-//					&ApiIntegrationResponderArgs{
+//				Responders: opsgenie.ApiIntegrationResponderArray{
+//					&opsgenie.ApiIntegrationResponderArgs{
 //						Type: pulumi.String("user"),
 //						Id:   pulumi.Any(opsgenie_user.User.Id),
 //					},
-//					&ApiIntegrationResponderArgs{
+//					&opsgenie.ApiIntegrationResponderArgs{
 //						Type: pulumi.String("user"),
 //						Id:   pulumi.Any(opsgenie_user.Fahri.Id),
 //					},
@@ -44,8 +44,8 @@ import (
 //			}
 //			_, err = opsgenie.NewApiIntegration(ctx, "example-api-integrationIndex/apiIntegrationApiIntegration", &opsgenie.ApiIntegrationArgs{
 //				Type: pulumi.String("Prometheus"),
-//				Responders: ApiIntegrationResponderArray{
-//					&ApiIntegrationResponderArgs{
+//				Responders: opsgenie.ApiIntegrationResponderArray{
+//					&opsgenie.ApiIntegrationResponderArgs{
 //						Type: pulumi.String("user"),
 //						Id:   pulumi.Any(opsgenie_user.User.Id),
 //					},
@@ -61,8 +61,8 @@ import (
 //			}
 //			_, err = opsgenie.NewApiIntegration(ctx, "test3", &opsgenie.ApiIntegrationArgs{
 //				Type: pulumi.String("Webhook"),
-//				Responders: ApiIntegrationResponderArray{
-//					&ApiIntegrationResponderArgs{
+//				Responders: opsgenie.ApiIntegrationResponderArray{
+//					&opsgenie.ApiIntegrationResponderArgs{
 //						Type: pulumi.String("user"),
 //						Id:   pulumi.Any(opsgenie_user.User.Id),
 //					},
@@ -126,6 +126,10 @@ func NewApiIntegration(ctx *pulumi.Context,
 		args = &ApiIntegrationArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKey",
+	})
+	opts = append(opts, secrets)
 	var resource ApiIntegration
 	err := ctx.RegisterResource("opsgenie:index/apiIntegration:ApiIntegration", name, args, &resource, opts...)
 	if err != nil {

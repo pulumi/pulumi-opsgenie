@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsgenie.LookupUser(ctx, &GetUserArgs{
+//			_, err := opsgenie.LookupUser(ctx, &opsgenie.LookupUserArgs{
 //				Username: "user@domain.com",
 //			}, nil)
 //			if err != nil {

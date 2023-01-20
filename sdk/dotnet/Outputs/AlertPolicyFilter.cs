@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertPolicyFilterCondition> Conditions;
         /// <summary>
-        /// Type of responder. Acceptable values are: `user` or `team`
+        /// A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         /// </summary>
         public readonly string? Type;
 

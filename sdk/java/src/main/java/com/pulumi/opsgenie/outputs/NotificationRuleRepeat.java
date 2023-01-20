@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NotificationRuleRepeat {
     /**
-     * @return Defined if this step is enabled. Default: `true`
+     * @return If policy should be enabled. Default: `true`
      * 
      */
     private @Nullable Boolean enabled;
@@ -21,7 +21,7 @@ public final class NotificationRuleRepeat {
 
     private NotificationRuleRepeat() {}
     /**
-     * @return Defined if this step is enabled. Default: `true`
+     * @return If policy should be enabled. Default: `true`
      * 
      */
     public Optional<Boolean> enabled() {

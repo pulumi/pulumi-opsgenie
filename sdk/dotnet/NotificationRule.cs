@@ -77,7 +77,7 @@ namespace Pulumi.Opsgenie
         public Output<ImmutableArray<Outputs.NotificationRuleCriteria>> Criterias { get; private set; } = null!;
 
         /// <summary>
-        /// Defined if this step is enabled. Default: `true`
+        /// If policy should be enabled. Default: `true`
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// Defined if this step is enabled. Default: `true`
+        /// If policy should be enabled. Default: `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// Defined if this step is enabled. Default: `true`
+        /// If policy should be enabled. Default: `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

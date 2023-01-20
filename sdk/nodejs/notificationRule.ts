@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -77,7 +78,7 @@ export class NotificationRule extends pulumi.CustomResource {
     public readonly actionType!: pulumi.Output<string>;
     public readonly criterias!: pulumi.Output<outputs.NotificationRuleCriteria[] | undefined>;
     /**
-     * Defined if this step is enabled. Default: `true`
+     * If policy should be enabled. Default: `true`
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -163,7 +164,7 @@ export interface NotificationRuleState {
     actionType?: pulumi.Input<string>;
     criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[]>;
     /**
-     * Defined if this step is enabled. Default: `true`
+     * If policy should be enabled. Default: `true`
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -201,7 +202,7 @@ export interface NotificationRuleArgs {
     actionType: pulumi.Input<string>;
     criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[]>;
     /**
-     * Defined if this step is enabled. Default: `true`
+     * If policy should be enabled. Default: `true`
      */
     enabled?: pulumi.Input<boolean>;
     /**

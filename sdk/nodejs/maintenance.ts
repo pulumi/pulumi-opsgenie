@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -15,16 +16,16 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const test = new opsgenie.Maintenance("test", {
- *     description: "geniemaintenance-%s",
+ *     description: `geniemaintenance-%s`,
  *     rules: [{
  *         entities: [{
- *             id: opsgenie_email_integration_test.id,
+ *             id: opsgenie_email_integration.test.id,
  *             type: "integration",
  *         }],
  *         state: "enabled",
  *     }],
  *     times: [{
- *         endDate: "2019-06-%dT17:50:00Z",
+ *         endDate: `2019-06-%dT17:50:00Z`,
  *         startDate: "2019-06-20T17:45:00Z",
  *         type: "schedule",
  *     }],

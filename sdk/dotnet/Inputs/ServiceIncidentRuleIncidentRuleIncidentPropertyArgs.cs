@@ -13,7 +13,7 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description that is generally used to provide a detailed information about the alert.
+        /// Description field of the incident rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        /// Message of the related incident rule.
         /// </summary>
         [Input("message", required: true)]
         public Input<string> Message { get; set; } = null!;

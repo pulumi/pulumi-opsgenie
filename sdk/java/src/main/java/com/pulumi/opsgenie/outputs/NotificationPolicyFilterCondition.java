@@ -19,7 +19,7 @@ public final class NotificationPolicyFilterCondition {
      */
     private @Nullable String expectedValue;
     /**
-     * @return Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * @return Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      * 
      */
     private String field;
@@ -53,7 +53,7 @@ public final class NotificationPolicyFilterCondition {
         return Optional.ofNullable(this.expectedValue);
     }
     /**
-     * @return Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * @return Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      * 
      */
     public String field() {

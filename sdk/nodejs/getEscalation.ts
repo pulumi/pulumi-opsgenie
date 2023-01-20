@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,17 +15,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const test = pulumi.output(opsgenie.getEscalation({
+ * const test = opsgenie.getEscalation({
  *     name: "existing-escalation",
- * }));
+ * });
  * ```
  */
 export function getEscalation(args: GetEscalationArgs, opts?: pulumi.InvokeOptions): Promise<GetEscalationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("opsgenie:index/getEscalation:getEscalation", {
         "description": args.description,
         "name": args.name,
@@ -86,9 +84,22 @@ export interface GetEscalationResult {
      */
     readonly rules?: outputs.GetEscalationRule[];
 }
-
+/**
+ * Manages an Escalation within Opsgenie.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as opsgenie from "@pulumi/opsgenie";
+ *
+ * const test = opsgenie.getEscalation({
+ *     name: "existing-escalation",
+ * });
+ * ```
+ */
 export function getEscalationOutput(args: GetEscalationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEscalationResult> {
-    return pulumi.output(args).apply(a => getEscalation(a, opts))
+    return pulumi.output(args).apply((a: any) => getEscalation(a, opts))
 }
 
 /**

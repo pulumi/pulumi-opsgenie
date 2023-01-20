@@ -30,29 +30,29 @@ import (
 //			_, err := opsgenie.NewEscalation(ctx, "test", &opsgenie.EscalationArgs{
 //				Description: pulumi.String("test"),
 //				OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
-//				Repeats: EscalationRepeatArray{
-//					&EscalationRepeatArgs{
+//				Repeats: opsgenie.EscalationRepeatArray{
+//					&opsgenie.EscalationRepeatArgs{
 //						CloseAlertAfterAll:   pulumi.Bool(false),
 //						Count:                pulumi.Int(1),
 //						ResetRecipientStates: pulumi.Bool(true),
 //						WaitInterval:         pulumi.Int(10),
 //					},
 //				},
-//				Rules: EscalationRuleArray{
-//					&EscalationRuleArgs{
+//				Rules: opsgenie.EscalationRuleArray{
+//					&opsgenie.EscalationRuleArgs{
 //						Condition:  pulumi.String("if-not-acked"),
 //						Delay:      pulumi.Int(1),
 //						NotifyType: pulumi.String("default"),
-//						Recipients: EscalationRuleRecipientArray{
-//							&EscalationRuleRecipientArgs{
+//						Recipients: opsgenie.EscalationRuleRecipientArray{
+//							&opsgenie.EscalationRuleRecipientArgs{
 //								Id:   pulumi.Any(opsgenie_user.Test.Id),
 //								Type: pulumi.String("user"),
 //							},
-//							&EscalationRuleRecipientArgs{
+//							&opsgenie.EscalationRuleRecipientArgs{
 //								Id:   pulumi.Any(opsgenie_team.Test.Id),
 //								Type: pulumi.String("team"),
 //							},
-//							&EscalationRuleRecipientArgs{
+//							&opsgenie.EscalationRuleRecipientArgs{
 //								Id:   pulumi.Any(opsgenie_schedule.Test.Id),
 //								Type: pulumi.String("schedule"),
 //							},

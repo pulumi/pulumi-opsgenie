@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsgenie.LookupSchedule(ctx, &GetScheduleArgs{
+//			_, err := opsgenie.LookupSchedule(ctx, &opsgenie.LookupScheduleArgs{
 //				Name: "sre-team schedule",
 //			}, nil)
 //			if err != nil {

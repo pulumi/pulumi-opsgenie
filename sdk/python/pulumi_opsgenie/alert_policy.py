@@ -50,7 +50,7 @@ class AlertPolicyArgs:
         :param pulumi.Input[bool] ignore_original_details: If set to `true`, policy will ignore the original details of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_tags: If set to `true`, policy will ignore the original tags of the alert. Default: `false`
-        :param pulumi.Input[str] name: Name of the responder
+        :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
@@ -247,7 +247,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the responder
+        Name of the alert policy
         """
         return pulumi.get(self, "name")
 
@@ -377,7 +377,7 @@ class _AlertPolicyState:
         :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_tags: If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         :param pulumi.Input[str] message: Message of the alerts
-        :param pulumi.Input[str] name: Name of the responder
+        :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
@@ -575,7 +575,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the responder
+        Name of the alert policy
         """
         return pulumi.get(self, "name")
 
@@ -760,7 +760,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_tags: If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         :param pulumi.Input[str] message: Message of the alerts
-        :param pulumi.Input[str] name: Name of the responder
+        :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
@@ -942,7 +942,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_tags: If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         :param pulumi.Input[str] message: Message of the alerts
-        :param pulumi.Input[str] name: Name of the responder
+        :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
@@ -1077,7 +1077,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the responder
+        Name of the alert policy
         """
         return pulumi.get(self, "name")
 

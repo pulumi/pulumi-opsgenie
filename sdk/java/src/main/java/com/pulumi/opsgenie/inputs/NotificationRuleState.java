@@ -46,14 +46,14 @@ public final class NotificationRuleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Defined if this step is enabled. Default: `true`
+     * If policy should be enabled. Default: `true`
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Defined if this step is enabled. Default: `true`
+     * @return If policy should be enabled. Default: `true`
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -225,7 +225,7 @@ public final class NotificationRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param enabled Defined if this step is enabled. Default: `true`
+         * @param enabled If policy should be enabled. Default: `true`
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class NotificationRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param enabled Defined if this step is enabled. Default: `true`
+         * @param enabled If policy should be enabled. Default: `true`
          * 
          * @return builder
          * 

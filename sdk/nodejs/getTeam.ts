@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,17 +15,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const sre_team = pulumi.output(opsgenie.getTeam({
+ * const sre-team = opsgenie.getTeam({
  *     name: "sre-team",
- * }));
+ * });
  * ```
  */
 export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("opsgenie:index/getTeam:getTeam", {
         "description": args.description,
         "members": args.members,
@@ -62,9 +60,22 @@ export interface GetTeamResult {
     readonly members?: outputs.GetTeamMember[];
     readonly name: string;
 }
-
+/**
+ * Manages existing Team within Opsgenie.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as opsgenie from "@pulumi/opsgenie";
+ *
+ * const sre-team = opsgenie.getTeam({
+ *     name: "sre-team",
+ * });
+ * ```
+ */
 export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
-    return pulumi.output(args).apply(a => getTeam(a, opts))
+    return pulumi.output(args).apply((a: any) => getTeam(a, opts))
 }
 
 /**

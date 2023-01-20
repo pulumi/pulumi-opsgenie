@@ -34,20 +34,20 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewEmailIntegration(ctx, "testIndex/emailIntegrationEmailIntegration", &opsgenie.EmailIntegrationArgs{
-//				Responders: EmailIntegrationResponderArray{
-//					&EmailIntegrationResponderArgs{
+//				Responders: opsgenie.EmailIntegrationResponderArray{
+//					&opsgenie.EmailIntegrationResponderArgs{
 //						Type: pulumi.String("user"),
 //						Id:   pulumi.Any(opsgenie_user.Test.Id),
 //					},
-//					&EmailIntegrationResponderArgs{
+//					&opsgenie.EmailIntegrationResponderArgs{
 //						Type: pulumi.String("schedule"),
 //						Id:   pulumi.Any(opsgenie_schedule.Test.Id),
 //					},
-//					&EmailIntegrationResponderArgs{
+//					&opsgenie.EmailIntegrationResponderArgs{
 //						Type: pulumi.String("escalation"),
 //						Id:   pulumi.Any(opsgenie_escalation.Test.Id),
 //					},
-//					&EmailIntegrationResponderArgs{
+//					&opsgenie.EmailIntegrationResponderArgs{
 //						Type: pulumi.String("team"),
 //						Id:   pulumi.Any(opsgenie_team.Test2.Id),
 //					},
@@ -61,8 +61,8 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewEmailIntegration(ctx, "testOpsgenieIndex/emailIntegrationEmailIntegration", &opsgenie.EmailIntegrationArgs{
-//				Responders: EmailIntegrationResponderArray{
-//					&EmailIntegrationResponderArgs{
+//				Responders: opsgenie.EmailIntegrationResponderArray{
+//					&opsgenie.EmailIntegrationResponderArgs{
 //						Type: pulumi.String("user"),
 //						Id:   pulumi.Any(opsgenie_user.Test.Id),
 //					},

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsgenie.LookupEscalation(ctx, &GetEscalationArgs{
+//			_, err := opsgenie.LookupEscalation(ctx, &opsgenie.LookupEscalationArgs{
 //				Name: "existing-escalation",
 //			}, nil)
 //			if err != nil {

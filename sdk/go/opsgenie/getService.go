@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsgenie.LookupService(ctx, &GetServiceArgs{
+//			_, err := opsgenie.LookupService(ctx, &opsgenie.LookupServiceArgs{
 //				Name: "Payment",
 //			}, nil)
 //			if err != nil {

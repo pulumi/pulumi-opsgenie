@@ -19,14 +19,14 @@ public final class NotificationPolicyDeDuplicationActionArgs extends com.pulumi.
     public static final NotificationPolicyDeDuplicationActionArgs Empty = new NotificationPolicyDeDuplicationActionArgs();
 
     /**
-     * - Count
+     * Count
      * 
      */
     @Import(name="count", required=true)
     private Output<Integer> count;
 
     /**
-     * @return - Count
+     * @return Count
      * 
      */
     public Output<Integer> count() {
@@ -49,14 +49,14 @@ public final class NotificationPolicyDeDuplicationActionArgs extends com.pulumi.
     }
 
     /**
-     * Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * Duration of this action (only required for &#34;frequency-based&#34; de-duplication action). This is a block, structure is documented below.
      * 
      */
     @Import(name="durations")
     private @Nullable Output<List<NotificationPolicyDeDuplicationActionDurationArgs>> durations;
 
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action (only required for &#34;frequency-based&#34; de-duplication action). This is a block, structure is documented below.
      * 
      */
     public Optional<Output<List<NotificationPolicyDeDuplicationActionDurationArgs>>> durations() {
@@ -90,7 +90,7 @@ public final class NotificationPolicyDeDuplicationActionArgs extends com.pulumi.
         }
 
         /**
-         * @param count - Count
+         * @param count Count
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class NotificationPolicyDeDuplicationActionArgs extends com.pulumi.
         }
 
         /**
-         * @param count - Count
+         * @param count Count
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class NotificationPolicyDeDuplicationActionArgs extends com.pulumi.
         }
 
         /**
-         * @param durations Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+         * @param durations Duration of this action (only required for &#34;frequency-based&#34; de-duplication action). This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class NotificationPolicyDeDuplicationActionArgs extends com.pulumi.
         }
 
         /**
-         * @param durations Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+         * @param durations Duration of this action (only required for &#34;frequency-based&#34; de-duplication action). This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class NotificationPolicyDeDuplicationActionArgs extends com.pulumi.
         }
 
         /**
-         * @param durations Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+         * @param durations Duration of this action (only required for &#34;frequency-based&#34; de-duplication action). This is a block, structure is documented below.
          * 
          * @return builder
          * 

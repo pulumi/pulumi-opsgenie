@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -16,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const test = new opsgenie.Escalation("test", {
  *     description: "test",
- *     ownerTeamId: opsgenie_team_test.id,
+ *     ownerTeamId: opsgenie_team.test.id,
  *     repeats: [{
  *         closeAlertAfterAll: false,
  *         count: 1,
@@ -29,15 +30,15 @@ import * as utilities from "./utilities";
  *         notifyType: "default",
  *         recipients: [
  *             {
- *                 id: opsgenie_user_test.id,
+ *                 id: opsgenie_user.test.id,
  *                 type: "user",
  *             },
  *             {
- *                 id: opsgenie_team_test.id,
+ *                 id: opsgenie_team.test.id,
  *                 type: "team",
  *             },
  *             {
- *                 id: opsgenie_schedule_test.id,
+ *                 id: opsgenie_schedule.test.id,
  *                 type: "schedule",
  *             },
  *         ],

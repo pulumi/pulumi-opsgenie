@@ -19,7 +19,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string> EndDay { get; set; } = null!;
 
         /// <summary>
-        /// Ending hour of restriction.
+        /// Ending hour of restriction on defined `end_day`
         /// </summary>
         [Input("endHour", required: true)]
         public Input<int> EndHour { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string> StartDay { get; set; } = null!;
 
         /// <summary>
-        /// Starting hour of restriction.
+        /// Starting hour of restriction on defined `start_day`
         /// </summary>
         [Input("startHour", required: true)]
         public Input<int> StartHour { get; set; } = null!;

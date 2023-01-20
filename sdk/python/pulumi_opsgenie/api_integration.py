@@ -546,6 +546,8 @@ class ApiIntegration(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["webhook_url"] = webhook_url
             __props__.__dict__["api_key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApiIntegration, __self__).__init__(
             'opsgenie:index/apiIntegration:ApiIntegration',
             resource_name,

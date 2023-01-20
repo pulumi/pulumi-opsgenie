@@ -33,14 +33,14 @@ public final class AlertPolicyFilterConditionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      * 
      */
     @Import(name="field", required=true)
     private Output<String> field;
 
     /**
-     * @return Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+     * @return Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      * 
      */
     public Output<String> field() {
@@ -158,7 +158,7 @@ public final class AlertPolicyFilterConditionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param field Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+         * @param field Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class AlertPolicyFilterConditionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param field Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+         * @param field Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
          * 
          * @return builder
          * 

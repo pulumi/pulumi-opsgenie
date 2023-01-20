@@ -16,17 +16,17 @@ import * as utilities from "./utilities";
  * const sms = new opsgenie.UserContact("sms", {
  *     method: "sms",
  *     to: "39-123",
- *     username: opsgenie_user_exampleuser.username,
+ *     username: opsgenie_user.exampleuser.username,
  * });
  * const email = new opsgenie.UserContact("email", {
  *     method: "email",
  *     to: "fahri@opsgenie.com",
- *     username: opsgenie_user_exampleuser.username,
+ *     username: opsgenie_user.exampleuser.username,
  * });
  * const voice = new opsgenie.UserContact("voice", {
  *     method: "voice",
  *     to: "39-123",
- *     username: opsgenie_user_exampleuser.username,
+ *     username: opsgenie_user.exampleuser.username,
  * });
  * ```
  *

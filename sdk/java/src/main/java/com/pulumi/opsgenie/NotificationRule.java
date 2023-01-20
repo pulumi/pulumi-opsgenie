@@ -106,14 +106,14 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.criterias);
     }
     /**
-     * Defined if this step is enabled. Default: `true`
+     * If policy should be enabled. Default: `true`
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Defined if this step is enabled. Default: `true`
+     * @return If policy should be enabled. Default: `true`
      * 
      */
     public Output<Optional<Boolean>> enabled() {

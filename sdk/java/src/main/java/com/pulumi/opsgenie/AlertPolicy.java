@@ -269,14 +269,14 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
         return this.message;
     }
     /**
-     * Name of the responder
+     * Name of the alert policy
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of the responder
+     * @return Name of the alert policy
      * 
      */
     public Output<String> name() {

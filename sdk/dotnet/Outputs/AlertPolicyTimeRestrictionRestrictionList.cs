@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string EndDay;
         /// <summary>
-        /// Ending hour of restriction.
+        /// Ending hour of restriction on defined `end_day`
         /// </summary>
         public readonly int EndHour;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string StartDay;
         /// <summary>
-        /// Starting hour of restriction.
+        /// Starting hour of restriction on defined `start_day`
         /// </summary>
         public readonly int StartHour;
         /// <summary>

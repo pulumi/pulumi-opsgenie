@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,15 +15,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const testSchedule = new opsgenie.Schedule("test", {
+ * const testSchedule = new opsgenie.Schedule("testSchedule", {
  *     description: "schedule test",
  *     enabled: false,
  *     timezone: "Europe/Rome",
  * });
- * const testTeam = new opsgenie.Team("test", {
- *     description: "This team deals with all the things",
- * });
- * const testTeamRoutingRule = new opsgenie.TeamRoutingRule("test", {
+ * const testTeam = new opsgenie.Team("testTeam", {description: "This team deals with all the things"});
+ * const testTeamRoutingRule = new opsgenie.TeamRoutingRule("testTeamRoutingRule", {
  *     criterias: [{
  *         conditions: [{
  *             expectedValue: "expected1",

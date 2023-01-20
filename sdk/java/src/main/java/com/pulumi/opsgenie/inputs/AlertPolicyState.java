@@ -201,14 +201,14 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the responder
+     * Name of the alert policy
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the responder
+     * @return Name of the alert policy
      * 
      */
     public Optional<Output<String>> name() {
@@ -636,7 +636,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the responder
+         * @param name Name of the alert policy
          * 
          * @return builder
          * 
@@ -647,7 +647,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the responder
+         * @param name Name of the alert policy
          * 
          * @return builder
          * 

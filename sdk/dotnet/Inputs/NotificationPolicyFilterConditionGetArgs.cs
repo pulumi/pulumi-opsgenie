@@ -19,7 +19,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string>? ExpectedValue { get; set; }
 
         /// <summary>
-        /// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        /// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         /// </summary>
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
