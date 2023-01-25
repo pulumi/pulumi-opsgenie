@@ -1421,8 +1421,8 @@ github.com/openzipkin/zipkin-go v0.2.1/go.mod h1:NaW6tEwdmWMaCDZzg8sh+IBNOxHMPnh
 github.com/openzipkin/zipkin-go v0.2.2/go.mod h1:NaW6tEwdmWMaCDZzg8sh+IBNOxHMPnhQw8ySjnjRyN4=
 github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.14 h1:ni+M5q9QIZQq5xQiYzbttDZpPQogPWx8MdHpvZtWcTE=
 github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.14/go.mod h1:4OjcxgwdXzezqytxN534MooNmrxRD50geWZxTD7845s=
-github.com/opsgenie/terraform-provider-opsgenie v0.6.18 h1:Vsqjq7yKxCydFSFKr2y1CpkGa8mu+v0TnMFA4Wvrrtc=
-github.com/opsgenie/terraform-provider-opsgenie v0.6.18/go.mod h1:1ZJtyrJVobDTuN6055x0SfopYIKX0YyFkWXLSphjD3k=
+github.com/opsgenie/terraform-provider-opsgenie v0.6.19 h1:2er2Fr/y2mH5F0/lNz073O/Za22tNAkR6uWCKM8wFuI=
+github.com/opsgenie/terraform-provider-opsgenie v0.6.19/go.mod h1:1ZJtyrJVobDTuN6055x0SfopYIKX0YyFkWXLSphjD3k=
 github.com/pact-foundation/pact-go v1.0.4/go.mod h1:uExwJY4kCzNPcHRj+hCR/HBbOOIwwtUjcrb0b5/5kLM=
 github.com/pascaldekloe/goe v0.0.0-20180627143212-57f6aae5913c/go.mod h1:lzWF7FIEvWOWxwDKqyGYQf6ZUaNfKdP144TG7ZOy1lc=
 github.com/pascaldekloe/goe v0.1.0 h1:cBOtyMzM9HTpWjXfbbunk26uA6nG3a8n06Wieeh0MwY=
