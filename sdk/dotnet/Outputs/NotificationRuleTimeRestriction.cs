@@ -13,6 +13,7 @@ namespace Pulumi.Opsgenie.Outputs
     [OutputType]
     public sealed class NotificationRuleTimeRestriction
     {
+        public readonly ImmutableArray<Outputs.NotificationRuleTimeRestrictionRestriction> Restriction;
         public readonly ImmutableArray<Outputs.NotificationRuleTimeRestrictionRestriction> Restrictions;
         /// <summary>
         /// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
@@ -21,10 +22,13 @@ namespace Pulumi.Opsgenie.Outputs
 
         [OutputConstructor]
         private NotificationRuleTimeRestriction(
+            ImmutableArray<Outputs.NotificationRuleTimeRestrictionRestriction> restriction,
+
             ImmutableArray<Outputs.NotificationRuleTimeRestrictionRestriction> restrictions,
 
             string type)
         {
+            Restriction = restriction;
             Restrictions = restrictions;
             Type = type;
         }

@@ -12,6 +12,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NotificationRuleTimeRestriction {
+    private @Nullable List<NotificationRuleTimeRestrictionRestriction> restriction;
     private @Nullable List<NotificationRuleTimeRestrictionRestriction> restrictions;
     /**
      * @return Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
@@ -20,6 +21,9 @@ public final class NotificationRuleTimeRestriction {
     private String type;
 
     private NotificationRuleTimeRestriction() {}
+    public List<NotificationRuleTimeRestrictionRestriction> restriction() {
+        return this.restriction == null ? List.of() : this.restriction;
+    }
     public List<NotificationRuleTimeRestrictionRestriction> restrictions() {
         return this.restrictions == null ? List.of() : this.restrictions;
     }
@@ -40,15 +44,25 @@ public final class NotificationRuleTimeRestriction {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<NotificationRuleTimeRestrictionRestriction> restriction;
         private @Nullable List<NotificationRuleTimeRestrictionRestriction> restrictions;
         private String type;
         public Builder() {}
         public Builder(NotificationRuleTimeRestriction defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.restriction = defaults.restriction;
     	      this.restrictions = defaults.restrictions;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder restriction(@Nullable List<NotificationRuleTimeRestrictionRestriction> restriction) {
+            this.restriction = restriction;
+            return this;
+        }
+        public Builder restriction(NotificationRuleTimeRestrictionRestriction... restriction) {
+            return restriction(List.of(restriction));
+        }
         @CustomType.Setter
         public Builder restrictions(@Nullable List<NotificationRuleTimeRestrictionRestriction> restrictions) {
             this.restrictions = restrictions;
@@ -64,6 +78,7 @@ public final class NotificationRuleTimeRestriction {
         }
         public NotificationRuleTimeRestriction build() {
             final var o = new NotificationRuleTimeRestriction();
+            o.restriction = restriction;
             o.restrictions = restrictions;
             o.type = type;
             return o;

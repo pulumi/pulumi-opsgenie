@@ -12,6 +12,14 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class NotificationRuleTimeRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("restriction")]
+        private InputList<Inputs.NotificationRuleTimeRestrictionRestrictionGetArgs>? _restriction;
+        public InputList<Inputs.NotificationRuleTimeRestrictionRestrictionGetArgs> Restriction
+        {
+            get => _restriction ?? (_restriction = new InputList<Inputs.NotificationRuleTimeRestrictionRestrictionGetArgs>());
+            set => _restriction = value;
+        }
+
         [Input("restrictions")]
         private InputList<Inputs.NotificationRuleTimeRestrictionRestrictionGetArgs>? _restrictions;
         public InputList<Inputs.NotificationRuleTimeRestrictionRestrictionGetArgs> Restrictions

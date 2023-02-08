@@ -17,6 +17,13 @@ public final class NotificationRuleTimeRestrictionArgs extends com.pulumi.resour
 
     public static final NotificationRuleTimeRestrictionArgs Empty = new NotificationRuleTimeRestrictionArgs();
 
+    @Import(name="restriction")
+    private @Nullable Output<List<NotificationRuleTimeRestrictionRestrictionArgs>> restriction;
+
+    public Optional<Output<List<NotificationRuleTimeRestrictionRestrictionArgs>>> restriction() {
+        return Optional.ofNullable(this.restriction);
+    }
+
     @Import(name="restrictions")
     private @Nullable Output<List<NotificationRuleTimeRestrictionRestrictionArgs>> restrictions;
 
@@ -42,6 +49,7 @@ public final class NotificationRuleTimeRestrictionArgs extends com.pulumi.resour
     private NotificationRuleTimeRestrictionArgs() {}
 
     private NotificationRuleTimeRestrictionArgs(NotificationRuleTimeRestrictionArgs $) {
+        this.restriction = $.restriction;
         this.restrictions = $.restrictions;
         this.type = $.type;
     }
@@ -62,6 +70,19 @@ public final class NotificationRuleTimeRestrictionArgs extends com.pulumi.resour
 
         public Builder(NotificationRuleTimeRestrictionArgs defaults) {
             $ = new NotificationRuleTimeRestrictionArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder restriction(@Nullable Output<List<NotificationRuleTimeRestrictionRestrictionArgs>> restriction) {
+            $.restriction = restriction;
+            return this;
+        }
+
+        public Builder restriction(List<NotificationRuleTimeRestrictionRestrictionArgs> restriction) {
+            return restriction(Output.of(restriction));
+        }
+
+        public Builder restriction(NotificationRuleTimeRestrictionRestrictionArgs... restriction) {
+            return restriction(List.of(restriction));
         }
 
         public Builder restrictions(@Nullable Output<List<NotificationRuleTimeRestrictionRestrictionArgs>> restrictions) {
