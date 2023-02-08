@@ -888,6 +888,7 @@ export interface NotificationRuleStepContact {
 }
 
 export interface NotificationRuleTimeRestriction {
+    restriction?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestrictionRestriction>[]>;
     restrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestrictionRestriction>[]>;
     /**
      * Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`

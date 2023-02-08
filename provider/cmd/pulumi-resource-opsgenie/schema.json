@@ -2279,6 +2279,17 @@
         },
         "opsgenie:index/NotificationRuleTimeRestriction:NotificationRuleTimeRestriction": {
             "properties": {
+                "restriction": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/opsgenie:index/NotificationRuleTimeRestrictionRestriction:NotificationRuleTimeRestrictionRestriction"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "restrictions": {
                     "type": "array",
                     "items": {

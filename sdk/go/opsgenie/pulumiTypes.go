@@ -6102,6 +6102,7 @@ func (o NotificationRuleStepContactArrayOutput) Index(i pulumi.IntInput) Notific
 }
 
 type NotificationRuleTimeRestriction struct {
+	Restriction  []NotificationRuleTimeRestrictionRestriction `pulumi:"restriction"`
 	Restrictions []NotificationRuleTimeRestrictionRestriction `pulumi:"restrictions"`
 	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 	Type string `pulumi:"type"`
@@ -6119,6 +6120,7 @@ type NotificationRuleTimeRestrictionInput interface {
 }
 
 type NotificationRuleTimeRestrictionArgs struct {
+	Restriction  NotificationRuleTimeRestrictionRestrictionArrayInput `pulumi:"restriction"`
 	Restrictions NotificationRuleTimeRestrictionRestrictionArrayInput `pulumi:"restrictions"`
 	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 	Type pulumi.StringInput `pulumi:"type"`
@@ -6173,6 +6175,12 @@ func (o NotificationRuleTimeRestrictionOutput) ToNotificationRuleTimeRestriction
 
 func (o NotificationRuleTimeRestrictionOutput) ToNotificationRuleTimeRestrictionOutputWithContext(ctx context.Context) NotificationRuleTimeRestrictionOutput {
 	return o
+}
+
+func (o NotificationRuleTimeRestrictionOutput) Restriction() NotificationRuleTimeRestrictionRestrictionArrayOutput {
+	return o.ApplyT(func(v NotificationRuleTimeRestriction) []NotificationRuleTimeRestrictionRestriction {
+		return v.Restriction
+	}).(NotificationRuleTimeRestrictionRestrictionArrayOutput)
 }
 
 func (o NotificationRuleTimeRestrictionOutput) Restrictions() NotificationRuleTimeRestrictionRestrictionArrayOutput {

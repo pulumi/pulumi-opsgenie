@@ -3346,11 +3346,14 @@ class NotificationRuleStepContactArgs:
 class NotificationRuleTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 restriction: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]] = None,
                  restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]] = None):
         """
         :param pulumi.Input[str] type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
         pulumi.set(__self__, "type", type)
+        if restriction is not None:
+            pulumi.set(__self__, "restriction", restriction)
         if restrictions is not None:
             pulumi.set(__self__, "restrictions", restrictions)
 
@@ -3365,6 +3368,15 @@ class NotificationRuleTimeRestrictionArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def restriction(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]:
+        return pulumi.get(self, "restriction")
+
+    @restriction.setter
+    def restriction(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]):
+        pulumi.set(self, "restriction", value)
 
     @property
     @pulumi.getter

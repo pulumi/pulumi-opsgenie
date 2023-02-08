@@ -858,6 +858,7 @@ export interface NotificationRuleStepContact {
 }
 
 export interface NotificationRuleTimeRestriction {
+    restriction?: outputs.NotificationRuleTimeRestrictionRestriction[];
     restrictions?: outputs.NotificationRuleTimeRestrictionRestriction[];
     /**
      * Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
