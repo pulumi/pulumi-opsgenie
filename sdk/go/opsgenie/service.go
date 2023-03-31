@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -36,7 +34,7 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewService(ctx, "this", &opsgenie.ServiceArgs{
-//				TeamId: pulumi.String(fmt.Sprintf("$opsgenie_team.payment.id")),
+//				TeamId: pulumi.String("$opsgenie_team.payment.id"),
 //			})
 //			if err != nil {
 //				return err

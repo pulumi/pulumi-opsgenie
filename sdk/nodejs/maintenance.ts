@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const test = new opsgenie.Maintenance("test", {
- *     description: `geniemaintenance-%s`,
+ *     description: "geniemaintenance-%s",
  *     rules: [{
  *         entities: [{
  *             id: opsgenie_email_integration.test.id,
@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  *         state: "enabled",
  *     }],
  *     times: [{
- *         endDate: `2019-06-%dT17:50:00Z`,
+ *         endDate: "2019-06-%dT17:50:00Z",
  *         startDate: "2019-06-20T17:45:00Z",
  *         type: "schedule",
  *     }],
