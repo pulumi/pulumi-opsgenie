@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -30,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewMaintenance(ctx, "test", &opsgenie.MaintenanceArgs{
-//				Description: pulumi.String(fmt.Sprintf("geniemaintenance-%vs", "%")),
+//				Description: pulumi.String("geniemaintenance-%s"),
 //				Rules: opsgenie.MaintenanceRuleArray{
 //					&opsgenie.MaintenanceRuleArgs{
 //						Entities: opsgenie.MaintenanceRuleEntityArray{
@@ -44,7 +42,7 @@ import (
 //				},
 //				Times: opsgenie.MaintenanceTimeArray{
 //					&opsgenie.MaintenanceTimeArgs{
-//						EndDate:   pulumi.String(fmt.Sprintf("2019-06-%vdT17:50:00Z", "%")),
+//						EndDate:   pulumi.String("2019-06-%dT17:50:00Z"),
 //						StartDate: pulumi.String("2019-06-20T17:45:00Z"),
 //						Type:      pulumi.String("schedule"),
 //					},

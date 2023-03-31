@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const payment = new opsgenie.Team("payment", {description: "This team deals with all the things"});
- * const _this = new opsgenie.Service("this", {teamId: `$opsgenie_team.payment.id`});
+ * const _this = new opsgenie.Service("this", {teamId: "$opsgenie_team.payment.id"});
  * ```
  *
  * ## Import

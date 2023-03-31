@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,7 +32,7 @@ func NewProvider(ctx *pulumi.Context,
 	if args.ApiKey == nil {
 		return nil, errors.New("invalid value for required argument 'ApiKey'")
 	}
-	if isZero(args.ApiUrl) {
+	if args.ApiUrl == nil {
 		args.ApiUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "OPSGENIE_API_URL").(string))
 	}
 	var resource Provider

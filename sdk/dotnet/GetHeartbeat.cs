@@ -20,6 +20,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
@@ -47,6 +48,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Opsgenie = Pulumi.Opsgenie;
         /// 
