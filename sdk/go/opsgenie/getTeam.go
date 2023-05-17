@@ -53,6 +53,8 @@ type LookupTeamArgs struct {
 	// A Member block as documented below.
 	Members []GetTeamMember `pulumi:"members"`
 	// The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+	//
+	// The following attributes are exported:
 	Name string `pulumi:"name"`
 }
 
@@ -85,6 +87,8 @@ type LookupTeamOutputArgs struct {
 	// A Member block as documented below.
 	Members GetTeamMemberArrayInput `pulumi:"members"`
 	// The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+	//
+	// The following attributes are exported:
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

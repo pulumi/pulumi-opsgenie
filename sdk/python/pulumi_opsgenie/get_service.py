@@ -90,6 +90,8 @@ def get_service(description: Optional[str] = None,
 
     :param str description: Description field of the service that is generally used to provide a detailed information about the service.
     :param str name: Name of the service. This field must not be longer than 100 characters.
+           
+           The following attributes are exported:
     :param str team_id: Team id of the service.
     """
     __args__ = dict()
@@ -126,6 +128,8 @@ def get_service_output(description: Optional[pulumi.Input[Optional[str]]] = None
 
     :param str description: Description field of the service that is generally used to provide a detailed information about the service.
     :param str name: Name of the service. This field must not be longer than 100 characters.
+           
+           The following attributes are exported:
     :param str team_id: Team id of the service.
     """
     ...

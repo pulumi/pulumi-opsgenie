@@ -145,7 +145,7 @@ class Maintenance(pulumi.CustomResource):
             description="geniemaintenance-%s",
             rules=[opsgenie.MaintenanceRuleArgs(
                 entities=[opsgenie.MaintenanceRuleEntityArgs(
-                    id=opsgenie_email_integration["test"]["id"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     type="integration",
                 )],
                 state="enabled",
@@ -190,7 +190,7 @@ class Maintenance(pulumi.CustomResource):
             description="geniemaintenance-%s",
             rules=[opsgenie.MaintenanceRuleArgs(
                 entities=[opsgenie.MaintenanceRuleEntityArgs(
-                    id=opsgenie_email_integration["test"]["id"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     type="integration",
                 )],
                 state="enabled",

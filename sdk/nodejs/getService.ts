@@ -38,6 +38,8 @@ export interface GetServiceArgs {
     description?: string;
     /**
      * Name of the service. This field must not be longer than 100 characters.
+     *
+     * The following attributes are exported:
      */
     name: string;
     /**
@@ -86,6 +88,8 @@ export interface GetServiceOutputArgs {
     description?: pulumi.Input<string>;
     /**
      * Name of the service. This field must not be longer than 100 characters.
+     *
+     * The following attributes are exported:
      */
     name: pulumi.Input<string>;
     /**

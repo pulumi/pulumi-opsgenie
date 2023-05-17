@@ -33,12 +33,16 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Name of the service. This field must not be longer than 100 characters.
      * 
+     * The following attributes are exported:
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return Name of the service. This field must not be longer than 100 characters.
+     * 
+     * The following attributes are exported:
      * 
      */
     public Output<String> name() {
@@ -110,6 +114,8 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Name of the service. This field must not be longer than 100 characters.
          * 
+         * The following attributes are exported:
+         * 
          * @return builder
          * 
          */
@@ -120,6 +126,8 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param name Name of the service. This field must not be longer than 100 characters.
+         * 
+         * The following attributes are exported:
          * 
          * @return builder
          * 

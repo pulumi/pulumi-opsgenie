@@ -79,6 +79,8 @@ namespace Pulumi.Opsgenie
 
         /// <summary>
         /// Name of the service. This field must not be longer than 100 characters.
+        /// 
+        /// The following attributes are exported:
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -105,6 +107,8 @@ namespace Pulumi.Opsgenie
 
         /// <summary>
         /// Name of the service. This field must not be longer than 100 characters.
+        /// 
+        /// The following attributes are exported:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

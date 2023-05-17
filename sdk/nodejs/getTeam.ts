@@ -44,6 +44,8 @@ export interface GetTeamArgs {
     members?: inputs.GetTeamMember[];
     /**
      * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+     *
+     * The following attributes are exported:
      */
     name: string;
 }
@@ -92,6 +94,8 @@ export interface GetTeamOutputArgs {
     members?: pulumi.Input<pulumi.Input<inputs.GetTeamMemberArgs>[]>;
     /**
      * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+     *
+     * The following attributes are exported:
      */
     name: pulumi.Input<string>;
 }

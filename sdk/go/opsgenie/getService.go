@@ -51,6 +51,8 @@ type LookupServiceArgs struct {
 	// Description field of the service that is generally used to provide a detailed information about the service.
 	Description *string `pulumi:"description"`
 	// Name of the service. This field must not be longer than 100 characters.
+	//
+	// The following attributes are exported:
 	Name string `pulumi:"name"`
 	// Team id of the service.
 	TeamId *string `pulumi:"teamId"`
@@ -83,6 +85,8 @@ type LookupServiceOutputArgs struct {
 	// Description field of the service that is generally used to provide a detailed information about the service.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Name of the service. This field must not be longer than 100 characters.
+	//
+	// The following attributes are exported:
 	Name pulumi.StringInput `pulumi:"name"`
 	// Team id of the service.
 	TeamId pulumi.StringPtrInput `pulumi:"teamId"`

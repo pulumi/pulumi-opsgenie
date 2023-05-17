@@ -23,6 +23,8 @@ namespace Pulumi.Opsgenie.Outputs
         public readonly int EndHour;
         /// <summary>
         /// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        /// 
+        /// Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
         /// </summary>
         public readonly int EndMin;
         /// <summary>
