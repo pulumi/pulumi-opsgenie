@@ -271,19 +271,19 @@ class EmailIntegration(pulumi.CustomResource):
             responders=[
                 opsgenie.EmailIntegrationResponderArgs(
                     type="user",
-                    id=opsgenie_user["test"]["id"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 opsgenie.EmailIntegrationResponderArgs(
                     type="schedule",
-                    id=opsgenie_schedule["test"]["id"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 opsgenie.EmailIntegrationResponderArgs(
                     type="escalation",
-                    id=opsgenie_escalation["test"]["id"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 opsgenie.EmailIntegrationResponderArgs(
                     type="team",
-                    id=opsgenie_team["test2"]["id"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ],
             email_username="test",
@@ -293,7 +293,7 @@ class EmailIntegration(pulumi.CustomResource):
         test_opsgenie_index_email_integration_email_integration = opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration",
             responders=[opsgenie.EmailIntegrationResponderArgs(
                 type="user",
-                id=opsgenie_user["test"]["id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             email_username="test",
             enabled=True,
@@ -339,19 +339,19 @@ class EmailIntegration(pulumi.CustomResource):
             responders=[
                 opsgenie.EmailIntegrationResponderArgs(
                     type="user",
-                    id=opsgenie_user["test"]["id"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 opsgenie.EmailIntegrationResponderArgs(
                     type="schedule",
-                    id=opsgenie_schedule["test"]["id"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 opsgenie.EmailIntegrationResponderArgs(
                     type="escalation",
-                    id=opsgenie_escalation["test"]["id"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 opsgenie.EmailIntegrationResponderArgs(
                     type="team",
-                    id=opsgenie_team["test2"]["id"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ],
             email_username="test",
@@ -361,7 +361,7 @@ class EmailIntegration(pulumi.CustomResource):
         test_opsgenie_index_email_integration_email_integration = opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration",
             responders=[opsgenie.EmailIntegrationResponderArgs(
                 type="user",
-                id=opsgenie_user["test"]["id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             email_username="test",
             enabled=True,

@@ -91,6 +91,8 @@ namespace Pulumi.Opsgenie
 
         /// <summary>
         /// The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+        /// 
+        /// The following attributes are exported:
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -123,6 +125,8 @@ namespace Pulumi.Opsgenie
 
         /// <summary>
         /// The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+        /// 
+        /// The following attributes are exported:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

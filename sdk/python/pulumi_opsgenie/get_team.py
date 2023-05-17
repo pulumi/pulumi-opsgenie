@@ -93,6 +93,8 @@ def get_team(description: Optional[str] = None,
     :param str description: A description for this team.
     :param Sequence[pulumi.InputType['GetTeamMemberArgs']] members: A Member block as documented below.
     :param str name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+           
+           The following attributes are exported:
     """
     __args__ = dict()
     __args__['description'] = description
@@ -129,5 +131,7 @@ def get_team_output(description: Optional[pulumi.Input[Optional[str]]] = None,
     :param str description: A description for this team.
     :param Sequence[pulumi.InputType['GetTeamMemberArgs']] members: A Member block as documented below.
     :param str name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
+           
+           The following attributes are exported:
     """
     ...

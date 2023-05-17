@@ -931,6 +931,8 @@ export interface ScheduleRotationTimeRestrictionRestrictionList {
     endHour: number;
     /**
      * Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+     *
+     * Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
      */
     endMin: number;
     /**

@@ -236,7 +236,7 @@ class IntegrationAction(pulumi.CustomResource):
                         )],
                     )],
                     responders=[opsgenie.IntegrationActionCreateResponderArgs(
-                        id=opsgenie_team["test"]["id"],
+                        id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         type="team",
                     )],
                 ),
@@ -387,7 +387,7 @@ class IntegrationAction(pulumi.CustomResource):
                         )],
                     )],
                     responders=[opsgenie.IntegrationActionCreateResponderArgs(
-                        id=opsgenie_team["test"]["id"],
+                        id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         type="team",
                     )],
                 ),

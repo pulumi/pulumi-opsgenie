@@ -47,12 +47,16 @@ public final class ScheduleRotationTimeRestrictionRestrictionListArgs extends co
     /**
      * Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
      * 
+     * Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
+     * 
      */
     @Import(name="endMin", required=true)
     private Output<Integer> endMin;
 
     /**
      * @return Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+     * 
+     * Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
      * 
      */
     public Output<Integer> endMin() {
@@ -178,6 +182,8 @@ public final class ScheduleRotationTimeRestrictionRestrictionListArgs extends co
         /**
          * @param endMin Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
          * 
+         * Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
+         * 
          * @return builder
          * 
          */
@@ -188,6 +194,8 @@ public final class ScheduleRotationTimeRestrictionRestrictionListArgs extends co
 
         /**
          * @param endMin Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+         * 
+         * Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
          * 
          * @return builder
          * 

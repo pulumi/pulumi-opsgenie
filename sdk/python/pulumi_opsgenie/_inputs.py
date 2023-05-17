@@ -3631,6 +3631,8 @@ class ScheduleRotationTimeRestrictionRestrictionListArgs:
         :param pulumi.Input[str] end_day: Value of the day that frame will end.
         :param pulumi.Input[int] end_hour: Value of the hour that frame will end.
         :param pulumi.Input[int] end_min: Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+               
+               Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
         :param pulumi.Input[str] start_day: Value of the day that frame will start.
         :param pulumi.Input[int] start_hour: Value of the hour that frame will start
         :param pulumi.Input[int] start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
@@ -3671,6 +3673,8 @@ class ScheduleRotationTimeRestrictionRestrictionListArgs:
     def end_min(self) -> pulumi.Input[int]:
         """
         Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+
+        Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
         """
         return pulumi.get(self, "end_min")
 

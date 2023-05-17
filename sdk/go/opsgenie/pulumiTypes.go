@@ -6693,6 +6693,8 @@ type ScheduleRotationTimeRestrictionRestrictionList struct {
 	// Value of the hour that frame will end.
 	EndHour int `pulumi:"endHour"`
 	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	//
+	// Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
 	EndMin int `pulumi:"endMin"`
 	// Value of the day that frame will start.
 	StartDay string `pulumi:"startDay"`
@@ -6719,6 +6721,8 @@ type ScheduleRotationTimeRestrictionRestrictionListArgs struct {
 	// Value of the hour that frame will end.
 	EndHour pulumi.IntInput `pulumi:"endHour"`
 	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	//
+	// Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
 	EndMin pulumi.IntInput `pulumi:"endMin"`
 	// Value of the day that frame will start.
 	StartDay pulumi.StringInput `pulumi:"startDay"`
@@ -6790,6 +6794,8 @@ func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndHour() pulumi.I
 }
 
 // Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+//
+// Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndMin() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.EndMin }).(pulumi.IntOutput)
 }
