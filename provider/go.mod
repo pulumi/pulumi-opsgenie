@@ -8,8 +8,8 @@ replace (
 )
 
 require (
-	github.com/opsgenie/terraform-provider-opsgenie v0.6.22
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.47.3
+	github.com/opsgenie/terraform-provider-opsgenie v0.6.23
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.47.4
 	github.com/pulumi/pulumi/sdk/v3 v3.68.0
 )
 
@@ -169,7 +169,7 @@ require (
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
-	github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.18 // indirect
+	github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.19 // indirect
 	github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
@@ -179,7 +179,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.9.2 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.3 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
 	github.com/pulumi/pulumi-yaml v1.1.1 // indirect
 	github.com/pulumi/pulumi/pkg/v3 v3.68.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
