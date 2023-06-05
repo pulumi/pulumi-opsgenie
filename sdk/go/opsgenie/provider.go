@@ -33,7 +33,9 @@ func NewProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ApiKey'")
 	}
 	if args.ApiUrl == nil {
-		args.ApiUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "OPSGENIE_API_URL").(string))
+		if d := getEnvOrDefault(nil, nil, "OPSGENIE_API_URL"); d != nil {
+			args.ApiUrl = pulumi.StringPtr(d.(string))
+		}
 	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:opsgenie", name, args, &resource, opts...)
