@@ -16,5 +16,9 @@ func GetApiUrl(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "OPSGENIE_API_URL").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "OPSGENIE_API_URL"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
