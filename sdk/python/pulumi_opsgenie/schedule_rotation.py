@@ -300,7 +300,7 @@ class ScheduleRotation(pulumi.CustomResource):
             end_date="2019-06-20T17:30:00Z",
             length=6,
             participants=[opsgenie.ScheduleRotationParticipantArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=opsgenie_user["test"]["id"],
                 type="user",
             )],
             schedule_id=opsgenie_schedule["test"]["id"],
@@ -354,7 +354,7 @@ class ScheduleRotation(pulumi.CustomResource):
             end_date="2019-06-20T17:30:00Z",
             length=6,
             participants=[opsgenie.ScheduleRotationParticipantArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=opsgenie_user["test"]["id"],
                 type="user",
             )],
             schedule_id=opsgenie_schedule["test"]["id"],

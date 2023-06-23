@@ -223,15 +223,15 @@ class Escalation(pulumi.CustomResource):
                 notify_type="default",
                 recipients=[
                     opsgenie.EscalationRuleRecipientArgs(
-                        id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        id=opsgenie_user["test"]["id"],
                         type="user",
                     ),
                     opsgenie.EscalationRuleRecipientArgs(
-                        id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        id=opsgenie_team["test"]["id"],
                         type="team",
                     ),
                     opsgenie.EscalationRuleRecipientArgs(
-                        id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        id=opsgenie_schedule["test"]["id"],
                         type="schedule",
                     ),
                 ],
@@ -284,15 +284,15 @@ class Escalation(pulumi.CustomResource):
                 notify_type="default",
                 recipients=[
                     opsgenie.EscalationRuleRecipientArgs(
-                        id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        id=opsgenie_user["test"]["id"],
                         type="user",
                     ),
                     opsgenie.EscalationRuleRecipientArgs(
-                        id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        id=opsgenie_team["test"]["id"],
                         type="team",
                     ),
                     opsgenie.EscalationRuleRecipientArgs(
-                        id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        id=opsgenie_schedule["test"]["id"],
                         type="schedule",
                     ),
                 ],
