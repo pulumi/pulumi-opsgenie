@@ -387,18 +387,18 @@ class ApiIntegration(pulumi.CustomResource):
             responders=[
                 opsgenie.ApiIntegrationResponderArgs(
                     type="user",
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=opsgenie_user["user"]["id"],
                 ),
                 opsgenie.ApiIntegrationResponderArgs(
                     type="user",
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=opsgenie_user["fahri"]["id"],
                 ),
             ])
         example_api_integration_index_api_integration_api_integration = opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration",
             type="Prometheus",
             responders=[opsgenie.ApiIntegrationResponderArgs(
                 type="user",
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=opsgenie_user["user"]["id"],
             )],
             enabled=False,
             allow_write_access=False,
@@ -409,7 +409,7 @@ class ApiIntegration(pulumi.CustomResource):
             type="Webhook",
             responders=[opsgenie.ApiIntegrationResponderArgs(
                 type="user",
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=opsgenie_user["user"]["id"],
             )],
             enabled=False,
             allow_write_access=False,
@@ -460,18 +460,18 @@ class ApiIntegration(pulumi.CustomResource):
             responders=[
                 opsgenie.ApiIntegrationResponderArgs(
                     type="user",
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=opsgenie_user["user"]["id"],
                 ),
                 opsgenie.ApiIntegrationResponderArgs(
                     type="user",
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=opsgenie_user["fahri"]["id"],
                 ),
             ])
         example_api_integration_index_api_integration_api_integration = opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration",
             type="Prometheus",
             responders=[opsgenie.ApiIntegrationResponderArgs(
                 type="user",
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=opsgenie_user["user"]["id"],
             )],
             enabled=False,
             allow_write_access=False,
@@ -482,7 +482,7 @@ class ApiIntegration(pulumi.CustomResource):
             type="Webhook",
             responders=[opsgenie.ApiIntegrationResponderArgs(
                 type="user",
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=opsgenie_user["user"]["id"],
             )],
             enabled=False,
             allow_write_access=False,
