@@ -104,10 +104,10 @@ def get_team(description: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('opsgenie:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult).value
 
     return AwaitableGetTeamResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        members=__ret__.members,
-        name=__ret__.name)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        members=pulumi.get(__ret__, 'members'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_team)

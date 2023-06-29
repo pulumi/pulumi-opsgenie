@@ -136,12 +136,12 @@ def get_schedule(description: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('opsgenie:index/getSchedule:getSchedule', __args__, opts=opts, typ=GetScheduleResult).value
 
     return AwaitableGetScheduleResult(
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner_team_id=__ret__.owner_team_id,
-        timezone=__ret__.timezone)
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_team_id=pulumi.get(__ret__, 'owner_team_id'),
+        timezone=pulumi.get(__ret__, 'timezone'))
 
 
 @_utilities.lift_output_func(get_schedule)

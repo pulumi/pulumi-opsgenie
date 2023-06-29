@@ -196,16 +196,16 @@ def get_heartbeat(alert_message: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('opsgenie:index/getHeartbeat:getHeartbeat', __args__, opts=opts, typ=GetHeartbeatResult).value
 
     return AwaitableGetHeartbeatResult(
-        alert_message=__ret__.alert_message,
-        alert_priority=__ret__.alert_priority,
-        alert_tags=__ret__.alert_tags,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        interval=__ret__.interval,
-        interval_unit=__ret__.interval_unit,
-        name=__ret__.name,
-        owner_team_id=__ret__.owner_team_id)
+        alert_message=pulumi.get(__ret__, 'alert_message'),
+        alert_priority=pulumi.get(__ret__, 'alert_priority'),
+        alert_tags=pulumi.get(__ret__, 'alert_tags'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        interval=pulumi.get(__ret__, 'interval'),
+        interval_unit=pulumi.get(__ret__, 'interval_unit'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_team_id=pulumi.get(__ret__, 'owner_team_id'))
 
 
 @_utilities.lift_output_func(get_heartbeat)

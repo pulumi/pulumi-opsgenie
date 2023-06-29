@@ -138,12 +138,12 @@ def get_escalation(description: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('opsgenie:index/getEscalation:getEscalation', __args__, opts=opts, typ=GetEscalationResult).value
 
     return AwaitableGetEscalationResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner_team_id=__ret__.owner_team_id,
-        repeats=__ret__.repeats,
-        rules=__ret__.rules)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_team_id=pulumi.get(__ret__, 'owner_team_id'),
+        repeats=pulumi.get(__ret__, 'repeats'),
+        rules=pulumi.get(__ret__, 'rules'))
 
 
 @_utilities.lift_output_func(get_escalation)

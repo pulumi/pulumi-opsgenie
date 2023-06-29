@@ -102,10 +102,10 @@ def get_service(description: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('opsgenie:index/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        team_id=__ret__.team_id)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        team_id=pulumi.get(__ret__, 'team_id'))
 
 
 @_utilities.lift_output_func(get_service)
