@@ -136,12 +136,12 @@ def get_user(full_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('opsgenie:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        full_name=__ret__.full_name,
-        id=__ret__.id,
-        locale=__ret__.locale,
-        role=__ret__.role,
-        timezone=__ret__.timezone,
-        username=__ret__.username)
+        full_name=pulumi.get(__ret__, 'full_name'),
+        id=pulumi.get(__ret__, 'id'),
+        locale=pulumi.get(__ret__, 'locale'),
+        role=pulumi.get(__ret__, 'role'),
+        timezone=pulumi.get(__ret__, 'timezone'),
+        username=pulumi.get(__ret__, 'username'))
 
 
 @_utilities.lift_output_func(get_user)
