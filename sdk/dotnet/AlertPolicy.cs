@@ -177,7 +177,7 @@ namespace Pulumi.Opsgenie
         public Output<string?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         /// </summary>
         [Output("responders")]
         public Output<ImmutableArray<Outputs.AlertPolicyResponder>> Responders { get; private set; } = null!;
@@ -358,7 +358,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.AlertPolicyResponderArgs>? _responders;
 
         /// <summary>
-        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.AlertPolicyResponderArgs> Responders
         {
@@ -516,7 +516,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.AlertPolicyResponderGetArgs>? _responders;
 
         /// <summary>
-        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        /// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.AlertPolicyResponderGetArgs> Responders
         {

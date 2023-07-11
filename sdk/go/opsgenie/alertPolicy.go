@@ -123,7 +123,7 @@ type AlertPolicy struct {
 	PolicyDescription pulumi.StringPtrOutput `pulumi:"policyDescription"`
 	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
-	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
 	Responders AlertPolicyResponderArrayOutput `pulumi:"responders"`
 	// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
 	Source pulumi.StringPtrOutput `pulumi:"source"`
@@ -197,7 +197,7 @@ type alertPolicyState struct {
 	PolicyDescription *string `pulumi:"policyDescription"`
 	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
 	Priority *string `pulumi:"priority"`
-	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
 	Responders []AlertPolicyResponder `pulumi:"responders"`
 	// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
 	Source *string `pulumi:"source"`
@@ -240,7 +240,7 @@ type AlertPolicyState struct {
 	PolicyDescription pulumi.StringPtrInput
 	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
 	Priority pulumi.StringPtrInput
-	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
 	Responders AlertPolicyResponderArrayInput
 	// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
 	Source pulumi.StringPtrInput
@@ -287,7 +287,7 @@ type alertPolicyArgs struct {
 	PolicyDescription *string `pulumi:"policyDescription"`
 	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
 	Priority *string `pulumi:"priority"`
-	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
 	Responders []AlertPolicyResponder `pulumi:"responders"`
 	// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
 	Source *string `pulumi:"source"`
@@ -331,7 +331,7 @@ type AlertPolicyArgs struct {
 	PolicyDescription pulumi.StringPtrInput
 	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
 	Priority pulumi.StringPtrInput
-	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+	// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
 	Responders AlertPolicyResponderArrayInput
 	// Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
 	Source pulumi.StringPtrInput
@@ -505,7 +505,7 @@ func (o AlertPolicyOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertPolicy) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
-// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+// Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
 func (o AlertPolicyOutput) Responders() AlertPolicyResponderArrayOutput {
 	return o.ApplyT(func(v *AlertPolicy) AlertPolicyResponderArrayOutput { return v.Responders }).(AlertPolicyResponderArrayOutput)
 }

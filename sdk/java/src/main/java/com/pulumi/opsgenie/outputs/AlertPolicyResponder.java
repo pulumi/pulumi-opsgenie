@@ -22,7 +22,7 @@ public final class AlertPolicyResponder {
      */
     private @Nullable String name;
     /**
-     * @return Type of responder. Acceptable values are: `user` or `team`
+     * @return Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
      * 
      */
     private String type;
@@ -48,7 +48,7 @@ public final class AlertPolicyResponder {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Type of responder. Acceptable values are: `user` or `team`
+     * @return Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
      * 
      */
     public String type() {
