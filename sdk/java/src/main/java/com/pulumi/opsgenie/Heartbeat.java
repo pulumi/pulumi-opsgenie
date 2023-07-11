@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  *             .enabled(false)
  *             .interval(10)
  *             .intervalUnit(&#34;minutes&#34;)
+ *             .name(&#34;genieheartbeat-test&#34;)
  *             .ownerTeamId(opsgenie_team.test().id())
  *             .build());
  * 

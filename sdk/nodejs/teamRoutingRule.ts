@@ -18,9 +18,13 @@ import * as utilities from "./utilities";
  * const testSchedule = new opsgenie.Schedule("testSchedule", {
  *     description: "schedule test",
  *     enabled: false,
+ *     name: "genieschedule",
  *     timezone: "Europe/Rome",
  * });
- * const testTeam = new opsgenie.Team("testTeam", {description: "This team deals with all the things"});
+ * const testTeam = new opsgenie.Team("testTeam", {
+ *     description: "This team deals with all the things",
+ *     name: "example team",
+ * });
  * const testTeamRoutingRule = new opsgenie.TeamRoutingRule("testTeamRoutingRule", {
  *     criterias: [{
  *         conditions: [{
@@ -31,6 +35,7 @@ import * as utilities from "./utilities";
  *         }],
  *         type: "match-any-condition",
  *     }],
+ *     name: "routing rule example",
  *     notifies: [{
  *         name: testSchedule.name,
  *         type: "schedule",
@@ -99,7 +104,7 @@ export class TeamRoutingRule extends pulumi.CustomResource {
     /**
      * Name of the team routing rule
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
      */

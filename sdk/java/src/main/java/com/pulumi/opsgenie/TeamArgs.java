@@ -82,15 +82,15 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
      * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     private TeamArgs() {}
@@ -221,7 +221,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -237,6 +237,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TeamArgs build() {
+            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

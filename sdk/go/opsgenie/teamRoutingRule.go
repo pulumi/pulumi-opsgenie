@@ -30,6 +30,7 @@ import (
 //			testSchedule, err := opsgenie.NewSchedule(ctx, "testSchedule", &opsgenie.ScheduleArgs{
 //				Description: pulumi.String("schedule test"),
 //				Enabled:     pulumi.Bool(false),
+//				Name:        pulumi.String("genieschedule"),
 //				Timezone:    pulumi.String("Europe/Rome"),
 //			})
 //			if err != nil {
@@ -37,6 +38,7 @@ import (
 //			}
 //			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
 //				Description: pulumi.String("This team deals with all the things"),
+//				Name:        pulumi.String("example team"),
 //			})
 //			if err != nil {
 //				return err
@@ -55,6 +57,7 @@ import (
 //						Type: pulumi.String("match-any-condition"),
 //					},
 //				},
+//				Name: pulumi.String("routing rule example"),
 //				Notifies: opsgenie.TeamRoutingRuleNotifyArray{
 //					&opsgenie.TeamRoutingRuleNotifyArgs{
 //						Name: testSchedule.Name,
@@ -106,7 +109,7 @@ type TeamRoutingRule struct {
 	// Only use when importing default routing rule
 	IsDefault pulumi.BoolPtrOutput `pulumi:"isDefault"`
 	// Name of the team routing rule
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
 	Notifies TeamRoutingRuleNotifyArrayOutput `pulumi:"notifies"`
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
@@ -327,8 +330,8 @@ func (o TeamRoutingRuleOutput) IsDefault() pulumi.BoolPtrOutput {
 }
 
 // Name of the team routing rule
-func (o TeamRoutingRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *TeamRoutingRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o TeamRoutingRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamRoutingRule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`

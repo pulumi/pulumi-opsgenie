@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  *         var test = new ScheduleRotation(&#34;test&#34;, ScheduleRotationArgs.builder()        
  *             .endDate(&#34;2019-06-20T17:30:00Z&#34;)
  *             .length(6)
+ *             .name(&#34;test&#34;)
  *             .participants(ScheduleRotationParticipantArgs.builder()
  *                 .id(opsgenie_user.test().id())
  *                 .type(&#34;user&#34;)
@@ -114,14 +115,14 @@ public class ScheduleRotation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="name", type=String.class, parameters={})
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return Name of rotation.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. &#34;user,escalation,team,none&#34;

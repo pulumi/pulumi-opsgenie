@@ -34,15 +34,15 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      * Name of the service. This field must not be longer than 100 characters.
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return Name of the service. This field must not be longer than 100 characters.
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
@@ -113,7 +113,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -150,6 +150,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceArgs build() {
+            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             $.teamId = Objects.requireNonNull($.teamId, "expected parameter 'teamId' to be non-null");
             return $;
         }

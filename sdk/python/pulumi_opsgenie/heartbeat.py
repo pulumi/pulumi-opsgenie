@@ -17,27 +17,28 @@ class HeartbeatArgs:
                  enabled: pulumi.Input[bool],
                  interval: pulumi.Input[int],
                  interval_unit: pulumi.Input[str],
+                 name: pulumi.Input[str],
                  alert_message: Optional[pulumi.Input[str]] = None,
                  alert_priority: Optional[pulumi.Input[str]] = None,
                  alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  owner_team_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Heartbeat resource.
         :param pulumi.Input[bool] enabled: Enable/disable heartbeat monitoring.
         :param pulumi.Input[int] interval: Specifies how often a heartbeat message should be expected.
         :param pulumi.Input[str] interval_unit: Interval specified as minutes, hours or days.
+        :param pulumi.Input[str] name: Name of the heartbeat
         :param pulumi.Input[str] alert_message: Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
         :param pulumi.Input[str] alert_priority: Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alert_tags: Specifies the alert tags for heartbeat expiration alert.
         :param pulumi.Input[str] description: An optional description of the heartbeat
-        :param pulumi.Input[str] name: Name of the heartbeat
         :param pulumi.Input[str] owner_team_id: Owner team of the heartbeat.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "interval_unit", interval_unit)
+        pulumi.set(__self__, "name", name)
         if alert_message is not None:
             pulumi.set(__self__, "alert_message", alert_message)
         if alert_priority is not None:
@@ -46,8 +47,6 @@ class HeartbeatArgs:
             pulumi.set(__self__, "alert_tags", alert_tags)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
             pulumi.set(__self__, "owner_team_id", owner_team_id)
 
@@ -86,6 +85,18 @@ class HeartbeatArgs:
     @interval_unit.setter
     def interval_unit(self, value: pulumi.Input[str]):
         pulumi.set(self, "interval_unit", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the heartbeat
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="alertMessage")
@@ -134,18 +145,6 @@ class HeartbeatArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the heartbeat
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="ownerTeamId")
@@ -347,6 +346,7 @@ class Heartbeat(pulumi.CustomResource):
             enabled=False,
             interval=10,
             interval_unit="minutes",
+            name="genieheartbeat-test",
             owner_team_id=opsgenie_team["test"]["id"])
         ```
 
@@ -396,6 +396,7 @@ class Heartbeat(pulumi.CustomResource):
             enabled=False,
             interval=10,
             interval_unit="minutes",
+            name="genieheartbeat-test",
             owner_team_id=opsgenie_team["test"]["id"])
         ```
 
@@ -453,6 +454,8 @@ class Heartbeat(pulumi.CustomResource):
             if interval_unit is None and not opts.urn:
                 raise TypeError("Missing required property 'interval_unit'")
             __props__.__dict__["interval_unit"] = interval_unit
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["owner_team_id"] = owner_team_id
         super(Heartbeat, __self__).__init__(

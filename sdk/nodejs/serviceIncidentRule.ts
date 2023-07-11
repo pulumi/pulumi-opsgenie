@@ -15,8 +15,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const testTeam = new opsgenie.Team("testTeam", {description: "This team deals with all the things"});
- * const testService = new opsgenie.Service("testService", {teamId: testTeam.id});
+ * const testTeam = new opsgenie.Team("testTeam", {
+ *     name: "example-team",
+ *     description: "This team deals with all the things",
+ * });
+ * const testService = new opsgenie.Service("testService", {
+ *     name: "example-service",
+ *     teamId: testTeam.id,
+ * });
  * const testServiceIncidentRule = new opsgenie.ServiceIncidentRule("testServiceIncidentRule", {
  *     serviceId: testService.id,
  *     incidentRules: [{

@@ -13,8 +13,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const payment = new opsgenie.Team("payment", {description: "This team deals with all the things"});
- * const _this = new opsgenie.Service("this", {teamId: "$opsgenie_team.payment.id"});
+ * const payment = new opsgenie.Team("payment", {
+ *     description: "This team deals with all the things",
+ *     name: "example",
+ * });
+ * const _this = new opsgenie.Service("this", {
+ *     name: "Payment",
+ *     teamId: "$opsgenie_team.payment.id",
+ * });
  * ```
  *
  * ## Import
@@ -84,6 +90,9 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["teamId"] = state ? state.teamId : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.teamId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
@@ -125,7 +134,7 @@ export interface ServiceArgs {
     /**
      * Name of the service. This field must not be longer than 100 characters.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Team id of the service. This field must not be longer than 512 characters.
      */

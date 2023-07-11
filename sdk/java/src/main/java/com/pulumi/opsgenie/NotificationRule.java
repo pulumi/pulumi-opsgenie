@@ -57,6 +57,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testNotificationRule = new NotificationRule(&#34;testNotificationRule&#34;, NotificationRuleArgs.builder()        
+ *             .name(&#34;Example notification rule&#34;)
  *             .username(testUser.username())
  *             .actionType(&#34;schedule-end&#34;)
  *             .notificationTimes(            

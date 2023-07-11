@@ -28,12 +28,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewEmailIntegration(ctx, "testEmailIntegration", &opsgenie.EmailIntegrationArgs{
+//				Name:          pulumi.String("genieintegration-name"),
 //				EmailUsername: pulumi.String("fahri"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = opsgenie.NewEmailIntegration(ctx, "testIndex/emailIntegrationEmailIntegration", &opsgenie.EmailIntegrationArgs{
+//				Name: pulumi.String("genieintegration-%s"),
 //				Responders: opsgenie.EmailIntegrationResponderArray{
 //					&opsgenie.EmailIntegrationResponderArgs{
 //						Type: pulumi.String("user"),
@@ -61,6 +63,7 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewEmailIntegration(ctx, "testOpsgenieIndex/emailIntegrationEmailIntegration", &opsgenie.EmailIntegrationArgs{
+//				Name: pulumi.String("genieintegration-%s"),
 //				Responders: opsgenie.EmailIntegrationResponderArray{
 //					&opsgenie.EmailIntegrationResponderArgs{
 //						Type: pulumi.String("user"),
@@ -118,6 +121,9 @@ func NewEmailIntegration(ctx *pulumi.Context,
 
 	if args.EmailUsername == nil {
 		return nil, errors.New("invalid value for required argument 'EmailUsername'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource EmailIntegration
 	err := ctx.RegisterResource("opsgenie:index/emailIntegration:EmailIntegration", name, args, &resource, opts...)
@@ -184,7 +190,7 @@ type emailIntegrationArgs struct {
 	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload *bool `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Owner team id of the integration.
 	OwnerTeamId *string                     `pulumi:"ownerTeamId"`
 	Responders  []EmailIntegrationResponder `pulumi:"responders"`
@@ -201,7 +207,7 @@ type EmailIntegrationArgs struct {
 	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload pulumi.BoolPtrInput
 	// Name of the integration. Name must be unique for each integration.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Owner team id of the integration.
 	OwnerTeamId pulumi.StringPtrInput
 	Responders  EmailIntegrationResponderArrayInput

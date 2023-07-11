@@ -15,8 +15,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const testEmailIntegration = new opsgenie.EmailIntegration("testEmailIntegration", {emailUsername: "fahri"});
+ * const testEmailIntegration = new opsgenie.EmailIntegration("testEmailIntegration", {
+ *     name: "genieintegration-name",
+ *     emailUsername: "fahri",
+ * });
  * const testIndex_emailIntegrationEmailIntegration = new opsgenie.EmailIntegration("testIndex/emailIntegrationEmailIntegration", {
+ *     name: "genieintegration-%s",
  *     responders: [
  *         {
  *             type: "user",
@@ -41,6 +45,7 @@ import * as utilities from "./utilities";
  *     suppressNotifications: true,
  * });
  * const testOpsgenieIndex_emailIntegrationEmailIntegration = new opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration", {
+ *     name: "genieintegration-%s",
  *     responders: [{
  *         type: "user",
  *         id: opsgenie_user.test.id,
@@ -140,6 +145,9 @@ export class EmailIntegration extends pulumi.CustomResource {
             if ((!args || args.emailUsername === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailUsername'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["emailUsername"] = args ? args.emailUsername : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["ignoreRespondersFromPayload"] = args ? args.ignoreRespondersFromPayload : undefined;
@@ -203,7 +211,7 @@ export interface EmailIntegrationArgs {
     /**
      * Name of the integration. Name must be unique for each integration.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Owner team id of the integration.
      */

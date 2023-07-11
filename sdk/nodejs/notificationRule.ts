@@ -21,6 +21,7 @@ import * as utilities from "./utilities";
  *     role: "User",
  * });
  * const testNotificationRule = new opsgenie.NotificationRule("testNotificationRule", {
+ *     name: "Example notification rule",
  *     username: testUser.username,
  *     actionType: "schedule-end",
  *     notificationTimes: [
@@ -134,6 +135,9 @@ export class NotificationRule extends pulumi.CustomResource {
             if ((!args || args.actionType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actionType'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
@@ -208,7 +212,7 @@ export interface NotificationRuleArgs {
     /**
      * Name of the notification policy
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */

@@ -25,10 +25,12 @@ namespace Pulumi.Opsgenie
     ///     var payment = new Opsgenie.Team("payment", new()
     ///     {
     ///         Description = "This team deals with all the things",
+    ///         Name = "example",
     ///     });
     /// 
     ///     var @this = new Opsgenie.Service("this", new()
     ///     {
+    ///         Name = "Payment",
     ///         TeamId = "$opsgenie_team.payment.id",
     ///     });
     /// 
@@ -119,8 +121,8 @@ namespace Pulumi.Opsgenie
         /// <summary>
         /// Name of the service. This field must not be longer than 100 characters.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Team id of the service. This field must not be longer than 512 characters.

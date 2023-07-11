@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,6 +55,7 @@ import (
 //						Role: pulumi.String("user"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -62,6 +64,7 @@ import (
 //				DeleteDefaultResources: pulumi.Bool(true),
 //				Description:            pulumi.String("Membership in this team is managed via OpsGenie web UI only"),
 //				IgnoreMembers:          pulumi.Bool(true),
+//				Name:                   pulumi.String("Self Service"),
 //			})
 //			if err != nil {
 //				return err
@@ -100,9 +103,12 @@ type Team struct {
 func NewTeam(ctx *pulumi.Context,
 	name string, args *TeamArgs, opts ...pulumi.ResourceOption) (*Team, error) {
 	if args == nil {
-		args = &TeamArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	var resource Team
 	err := ctx.RegisterResource("opsgenie:index/team:Team", name, args, &resource, opts...)
 	if err != nil {
@@ -164,7 +170,7 @@ type teamArgs struct {
 	// A Member block as documented below.
 	Members []TeamMember `pulumi:"members"`
 	// The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Team resource.
@@ -178,7 +184,7 @@ type TeamArgs struct {
 	// A Member block as documented below.
 	Members TeamMemberArrayInput
 	// The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 }
 
 func (TeamArgs) ElementType() reflect.Type {

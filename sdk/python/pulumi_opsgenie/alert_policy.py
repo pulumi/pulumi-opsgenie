@@ -17,6 +17,7 @@ __all__ = ['AlertPolicyArgs', 'AlertPolicy']
 class AlertPolicyArgs:
     def __init__(__self__, *,
                  message: pulumi.Input[str],
+                 name: pulumi.Input[str],
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  alert_description: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
@@ -28,7 +29,6 @@ class AlertPolicyArgs:
                  ignore_original_details: Optional[pulumi.Input[bool]] = None,
                  ignore_original_responders: Optional[pulumi.Input[bool]] = None,
                  ignore_original_tags: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  responders: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]] = None,
@@ -39,6 +39,7 @@ class AlertPolicyArgs:
         """
         The set of arguments for constructing a AlertPolicy resource.
         :param pulumi.Input[str] message: Message of the alerts
+        :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         :param pulumi.Input[str] alert_description: Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
         :param pulumi.Input[str] alias: Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
@@ -50,7 +51,6 @@ class AlertPolicyArgs:
         :param pulumi.Input[bool] ignore_original_details: If set to `true`, policy will ignore the original details of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_tags: If set to `true`, policy will ignore the original tags of the alert. Default: `false`
-        :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
@@ -60,6 +60,7 @@ class AlertPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "name", name)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if alert_description is not None:
@@ -82,8 +83,6 @@ class AlertPolicyArgs:
             pulumi.set(__self__, "ignore_original_responders", ignore_original_responders)
         if ignore_original_tags is not None:
             pulumi.set(__self__, "ignore_original_tags", ignore_original_tags)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if policy_description is not None:
             pulumi.set(__self__, "policy_description", policy_description)
         if priority is not None:
@@ -110,6 +109,18 @@ class AlertPolicyArgs:
     @message.setter
     def message(self, value: pulumi.Input[str]):
         pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the alert policy
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -242,18 +253,6 @@ class AlertPolicyArgs:
     @ignore_original_tags.setter
     def ignore_original_tags(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_original_tags", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the alert policy
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="policyDescription")
@@ -703,8 +702,11 @@ class AlertPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
+        test_team = opsgenie.Team("testTeam",
+            name="example team",
+            description="This team deals with all the things")
         test_alert_policy = opsgenie.AlertPolicy("testAlertPolicy",
+            name="example policy",
             team_id=test_team.id,
             policy_description="This is sample policy",
             message="{{message}}",
@@ -784,8 +786,11 @@ class AlertPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
+        test_team = opsgenie.Team("testTeam",
+            name="example team",
+            description="This team deals with all the things")
         test_alert_policy = opsgenie.AlertPolicy("testAlertPolicy",
+            name="example policy",
             team_id=test_team.id,
             policy_description="This is sample policy",
             message="{{message}}",
@@ -885,6 +890,8 @@ class AlertPolicy(pulumi.CustomResource):
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
             __props__.__dict__["message"] = message
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_description"] = policy_description
             __props__.__dict__["priority"] = priority

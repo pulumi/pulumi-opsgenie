@@ -44,10 +44,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testEmailIntegration = new EmailIntegration(&#34;testEmailIntegration&#34;, EmailIntegrationArgs.builder()        
+ *             .name(&#34;genieintegration-name&#34;)
  *             .emailUsername(&#34;fahri&#34;)
  *             .build());
  * 
  *         var testIndex_emailIntegrationEmailIntegration = new EmailIntegration(&#34;testIndex/emailIntegrationEmailIntegration&#34;, EmailIntegrationArgs.builder()        
+ *             .name(&#34;genieintegration-%s&#34;)
  *             .responders(            
  *                 EmailIntegrationResponderArgs.builder()
  *                     .type(&#34;user&#34;)
@@ -72,6 +74,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testOpsgenieIndex_emailIntegrationEmailIntegration = new EmailIntegration(&#34;testOpsgenieIndex/emailIntegrationEmailIntegration&#34;, EmailIntegrationArgs.builder()        
+ *             .name(&#34;genieintegration-%s&#34;)
  *             .responders(EmailIntegrationResponderArgs.builder()
  *                 .type(&#34;user&#34;)
  *                 .id(opsgenie_user.test().id())

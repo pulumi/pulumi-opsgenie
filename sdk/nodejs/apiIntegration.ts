@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const example_api_integrationApiIntegration = new opsgenie.ApiIntegration("example-api-integrationApiIntegration", {
+ *     name: "api-based-int",
  *     type: "API",
  *     responders: [
  *         {
@@ -29,6 +30,7 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * const example_api_integrationIndex_apiIntegrationApiIntegration = new opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration", {
+ *     name: "api-based-int-2",
  *     type: "Prometheus",
  *     responders: [{
  *         type: "user",
@@ -41,6 +43,7 @@ import * as utilities from "./utilities";
  *     ownerTeamId: opsgenie_team.team.id,
  * });
  * const test3 = new opsgenie.ApiIntegration("test3", {
+ *     name: "webhook-int",
  *     type: "Webhook",
  *     responders: [{
  *         type: "user",
@@ -141,7 +144,7 @@ export class ApiIntegration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApiIntegrationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ApiIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiIntegrationArgs | ApiIntegrationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -160,6 +163,9 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["webhookUrl"] = state ? state.webhookUrl : undefined;
         } else {
             const args = argsOrState as ApiIntegrationArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["allowWriteAccess"] = args ? args.allowWriteAccess : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["headers"] = args ? args.headers : undefined;
@@ -246,7 +252,7 @@ export interface ApiIntegrationArgs {
     /**
      * Name of the integration. Name must be unique for each integration.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Owner team id of the integration.
      */

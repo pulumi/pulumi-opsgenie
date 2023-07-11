@@ -16,11 +16,11 @@ __all__ = ['ApiIntegrationArgs', 'ApiIntegration']
 @pulumi.input_type
 class ApiIntegrationArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  allow_write_access: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  owner_team_id: Optional[pulumi.Input[str]] = None,
                  responders: Optional[pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]] = None,
                  suppress_notifications: Optional[pulumi.Input[bool]] = None,
@@ -28,16 +28,17 @@ class ApiIntegrationArgs:
                  webhook_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiIntegration resource.
+        :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
-        :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
         :param pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
         :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
+        pulumi.set(__self__, "name", name)
         if allow_write_access is not None:
             pulumi.set(__self__, "allow_write_access", allow_write_access)
         if enabled is not None:
@@ -46,8 +47,6 @@ class ApiIntegrationArgs:
             pulumi.set(__self__, "headers", headers)
         if ignore_responders_from_payload is not None:
             pulumi.set(__self__, "ignore_responders_from_payload", ignore_responders_from_payload)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
             pulumi.set(__self__, "owner_team_id", owner_team_id)
         if responders is not None:
@@ -58,6 +57,18 @@ class ApiIntegrationArgs:
             pulumi.set(__self__, "type", type)
         if webhook_url is not None:
             pulumi.set(__self__, "webhook_url", webhook_url)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the integration. Name must be unique for each integration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="allowWriteAccess")
@@ -103,18 +114,6 @@ class ApiIntegrationArgs:
     @ignore_responders_from_payload.setter
     def ignore_responders_from_payload(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_responders_from_payload", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the integration. Name must be unique for each integration.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="ownerTeamId")
@@ -383,6 +382,7 @@ class ApiIntegration(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         example_api_integration_api_integration = opsgenie.ApiIntegration("example-api-integrationApiIntegration",
+            name="api-based-int",
             type="API",
             responders=[
                 opsgenie.ApiIntegrationResponderArgs(
@@ -395,6 +395,7 @@ class ApiIntegration(pulumi.CustomResource):
                 ),
             ])
         example_api_integration_index_api_integration_api_integration = opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration",
+            name="api-based-int-2",
             type="Prometheus",
             responders=[opsgenie.ApiIntegrationResponderArgs(
                 type="user",
@@ -406,6 +407,7 @@ class ApiIntegration(pulumi.CustomResource):
             suppress_notifications=True,
             owner_team_id=opsgenie_team["team"]["id"])
         test3 = opsgenie.ApiIntegration("test3",
+            name="webhook-int",
             type="Webhook",
             responders=[opsgenie.ApiIntegrationResponderArgs(
                 type="user",
@@ -444,7 +446,7 @@ class ApiIntegration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ApiIntegrationArgs] = None,
+                 args: ApiIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Integration within Opsgenie.
@@ -456,6 +458,7 @@ class ApiIntegration(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         example_api_integration_api_integration = opsgenie.ApiIntegration("example-api-integrationApiIntegration",
+            name="api-based-int",
             type="API",
             responders=[
                 opsgenie.ApiIntegrationResponderArgs(
@@ -468,6 +471,7 @@ class ApiIntegration(pulumi.CustomResource):
                 ),
             ])
         example_api_integration_index_api_integration_api_integration = opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration",
+            name="api-based-int-2",
             type="Prometheus",
             responders=[opsgenie.ApiIntegrationResponderArgs(
                 type="user",
@@ -479,6 +483,7 @@ class ApiIntegration(pulumi.CustomResource):
             suppress_notifications=True,
             owner_team_id=opsgenie_team["team"]["id"])
         test3 = opsgenie.ApiIntegration("test3",
+            name="webhook-int",
             type="Webhook",
             responders=[opsgenie.ApiIntegrationResponderArgs(
                 type="user",
@@ -539,6 +544,8 @@ class ApiIntegration(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["headers"] = headers
             __props__.__dict__["ignore_responders_from_payload"] = ignore_responders_from_payload
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["owner_team_id"] = owner_team_id
             __props__.__dict__["responders"] = responders

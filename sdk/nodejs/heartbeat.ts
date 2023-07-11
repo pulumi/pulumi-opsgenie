@@ -24,6 +24,7 @@ import * as utilities from "./utilities";
  *     enabled: false,
  *     interval: 10,
  *     intervalUnit: "minutes",
+ *     name: "genieheartbeat-test",
  *     ownerTeamId: opsgenie_team.test.id,
  * });
  * ```
@@ -134,6 +135,9 @@ export class Heartbeat extends pulumi.CustomResource {
             if ((!args || args.intervalUnit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'intervalUnit'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["alertMessage"] = args ? args.alertMessage : undefined;
             resourceInputs["alertPriority"] = args ? args.alertPriority : undefined;
             resourceInputs["alertTags"] = args ? args.alertTags : undefined;
@@ -226,7 +230,7 @@ export interface HeartbeatArgs {
     /**
      * Name of the heartbeat
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Owner team of the heartbeat.
      */

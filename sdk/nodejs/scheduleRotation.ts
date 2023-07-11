@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  * const test = new opsgenie.ScheduleRotation("test", {
  *     endDate: "2019-06-20T17:30:00Z",
  *     length: 6,
+ *     name: "test",
  *     participants: [{
  *         id: opsgenie_user.test.id,
  *         type: "user",
@@ -84,7 +85,7 @@ export class ScheduleRotation extends pulumi.CustomResource {
     /**
      * Name of rotation.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
      */

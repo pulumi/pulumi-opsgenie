@@ -49,10 +49,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testTeam = new Team(&#34;testTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;example team&#34;)
  *             .description(&#34;This team deals with all the things&#34;)
  *             .build());
  * 
  *         var testAlertPolicy = new AlertPolicy(&#34;testAlertPolicy&#34;, AlertPolicyArgs.builder()        
+ *             .name(&#34;example policy&#34;)
  *             .teamId(testTeam.id())
  *             .policyDescription(&#34;This is sample policy&#34;)
  *             .message(&#34;{{message}}&#34;)

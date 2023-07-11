@@ -38,6 +38,7 @@ import (
 //				Enabled:      pulumi.Bool(false),
 //				Interval:     pulumi.Int(10),
 //				IntervalUnit: pulumi.String("minutes"),
+//				Name:         pulumi.String("genieheartbeat-test"),
 //				OwnerTeamId:  pulumi.Any(opsgenie_team.Test.Id),
 //			})
 //			if err != nil {
@@ -96,6 +97,9 @@ func NewHeartbeat(ctx *pulumi.Context,
 	}
 	if args.IntervalUnit == nil {
 		return nil, errors.New("invalid value for required argument 'IntervalUnit'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Heartbeat
 	err := ctx.RegisterResource("opsgenie:index/heartbeat:Heartbeat", name, args, &resource, opts...)
@@ -180,7 +184,7 @@ type heartbeatArgs struct {
 	// Interval specified as minutes, hours or days.
 	IntervalUnit string `pulumi:"intervalUnit"`
 	// Name of the heartbeat
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Owner team of the heartbeat.
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
 }
@@ -202,7 +206,7 @@ type HeartbeatArgs struct {
 	// Interval specified as minutes, hours or days.
 	IntervalUnit pulumi.StringInput
 	// Name of the heartbeat
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Owner team of the heartbeat.
 	OwnerTeamId pulumi.StringPtrInput
 }

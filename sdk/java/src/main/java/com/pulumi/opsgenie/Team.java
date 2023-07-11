@@ -68,12 +68,14 @@ import javax.annotation.Nullable;
  *                     .id(second.id())
  *                     .role(&#34;user&#34;)
  *                     .build())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var self_service = new Team(&#34;self-service&#34;, TeamArgs.builder()        
  *             .deleteDefaultResources(true)
  *             .description(&#34;Membership in this team is managed via OpsGenie web UI only&#34;)
  *             .ignoreMembers(true)
+ *             .name(&#34;Self Service&#34;)
  *             .build());
  * 
  *     }
@@ -174,7 +176,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Team(String name, @Nullable TeamArgs args) {
+    public Team(String name, TeamArgs args) {
         this(name, args, null);
     }
     /**
@@ -183,7 +185,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Team(String name, @Nullable TeamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Team(String name, TeamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("opsgenie:index/team:Team", name, args == null ? TeamArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

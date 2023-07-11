@@ -17,23 +17,24 @@ __all__ = ['IncidentTemplateArgs', 'IncidentTemplate']
 class IncidentTemplateArgs:
     def __init__(__self__, *,
                  message: pulumi.Input[str],
+                 name: pulumi.Input[str],
                  priority: pulumi.Input[str],
                  stakeholder_properties: pulumi.Input[Sequence[pulumi.Input['IncidentTemplateStakeholderPropertyArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
                  details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  impacted_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IncidentTemplate resource.
         :param pulumi.Input[str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        :param pulumi.Input[str] name: Name of the incident template.
         :param pulumi.Input[str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
         :param pulumi.Input[str] description: Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
-        :param pulumi.Input[str] name: Name of the incident template.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
         """
         pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "stakeholder_properties", stakeholder_properties)
         if description is not None:
@@ -42,8 +43,6 @@ class IncidentTemplateArgs:
             pulumi.set(__self__, "details", details)
         if impacted_services is not None:
             pulumi.set(__self__, "impacted_services", impacted_services)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -58,6 +57,18 @@ class IncidentTemplateArgs:
     @message.setter
     def message(self, value: pulumi.Input[str]):
         pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the incident template.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -112,18 +123,6 @@ class IncidentTemplateArgs:
     @impacted_services.setter
     def impacted_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "impacted_services", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the incident template.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -289,9 +288,14 @@ class IncidentTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_service = opsgenie.Service("testService", team_id=test_team.id)
+        test_team = opsgenie.Team("testTeam",
+            name="genietest-team",
+            description="This team deals with all the things")
+        test_service = opsgenie.Service("testService",
+            name="genietest-service",
+            team_id=test_team.id)
         test_incident_template = opsgenie.IncidentTemplate("testIncidentTemplate",
+            name="genietest-incident-template",
             message="Incident Message",
             priority="P2",
             stakeholder_properties=[opsgenie.IncidentTemplateStakeholderPropertyArgs(
@@ -343,9 +347,14 @@ class IncidentTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_service = opsgenie.Service("testService", team_id=test_team.id)
+        test_team = opsgenie.Team("testTeam",
+            name="genietest-team",
+            description="This team deals with all the things")
+        test_service = opsgenie.Service("testService",
+            name="genietest-service",
+            team_id=test_team.id)
         test_incident_template = opsgenie.IncidentTemplate("testIncidentTemplate",
+            name="genietest-incident-template",
             message="Incident Message",
             priority="P2",
             stakeholder_properties=[opsgenie.IncidentTemplateStakeholderPropertyArgs(
@@ -411,6 +420,8 @@ class IncidentTemplate(pulumi.CustomResource):
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
             __props__.__dict__["message"] = message
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")

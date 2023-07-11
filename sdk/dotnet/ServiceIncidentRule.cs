@@ -24,11 +24,13 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var testTeam = new Opsgenie.Team("testTeam", new()
     ///     {
+    ///         Name = "example-team",
     ///         Description = "This team deals with all the things",
     ///     });
     /// 
     ///     var testService = new Opsgenie.Service("testService", new()
     ///     {
+    ///         Name = "example-service",
     ///         TeamId = testTeam.Id,
     ///     });
     /// 

@@ -46,10 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testTeam = new Team(&#34;testTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;example-team&#34;)
  *             .description(&#34;This team deals with all the things&#34;)
  *             .build());
  * 
  *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example-service&#34;)
  *             .teamId(testTeam.id())
  *             .build());
  * 

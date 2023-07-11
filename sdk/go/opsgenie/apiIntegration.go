@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewApiIntegration(ctx, "example-api-integrationApiIntegration", &opsgenie.ApiIntegrationArgs{
+//				Name: pulumi.String("api-based-int"),
 //				Type: pulumi.String("API"),
 //				Responders: opsgenie.ApiIntegrationResponderArray{
 //					&opsgenie.ApiIntegrationResponderArgs{
@@ -43,6 +45,7 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewApiIntegration(ctx, "example-api-integrationIndex/apiIntegrationApiIntegration", &opsgenie.ApiIntegrationArgs{
+//				Name: pulumi.String("api-based-int-2"),
 //				Type: pulumi.String("Prometheus"),
 //				Responders: opsgenie.ApiIntegrationResponderArray{
 //					&opsgenie.ApiIntegrationResponderArgs{
@@ -60,6 +63,7 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewApiIntegration(ctx, "test3", &opsgenie.ApiIntegrationArgs{
+//				Name: pulumi.String("webhook-int"),
 //				Type: pulumi.String("Webhook"),
 //				Responders: opsgenie.ApiIntegrationResponderArray{
 //					&opsgenie.ApiIntegrationResponderArgs{
@@ -123,9 +127,12 @@ type ApiIntegration struct {
 func NewApiIntegration(ctx *pulumi.Context,
 	name string, args *ApiIntegrationArgs, opts ...pulumi.ResourceOption) (*ApiIntegration, error) {
 	if args == nil {
-		args = &ApiIntegrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"apiKey",
 	})
@@ -212,7 +219,7 @@ type apiIntegrationArgs struct {
 	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload *bool `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Owner team id of the integration.
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
@@ -235,7 +242,7 @@ type ApiIntegrationArgs struct {
 	// If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
 	IgnoreRespondersFromPayload pulumi.BoolPtrInput
 	// Name of the integration. Name must be unique for each integration.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Owner team id of the integration.
 	OwnerTeamId pulumi.StringPtrInput
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.

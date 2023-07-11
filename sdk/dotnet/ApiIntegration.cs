@@ -24,6 +24,7 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var example_api_integrationApiIntegration = new Opsgenie.ApiIntegration("example-api-integrationApiIntegration", new()
     ///     {
+    ///         Name = "api-based-int",
     ///         Type = "API",
     ///         Responders = new[]
     ///         {
@@ -42,6 +43,7 @@ namespace Pulumi.Opsgenie
     /// 
     ///     var example_api_integrationIndex_apiIntegrationApiIntegration = new Opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration", new()
     ///     {
+    ///         Name = "api-based-int-2",
     ///         Type = "Prometheus",
     ///         Responders = new[]
     ///         {
@@ -60,6 +62,7 @@ namespace Pulumi.Opsgenie
     /// 
     ///     var test3 = new Opsgenie.ApiIntegration("test3", new()
     ///     {
+    ///         Name = "webhook-int",
     ///         Type = "Webhook",
     ///         Responders = new[]
     ///         {
@@ -164,7 +167,7 @@ namespace Pulumi.Opsgenie
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ApiIntegration(string name, ApiIntegrationArgs? args = null, CustomResourceOptions? options = null)
+        public ApiIntegration(string name, ApiIntegrationArgs args, CustomResourceOptions? options = null)
             : base("opsgenie:index/apiIntegration:ApiIntegration", name, args ?? new ApiIntegrationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -235,8 +238,8 @@ namespace Pulumi.Opsgenie
         /// <summary>
         /// Name of the integration. Name must be unique for each integration.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Owner team id of the integration.

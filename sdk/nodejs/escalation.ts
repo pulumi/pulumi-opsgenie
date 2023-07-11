@@ -17,6 +17,7 @@ import * as utilities from "./utilities";
  *
  * const test = new opsgenie.Escalation("test", {
  *     description: "test",
+ *     name: "genieescalation-%s",
  *     ownerTeamId: opsgenie_team.test.id,
  *     repeats: [{
  *         closeAlertAfterAll: false,
@@ -123,6 +124,9 @@ export class Escalation extends pulumi.CustomResource {
             resourceInputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as EscalationArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
@@ -174,7 +178,7 @@ export interface EscalationArgs {
     /**
      * Name of the escalation.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Owner team id of the escalation.
      */

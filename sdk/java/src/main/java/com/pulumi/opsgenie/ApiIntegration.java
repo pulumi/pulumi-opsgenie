@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example_api_integrationApiIntegration = new ApiIntegration(&#34;example-api-integrationApiIntegration&#34;, ApiIntegrationArgs.builder()        
+ *             .name(&#34;api-based-int&#34;)
  *             .type(&#34;API&#34;)
  *             .responders(            
  *                 ApiIntegrationResponderArgs.builder()
@@ -58,6 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_api_integrationIndex_apiIntegrationApiIntegration = new ApiIntegration(&#34;example-api-integrationIndex/apiIntegrationApiIntegration&#34;, ApiIntegrationArgs.builder()        
+ *             .name(&#34;api-based-int-2&#34;)
  *             .type(&#34;Prometheus&#34;)
  *             .responders(ApiIntegrationResponderArgs.builder()
  *                 .type(&#34;user&#34;)
@@ -71,6 +73,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test3 = new ApiIntegration(&#34;test3&#34;, ApiIntegrationArgs.builder()        
+ *             .name(&#34;webhook-int&#34;)
  *             .type(&#34;Webhook&#34;)
  *             .responders(ApiIntegrationResponderArgs.builder()
  *                 .type(&#34;user&#34;)
@@ -257,7 +260,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiIntegration(String name, @Nullable ApiIntegrationArgs args) {
+    public ApiIntegration(String name, ApiIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -266,7 +269,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiIntegration(String name, @Nullable ApiIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ApiIntegration(String name, ApiIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("opsgenie:index/apiIntegration:ApiIntegration", name, args == null ? ApiIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

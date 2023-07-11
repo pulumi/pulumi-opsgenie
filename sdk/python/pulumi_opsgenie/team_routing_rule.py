@@ -301,8 +301,11 @@ class TeamRoutingRule(pulumi.CustomResource):
         test_schedule = opsgenie.Schedule("testSchedule",
             description="schedule test",
             enabled=False,
+            name="genieschedule",
             timezone="Europe/Rome")
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
+        test_team = opsgenie.Team("testTeam",
+            description="This team deals with all the things",
+            name="example team")
         test_team_routing_rule = opsgenie.TeamRoutingRule("testTeamRoutingRule",
             criterias=[opsgenie.TeamRoutingRuleCriteriaArgs(
                 conditions=[opsgenie.TeamRoutingRuleCriteriaConditionArgs(
@@ -313,6 +316,7 @@ class TeamRoutingRule(pulumi.CustomResource):
                 )],
                 type="match-any-condition",
             )],
+            name="routing rule example",
             notifies=[opsgenie.TeamRoutingRuleNotifyArgs(
                 name=test_schedule.name,
                 type="schedule",
@@ -369,8 +373,11 @@ class TeamRoutingRule(pulumi.CustomResource):
         test_schedule = opsgenie.Schedule("testSchedule",
             description="schedule test",
             enabled=False,
+            name="genieschedule",
             timezone="Europe/Rome")
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
+        test_team = opsgenie.Team("testTeam",
+            description="This team deals with all the things",
+            name="example team")
         test_team_routing_rule = opsgenie.TeamRoutingRule("testTeamRoutingRule",
             criterias=[opsgenie.TeamRoutingRuleCriteriaArgs(
                 conditions=[opsgenie.TeamRoutingRuleCriteriaConditionArgs(
@@ -381,6 +388,7 @@ class TeamRoutingRule(pulumi.CustomResource):
                 )],
                 type="match-any-condition",
             )],
+            name="routing rule example",
             notifies=[opsgenie.TeamRoutingRuleNotifyArgs(
                 name=test_schedule.name,
                 type="schedule",
@@ -518,7 +526,7 @@ class TeamRoutingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the team routing rule
         """

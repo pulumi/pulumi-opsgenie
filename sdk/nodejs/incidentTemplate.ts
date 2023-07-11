@@ -15,9 +15,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const testTeam = new opsgenie.Team("testTeam", {description: "This team deals with all the things"});
- * const testService = new opsgenie.Service("testService", {teamId: testTeam.id});
+ * const testTeam = new opsgenie.Team("testTeam", {
+ *     name: "genietest-team",
+ *     description: "This team deals with all the things",
+ * });
+ * const testService = new opsgenie.Service("testService", {
+ *     name: "genietest-service",
+ *     teamId: testTeam.id,
+ * });
  * const testIncidentTemplate = new opsgenie.IncidentTemplate("testIncidentTemplate", {
+ *     name: "genietest-incident-template",
  *     message: "Incident Message",
  *     priority: "P2",
  *     stakeholderProperties: [{
@@ -127,6 +134,9 @@ export class IncidentTemplate extends pulumi.CustomResource {
             if ((!args || args.message === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
@@ -199,7 +209,7 @@ export interface IncidentTemplateArgs {
     /**
      * Name of the incident template.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      */

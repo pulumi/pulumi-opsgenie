@@ -24,11 +24,13 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var testTeam = new Opsgenie.Team("testTeam", new()
     ///     {
+    ///         Name = "example team",
     ///         Description = "This team deals with all the things",
     ///     });
     /// 
     ///     var testAlertPolicy = new Opsgenie.AlertPolicy("testAlertPolicy", new()
     ///     {
+    ///         Name = "example policy",
     ///         TeamId = testTeam.Id,
     ///         PolicyDescription = "This is sample policy",
     ///         Message = "{{message}}",
@@ -339,8 +341,8 @@ namespace Pulumi.Opsgenie
         /// <summary>
         /// Name of the alert policy
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Description of the policy. This can be max 512 characters.

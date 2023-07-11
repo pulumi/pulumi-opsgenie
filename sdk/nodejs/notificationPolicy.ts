@@ -119,6 +119,9 @@ export class NotificationPolicy extends pulumi.CustomResource {
             if ((!args || args.filters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.teamId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
@@ -220,7 +223,7 @@ export interface NotificationPolicyArgs {
     /**
      * Name of the notification policy
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Description of the policy. This can be max 512 characters.
      */

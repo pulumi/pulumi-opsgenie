@@ -24,11 +24,13 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var testEmailIntegration = new Opsgenie.EmailIntegration("testEmailIntegration", new()
     ///     {
+    ///         Name = "genieintegration-name",
     ///         EmailUsername = "fahri",
     ///     });
     /// 
     ///     var testIndex_emailIntegrationEmailIntegration = new Opsgenie.EmailIntegration("testIndex/emailIntegrationEmailIntegration", new()
     ///     {
+    ///         Name = "genieintegration-%s",
     ///         Responders = new[]
     ///         {
     ///             new Opsgenie.Inputs.EmailIntegrationResponderArgs
@@ -60,6 +62,7 @@ namespace Pulumi.Opsgenie
     /// 
     ///     var testOpsgenieIndex_emailIntegrationEmailIntegration = new Opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration", new()
     ///     {
+    ///         Name = "genieintegration-%s",
     ///         Responders = new[]
     ///         {
     ///             new Opsgenie.Inputs.EmailIntegrationResponderArgs
@@ -195,8 +198,8 @@ namespace Pulumi.Opsgenie
         /// <summary>
         /// Name of the integration. Name must be unique for each integration.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Owner team id of the integration.

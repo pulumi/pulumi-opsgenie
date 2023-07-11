@@ -52,6 +52,7 @@ namespace Pulumi.Opsgenie
     ///                 Role = "user",
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     ///     var self_service = new Opsgenie.Team("self-service", new()
@@ -59,6 +60,7 @@ namespace Pulumi.Opsgenie
     ///         DeleteDefaultResources = true,
     ///         Description = "Membership in this team is managed via OpsGenie web UI only",
     ///         IgnoreMembers = true,
+    ///         Name = "Self Service",
     ///     });
     /// 
     /// });
@@ -113,7 +115,7 @@ namespace Pulumi.Opsgenie
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Team(string name, TeamArgs? args = null, CustomResourceOptions? options = null)
+        public Team(string name, TeamArgs args, CustomResourceOptions? options = null)
             : base("opsgenie:index/team:Team", name, args ?? new TeamArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -184,8 +186,8 @@ namespace Pulumi.Opsgenie
         /// <summary>
         /// The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public TeamArgs()
         {

@@ -24,16 +24,19 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var testTeam = new Opsgenie.Team("testTeam", new()
     ///     {
+    ///         Name = "genietest-team",
     ///         Description = "This team deals with all the things",
     ///     });
     /// 
     ///     var testService = new Opsgenie.Service("testService", new()
     ///     {
+    ///         Name = "genietest-service",
     ///         TeamId = testTeam.Id,
     ///     });
     /// 
     ///     var testIncidentTemplate = new Opsgenie.IncidentTemplate("testIncidentTemplate", new()
     ///     {
+    ///         Name = "genietest-incident-template",
     ///         Message = "Incident Message",
     ///         Priority = "P2",
     ///         StakeholderProperties = new[]
@@ -199,8 +202,8 @@ namespace Pulumi.Opsgenie
         /// <summary>
         /// Name of the incident template.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.

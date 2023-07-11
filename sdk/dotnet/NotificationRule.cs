@@ -31,6 +31,7 @@ namespace Pulumi.Opsgenie
     /// 
     ///     var testNotificationRule = new Opsgenie.NotificationRule("testNotificationRule", new()
     ///     {
+    ///         Name = "Example notification rule",
     ///         Username = testUser.Username,
     ///         ActionType = "schedule-end",
     ///         NotificationTimes = new[]
@@ -191,8 +192,8 @@ namespace Pulumi.Opsgenie
         /// <summary>
         /// Name of the notification policy
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("notificationTimes")]
         private InputList<string>? _notificationTimes;

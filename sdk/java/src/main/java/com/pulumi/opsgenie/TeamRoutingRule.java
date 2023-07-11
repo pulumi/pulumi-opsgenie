@@ -55,11 +55,13 @@ import javax.annotation.Nullable;
  *         var testSchedule = new Schedule(&#34;testSchedule&#34;, ScheduleArgs.builder()        
  *             .description(&#34;schedule test&#34;)
  *             .enabled(false)
+ *             .name(&#34;genieschedule&#34;)
  *             .timezone(&#34;Europe/Rome&#34;)
  *             .build());
  * 
  *         var testTeam = new Team(&#34;testTeam&#34;, TeamArgs.builder()        
  *             .description(&#34;This team deals with all the things&#34;)
+ *             .name(&#34;example team&#34;)
  *             .build());
  * 
  *         var testTeamRoutingRule = new TeamRoutingRule(&#34;testTeamRoutingRule&#34;, TeamRoutingRuleArgs.builder()        
@@ -72,6 +74,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .type(&#34;match-any-condition&#34;)
  *                 .build())
+ *             .name(&#34;routing rule example&#34;)
  *             .notifies(TeamRoutingRuleNotifyArgs.builder()
  *                 .name(testSchedule.name())
  *                 .type(&#34;schedule&#34;)
@@ -140,14 +143,14 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="name", type=String.class, parameters={})
-    private Output<String> name;
+    private Output</* @Nullable */ String> name;
 
     /**
      * @return Name of the team routing rule
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<Optional<String>> name() {
+        return Codegen.optional(this.name);
     }
     /**
      * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`

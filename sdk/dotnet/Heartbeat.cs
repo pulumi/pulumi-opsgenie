@@ -35,6 +35,7 @@ namespace Pulumi.Opsgenie
     ///         Enabled = false,
     ///         Interval = 10,
     ///         IntervalUnit = "minutes",
+    ///         Name = "genieheartbeat-test",
     ///         OwnerTeamId = opsgenie_team.Test.Id,
     ///     });
     /// 
@@ -203,8 +204,8 @@ namespace Pulumi.Opsgenie
         /// <summary>
         /// Name of the heartbeat
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Owner team of the heartbeat.

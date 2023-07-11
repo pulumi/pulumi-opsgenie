@@ -28,12 +28,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//				Name:        pulumi.String("example-team"),
 //				Description: pulumi.String("This team deals with all the things"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testService, err := opsgenie.NewService(ctx, "testService", &opsgenie.ServiceArgs{
+//				Name:   pulumi.String("example-service"),
 //				TeamId: testTeam.ID(),
 //			})
 //			if err != nil {

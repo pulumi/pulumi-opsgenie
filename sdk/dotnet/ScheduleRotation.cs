@@ -26,6 +26,7 @@ namespace Pulumi.Opsgenie
     ///     {
     ///         EndDate = "2019-06-20T17:30:00Z",
     ///         Length = 6,
+    ///         Name = "test",
     ///         Participants = new[]
     ///         {
     ///             new Opsgenie.Inputs.ScheduleRotationParticipantArgs
@@ -86,7 +87,7 @@ namespace Pulumi.Opsgenie
         /// Name of rotation.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"

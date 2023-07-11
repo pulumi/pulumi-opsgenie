@@ -17,28 +17,27 @@ __all__ = ['EmailIntegrationArgs', 'EmailIntegration']
 class EmailIntegrationArgs:
     def __init__(__self__, *,
                  email_username: pulumi.Input[str],
+                 name: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  owner_team_id: Optional[pulumi.Input[str]] = None,
                  responders: Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]] = None,
                  suppress_notifications: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a EmailIntegration resource.
         :param pulumi.Input[str] email_username: The username part of the email address. It must be unique for each integration.
+        :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[bool] enabled: A Member block as documented below.
         :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
-        :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
         :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         pulumi.set(__self__, "email_username", email_username)
+        pulumi.set(__self__, "name", name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if ignore_responders_from_payload is not None:
             pulumi.set(__self__, "ignore_responders_from_payload", ignore_responders_from_payload)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
             pulumi.set(__self__, "owner_team_id", owner_team_id)
         if responders is not None:
@@ -57,6 +56,18 @@ class EmailIntegrationArgs:
     @email_username.setter
     def email_username(self, value: pulumi.Input[str]):
         pulumi.set(self, "email_username", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the integration. Name must be unique for each integration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -81,18 +92,6 @@ class EmailIntegrationArgs:
     @ignore_responders_from_payload.setter
     def ignore_responders_from_payload(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_responders_from_payload", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the integration. Name must be unique for each integration.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="ownerTeamId")
@@ -266,8 +265,11 @@ class EmailIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_email_integration = opsgenie.EmailIntegration("testEmailIntegration", email_username="fahri")
+        test_email_integration = opsgenie.EmailIntegration("testEmailIntegration",
+            name="genieintegration-name",
+            email_username="fahri")
         test_index_email_integration_email_integration = opsgenie.EmailIntegration("testIndex/emailIntegrationEmailIntegration",
+            name="genieintegration-%s",
             responders=[
                 opsgenie.EmailIntegrationResponderArgs(
                     type="user",
@@ -291,6 +293,7 @@ class EmailIntegration(pulumi.CustomResource):
             ignore_responders_from_payload=True,
             suppress_notifications=True)
         test_opsgenie_index_email_integration_email_integration = opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration",
+            name="genieintegration-%s",
             responders=[opsgenie.EmailIntegrationResponderArgs(
                 type="user",
                 id=opsgenie_user["test"]["id"],
@@ -334,8 +337,11 @@ class EmailIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_email_integration = opsgenie.EmailIntegration("testEmailIntegration", email_username="fahri")
+        test_email_integration = opsgenie.EmailIntegration("testEmailIntegration",
+            name="genieintegration-name",
+            email_username="fahri")
         test_index_email_integration_email_integration = opsgenie.EmailIntegration("testIndex/emailIntegrationEmailIntegration",
+            name="genieintegration-%s",
             responders=[
                 opsgenie.EmailIntegrationResponderArgs(
                     type="user",
@@ -359,6 +365,7 @@ class EmailIntegration(pulumi.CustomResource):
             ignore_responders_from_payload=True,
             suppress_notifications=True)
         test_opsgenie_index_email_integration_email_integration = opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration",
+            name="genieintegration-%s",
             responders=[opsgenie.EmailIntegrationResponderArgs(
                 type="user",
                 id=opsgenie_user["test"]["id"],
@@ -414,6 +421,8 @@ class EmailIntegration(pulumi.CustomResource):
             __props__.__dict__["email_username"] = email_username
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["ignore_responders_from_payload"] = ignore_responders_from_payload
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["owner_team_id"] = owner_team_id
             __props__.__dict__["responders"] = responders

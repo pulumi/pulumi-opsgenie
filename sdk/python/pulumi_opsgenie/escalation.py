@@ -16,28 +16,39 @@ __all__ = ['EscalationArgs', 'Escalation']
 @pulumi.input_type
 class EscalationArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  rules: pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  owner_team_id: Optional[pulumi.Input[str]] = None,
                  repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None):
         """
         The set of arguments for constructing a Escalation resource.
+        :param pulumi.Input[str] name: Name of the escalation.
         :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]] rules: List of the escalation rules.
         :param pulumi.Input[str] description: Description of the escalation.
-        :param pulumi.Input[str] name: Name of the escalation.
         :param pulumi.Input[str] owner_team_id: Owner team id of the escalation.
         :param pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rules", rules)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
             pulumi.set(__self__, "owner_team_id", owner_team_id)
         if repeats is not None:
             pulumi.set(__self__, "repeats", repeats)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the escalation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -62,18 +73,6 @@ class EscalationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the escalation.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="ownerTeamId")
@@ -210,6 +209,7 @@ class Escalation(pulumi.CustomResource):
 
         test = opsgenie.Escalation("test",
             description="test",
+            name="genieescalation-%s",
             owner_team_id=opsgenie_team["test"]["id"],
             repeats=[opsgenie.EscalationRepeatArgs(
                 close_alert_after_all=False,
@@ -271,6 +271,7 @@ class Escalation(pulumi.CustomResource):
 
         test = opsgenie.Escalation("test",
             description="test",
+            name="genieescalation-%s",
             owner_team_id=opsgenie_team["test"]["id"],
             repeats=[opsgenie.EscalationRepeatArgs(
                 close_alert_after_all=False,
@@ -337,6 +338,8 @@ class Escalation(pulumi.CustomResource):
             __props__ = EscalationArgs.__new__(EscalationArgs)
 
             __props__.__dict__["description"] = description
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["owner_team_id"] = owner_team_id
             __props__.__dict__["repeats"] = repeats

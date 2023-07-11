@@ -299,6 +299,7 @@ class ScheduleRotation(pulumi.CustomResource):
         test = opsgenie.ScheduleRotation("test",
             end_date="2019-06-20T17:30:00Z",
             length=6,
+            name="test",
             participants=[opsgenie.ScheduleRotationParticipantArgs(
                 id=opsgenie_user["test"]["id"],
                 type="user",
@@ -353,6 +354,7 @@ class ScheduleRotation(pulumi.CustomResource):
         test = opsgenie.ScheduleRotation("test",
             end_date="2019-06-20T17:30:00Z",
             length=6,
+            name="test",
             participants=[opsgenie.ScheduleRotationParticipantArgs(
                 id=opsgenie_user["test"]["id"],
                 type="user",
@@ -492,7 +494,7 @@ class ScheduleRotation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of rotation.
         """

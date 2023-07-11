@@ -75,15 +75,15 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
      * Name of the integration. Name must be unique for each integration.
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return Name of the integration. Name must be unique for each integration.
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
@@ -272,7 +272,7 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -403,6 +403,7 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ApiIntegrationArgs build() {
+            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

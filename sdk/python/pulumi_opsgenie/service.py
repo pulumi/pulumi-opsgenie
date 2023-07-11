@@ -14,20 +14,31 @@ __all__ = ['ServiceArgs', 'Service']
 @pulumi.input_type
 class ServiceArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  team_id: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Service resource.
+        :param pulumi.Input[str] name: Name of the service. This field must not be longer than 100 characters.
         :param pulumi.Input[str] team_id: Team id of the service. This field must not be longer than 512 characters.
         :param pulumi.Input[str] description: Description field of the service that is generally used to provide a detailed information about the service.
-        :param pulumi.Input[str] name: Name of the service. This field must not be longer than 100 characters.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "team_id", team_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the service. This field must not be longer than 100 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="teamId")
@@ -52,18 +63,6 @@ class ServiceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the service. This field must not be longer than 100 characters.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -140,8 +139,12 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        payment = opsgenie.Team("payment", description="This team deals with all the things")
-        this = opsgenie.Service("this", team_id="$opsgenie_team.payment.id")
+        payment = opsgenie.Team("payment",
+            description="This team deals with all the things",
+            name="example")
+        this = opsgenie.Service("this",
+            name="Payment",
+            team_id="$opsgenie_team.payment.id")
         ```
 
         ## Import
@@ -173,8 +176,12 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        payment = opsgenie.Team("payment", description="This team deals with all the things")
-        this = opsgenie.Service("this", team_id="$opsgenie_team.payment.id")
+        payment = opsgenie.Team("payment",
+            description="This team deals with all the things",
+            name="example")
+        this = opsgenie.Service("this",
+            name="Payment",
+            team_id="$opsgenie_team.payment.id")
         ```
 
         ## Import
@@ -213,6 +220,8 @@ class Service(pulumi.CustomResource):
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
             __props__.__dict__["description"] = description
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")

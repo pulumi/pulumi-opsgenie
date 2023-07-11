@@ -37,11 +37,13 @@ import * as utilities from "./utilities";
  *             role: "user",
  *         },
  *     ],
+ *     name: "example",
  * });
  * const self_service = new opsgenie.Team("self-service", {
  *     deleteDefaultResources: true,
  *     description: "Membership in this team is managed via OpsGenie web UI only",
  *     ignoreMembers: true,
+ *     name: "Self Service",
  * });
  * ```
  *
@@ -109,7 +111,7 @@ export class Team extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TeamArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: TeamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamArgs | TeamState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -122,6 +124,9 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as TeamArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["deleteDefaultResources"] = args ? args.deleteDefaultResources : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ignoreMembers"] = args ? args.ignoreMembers : undefined;
@@ -182,5 +187,5 @@ export interface TeamArgs {
     /**
      * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

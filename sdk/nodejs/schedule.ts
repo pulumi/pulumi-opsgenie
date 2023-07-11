@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  * const test = new opsgenie.Schedule("test", {
  *     description: "schedule test",
  *     enabled: false,
+ *     name: "genieschedule-%s",
  *     ownerTeamId: opsgenie_team.test.id,
  *     timezone: "Europe/Rome",
  * });
@@ -85,7 +86,7 @@ export class Schedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -98,6 +99,9 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -150,7 +154,7 @@ export interface ScheduleArgs {
     /**
      * Name of the schedule.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Owner team id of the schedule.
      */

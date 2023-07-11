@@ -59,6 +59,9 @@ func NewNotificationPolicy(ctx *pulumi.Context,
 	if args.Filters == nil {
 		return nil, errors.New("invalid value for required argument 'Filters'")
 	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.TeamId == nil {
 		return nil, errors.New("invalid value for required argument 'TeamId'")
 	}
@@ -151,7 +154,7 @@ type notificationPolicyArgs struct {
 	// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters []NotificationPolicyFilter `pulumi:"filters"`
 	// Name of the notification policy
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription *string `pulumi:"policyDescription"`
 	// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
@@ -177,7 +180,7 @@ type NotificationPolicyArgs struct {
 	// A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
 	Filters NotificationPolicyFilterArrayInput
 	// Name of the notification policy
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrInput
 	// Suppress value of the policy. Values are: `true`, `false`. Default: `false`

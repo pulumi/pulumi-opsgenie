@@ -17,10 +17,10 @@ __all__ = ['NotificationRuleArgs', 'NotificationRule']
 class NotificationRuleArgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[str],
+                 name: pulumi.Input[str],
                  username: pulumi.Input[str],
                  criterias: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  notification_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  repeats: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]] = None,
@@ -30,21 +30,20 @@ class NotificationRuleArgs:
         """
         The set of arguments for constructing a NotificationRule resource.
         :param pulumi.Input[str] action_type: Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
+        :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[str] username: Username of user to which this notification rule belongs to.
         :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
-        :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_times: List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
         :param pulumi.Input[int] order: Order of the condition in conditions list
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]] steps: Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
         """
         pulumi.set(__self__, "action_type", action_type)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "username", username)
         if criterias is not None:
             pulumi.set(__self__, "criterias", criterias)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if notification_times is not None:
             pulumi.set(__self__, "notification_times", notification_times)
         if order is not None:
@@ -69,6 +68,18 @@ class NotificationRuleArgs:
     @action_type.setter
     def action_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the notification policy
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -102,18 +113,6 @@ class NotificationRuleArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the notification policy
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="notificationTimes")
@@ -378,6 +377,7 @@ class NotificationRule(pulumi.CustomResource):
             full_name="Name Lastname",
             role="User")
         test_notification_rule = opsgenie.NotificationRule("testNotificationRule",
+            name="Example notification rule",
             username=test_user.username,
             action_type="schedule-end",
             notification_times=[
@@ -430,6 +430,7 @@ class NotificationRule(pulumi.CustomResource):
             full_name="Name Lastname",
             role="User")
         test_notification_rule = opsgenie.NotificationRule("testNotificationRule",
+            name="Example notification rule",
             username=test_user.username,
             action_type="schedule-end",
             notification_times=[
@@ -492,6 +493,8 @@ class NotificationRule(pulumi.CustomResource):
             __props__.__dict__["action_type"] = action_type
             __props__.__dict__["criterias"] = criterias
             __props__.__dict__["enabled"] = enabled
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_times"] = notification_times
             __props__.__dict__["order"] = order

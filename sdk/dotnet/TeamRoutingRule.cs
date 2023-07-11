@@ -26,12 +26,14 @@ namespace Pulumi.Opsgenie
     ///     {
     ///         Description = "schedule test",
     ///         Enabled = false,
+    ///         Name = "genieschedule",
     ///         Timezone = "Europe/Rome",
     ///     });
     /// 
     ///     var testTeam = new Opsgenie.Team("testTeam", new()
     ///     {
     ///         Description = "This team deals with all the things",
+    ///         Name = "example team",
     ///     });
     /// 
     ///     var testTeamRoutingRule = new Opsgenie.TeamRoutingRule("testTeamRoutingRule", new()
@@ -53,6 +55,7 @@ namespace Pulumi.Opsgenie
     ///                 Type = "match-any-condition",
     ///             },
     ///         },
+    ///         Name = "routing rule example",
     ///         Notifies = new[]
     ///         {
     ///             new Opsgenie.Inputs.TeamRoutingRuleNotifyArgs
@@ -115,7 +118,7 @@ namespace Pulumi.Opsgenie
         /// Name of the team routing rule
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`

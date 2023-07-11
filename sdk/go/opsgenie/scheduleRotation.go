@@ -30,6 +30,7 @@ import (
 //			_, err := opsgenie.NewScheduleRotation(ctx, "test", &opsgenie.ScheduleRotationArgs{
 //				EndDate: pulumi.String("2019-06-20T17:30:00Z"),
 //				Length:  pulumi.Int(6),
+//				Name:    pulumi.String("test"),
 //				Participants: opsgenie.ScheduleRotationParticipantArray{
 //					&opsgenie.ScheduleRotationParticipantArgs{
 //						Id:   pulumi.Any(opsgenie_user.Test.Id),
@@ -79,7 +80,7 @@ type ScheduleRotation struct {
 	// Length of the rotation with default value 1.
 	Length pulumi.IntPtrOutput `pulumi:"length"`
 	// Name of rotation.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
 	Participants ScheduleRotationParticipantArrayOutput `pulumi:"participants"`
 	// Identifier of the schedule.
@@ -306,8 +307,8 @@ func (o ScheduleRotationOutput) Length() pulumi.IntPtrOutput {
 }
 
 // Name of rotation.
-func (o ScheduleRotationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *ScheduleRotation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o ScheduleRotationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleRotation) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"

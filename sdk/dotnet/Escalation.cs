@@ -25,6 +25,7 @@ namespace Pulumi.Opsgenie
     ///     var test = new Opsgenie.Escalation("test", new()
     ///     {
     ///         Description = "test",
+    ///         Name = "genieescalation-%s",
     ///         OwnerTeamId = opsgenie_team.Test.Id,
     ///         Repeats = new[]
     ///         {
@@ -164,8 +165,8 @@ namespace Pulumi.Opsgenie
         /// <summary>
         /// Name of the escalation.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Owner team id of the escalation.

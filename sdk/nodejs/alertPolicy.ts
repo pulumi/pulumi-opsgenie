@@ -15,8 +15,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const testTeam = new opsgenie.Team("testTeam", {description: "This team deals with all the things"});
+ * const testTeam = new opsgenie.Team("testTeam", {
+ *     name: "example team",
+ *     description: "This team deals with all the things",
+ * });
  * const testAlertPolicy = new opsgenie.AlertPolicy("testAlertPolicy", {
+ *     name: "example policy",
  *     teamId: testTeam.id,
  *     policyDescription: "This is sample policy",
  *     message: "{{message}}",
@@ -206,6 +210,9 @@ export class AlertPolicy extends pulumi.CustomResource {
             if ((!args || args.message === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["alertDescription"] = args ? args.alertDescription : undefined;
             resourceInputs["alias"] = args ? args.alias : undefined;
@@ -373,7 +380,7 @@ export interface AlertPolicyArgs {
     /**
      * Name of the alert policy
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Description of the policy. This can be max 512 characters.
      */

@@ -26,6 +26,7 @@ namespace Pulumi.Opsgenie
     ///     {
     ///         Description = "schedule test",
     ///         Enabled = false,
+    ///         Name = "genieschedule-%s",
     ///         OwnerTeamId = opsgenie_team.Test.Id,
     ///         Timezone = "Europe/Rome",
     ///     });
@@ -82,7 +83,7 @@ namespace Pulumi.Opsgenie
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Schedule(string name, ScheduleArgs? args = null, CustomResourceOptions? options = null)
+        public Schedule(string name, ScheduleArgs args, CustomResourceOptions? options = null)
             : base("opsgenie:index/schedule:Schedule", name, args ?? new ScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -135,8 +136,8 @@ namespace Pulumi.Opsgenie
         /// <summary>
         /// Name of the schedule.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Owner team id of the schedule.

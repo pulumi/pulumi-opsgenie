@@ -29,11 +29,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewTeam(ctx, "payment", &opsgenie.TeamArgs{
 //				Description: pulumi.String("This team deals with all the things"),
+//				Name:        pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = opsgenie.NewService(ctx, "this", &opsgenie.ServiceArgs{
+//				Name:   pulumi.String("Payment"),
 //				TeamId: pulumi.String("$opsgenie_team.payment.id"),
 //			})
 //			if err != nil {
@@ -72,6 +74,9 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.TeamId == nil {
 		return nil, errors.New("invalid value for required argument 'TeamId'")
 	}
@@ -122,7 +127,7 @@ type serviceArgs struct {
 	// Description field of the service that is generally used to provide a detailed information about the service.
 	Description *string `pulumi:"description"`
 	// Name of the service. This field must not be longer than 100 characters.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Team id of the service. This field must not be longer than 512 characters.
 	TeamId string `pulumi:"teamId"`
 }
@@ -132,7 +137,7 @@ type ServiceArgs struct {
 	// Description field of the service that is generally used to provide a detailed information about the service.
 	Description pulumi.StringPtrInput
 	// Name of the service. This field must not be longer than 100 characters.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Team id of the service. This field must not be longer than 512 characters.
 	TeamId pulumi.StringInput
 }

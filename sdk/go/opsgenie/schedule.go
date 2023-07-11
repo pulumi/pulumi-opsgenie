@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ import (
 //			_, err := opsgenie.NewSchedule(ctx, "test", &opsgenie.ScheduleArgs{
 //				Description: pulumi.String("schedule test"),
 //				Enabled:     pulumi.Bool(false),
+//				Name:        pulumi.String("genieschedule-%s"),
 //				OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
 //				Timezone:    pulumi.String("Europe/Rome"),
 //			})
@@ -69,9 +71,12 @@ type Schedule struct {
 func NewSchedule(ctx *pulumi.Context,
 	name string, args *ScheduleArgs, opts ...pulumi.ResourceOption) (*Schedule, error) {
 	if args == nil {
-		args = &ScheduleArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	var resource Schedule
 	err := ctx.RegisterResource("opsgenie:index/schedule:Schedule", name, args, &resource, opts...)
 	if err != nil {
@@ -129,7 +134,7 @@ type scheduleArgs struct {
 	// Enable/disable state of schedule
 	Enabled *bool `pulumi:"enabled"`
 	// Name of the schedule.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Owner team id of the schedule.
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
 	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
@@ -143,7 +148,7 @@ type ScheduleArgs struct {
 	// Enable/disable state of schedule
 	Enabled pulumi.BoolPtrInput
 	// Name of the schedule.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Owner team id of the schedule.
 	OwnerTeamId pulumi.StringPtrInput
 	// Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.

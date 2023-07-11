@@ -50,15 +50,15 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
      * Name of the schedule.
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return Name of the schedule.
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
@@ -167,7 +167,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -225,6 +225,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScheduleArgs build() {
+            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

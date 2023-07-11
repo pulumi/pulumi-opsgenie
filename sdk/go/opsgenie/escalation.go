@@ -29,6 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewEscalation(ctx, "test", &opsgenie.EscalationArgs{
 //				Description: pulumi.String("test"),
+//				Name:        pulumi.String("genieescalation-%s"),
 //				OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
 //				Repeats: opsgenie.EscalationRepeatArray{
 //					&opsgenie.EscalationRepeatArgs{
@@ -100,6 +101,9 @@ func NewEscalation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
@@ -158,7 +162,7 @@ type escalationArgs struct {
 	// Description of the escalation.
 	Description *string `pulumi:"description"`
 	// Name of the escalation.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Owner team id of the escalation.
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
 	// Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
@@ -172,7 +176,7 @@ type EscalationArgs struct {
 	// Description of the escalation.
 	Description pulumi.StringPtrInput
 	// Name of the escalation.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Owner team id of the escalation.
 	OwnerTeamId pulumi.StringPtrInput
 	// Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed

@@ -14,29 +14,40 @@ __all__ = ['ScheduleArgs', 'Schedule']
 @pulumi.input_type
 class ScheduleArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  owner_team_id: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
+        :param pulumi.Input[str] name: Name of the schedule.
         :param pulumi.Input[str] description: The description of schedule.
         :param pulumi.Input[bool] enabled: Enable/disable state of schedule
-        :param pulumi.Input[str] name: Name of the schedule.
         :param pulumi.Input[str] owner_team_id: Owner team id of the schedule.
         :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
+        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
             pulumi.set(__self__, "owner_team_id", owner_team_id)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the schedule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -61,18 +72,6 @@ class ScheduleArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schedule.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="ownerTeamId")
@@ -210,6 +209,7 @@ class Schedule(pulumi.CustomResource):
         test = opsgenie.Schedule("test",
             description="schedule test",
             enabled=False,
+            name="genieschedule-%s",
             owner_team_id=opsgenie_team["test"]["id"],
             timezone="Europe/Rome")
         ```
@@ -234,7 +234,7 @@ class Schedule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ScheduleArgs] = None,
+                 args: ScheduleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Schedule within Opsgenie.
@@ -248,6 +248,7 @@ class Schedule(pulumi.CustomResource):
         test = opsgenie.Schedule("test",
             description="schedule test",
             enabled=False,
+            name="genieschedule-%s",
             owner_team_id=opsgenie_team["test"]["id"],
             timezone="Europe/Rome")
         ```
@@ -291,6 +292,8 @@ class Schedule(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["owner_team_id"] = owner_team_id
             __props__.__dict__["timezone"] = timezone

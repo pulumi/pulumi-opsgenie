@@ -17,31 +17,32 @@ __all__ = ['NotificationPolicyArgs', 'NotificationPolicy']
 class NotificationPolicyArgs:
     def __init__(__self__, *,
                  filters: pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]],
+                 name: pulumi.Input[str],
                  team_id: pulumi.Input[str],
                  auto_close_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionArgs']]]] = None,
                  auto_restart_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionArgs']]]] = None,
                  de_duplication_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionArgs']]]] = None,
                  delay_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  suppress: Optional[pulumi.Input[bool]] = None,
                  time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]]] = None):
         """
         The set of arguments for constructing a NotificationPolicy resource.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]] filters: A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+        :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[str] team_id: Id of team that this policy belons to.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionArgs']]] auto_close_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionArgs']]] auto_restart_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionArgs']]] de_duplication_actions: Deduplication Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionArgs']]] delay_actions: Delay notifications. This is a block, structure is documented below.
         :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
-        :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[bool] suppress: Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
         pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "team_id", team_id)
         if auto_close_actions is not None:
             pulumi.set(__self__, "auto_close_actions", auto_close_actions)
@@ -53,8 +54,6 @@ class NotificationPolicyArgs:
             pulumi.set(__self__, "delay_actions", delay_actions)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if policy_description is not None:
             pulumi.set(__self__, "policy_description", policy_description)
         if suppress is not None:
@@ -73,6 +72,18 @@ class NotificationPolicyArgs:
     @filters.setter
     def filters(self, value: pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]]):
         pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the notification policy
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="teamId")
@@ -145,18 +156,6 @@ class NotificationPolicyArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the notification policy
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="policyDescription")
@@ -481,6 +480,8 @@ class NotificationPolicy(pulumi.CustomResource):
             if filters is None and not opts.urn:
                 raise TypeError("Missing required property 'filters'")
             __props__.__dict__["filters"] = filters
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_description"] = policy_description
             __props__.__dict__["suppress"] = suppress

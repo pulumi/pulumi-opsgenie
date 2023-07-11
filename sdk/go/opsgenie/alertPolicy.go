@@ -28,12 +28,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//				Name:        pulumi.String("example team"),
 //				Description: pulumi.String("This team deals with all the things"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = opsgenie.NewAlertPolicy(ctx, "testAlertPolicy", &opsgenie.AlertPolicyArgs{
+//				Name:              pulumi.String("example policy"),
 //				TeamId:            testTeam.ID(),
 //				PolicyDescription: pulumi.String("This is sample policy"),
 //				Message:           pulumi.String("{{message}}"),
@@ -144,6 +146,9 @@ func NewAlertPolicy(ctx *pulumi.Context,
 
 	if args.Message == nil {
 		return nil, errors.New("invalid value for required argument 'Message'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource AlertPolicy
 	err := ctx.RegisterResource("opsgenie:index/alertPolicy:AlertPolicy", name, args, &resource, opts...)
@@ -282,7 +287,7 @@ type alertPolicyArgs struct {
 	// Message of the alerts
 	Message string `pulumi:"message"`
 	// Name of the alert policy
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription *string `pulumi:"policyDescription"`
 	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
@@ -326,7 +331,7 @@ type AlertPolicyArgs struct {
 	// Message of the alerts
 	Message pulumi.StringInput
 	// Name of the alert policy
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Description of the policy. This can be max 512 characters.
 	PolicyDescription pulumi.StringPtrInput
 	// Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`

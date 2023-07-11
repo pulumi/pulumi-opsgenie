@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  *         var test = new Schedule(&#34;test&#34;, ScheduleArgs.builder()        
  *             .description(&#34;schedule test&#34;)
  *             .enabled(false)
+ *             .name(&#34;genieschedule-%s&#34;)
  *             .ownerTeamId(opsgenie_team.test().id())
  *             .timezone(&#34;Europe/Rome&#34;)
  *             .build());
@@ -145,7 +146,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Schedule(String name, @Nullable ScheduleArgs args) {
+    public Schedule(String name, ScheduleArgs args) {
         this(name, args, null);
     }
     /**
@@ -154,7 +155,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Schedule(String name, @Nullable ScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Schedule(String name, ScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("opsgenie:index/schedule:Schedule", name, args == null ? ScheduleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

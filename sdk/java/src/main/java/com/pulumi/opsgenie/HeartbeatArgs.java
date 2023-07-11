@@ -127,15 +127,15 @@ public final class HeartbeatArgs extends com.pulumi.resources.ResourceArgs {
      * Name of the heartbeat
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return Name of the heartbeat
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
@@ -348,7 +348,7 @@ public final class HeartbeatArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -388,6 +388,7 @@ public final class HeartbeatArgs extends com.pulumi.resources.ResourceArgs {
             $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
             $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
             $.intervalUnit = Objects.requireNonNull($.intervalUnit, "expected parameter 'intervalUnit' to be non-null");
+            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

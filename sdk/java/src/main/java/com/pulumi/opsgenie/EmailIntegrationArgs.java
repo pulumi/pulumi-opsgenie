@@ -67,15 +67,15 @@ public final class EmailIntegrationArgs extends com.pulumi.resources.ResourceArg
      * Name of the integration. Name must be unique for each integration.
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return Name of the integration. Name must be unique for each integration.
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
@@ -214,7 +214,7 @@ public final class EmailIntegrationArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -286,6 +286,7 @@ public final class EmailIntegrationArgs extends com.pulumi.resources.ResourceArg
 
         public EmailIntegrationArgs build() {
             $.emailUsername = Objects.requireNonNull($.emailUsername, "expected parameter 'emailUsername' to be non-null");
+            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

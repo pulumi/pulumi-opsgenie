@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new Escalation(&#34;test&#34;, EscalationArgs.builder()        
  *             .description(&#34;test&#34;)
+ *             .name(&#34;genieescalation-%s&#34;)
  *             .ownerTeamId(opsgenie_team.test().id())
  *             .repeats(EscalationRepeatArgs.builder()
  *                 .closeAlertAfterAll(false)

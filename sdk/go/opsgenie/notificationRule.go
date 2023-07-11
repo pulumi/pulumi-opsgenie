@@ -36,6 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewNotificationRule(ctx, "testNotificationRule", &opsgenie.NotificationRuleArgs{
+//				Name:       pulumi.String("Example notification rule"),
 //				Username:   testUser.Username,
 //				ActionType: pulumi.String("schedule-end"),
 //				NotificationTimes: pulumi.StringArray{
@@ -103,6 +104,9 @@ func NewNotificationRule(ctx *pulumi.Context,
 
 	if args.ActionType == nil {
 		return nil, errors.New("invalid value for required argument 'ActionType'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
@@ -181,7 +185,7 @@ type notificationRuleArgs struct {
 	// If policy should be enabled. Default: `true`
 	Enabled *bool `pulumi:"enabled"`
 	// Name of the notification policy
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
 	NotificationTimes []string `pulumi:"notificationTimes"`
 	// Order of the condition in conditions list
@@ -203,7 +207,7 @@ type NotificationRuleArgs struct {
 	// If policy should be enabled. Default: `true`
 	Enabled pulumi.BoolPtrInput
 	// Name of the notification policy
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
 	NotificationTimes pulumi.StringArrayInput
 	// Order of the condition in conditions list
