@@ -19,13 +19,15 @@ import (
 	"path/filepath"
 	"unicode"
 
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
+
 	"github.com/opsgenie/terraform-provider-opsgenie/opsgenie"
 	"github.com/pulumi/pulumi-opsgenie/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -69,14 +71,16 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "opsgenie",
-		Description: "A Pulumi package for creating and managing opsgenie cloud resources.",
-		Keywords:    []string{"pulumi", "opsgenie"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-opsgenie",
-		GitHubOrg:   "opsgenie",
+		P:            p,
+		Name:         "opsgenie",
+		Description:  "A Pulumi package for creating and managing opsgenie cloud resources.",
+		Keywords:     []string{"pulumi", "opsgenie"},
+		License:      "Apache-2.0",
+		Homepage:     "https://pulumi.io",
+		Repository:   "https://github.com/pulumi/pulumi-opsgenie",
+		GitHubOrg:    "opsgenie",
+		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		Version:      version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"api_url": {
 				Default: &tfbridge.DefaultInfo{
@@ -237,10 +241,12 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	defaults := x.TokensSingleModule("opsgenie_", mainMod, x.MakeStandardToken(mainPkg))
-	err := x.ComputeDefaults(&prov, defaults)
-	contract.AssertNoErrorf(err, "failed to compute auto token mapping defaults")
-	prov.SetAutonaming(255, "-")
+	defaults := tfbridgetokens.SingleModule("opsgenie_", mainMod, tfbridgetokens.MakeStandard(mainPkg))
+	prov.MustComputeTokens(defaults)
+	prov.MustApplyAutoAliases()
 
 	return prov
 }
+
+//go:embed cmd/pulumi-resource-opsgenie/bridge-metadata.json
+var metadata []byte
