@@ -148,7 +148,7 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<string | undefined>;
     /**
-     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      */
     public readonly responders!: pulumi.Output<outputs.AlertPolicyResponder[] | undefined>;
     /**
@@ -297,7 +297,7 @@ export interface AlertPolicyState {
      */
     priority?: pulumi.Input<string>;
     /**
-     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      */
     responders?: pulumi.Input<pulumi.Input<inputs.AlertPolicyResponder>[]>;
     /**
@@ -383,7 +383,7 @@ export interface AlertPolicyArgs {
      */
     priority?: pulumi.Input<string>;
     /**
-     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      */
     responders?: pulumi.Input<pulumi.Input<inputs.AlertPolicyResponder>[]>;
     /**

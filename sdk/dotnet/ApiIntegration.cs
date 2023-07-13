@@ -127,7 +127,7 @@ namespace Pulumi.Opsgenie
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Owner team id of the integration.
+        /// Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         /// </summary>
         [Output("ownerTeamId")]
         public Output<string?> OwnerTeamId { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Owner team id of the integration.
+        /// Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         /// </summary>
         [Input("ownerTeamId")]
         public Input<string>? OwnerTeamId { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Owner team id of the integration.
+        /// Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         /// </summary>
         [Input("ownerTeamId")]
         public Input<string>? OwnerTeamId { get; set; }

@@ -175,14 +175,14 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Owner team id of the integration.
+     * Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
      * 
      */
     @Export(name="ownerTeamId", type=String.class, parameters={})
     private Output</* @Nullable */ String> ownerTeamId;
 
     /**
-     * @return Owner team id of the integration.
+     * @return Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
      * 
      */
     public Output<Optional<String>> ownerTeamId() {

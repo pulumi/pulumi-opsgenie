@@ -221,7 +221,7 @@ class AlertPolicyResponder(dict):
                  username: Optional[str] = None):
         """
         :param str id: ID of the responder
-        :param str type: Type of responder. Acceptable values are: `user` or `team`
+        :param str type: Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
         :param str name: Name of the responder
         :param str username: Username of the responder
         """
@@ -244,7 +244,7 @@ class AlertPolicyResponder(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of responder. Acceptable values are: `user` or `team`
+        Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
         """
         return pulumi.get(self, "type")
 

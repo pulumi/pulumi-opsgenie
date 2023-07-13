@@ -53,7 +53,7 @@ export interface AlertPolicyResponder {
      */
     name?: string;
     /**
-     * Type of responder. Acceptable values are: `user` or `team`
+     * Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
      */
     type: string;
     /**

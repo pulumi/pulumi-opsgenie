@@ -246,14 +246,14 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      * 
      */
     @Import(name="responders")
     private @Nullable Output<List<AlertPolicyResponderArgs>> responders;
 
     /**
-     * @return Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+     * @return Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      * 
      */
     public Optional<Output<List<AlertPolicyResponderArgs>>> responders() {
@@ -699,7 +699,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
          * 
          * @return builder
          * 

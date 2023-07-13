@@ -107,7 +107,7 @@ type ApiIntegration struct {
 	IgnoreRespondersFromPayload pulumi.BoolPtrOutput `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Owner team id of the integration.
+	// Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
 	OwnerTeamId pulumi.StringPtrOutput `pulumi:"ownerTeamId"`
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
 	Responders ApiIntegrationResponderArrayOutput `pulumi:"responders"`
@@ -163,7 +163,7 @@ type apiIntegrationState struct {
 	IgnoreRespondersFromPayload *bool `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
 	Name *string `pulumi:"name"`
-	// Owner team id of the integration.
+	// Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
 	Responders []ApiIntegrationResponder `pulumi:"responders"`
@@ -187,7 +187,7 @@ type ApiIntegrationState struct {
 	IgnoreRespondersFromPayload pulumi.BoolPtrInput
 	// Name of the integration. Name must be unique for each integration.
 	Name pulumi.StringPtrInput
-	// Owner team id of the integration.
+	// Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
 	OwnerTeamId pulumi.StringPtrInput
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
 	Responders ApiIntegrationResponderArrayInput
@@ -213,7 +213,7 @@ type apiIntegrationArgs struct {
 	IgnoreRespondersFromPayload *bool `pulumi:"ignoreRespondersFromPayload"`
 	// Name of the integration. Name must be unique for each integration.
 	Name *string `pulumi:"name"`
-	// Owner team id of the integration.
+	// Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
 	Responders []ApiIntegrationResponder `pulumi:"responders"`
@@ -236,7 +236,7 @@ type ApiIntegrationArgs struct {
 	IgnoreRespondersFromPayload pulumi.BoolPtrInput
 	// Name of the integration. Name must be unique for each integration.
 	Name pulumi.StringPtrInput
-	// Owner team id of the integration.
+	// Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
 	OwnerTeamId pulumi.StringPtrInput
 	// User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
 	Responders ApiIntegrationResponderArrayInput
@@ -364,7 +364,7 @@ func (o ApiIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Owner team id of the integration.
+// Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
 func (o ApiIntegrationOutput) OwnerTeamId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.StringPtrOutput { return v.OwnerTeamId }).(pulumi.StringPtrOutput)
 }
