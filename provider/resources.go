@@ -19,13 +19,15 @@ import (
 	"path/filepath"
 	"unicode"
 
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
+
 	"github.com/opsgenie/terraform-provider-opsgenie/opsgenie"
 	"github.com/pulumi/pulumi-opsgenie/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -235,12 +237,16 @@ func Provider() tfbridge.ProviderInfo {
 				"Pulumi": "3.*",
 			},
 		},
+		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		Version:      version.Version,
 	}
-
-	defaults := x.TokensSingleModule("opsgenie_", mainMod, x.MakeStandardToken(mainPkg))
-	err := x.ComputeDefaults(&prov, defaults)
-	contract.AssertNoErrorf(err, "failed to compute auto token mapping defaults")
+	defaults := tfbridgetokens.SingleModule("opsgenie_", mainMod, tfbridgetokens.MakeStandard(mainPkg))
+	prov.MustComputeTokens(defaults)
+	prov.MustApplyAutoAliases()
 	prov.SetAutonaming(255, "-")
 
 	return prov
 }
+
+//go:embed cmd/pulumi-resource-opsgenie/bridge-metadata.json
+var metadata []byte

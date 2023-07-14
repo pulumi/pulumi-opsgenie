@@ -1,0 +1,896 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "opsgenie_alert_policy": {
+                "current": "opsgenie:index/alertPolicy:AlertPolicy",
+                "majorVersion": 1,
+                "fields": {
+                    "actions": {
+                        "maxItemsOne": false
+                    },
+                    "filter": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "conditions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "responders": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "time_restriction": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "restriction": {
+                                    "maxItemsOne": false
+                                },
+                                "restrictions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "opsgenie_api_integration": {
+                "current": "opsgenie:index/apiIntegration:ApiIntegration",
+                "majorVersion": 1,
+                "fields": {
+                    "responders": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "opsgenie_custom_role": {
+                "current": "opsgenie:index/customRole:CustomRole",
+                "majorVersion": 1,
+                "fields": {
+                    "disallowed_rights": {
+                        "maxItemsOne": false
+                    },
+                    "granted_rights": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "opsgenie_email_integration": {
+                "current": "opsgenie:index/emailIntegration:EmailIntegration",
+                "majorVersion": 1,
+                "fields": {
+                    "responders": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "opsgenie_escalation": {
+                "current": "opsgenie:index/escalation:Escalation",
+                "majorVersion": 1,
+                "fields": {
+                    "repeat": {
+                        "maxItemsOne": false
+                    },
+                    "rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "recipient": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "opsgenie_heartbeat": {
+                "current": "opsgenie:index/heartbeat:Heartbeat",
+                "majorVersion": 1,
+                "fields": {
+                    "alert_tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "opsgenie_incident_template": {
+                "current": "opsgenie:index/incidentTemplate:IncidentTemplate",
+                "majorVersion": 1,
+                "fields": {
+                    "impacted_services": {
+                        "maxItemsOne": false
+                    },
+                    "stakeholder_properties": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "opsgenie_integration_action": {
+                "current": "opsgenie:index/integrationAction:IntegrationAction",
+                "majorVersion": 1,
+                "fields": {
+                    "acknowledge": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "filter": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "conditions": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "add_note": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "filter": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "conditions": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "close": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "filter": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "conditions": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "create": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "alert_actions": {
+                                    "maxItemsOne": false
+                                },
+                                "filter": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "conditions": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "responders": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "ignore": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "filter": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "conditions": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "opsgenie_maintenance": {
+                "current": "opsgenie:index/maintenance:Maintenance",
+                "majorVersion": 1,
+                "fields": {
+                    "rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "entity": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "time": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "opsgenie_notification_policy": {
+                "current": "opsgenie:index/notificationPolicy:NotificationPolicy",
+                "majorVersion": 1,
+                "fields": {
+                    "auto_close_action": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "duration": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "auto_restart_action": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "duration": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "de_duplication_action": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "duration": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "delay_action": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "duration": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "filter": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "conditions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "time_restriction": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "restriction": {
+                                    "maxItemsOne": false
+                                },
+                                "restrictions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "opsgenie_notification_rule": {
+                "current": "opsgenie:index/notificationRule:NotificationRule",
+                "majorVersion": 1,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "conditions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "notification_time": {
+                        "maxItemsOne": false
+                    },
+                    "repeat": {
+                        "maxItemsOne": false
+                    },
+                    "schedules": {
+                        "maxItemsOne": false
+                    },
+                    "steps": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "contact": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "time_restriction": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "restriction": {
+                                    "maxItemsOne": false
+                                },
+                                "restrictions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "opsgenie_schedule": {
+                "current": "opsgenie:index/schedule:Schedule",
+                "majorVersion": 1
+            },
+            "opsgenie_schedule_rotation": {
+                "current": "opsgenie:index/scheduleRotation:ScheduleRotation",
+                "majorVersion": 1,
+                "fields": {
+                    "participant": {
+                        "maxItemsOne": false
+                    },
+                    "time_restriction": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "restriction": {
+                                    "maxItemsOne": false
+                                },
+                                "restrictions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "opsgenie_service": {
+                "current": "opsgenie:index/service:Service",
+                "majorVersion": 1
+            },
+            "opsgenie_service_incident_rule": {
+                "current": "opsgenie:index/serviceIncidentRule:ServiceIncidentRule",
+                "majorVersion": 1,
+                "fields": {
+                    "incident_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "conditions": {
+                                    "maxItemsOne": false
+                                },
+                                "incident_properties": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "stakeholder_properties": {
+                                                "maxItemsOne": false
+                                            },
+                                            "tags": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "opsgenie_team": {
+                "current": "opsgenie:index/team:Team",
+                "majorVersion": 1,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "opsgenie_team_routing_rule": {
+                "current": "opsgenie:index/teamRoutingRule:TeamRoutingRule",
+                "majorVersion": 1,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "conditions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "notify": {
+                        "maxItemsOne": false
+                    },
+                    "time_restriction": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "restriction": {
+                                    "maxItemsOne": false
+                                },
+                                "restrictions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "opsgenie_user": {
+                "current": "opsgenie:index/user:User",
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "user_address": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "opsgenie_user_contact": {
+                "current": "opsgenie:index/userContact:UserContact",
+                "majorVersion": 1
+            }
+        },
+        "datasources": {
+            "opsgenie_escalation": {
+                "current": "opsgenie:index/getEscalation:getEscalation",
+                "majorVersion": 1,
+                "fields": {
+                    "repeat": {
+                        "maxItemsOne": false
+                    },
+                    "rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "recipient": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "opsgenie_heartbeat": {
+                "current": "opsgenie:index/getHeartbeat:getHeartbeat",
+                "majorVersion": 1,
+                "fields": {
+                    "alert_tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "opsgenie_schedule": {
+                "current": "opsgenie:index/getSchedule:getSchedule",
+                "majorVersion": 1
+            },
+            "opsgenie_service": {
+                "current": "opsgenie:index/getService:getService",
+                "majorVersion": 1
+            },
+            "opsgenie_team": {
+                "current": "opsgenie:index/getTeam:getTeam",
+                "majorVersion": 1,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "opsgenie_user": {
+                "current": "opsgenie:index/getUser:getUser",
+                "majorVersion": 1
+            }
+        }
+    },
+    "renames": {
+        "resources": {
+            "opsgenie:index/alertPolicy:AlertPolicy": "opsgenie_alert_policy",
+            "opsgenie:index/apiIntegration:ApiIntegration": "opsgenie_api_integration",
+            "opsgenie:index/customRole:CustomRole": "opsgenie_custom_role",
+            "opsgenie:index/emailIntegration:EmailIntegration": "opsgenie_email_integration",
+            "opsgenie:index/escalation:Escalation": "opsgenie_escalation",
+            "opsgenie:index/heartbeat:Heartbeat": "opsgenie_heartbeat",
+            "opsgenie:index/incidentTemplate:IncidentTemplate": "opsgenie_incident_template",
+            "opsgenie:index/integrationAction:IntegrationAction": "opsgenie_integration_action",
+            "opsgenie:index/maintenance:Maintenance": "opsgenie_maintenance",
+            "opsgenie:index/notificationPolicy:NotificationPolicy": "opsgenie_notification_policy",
+            "opsgenie:index/notificationRule:NotificationRule": "opsgenie_notification_rule",
+            "opsgenie:index/schedule:Schedule": "opsgenie_schedule",
+            "opsgenie:index/scheduleRotation:ScheduleRotation": "opsgenie_schedule_rotation",
+            "opsgenie:index/service:Service": "opsgenie_service",
+            "opsgenie:index/serviceIncidentRule:ServiceIncidentRule": "opsgenie_service_incident_rule",
+            "opsgenie:index/team:Team": "opsgenie_team",
+            "opsgenie:index/teamRoutingRule:TeamRoutingRule": "opsgenie_team_routing_rule",
+            "opsgenie:index/user:User": "opsgenie_user",
+            "opsgenie:index/userContact:UserContact": "opsgenie_user_contact"
+        },
+        "functions": {
+            "opsgenie:index/getEscalation:getEscalation": "opsgenie_escalation",
+            "opsgenie:index/getHeartbeat:getHeartbeat": "opsgenie_heartbeat",
+            "opsgenie:index/getSchedule:getSchedule": "opsgenie_schedule",
+            "opsgenie:index/getService:getService": "opsgenie_service",
+            "opsgenie:index/getTeam:getTeam": "opsgenie_team",
+            "opsgenie:index/getUser:getUser": "opsgenie_user"
+        },
+        "renamedProperties": {
+            "opsgenie:index/AlertPolicyFilterCondition:AlertPolicyFilterCondition": {
+                "expectedValue": "expected_value"
+            },
+            "opsgenie:index/AlertPolicyTimeRestriction:AlertPolicyTimeRestriction": {
+                "restrictionList": "restrictions"
+            },
+            "opsgenie:index/AlertPolicyTimeRestrictionRestriction:AlertPolicyTimeRestrictionRestriction": {
+                "endHour": "end_hour",
+                "endMin": "end_min",
+                "startHour": "start_hour",
+                "startMin": "start_min"
+            },
+            "opsgenie:index/AlertPolicyTimeRestrictionRestrictionList:AlertPolicyTimeRestrictionRestrictionList": {
+                "endDay": "end_day",
+                "endHour": "end_hour",
+                "endMin": "end_min",
+                "startDay": "start_day",
+                "startHour": "start_hour",
+                "startMin": "start_min"
+            },
+            "opsgenie:index/EscalationRepeat:EscalationRepeat": {
+                "closeAlertAfterAll": "close_alert_after_all",
+                "resetRecipientStates": "reset_recipient_states",
+                "waitInterval": "wait_interval"
+            },
+            "opsgenie:index/EscalationRule:EscalationRule": {
+                "notifyType": "notify_type",
+                "recipients": "recipient"
+            },
+            "opsgenie:index/IntegrationActionAcknowledge:IntegrationActionAcknowledge": {
+                "filters": "filter"
+            },
+            "opsgenie:index/IntegrationActionAcknowledgeFilterCondition:IntegrationActionAcknowledgeFilterCondition": {
+                "expectedValue": "expected_value"
+            },
+            "opsgenie:index/IntegrationActionAddNote:IntegrationActionAddNote": {
+                "filters": "filter"
+            },
+            "opsgenie:index/IntegrationActionAddNoteFilterCondition:IntegrationActionAddNoteFilterCondition": {
+                "expectedValue": "expected_value"
+            },
+            "opsgenie:index/IntegrationActionClose:IntegrationActionClose": {
+                "filters": "filter"
+            },
+            "opsgenie:index/IntegrationActionCloseFilterCondition:IntegrationActionCloseFilterCondition": {
+                "expectedValue": "expected_value"
+            },
+            "opsgenie:index/IntegrationActionCreate:IntegrationActionCreate": {
+                "alertActions": "alert_actions",
+                "appendAttachments": "append_attachments",
+                "customPriority": "custom_priority",
+                "extraProperties": "extra_properties",
+                "filters": "filter",
+                "ignoreAlertActionsFromPayload": "ignore_alert_actions_from_payload",
+                "ignoreExtraPropertiesFromPayload": "ignore_extra_properties_from_payload",
+                "ignoreRespondersFromPayload": "ignore_responders_from_payload",
+                "ignoreTagsFromPayload": "ignore_tags_from_payload",
+                "ignoreTeamsFromPayload": "ignore_teams_from_payload"
+            },
+            "opsgenie:index/IntegrationActionCreateFilterCondition:IntegrationActionCreateFilterCondition": {
+                "expectedValue": "expected_value"
+            },
+            "opsgenie:index/IntegrationActionIgnore:IntegrationActionIgnore": {
+                "filters": "filter"
+            },
+            "opsgenie:index/IntegrationActionIgnoreFilterCondition:IntegrationActionIgnoreFilterCondition": {
+                "expectedValue": "expected_value"
+            },
+            "opsgenie:index/MaintenanceRule:MaintenanceRule": {
+                "entities": "entity"
+            },
+            "opsgenie:index/MaintenanceTime:MaintenanceTime": {
+                "endDate": "end_date",
+                "startDate": "start_date"
+            },
+            "opsgenie:index/NotificationPolicyAutoCloseAction:NotificationPolicyAutoCloseAction": {
+                "durations": "duration"
+            },
+            "opsgenie:index/NotificationPolicyAutoCloseActionDuration:NotificationPolicyAutoCloseActionDuration": {
+                "timeAmount": "time_amount",
+                "timeUnit": "time_unit"
+            },
+            "opsgenie:index/NotificationPolicyAutoRestartAction:NotificationPolicyAutoRestartAction": {
+                "durations": "duration",
+                "maxRepeatCount": "max_repeat_count"
+            },
+            "opsgenie:index/NotificationPolicyAutoRestartActionDuration:NotificationPolicyAutoRestartActionDuration": {
+                "timeAmount": "time_amount",
+                "timeUnit": "time_unit"
+            },
+            "opsgenie:index/NotificationPolicyDeDuplicationAction:NotificationPolicyDeDuplicationAction": {
+                "deDuplicationActionType": "de_duplication_action_type",
+                "durations": "duration"
+            },
+            "opsgenie:index/NotificationPolicyDeDuplicationActionDuration:NotificationPolicyDeDuplicationActionDuration": {
+                "timeAmount": "time_amount",
+                "timeUnit": "time_unit"
+            },
+            "opsgenie:index/NotificationPolicyDelayAction:NotificationPolicyDelayAction": {
+                "delayOption": "delay_option",
+                "durations": "duration",
+                "untilHour": "until_hour",
+                "untilMinute": "until_minute"
+            },
+            "opsgenie:index/NotificationPolicyDelayActionDuration:NotificationPolicyDelayActionDuration": {
+                "timeAmount": "time_amount",
+                "timeUnit": "time_unit"
+            },
+            "opsgenie:index/NotificationPolicyFilterCondition:NotificationPolicyFilterCondition": {
+                "expectedValue": "expected_value"
+            },
+            "opsgenie:index/NotificationPolicyTimeRestriction:NotificationPolicyTimeRestriction": {
+                "restrictionList": "restrictions"
+            },
+            "opsgenie:index/NotificationPolicyTimeRestrictionRestriction:NotificationPolicyTimeRestrictionRestriction": {
+                "endHour": "end_hour",
+                "endMin": "end_min",
+                "startHour": "start_hour",
+                "startMin": "start_min"
+            },
+            "opsgenie:index/NotificationPolicyTimeRestrictionRestrictionList:NotificationPolicyTimeRestrictionRestrictionList": {
+                "endDay": "end_day",
+                "endHour": "end_hour",
+                "endMin": "end_min",
+                "startDay": "start_day",
+                "startHour": "start_hour",
+                "startMin": "start_min"
+            },
+            "opsgenie:index/NotificationRuleCriteriaCondition:NotificationRuleCriteriaCondition": {
+                "expectedValue": "expected_value"
+            },
+            "opsgenie:index/NotificationRuleRepeat:NotificationRuleRepeat": {
+                "loopAfter": "loop_after"
+            },
+            "opsgenie:index/NotificationRuleStep:NotificationRuleStep": {
+                "contacts": "contact",
+                "sendAfter": "send_after"
+            },
+            "opsgenie:index/NotificationRuleTimeRestrictionRestriction:NotificationRuleTimeRestrictionRestriction": {
+                "endDay": "end_day",
+                "endHour": "end_hour",
+                "endMin": "end_min",
+                "startDay": "start_day",
+                "startHour": "start_hour",
+                "startMin": "start_min"
+            },
+            "opsgenie:index/ScheduleRotationTimeRestriction:ScheduleRotationTimeRestriction": {
+                "restrictionList": "restrictions"
+            },
+            "opsgenie:index/ScheduleRotationTimeRestrictionRestriction:ScheduleRotationTimeRestrictionRestriction": {
+                "endHour": "end_hour",
+                "endMin": "end_min",
+                "startHour": "start_hour",
+                "startMin": "start_min"
+            },
+            "opsgenie:index/ScheduleRotationTimeRestrictionRestrictionList:ScheduleRotationTimeRestrictionRestrictionList": {
+                "endDay": "end_day",
+                "endHour": "end_hour",
+                "endMin": "end_min",
+                "startDay": "start_day",
+                "startHour": "start_hour",
+                "startMin": "start_min"
+            },
+            "opsgenie:index/ServiceIncidentRuleIncidentRule:ServiceIncidentRuleIncidentRule": {
+                "conditionMatchType": "condition_match_type",
+                "incidentProperties": "incident_properties"
+            },
+            "opsgenie:index/ServiceIncidentRuleIncidentRuleCondition:ServiceIncidentRuleIncidentRuleCondition": {
+                "expectedValue": "expected_value"
+            },
+            "opsgenie:index/ServiceIncidentRuleIncidentRuleIncidentProperty:ServiceIncidentRuleIncidentRuleIncidentProperty": {
+                "stakeholderProperties": "stakeholder_properties"
+            },
+            "opsgenie:index/TeamRoutingRuleCriteriaCondition:TeamRoutingRuleCriteriaCondition": {
+                "expectedValue": "expected_value"
+            },
+            "opsgenie:index/TeamRoutingRuleTimeRestriction:TeamRoutingRuleTimeRestriction": {
+                "restrictionList": "restrictions"
+            },
+            "opsgenie:index/TeamRoutingRuleTimeRestrictionRestriction:TeamRoutingRuleTimeRestrictionRestriction": {
+                "endHour": "end_hour",
+                "endMin": "end_min",
+                "startHour": "start_hour",
+                "startMin": "start_min"
+            },
+            "opsgenie:index/TeamRoutingRuleTimeRestrictionRestrictionList:TeamRoutingRuleTimeRestrictionRestrictionList": {
+                "endDay": "end_day",
+                "endHour": "end_hour",
+                "endMin": "end_min",
+                "startDay": "start_day",
+                "startHour": "start_hour",
+                "startMin": "start_min"
+            },
+            "opsgenie:index/alertPolicy:AlertPolicy": {
+                "alertDescription": "alert_description",
+                "continuePolicy": "continue_policy",
+                "filters": "filter",
+                "ignoreOriginalActions": "ignore_original_actions",
+                "ignoreOriginalDetails": "ignore_original_details",
+                "ignoreOriginalResponders": "ignore_original_responders",
+                "ignoreOriginalTags": "ignore_original_tags",
+                "policyDescription": "policy_description",
+                "teamId": "team_id",
+                "timeRestrictions": "time_restriction"
+            },
+            "opsgenie:index/apiIntegration:ApiIntegration": {
+                "allowWriteAccess": "allow_write_access",
+                "apiKey": "api_key",
+                "ignoreRespondersFromPayload": "ignore_responders_from_payload",
+                "ownerTeamId": "owner_team_id",
+                "suppressNotifications": "suppress_notifications",
+                "webhookUrl": "webhook_url"
+            },
+            "opsgenie:index/customRole:CustomRole": {
+                "disallowedRights": "disallowed_rights",
+                "extendedRole": "extended_role",
+                "grantedRights": "granted_rights",
+                "roleName": "role_name"
+            },
+            "opsgenie:index/emailIntegration:EmailIntegration": {
+                "emailUsername": "email_username",
+                "ignoreRespondersFromPayload": "ignore_responders_from_payload",
+                "ownerTeamId": "owner_team_id",
+                "suppressNotifications": "suppress_notifications"
+            },
+            "opsgenie:index/escalation:Escalation": {
+                "ownerTeamId": "owner_team_id",
+                "repeats": "repeat"
+            },
+            "opsgenie:index/getEscalation:getEscalation": {
+                "ownerTeamId": "owner_team_id",
+                "repeats": "repeat"
+            },
+            "opsgenie:index/getEscalationRepeat:getEscalationRepeat": {
+                "closeAlertAfterAll": "close_alert_after_all",
+                "resetRecipientStates": "reset_recipient_states",
+                "waitInterval": "wait_interval"
+            },
+            "opsgenie:index/getEscalationRule:getEscalationRule": {
+                "notifyType": "notify_type",
+                "recipients": "recipient"
+            },
+            "opsgenie:index/getHeartbeat:getHeartbeat": {
+                "alertMessage": "alert_message",
+                "alertPriority": "alert_priority",
+                "alertTags": "alert_tags",
+                "intervalUnit": "interval_unit",
+                "ownerTeamId": "owner_team_id"
+            },
+            "opsgenie:index/getSchedule:getSchedule": {
+                "ownerTeamId": "owner_team_id"
+            },
+            "opsgenie:index/getService:getService": {
+                "teamId": "team_id"
+            },
+            "opsgenie:index/getTeam:getTeam": {
+                "members": "member"
+            },
+            "opsgenie:index/getUser:getUser": {
+                "fullName": "full_name"
+            },
+            "opsgenie:index/heartbeat:Heartbeat": {
+                "alertMessage": "alert_message",
+                "alertPriority": "alert_priority",
+                "alertTags": "alert_tags",
+                "intervalUnit": "interval_unit",
+                "ownerTeamId": "owner_team_id"
+            },
+            "opsgenie:index/incidentTemplate:IncidentTemplate": {
+                "impactedServices": "impacted_services",
+                "stakeholderProperties": "stakeholder_properties"
+            },
+            "opsgenie:index/integrationAction:IntegrationAction": {
+                "acknowledges": "acknowledge",
+                "addNotes": "add_note",
+                "closes": "close",
+                "creates": "create",
+                "ignores": "ignore",
+                "integrationId": "integration_id"
+            },
+            "opsgenie:index/maintenance:Maintenance": {
+                "times": "time"
+            },
+            "opsgenie:index/notificationPolicy:NotificationPolicy": {
+                "autoCloseActions": "auto_close_action",
+                "autoRestartActions": "auto_restart_action",
+                "deDuplicationActions": "de_duplication_action",
+                "delayActions": "delay_action",
+                "filters": "filter",
+                "policyDescription": "policy_description",
+                "teamId": "team_id",
+                "timeRestrictions": "time_restriction"
+            },
+            "opsgenie:index/notificationRule:NotificationRule": {
+                "actionType": "action_type",
+                "criterias": "criteria",
+                "notificationTimes": "notification_time",
+                "repeats": "repeat",
+                "timeRestrictions": "time_restriction"
+            },
+            "opsgenie:index/schedule:Schedule": {
+                "ownerTeamId": "owner_team_id"
+            },
+            "opsgenie:index/scheduleRotation:ScheduleRotation": {
+                "endDate": "end_date",
+                "participants": "participant",
+                "scheduleId": "schedule_id",
+                "startDate": "start_date",
+                "timeRestrictions": "time_restriction"
+            },
+            "opsgenie:index/service:Service": {
+                "teamId": "team_id"
+            },
+            "opsgenie:index/serviceIncidentRule:ServiceIncidentRule": {
+                "incidentRules": "incident_rule",
+                "serviceId": "service_id"
+            },
+            "opsgenie:index/team:Team": {
+                "deleteDefaultResources": "delete_default_resources",
+                "ignoreMembers": "ignore_members",
+                "members": "member"
+            },
+            "opsgenie:index/teamRoutingRule:TeamRoutingRule": {
+                "criterias": "criteria",
+                "isDefault": "is_default",
+                "notifies": "notify",
+                "teamId": "team_id",
+                "timeRestrictions": "time_restriction"
+            },
+            "opsgenie:index/user:User": {
+                "fullName": "full_name",
+                "skypeUsername": "skype_username",
+                "userAddresses": "user_address",
+                "userDetails": "user_details"
+            },
+            "opsgenie:index:Provider": {
+                "apiKey": "api_key",
+                "apiUrl": "api_url"
+            }
+        },
+        "renamedConfigProperties": {
+            "apiKey": "api_key",
+            "apiUrl": "api_url"
+        }
+    }
+}

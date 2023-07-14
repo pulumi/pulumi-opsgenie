@@ -46,14 +46,14 @@ public final class AlertPolicyResponderArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Type of responder. Acceptable values are: `user` or `team`
+     * Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of responder. Acceptable values are: `user` or `team`
+     * @return Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
      * 
      */
     public Output<String> type() {
@@ -145,7 +145,7 @@ public final class AlertPolicyResponderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type Type of responder. Acceptable values are: `user` or `team`
+         * @param type Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AlertPolicyResponderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type Type of responder. Acceptable values are: `user` or `team`
+         * @param type Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
          * 
          * @return builder
          * 

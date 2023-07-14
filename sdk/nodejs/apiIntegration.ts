@@ -114,7 +114,7 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Owner team id of the integration.
+     * Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
      */
     public readonly ownerTeamId!: pulumi.Output<string | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface ApiIntegrationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Owner team id of the integration.
+     * Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
      */
     ownerTeamId?: pulumi.Input<string>;
     /**
@@ -248,7 +248,7 @@ export interface ApiIntegrationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Owner team id of the integration.
+     * Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
      */
     ownerTeamId?: pulumi.Input<string>;
     /**

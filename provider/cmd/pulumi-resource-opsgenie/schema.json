@@ -37,6 +37,8 @@
             "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing opsgenie cloud resources.",
             "packageName": "",
+            "pluginName": "",
+            "pluginVersion": "",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/opsgenie/terraform-provider-opsgenie)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-opsgenie` repo](https://github.com/pulumi/pulumi-opsgenie/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-opsgenie` repo](https://github.com/opsgenie/terraform-provider-opsgenie/issues).",
             "typescriptVersion": ""
         },
@@ -128,7 +130,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of responder. Acceptable values are: `user` or `team`\n"
+                    "description": "Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`\n"
                 },
                 "username": {
                     "type": "string",
@@ -1952,7 +1954,7 @@
                     "items": {
                         "$ref": "#/types/opsgenie:index/AlertPolicyResponder:AlertPolicyResponder"
                     },
-                    "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.\n"
+                    "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.\n"
                 },
                 "source": {
                     "type": "string",
@@ -2053,7 +2055,7 @@
                     "items": {
                         "$ref": "#/types/opsgenie:index/AlertPolicyResponder:AlertPolicyResponder"
                     },
-                    "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.\n"
+                    "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.\n"
                 },
                 "source": {
                     "type": "string",
@@ -2155,7 +2157,7 @@
                         "items": {
                             "$ref": "#/types/opsgenie:index/AlertPolicyResponder:AlertPolicyResponder"
                         },
-                        "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.\n"
+                        "description": "Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.\n"
                     },
                     "source": {
                         "type": "string",
@@ -2215,7 +2217,7 @@
                 },
                 "ownerTeamId": {
                     "type": "string",
-                    "description": "Owner team id of the integration.\n"
+                    "description": "Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.\n"
                 },
                 "responders": {
                     "type": "array",
@@ -2266,7 +2268,8 @@
                 },
                 "ownerTeamId": {
                     "type": "string",
-                    "description": "Owner team id of the integration.\n"
+                    "description": "Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.\n",
+                    "willReplaceOnChanges": true
                 },
                 "responders": {
                     "type": "array",
@@ -2321,7 +2324,8 @@
                     },
                     "ownerTeamId": {
                         "type": "string",
-                        "description": "Owner team id of the integration.\n"
+                        "description": "Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.\n",
+                        "willReplaceOnChanges": true
                     },
                     "responders": {
                         "type": "array",

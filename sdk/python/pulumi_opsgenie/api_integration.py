@@ -32,7 +32,7 @@ class ApiIntegrationArgs:
         :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
-        :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
+        :param pulumi.Input[str] owner_team_id: Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         :param pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
         :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
@@ -120,7 +120,7 @@ class ApiIntegrationArgs:
     @pulumi.getter(name="ownerTeamId")
     def owner_team_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Owner team id of the integration.
+        Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         """
         return pulumi.get(self, "owner_team_id")
 
@@ -198,7 +198,7 @@ class _ApiIntegrationState:
         :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
-        :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
+        :param pulumi.Input[str] owner_team_id: Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         :param pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
         :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
@@ -300,7 +300,7 @@ class _ApiIntegrationState:
     @pulumi.getter(name="ownerTeamId")
     def owner_team_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Owner team id of the integration.
+        Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         """
         return pulumi.get(self, "owner_team_id")
 
@@ -434,7 +434,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
-        :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
+        :param pulumi.Input[str] owner_team_id: Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiIntegrationResponderArgs']]]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
         :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
@@ -581,7 +581,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         :param pulumi.Input[bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[str] name: Name of the integration. Name must be unique for each integration.
-        :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
+        :param pulumi.Input[str] owner_team_id: Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiIntegrationResponderArgs']]]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
         :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
@@ -653,7 +653,7 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter(name="ownerTeamId")
     def owner_team_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Owner team id of the integration.
+        Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         """
         return pulumi.get(self, "owner_team_id")
 

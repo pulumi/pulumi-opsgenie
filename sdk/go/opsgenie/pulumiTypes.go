@@ -263,7 +263,7 @@ type AlertPolicyResponder struct {
 	Id string `pulumi:"id"`
 	// Name of the responder
 	Name *string `pulumi:"name"`
-	// Type of responder. Acceptable values are: `user` or `team`
+	// Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
 	Type string `pulumi:"type"`
 	// Username of the responder
 	Username *string `pulumi:"username"`
@@ -285,7 +285,7 @@ type AlertPolicyResponderArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the responder
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of responder. Acceptable values are: `user` or `team`
+	// Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
 	Type pulumi.StringInput `pulumi:"type"`
 	// Username of the responder
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -352,7 +352,7 @@ func (o AlertPolicyResponderOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertPolicyResponder) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of responder. Acceptable values are: `user` or `team`
+// Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
 func (o AlertPolicyResponderOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertPolicyResponder) string { return v.Type }).(pulumi.StringOutput)
 }

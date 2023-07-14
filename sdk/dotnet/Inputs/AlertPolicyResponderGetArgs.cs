@@ -25,7 +25,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type of responder. Acceptable values are: `user` or `team`
+        /// Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

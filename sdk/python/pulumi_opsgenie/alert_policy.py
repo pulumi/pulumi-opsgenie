@@ -53,7 +53,7 @@ class AlertPolicyArgs:
         :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
-        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         :param pulumi.Input[str] source: Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
@@ -283,7 +283,7 @@ class AlertPolicyArgs:
     @pulumi.getter
     def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]:
         """
-        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "responders")
 
@@ -380,7 +380,7 @@ class _AlertPolicyState:
         :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
-        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         :param pulumi.Input[str] source: Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
@@ -611,7 +611,7 @@ class _AlertPolicyState:
     @pulumi.getter
     def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]:
         """
-        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "responders")
 
@@ -763,7 +763,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         :param pulumi.Input[str] source: Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
@@ -945,7 +945,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         :param pulumi.Input[str] source: Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
@@ -1101,7 +1101,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def responders(self) -> pulumi.Output[Optional[Sequence['outputs.AlertPolicyResponder']]]:
         """
-        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`. This is a block, structure is documented below.
+        Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "responders")
 

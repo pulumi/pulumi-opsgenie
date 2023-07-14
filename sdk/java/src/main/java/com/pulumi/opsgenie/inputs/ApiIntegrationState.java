@@ -102,14 +102,14 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Owner team id of the integration.
+     * Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
      * 
      */
     @Import(name="ownerTeamId")
     private @Nullable Output<String> ownerTeamId;
 
     /**
-     * @return Owner team id of the integration.
+     * @return Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
      * 
      */
     public Optional<Output<String>> ownerTeamId() {
@@ -325,7 +325,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ownerTeamId Owner team id of the integration.
+         * @param ownerTeamId Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ownerTeamId Owner team id of the integration.
+         * @param ownerTeamId Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
          * 
          * @return builder
          * 
