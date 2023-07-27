@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -113,6 +114,7 @@ func NewServiceIncidentRule(ctx *pulumi.Context,
 	if args.ServiceId == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceIncidentRule
 	err := ctx.RegisterResource("opsgenie:index/serviceIncidentRule:ServiceIncidentRule", name, args, &resource, opts...)
 	if err != nil {

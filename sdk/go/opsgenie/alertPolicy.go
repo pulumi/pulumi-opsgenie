@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -145,6 +146,7 @@ func NewAlertPolicy(ctx *pulumi.Context,
 	if args.Message == nil {
 		return nil, errors.New("invalid value for required argument 'Message'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AlertPolicy
 	err := ctx.RegisterResource("opsgenie:index/alertPolicy:AlertPolicy", name, args, &resource, opts...)
 	if err != nil {

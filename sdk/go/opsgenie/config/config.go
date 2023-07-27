@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "opsgenie:apiKey")
@@ -17,7 +20,7 @@ func GetApiUrl(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "OPSGENIE_API_URL"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "OPSGENIE_API_URL"); d != nil {
 		value = d.(string)
 	}
 	return value
