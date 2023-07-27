@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ func NewIntegrationAction(ctx *pulumi.Context,
 	if args.IntegrationId == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationAction
 	err := ctx.RegisterResource("opsgenie:index/integrationAction:IntegrationAction", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupHeartbeat(ctx *pulumi.Context, args *LookupHeartbeatArgs, opts ...pulumi.InvokeOption) (*LookupHeartbeatResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHeartbeatResult
 	err := ctx.Invoke("opsgenie:index/getHeartbeat:getHeartbeat", args, &rv, opts...)
 	if err != nil {

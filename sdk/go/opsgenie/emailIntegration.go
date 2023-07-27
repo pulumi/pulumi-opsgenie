@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -119,6 +120,7 @@ func NewEmailIntegration(ctx *pulumi.Context,
 	if args.EmailUsername == nil {
 		return nil, errors.New("invalid value for required argument 'EmailUsername'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailIntegration
 	err := ctx.RegisterResource("opsgenie:index/emailIntegration:EmailIntegration", name, args, &resource, opts...)
 	if err != nil {

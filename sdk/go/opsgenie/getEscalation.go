@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupEscalation(ctx *pulumi.Context, args *LookupEscalationArgs, opts ...pulumi.InvokeOption) (*LookupEscalationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEscalationResult
 	err := ctx.Invoke("opsgenie:index/getEscalation:getEscalation", args, &rv, opts...)
 	if err != nil {

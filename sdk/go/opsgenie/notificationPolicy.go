@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,6 +63,7 @@ func NewNotificationPolicy(ctx *pulumi.Context,
 	if args.TeamId == nil {
 		return nil, errors.New("invalid value for required argument 'TeamId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotificationPolicy
 	err := ctx.RegisterResource("opsgenie:index/notificationPolicy:NotificationPolicy", name, args, &resource, opts...)
 	if err != nil {

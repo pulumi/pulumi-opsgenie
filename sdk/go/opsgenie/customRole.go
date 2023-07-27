@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,6 +70,7 @@ func NewCustomRole(ctx *pulumi.Context,
 	if args.RoleName == nil {
 		return nil, errors.New("invalid value for required argument 'RoleName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomRole
 	err := ctx.RegisterResource("opsgenie:index/customRole:CustomRole", name, args, &resource, opts...)
 	if err != nil {

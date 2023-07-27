@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -115,6 +116,7 @@ func NewIncidentTemplate(ctx *pulumi.Context,
 	if args.StakeholderProperties == nil {
 		return nil, errors.New("invalid value for required argument 'StakeholderProperties'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IncidentTemplate
 	err := ctx.RegisterResource("opsgenie:index/incidentTemplate:IncidentTemplate", name, args, &resource, opts...)
 	if err != nil {

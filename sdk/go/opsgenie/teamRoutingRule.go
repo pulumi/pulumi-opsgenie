@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -131,6 +132,7 @@ func NewTeamRoutingRule(ctx *pulumi.Context,
 	if args.TeamId == nil {
 		return nil, errors.New("invalid value for required argument 'TeamId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TeamRoutingRule
 	err := ctx.RegisterResource("opsgenie:index/teamRoutingRule:TeamRoutingRule", name, args, &resource, opts...)
 	if err != nil {

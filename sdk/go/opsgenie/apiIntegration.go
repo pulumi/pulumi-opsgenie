@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -130,6 +131,7 @@ func NewApiIntegration(ctx *pulumi.Context,
 		"apiKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiIntegration
 	err := ctx.RegisterResource("opsgenie:index/apiIntegration:ApiIntegration", name, args, &resource, opts...)
 	if err != nil {

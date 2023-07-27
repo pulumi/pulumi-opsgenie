@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ func NewHeartbeat(ctx *pulumi.Context,
 	if args.IntervalUnit == nil {
 		return nil, errors.New("invalid value for required argument 'IntervalUnit'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Heartbeat
 	err := ctx.RegisterResource("opsgenie:index/heartbeat:Heartbeat", name, args, &resource, opts...)
 	if err != nil {

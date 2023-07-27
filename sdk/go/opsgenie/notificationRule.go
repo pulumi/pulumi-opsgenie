@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewNotificationRule(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotificationRule
 	err := ctx.RegisterResource("opsgenie:index/notificationRule:NotificationRule", name, args, &resource, opts...)
 	if err != nil {
