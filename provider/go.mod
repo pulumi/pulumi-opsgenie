@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-opsgenie/provider
 
-go 1.20
+go 1.21
 
 replace (
 	github.com/hashicorp/terraform-exec => github.com/hashicorp/terraform-exec v0.15.0
