@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Escalation within Opsgenie.
@@ -206,6 +207,12 @@ func (i *Escalation) ToEscalationOutputWithContext(ctx context.Context) Escalati
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationOutput)
 }
 
+func (i *Escalation) ToOutput(ctx context.Context) pulumix.Output[*Escalation] {
+	return pulumix.Output[*Escalation]{
+		OutputState: i.ToEscalationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EscalationArrayInput is an input type that accepts EscalationArray and EscalationArrayOutput values.
 // You can construct a concrete instance of `EscalationArrayInput` via:
 //
@@ -229,6 +236,12 @@ func (i EscalationArray) ToEscalationArrayOutput() EscalationArrayOutput {
 
 func (i EscalationArray) ToEscalationArrayOutputWithContext(ctx context.Context) EscalationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationArrayOutput)
+}
+
+func (i EscalationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Escalation] {
+	return pulumix.Output[[]*Escalation]{
+		OutputState: i.ToEscalationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EscalationMapInput is an input type that accepts EscalationMap and EscalationMapOutput values.
@@ -256,6 +269,12 @@ func (i EscalationMap) ToEscalationMapOutputWithContext(ctx context.Context) Esc
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationMapOutput)
 }
 
+func (i EscalationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Escalation] {
+	return pulumix.Output[map[string]*Escalation]{
+		OutputState: i.ToEscalationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EscalationOutput struct{ *pulumi.OutputState }
 
 func (EscalationOutput) ElementType() reflect.Type {
@@ -268,6 +287,12 @@ func (o EscalationOutput) ToEscalationOutput() EscalationOutput {
 
 func (o EscalationOutput) ToEscalationOutputWithContext(ctx context.Context) EscalationOutput {
 	return o
+}
+
+func (o EscalationOutput) ToOutput(ctx context.Context) pulumix.Output[*Escalation] {
+	return pulumix.Output[*Escalation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the escalation.
@@ -309,6 +334,12 @@ func (o EscalationArrayOutput) ToEscalationArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o EscalationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Escalation] {
+	return pulumix.Output[[]*Escalation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EscalationArrayOutput) Index(i pulumi.IntInput) EscalationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Escalation {
 		return vs[0].([]*Escalation)[vs[1].(int)]
@@ -327,6 +358,12 @@ func (o EscalationMapOutput) ToEscalationMapOutput() EscalationMapOutput {
 
 func (o EscalationMapOutput) ToEscalationMapOutputWithContext(ctx context.Context) EscalationMapOutput {
 	return o
+}
+
+func (o EscalationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Escalation] {
+	return pulumix.Output[map[string]*Escalation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EscalationMapOutput) MapIndex(k pulumi.StringInput) EscalationOutput {

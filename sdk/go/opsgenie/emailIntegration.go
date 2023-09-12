@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Email Integration within Opsgenie.
@@ -234,6 +235,12 @@ func (i *EmailIntegration) ToEmailIntegrationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationOutput)
 }
 
+func (i *EmailIntegration) ToOutput(ctx context.Context) pulumix.Output[*EmailIntegration] {
+	return pulumix.Output[*EmailIntegration]{
+		OutputState: i.ToEmailIntegrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EmailIntegrationArrayInput is an input type that accepts EmailIntegrationArray and EmailIntegrationArrayOutput values.
 // You can construct a concrete instance of `EmailIntegrationArrayInput` via:
 //
@@ -257,6 +264,12 @@ func (i EmailIntegrationArray) ToEmailIntegrationArrayOutput() EmailIntegrationA
 
 func (i EmailIntegrationArray) ToEmailIntegrationArrayOutputWithContext(ctx context.Context) EmailIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationArrayOutput)
+}
+
+func (i EmailIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailIntegration] {
+	return pulumix.Output[[]*EmailIntegration]{
+		OutputState: i.ToEmailIntegrationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EmailIntegrationMapInput is an input type that accepts EmailIntegrationMap and EmailIntegrationMapOutput values.
@@ -284,6 +297,12 @@ func (i EmailIntegrationMap) ToEmailIntegrationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationMapOutput)
 }
 
+func (i EmailIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailIntegration] {
+	return pulumix.Output[map[string]*EmailIntegration]{
+		OutputState: i.ToEmailIntegrationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EmailIntegrationOutput struct{ *pulumi.OutputState }
 
 func (EmailIntegrationOutput) ElementType() reflect.Type {
@@ -296,6 +315,12 @@ func (o EmailIntegrationOutput) ToEmailIntegrationOutput() EmailIntegrationOutpu
 
 func (o EmailIntegrationOutput) ToEmailIntegrationOutputWithContext(ctx context.Context) EmailIntegrationOutput {
 	return o
+}
+
+func (o EmailIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailIntegration] {
+	return pulumix.Output[*EmailIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The username part of the email address. It must be unique for each integration.
@@ -346,6 +371,12 @@ func (o EmailIntegrationArrayOutput) ToEmailIntegrationArrayOutputWithContext(ct
 	return o
 }
 
+func (o EmailIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailIntegration] {
+	return pulumix.Output[[]*EmailIntegration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EmailIntegrationArrayOutput) Index(i pulumi.IntInput) EmailIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailIntegration {
 		return vs[0].([]*EmailIntegration)[vs[1].(int)]
@@ -364,6 +395,12 @@ func (o EmailIntegrationMapOutput) ToEmailIntegrationMapOutput() EmailIntegratio
 
 func (o EmailIntegrationMapOutput) ToEmailIntegrationMapOutputWithContext(ctx context.Context) EmailIntegrationMapOutput {
 	return o
+}
+
+func (o EmailIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailIntegration] {
+	return pulumix.Output[map[string]*EmailIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EmailIntegrationMapOutput) MapIndex(k pulumi.StringInput) EmailIntegrationOutput {

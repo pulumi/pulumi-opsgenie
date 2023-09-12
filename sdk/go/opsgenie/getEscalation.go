@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Escalation within Opsgenie.
@@ -121,6 +122,12 @@ func (o LookupEscalationResultOutput) ToLookupEscalationResultOutput() LookupEsc
 
 func (o LookupEscalationResultOutput) ToLookupEscalationResultOutputWithContext(ctx context.Context) LookupEscalationResultOutput {
 	return o
+}
+
+func (o LookupEscalationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEscalationResult] {
+	return pulumix.Output[LookupEscalationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Escalation Description

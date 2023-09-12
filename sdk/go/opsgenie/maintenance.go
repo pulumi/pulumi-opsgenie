@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Maintenance within Opsgenie.
@@ -177,6 +178,12 @@ func (i *Maintenance) ToMaintenanceOutputWithContext(ctx context.Context) Mainte
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceOutput)
 }
 
+func (i *Maintenance) ToOutput(ctx context.Context) pulumix.Output[*Maintenance] {
+	return pulumix.Output[*Maintenance]{
+		OutputState: i.ToMaintenanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MaintenanceArrayInput is an input type that accepts MaintenanceArray and MaintenanceArrayOutput values.
 // You can construct a concrete instance of `MaintenanceArrayInput` via:
 //
@@ -200,6 +207,12 @@ func (i MaintenanceArray) ToMaintenanceArrayOutput() MaintenanceArrayOutput {
 
 func (i MaintenanceArray) ToMaintenanceArrayOutputWithContext(ctx context.Context) MaintenanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceArrayOutput)
+}
+
+func (i MaintenanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Maintenance] {
+	return pulumix.Output[[]*Maintenance]{
+		OutputState: i.ToMaintenanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MaintenanceMapInput is an input type that accepts MaintenanceMap and MaintenanceMapOutput values.
@@ -227,6 +240,12 @@ func (i MaintenanceMap) ToMaintenanceMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceMapOutput)
 }
 
+func (i MaintenanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Maintenance] {
+	return pulumix.Output[map[string]*Maintenance]{
+		OutputState: i.ToMaintenanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MaintenanceOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceOutput) ElementType() reflect.Type {
@@ -239,6 +258,12 @@ func (o MaintenanceOutput) ToMaintenanceOutput() MaintenanceOutput {
 
 func (o MaintenanceOutput) ToMaintenanceOutputWithContext(ctx context.Context) MaintenanceOutput {
 	return o
+}
+
+func (o MaintenanceOutput) ToOutput(ctx context.Context) pulumix.Output[*Maintenance] {
+	return pulumix.Output[*Maintenance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description for the maintenance.
@@ -270,6 +295,12 @@ func (o MaintenanceArrayOutput) ToMaintenanceArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o MaintenanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Maintenance] {
+	return pulumix.Output[[]*Maintenance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MaintenanceArrayOutput) Index(i pulumi.IntInput) MaintenanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Maintenance {
 		return vs[0].([]*Maintenance)[vs[1].(int)]
@@ -288,6 +319,12 @@ func (o MaintenanceMapOutput) ToMaintenanceMapOutput() MaintenanceMapOutput {
 
 func (o MaintenanceMapOutput) ToMaintenanceMapOutputWithContext(ctx context.Context) MaintenanceMapOutput {
 	return o
+}
+
+func (o MaintenanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Maintenance] {
+	return pulumix.Output[map[string]*Maintenance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MaintenanceMapOutput) MapIndex(k pulumi.StringInput) MaintenanceOutput {

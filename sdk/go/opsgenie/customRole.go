@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages custom user roles within Opsgenie.
@@ -164,6 +165,12 @@ func (i *CustomRole) ToCustomRoleOutputWithContext(ctx context.Context) CustomRo
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoleOutput)
 }
 
+func (i *CustomRole) ToOutput(ctx context.Context) pulumix.Output[*CustomRole] {
+	return pulumix.Output[*CustomRole]{
+		OutputState: i.ToCustomRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomRoleArrayInput is an input type that accepts CustomRoleArray and CustomRoleArrayOutput values.
 // You can construct a concrete instance of `CustomRoleArrayInput` via:
 //
@@ -187,6 +194,12 @@ func (i CustomRoleArray) ToCustomRoleArrayOutput() CustomRoleArrayOutput {
 
 func (i CustomRoleArray) ToCustomRoleArrayOutputWithContext(ctx context.Context) CustomRoleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoleArrayOutput)
+}
+
+func (i CustomRoleArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomRole] {
+	return pulumix.Output[[]*CustomRole]{
+		OutputState: i.ToCustomRoleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomRoleMapInput is an input type that accepts CustomRoleMap and CustomRoleMapOutput values.
@@ -214,6 +227,12 @@ func (i CustomRoleMap) ToCustomRoleMapOutputWithContext(ctx context.Context) Cus
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoleMapOutput)
 }
 
+func (i CustomRoleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomRole] {
+	return pulumix.Output[map[string]*CustomRole]{
+		OutputState: i.ToCustomRoleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomRoleOutput struct{ *pulumi.OutputState }
 
 func (CustomRoleOutput) ElementType() reflect.Type {
@@ -226,6 +245,12 @@ func (o CustomRoleOutput) ToCustomRoleOutput() CustomRoleOutput {
 
 func (o CustomRoleOutput) ToCustomRoleOutputWithContext(ctx context.Context) CustomRoleOutput {
 	return o
+}
+
+func (o CustomRoleOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomRole] {
+	return pulumix.Output[*CustomRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
@@ -262,6 +287,12 @@ func (o CustomRoleArrayOutput) ToCustomRoleArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o CustomRoleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomRole] {
+	return pulumix.Output[[]*CustomRole]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomRoleArrayOutput) Index(i pulumi.IntInput) CustomRoleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomRole {
 		return vs[0].([]*CustomRole)[vs[1].(int)]
@@ -280,6 +311,12 @@ func (o CustomRoleMapOutput) ToCustomRoleMapOutput() CustomRoleMapOutput {
 
 func (o CustomRoleMapOutput) ToCustomRoleMapOutputWithContext(ctx context.Context) CustomRoleMapOutput {
 	return o
+}
+
+func (o CustomRoleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomRole] {
+	return pulumix.Output[map[string]*CustomRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomRoleMapOutput) MapIndex(k pulumi.StringInput) CustomRoleOutput {

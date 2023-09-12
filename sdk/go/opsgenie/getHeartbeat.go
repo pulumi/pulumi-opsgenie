@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages existing heartbeat within Opsgenie.
@@ -145,6 +146,12 @@ func (o LookupHeartbeatResultOutput) ToLookupHeartbeatResultOutput() LookupHeart
 
 func (o LookupHeartbeatResultOutput) ToLookupHeartbeatResultOutputWithContext(ctx context.Context) LookupHeartbeatResultOutput {
 	return o
+}
+
+func (o LookupHeartbeatResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHeartbeatResult] {
+	return pulumix.Output[LookupHeartbeatResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
