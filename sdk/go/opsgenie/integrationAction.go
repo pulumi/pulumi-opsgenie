@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages advanced actions for Integrations within Opsgenie. This applies for the following resources:
@@ -134,6 +135,12 @@ func (i *IntegrationAction) ToIntegrationActionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionOutput)
 }
 
+func (i *IntegrationAction) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAction] {
+	return pulumix.Output[*IntegrationAction]{
+		OutputState: i.ToIntegrationActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntegrationActionArrayInput is an input type that accepts IntegrationActionArray and IntegrationActionArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionArrayInput` via:
 //
@@ -157,6 +164,12 @@ func (i IntegrationActionArray) ToIntegrationActionArrayOutput() IntegrationActi
 
 func (i IntegrationActionArray) ToIntegrationActionArrayOutputWithContext(ctx context.Context) IntegrationActionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionArrayOutput)
+}
+
+func (i IntegrationActionArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAction] {
+	return pulumix.Output[[]*IntegrationAction]{
+		OutputState: i.ToIntegrationActionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntegrationActionMapInput is an input type that accepts IntegrationActionMap and IntegrationActionMapOutput values.
@@ -184,6 +197,12 @@ func (i IntegrationActionMap) ToIntegrationActionMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionMapOutput)
 }
 
+func (i IntegrationActionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAction] {
+	return pulumix.Output[map[string]*IntegrationAction]{
+		OutputState: i.ToIntegrationActionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationActionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionOutput) ElementType() reflect.Type {
@@ -196,6 +215,12 @@ func (o IntegrationActionOutput) ToIntegrationActionOutput() IntegrationActionOu
 
 func (o IntegrationActionOutput) ToIntegrationActionOutputWithContext(ctx context.Context) IntegrationActionOutput {
 	return o
+}
+
+func (o IntegrationActionOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAction] {
+	return pulumix.Output[*IntegrationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationActionOutput) Acknowledges() IntegrationActionAcknowledgeArrayOutput {
@@ -237,6 +262,12 @@ func (o IntegrationActionArrayOutput) ToIntegrationActionArrayOutputWithContext(
 	return o
 }
 
+func (o IntegrationActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAction] {
+	return pulumix.Output[[]*IntegrationAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationActionArrayOutput) Index(i pulumi.IntInput) IntegrationActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAction {
 		return vs[0].([]*IntegrationAction)[vs[1].(int)]
@@ -255,6 +286,12 @@ func (o IntegrationActionMapOutput) ToIntegrationActionMapOutput() IntegrationAc
 
 func (o IntegrationActionMapOutput) ToIntegrationActionMapOutputWithContext(ctx context.Context) IntegrationActionMapOutput {
 	return o
+}
+
+func (o IntegrationActionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAction] {
+	return pulumix.Output[map[string]*IntegrationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationActionMapOutput) MapIndex(k pulumi.StringInput) IntegrationActionOutput {

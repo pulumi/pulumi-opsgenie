@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Alert Policy within Opsgenie.
@@ -368,6 +369,12 @@ func (i *AlertPolicy) ToAlertPolicyOutputWithContext(ctx context.Context) AlertP
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyOutput)
 }
 
+func (i *AlertPolicy) ToOutput(ctx context.Context) pulumix.Output[*AlertPolicy] {
+	return pulumix.Output[*AlertPolicy]{
+		OutputState: i.ToAlertPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertPolicyArrayInput is an input type that accepts AlertPolicyArray and AlertPolicyArrayOutput values.
 // You can construct a concrete instance of `AlertPolicyArrayInput` via:
 //
@@ -391,6 +398,12 @@ func (i AlertPolicyArray) ToAlertPolicyArrayOutput() AlertPolicyArrayOutput {
 
 func (i AlertPolicyArray) ToAlertPolicyArrayOutputWithContext(ctx context.Context) AlertPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyArrayOutput)
+}
+
+func (i AlertPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertPolicy] {
+	return pulumix.Output[[]*AlertPolicy]{
+		OutputState: i.ToAlertPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AlertPolicyMapInput is an input type that accepts AlertPolicyMap and AlertPolicyMapOutput values.
@@ -418,6 +431,12 @@ func (i AlertPolicyMap) ToAlertPolicyMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyMapOutput)
 }
 
+func (i AlertPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertPolicy] {
+	return pulumix.Output[map[string]*AlertPolicy]{
+		OutputState: i.ToAlertPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyOutput) ElementType() reflect.Type {
@@ -430,6 +449,12 @@ func (o AlertPolicyOutput) ToAlertPolicyOutput() AlertPolicyOutput {
 
 func (o AlertPolicyOutput) ToAlertPolicyOutputWithContext(ctx context.Context) AlertPolicyOutput {
 	return o
+}
+
+func (o AlertPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertPolicy] {
+	return pulumix.Output[*AlertPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
@@ -546,6 +571,12 @@ func (o AlertPolicyArrayOutput) ToAlertPolicyArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o AlertPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertPolicy] {
+	return pulumix.Output[[]*AlertPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlertPolicyArrayOutput) Index(i pulumi.IntInput) AlertPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertPolicy {
 		return vs[0].([]*AlertPolicy)[vs[1].(int)]
@@ -564,6 +595,12 @@ func (o AlertPolicyMapOutput) ToAlertPolicyMapOutput() AlertPolicyMapOutput {
 
 func (o AlertPolicyMapOutput) ToAlertPolicyMapOutputWithContext(ctx context.Context) AlertPolicyMapOutput {
 	return o
+}
+
+func (o AlertPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertPolicy] {
+	return pulumix.Output[map[string]*AlertPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertPolicyMapOutput) MapIndex(k pulumi.StringInput) AlertPolicyOutput {

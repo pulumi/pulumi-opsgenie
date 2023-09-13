@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages existing User within Opsgenie.
@@ -121,6 +122,12 @@ func (o LookupUserResultOutput) ToLookupUserResultOutput() LookupUserResultOutpu
 
 func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.Context) LookupUserResultOutput {
 	return o
+}
+
+func (o LookupUserResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserResult] {
+	return pulumix.Output[LookupUserResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Full Name of the User.

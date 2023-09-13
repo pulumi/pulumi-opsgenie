@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Incident Template within Opsgenie.
@@ -234,6 +235,12 @@ func (i *IncidentTemplate) ToIncidentTemplateOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateOutput)
 }
 
+func (i *IncidentTemplate) ToOutput(ctx context.Context) pulumix.Output[*IncidentTemplate] {
+	return pulumix.Output[*IncidentTemplate]{
+		OutputState: i.ToIncidentTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IncidentTemplateArrayInput is an input type that accepts IncidentTemplateArray and IncidentTemplateArrayOutput values.
 // You can construct a concrete instance of `IncidentTemplateArrayInput` via:
 //
@@ -257,6 +264,12 @@ func (i IncidentTemplateArray) ToIncidentTemplateArrayOutput() IncidentTemplateA
 
 func (i IncidentTemplateArray) ToIncidentTemplateArrayOutputWithContext(ctx context.Context) IncidentTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateArrayOutput)
+}
+
+func (i IncidentTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*IncidentTemplate] {
+	return pulumix.Output[[]*IncidentTemplate]{
+		OutputState: i.ToIncidentTemplateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IncidentTemplateMapInput is an input type that accepts IncidentTemplateMap and IncidentTemplateMapOutput values.
@@ -284,6 +297,12 @@ func (i IncidentTemplateMap) ToIncidentTemplateMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateMapOutput)
 }
 
+func (i IncidentTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IncidentTemplate] {
+	return pulumix.Output[map[string]*IncidentTemplate]{
+		OutputState: i.ToIncidentTemplateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IncidentTemplateOutput struct{ *pulumi.OutputState }
 
 func (IncidentTemplateOutput) ElementType() reflect.Type {
@@ -296,6 +315,12 @@ func (o IncidentTemplateOutput) ToIncidentTemplateOutput() IncidentTemplateOutpu
 
 func (o IncidentTemplateOutput) ToIncidentTemplateOutputWithContext(ctx context.Context) IncidentTemplateOutput {
 	return o
+}
+
+func (o IncidentTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*IncidentTemplate] {
+	return pulumix.Output[*IncidentTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
@@ -352,6 +377,12 @@ func (o IncidentTemplateArrayOutput) ToIncidentTemplateArrayOutputWithContext(ct
 	return o
 }
 
+func (o IncidentTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IncidentTemplate] {
+	return pulumix.Output[[]*IncidentTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IncidentTemplateArrayOutput) Index(i pulumi.IntInput) IncidentTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IncidentTemplate {
 		return vs[0].([]*IncidentTemplate)[vs[1].(int)]
@@ -370,6 +401,12 @@ func (o IncidentTemplateMapOutput) ToIncidentTemplateMapOutput() IncidentTemplat
 
 func (o IncidentTemplateMapOutput) ToIncidentTemplateMapOutputWithContext(ctx context.Context) IncidentTemplateMapOutput {
 	return o
+}
+
+func (o IncidentTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IncidentTemplate] {
+	return pulumix.Output[map[string]*IncidentTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IncidentTemplateMapOutput) MapIndex(k pulumi.StringInput) IncidentTemplateOutput {

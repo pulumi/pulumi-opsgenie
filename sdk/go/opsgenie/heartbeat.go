@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages heartbeat within Opsgenie.
@@ -232,6 +233,12 @@ func (i *Heartbeat) ToHeartbeatOutputWithContext(ctx context.Context) HeartbeatO
 	return pulumi.ToOutputWithContext(ctx, i).(HeartbeatOutput)
 }
 
+func (i *Heartbeat) ToOutput(ctx context.Context) pulumix.Output[*Heartbeat] {
+	return pulumix.Output[*Heartbeat]{
+		OutputState: i.ToHeartbeatOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HeartbeatArrayInput is an input type that accepts HeartbeatArray and HeartbeatArrayOutput values.
 // You can construct a concrete instance of `HeartbeatArrayInput` via:
 //
@@ -255,6 +262,12 @@ func (i HeartbeatArray) ToHeartbeatArrayOutput() HeartbeatArrayOutput {
 
 func (i HeartbeatArray) ToHeartbeatArrayOutputWithContext(ctx context.Context) HeartbeatArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HeartbeatArrayOutput)
+}
+
+func (i HeartbeatArray) ToOutput(ctx context.Context) pulumix.Output[[]*Heartbeat] {
+	return pulumix.Output[[]*Heartbeat]{
+		OutputState: i.ToHeartbeatArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HeartbeatMapInput is an input type that accepts HeartbeatMap and HeartbeatMapOutput values.
@@ -282,6 +295,12 @@ func (i HeartbeatMap) ToHeartbeatMapOutputWithContext(ctx context.Context) Heart
 	return pulumi.ToOutputWithContext(ctx, i).(HeartbeatMapOutput)
 }
 
+func (i HeartbeatMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Heartbeat] {
+	return pulumix.Output[map[string]*Heartbeat]{
+		OutputState: i.ToHeartbeatMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HeartbeatOutput struct{ *pulumi.OutputState }
 
 func (HeartbeatOutput) ElementType() reflect.Type {
@@ -294,6 +313,12 @@ func (o HeartbeatOutput) ToHeartbeatOutput() HeartbeatOutput {
 
 func (o HeartbeatOutput) ToHeartbeatOutputWithContext(ctx context.Context) HeartbeatOutput {
 	return o
+}
+
+func (o HeartbeatOutput) ToOutput(ctx context.Context) pulumix.Output[*Heartbeat] {
+	return pulumix.Output[*Heartbeat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
@@ -355,6 +380,12 @@ func (o HeartbeatArrayOutput) ToHeartbeatArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o HeartbeatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Heartbeat] {
+	return pulumix.Output[[]*Heartbeat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HeartbeatArrayOutput) Index(i pulumi.IntInput) HeartbeatOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Heartbeat {
 		return vs[0].([]*Heartbeat)[vs[1].(int)]
@@ -373,6 +404,12 @@ func (o HeartbeatMapOutput) ToHeartbeatMapOutput() HeartbeatMapOutput {
 
 func (o HeartbeatMapOutput) ToHeartbeatMapOutputWithContext(ctx context.Context) HeartbeatMapOutput {
 	return o
+}
+
+func (o HeartbeatMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Heartbeat] {
+	return pulumix.Output[map[string]*Heartbeat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HeartbeatMapOutput) MapIndex(k pulumi.StringInput) HeartbeatOutput {

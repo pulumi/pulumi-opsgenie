@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a User Contact.
@@ -190,6 +191,12 @@ func (i *UserContact) ToUserContactOutputWithContext(ctx context.Context) UserCo
 	return pulumi.ToOutputWithContext(ctx, i).(UserContactOutput)
 }
 
+func (i *UserContact) ToOutput(ctx context.Context) pulumix.Output[*UserContact] {
+	return pulumix.Output[*UserContact]{
+		OutputState: i.ToUserContactOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserContactArrayInput is an input type that accepts UserContactArray and UserContactArrayOutput values.
 // You can construct a concrete instance of `UserContactArrayInput` via:
 //
@@ -213,6 +220,12 @@ func (i UserContactArray) ToUserContactArrayOutput() UserContactArrayOutput {
 
 func (i UserContactArray) ToUserContactArrayOutputWithContext(ctx context.Context) UserContactArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserContactArrayOutput)
+}
+
+func (i UserContactArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserContact] {
+	return pulumix.Output[[]*UserContact]{
+		OutputState: i.ToUserContactArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserContactMapInput is an input type that accepts UserContactMap and UserContactMapOutput values.
@@ -240,6 +253,12 @@ func (i UserContactMap) ToUserContactMapOutputWithContext(ctx context.Context) U
 	return pulumi.ToOutputWithContext(ctx, i).(UserContactMapOutput)
 }
 
+func (i UserContactMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserContact] {
+	return pulumix.Output[map[string]*UserContact]{
+		OutputState: i.ToUserContactMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserContactOutput struct{ *pulumi.OutputState }
 
 func (UserContactOutput) ElementType() reflect.Type {
@@ -252,6 +271,12 @@ func (o UserContactOutput) ToUserContactOutput() UserContactOutput {
 
 func (o UserContactOutput) ToUserContactOutputWithContext(ctx context.Context) UserContactOutput {
 	return o
+}
+
+func (o UserContactOutput) ToOutput(ctx context.Context) pulumix.Output[*UserContact] {
+	return pulumix.Output[*UserContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enable contact of the user in OpsGenie. Default value is true.
@@ -288,6 +313,12 @@ func (o UserContactArrayOutput) ToUserContactArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o UserContactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserContact] {
+	return pulumix.Output[[]*UserContact]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserContactArrayOutput) Index(i pulumi.IntInput) UserContactOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserContact {
 		return vs[0].([]*UserContact)[vs[1].(int)]
@@ -306,6 +337,12 @@ func (o UserContactMapOutput) ToUserContactMapOutput() UserContactMapOutput {
 
 func (o UserContactMapOutput) ToUserContactMapOutputWithContext(ctx context.Context) UserContactMapOutput {
 	return o
+}
+
+func (o UserContactMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserContact] {
+	return pulumix.Output[map[string]*UserContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserContactMapOutput) MapIndex(k pulumi.StringInput) UserContactOutput {

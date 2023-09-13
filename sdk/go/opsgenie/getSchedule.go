@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Schedule within Opsgenie.
@@ -121,6 +122,12 @@ func (o LookupScheduleResultOutput) ToLookupScheduleResultOutput() LookupSchedul
 
 func (o LookupScheduleResultOutput) ToLookupScheduleResultOutputWithContext(ctx context.Context) LookupScheduleResultOutput {
 	return o
+}
+
+func (o LookupScheduleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScheduleResult] {
+	return pulumix.Output[LookupScheduleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
