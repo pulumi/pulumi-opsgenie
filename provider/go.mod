@@ -8,8 +8,8 @@ replace (
 )
 
 require (
-	github.com/opsgenie/terraform-provider-opsgenie v0.6.29
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.59.0
+	github.com/opsgenie/terraform-provider-opsgenie v0.6.30
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.60.1
 	github.com/pulumi/pulumi/sdk/v3 v3.81.0
 )
 
