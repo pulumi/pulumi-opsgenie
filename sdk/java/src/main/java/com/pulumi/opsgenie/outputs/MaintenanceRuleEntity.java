@@ -17,7 +17,7 @@ public final class MaintenanceRuleEntity {
      */
     private @Nullable String id;
     /**
-     * @return This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+     * @return The type of the entity that maintenance will be applied. It can be either integration or policy.
      * 
      */
     private @Nullable String type;
@@ -31,7 +31,7 @@ public final class MaintenanceRuleEntity {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+     * @return The type of the entity that maintenance will be applied. It can be either integration or policy.
      * 
      */
     public Optional<String> type() {

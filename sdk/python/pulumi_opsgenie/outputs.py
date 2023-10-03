@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -94,10 +94,21 @@ class AlertPolicyFilter(dict):
         :param Sequence['AlertPolicyFilterConditionArgs'] conditions: Conditions applied to filter. This is a block, structure is documented below.
         :param str type: A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
+        AlertPolicyFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conditions=conditions,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conditions: Optional[Sequence['outputs.AlertPolicyFilterCondition']] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -152,16 +163,35 @@ class AlertPolicyFilterCondition(dict):
         :param bool not_: Indicates behaviour of the given operation. Default: `false`
         :param int order: Order of the condition in conditions list
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "operation", operation)
+        AlertPolicyFilterCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operation=operation,
+            expected_value=expected_value,
+            key=key,
+            not_=not_,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             operation: str,
+             expected_value: Optional[str] = None,
+             key: Optional[str] = None,
+             not_: Optional[bool] = None,
+             order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("operation", operation)
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
 
     @property
     @pulumi.getter
@@ -225,12 +255,27 @@ class AlertPolicyResponder(dict):
         :param str name: Name of the responder
         :param str username: Username of the responder
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
+        AlertPolicyResponder._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+            name=name,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             type: str,
+             name: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("type", type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -293,11 +338,24 @@ class AlertPolicyTimeRestriction(dict):
         :param Sequence['AlertPolicyTimeRestrictionRestrictionArgs'] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
         :param Sequence['AlertPolicyTimeRestrictionRestrictionListArgs'] restriction_list: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
-        pulumi.set(__self__, "type", type)
+        AlertPolicyTimeRestriction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            restriction=restriction,
+            restriction_list=restriction_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             restriction: Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestriction']] = None,
+             restriction_list: Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestrictionList']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if restriction is not None:
-            pulumi.set(__self__, "restriction", restriction)
+            _setter("restriction", restriction)
         if restriction_list is not None:
-            pulumi.set(__self__, "restriction_list", restriction_list)
+            _setter("restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -360,10 +418,25 @@ class AlertPolicyTimeRestrictionRestriction(dict):
         :param int start_hour: Starting hour of restriction.
         :param int start_min: Staring minute of restriction on defined `start_hour`
         """
-        pulumi.set(__self__, "end_hour", end_hour)
-        pulumi.set(__self__, "end_min", end_min)
-        pulumi.set(__self__, "start_hour", start_hour)
-        pulumi.set(__self__, "start_min", start_min)
+        AlertPolicyTimeRestrictionRestriction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_hour=end_hour,
+            end_min=end_min,
+            start_hour=start_hour,
+            start_min=start_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_hour: int,
+             end_min: int,
+             start_hour: int,
+             start_min: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_hour", end_hour)
+        _setter("end_min", end_min)
+        _setter("start_hour", start_hour)
+        _setter("start_min", start_min)
 
     @property
     @pulumi.getter(name="endHour")
@@ -442,12 +515,31 @@ class AlertPolicyTimeRestrictionRestrictionList(dict):
         :param int start_hour: Starting hour of restriction on defined `start_day`
         :param int start_min: Staring minute of restriction on defined `start_hour`
         """
-        pulumi.set(__self__, "end_day", end_day)
-        pulumi.set(__self__, "end_hour", end_hour)
-        pulumi.set(__self__, "end_min", end_min)
-        pulumi.set(__self__, "start_day", start_day)
-        pulumi.set(__self__, "start_hour", start_hour)
-        pulumi.set(__self__, "start_min", start_min)
+        AlertPolicyTimeRestrictionRestrictionList._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_day=end_day,
+            end_hour=end_hour,
+            end_min=end_min,
+            start_day=start_day,
+            start_hour=start_hour,
+            start_min=start_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_day: str,
+             end_hour: int,
+             end_min: int,
+             start_day: str,
+             start_hour: int,
+             start_min: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_day", end_day)
+        _setter("end_hour", end_hour)
+        _setter("end_min", end_min)
+        _setter("start_day", start_day)
+        _setter("start_hour", start_hour)
+        _setter("start_min", start_min)
 
     @property
     @pulumi.getter(name="endDay")
@@ -507,10 +599,21 @@ class ApiIntegrationResponder(dict):
         :param str id: The id of the responder.
         :param str type: The responder type.
         """
+        ApiIntegrationResponder._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -538,10 +641,21 @@ class EmailIntegrationResponder(dict):
         :param str id: The id of the responder.
         :param str type: The responder type.
         """
+        EmailIntegrationResponder._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -588,14 +702,29 @@ class EscalationRepeat(dict):
                  count: Optional[int] = None,
                  reset_recipient_states: Optional[bool] = None,
                  wait_interval: Optional[int] = None):
+        EscalationRepeat._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            close_alert_after_all=close_alert_after_all,
+            count=count,
+            reset_recipient_states=reset_recipient_states,
+            wait_interval=wait_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             close_alert_after_all: Optional[bool] = None,
+             count: Optional[int] = None,
+             reset_recipient_states: Optional[bool] = None,
+             wait_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if close_alert_after_all is not None:
-            pulumi.set(__self__, "close_alert_after_all", close_alert_after_all)
+            _setter("close_alert_after_all", close_alert_after_all)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if reset_recipient_states is not None:
-            pulumi.set(__self__, "reset_recipient_states", reset_recipient_states)
+            _setter("reset_recipient_states", reset_recipient_states)
         if wait_interval is not None:
-            pulumi.set(__self__, "wait_interval", wait_interval)
+            _setter("wait_interval", wait_interval)
 
     @property
     @pulumi.getter(name="closeAlertAfterAll")
@@ -648,10 +777,25 @@ class EscalationRule(dict):
         :param str notify_type: Recipient calculation logic for schedules. Possible values are:
         :param Sequence['EscalationRuleRecipientArgs'] recipients: Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
         """
-        pulumi.set(__self__, "condition", condition)
-        pulumi.set(__self__, "delay", delay)
-        pulumi.set(__self__, "notify_type", notify_type)
-        pulumi.set(__self__, "recipients", recipients)
+        EscalationRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition=condition,
+            delay=delay,
+            notify_type=notify_type,
+            recipients=recipients,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition: str,
+             delay: int,
+             notify_type: str,
+             recipients: Sequence['outputs.EscalationRuleRecipient'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("condition", condition)
+        _setter("delay", delay)
+        _setter("notify_type", notify_type)
+        _setter("recipients", recipients)
 
     @property
     @pulumi.getter
@@ -694,10 +838,21 @@ class EscalationRuleRecipient(dict):
         """
         :param str id: The ID of the Opsgenie Escalation.
         """
+        EscalationRuleRecipient._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -724,11 +879,24 @@ class IncidentTemplateStakeholderProperty(dict):
         :param str description: Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
         :param bool enable: Option to enable stakeholder notifications.Default value is true.
         """
-        pulumi.set(__self__, "message", message)
+        IncidentTemplateStakeholderProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            description=description,
+            enable=enable,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: str,
+             description: Optional[str] = None,
+             enable: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
 
     @property
     @pulumi.getter
@@ -777,19 +945,40 @@ class IntegrationActionAcknowledge(dict):
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
-        pulumi.set(__self__, "name", name)
+        IntegrationActionAcknowledge._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            alias=alias,
+            filters=filters,
+            note=note,
+            order=order,
+            type=type,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             alias: Optional[str] = None,
+             filters: Optional[Sequence['outputs.IntegrationActionAcknowledgeFilter']] = None,
+             note: Optional[str] = None,
+             order: Optional[int] = None,
+             type: Optional[str] = None,
+             user: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if note is not None:
-            pulumi.set(__self__, "note", note)
+            _setter("note", note)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -859,9 +1048,20 @@ class IntegrationActionAcknowledgeFilter(dict):
         """
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        pulumi.set(__self__, "type", type)
+        IntegrationActionAcknowledgeFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            conditions=conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             conditions: Optional[Sequence['outputs.IntegrationActionAcknowledgeFilterCondition']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
 
     @property
     @pulumi.getter
@@ -908,16 +1108,35 @@ class IntegrationActionAcknowledgeFilterCondition(dict):
         """
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "operation", operation)
+        IntegrationActionAcknowledgeFilterCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operation=operation,
+            expected_value=expected_value,
+            key=key,
+            not_=not_,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             operation: str,
+             expected_value: Optional[str] = None,
+             key: Optional[str] = None,
+             not_: Optional[bool] = None,
+             order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("operation", operation)
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
 
     @property
     @pulumi.getter
@@ -975,19 +1194,40 @@ class IntegrationActionAddNote(dict):
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
-        pulumi.set(__self__, "name", name)
+        IntegrationActionAddNote._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            alias=alias,
+            filters=filters,
+            note=note,
+            order=order,
+            type=type,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             alias: Optional[str] = None,
+             filters: Optional[Sequence['outputs.IntegrationActionAddNoteFilter']] = None,
+             note: Optional[str] = None,
+             order: Optional[int] = None,
+             type: Optional[str] = None,
+             user: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if note is not None:
-            pulumi.set(__self__, "note", note)
+            _setter("note", note)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -1057,9 +1297,20 @@ class IntegrationActionAddNoteFilter(dict):
         """
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        pulumi.set(__self__, "type", type)
+        IntegrationActionAddNoteFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            conditions=conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             conditions: Optional[Sequence['outputs.IntegrationActionAddNoteFilterCondition']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
 
     @property
     @pulumi.getter
@@ -1106,16 +1357,35 @@ class IntegrationActionAddNoteFilterCondition(dict):
         """
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "operation", operation)
+        IntegrationActionAddNoteFilterCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operation=operation,
+            expected_value=expected_value,
+            key=key,
+            not_=not_,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             operation: str,
+             expected_value: Optional[str] = None,
+             key: Optional[str] = None,
+             not_: Optional[bool] = None,
+             order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("operation", operation)
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
 
     @property
     @pulumi.getter
@@ -1173,19 +1443,40 @@ class IntegrationActionClose(dict):
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
-        pulumi.set(__self__, "name", name)
+        IntegrationActionClose._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            alias=alias,
+            filters=filters,
+            note=note,
+            order=order,
+            type=type,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             alias: Optional[str] = None,
+             filters: Optional[Sequence['outputs.IntegrationActionCloseFilter']] = None,
+             note: Optional[str] = None,
+             order: Optional[int] = None,
+             type: Optional[str] = None,
+             user: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if note is not None:
-            pulumi.set(__self__, "note", note)
+            _setter("note", note)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -1255,9 +1546,20 @@ class IntegrationActionCloseFilter(dict):
         """
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        pulumi.set(__self__, "type", type)
+        IntegrationActionCloseFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            conditions=conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             conditions: Optional[Sequence['outputs.IntegrationActionCloseFilterCondition']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
 
     @property
     @pulumi.getter
@@ -1304,16 +1606,35 @@ class IntegrationActionCloseFilterCondition(dict):
         """
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "operation", operation)
+        IntegrationActionCloseFilterCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operation=operation,
+            expected_value=expected_value,
+            key=key,
+            not_=not_,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             operation: str,
+             expected_value: Optional[str] = None,
+             key: Optional[str] = None,
+             not_: Optional[bool] = None,
+             order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("operation", operation)
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
 
     @property
     @pulumi.getter
@@ -1431,51 +1752,104 @@ class IntegrationActionCreate(dict):
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
-        pulumi.set(__self__, "name", name)
+        IntegrationActionCreate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            alert_actions=alert_actions,
+            alias=alias,
+            append_attachments=append_attachments,
+            custom_priority=custom_priority,
+            description=description,
+            entity=entity,
+            extra_properties=extra_properties,
+            filters=filters,
+            ignore_alert_actions_from_payload=ignore_alert_actions_from_payload,
+            ignore_extra_properties_from_payload=ignore_extra_properties_from_payload,
+            ignore_responders_from_payload=ignore_responders_from_payload,
+            ignore_tags_from_payload=ignore_tags_from_payload,
+            ignore_teams_from_payload=ignore_teams_from_payload,
+            message=message,
+            note=note,
+            order=order,
+            priority=priority,
+            responders=responders,
+            source=source,
+            tags=tags,
+            type=type,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             alert_actions: Optional[Sequence[str]] = None,
+             alias: Optional[str] = None,
+             append_attachments: Optional[bool] = None,
+             custom_priority: Optional[str] = None,
+             description: Optional[str] = None,
+             entity: Optional[str] = None,
+             extra_properties: Optional[Mapping[str, str]] = None,
+             filters: Optional[Sequence['outputs.IntegrationActionCreateFilter']] = None,
+             ignore_alert_actions_from_payload: Optional[bool] = None,
+             ignore_extra_properties_from_payload: Optional[bool] = None,
+             ignore_responders_from_payload: Optional[bool] = None,
+             ignore_tags_from_payload: Optional[bool] = None,
+             ignore_teams_from_payload: Optional[bool] = None,
+             message: Optional[str] = None,
+             note: Optional[str] = None,
+             order: Optional[int] = None,
+             priority: Optional[str] = None,
+             responders: Optional[Sequence['outputs.IntegrationActionCreateResponder']] = None,
+             source: Optional[str] = None,
+             tags: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
+             user: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if alert_actions is not None:
-            pulumi.set(__self__, "alert_actions", alert_actions)
+            _setter("alert_actions", alert_actions)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if append_attachments is not None:
-            pulumi.set(__self__, "append_attachments", append_attachments)
+            _setter("append_attachments", append_attachments)
         if custom_priority is not None:
-            pulumi.set(__self__, "custom_priority", custom_priority)
+            _setter("custom_priority", custom_priority)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if entity is not None:
-            pulumi.set(__self__, "entity", entity)
+            _setter("entity", entity)
         if extra_properties is not None:
-            pulumi.set(__self__, "extra_properties", extra_properties)
+            _setter("extra_properties", extra_properties)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if ignore_alert_actions_from_payload is not None:
-            pulumi.set(__self__, "ignore_alert_actions_from_payload", ignore_alert_actions_from_payload)
+            _setter("ignore_alert_actions_from_payload", ignore_alert_actions_from_payload)
         if ignore_extra_properties_from_payload is not None:
-            pulumi.set(__self__, "ignore_extra_properties_from_payload", ignore_extra_properties_from_payload)
+            _setter("ignore_extra_properties_from_payload", ignore_extra_properties_from_payload)
         if ignore_responders_from_payload is not None:
-            pulumi.set(__self__, "ignore_responders_from_payload", ignore_responders_from_payload)
+            _setter("ignore_responders_from_payload", ignore_responders_from_payload)
         if ignore_tags_from_payload is not None:
-            pulumi.set(__self__, "ignore_tags_from_payload", ignore_tags_from_payload)
+            _setter("ignore_tags_from_payload", ignore_tags_from_payload)
         if ignore_teams_from_payload is not None:
-            pulumi.set(__self__, "ignore_teams_from_payload", ignore_teams_from_payload)
+            _setter("ignore_teams_from_payload", ignore_teams_from_payload)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if note is not None:
-            pulumi.set(__self__, "note", note)
+            _setter("note", note)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if responders is not None:
-            pulumi.set(__self__, "responders", responders)
+            _setter("responders", responders)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -1658,9 +2032,20 @@ class IntegrationActionCreateFilter(dict):
         """
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        pulumi.set(__self__, "type", type)
+        IntegrationActionCreateFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            conditions=conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             conditions: Optional[Sequence['outputs.IntegrationActionCreateFilterCondition']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
 
     @property
     @pulumi.getter
@@ -1707,16 +2092,35 @@ class IntegrationActionCreateFilterCondition(dict):
         """
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "operation", operation)
+        IntegrationActionCreateFilterCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operation=operation,
+            expected_value=expected_value,
+            key=key,
+            not_=not_,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             operation: str,
+             expected_value: Optional[str] = None,
+             key: Optional[str] = None,
+             not_: Optional[bool] = None,
+             order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("operation", operation)
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
 
     @property
     @pulumi.getter
@@ -1761,8 +2165,19 @@ class IntegrationActionCreateResponder(dict):
         :param str id: The id of the responder.
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
+        IntegrationActionCreateResponder._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1797,13 +2212,28 @@ class IntegrationActionIgnore(dict):
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        pulumi.set(__self__, "name", name)
+        IntegrationActionIgnore._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            filters=filters,
+            order=order,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             filters: Optional[Sequence['outputs.IntegrationActionIgnoreFilter']] = None,
+             order: Optional[int] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1849,9 +2279,20 @@ class IntegrationActionIgnoreFilter(dict):
         """
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        pulumi.set(__self__, "type", type)
+        IntegrationActionIgnoreFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            conditions=conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             conditions: Optional[Sequence['outputs.IntegrationActionIgnoreFilterCondition']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
 
     @property
     @pulumi.getter
@@ -1898,16 +2339,35 @@ class IntegrationActionIgnoreFilterCondition(dict):
         """
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "operation", operation)
+        IntegrationActionIgnoreFilterCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operation=operation,
+            expected_value=expected_value,
+            key=key,
+            not_=not_,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             operation: str,
+             expected_value: Optional[str] = None,
+             key: Optional[str] = None,
+             not_: Optional[bool] = None,
+             order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("operation", operation)
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
 
     @property
     @pulumi.getter
@@ -1952,9 +2412,20 @@ class MaintenanceRule(dict):
         :param Sequence['MaintenanceRuleEntityArgs'] entities: This field represents the entity that maintenance will be applied. Entity field takes two mandatory fields as id and type.
         :param str state: State of rule that will be defined in maintenance and can take either enabled or disabled for policy type rules. This field has to be disabled for integration type entity rules.
         """
-        pulumi.set(__self__, "entities", entities)
+        MaintenanceRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entities=entities,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entities: Sequence['outputs.MaintenanceRuleEntity'],
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("entities", entities)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -1980,12 +2451,23 @@ class MaintenanceRuleEntity(dict):
                  type: Optional[str] = None):
         """
         :param str id: The id of the entity that maintenance will be applied.
-        :param str type: This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+        :param str type: The type of the entity that maintenance will be applied. It can be either integration or policy.
         """
+        MaintenanceRuleEntity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1999,7 +2481,7 @@ class MaintenanceRuleEntity(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+        The type of the entity that maintenance will be applied. It can be either integration or policy.
         """
         return pulumi.get(self, "type")
 
@@ -2030,21 +2512,34 @@ class MaintenanceTime(dict):
                  end_date: Optional[str] = None,
                  start_date: Optional[str] = None):
         """
-        :param str type: This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+        :param str type: The type of the entity that maintenance will be applied. It can be either integration or policy.
         :param str end_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
         :param str start_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
         """
-        pulumi.set(__self__, "type", type)
+        MaintenanceTime._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            end_date=end_date,
+            start_date=start_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             end_date: Optional[str] = None,
+             start_date: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+        The type of the entity that maintenance will be applied. It can be either integration or policy.
         """
         return pulumi.get(self, "type")
 
@@ -2072,7 +2567,16 @@ class NotificationPolicyAutoCloseAction(dict):
         """
         :param Sequence['NotificationPolicyAutoCloseActionDurationArgs'] durations: Duration of this action. This is a block, structure is documented below.
         """
-        pulumi.set(__self__, "durations", durations)
+        NotificationPolicyAutoCloseAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            durations=durations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             durations: Sequence['outputs.NotificationPolicyAutoCloseActionDuration'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("durations", durations)
 
     @property
     @pulumi.getter
@@ -2111,9 +2615,20 @@ class NotificationPolicyAutoCloseActionDuration(dict):
         :param int time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param str time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
-        pulumi.set(__self__, "time_amount", time_amount)
+        NotificationPolicyAutoCloseActionDuration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_amount=time_amount,
+            time_unit=time_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_amount: int,
+             time_unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time_amount", time_amount)
         if time_unit is not None:
-            pulumi.set(__self__, "time_unit", time_unit)
+            _setter("time_unit", time_unit)
 
     @property
     @pulumi.getter(name="timeAmount")
@@ -2158,8 +2673,19 @@ class NotificationPolicyAutoRestartAction(dict):
         :param Sequence['NotificationPolicyAutoRestartActionDurationArgs'] durations: Duration of this action. This is a block, structure is documented below.
         :param int max_repeat_count: How many times to repeat. This is a integer attribute.
         """
-        pulumi.set(__self__, "durations", durations)
-        pulumi.set(__self__, "max_repeat_count", max_repeat_count)
+        NotificationPolicyAutoRestartAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            durations=durations,
+            max_repeat_count=max_repeat_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             durations: Sequence['outputs.NotificationPolicyAutoRestartActionDuration'],
+             max_repeat_count: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("durations", durations)
+        _setter("max_repeat_count", max_repeat_count)
 
     @property
     @pulumi.getter
@@ -2206,9 +2732,20 @@ class NotificationPolicyAutoRestartActionDuration(dict):
         :param int time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param str time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
-        pulumi.set(__self__, "time_amount", time_amount)
+        NotificationPolicyAutoRestartActionDuration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_amount=time_amount,
+            time_unit=time_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_amount: int,
+             time_unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time_amount", time_amount)
         if time_unit is not None:
-            pulumi.set(__self__, "time_unit", time_unit)
+            _setter("time_unit", time_unit)
 
     @property
     @pulumi.getter(name="timeAmount")
@@ -2255,10 +2792,23 @@ class NotificationPolicyDeDuplicationAction(dict):
         :param str de_duplication_action_type: Deduplication type. Possible values are: "value-based", "frequency-based"
         :param Sequence['NotificationPolicyDeDuplicationActionDurationArgs'] durations: Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "de_duplication_action_type", de_duplication_action_type)
+        NotificationPolicyDeDuplicationAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            de_duplication_action_type=de_duplication_action_type,
+            durations=durations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: int,
+             de_duplication_action_type: str,
+             durations: Optional[Sequence['outputs.NotificationPolicyDeDuplicationActionDuration']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("count", count)
+        _setter("de_duplication_action_type", de_duplication_action_type)
         if durations is not None:
-            pulumi.set(__self__, "durations", durations)
+            _setter("durations", durations)
 
     @property
     @pulumi.getter
@@ -2313,9 +2863,20 @@ class NotificationPolicyDeDuplicationActionDuration(dict):
         :param int time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param str time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
-        pulumi.set(__self__, "time_amount", time_amount)
+        NotificationPolicyDeDuplicationActionDuration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_amount=time_amount,
+            time_unit=time_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_amount: int,
+             time_unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time_amount", time_amount)
         if time_unit is not None:
-            pulumi.set(__self__, "time_unit", time_unit)
+            _setter("time_unit", time_unit)
 
     @property
     @pulumi.getter(name="timeAmount")
@@ -2368,13 +2929,28 @@ class NotificationPolicyDelayAction(dict):
         :param int until_hour: Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         :param int until_minute: Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         """
-        pulumi.set(__self__, "delay_option", delay_option)
+        NotificationPolicyDelayAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delay_option=delay_option,
+            durations=durations,
+            until_hour=until_hour,
+            until_minute=until_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delay_option: str,
+             durations: Optional[Sequence['outputs.NotificationPolicyDelayActionDuration']] = None,
+             until_hour: Optional[int] = None,
+             until_minute: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("delay_option", delay_option)
         if durations is not None:
-            pulumi.set(__self__, "durations", durations)
+            _setter("durations", durations)
         if until_hour is not None:
-            pulumi.set(__self__, "until_hour", until_hour)
+            _setter("until_hour", until_hour)
         if until_minute is not None:
-            pulumi.set(__self__, "until_minute", until_minute)
+            _setter("until_minute", until_minute)
 
     @property
     @pulumi.getter(name="delayOption")
@@ -2437,9 +3013,20 @@ class NotificationPolicyDelayActionDuration(dict):
         :param int time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param str time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
-        pulumi.set(__self__, "time_amount", time_amount)
+        NotificationPolicyDelayActionDuration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_amount=time_amount,
+            time_unit=time_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_amount: int,
+             time_unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time_amount", time_amount)
         if time_unit is not None:
-            pulumi.set(__self__, "time_unit", time_unit)
+            _setter("time_unit", time_unit)
 
     @property
     @pulumi.getter(name="timeAmount")
@@ -2467,10 +3054,21 @@ class NotificationPolicyFilter(dict):
         :param Sequence['NotificationPolicyFilterConditionArgs'] conditions: Conditions applied to filter. This is a block, structure is documented below.
         :param str type: A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
+        NotificationPolicyFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conditions=conditions,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conditions: Optional[Sequence['outputs.NotificationPolicyFilterCondition']] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2525,16 +3123,35 @@ class NotificationPolicyFilterCondition(dict):
         :param bool not_: Indicates behaviour of the given operation. Default: `false`
         :param int order: Order of the condition in conditions list
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "operation", operation)
+        NotificationPolicyFilterCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operation=operation,
+            expected_value=expected_value,
+            key=key,
+            not_=not_,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             operation: str,
+             expected_value: Optional[str] = None,
+             key: Optional[str] = None,
+             not_: Optional[bool] = None,
+             order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("operation", operation)
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
 
     @property
     @pulumi.getter
@@ -2613,11 +3230,24 @@ class NotificationPolicyTimeRestriction(dict):
         :param Sequence['NotificationPolicyTimeRestrictionRestrictionArgs'] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
         :param Sequence['NotificationPolicyTimeRestrictionRestrictionListArgs'] restriction_list: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
-        pulumi.set(__self__, "type", type)
+        NotificationPolicyTimeRestriction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            restriction=restriction,
+            restriction_list=restriction_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             restriction: Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestriction']] = None,
+             restriction_list: Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestrictionList']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if restriction is not None:
-            pulumi.set(__self__, "restriction", restriction)
+            _setter("restriction", restriction)
         if restriction_list is not None:
-            pulumi.set(__self__, "restriction_list", restriction_list)
+            _setter("restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -2680,10 +3310,25 @@ class NotificationPolicyTimeRestrictionRestriction(dict):
         :param int start_hour: Starting hour of restriction.
         :param int start_min: Staring minute of restriction on defined `start_hour`
         """
-        pulumi.set(__self__, "end_hour", end_hour)
-        pulumi.set(__self__, "end_min", end_min)
-        pulumi.set(__self__, "start_hour", start_hour)
-        pulumi.set(__self__, "start_min", start_min)
+        NotificationPolicyTimeRestrictionRestriction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_hour=end_hour,
+            end_min=end_min,
+            start_hour=start_hour,
+            start_min=start_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_hour: int,
+             end_min: int,
+             start_hour: int,
+             start_min: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_hour", end_hour)
+        _setter("end_min", end_min)
+        _setter("start_hour", start_hour)
+        _setter("start_min", start_min)
 
     @property
     @pulumi.getter(name="endHour")
@@ -2762,12 +3407,31 @@ class NotificationPolicyTimeRestrictionRestrictionList(dict):
         :param int start_hour: Starting hour of restriction on defined `start_day`
         :param int start_min: Staring minute of restriction on defined `start_hour`
         """
-        pulumi.set(__self__, "end_day", end_day)
-        pulumi.set(__self__, "end_hour", end_hour)
-        pulumi.set(__self__, "end_min", end_min)
-        pulumi.set(__self__, "start_day", start_day)
-        pulumi.set(__self__, "start_hour", start_hour)
-        pulumi.set(__self__, "start_min", start_min)
+        NotificationPolicyTimeRestrictionRestrictionList._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_day=end_day,
+            end_hour=end_hour,
+            end_min=end_min,
+            start_day=start_day,
+            start_hour=start_hour,
+            start_min=start_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_day: str,
+             end_hour: int,
+             end_min: int,
+             start_day: str,
+             start_hour: int,
+             start_min: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_day", end_day)
+        _setter("end_hour", end_hour)
+        _setter("end_min", end_min)
+        _setter("start_day", start_day)
+        _setter("start_hour", start_hour)
+        _setter("start_min", start_min)
 
     @property
     @pulumi.getter(name="endDay")
@@ -2827,9 +3491,20 @@ class NotificationRuleCriteria(dict):
         :param str type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         :param Sequence['NotificationRuleCriteriaConditionArgs'] conditions: Defines the fields and values when the condition applies
         """
-        pulumi.set(__self__, "type", type)
+        NotificationRuleCriteria._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            conditions=conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             conditions: Optional[Sequence['outputs.NotificationRuleCriteriaCondition']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
 
     @property
     @pulumi.getter
@@ -2884,16 +3559,35 @@ class NotificationRuleCriteriaCondition(dict):
         :param bool not_: Indicates behaviour of the given operation. Default: `false`
         :param int order: Order of the condition in conditions list
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "operation", operation)
+        NotificationRuleCriteriaCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operation=operation,
+            expected_value=expected_value,
+            key=key,
+            not_=not_,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             operation: str,
+             expected_value: Optional[str] = None,
+             key: Optional[str] = None,
+             not_: Optional[bool] = None,
+             order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("operation", operation)
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
 
     @property
     @pulumi.getter
@@ -2969,9 +3663,20 @@ class NotificationRuleRepeat(dict):
         """
         :param bool enabled: If policy should be enabled. Default: `true`
         """
-        pulumi.set(__self__, "loop_after", loop_after)
+        NotificationRuleRepeat._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            loop_after=loop_after,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             loop_after: int,
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("loop_after", loop_after)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="loopAfter")
@@ -2996,8 +3701,19 @@ class NotificationRuleSchedule(dict):
         :param str name: Name of the notification policy
         :param str type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        NotificationRuleSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3044,11 +3760,24 @@ class NotificationRuleStep(dict):
         :param bool enabled: Defined if this step is enabled. Default: `true`
         :param int send_after: Time period, in minutes, notification will be sent after.
         """
-        pulumi.set(__self__, "contacts", contacts)
+        NotificationRuleStep._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contacts=contacts,
+            enabled=enabled,
+            send_after=send_after,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contacts: Sequence['outputs.NotificationRuleStepContact'],
+             enabled: Optional[bool] = None,
+             send_after: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contacts", contacts)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if send_after is not None:
-            pulumi.set(__self__, "send_after", send_after)
+            _setter("send_after", send_after)
 
     @property
     @pulumi.getter
@@ -3084,8 +3813,19 @@ class NotificationRuleStepContact(dict):
         :param str method: Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
         :param str to: Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
         """
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "to", to)
+        NotificationRuleStepContact._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method=method,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method: str,
+             to: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("method", method)
+        _setter("to", to)
 
     @property
     @pulumi.getter
@@ -3113,11 +3853,24 @@ class NotificationRuleTimeRestriction(dict):
         """
         :param str type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
-        pulumi.set(__self__, "type", type)
+        NotificationRuleTimeRestriction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            restriction=restriction,
+            restrictions=restrictions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             restriction: Optional[Sequence['outputs.NotificationRuleTimeRestrictionRestriction']] = None,
+             restrictions: Optional[Sequence['outputs.NotificationRuleTimeRestrictionRestriction']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if restriction is not None:
-            pulumi.set(__self__, "restriction", restriction)
+            _setter("restriction", restriction)
         if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+            _setter("restrictions", restrictions)
 
     @property
     @pulumi.getter
@@ -3174,12 +3927,31 @@ class NotificationRuleTimeRestrictionRestriction(dict):
                  start_day: str,
                  start_hour: int,
                  start_min: int):
-        pulumi.set(__self__, "end_day", end_day)
-        pulumi.set(__self__, "end_hour", end_hour)
-        pulumi.set(__self__, "end_min", end_min)
-        pulumi.set(__self__, "start_day", start_day)
-        pulumi.set(__self__, "start_hour", start_hour)
-        pulumi.set(__self__, "start_min", start_min)
+        NotificationRuleTimeRestrictionRestriction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_day=end_day,
+            end_hour=end_hour,
+            end_min=end_min,
+            start_day=start_day,
+            start_hour=start_hour,
+            start_min=start_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_day: str,
+             end_hour: int,
+             end_min: int,
+             start_day: str,
+             start_hour: int,
+             start_min: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_day", end_day)
+        _setter("end_hour", end_hour)
+        _setter("end_min", end_min)
+        _setter("start_day", start_day)
+        _setter("start_hour", start_hour)
+        _setter("start_min", start_min)
 
     @property
     @pulumi.getter(name="endDay")
@@ -3221,9 +3993,20 @@ class ScheduleRotationParticipant(dict):
         :param str type: The responder type.
         :param str id: The id of the responder.
         """
-        pulumi.set(__self__, "type", type)
+        ScheduleRotationParticipant._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3270,11 +4053,24 @@ class ScheduleRotationTimeRestriction(dict):
         :param Sequence['ScheduleRotationTimeRestrictionRestrictionArgs'] restriction: It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
         :param Sequence['ScheduleRotationTimeRestrictionRestrictionListArgs'] restriction_list: It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         """
-        pulumi.set(__self__, "type", type)
+        ScheduleRotationTimeRestriction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            restriction=restriction,
+            restriction_list=restriction_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             restriction: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestriction']] = None,
+             restriction_list: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestrictionList']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if restriction is not None:
-            pulumi.set(__self__, "restriction", restriction)
+            _setter("restriction", restriction)
         if restriction_list is not None:
-            pulumi.set(__self__, "restriction_list", restriction_list)
+            _setter("restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -3337,10 +4133,25 @@ class ScheduleRotationTimeRestrictionRestriction(dict):
         :param int start_hour: Value of the hour that frame will start.
         :param int start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
         """
-        pulumi.set(__self__, "end_hour", end_hour)
-        pulumi.set(__self__, "end_min", end_min)
-        pulumi.set(__self__, "start_hour", start_hour)
-        pulumi.set(__self__, "start_min", start_min)
+        ScheduleRotationTimeRestrictionRestriction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_hour=end_hour,
+            end_min=end_min,
+            start_hour=start_hour,
+            start_min=start_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_hour: int,
+             end_min: int,
+             start_hour: int,
+             start_min: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_hour", end_hour)
+        _setter("end_min", end_min)
+        _setter("start_hour", start_hour)
+        _setter("start_min", start_min)
 
     @property
     @pulumi.getter(name="endHour")
@@ -3421,12 +4232,31 @@ class ScheduleRotationTimeRestrictionRestrictionList(dict):
         :param int start_hour: Value of the hour that frame will start
         :param int start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
         """
-        pulumi.set(__self__, "end_day", end_day)
-        pulumi.set(__self__, "end_hour", end_hour)
-        pulumi.set(__self__, "end_min", end_min)
-        pulumi.set(__self__, "start_day", start_day)
-        pulumi.set(__self__, "start_hour", start_hour)
-        pulumi.set(__self__, "start_min", start_min)
+        ScheduleRotationTimeRestrictionRestrictionList._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_day=end_day,
+            end_hour=end_hour,
+            end_min=end_min,
+            start_day=start_day,
+            start_hour=start_hour,
+            start_min=start_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_day: str,
+             end_hour: int,
+             end_min: int,
+             start_day: str,
+             start_hour: int,
+             start_min: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_day", end_day)
+        _setter("end_hour", end_hour)
+        _setter("end_min", end_min)
+        _setter("start_day", start_day)
+        _setter("start_hour", start_hour)
+        _setter("start_min", start_min)
 
     @property
     @pulumi.getter(name="endDay")
@@ -3509,11 +4339,24 @@ class ServiceIncidentRuleIncidentRule(dict):
         :param str condition_match_type: A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         :param Sequence['ServiceIncidentRuleIncidentRuleConditionArgs'] conditions: Conditions applied to incident. This is a block, structure is documented below.
         """
-        pulumi.set(__self__, "incident_properties", incident_properties)
+        ServiceIncidentRuleIncidentRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incident_properties=incident_properties,
+            condition_match_type=condition_match_type,
+            conditions=conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incident_properties: Sequence['outputs.ServiceIncidentRuleIncidentRuleIncidentProperty'],
+             condition_match_type: Optional[str] = None,
+             conditions: Optional[Sequence['outputs.ServiceIncidentRuleIncidentRuleCondition']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("incident_properties", incident_properties)
         if condition_match_type is not None:
-            pulumi.set(__self__, "condition_match_type", condition_match_type)
+            _setter("condition_match_type", condition_match_type)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
 
     @property
     @pulumi.getter(name="incidentProperties")
@@ -3573,14 +4416,31 @@ class ServiceIncidentRuleIncidentRuleCondition(dict):
         :param str expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param bool not_: Indicates behaviour of the given operation. Default: false
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "operation", operation)
+        ServiceIncidentRuleIncidentRuleCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operation=operation,
+            expected_value=expected_value,
+            key=key,
+            not_=not_,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             operation: str,
+             expected_value: Optional[str] = None,
+             key: Optional[str] = None,
+             not_: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("operation", operation)
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
 
     @property
     @pulumi.getter
@@ -3654,15 +4514,34 @@ class ServiceIncidentRuleIncidentRuleIncidentProperty(dict):
         :param Mapping[str, str] details: Map of key-value pairs to use as custom properties of the alert.
         :param Sequence[str] tags: Tags of the alert.
         """
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "stakeholder_properties", stakeholder_properties)
+        ServiceIncidentRuleIncidentRuleIncidentProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            priority=priority,
+            stakeholder_properties=stakeholder_properties,
+            description=description,
+            details=details,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: str,
+             priority: str,
+             stakeholder_properties: Sequence['outputs.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty'],
+             description: Optional[str] = None,
+             details: Optional[Mapping[str, str]] = None,
+             tags: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
+        _setter("priority", priority)
+        _setter("stakeholder_properties", stakeholder_properties)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -3724,11 +4603,24 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty(dict):
         :param str description: Description that is generally used to provide a detailed information about the alert.
         :param bool enable: Option to enable stakeholder notifications.Default value is true.
         """
-        pulumi.set(__self__, "message", message)
+        ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            description=description,
+            enable=enable,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: str,
+             description: Optional[str] = None,
+             enable: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
 
     @property
     @pulumi.getter
@@ -3764,9 +4656,20 @@ class TeamMember(dict):
         :param str id: The UUID for the member to add to this Team.
         :param str role: The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
         """
-        pulumi.set(__self__, "id", id)
+        TeamMember._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             role: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -3794,9 +4697,20 @@ class TeamRoutingRuleCriteria(dict):
         :param str type: Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
         :param Sequence['TeamRoutingRuleCriteriaConditionArgs'] conditions: List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
         """
-        pulumi.set(__self__, "type", type)
+        TeamRoutingRuleCriteria._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            conditions=conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             conditions: Optional[Sequence['outputs.TeamRoutingRuleCriteriaCondition']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
 
     @property
     @pulumi.getter
@@ -3850,16 +4764,35 @@ class TeamRoutingRuleCriteriaCondition(dict):
         :param bool not_: Indicates behaviour of the given operation. Default value is false.
         :param int order: Order of the condition in conditions list.
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "operation", operation)
+        TeamRoutingRuleCriteriaCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operation=operation,
+            expected_value=expected_value,
+            key=key,
+            not_=not_,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             operation: str,
+             expected_value: Optional[str] = None,
+             key: Optional[str] = None,
+             not_: Optional[bool] = None,
+             order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("operation", operation)
         if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
+            _setter("expected_value", expected_value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
 
     @property
     @pulumi.getter
@@ -3913,15 +4846,24 @@ class TeamRoutingRuleNotify(dict):
                  type: str,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
-        """
-        :param str id: The ID of the Opsgenie Team Routing Rule.
-        :param str name: Name of the team routing rule
-        """
-        pulumi.set(__self__, "type", type)
+        TeamRoutingRuleNotify._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3931,17 +4873,11 @@ class TeamRoutingRuleNotify(dict):
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        The ID of the Opsgenie Team Routing Rule.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        Name of the team routing rule
-        """
         return pulumi.get(self, "name")
 
 
@@ -3968,15 +4904,34 @@ class TeamRoutingRuleTimeRestriction(dict):
                  type: str,
                  restriction: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']] = None,
                  restriction_list: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestrictionList']] = None):
-        pulumi.set(__self__, "type", type)
+        """
+        :param str type: Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
+        """
+        TeamRoutingRuleTimeRestriction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            restriction=restriction,
+            restriction_list=restriction_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             restriction: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']] = None,
+             restriction_list: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestrictionList']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if restriction is not None:
-            pulumi.set(__self__, "restriction", restriction)
+            _setter("restriction", restriction)
         if restriction_list is not None:
-            pulumi.set(__self__, "restriction_list", restriction_list)
+            _setter("restriction_list", restriction_list)
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -4020,10 +4975,25 @@ class TeamRoutingRuleTimeRestrictionRestriction(dict):
                  end_min: int,
                  start_hour: int,
                  start_min: int):
-        pulumi.set(__self__, "end_hour", end_hour)
-        pulumi.set(__self__, "end_min", end_min)
-        pulumi.set(__self__, "start_hour", start_hour)
-        pulumi.set(__self__, "start_min", start_min)
+        TeamRoutingRuleTimeRestrictionRestriction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_hour=end_hour,
+            end_min=end_min,
+            start_hour=start_hour,
+            start_min=start_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_hour: int,
+             end_min: int,
+             start_hour: int,
+             start_min: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_hour", end_hour)
+        _setter("end_min", end_min)
+        _setter("start_hour", start_hour)
+        _setter("start_min", start_min)
 
     @property
     @pulumi.getter(name="endHour")
@@ -4082,12 +5052,31 @@ class TeamRoutingRuleTimeRestrictionRestrictionList(dict):
                  start_day: str,
                  start_hour: int,
                  start_min: int):
-        pulumi.set(__self__, "end_day", end_day)
-        pulumi.set(__self__, "end_hour", end_hour)
-        pulumi.set(__self__, "end_min", end_min)
-        pulumi.set(__self__, "start_day", start_day)
-        pulumi.set(__self__, "start_hour", start_hour)
-        pulumi.set(__self__, "start_min", start_min)
+        TeamRoutingRuleTimeRestrictionRestrictionList._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_day=end_day,
+            end_hour=end_hour,
+            end_min=end_min,
+            start_day=start_day,
+            start_hour=start_hour,
+            start_min=start_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_day: str,
+             end_hour: int,
+             end_min: int,
+             start_day: str,
+             start_hour: int,
+             start_min: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_day", end_day)
+        _setter("end_hour", end_hour)
+        _setter("end_min", end_min)
+        _setter("start_day", start_day)
+        _setter("start_hour", start_hour)
+        _setter("start_min", start_min)
 
     @property
     @pulumi.getter(name="endDay")
@@ -4128,11 +5117,28 @@ class UserUserAddress(dict):
                  line: str,
                  state: str,
                  zipcode: str):
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "line", line)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "zipcode", zipcode)
+        UserUserAddress._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            city=city,
+            country=country,
+            line=line,
+            state=state,
+            zipcode=zipcode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             city: str,
+             country: str,
+             line: str,
+             state: str,
+             zipcode: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("city", city)
+        _setter("country", country)
+        _setter("line", line)
+        _setter("state", state)
+        _setter("zipcode", zipcode)
 
     @property
     @pulumi.getter
@@ -4167,14 +5173,29 @@ class GetEscalationRepeatResult(dict):
                  count: Optional[int] = None,
                  reset_recipient_states: Optional[bool] = None,
                  wait_interval: Optional[int] = None):
+        GetEscalationRepeatResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            close_alert_after_all=close_alert_after_all,
+            count=count,
+            reset_recipient_states=reset_recipient_states,
+            wait_interval=wait_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             close_alert_after_all: Optional[bool] = None,
+             count: Optional[int] = None,
+             reset_recipient_states: Optional[bool] = None,
+             wait_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if close_alert_after_all is not None:
-            pulumi.set(__self__, "close_alert_after_all", close_alert_after_all)
+            _setter("close_alert_after_all", close_alert_after_all)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if reset_recipient_states is not None:
-            pulumi.set(__self__, "reset_recipient_states", reset_recipient_states)
+            _setter("reset_recipient_states", reset_recipient_states)
         if wait_interval is not None:
-            pulumi.set(__self__, "wait_interval", wait_interval)
+            _setter("wait_interval", wait_interval)
 
     @property
     @pulumi.getter(name="closeAlertAfterAll")
@@ -4204,10 +5225,25 @@ class GetEscalationRuleResult(dict):
                  delay: int,
                  notify_type: str,
                  recipients: Sequence['outputs.GetEscalationRuleRecipientResult']):
-        pulumi.set(__self__, "condition", condition)
-        pulumi.set(__self__, "delay", delay)
-        pulumi.set(__self__, "notify_type", notify_type)
-        pulumi.set(__self__, "recipients", recipients)
+        GetEscalationRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition=condition,
+            delay=delay,
+            notify_type=notify_type,
+            recipients=recipients,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition: str,
+             delay: int,
+             notify_type: str,
+             recipients: Sequence['outputs.GetEscalationRuleRecipientResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("condition", condition)
+        _setter("delay", delay)
+        _setter("notify_type", notify_type)
+        _setter("recipients", recipients)
 
     @property
     @pulumi.getter
@@ -4238,10 +5274,21 @@ class GetEscalationRuleRecipientResult(dict):
         """
         :param str id: The ID of the Opsgenie Escalation.
         """
+        GetEscalationRuleRecipientResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -4265,10 +5312,21 @@ class GetTeamMemberResult(dict):
         """
         :param str id: The ID of the Opsgenie Team.
         """
+        GetTeamMemberResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             role: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter

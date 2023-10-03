@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,16 +29,33 @@ class TeamArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]] members: A Member block as documented below.
         :param pulumi.Input[str] name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
+        TeamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_default_resources=delete_default_resources,
+            description=description,
+            ignore_members=ignore_members,
+            members=members,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_default_resources: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             ignore_members: Optional[pulumi.Input[bool]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_default_resources is not None:
-            pulumi.set(__self__, "delete_default_resources", delete_default_resources)
+            _setter("delete_default_resources", delete_default_resources)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if ignore_members is not None:
-            pulumi.set(__self__, "ignore_members", ignore_members)
+            _setter("ignore_members", ignore_members)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deleteDefaultResources")
@@ -117,16 +134,33 @@ class _TeamState:
         :param pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]] members: A Member block as documented below.
         :param pulumi.Input[str] name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
+        _TeamState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_default_resources=delete_default_resources,
+            description=description,
+            ignore_members=ignore_members,
+            members=members,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_default_resources: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             ignore_members: Optional[pulumi.Input[bool]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_default_resources is not None:
-            pulumi.set(__self__, "delete_default_resources", delete_default_resources)
+            _setter("delete_default_resources", delete_default_resources)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if ignore_members is not None:
-            pulumi.set(__self__, "ignore_members", ignore_members)
+            _setter("ignore_members", ignore_members)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deleteDefaultResources")
@@ -310,6 +344,10 @@ class Team(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TeamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

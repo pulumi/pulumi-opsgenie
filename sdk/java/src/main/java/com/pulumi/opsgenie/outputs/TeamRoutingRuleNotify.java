@@ -11,30 +11,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TeamRoutingRuleNotify {
-    /**
-     * @return The ID of the Opsgenie Team Routing Rule.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Name of the team routing rule
-     * 
-     */
     private @Nullable String name;
     private String type;
 
     private TeamRoutingRuleNotify() {}
-    /**
-     * @return The ID of the Opsgenie Team Routing Rule.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Name of the team routing rule
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

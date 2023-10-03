@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,19 +33,42 @@ class IncidentTemplateArgs:
         :param pulumi.Input[str] name: Name of the incident template.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
         """
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "stakeholder_properties", stakeholder_properties)
+        IncidentTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            priority=priority,
+            stakeholder_properties=stakeholder_properties,
+            description=description,
+            details=details,
+            impacted_services=impacted_services,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: pulumi.Input[str],
+             priority: pulumi.Input[str],
+             stakeholder_properties: pulumi.Input[Sequence[pulumi.Input['IncidentTemplateStakeholderPropertyArgs']]],
+             description: Optional[pulumi.Input[str]] = None,
+             details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             impacted_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("message", message)
+        _setter("priority", priority)
+        _setter("stakeholder_properties", stakeholder_properties)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if impacted_services is not None:
-            pulumi.set(__self__, "impacted_services", impacted_services)
+            _setter("impacted_services", impacted_services)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -158,22 +181,45 @@ class _IncidentTemplateState:
         :param pulumi.Input[str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
         """
+        _IncidentTemplateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            details=details,
+            impacted_services=impacted_services,
+            message=message,
+            name=name,
+            priority=priority,
+            stakeholder_properties=stakeholder_properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             impacted_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentTemplateStakeholderPropertyArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if impacted_services is not None:
-            pulumi.set(__self__, "impacted_services", impacted_services)
+            _setter("impacted_services", impacted_services)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if stakeholder_properties is not None:
-            pulumi.set(__self__, "stakeholder_properties", stakeholder_properties)
+            _setter("stakeholder_properties", stakeholder_properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -383,6 +429,10 @@ class IncidentTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IncidentTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

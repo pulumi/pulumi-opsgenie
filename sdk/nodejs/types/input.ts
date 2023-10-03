@@ -589,7 +589,7 @@ export interface MaintenanceRuleEntity {
      */
     id?: pulumi.Input<string>;
     /**
-     * This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+     * The type of the entity that maintenance will be applied. It can be either integration or policy.
      */
     type?: pulumi.Input<string>;
 }
@@ -604,7 +604,7 @@ export interface MaintenanceTime {
      */
     startDate?: pulumi.Input<string>;
     /**
-     * This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+     * The type of the entity that maintenance will be applied. It can be either integration or policy.
      */
     type: pulumi.Input<string>;
 }
@@ -1103,13 +1103,7 @@ export interface TeamRoutingRuleCriteriaCondition {
 }
 
 export interface TeamRoutingRuleNotify {
-    /**
-     * The ID of the Opsgenie Team Routing Rule.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Name of the team routing rule
-     */
     name?: pulumi.Input<string>;
     type: pulumi.Input<string>;
 }
@@ -1117,6 +1111,9 @@ export interface TeamRoutingRuleNotify {
 export interface TeamRoutingRuleTimeRestriction {
     restriction?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestriction>[]>;
     restrictionList?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestrictionList>[]>;
+    /**
+     * Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
+     */
     type: pulumi.Input<string>;
 }
 

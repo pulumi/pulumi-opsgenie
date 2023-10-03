@@ -22,7 +22,7 @@ public final class MaintenanceTime {
      */
     private @Nullable String startDate;
     /**
-     * @return This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+     * @return The type of the entity that maintenance will be applied. It can be either integration or policy.
      * 
      */
     private String type;
@@ -43,7 +43,7 @@ public final class MaintenanceTime {
         return Optional.ofNullable(this.startDate);
     }
     /**
-     * @return This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+     * @return The type of the entity that maintenance will be applied. It can be either integration or policy.
      * 
      */
     public String type() {

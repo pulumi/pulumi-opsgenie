@@ -15,32 +15,16 @@ public final class TeamRoutingRuleNotifyArgs extends com.pulumi.resources.Resour
 
     public static final TeamRoutingRuleNotifyArgs Empty = new TeamRoutingRuleNotifyArgs();
 
-    /**
-     * The ID of the Opsgenie Team Routing Rule.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return The ID of the Opsgenie Team Routing Rule.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Name of the team routing rule
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the team routing rule
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -78,44 +62,20 @@ public final class TeamRoutingRuleNotifyArgs extends com.pulumi.resources.Resour
             $ = new TeamRoutingRuleNotifyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The ID of the Opsgenie Team Routing Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The ID of the Opsgenie Team Routing Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Name of the team routing rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the team routing rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

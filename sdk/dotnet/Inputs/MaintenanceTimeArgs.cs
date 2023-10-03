@@ -25,7 +25,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string>? StartDate { get; set; }
 
         /// <summary>
-        /// This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+        /// The type of the entity that maintenance will be applied. It can be either integration or policy.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

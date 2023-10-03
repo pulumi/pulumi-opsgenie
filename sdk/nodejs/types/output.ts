@@ -559,7 +559,7 @@ export interface MaintenanceRuleEntity {
      */
     id?: string;
     /**
-     * This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+     * The type of the entity that maintenance will be applied. It can be either integration or policy.
      */
     type?: string;
 }
@@ -574,7 +574,7 @@ export interface MaintenanceTime {
      */
     startDate?: string;
     /**
-     * This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+     * The type of the entity that maintenance will be applied. It can be either integration or policy.
      */
     type: string;
 }
@@ -1073,13 +1073,7 @@ export interface TeamRoutingRuleCriteriaCondition {
 }
 
 export interface TeamRoutingRuleNotify {
-    /**
-     * The ID of the Opsgenie Team Routing Rule.
-     */
     id: string;
-    /**
-     * Name of the team routing rule
-     */
     name: string;
     type: string;
 }
@@ -1087,6 +1081,9 @@ export interface TeamRoutingRuleNotify {
 export interface TeamRoutingRuleTimeRestriction {
     restriction?: outputs.TeamRoutingRuleTimeRestrictionRestriction[];
     restrictionList?: outputs.TeamRoutingRuleTimeRestrictionRestrictionList[];
+    /**
+     * Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
+     */
     type: string;
 }
 

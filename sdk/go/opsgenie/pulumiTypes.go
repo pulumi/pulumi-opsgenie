@@ -4400,7 +4400,7 @@ func (o MaintenanceRuleArrayOutput) Index(i pulumi.IntInput) MaintenanceRuleOutp
 type MaintenanceRuleEntity struct {
 	// The id of the entity that maintenance will be applied.
 	Id *string `pulumi:"id"`
-	// This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+	// The type of the entity that maintenance will be applied. It can be either integration or policy.
 	Type *string `pulumi:"type"`
 }
 
@@ -4418,7 +4418,7 @@ type MaintenanceRuleEntityInput interface {
 type MaintenanceRuleEntityArgs struct {
 	// The id of the entity that maintenance will be applied.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+	// The type of the entity that maintenance will be applied. It can be either integration or policy.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -4496,7 +4496,7 @@ func (o MaintenanceRuleEntityOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceRuleEntity) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+// The type of the entity that maintenance will be applied. It can be either integration or policy.
 func (o MaintenanceRuleEntityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceRuleEntity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4532,7 +4532,7 @@ type MaintenanceTime struct {
 	EndDate *string `pulumi:"endDate"`
 	// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
 	StartDate *string `pulumi:"startDate"`
-	// This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+	// The type of the entity that maintenance will be applied. It can be either integration or policy.
 	Type string `pulumi:"type"`
 }
 
@@ -4552,7 +4552,7 @@ type MaintenanceTimeArgs struct {
 	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
 	// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
 	StartDate pulumi.StringPtrInput `pulumi:"startDate"`
-	// This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+	// The type of the entity that maintenance will be applied. It can be either integration or policy.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4635,7 +4635,7 @@ func (o MaintenanceTimeOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceTime) *string { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
-// This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+// The type of the entity that maintenance will be applied. It can be either integration or policy.
 func (o MaintenanceTimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MaintenanceTime) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9213,9 +9213,7 @@ func (o TeamRoutingRuleCriteriaConditionArrayOutput) Index(i pulumi.IntInput) Te
 }
 
 type TeamRoutingRuleNotify struct {
-	// The ID of the Opsgenie Team Routing Rule.
-	Id *string `pulumi:"id"`
-	// Name of the team routing rule
+	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
 	Type string  `pulumi:"type"`
 }
@@ -9232,9 +9230,7 @@ type TeamRoutingRuleNotifyInput interface {
 }
 
 type TeamRoutingRuleNotifyArgs struct {
-	// The ID of the Opsgenie Team Routing Rule.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the team routing rule
+	Id   pulumi.StringPtrInput `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	Type pulumi.StringInput    `pulumi:"type"`
 }
@@ -9308,12 +9304,10 @@ func (o TeamRoutingRuleNotifyOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
-// The ID of the Opsgenie Team Routing Rule.
 func (o TeamRoutingRuleNotifyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamRoutingRuleNotify) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the team routing rule
 func (o TeamRoutingRuleNotifyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamRoutingRuleNotify) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -9351,7 +9345,8 @@ func (o TeamRoutingRuleNotifyArrayOutput) Index(i pulumi.IntInput) TeamRoutingRu
 type TeamRoutingRuleTimeRestriction struct {
 	Restriction     []TeamRoutingRuleTimeRestrictionRestriction     `pulumi:"restriction"`
 	RestrictionList []TeamRoutingRuleTimeRestrictionRestrictionList `pulumi:"restrictionList"`
-	Type            string                                          `pulumi:"type"`
+	// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
+	Type string `pulumi:"type"`
 }
 
 // TeamRoutingRuleTimeRestrictionInput is an input type that accepts TeamRoutingRuleTimeRestrictionArgs and TeamRoutingRuleTimeRestrictionOutput values.
@@ -9368,7 +9363,8 @@ type TeamRoutingRuleTimeRestrictionInput interface {
 type TeamRoutingRuleTimeRestrictionArgs struct {
 	Restriction     TeamRoutingRuleTimeRestrictionRestrictionArrayInput     `pulumi:"restriction"`
 	RestrictionList TeamRoutingRuleTimeRestrictionRestrictionListArrayInput `pulumi:"restrictionList"`
-	Type            pulumi.StringInput                                      `pulumi:"type"`
+	// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (TeamRoutingRuleTimeRestrictionArgs) ElementType() reflect.Type {
@@ -9452,6 +9448,7 @@ func (o TeamRoutingRuleTimeRestrictionOutput) RestrictionList() TeamRoutingRuleT
 	}).(TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput)
 }
 
+// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
 func (o TeamRoutingRuleTimeRestrictionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamRoutingRuleTimeRestriction) string { return v.Type }).(pulumi.StringOutput)
 }

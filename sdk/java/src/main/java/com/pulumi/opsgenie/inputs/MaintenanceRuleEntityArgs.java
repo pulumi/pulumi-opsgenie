@@ -31,14 +31,14 @@ public final class MaintenanceRuleEntityArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+     * The type of the entity that maintenance will be applied. It can be either integration or policy.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+     * @return The type of the entity that maintenance will be applied. It can be either integration or policy.
      * 
      */
     public Optional<Output<String>> type() {
@@ -92,7 +92,7 @@ public final class MaintenanceRuleEntityArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+         * @param type The type of the entity that maintenance will be applied. It can be either integration or policy.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class MaintenanceRuleEntityArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.
+         * @param type The type of the entity that maintenance will be applied. It can be either integration or policy.
          * 
          * @return builder
          * 
