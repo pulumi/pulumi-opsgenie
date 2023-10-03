@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 public final class TeamRoutingRuleTimeRestriction {
     private @Nullable List<TeamRoutingRuleTimeRestrictionRestriction> restriction;
     private @Nullable List<TeamRoutingRuleTimeRestrictionRestrictionList> restrictionList;
+    /**
+     * @return Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
+     * 
+     */
     private String type;
 
     private TeamRoutingRuleTimeRestriction() {}
@@ -24,6 +28,10 @@ public final class TeamRoutingRuleTimeRestriction {
     public List<TeamRoutingRuleTimeRestrictionRestrictionList> restrictionList() {
         return this.restrictionList == null ? List.of() : this.restrictionList;
     }
+    /**
+     * @return Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
+     * 
+     */
     public String type() {
         return this.type;
     }

@@ -864,7 +864,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.\n"
+                    "description": "The type of the entity that maintenance will be applied. It can be either integration or policy.\n"
                 }
             },
             "type": "object"
@@ -881,7 +881,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "This parameter defines when the maintenance will be active. It can take one of for-5-minutes, for-30-minutes, for-1-hour, indefinitely or schedule.\n"
+                    "description": "The type of the entity that maintenance will be applied. It can be either integration or policy.\n"
                 }
             },
             "type": "object",
@@ -1650,12 +1650,10 @@
         "opsgenie:index/TeamRoutingRuleNotify:TeamRoutingRuleNotify": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "description": "The ID of the Opsgenie Team Routing Rule.\n"
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Name of the team routing rule\n"
+                    "type": "string"
                 },
                 "type": {
                     "type": "string"
@@ -1690,7 +1688,8 @@
                     }
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.\n"
                 }
             },
             "type": "object",

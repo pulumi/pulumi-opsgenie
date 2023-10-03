@@ -13,13 +13,7 @@ namespace Pulumi.Opsgenie.Outputs
     [OutputType]
     public sealed class TeamRoutingRuleNotify
     {
-        /// <summary>
-        /// The ID of the Opsgenie Team Routing Rule.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Name of the team routing rule
-        /// </summary>
         public readonly string? Name;
         public readonly string Type;
 

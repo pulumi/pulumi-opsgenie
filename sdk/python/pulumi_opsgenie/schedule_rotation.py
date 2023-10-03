@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,18 +34,41 @@ class ScheduleRotationArgs:
         :param pulumi.Input[int] length: Length of the rotation with default value 1.
         :param pulumi.Input[str] name: Name of rotation.
         """
-        pulumi.set(__self__, "participants", participants)
-        pulumi.set(__self__, "schedule_id", schedule_id)
-        pulumi.set(__self__, "start_date", start_date)
-        pulumi.set(__self__, "type", type)
+        ScheduleRotationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            participants=participants,
+            schedule_id=schedule_id,
+            start_date=start_date,
+            type=type,
+            end_date=end_date,
+            length=length,
+            name=name,
+            time_restrictions=time_restrictions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             participants: pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]],
+             schedule_id: pulumi.Input[str],
+             start_date: pulumi.Input[str],
+             type: pulumi.Input[str],
+             end_date: Optional[pulumi.Input[str]] = None,
+             length: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("participants", participants)
+        _setter("schedule_id", schedule_id)
+        _setter("start_date", start_date)
+        _setter("type", type)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if length is not None:
-            pulumi.set(__self__, "length", length)
+            _setter("length", length)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if time_restrictions is not None:
-            pulumi.set(__self__, "time_restrictions", time_restrictions)
+            _setter("time_restrictions", time_restrictions)
 
     @property
     @pulumi.getter
@@ -162,22 +185,45 @@ class _ScheduleRotationState:
         :param pulumi.Input[str] start_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
         :param pulumi.Input[str] type: Type of rotation. May be one of daily, weekly and hourly.
         """
+        _ScheduleRotationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_date=end_date,
+            length=length,
+            name=name,
+            participants=participants,
+            schedule_id=schedule_id,
+            start_date=start_date,
+            time_restrictions=time_restrictions,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_date: Optional[pulumi.Input[str]] = None,
+             length: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             participants: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]]] = None,
+             schedule_id: Optional[pulumi.Input[str]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if length is not None:
-            pulumi.set(__self__, "length", length)
+            _setter("length", length)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if participants is not None:
-            pulumi.set(__self__, "participants", participants)
+            _setter("participants", participants)
         if schedule_id is not None:
-            pulumi.set(__self__, "schedule_id", schedule_id)
+            _setter("schedule_id", schedule_id)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if time_restrictions is not None:
-            pulumi.set(__self__, "time_restrictions", time_restrictions)
+            _setter("time_restrictions", time_restrictions)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="endDate")
@@ -389,6 +435,10 @@ class ScheduleRotation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduleRotationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

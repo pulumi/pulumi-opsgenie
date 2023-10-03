@@ -12,15 +12,9 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class TeamRoutingRuleNotifyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the Opsgenie Team Routing Rule.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name of the team routing rule
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
