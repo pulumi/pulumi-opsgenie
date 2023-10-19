@@ -18,15 +18,19 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string? Id;
         public readonly string? Role;
+        public readonly string? Username;
 
         [OutputConstructor]
         private GetTeamMemberResult(
             string? id,
 
-            string? role)
+            string? role,
+
+            string? username)
         {
             Id = id;
             Role = role;
+            Username = username;
         }
     }
 }

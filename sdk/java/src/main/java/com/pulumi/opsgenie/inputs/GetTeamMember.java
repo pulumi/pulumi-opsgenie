@@ -36,11 +36,19 @@ public final class GetTeamMember extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.role);
     }
 
+    @Import(name="username")
+    private @Nullable String username;
+
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
+    }
+
     private GetTeamMember() {}
 
     private GetTeamMember(GetTeamMember $) {
         this.id = $.id;
         this.role = $.role;
+        this.username = $.username;
     }
 
     public static Builder builder() {
@@ -74,6 +82,11 @@ public final class GetTeamMember extends com.pulumi.resources.InvokeArgs {
 
         public Builder role(@Nullable String role) {
             $.role = role;
+            return this;
+        }
+
+        public Builder username(@Nullable String username) {
+            $.username = username;
             return this;
         }
 

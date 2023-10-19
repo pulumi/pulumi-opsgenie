@@ -43,7 +43,11 @@ class ScheduleArgs:
              name: Optional[pulumi.Input[str]] = None,
              owner_team_id: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ownerTeamId' in kwargs:
+            owner_team_id = kwargs['ownerTeamId']
+
         if description is not None:
             _setter("description", description)
         if enabled is not None:
@@ -148,7 +152,11 @@ class _ScheduleState:
              name: Optional[pulumi.Input[str]] = None,
              owner_team_id: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ownerTeamId' in kwargs:
+            owner_team_id = kwargs['ownerTeamId']
+
         if description is not None:
             _setter("description", description)
         if enabled is not None:

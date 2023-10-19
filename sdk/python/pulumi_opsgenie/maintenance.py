@@ -37,7 +37,9 @@ class MaintenanceArgs:
              description: pulumi.Input[str],
              rules: pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]],
              times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("rules", rules)
         if times is not None:
@@ -104,7 +106,9 @@ class _MaintenanceState:
              description: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]]] = None,
              times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if rules is not None:

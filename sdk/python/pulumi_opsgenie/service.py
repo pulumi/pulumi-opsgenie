@@ -16,18 +16,21 @@ class ServiceArgs:
     def __init__(__self__, *,
                  team_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] team_id: Team id of the service. This field must not be longer than 512 characters.
         :param pulumi.Input[str] description: Description field of the service that is generally used to provide a detailed information about the service.
         :param pulumi.Input[str] name: Name of the service. This field must not be longer than 100 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for the service, with a maximum of 20 tags per service.
         """
         ServiceArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             team_id=team_id,
             description=description,
             name=name,
+            tags=tags,
         )
     @staticmethod
     def _configure(
@@ -35,12 +38,19 @@ class ServiceArgs:
              team_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         _setter("team_id", team_id)
         if description is not None:
             _setter("description", description)
         if name is not None:
             _setter("name", name)
+        if tags is not None:
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="teamId")
@@ -78,23 +88,38 @@ class ServiceArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags for the service, with a maximum of 20 tags per service.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[str] description: Description field of the service that is generally used to provide a detailed information about the service.
         :param pulumi.Input[str] name: Name of the service. This field must not be longer than 100 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for the service, with a maximum of 20 tags per service.
         :param pulumi.Input[str] team_id: Team id of the service. This field must not be longer than 512 characters.
         """
         _ServiceState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             description=description,
             name=name,
+            tags=tags,
             team_id=team_id,
         )
     @staticmethod
@@ -102,12 +127,19 @@ class _ServiceState:
              _setter: Callable[[Any, Any], None],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
             _setter("name", name)
+        if tags is not None:
+            _setter("tags", tags)
         if team_id is not None:
             _setter("team_id", team_id)
 
@@ -136,6 +168,18 @@ class _ServiceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags for the service, with a maximum of 20 tags per service.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -155,6 +199,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -182,6 +227,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description field of the service that is generally used to provide a detailed information about the service.
         :param pulumi.Input[str] name: Name of the service. This field must not be longer than 100 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for the service, with a maximum of 20 tags per service.
         :param pulumi.Input[str] team_id: Team id of the service. This field must not be longer than 512 characters.
         """
         ...
@@ -232,6 +278,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -244,6 +291,7 @@ class Service(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")
             __props__.__dict__["team_id"] = team_id
@@ -259,6 +307,7 @@ class Service(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             team_id: Optional[pulumi.Input[str]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
@@ -269,6 +318,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description field of the service that is generally used to provide a detailed information about the service.
         :param pulumi.Input[str] name: Name of the service. This field must not be longer than 100 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for the service, with a maximum of 20 tags per service.
         :param pulumi.Input[str] team_id: Team id of the service. This field must not be longer than 512 characters.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -277,6 +327,7 @@ class Service(pulumi.CustomResource):
 
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["team_id"] = team_id
         return Service(resource_name, opts=opts, __props__=__props__)
 
@@ -295,6 +346,14 @@ class Service(pulumi.CustomResource):
         Name of the service. This field must not be longer than 100 characters.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Tags for the service, with a maximum of 20 tags per service.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="teamId")

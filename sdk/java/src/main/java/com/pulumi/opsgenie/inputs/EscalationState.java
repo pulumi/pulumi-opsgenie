@@ -79,14 +79,14 @@ public final class EscalationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of the escalation rules.
+     * List of the escalation rules. See below for how rules are defined.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<EscalationRuleArgs>> rules;
 
     /**
-     * @return List of the escalation rules.
+     * @return List of the escalation rules. See below for how rules are defined.
      * 
      */
     public Optional<Output<List<EscalationRuleArgs>>> rules() {
@@ -216,7 +216,7 @@ public final class EscalationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules List of the escalation rules.
+         * @param rules List of the escalation rules. See below for how rules are defined.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class EscalationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules List of the escalation rules.
+         * @param rules List of the escalation rules. See below for how rules are defined.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class EscalationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules List of the escalation rules.
+         * @param rules List of the escalation rules. See below for how rules are defined.
          * 
          * @return builder
          * 

@@ -1316,7 +1316,7 @@ type EscalationRule struct {
 	Delay int `pulumi:"delay"`
 	// Recipient calculation logic for schedules. Possible values are:
 	NotifyType string `pulumi:"notifyType"`
-	// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+	// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
 	Recipients []EscalationRuleRecipient `pulumi:"recipients"`
 }
 
@@ -1338,7 +1338,7 @@ type EscalationRuleArgs struct {
 	Delay pulumi.IntInput `pulumi:"delay"`
 	// Recipient calculation logic for schedules. Possible values are:
 	NotifyType pulumi.StringInput `pulumi:"notifyType"`
-	// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+	// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
 	Recipients EscalationRuleRecipientArrayInput `pulumi:"recipients"`
 }
 
@@ -1426,7 +1426,7 @@ func (o EscalationRuleOutput) NotifyType() pulumi.StringOutput {
 	return o.ApplyT(func(v EscalationRule) string { return v.NotifyType }).(pulumi.StringOutput)
 }
 
-// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
 func (o EscalationRuleOutput) Recipients() EscalationRuleRecipientArrayOutput {
 	return o.ApplyT(func(v EscalationRule) []EscalationRuleRecipient { return v.Recipients }).(EscalationRuleRecipientArrayOutput)
 }
@@ -8793,7 +8793,8 @@ type TeamMember struct {
 	// The UUID for the member to add to this Team.
 	Id string `pulumi:"id"`
 	// The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
-	Role *string `pulumi:"role"`
+	Role     *string `pulumi:"role"`
+	Username *string `pulumi:"username"`
 }
 
 // TeamMemberInput is an input type that accepts TeamMemberArgs and TeamMemberOutput values.
@@ -8811,7 +8812,8 @@ type TeamMemberArgs struct {
 	// The UUID for the member to add to this Team.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
-	Role pulumi.StringPtrInput `pulumi:"role"`
+	Role     pulumi.StringPtrInput `pulumi:"role"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (TeamMemberArgs) ElementType() reflect.Type {
@@ -8891,6 +8893,10 @@ func (o TeamMemberOutput) Id() pulumi.StringOutput {
 // The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
 func (o TeamMemberOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamMember) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+func (o TeamMemberOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TeamMember) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type TeamMemberArrayOutput struct{ *pulumi.OutputState }
@@ -10306,8 +10312,9 @@ func (o GetEscalationRuleRecipientArrayOutput) Index(i pulumi.IntInput) GetEscal
 
 type GetTeamMember struct {
 	// The ID of the Opsgenie Team.
-	Id   *string `pulumi:"id"`
-	Role *string `pulumi:"role"`
+	Id       *string `pulumi:"id"`
+	Role     *string `pulumi:"role"`
+	Username *string `pulumi:"username"`
 }
 
 // GetTeamMemberInput is an input type that accepts GetTeamMemberArgs and GetTeamMemberOutput values.
@@ -10323,8 +10330,9 @@ type GetTeamMemberInput interface {
 
 type GetTeamMemberArgs struct {
 	// The ID of the Opsgenie Team.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
-	Role pulumi.StringPtrInput `pulumi:"role"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
+	Role     pulumi.StringPtrInput `pulumi:"role"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (GetTeamMemberArgs) ElementType() reflect.Type {
@@ -10403,6 +10411,10 @@ func (o GetTeamMemberOutput) Id() pulumi.StringPtrOutput {
 
 func (o GetTeamMemberOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTeamMember) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+func (o GetTeamMemberOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTeamMember) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type GetTeamMemberArrayOutput struct{ *pulumi.OutputState }

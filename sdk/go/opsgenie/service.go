@@ -63,6 +63,8 @@ type Service struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the service. This field must not be longer than 100 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Tags for the service, with a maximum of 20 tags per service.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Team id of the service. This field must not be longer than 512 characters.
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
 }
@@ -104,6 +106,8 @@ type serviceState struct {
 	Description *string `pulumi:"description"`
 	// Name of the service. This field must not be longer than 100 characters.
 	Name *string `pulumi:"name"`
+	// Tags for the service, with a maximum of 20 tags per service.
+	Tags []string `pulumi:"tags"`
 	// Team id of the service. This field must not be longer than 512 characters.
 	TeamId *string `pulumi:"teamId"`
 }
@@ -113,6 +117,8 @@ type ServiceState struct {
 	Description pulumi.StringPtrInput
 	// Name of the service. This field must not be longer than 100 characters.
 	Name pulumi.StringPtrInput
+	// Tags for the service, with a maximum of 20 tags per service.
+	Tags pulumi.StringArrayInput
 	// Team id of the service. This field must not be longer than 512 characters.
 	TeamId pulumi.StringPtrInput
 }
@@ -126,6 +132,8 @@ type serviceArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the service. This field must not be longer than 100 characters.
 	Name *string `pulumi:"name"`
+	// Tags for the service, with a maximum of 20 tags per service.
+	Tags []string `pulumi:"tags"`
 	// Team id of the service. This field must not be longer than 512 characters.
 	TeamId string `pulumi:"teamId"`
 }
@@ -136,6 +144,8 @@ type ServiceArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the service. This field must not be longer than 100 characters.
 	Name pulumi.StringPtrInput
+	// Tags for the service, with a maximum of 20 tags per service.
+	Tags pulumi.StringArrayInput
 	// Team id of the service. This field must not be longer than 512 characters.
 	TeamId pulumi.StringInput
 }
@@ -259,6 +269,11 @@ func (o ServiceOutput) Description() pulumi.StringPtrOutput {
 // Name of the service. This field must not be longer than 100 characters.
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tags for the service, with a maximum of 20 tags per service.
+func (o ServiceOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 // Team id of the service. This field must not be longer than 512 characters.

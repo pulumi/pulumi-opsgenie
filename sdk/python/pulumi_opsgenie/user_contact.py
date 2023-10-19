@@ -39,7 +39,9 @@ class UserContactArgs:
              to: pulumi.Input[str],
              username: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("method", method)
         _setter("to", to)
         _setter("username", username)
@@ -123,7 +125,9 @@ class _UserContactState:
              method: Optional[pulumi.Input[str]] = None,
              to: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
         if method is not None:

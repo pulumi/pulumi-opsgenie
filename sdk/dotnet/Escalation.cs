@@ -14,6 +14,8 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Example Usage
     /// 
+    /// An escalation with a single rule
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,45 +24,97 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Opsgenie.Escalation("test", new()
+    ///     var @default = new Opsgenie.Escalation("default", new()
     ///     {
-    ///         Description = "test",
-    ///         OwnerTeamId = opsgenie_team.Test.Id,
-    ///         Repeats = new[]
-    ///         {
-    ///             new Opsgenie.Inputs.EscalationRepeatArgs
-    ///             {
-    ///                 CloseAlertAfterAll = false,
-    ///                 Count = 1,
-    ///                 ResetRecipientStates = true,
-    ///                 WaitInterval = 10,
-    ///             },
-    ///         },
     ///         Rules = new[]
     ///         {
     ///             new Opsgenie.Inputs.EscalationRuleArgs
     ///             {
     ///                 Condition = "if-not-acked",
-    ///                 Delay = 1,
     ///                 NotifyType = "default",
+    ///                 Delay = 1,
     ///                 Recipients = new[]
     ///                 {
     ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
     ///                     {
-    ///                         Id = opsgenie_user.Test.Id,
     ///                         Type = "user",
-    ///                     },
-    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
-    ///                     {
-    ///                         Id = opsgenie_team.Test.Id,
-    ///                         Type = "team",
-    ///                     },
-    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
-    ///                     {
-    ///                         Id = opsgenie_schedule.Test.Id,
-    ///                         Type = "schedule",
+    ///                         Id = opsgenie_user.Test.Id,
     ///                     },
     ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// An escalation with a multiple rules
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Opsgenie = Pulumi.Opsgenie;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Opsgenie.Escalation("default", new()
+    ///     {
+    ///         Description = "test",
+    ///         OwnerTeamId = opsgenie_team.Test.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.EscalationRuleArgs
+    ///             {
+    ///                 Condition = "if-not-acked",
+    ///                 NotifyType = "default",
+    ///                 Delay = 1,
+    ///                 Recipients = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
+    ///                     {
+    ///                         Type = "user",
+    ///                         Id = opsgenie_user.Test.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Opsgenie.Inputs.EscalationRuleArgs
+    ///             {
+    ///                 Condition = "if-not-acked",
+    ///                 NotifyType = "default",
+    ///                 Delay = 1,
+    ///                 Recipients = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
+    ///                     {
+    ///                         Type = "team",
+    ///                         Id = opsgenie_team.Test.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Opsgenie.Inputs.EscalationRuleArgs
+    ///             {
+    ///                 Condition = "if-not-acked",
+    ///                 NotifyType = "default",
+    ///                 Delay = 1,
+    ///                 Recipients = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
+    ///                     {
+    ///                         Type = "schedule",
+    ///                         Id = opsgenie_schedule.Test.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Repeats = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.EscalationRepeatArgs
+    ///             {
+    ///                 WaitInterval = 10,
+    ///                 Count = 1,
+    ///                 ResetRecipientStates = true,
+    ///                 CloseAlertAfterAll = false,
     ///             },
     ///         },
     ///     });
@@ -104,7 +158,7 @@ namespace Pulumi.Opsgenie
         public Output<ImmutableArray<Outputs.EscalationRepeat>> Repeats { get; private set; } = null!;
 
         /// <summary>
-        /// List of the escalation rules.
+        /// List of the escalation rules. See below for how rules are defined.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.EscalationRule>> Rules { get; private set; } = null!;
@@ -189,7 +243,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.EscalationRuleArgs>? _rules;
 
         /// <summary>
-        /// List of the escalation rules.
+        /// List of the escalation rules. See below for how rules are defined.
         /// </summary>
         public InputList<Inputs.EscalationRuleArgs> Rules
         {
@@ -239,7 +293,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.EscalationRuleGetArgs>? _rules;
 
         /// <summary>
-        /// List of the escalation rules.
+        /// List of the escalation rules. See below for how rules are defined.
         /// </summary>
         public InputList<Inputs.EscalationRuleGetArgs> Rules
         {

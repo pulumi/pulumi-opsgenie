@@ -62,14 +62,14 @@ public final class EscalationRuleArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+     * Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
      * 
      */
     @Import(name="recipients", required=true)
     private Output<List<EscalationRuleRecipientArgs>> recipients;
 
     /**
-     * @return Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+     * @return Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
      * 
      */
     public Output<List<EscalationRuleRecipientArgs>> recipients() {
@@ -167,7 +167,7 @@ public final class EscalationRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param recipients Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+         * @param recipients Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class EscalationRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param recipients Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+         * @param recipients Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class EscalationRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param recipients Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+         * @param recipients Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
          * 
          * @return builder
          * 

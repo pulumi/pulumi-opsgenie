@@ -59,6 +59,12 @@ namespace Pulumi.Opsgenie
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Tags for the service, with a maximum of 20 tags per service.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Team id of the service. This field must not be longer than 512 characters.
         /// </summary>
         [Output("teamId")]
@@ -122,6 +128,18 @@ namespace Pulumi.Opsgenie
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// Tags for the service, with a maximum of 20 tags per service.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Team id of the service. This field must not be longer than 512 characters.
         /// </summary>
@@ -147,6 +165,18 @@ namespace Pulumi.Opsgenie
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// Tags for the service, with a maximum of 20 tags per service.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Team id of the service. This field must not be longer than 512 characters.

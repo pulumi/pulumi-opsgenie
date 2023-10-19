@@ -17,6 +17,8 @@ import (
 //
 // ## Example Usage
 //
+// # An escalation with a single rule
+//
 // ```go
 // package main
 //
@@ -29,36 +31,88 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsgenie.NewEscalation(ctx, "test", &opsgenie.EscalationArgs{
-//				Description: pulumi.String("test"),
-//				OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
-//				Repeats: opsgenie.EscalationRepeatArray{
-//					&opsgenie.EscalationRepeatArgs{
-//						CloseAlertAfterAll:   pulumi.Bool(false),
-//						Count:                pulumi.Int(1),
-//						ResetRecipientStates: pulumi.Bool(true),
-//						WaitInterval:         pulumi.Int(10),
-//					},
-//				},
+//			_, err := opsgenie.NewEscalation(ctx, "default", &opsgenie.EscalationArgs{
 //				Rules: opsgenie.EscalationRuleArray{
 //					&opsgenie.EscalationRuleArgs{
 //						Condition:  pulumi.String("if-not-acked"),
-//						Delay:      pulumi.Int(1),
 //						NotifyType: pulumi.String("default"),
+//						Delay:      pulumi.Int(1),
 //						Recipients: opsgenie.EscalationRuleRecipientArray{
 //							&opsgenie.EscalationRuleRecipientArgs{
-//								Id:   pulumi.Any(opsgenie_user.Test.Id),
 //								Type: pulumi.String("user"),
-//							},
-//							&opsgenie.EscalationRuleRecipientArgs{
-//								Id:   pulumi.Any(opsgenie_team.Test.Id),
-//								Type: pulumi.String("team"),
-//							},
-//							&opsgenie.EscalationRuleRecipientArgs{
-//								Id:   pulumi.Any(opsgenie_schedule.Test.Id),
-//								Type: pulumi.String("schedule"),
+//								Id:   pulumi.Any(opsgenie_user.Test.Id),
 //							},
 //						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # An escalation with a multiple rules
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsgenie.NewEscalation(ctx, "default", &opsgenie.EscalationArgs{
+//				Description: pulumi.String("test"),
+//				OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
+//				Rules: opsgenie.EscalationRuleArray{
+//					&opsgenie.EscalationRuleArgs{
+//						Condition:  pulumi.String("if-not-acked"),
+//						NotifyType: pulumi.String("default"),
+//						Delay:      pulumi.Int(1),
+//						Recipients: opsgenie.EscalationRuleRecipientArray{
+//							&opsgenie.EscalationRuleRecipientArgs{
+//								Type: pulumi.String("user"),
+//								Id:   pulumi.Any(opsgenie_user.Test.Id),
+//							},
+//						},
+//					},
+//					&opsgenie.EscalationRuleArgs{
+//						Condition:  pulumi.String("if-not-acked"),
+//						NotifyType: pulumi.String("default"),
+//						Delay:      pulumi.Int(1),
+//						Recipients: opsgenie.EscalationRuleRecipientArray{
+//							&opsgenie.EscalationRuleRecipientArgs{
+//								Type: pulumi.String("team"),
+//								Id:   pulumi.Any(opsgenie_team.Test.Id),
+//							},
+//						},
+//					},
+//					&opsgenie.EscalationRuleArgs{
+//						Condition:  pulumi.String("if-not-acked"),
+//						NotifyType: pulumi.String("default"),
+//						Delay:      pulumi.Int(1),
+//						Recipients: opsgenie.EscalationRuleRecipientArray{
+//							&opsgenie.EscalationRuleRecipientArgs{
+//								Type: pulumi.String("schedule"),
+//								Id:   pulumi.Any(opsgenie_schedule.Test.Id),
+//							},
+//						},
+//					},
+//				},
+//				Repeats: opsgenie.EscalationRepeatArray{
+//					&opsgenie.EscalationRepeatArgs{
+//						WaitInterval:         pulumi.Int(10),
+//						Count:                pulumi.Int(1),
+//						ResetRecipientStates: pulumi.Bool(true),
+//						CloseAlertAfterAll:   pulumi.Bool(false),
 //					},
 //				},
 //			})
@@ -91,7 +145,7 @@ type Escalation struct {
 	OwnerTeamId pulumi.StringPtrOutput `pulumi:"ownerTeamId"`
 	// Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
 	Repeats EscalationRepeatArrayOutput `pulumi:"repeats"`
-	// List of the escalation rules.
+	// List of the escalation rules. See below for how rules are defined.
 	Rules EscalationRuleArrayOutput `pulumi:"rules"`
 }
 
@@ -136,7 +190,7 @@ type escalationState struct {
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
 	// Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
 	Repeats []EscalationRepeat `pulumi:"repeats"`
-	// List of the escalation rules.
+	// List of the escalation rules. See below for how rules are defined.
 	Rules []EscalationRule `pulumi:"rules"`
 }
 
@@ -149,7 +203,7 @@ type EscalationState struct {
 	OwnerTeamId pulumi.StringPtrInput
 	// Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
 	Repeats EscalationRepeatArrayInput
-	// List of the escalation rules.
+	// List of the escalation rules. See below for how rules are defined.
 	Rules EscalationRuleArrayInput
 }
 
@@ -166,7 +220,7 @@ type escalationArgs struct {
 	OwnerTeamId *string `pulumi:"ownerTeamId"`
 	// Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
 	Repeats []EscalationRepeat `pulumi:"repeats"`
-	// List of the escalation rules.
+	// List of the escalation rules. See below for how rules are defined.
 	Rules []EscalationRule `pulumi:"rules"`
 }
 
@@ -180,7 +234,7 @@ type EscalationArgs struct {
 	OwnerTeamId pulumi.StringPtrInput
 	// Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
 	Repeats EscalationRepeatArrayInput
-	// List of the escalation rules.
+	// List of the escalation rules. See below for how rules are defined.
 	Rules EscalationRuleArrayInput
 }
 
@@ -315,7 +369,7 @@ func (o EscalationOutput) Repeats() EscalationRepeatArrayOutput {
 	return o.ApplyT(func(v *Escalation) EscalationRepeatArrayOutput { return v.Repeats }).(EscalationRepeatArrayOutput)
 }
 
-// List of the escalation rules.
+// List of the escalation rules. See below for how rules are defined.
 func (o EscalationOutput) Rules() EscalationRuleArrayOutput {
 	return o.ApplyT(func(v *Escalation) EscalationRuleArrayOutput { return v.Rules }).(EscalationRuleArrayOutput)
 }

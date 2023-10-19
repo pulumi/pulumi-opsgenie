@@ -105,7 +105,27 @@ class AlertPolicyArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertDescription' in kwargs:
+            alert_description = kwargs['alertDescription']
+        if 'continuePolicy' in kwargs:
+            continue_policy = kwargs['continuePolicy']
+        if 'ignoreOriginalActions' in kwargs:
+            ignore_original_actions = kwargs['ignoreOriginalActions']
+        if 'ignoreOriginalDetails' in kwargs:
+            ignore_original_details = kwargs['ignoreOriginalDetails']
+        if 'ignoreOriginalResponders' in kwargs:
+            ignore_original_responders = kwargs['ignoreOriginalResponders']
+        if 'ignoreOriginalTags' in kwargs:
+            ignore_original_tags = kwargs['ignoreOriginalTags']
+        if 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         _setter("message", message)
         if actions is not None:
             _setter("actions", actions)
@@ -479,7 +499,27 @@ class _AlertPolicyState:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertDescription' in kwargs:
+            alert_description = kwargs['alertDescription']
+        if 'continuePolicy' in kwargs:
+            continue_policy = kwargs['continuePolicy']
+        if 'ignoreOriginalActions' in kwargs:
+            ignore_original_actions = kwargs['ignoreOriginalActions']
+        if 'ignoreOriginalDetails' in kwargs:
+            ignore_original_details = kwargs['ignoreOriginalDetails']
+        if 'ignoreOriginalResponders' in kwargs:
+            ignore_original_responders = kwargs['ignoreOriginalResponders']
+        if 'ignoreOriginalTags' in kwargs:
+            ignore_original_tags = kwargs['ignoreOriginalTags']
+        if 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         if actions is not None:
             _setter("actions", actions)
         if alert_description is not None:

@@ -34,7 +34,7 @@ namespace Pulumi.Opsgenie.Inputs
         private InputList<Inputs.EscalationRuleRecipientArgs>? _recipients;
 
         /// <summary>
-        /// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+        /// Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
         /// </summary>
         public InputList<Inputs.EscalationRuleRecipientArgs> Recipients
         {

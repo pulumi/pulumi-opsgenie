@@ -65,7 +65,15 @@ class NotificationRuleArgs:
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]] = None,
              steps: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'notificationTimes' in kwargs:
+            notification_times = kwargs['notificationTimes']
+        if 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         _setter("action_type", action_type)
         _setter("username", username)
         if criterias is not None:
@@ -260,7 +268,15 @@ class _NotificationRuleState:
              steps: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'notificationTimes' in kwargs:
+            notification_times = kwargs['notificationTimes']
+        if 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         if action_type is not None:
             _setter("action_type", action_type)
         if criterias is not None:

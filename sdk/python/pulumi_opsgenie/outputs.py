@@ -104,7 +104,9 @@ class AlertPolicyFilter(dict):
              _setter: Callable[[Any, Any], None],
              conditions: Optional[Sequence['outputs.AlertPolicyFilterCondition']] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if conditions is not None:
             _setter("conditions", conditions)
         if type is not None:
@@ -181,7 +183,13 @@ class AlertPolicyFilterCondition(dict):
              key: Optional[str] = None,
              not_: Optional[bool] = None,
              order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         _setter("field", field)
         _setter("operation", operation)
         if expected_value is not None:
@@ -269,7 +277,9 @@ class AlertPolicyResponder(dict):
              type: str,
              name: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("type", type)
         if name is not None:
@@ -350,7 +360,11 @@ class AlertPolicyTimeRestriction(dict):
              type: str,
              restriction: Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestriction']] = None,
              restriction_list: Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestrictionList']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restrictionList' in kwargs:
+            restriction_list = kwargs['restrictionList']
+
         _setter("type", type)
         if restriction is not None:
             _setter("restriction", restriction)
@@ -432,7 +446,17 @@ class AlertPolicyTimeRestrictionRestriction(dict):
              end_min: int,
              start_hour: int,
              start_min: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endHour' in kwargs:
+            end_hour = kwargs['endHour']
+        if 'endMin' in kwargs:
+            end_min = kwargs['endMin']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMin' in kwargs:
+            start_min = kwargs['startMin']
+
         _setter("end_hour", end_hour)
         _setter("end_min", end_min)
         _setter("start_hour", start_hour)
@@ -533,7 +557,21 @@ class AlertPolicyTimeRestrictionRestrictionList(dict):
              start_day: str,
              start_hour: int,
              start_min: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDay' in kwargs:
+            end_day = kwargs['endDay']
+        if 'endHour' in kwargs:
+            end_hour = kwargs['endHour']
+        if 'endMin' in kwargs:
+            end_min = kwargs['endMin']
+        if 'startDay' in kwargs:
+            start_day = kwargs['startDay']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMin' in kwargs:
+            start_min = kwargs['startMin']
+
         _setter("end_day", end_day)
         _setter("end_hour", end_hour)
         _setter("end_min", end_min)
@@ -609,7 +647,9 @@ class ApiIntegrationResponder(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -651,7 +691,9 @@ class EmailIntegrationResponder(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -716,7 +758,15 @@ class EscalationRepeat(dict):
              count: Optional[int] = None,
              reset_recipient_states: Optional[bool] = None,
              wait_interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'closeAlertAfterAll' in kwargs:
+            close_alert_after_all = kwargs['closeAlertAfterAll']
+        if 'resetRecipientStates' in kwargs:
+            reset_recipient_states = kwargs['resetRecipientStates']
+        if 'waitInterval' in kwargs:
+            wait_interval = kwargs['waitInterval']
+
         if close_alert_after_all is not None:
             _setter("close_alert_after_all", close_alert_after_all)
         if count is not None:
@@ -775,7 +825,7 @@ class EscalationRule(dict):
         :param str condition: The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
         :param int delay: Time delay of the escalation rule, in minutes.
         :param str notify_type: Recipient calculation logic for schedules. Possible values are:
-        :param Sequence['EscalationRuleRecipientArgs'] recipients: Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+        :param Sequence['EscalationRuleRecipientArgs'] recipients: Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
         """
         EscalationRule._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -791,7 +841,11 @@ class EscalationRule(dict):
              delay: int,
              notify_type: str,
              recipients: Sequence['outputs.EscalationRuleRecipient'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notifyType' in kwargs:
+            notify_type = kwargs['notifyType']
+
         _setter("condition", condition)
         _setter("delay", delay)
         _setter("notify_type", notify_type)
@@ -825,7 +879,7 @@ class EscalationRule(dict):
     @pulumi.getter
     def recipients(self) -> Sequence['outputs.EscalationRuleRecipient']:
         """
-        Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+        Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
         """
         return pulumi.get(self, "recipients")
 
@@ -848,7 +902,9 @@ class EscalationRuleRecipient(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -891,7 +947,9 @@ class IncidentTemplateStakeholderProperty(dict):
              message: str,
              description: Optional[str] = None,
              enable: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("message", message)
         if description is not None:
             _setter("description", description)
@@ -965,7 +1023,9 @@ class IntegrationActionAcknowledge(dict):
              order: Optional[int] = None,
              type: Optional[str] = None,
              user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if alias is not None:
             _setter("alias", alias)
@@ -1058,7 +1118,9 @@ class IntegrationActionAcknowledgeFilter(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              conditions: Optional[Sequence['outputs.IntegrationActionAcknowledgeFilterCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -1126,7 +1188,13 @@ class IntegrationActionAcknowledgeFilterCondition(dict):
              key: Optional[str] = None,
              not_: Optional[bool] = None,
              order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         _setter("field", field)
         _setter("operation", operation)
         if expected_value is not None:
@@ -1214,7 +1282,9 @@ class IntegrationActionAddNote(dict):
              order: Optional[int] = None,
              type: Optional[str] = None,
              user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if alias is not None:
             _setter("alias", alias)
@@ -1307,7 +1377,9 @@ class IntegrationActionAddNoteFilter(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              conditions: Optional[Sequence['outputs.IntegrationActionAddNoteFilterCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -1375,7 +1447,13 @@ class IntegrationActionAddNoteFilterCondition(dict):
              key: Optional[str] = None,
              not_: Optional[bool] = None,
              order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         _setter("field", field)
         _setter("operation", operation)
         if expected_value is not None:
@@ -1463,7 +1541,9 @@ class IntegrationActionClose(dict):
              order: Optional[int] = None,
              type: Optional[str] = None,
              user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if alias is not None:
             _setter("alias", alias)
@@ -1556,7 +1636,9 @@ class IntegrationActionCloseFilter(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              conditions: Optional[Sequence['outputs.IntegrationActionCloseFilterCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -1624,7 +1706,13 @@ class IntegrationActionCloseFilterCondition(dict):
              key: Optional[str] = None,
              not_: Optional[bool] = None,
              order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         _setter("field", field)
         _setter("operation", operation)
         if expected_value is not None:
@@ -1804,7 +1892,27 @@ class IntegrationActionCreate(dict):
              tags: Optional[Sequence[str]] = None,
              type: Optional[str] = None,
              user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertActions' in kwargs:
+            alert_actions = kwargs['alertActions']
+        if 'appendAttachments' in kwargs:
+            append_attachments = kwargs['appendAttachments']
+        if 'customPriority' in kwargs:
+            custom_priority = kwargs['customPriority']
+        if 'extraProperties' in kwargs:
+            extra_properties = kwargs['extraProperties']
+        if 'ignoreAlertActionsFromPayload' in kwargs:
+            ignore_alert_actions_from_payload = kwargs['ignoreAlertActionsFromPayload']
+        if 'ignoreExtraPropertiesFromPayload' in kwargs:
+            ignore_extra_properties_from_payload = kwargs['ignoreExtraPropertiesFromPayload']
+        if 'ignoreRespondersFromPayload' in kwargs:
+            ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
+        if 'ignoreTagsFromPayload' in kwargs:
+            ignore_tags_from_payload = kwargs['ignoreTagsFromPayload']
+        if 'ignoreTeamsFromPayload' in kwargs:
+            ignore_teams_from_payload = kwargs['ignoreTeamsFromPayload']
+
         _setter("name", name)
         if alert_actions is not None:
             _setter("alert_actions", alert_actions)
@@ -2042,7 +2150,9 @@ class IntegrationActionCreateFilter(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              conditions: Optional[Sequence['outputs.IntegrationActionCreateFilterCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -2110,7 +2220,13 @@ class IntegrationActionCreateFilterCondition(dict):
              key: Optional[str] = None,
              not_: Optional[bool] = None,
              order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         _setter("field", field)
         _setter("operation", operation)
         if expected_value is not None:
@@ -2175,7 +2291,9 @@ class IntegrationActionCreateResponder(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("type", type)
 
@@ -2226,7 +2344,9 @@ class IntegrationActionIgnore(dict):
              filters: Optional[Sequence['outputs.IntegrationActionIgnoreFilter']] = None,
              order: Optional[int] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if filters is not None:
             _setter("filters", filters)
@@ -2289,7 +2409,9 @@ class IntegrationActionIgnoreFilter(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              conditions: Optional[Sequence['outputs.IntegrationActionIgnoreFilterCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -2357,7 +2479,13 @@ class IntegrationActionIgnoreFilterCondition(dict):
              key: Optional[str] = None,
              not_: Optional[bool] = None,
              order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         _setter("field", field)
         _setter("operation", operation)
         if expected_value is not None:
@@ -2422,7 +2550,9 @@ class MaintenanceRule(dict):
              _setter: Callable[[Any, Any], None],
              entities: Sequence['outputs.MaintenanceRuleEntity'],
              state: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("entities", entities)
         if state is not None:
             _setter("state", state)
@@ -2463,7 +2593,9 @@ class MaintenanceRuleEntity(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -2528,7 +2660,13 @@ class MaintenanceTime(dict):
              type: str,
              end_date: Optional[str] = None,
              start_date: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         _setter("type", type)
         if end_date is not None:
             _setter("end_date", end_date)
@@ -2575,7 +2713,9 @@ class NotificationPolicyAutoCloseAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              durations: Sequence['outputs.NotificationPolicyAutoCloseActionDuration'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("durations", durations)
 
     @property
@@ -2625,7 +2765,13 @@ class NotificationPolicyAutoCloseActionDuration(dict):
              _setter: Callable[[Any, Any], None],
              time_amount: int,
              time_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeAmount' in kwargs:
+            time_amount = kwargs['timeAmount']
+        if 'timeUnit' in kwargs:
+            time_unit = kwargs['timeUnit']
+
         _setter("time_amount", time_amount)
         if time_unit is not None:
             _setter("time_unit", time_unit)
@@ -2683,7 +2829,11 @@ class NotificationPolicyAutoRestartAction(dict):
              _setter: Callable[[Any, Any], None],
              durations: Sequence['outputs.NotificationPolicyAutoRestartActionDuration'],
              max_repeat_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRepeatCount' in kwargs:
+            max_repeat_count = kwargs['maxRepeatCount']
+
         _setter("durations", durations)
         _setter("max_repeat_count", max_repeat_count)
 
@@ -2742,7 +2892,13 @@ class NotificationPolicyAutoRestartActionDuration(dict):
              _setter: Callable[[Any, Any], None],
              time_amount: int,
              time_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeAmount' in kwargs:
+            time_amount = kwargs['timeAmount']
+        if 'timeUnit' in kwargs:
+            time_unit = kwargs['timeUnit']
+
         _setter("time_amount", time_amount)
         if time_unit is not None:
             _setter("time_unit", time_unit)
@@ -2804,7 +2960,11 @@ class NotificationPolicyDeDuplicationAction(dict):
              count: int,
              de_duplication_action_type: str,
              durations: Optional[Sequence['outputs.NotificationPolicyDeDuplicationActionDuration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deDuplicationActionType' in kwargs:
+            de_duplication_action_type = kwargs['deDuplicationActionType']
+
         _setter("count", count)
         _setter("de_duplication_action_type", de_duplication_action_type)
         if durations is not None:
@@ -2873,7 +3033,13 @@ class NotificationPolicyDeDuplicationActionDuration(dict):
              _setter: Callable[[Any, Any], None],
              time_amount: int,
              time_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeAmount' in kwargs:
+            time_amount = kwargs['timeAmount']
+        if 'timeUnit' in kwargs:
+            time_unit = kwargs['timeUnit']
+
         _setter("time_amount", time_amount)
         if time_unit is not None:
             _setter("time_unit", time_unit)
@@ -2943,7 +3109,15 @@ class NotificationPolicyDelayAction(dict):
              durations: Optional[Sequence['outputs.NotificationPolicyDelayActionDuration']] = None,
              until_hour: Optional[int] = None,
              until_minute: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'delayOption' in kwargs:
+            delay_option = kwargs['delayOption']
+        if 'untilHour' in kwargs:
+            until_hour = kwargs['untilHour']
+        if 'untilMinute' in kwargs:
+            until_minute = kwargs['untilMinute']
+
         _setter("delay_option", delay_option)
         if durations is not None:
             _setter("durations", durations)
@@ -3023,7 +3197,13 @@ class NotificationPolicyDelayActionDuration(dict):
              _setter: Callable[[Any, Any], None],
              time_amount: int,
              time_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeAmount' in kwargs:
+            time_amount = kwargs['timeAmount']
+        if 'timeUnit' in kwargs:
+            time_unit = kwargs['timeUnit']
+
         _setter("time_amount", time_amount)
         if time_unit is not None:
             _setter("time_unit", time_unit)
@@ -3064,7 +3244,9 @@ class NotificationPolicyFilter(dict):
              _setter: Callable[[Any, Any], None],
              conditions: Optional[Sequence['outputs.NotificationPolicyFilterCondition']] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if conditions is not None:
             _setter("conditions", conditions)
         if type is not None:
@@ -3141,7 +3323,13 @@ class NotificationPolicyFilterCondition(dict):
              key: Optional[str] = None,
              not_: Optional[bool] = None,
              order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         _setter("field", field)
         _setter("operation", operation)
         if expected_value is not None:
@@ -3242,7 +3430,11 @@ class NotificationPolicyTimeRestriction(dict):
              type: str,
              restriction: Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestriction']] = None,
              restriction_list: Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestrictionList']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restrictionList' in kwargs:
+            restriction_list = kwargs['restrictionList']
+
         _setter("type", type)
         if restriction is not None:
             _setter("restriction", restriction)
@@ -3324,7 +3516,17 @@ class NotificationPolicyTimeRestrictionRestriction(dict):
              end_min: int,
              start_hour: int,
              start_min: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endHour' in kwargs:
+            end_hour = kwargs['endHour']
+        if 'endMin' in kwargs:
+            end_min = kwargs['endMin']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMin' in kwargs:
+            start_min = kwargs['startMin']
+
         _setter("end_hour", end_hour)
         _setter("end_min", end_min)
         _setter("start_hour", start_hour)
@@ -3425,7 +3627,21 @@ class NotificationPolicyTimeRestrictionRestrictionList(dict):
              start_day: str,
              start_hour: int,
              start_min: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDay' in kwargs:
+            end_day = kwargs['endDay']
+        if 'endHour' in kwargs:
+            end_hour = kwargs['endHour']
+        if 'endMin' in kwargs:
+            end_min = kwargs['endMin']
+        if 'startDay' in kwargs:
+            start_day = kwargs['startDay']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMin' in kwargs:
+            start_min = kwargs['startMin']
+
         _setter("end_day", end_day)
         _setter("end_hour", end_hour)
         _setter("end_min", end_min)
@@ -3501,7 +3717,9 @@ class NotificationRuleCriteria(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              conditions: Optional[Sequence['outputs.NotificationRuleCriteriaCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -3577,7 +3795,13 @@ class NotificationRuleCriteriaCondition(dict):
              key: Optional[str] = None,
              not_: Optional[bool] = None,
              order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         _setter("field", field)
         _setter("operation", operation)
         if expected_value is not None:
@@ -3673,7 +3897,11 @@ class NotificationRuleRepeat(dict):
              _setter: Callable[[Any, Any], None],
              loop_after: int,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loopAfter' in kwargs:
+            loop_after = kwargs['loopAfter']
+
         _setter("loop_after", loop_after)
         if enabled is not None:
             _setter("enabled", enabled)
@@ -3711,7 +3939,9 @@ class NotificationRuleSchedule(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -3772,7 +4002,11 @@ class NotificationRuleStep(dict):
              contacts: Sequence['outputs.NotificationRuleStepContact'],
              enabled: Optional[bool] = None,
              send_after: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sendAfter' in kwargs:
+            send_after = kwargs['sendAfter']
+
         _setter("contacts", contacts)
         if enabled is not None:
             _setter("enabled", enabled)
@@ -3823,7 +4057,9 @@ class NotificationRuleStepContact(dict):
              _setter: Callable[[Any, Any], None],
              method: str,
              to: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("method", method)
         _setter("to", to)
 
@@ -3865,7 +4101,9 @@ class NotificationRuleTimeRestriction(dict):
              type: str,
              restriction: Optional[Sequence['outputs.NotificationRuleTimeRestrictionRestriction']] = None,
              restrictions: Optional[Sequence['outputs.NotificationRuleTimeRestrictionRestriction']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if restriction is not None:
             _setter("restriction", restriction)
@@ -3945,7 +4183,21 @@ class NotificationRuleTimeRestrictionRestriction(dict):
              start_day: str,
              start_hour: int,
              start_min: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDay' in kwargs:
+            end_day = kwargs['endDay']
+        if 'endHour' in kwargs:
+            end_hour = kwargs['endHour']
+        if 'endMin' in kwargs:
+            end_min = kwargs['endMin']
+        if 'startDay' in kwargs:
+            start_day = kwargs['startDay']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMin' in kwargs:
+            start_min = kwargs['startMin']
+
         _setter("end_day", end_day)
         _setter("end_hour", end_hour)
         _setter("end_min", end_min)
@@ -4003,7 +4255,9 @@ class ScheduleRotationParticipant(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -4065,7 +4319,11 @@ class ScheduleRotationTimeRestriction(dict):
              type: str,
              restriction: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestriction']] = None,
              restriction_list: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestrictionList']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restrictionList' in kwargs:
+            restriction_list = kwargs['restrictionList']
+
         _setter("type", type)
         if restriction is not None:
             _setter("restriction", restriction)
@@ -4147,7 +4405,17 @@ class ScheduleRotationTimeRestrictionRestriction(dict):
              end_min: int,
              start_hour: int,
              start_min: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endHour' in kwargs:
+            end_hour = kwargs['endHour']
+        if 'endMin' in kwargs:
+            end_min = kwargs['endMin']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMin' in kwargs:
+            start_min = kwargs['startMin']
+
         _setter("end_hour", end_hour)
         _setter("end_min", end_min)
         _setter("start_hour", start_hour)
@@ -4250,7 +4518,21 @@ class ScheduleRotationTimeRestrictionRestrictionList(dict):
              start_day: str,
              start_hour: int,
              start_min: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDay' in kwargs:
+            end_day = kwargs['endDay']
+        if 'endHour' in kwargs:
+            end_hour = kwargs['endHour']
+        if 'endMin' in kwargs:
+            end_min = kwargs['endMin']
+        if 'startDay' in kwargs:
+            start_day = kwargs['startDay']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMin' in kwargs:
+            start_min = kwargs['startMin']
+
         _setter("end_day", end_day)
         _setter("end_hour", end_hour)
         _setter("end_min", end_min)
@@ -4351,7 +4633,13 @@ class ServiceIncidentRuleIncidentRule(dict):
              incident_properties: Sequence['outputs.ServiceIncidentRuleIncidentRuleIncidentProperty'],
              condition_match_type: Optional[str] = None,
              conditions: Optional[Sequence['outputs.ServiceIncidentRuleIncidentRuleCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'incidentProperties' in kwargs:
+            incident_properties = kwargs['incidentProperties']
+        if 'conditionMatchType' in kwargs:
+            condition_match_type = kwargs['conditionMatchType']
+
         _setter("incident_properties", incident_properties)
         if condition_match_type is not None:
             _setter("condition_match_type", condition_match_type)
@@ -4432,7 +4720,13 @@ class ServiceIncidentRuleIncidentRuleCondition(dict):
              expected_value: Optional[str] = None,
              key: Optional[str] = None,
              not_: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         _setter("field", field)
         _setter("operation", operation)
         if expected_value is not None:
@@ -4532,7 +4826,11 @@ class ServiceIncidentRuleIncidentRuleIncidentProperty(dict):
              description: Optional[str] = None,
              details: Optional[Mapping[str, str]] = None,
              tags: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stakeholderProperties' in kwargs:
+            stakeholder_properties = kwargs['stakeholderProperties']
+
         _setter("message", message)
         _setter("priority", priority)
         _setter("stakeholder_properties", stakeholder_properties)
@@ -4615,7 +4913,9 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty(dict):
              message: str,
              description: Optional[str] = None,
              enable: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("message", message)
         if description is not None:
             _setter("description", description)
@@ -4651,7 +4951,8 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty(dict):
 class TeamMember(dict):
     def __init__(__self__, *,
                  id: str,
-                 role: Optional[str] = None):
+                 role: Optional[str] = None,
+                 username: Optional[str] = None):
         """
         :param str id: The UUID for the member to add to this Team.
         :param str role: The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
@@ -4660,16 +4961,22 @@ class TeamMember(dict):
             lambda key, value: pulumi.set(__self__, key, value),
             id=id,
             role=role,
+            username=username,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: str,
              role: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if role is not None:
             _setter("role", role)
+        if username is not None:
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -4686,6 +4993,11 @@ class TeamMember(dict):
         The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
         """
         return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -4707,7 +5019,9 @@ class TeamRoutingRuleCriteria(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              conditions: Optional[Sequence['outputs.TeamRoutingRuleCriteriaCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -4782,7 +5096,13 @@ class TeamRoutingRuleCriteriaCondition(dict):
              key: Optional[str] = None,
              not_: Optional[bool] = None,
              order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         _setter("field", field)
         _setter("operation", operation)
         if expected_value is not None:
@@ -4858,7 +5178,9 @@ class TeamRoutingRuleNotify(dict):
              type: str,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -4919,7 +5241,11 @@ class TeamRoutingRuleTimeRestriction(dict):
              type: str,
              restriction: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']] = None,
              restriction_list: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestrictionList']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restrictionList' in kwargs:
+            restriction_list = kwargs['restrictionList']
+
         _setter("type", type)
         if restriction is not None:
             _setter("restriction", restriction)
@@ -4989,7 +5315,17 @@ class TeamRoutingRuleTimeRestrictionRestriction(dict):
              end_min: int,
              start_hour: int,
              start_min: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endHour' in kwargs:
+            end_hour = kwargs['endHour']
+        if 'endMin' in kwargs:
+            end_min = kwargs['endMin']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMin' in kwargs:
+            start_min = kwargs['startMin']
+
         _setter("end_hour", end_hour)
         _setter("end_min", end_min)
         _setter("start_hour", start_hour)
@@ -5070,7 +5406,21 @@ class TeamRoutingRuleTimeRestrictionRestrictionList(dict):
              start_day: str,
              start_hour: int,
              start_min: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDay' in kwargs:
+            end_day = kwargs['endDay']
+        if 'endHour' in kwargs:
+            end_hour = kwargs['endHour']
+        if 'endMin' in kwargs:
+            end_min = kwargs['endMin']
+        if 'startDay' in kwargs:
+            start_day = kwargs['startDay']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMin' in kwargs:
+            start_min = kwargs['startMin']
+
         _setter("end_day", end_day)
         _setter("end_hour", end_hour)
         _setter("end_min", end_min)
@@ -5133,7 +5483,9 @@ class UserUserAddress(dict):
              line: str,
              state: str,
              zipcode: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("city", city)
         _setter("country", country)
         _setter("line", line)
@@ -5187,7 +5539,15 @@ class GetEscalationRepeatResult(dict):
              count: Optional[int] = None,
              reset_recipient_states: Optional[bool] = None,
              wait_interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'closeAlertAfterAll' in kwargs:
+            close_alert_after_all = kwargs['closeAlertAfterAll']
+        if 'resetRecipientStates' in kwargs:
+            reset_recipient_states = kwargs['resetRecipientStates']
+        if 'waitInterval' in kwargs:
+            wait_interval = kwargs['waitInterval']
+
         if close_alert_after_all is not None:
             _setter("close_alert_after_all", close_alert_after_all)
         if count is not None:
@@ -5239,7 +5599,11 @@ class GetEscalationRuleResult(dict):
              delay: int,
              notify_type: str,
              recipients: Sequence['outputs.GetEscalationRuleRecipientResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notifyType' in kwargs:
+            notify_type = kwargs['notifyType']
+
         _setter("condition", condition)
         _setter("delay", delay)
         _setter("notify_type", notify_type)
@@ -5284,7 +5648,9 @@ class GetEscalationRuleRecipientResult(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -5308,7 +5674,8 @@ class GetEscalationRuleRecipientResult(dict):
 class GetTeamMemberResult(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
-                 role: Optional[str] = None):
+                 role: Optional[str] = None,
+                 username: Optional[str] = None):
         """
         :param str id: The ID of the Opsgenie Team.
         """
@@ -5316,17 +5683,23 @@ class GetTeamMemberResult(dict):
             lambda key, value: pulumi.set(__self__, key, value),
             id=id,
             role=role,
+            username=username,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              role: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if role is not None:
             _setter("role", role)
+        if username is not None:
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -5340,5 +5713,10 @@ class GetTeamMemberResult(dict):
     @pulumi.getter
     def role(self) -> Optional[str]:
         return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        return pulumi.get(self, "username")
 
 

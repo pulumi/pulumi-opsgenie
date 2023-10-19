@@ -166,7 +166,7 @@ export interface EscalationRule {
      */
     notifyType: pulumi.Input<string>;
     /**
-     * Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+     * Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
      */
     recipients: pulumi.Input<pulumi.Input<inputs.EscalationRuleRecipient>[]>;
 }
@@ -229,6 +229,7 @@ export interface GetTeamMember {
      */
     id?: string;
     role?: string;
+    username?: string;
 }
 
 export interface GetTeamMemberArgs {
@@ -237,6 +238,7 @@ export interface GetTeamMemberArgs {
      */
     id?: pulumi.Input<string>;
     role?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 export interface IncidentTemplateStakeholderProperty {
@@ -1065,6 +1067,7 @@ export interface TeamMember {
      * The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
      */
     role?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 export interface TeamRoutingRuleCriteria {
