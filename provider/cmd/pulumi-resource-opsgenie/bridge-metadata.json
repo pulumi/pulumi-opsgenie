@@ -376,7 +376,12 @@
             },
             "opsgenie_service": {
                 "current": "opsgenie:index/service:Service",
-                "majorVersion": 1
+                "majorVersion": 1,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "opsgenie_service_incident_rule": {
                 "current": "opsgenie:index/serviceIncidentRule:ServiceIncidentRule",
