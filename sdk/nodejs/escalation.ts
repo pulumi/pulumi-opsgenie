@@ -11,37 +11,66 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * An escalation with a single rule
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const test = new opsgenie.Escalation("test", {
+ * const _default = new opsgenie.Escalation("default", {rules: [{
+ *     condition: "if-not-acked",
+ *     notifyType: "default",
+ *     delay: 1,
+ *     recipients: [{
+ *         type: "user",
+ *         id: opsgenie_user.test.id,
+ *     }],
+ * }]});
+ * ```
+ *
+ * An escalation with a multiple rules
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as opsgenie from "@pulumi/opsgenie";
+ *
+ * const _default = new opsgenie.Escalation("default", {
  *     description: "test",
  *     ownerTeamId: opsgenie_team.test.id,
+ *     rules: [
+ *         {
+ *             condition: "if-not-acked",
+ *             notifyType: "default",
+ *             delay: 1,
+ *             recipients: [{
+ *                 type: "user",
+ *                 id: opsgenie_user.test.id,
+ *             }],
+ *         },
+ *         {
+ *             condition: "if-not-acked",
+ *             notifyType: "default",
+ *             delay: 1,
+ *             recipients: [{
+ *                 type: "team",
+ *                 id: opsgenie_team.test.id,
+ *             }],
+ *         },
+ *         {
+ *             condition: "if-not-acked",
+ *             notifyType: "default",
+ *             delay: 1,
+ *             recipients: [{
+ *                 type: "schedule",
+ *                 id: opsgenie_schedule.test.id,
+ *             }],
+ *         },
+ *     ],
  *     repeats: [{
- *         closeAlertAfterAll: false,
+ *         waitInterval: 10,
  *         count: 1,
  *         resetRecipientStates: true,
- *         waitInterval: 10,
- *     }],
- *     rules: [{
- *         condition: "if-not-acked",
- *         delay: 1,
- *         notifyType: "default",
- *         recipients: [
- *             {
- *                 id: opsgenie_user.test.id,
- *                 type: "user",
- *             },
- *             {
- *                 id: opsgenie_team.test.id,
- *                 type: "team",
- *             },
- *             {
- *                 id: opsgenie_schedule.test.id,
- *                 type: "schedule",
- *             },
- *         ],
+ *         closeAlertAfterAll: false,
  *     }],
  * });
  * ```
@@ -99,7 +128,7 @@ export class Escalation extends pulumi.CustomResource {
      */
     public readonly repeats!: pulumi.Output<outputs.EscalationRepeat[] | undefined>;
     /**
-     * List of the escalation rules.
+     * List of the escalation rules. See below for how rules are defined.
      */
     public readonly rules!: pulumi.Output<outputs.EscalationRule[]>;
 
@@ -158,7 +187,7 @@ export interface EscalationState {
      */
     repeats?: pulumi.Input<pulumi.Input<inputs.EscalationRepeat>[]>;
     /**
-     * List of the escalation rules.
+     * List of the escalation rules. See below for how rules are defined.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.EscalationRule>[]>;
 }
@@ -184,7 +213,7 @@ export interface EscalationArgs {
      */
     repeats?: pulumi.Input<pulumi.Input<inputs.EscalationRepeat>[]>;
     /**
-     * List of the escalation rules.
+     * List of the escalation rules. See below for how rules are defined.
      */
     rules: pulumi.Input<pulumi.Input<inputs.EscalationRule>[]>;
 }

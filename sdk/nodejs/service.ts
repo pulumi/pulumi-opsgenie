@@ -62,6 +62,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Tags for the service, with a maximum of 20 tags per service.
+     */
+    public readonly tags!: pulumi.Output<string[] | undefined>;
+    /**
      * Team id of the service. This field must not be longer than 512 characters.
      */
     public readonly teamId!: pulumi.Output<string>;
@@ -81,6 +85,7 @@ export class Service extends pulumi.CustomResource {
             const state = argsOrState as ServiceState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["teamId"] = state ? state.teamId : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
@@ -89,6 +94,7 @@ export class Service extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["teamId"] = args ? args.teamId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -109,6 +115,10 @@ export interface ServiceState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Tags for the service, with a maximum of 20 tags per service.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Team id of the service. This field must not be longer than 512 characters.
      */
     teamId?: pulumi.Input<string>;
@@ -126,6 +136,10 @@ export interface ServiceArgs {
      * Name of the service. This field must not be longer than 100 characters.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Tags for the service, with a maximum of 20 tags per service.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Team id of the service. This field must not be longer than 512 characters.
      */

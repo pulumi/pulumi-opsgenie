@@ -56,7 +56,15 @@ class TeamRoutingRuleArgs:
              order: Optional[pulumi.Input[int]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         _setter("notifies", notifies)
         _setter("team_id", team_id)
         if criterias is not None:
@@ -209,7 +217,15 @@ class _TeamRoutingRuleState:
              team_id: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         if criterias is not None:
             _setter("criterias", criterias)
         if is_default is not None:

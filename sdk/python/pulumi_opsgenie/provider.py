@@ -29,7 +29,13 @@ class ProviderArgs:
              _setter: Callable[[Any, Any], None],
              api_key: pulumi.Input[str],
              api_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'apiUrl' in kwargs:
+            api_url = kwargs['apiUrl']
+
         _setter("api_key", api_key)
         if api_url is None:
             api_url = _utilities.get_env('OPSGENIE_API_URL')

@@ -56,7 +56,17 @@ class ScheduleRotationArgs:
              length: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduleId' in kwargs:
+            schedule_id = kwargs['scheduleId']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         _setter("participants", participants)
         _setter("schedule_id", schedule_id)
         _setter("start_date", start_date)
@@ -207,7 +217,17 @@ class _ScheduleRotationState:
              start_date: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'scheduleId' in kwargs:
+            schedule_id = kwargs['scheduleId']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         if end_date is not None:
             _setter("end_date", end_date)
         if length is not None:

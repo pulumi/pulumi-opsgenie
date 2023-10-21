@@ -39,7 +39,17 @@ class CustomRoleArgs:
              disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              extended_role: Optional[pulumi.Input[str]] = None,
              granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'disallowedRights' in kwargs:
+            disallowed_rights = kwargs['disallowedRights']
+        if 'extendedRole' in kwargs:
+            extended_role = kwargs['extendedRole']
+        if 'grantedRights' in kwargs:
+            granted_rights = kwargs['grantedRights']
+
         _setter("role_name", role_name)
         if disallowed_rights is not None:
             _setter("disallowed_rights", disallowed_rights)
@@ -125,7 +135,17 @@ class _CustomRoleState:
              extended_role: Optional[pulumi.Input[str]] = None,
              granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disallowedRights' in kwargs:
+            disallowed_rights = kwargs['disallowedRights']
+        if 'extendedRole' in kwargs:
+            extended_role = kwargs['extendedRole']
+        if 'grantedRights' in kwargs:
+            granted_rights = kwargs['grantedRights']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+
         if disallowed_rights is not None:
             _setter("disallowed_rights", disallowed_rights)
         if extended_role is not None:

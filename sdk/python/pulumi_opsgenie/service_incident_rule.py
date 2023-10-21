@@ -33,7 +33,13 @@ class ServiceIncidentRuleArgs:
              _setter: Callable[[Any, Any], None],
              incident_rules: pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]],
              service_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'incidentRules' in kwargs:
+            incident_rules = kwargs['incidentRules']
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
         _setter("incident_rules", incident_rules)
         _setter("service_id", service_id)
 
@@ -82,7 +88,13 @@ class _ServiceIncidentRuleState:
              _setter: Callable[[Any, Any], None],
              incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]] = None,
              service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'incidentRules' in kwargs:
+            incident_rules = kwargs['incidentRules']
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
         if incident_rules is not None:
             _setter("incident_rules", incident_rules)
         if service_id is not None:

@@ -37,11 +37,19 @@ public final class GetTeamMemberArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.role);
     }
 
+    @Import(name="username")
+    private @Nullable Output<String> username;
+
+    public Optional<Output<String>> username() {
+        return Optional.ofNullable(this.username);
+    }
+
     private GetTeamMemberArgs() {}
 
     private GetTeamMemberArgs(GetTeamMemberArgs $) {
         this.id = $.id;
         this.role = $.role;
+        this.username = $.username;
     }
 
     public static Builder builder() {
@@ -90,6 +98,15 @@ public final class GetTeamMemberArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder role(String role) {
             return role(Output.of(role));
+        }
+
+        public Builder username(@Nullable Output<String> username) {
+            $.username = username;
+            return this;
+        }
+
+        public Builder username(String username) {
+            return username(Output.of(username));
         }
 
         public GetTeamMemberArgs build() {

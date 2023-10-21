@@ -28,7 +28,7 @@ public final class EscalationRule {
      */
     private String notifyType;
     /**
-     * @return Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+     * @return Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
      * 
      */
     private List<EscalationRuleRecipient> recipients;
@@ -56,7 +56,7 @@ public final class EscalationRule {
         return this.notifyType;
     }
     /**
-     * @return Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`.
+     * @return Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
      * 
      */
     public List<EscalationRuleRecipient> recipients() {

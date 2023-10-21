@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages an Escalation within Opsgenie.
  * 
  * ## Example Usage
+ * 
+ * An escalation with a single rule
  * ```java
  * package generated_program;
  * 
@@ -29,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.opsgenie.Escalation;
  * import com.pulumi.opsgenie.EscalationArgs;
- * import com.pulumi.opsgenie.inputs.EscalationRepeatArgs;
  * import com.pulumi.opsgenie.inputs.EscalationRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -44,32 +45,82 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Escalation(&#34;test&#34;, EscalationArgs.builder()        
- *             .description(&#34;test&#34;)
- *             .ownerTeamId(opsgenie_team.test().id())
- *             .repeats(EscalationRepeatArgs.builder()
- *                 .closeAlertAfterAll(false)
- *                 .count(1)
- *                 .resetRecipientStates(true)
- *                 .waitInterval(10)
- *                 .build())
+ *         var default_ = new Escalation(&#34;default&#34;, EscalationArgs.builder()        
  *             .rules(EscalationRuleArgs.builder()
  *                 .condition(&#34;if-not-acked&#34;)
- *                 .delay(1)
  *                 .notifyType(&#34;default&#34;)
- *                 .recipients(                
- *                     EscalationRuleRecipientArgs.builder()
- *                         .id(opsgenie_user.test().id())
+ *                 .delay(1)
+ *                 .recipients(EscalationRuleRecipientArgs.builder()
+ *                     .type(&#34;user&#34;)
+ *                     .id(opsgenie_user.test().id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * An escalation with a multiple rules
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.opsgenie.Escalation;
+ * import com.pulumi.opsgenie.EscalationArgs;
+ * import com.pulumi.opsgenie.inputs.EscalationRuleArgs;
+ * import com.pulumi.opsgenie.inputs.EscalationRepeatArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var default_ = new Escalation(&#34;default&#34;, EscalationArgs.builder()        
+ *             .description(&#34;test&#34;)
+ *             .ownerTeamId(opsgenie_team.test().id())
+ *             .rules(            
+ *                 EscalationRuleArgs.builder()
+ *                     .condition(&#34;if-not-acked&#34;)
+ *                     .notifyType(&#34;default&#34;)
+ *                     .delay(1)
+ *                     .recipients(EscalationRuleRecipientArgs.builder()
  *                         .type(&#34;user&#34;)
- *                         .build(),
- *                     EscalationRuleRecipientArgs.builder()
- *                         .id(opsgenie_team.test().id())
- *                         .type(&#34;team&#34;)
- *                         .build(),
- *                     EscalationRuleRecipientArgs.builder()
- *                         .id(opsgenie_schedule.test().id())
- *                         .type(&#34;schedule&#34;)
+ *                         .id(opsgenie_user.test().id())
  *                         .build())
+ *                     .build(),
+ *                 EscalationRuleArgs.builder()
+ *                     .condition(&#34;if-not-acked&#34;)
+ *                     .notifyType(&#34;default&#34;)
+ *                     .delay(1)
+ *                     .recipients(EscalationRuleRecipientArgs.builder()
+ *                         .type(&#34;team&#34;)
+ *                         .id(opsgenie_team.test().id())
+ *                         .build())
+ *                     .build(),
+ *                 EscalationRuleArgs.builder()
+ *                     .condition(&#34;if-not-acked&#34;)
+ *                     .notifyType(&#34;default&#34;)
+ *                     .delay(1)
+ *                     .recipients(EscalationRuleRecipientArgs.builder()
+ *                         .type(&#34;schedule&#34;)
+ *                         .id(opsgenie_schedule.test().id())
+ *                         .build())
+ *                     .build())
+ *             .repeats(EscalationRepeatArgs.builder()
+ *                 .waitInterval(10)
+ *                 .count(1)
+ *                 .resetRecipientStates(true)
+ *                 .closeAlertAfterAll(false)
  *                 .build())
  *             .build());
  * 
@@ -145,14 +196,14 @@ public class Escalation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.repeats);
     }
     /**
-     * List of the escalation rules.
+     * List of the escalation rules. See below for how rules are defined.
      * 
      */
     @Export(name="rules", type=List.class, parameters={EscalationRule.class})
     private Output<List<EscalationRule>> rules;
 
     /**
-     * @return List of the escalation rules.
+     * @return List of the escalation rules. See below for how rules are defined.
      * 
      */
     public Output<List<EscalationRule>> rules() {

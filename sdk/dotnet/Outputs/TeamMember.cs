@@ -21,15 +21,19 @@ namespace Pulumi.Opsgenie.Outputs
         /// The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
         /// </summary>
         public readonly string? Role;
+        public readonly string? Username;
 
         [OutputConstructor]
         private TeamMember(
             string id,
 
-            string? role)
+            string? role,
+
+            string? username)
         {
             Id = id;
             Role = role;
+            Username = username;
         }
     }
 }

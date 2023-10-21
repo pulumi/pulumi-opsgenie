@@ -11,6 +11,7 @@ import com.pulumi.opsgenie.ServiceArgs;
 import com.pulumi.opsgenie.Utilities;
 import com.pulumi.opsgenie.inputs.ServiceState;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -91,6 +92,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Tags for the service, with a maximum of 20 tags per service.
+     * 
+     */
+    @Export(name="tags", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> tags;
+
+    /**
+     * @return Tags for the service, with a maximum of 20 tags per service.
+     * 
+     */
+    public Output<Optional<List<String>>> tags() {
+        return Codegen.optional(this.tags);
     }
     /**
      * Team id of the service. This field must not be longer than 512 characters.

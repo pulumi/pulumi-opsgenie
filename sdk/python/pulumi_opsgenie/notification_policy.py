@@ -69,7 +69,23 @@ class NotificationPolicyArgs:
              policy_description: Optional[pulumi.Input[str]] = None,
              suppress: Optional[pulumi.Input[bool]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'autoCloseActions' in kwargs:
+            auto_close_actions = kwargs['autoCloseActions']
+        if 'autoRestartActions' in kwargs:
+            auto_restart_actions = kwargs['autoRestartActions']
+        if 'deDuplicationActions' in kwargs:
+            de_duplication_actions = kwargs['deDuplicationActions']
+        if 'delayActions' in kwargs:
+            delay_actions = kwargs['delayActions']
+        if 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+        if 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         _setter("filters", filters)
         _setter("team_id", team_id)
         if auto_close_actions is not None:
@@ -280,7 +296,23 @@ class _NotificationPolicyState:
              suppress: Optional[pulumi.Input[bool]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoCloseActions' in kwargs:
+            auto_close_actions = kwargs['autoCloseActions']
+        if 'autoRestartActions' in kwargs:
+            auto_restart_actions = kwargs['autoRestartActions']
+        if 'deDuplicationActions' in kwargs:
+            de_duplication_actions = kwargs['deDuplicationActions']
+        if 'delayActions' in kwargs:
+            delay_actions = kwargs['delayActions']
+        if 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         if auto_close_actions is not None:
             _setter("auto_close_actions", auto_close_actions)
         if auto_restart_actions is not None:

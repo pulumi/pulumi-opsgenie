@@ -59,7 +59,19 @@ class HeartbeatArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              owner_team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+        if 'alertMessage' in kwargs:
+            alert_message = kwargs['alertMessage']
+        if 'alertPriority' in kwargs:
+            alert_priority = kwargs['alertPriority']
+        if 'alertTags' in kwargs:
+            alert_tags = kwargs['alertTags']
+        if 'ownerTeamId' in kwargs:
+            owner_team_id = kwargs['ownerTeamId']
+
         _setter("enabled", enabled)
         _setter("interval", interval)
         _setter("interval_unit", interval_unit)
@@ -233,7 +245,19 @@ class _HeartbeatState:
              interval_unit: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              owner_team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertMessage' in kwargs:
+            alert_message = kwargs['alertMessage']
+        if 'alertPriority' in kwargs:
+            alert_priority = kwargs['alertPriority']
+        if 'alertTags' in kwargs:
+            alert_tags = kwargs['alertTags']
+        if 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+        if 'ownerTeamId' in kwargs:
+            owner_team_id = kwargs['ownerTeamId']
+
         if alert_message is not None:
             _setter("alert_message", alert_message)
         if alert_priority is not None:

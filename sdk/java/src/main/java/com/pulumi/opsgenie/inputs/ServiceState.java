@@ -6,6 +6,7 @@ package com.pulumi.opsgenie.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,6 +47,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Tags for the service, with a maximum of 20 tags per service.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<List<String>> tags;
+
+    /**
+     * @return Tags for the service, with a maximum of 20 tags per service.
+     * 
+     */
+    public Optional<Output<List<String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
      * Team id of the service. This field must not be longer than 512 characters.
      * 
      */
@@ -65,6 +81,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     private ServiceState(ServiceState $) {
         this.description = $.description;
         this.name = $.name;
+        this.tags = $.tags;
         this.teamId = $.teamId;
     }
 
@@ -126,6 +143,37 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param tags Tags for the service, with a maximum of 20 tags per service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<List<String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Tags for the service, with a maximum of 20 tags per service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(List<String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tags Tags for the service, with a maximum of 20 tags per service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
         }
 
         /**

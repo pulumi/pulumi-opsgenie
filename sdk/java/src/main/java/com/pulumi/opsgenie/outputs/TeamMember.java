@@ -21,6 +21,7 @@ public final class TeamMember {
      * 
      */
     private @Nullable String role;
+    private @Nullable String username;
 
     private TeamMember() {}
     /**
@@ -37,6 +38,9 @@ public final class TeamMember {
     public Optional<String> role() {
         return Optional.ofNullable(this.role);
     }
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +53,13 @@ public final class TeamMember {
     public static final class Builder {
         private String id;
         private @Nullable String role;
+        private @Nullable String username;
         public Builder() {}
         public Builder(TeamMember defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.role = defaults.role;
+    	      this.username = defaults.username;
         }
 
         @CustomType.Setter
@@ -66,10 +72,16 @@ public final class TeamMember {
             this.role = role;
             return this;
         }
+        @CustomType.Setter
+        public Builder username(@Nullable String username) {
+            this.username = username;
+            return this;
+        }
         public TeamMember build() {
             final var o = new TeamMember();
             o.id = id;
             o.role = role;
+            o.username = username;
             return o;
         }
     }

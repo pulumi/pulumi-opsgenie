@@ -44,7 +44,13 @@ class IntegrationActionArgs:
              closes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]] = None,
              creates: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]] = None,
              ignores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+        if 'addNotes' in kwargs:
+            add_notes = kwargs['addNotes']
+
         _setter("integration_id", integration_id)
         if acknowledges is not None:
             _setter("acknowledges", acknowledges)
@@ -146,7 +152,13 @@ class _IntegrationActionState:
              creates: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]] = None,
              ignores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None,
              integration_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addNotes' in kwargs:
+            add_notes = kwargs['addNotes']
+        if 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+
         if acknowledges is not None:
             _setter("acknowledges", acknowledges)
         if add_notes is not None:

@@ -21,6 +21,9 @@ namespace Pulumi.Opsgenie.Inputs
         [Input("role")]
         public Input<string>? Role { get; set; }
 
+        [Input("username")]
+        public Input<string>? Username { get; set; }
+
         public GetTeamMemberInputArgs()
         {
         }

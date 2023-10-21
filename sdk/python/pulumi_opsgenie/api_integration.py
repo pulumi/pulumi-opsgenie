@@ -64,7 +64,19 @@ class ApiIntegrationArgs:
              suppress_notifications: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
              webhook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowWriteAccess' in kwargs:
+            allow_write_access = kwargs['allowWriteAccess']
+        if 'ignoreRespondersFromPayload' in kwargs:
+            ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
+        if 'ownerTeamId' in kwargs:
+            owner_team_id = kwargs['ownerTeamId']
+        if 'suppressNotifications' in kwargs:
+            suppress_notifications = kwargs['suppressNotifications']
+        if 'webhookUrl' in kwargs:
+            webhook_url = kwargs['webhookUrl']
+
         if allow_write_access is not None:
             _setter("allow_write_access", allow_write_access)
         if enabled is not None:
@@ -259,7 +271,21 @@ class _ApiIntegrationState:
              suppress_notifications: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
              webhook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowWriteAccess' in kwargs:
+            allow_write_access = kwargs['allowWriteAccess']
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'ignoreRespondersFromPayload' in kwargs:
+            ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
+        if 'ownerTeamId' in kwargs:
+            owner_team_id = kwargs['ownerTeamId']
+        if 'suppressNotifications' in kwargs:
+            suppress_notifications = kwargs['suppressNotifications']
+        if 'webhookUrl' in kwargs:
+            webhook_url = kwargs['webhookUrl']
+
         if allow_write_access is not None:
             _setter("allow_write_access", allow_write_access)
         if api_key is not None:

@@ -55,7 +55,13 @@ class IncidentTemplateArgs:
              impacted_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stakeholderProperties' in kwargs:
+            stakeholder_properties = kwargs['stakeholderProperties']
+        if 'impactedServices' in kwargs:
+            impacted_services = kwargs['impactedServices']
+
         _setter("message", message)
         _setter("priority", priority)
         _setter("stakeholder_properties", stakeholder_properties)
@@ -203,7 +209,13 @@ class _IncidentTemplateState:
              priority: Optional[pulumi.Input[str]] = None,
              stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentTemplateStakeholderPropertyArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'impactedServices' in kwargs:
+            impacted_services = kwargs['impactedServices']
+        if 'stakeholderProperties' in kwargs:
+            stakeholder_properties = kwargs['stakeholderProperties']
+
         if description is not None:
             _setter("description", description)
         if details is not None:

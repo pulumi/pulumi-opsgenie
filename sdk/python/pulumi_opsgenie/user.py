@@ -61,7 +61,17 @@ class UserArgs:
              timezone: Optional[pulumi.Input[str]] = None,
              user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['UserUserAddressArgs']]]] = None,
              user_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fullName' in kwargs:
+            full_name = kwargs['fullName']
+        if 'skypeUsername' in kwargs:
+            skype_username = kwargs['skypeUsername']
+        if 'userAddresses' in kwargs:
+            user_addresses = kwargs['userAddresses']
+        if 'userDetails' in kwargs:
+            user_details = kwargs['userDetails']
+
         _setter("full_name", full_name)
         _setter("role", role)
         _setter("username", username)
@@ -235,7 +245,17 @@ class _UserState:
              user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['UserUserAddressArgs']]]] = None,
              user_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fullName' in kwargs:
+            full_name = kwargs['fullName']
+        if 'skypeUsername' in kwargs:
+            skype_username = kwargs['skypeUsername']
+        if 'userAddresses' in kwargs:
+            user_addresses = kwargs['userAddresses']
+        if 'userDetails' in kwargs:
+            user_details = kwargs['userDetails']
+
         if full_name is not None:
             _setter("full_name", full_name)
         if locale is not None:

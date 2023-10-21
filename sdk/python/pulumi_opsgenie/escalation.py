@@ -23,7 +23,7 @@ class EscalationArgs:
                  repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None):
         """
         The set of arguments for constructing a Escalation resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]] rules: List of the escalation rules.
+        :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]] rules: List of the escalation rules. See below for how rules are defined.
         :param pulumi.Input[str] description: Description of the escalation.
         :param pulumi.Input[str] name: Name of the escalation.
         :param pulumi.Input[str] owner_team_id: Owner team id of the escalation.
@@ -45,7 +45,11 @@ class EscalationArgs:
              name: Optional[pulumi.Input[str]] = None,
              owner_team_id: Optional[pulumi.Input[str]] = None,
              repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ownerTeamId' in kwargs:
+            owner_team_id = kwargs['ownerTeamId']
+
         _setter("rules", rules)
         if description is not None:
             _setter("description", description)
@@ -60,7 +64,7 @@ class EscalationArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]:
         """
-        List of the escalation rules.
+        List of the escalation rules. See below for how rules are defined.
         """
         return pulumi.get(self, "rules")
 
@@ -131,7 +135,7 @@ class _EscalationState:
         :param pulumi.Input[str] name: Name of the escalation.
         :param pulumi.Input[str] owner_team_id: Owner team id of the escalation.
         :param pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
-        :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]] rules: List of the escalation rules.
+        :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]] rules: List of the escalation rules. See below for how rules are defined.
         """
         _EscalationState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -149,7 +153,11 @@ class _EscalationState:
              owner_team_id: Optional[pulumi.Input[str]] = None,
              repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ownerTeamId' in kwargs:
+            owner_team_id = kwargs['ownerTeamId']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -213,7 +221,7 @@ class _EscalationState:
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]]:
         """
-        List of the escalation rules.
+        List of the escalation rules. See below for how rules are defined.
         """
         return pulumi.get(self, "rules")
 
@@ -238,37 +246,66 @@ class Escalation(pulumi.CustomResource):
 
         ## Example Usage
 
+        An escalation with a single rule
+
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test = opsgenie.Escalation("test",
+        default = opsgenie.Escalation("default", rules=[opsgenie.EscalationRuleArgs(
+            condition="if-not-acked",
+            notify_type="default",
+            delay=1,
+            recipients=[opsgenie.EscalationRuleRecipientArgs(
+                type="user",
+                id=opsgenie_user["test"]["id"],
+            )],
+        )])
+        ```
+
+        An escalation with a multiple rules
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        default = opsgenie.Escalation("default",
             description="test",
             owner_team_id=opsgenie_team["test"]["id"],
+            rules=[
+                opsgenie.EscalationRuleArgs(
+                    condition="if-not-acked",
+                    notify_type="default",
+                    delay=1,
+                    recipients=[opsgenie.EscalationRuleRecipientArgs(
+                        type="user",
+                        id=opsgenie_user["test"]["id"],
+                    )],
+                ),
+                opsgenie.EscalationRuleArgs(
+                    condition="if-not-acked",
+                    notify_type="default",
+                    delay=1,
+                    recipients=[opsgenie.EscalationRuleRecipientArgs(
+                        type="team",
+                        id=opsgenie_team["test"]["id"],
+                    )],
+                ),
+                opsgenie.EscalationRuleArgs(
+                    condition="if-not-acked",
+                    notify_type="default",
+                    delay=1,
+                    recipients=[opsgenie.EscalationRuleRecipientArgs(
+                        type="schedule",
+                        id=opsgenie_schedule["test"]["id"],
+                    )],
+                ),
+            ],
             repeats=[opsgenie.EscalationRepeatArgs(
-                close_alert_after_all=False,
+                wait_interval=10,
                 count=1,
                 reset_recipient_states=True,
-                wait_interval=10,
-            )],
-            rules=[opsgenie.EscalationRuleArgs(
-                condition="if-not-acked",
-                delay=1,
-                notify_type="default",
-                recipients=[
-                    opsgenie.EscalationRuleRecipientArgs(
-                        id=opsgenie_user["test"]["id"],
-                        type="user",
-                    ),
-                    opsgenie.EscalationRuleRecipientArgs(
-                        id=opsgenie_team["test"]["id"],
-                        type="team",
-                    ),
-                    opsgenie.EscalationRuleRecipientArgs(
-                        id=opsgenie_schedule["test"]["id"],
-                        type="schedule",
-                    ),
-                ],
+                close_alert_after_all=False,
             )])
         ```
 
@@ -286,7 +323,7 @@ class Escalation(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the escalation.
         :param pulumi.Input[str] owner_team_id: Owner team id of the escalation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationRepeatArgs']]]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationRuleArgs']]]] rules: List of the escalation rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationRuleArgs']]]] rules: List of the escalation rules. See below for how rules are defined.
         """
         ...
     @overload
@@ -299,37 +336,66 @@ class Escalation(pulumi.CustomResource):
 
         ## Example Usage
 
+        An escalation with a single rule
+
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test = opsgenie.Escalation("test",
+        default = opsgenie.Escalation("default", rules=[opsgenie.EscalationRuleArgs(
+            condition="if-not-acked",
+            notify_type="default",
+            delay=1,
+            recipients=[opsgenie.EscalationRuleRecipientArgs(
+                type="user",
+                id=opsgenie_user["test"]["id"],
+            )],
+        )])
+        ```
+
+        An escalation with a multiple rules
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        default = opsgenie.Escalation("default",
             description="test",
             owner_team_id=opsgenie_team["test"]["id"],
+            rules=[
+                opsgenie.EscalationRuleArgs(
+                    condition="if-not-acked",
+                    notify_type="default",
+                    delay=1,
+                    recipients=[opsgenie.EscalationRuleRecipientArgs(
+                        type="user",
+                        id=opsgenie_user["test"]["id"],
+                    )],
+                ),
+                opsgenie.EscalationRuleArgs(
+                    condition="if-not-acked",
+                    notify_type="default",
+                    delay=1,
+                    recipients=[opsgenie.EscalationRuleRecipientArgs(
+                        type="team",
+                        id=opsgenie_team["test"]["id"],
+                    )],
+                ),
+                opsgenie.EscalationRuleArgs(
+                    condition="if-not-acked",
+                    notify_type="default",
+                    delay=1,
+                    recipients=[opsgenie.EscalationRuleRecipientArgs(
+                        type="schedule",
+                        id=opsgenie_schedule["test"]["id"],
+                    )],
+                ),
+            ],
             repeats=[opsgenie.EscalationRepeatArgs(
-                close_alert_after_all=False,
+                wait_interval=10,
                 count=1,
                 reset_recipient_states=True,
-                wait_interval=10,
-            )],
-            rules=[opsgenie.EscalationRuleArgs(
-                condition="if-not-acked",
-                delay=1,
-                notify_type="default",
-                recipients=[
-                    opsgenie.EscalationRuleRecipientArgs(
-                        id=opsgenie_user["test"]["id"],
-                        type="user",
-                    ),
-                    opsgenie.EscalationRuleRecipientArgs(
-                        id=opsgenie_team["test"]["id"],
-                        type="team",
-                    ),
-                    opsgenie.EscalationRuleRecipientArgs(
-                        id=opsgenie_schedule["test"]["id"],
-                        type="schedule",
-                    ),
-                ],
+                close_alert_after_all=False,
             )])
         ```
 
@@ -407,7 +473,7 @@ class Escalation(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the escalation.
         :param pulumi.Input[str] owner_team_id: Owner team id of the escalation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationRepeatArgs']]]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationRuleArgs']]]] rules: List of the escalation rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationRuleArgs']]]] rules: List of the escalation rules. See below for how rules are defined.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -456,7 +522,7 @@ class Escalation(pulumi.CustomResource):
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.EscalationRule']]:
         """
-        List of the escalation rules.
+        List of the escalation rules. See below for how rules are defined.
         """
         return pulumi.get(self, "rules")
 
