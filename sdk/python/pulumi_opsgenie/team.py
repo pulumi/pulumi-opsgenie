@@ -45,11 +45,11 @@ class TeamArgs:
              ignore_members: Optional[pulumi.Input[bool]] = None,
              members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deleteDefaultResources' in kwargs:
+        if delete_default_resources is None and 'deleteDefaultResources' in kwargs:
             delete_default_resources = kwargs['deleteDefaultResources']
-        if 'ignoreMembers' in kwargs:
+        if ignore_members is None and 'ignoreMembers' in kwargs:
             ignore_members = kwargs['ignoreMembers']
 
         if delete_default_resources is not None:
@@ -156,11 +156,11 @@ class _TeamState:
              ignore_members: Optional[pulumi.Input[bool]] = None,
              members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deleteDefaultResources' in kwargs:
+        if delete_default_resources is None and 'deleteDefaultResources' in kwargs:
             delete_default_resources = kwargs['deleteDefaultResources']
-        if 'ignoreMembers' in kwargs:
+        if ignore_members is None and 'ignoreMembers' in kwargs:
             ignore_members = kwargs['ignoreMembers']
 
         if delete_default_resources is not None:

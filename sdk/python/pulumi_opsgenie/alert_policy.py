@@ -85,7 +85,7 @@ class AlertPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             message: pulumi.Input[str],
+             message: Optional[pulumi.Input[str]] = None,
              actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              alert_description: Optional[pulumi.Input[str]] = None,
              alias: Optional[pulumi.Input[str]] = None,
@@ -105,25 +105,27 @@ class AlertPolicyArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alertDescription' in kwargs:
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if alert_description is None and 'alertDescription' in kwargs:
             alert_description = kwargs['alertDescription']
-        if 'continuePolicy' in kwargs:
+        if continue_policy is None and 'continuePolicy' in kwargs:
             continue_policy = kwargs['continuePolicy']
-        if 'ignoreOriginalActions' in kwargs:
+        if ignore_original_actions is None and 'ignoreOriginalActions' in kwargs:
             ignore_original_actions = kwargs['ignoreOriginalActions']
-        if 'ignoreOriginalDetails' in kwargs:
+        if ignore_original_details is None and 'ignoreOriginalDetails' in kwargs:
             ignore_original_details = kwargs['ignoreOriginalDetails']
-        if 'ignoreOriginalResponders' in kwargs:
+        if ignore_original_responders is None and 'ignoreOriginalResponders' in kwargs:
             ignore_original_responders = kwargs['ignoreOriginalResponders']
-        if 'ignoreOriginalTags' in kwargs:
+        if ignore_original_tags is None and 'ignoreOriginalTags' in kwargs:
             ignore_original_tags = kwargs['ignoreOriginalTags']
-        if 'policyDescription' in kwargs:
+        if policy_description is None and 'policyDescription' in kwargs:
             policy_description = kwargs['policyDescription']
-        if 'teamId' in kwargs:
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
-        if 'timeRestrictions' in kwargs:
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
             time_restrictions = kwargs['timeRestrictions']
 
         _setter("message", message)
@@ -499,25 +501,25 @@ class _AlertPolicyState:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alertDescription' in kwargs:
+        if alert_description is None and 'alertDescription' in kwargs:
             alert_description = kwargs['alertDescription']
-        if 'continuePolicy' in kwargs:
+        if continue_policy is None and 'continuePolicy' in kwargs:
             continue_policy = kwargs['continuePolicy']
-        if 'ignoreOriginalActions' in kwargs:
+        if ignore_original_actions is None and 'ignoreOriginalActions' in kwargs:
             ignore_original_actions = kwargs['ignoreOriginalActions']
-        if 'ignoreOriginalDetails' in kwargs:
+        if ignore_original_details is None and 'ignoreOriginalDetails' in kwargs:
             ignore_original_details = kwargs['ignoreOriginalDetails']
-        if 'ignoreOriginalResponders' in kwargs:
+        if ignore_original_responders is None and 'ignoreOriginalResponders' in kwargs:
             ignore_original_responders = kwargs['ignoreOriginalResponders']
-        if 'ignoreOriginalTags' in kwargs:
+        if ignore_original_tags is None and 'ignoreOriginalTags' in kwargs:
             ignore_original_tags = kwargs['ignoreOriginalTags']
-        if 'policyDescription' in kwargs:
+        if policy_description is None and 'policyDescription' in kwargs:
             policy_description = kwargs['policyDescription']
-        if 'teamId' in kwargs:
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
-        if 'timeRestrictions' in kwargs:
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
             time_restrictions = kwargs['timeRestrictions']
 
         if actions is not None:

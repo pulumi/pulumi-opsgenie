@@ -40,14 +40,16 @@ class EscalationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rules: pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]],
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              owner_team_id: Optional[pulumi.Input[str]] = None,
              repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ownerTeamId' in kwargs:
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if owner_team_id is None and 'ownerTeamId' in kwargs:
             owner_team_id = kwargs['ownerTeamId']
 
         _setter("rules", rules)
@@ -153,9 +155,9 @@ class _EscalationState:
              owner_team_id: Optional[pulumi.Input[str]] = None,
              repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ownerTeamId' in kwargs:
+        if owner_team_id is None and 'ownerTeamId' in kwargs:
             owner_team_id = kwargs['ownerTeamId']
 
         if description is not None:

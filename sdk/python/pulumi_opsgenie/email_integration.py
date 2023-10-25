@@ -45,22 +45,24 @@ class EmailIntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email_username: pulumi.Input[str],
+             email_username: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              owner_team_id: Optional[pulumi.Input[str]] = None,
              responders: Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]] = None,
              suppress_notifications: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'emailUsername' in kwargs:
+        if email_username is None and 'emailUsername' in kwargs:
             email_username = kwargs['emailUsername']
-        if 'ignoreRespondersFromPayload' in kwargs:
+        if email_username is None:
+            raise TypeError("Missing 'email_username' argument")
+        if ignore_responders_from_payload is None and 'ignoreRespondersFromPayload' in kwargs:
             ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
-        if 'ownerTeamId' in kwargs:
+        if owner_team_id is None and 'ownerTeamId' in kwargs:
             owner_team_id = kwargs['ownerTeamId']
-        if 'suppressNotifications' in kwargs:
+        if suppress_notifications is None and 'suppressNotifications' in kwargs:
             suppress_notifications = kwargs['suppressNotifications']
 
         _setter("email_username", email_username)
@@ -198,15 +200,15 @@ class _EmailIntegrationState:
              owner_team_id: Optional[pulumi.Input[str]] = None,
              responders: Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]] = None,
              suppress_notifications: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'emailUsername' in kwargs:
+        if email_username is None and 'emailUsername' in kwargs:
             email_username = kwargs['emailUsername']
-        if 'ignoreRespondersFromPayload' in kwargs:
+        if ignore_responders_from_payload is None and 'ignoreRespondersFromPayload' in kwargs:
             ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
-        if 'ownerTeamId' in kwargs:
+        if owner_team_id is None and 'ownerTeamId' in kwargs:
             owner_team_id = kwargs['ownerTeamId']
-        if 'suppressNotifications' in kwargs:
+        if suppress_notifications is None and 'suppressNotifications' in kwargs:
             suppress_notifications = kwargs['suppressNotifications']
 
         if email_username is not None:

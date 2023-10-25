@@ -47,19 +47,25 @@ class IncidentTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             message: pulumi.Input[str],
-             priority: pulumi.Input[str],
-             stakeholder_properties: pulumi.Input[Sequence[pulumi.Input['IncidentTemplateStakeholderPropertyArgs']]],
+             message: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentTemplateStakeholderPropertyArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              impacted_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'stakeholderProperties' in kwargs:
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if stakeholder_properties is None and 'stakeholderProperties' in kwargs:
             stakeholder_properties = kwargs['stakeholderProperties']
-        if 'impactedServices' in kwargs:
+        if stakeholder_properties is None:
+            raise TypeError("Missing 'stakeholder_properties' argument")
+        if impacted_services is None and 'impactedServices' in kwargs:
             impacted_services = kwargs['impactedServices']
 
         _setter("message", message)
@@ -209,11 +215,11 @@ class _IncidentTemplateState:
              priority: Optional[pulumi.Input[str]] = None,
              stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentTemplateStakeholderPropertyArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'impactedServices' in kwargs:
+        if impacted_services is None and 'impactedServices' in kwargs:
             impacted_services = kwargs['impactedServices']
-        if 'stakeholderProperties' in kwargs:
+        if stakeholder_properties is None and 'stakeholderProperties' in kwargs:
             stakeholder_properties = kwargs['stakeholderProperties']
 
         if description is not None:

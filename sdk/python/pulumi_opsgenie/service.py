@@ -35,14 +35,16 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             team_id: pulumi.Input[str],
+             team_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'teamId' in kwargs:
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
 
         _setter("team_id", team_id)
         if description is not None:
@@ -129,9 +131,9 @@ class _ServiceState:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'teamId' in kwargs:
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
 
         if description is not None:

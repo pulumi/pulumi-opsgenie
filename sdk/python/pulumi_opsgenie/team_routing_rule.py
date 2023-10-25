@@ -48,21 +48,25 @@ class TeamRoutingRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             notifies: pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]],
-             team_id: pulumi.Input[str],
+             notifies: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
              criterias: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]]] = None,
              is_default: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              order: Optional[pulumi.Input[int]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'teamId' in kwargs:
+        if notifies is None:
+            raise TypeError("Missing 'notifies' argument")
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
-        if 'isDefault' in kwargs:
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'timeRestrictions' in kwargs:
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
             time_restrictions = kwargs['timeRestrictions']
 
         _setter("notifies", notifies)
@@ -217,13 +221,13 @@ class _TeamRoutingRuleState:
              team_id: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'teamId' in kwargs:
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
-        if 'timeRestrictions' in kwargs:
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
             time_restrictions = kwargs['timeRestrictions']
 
         if criterias is not None:

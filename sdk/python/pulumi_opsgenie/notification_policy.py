@@ -58,8 +58,8 @@ class NotificationPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filters: pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]],
-             team_id: pulumi.Input[str],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
              auto_close_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionArgs']]]] = None,
              auto_restart_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionArgs']]]] = None,
              de_duplication_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionArgs']]]] = None,
@@ -69,21 +69,25 @@ class NotificationPolicyArgs:
              policy_description: Optional[pulumi.Input[str]] = None,
              suppress: Optional[pulumi.Input[bool]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'teamId' in kwargs:
+        if filters is None:
+            raise TypeError("Missing 'filters' argument")
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
-        if 'autoCloseActions' in kwargs:
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if auto_close_actions is None and 'autoCloseActions' in kwargs:
             auto_close_actions = kwargs['autoCloseActions']
-        if 'autoRestartActions' in kwargs:
+        if auto_restart_actions is None and 'autoRestartActions' in kwargs:
             auto_restart_actions = kwargs['autoRestartActions']
-        if 'deDuplicationActions' in kwargs:
+        if de_duplication_actions is None and 'deDuplicationActions' in kwargs:
             de_duplication_actions = kwargs['deDuplicationActions']
-        if 'delayActions' in kwargs:
+        if delay_actions is None and 'delayActions' in kwargs:
             delay_actions = kwargs['delayActions']
-        if 'policyDescription' in kwargs:
+        if policy_description is None and 'policyDescription' in kwargs:
             policy_description = kwargs['policyDescription']
-        if 'timeRestrictions' in kwargs:
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
             time_restrictions = kwargs['timeRestrictions']
 
         _setter("filters", filters)
@@ -296,21 +300,21 @@ class _NotificationPolicyState:
              suppress: Optional[pulumi.Input[bool]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoCloseActions' in kwargs:
+        if auto_close_actions is None and 'autoCloseActions' in kwargs:
             auto_close_actions = kwargs['autoCloseActions']
-        if 'autoRestartActions' in kwargs:
+        if auto_restart_actions is None and 'autoRestartActions' in kwargs:
             auto_restart_actions = kwargs['autoRestartActions']
-        if 'deDuplicationActions' in kwargs:
+        if de_duplication_actions is None and 'deDuplicationActions' in kwargs:
             de_duplication_actions = kwargs['deDuplicationActions']
-        if 'delayActions' in kwargs:
+        if delay_actions is None and 'delayActions' in kwargs:
             delay_actions = kwargs['delayActions']
-        if 'policyDescription' in kwargs:
+        if policy_description is None and 'policyDescription' in kwargs:
             policy_description = kwargs['policyDescription']
-        if 'teamId' in kwargs:
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
-        if 'timeRestrictions' in kwargs:
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
             time_restrictions = kwargs['timeRestrictions']
 
         if auto_close_actions is not None:

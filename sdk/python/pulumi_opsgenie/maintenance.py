@@ -34,11 +34,15 @@ class MaintenanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             rules: pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]],
+             description: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]]] = None,
              times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
 
         _setter("description", description)
         _setter("rules", rules)
@@ -106,7 +110,7 @@ class _MaintenanceState:
              description: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]]] = None,
              times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if description is not None:

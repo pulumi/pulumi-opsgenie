@@ -50,26 +50,32 @@ class HeartbeatArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             interval: pulumi.Input[int],
-             interval_unit: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             interval_unit: Optional[pulumi.Input[str]] = None,
              alert_message: Optional[pulumi.Input[str]] = None,
              alert_priority: Optional[pulumi.Input[str]] = None,
              alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              owner_team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'intervalUnit' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if interval_unit is None and 'intervalUnit' in kwargs:
             interval_unit = kwargs['intervalUnit']
-        if 'alertMessage' in kwargs:
+        if interval_unit is None:
+            raise TypeError("Missing 'interval_unit' argument")
+        if alert_message is None and 'alertMessage' in kwargs:
             alert_message = kwargs['alertMessage']
-        if 'alertPriority' in kwargs:
+        if alert_priority is None and 'alertPriority' in kwargs:
             alert_priority = kwargs['alertPriority']
-        if 'alertTags' in kwargs:
+        if alert_tags is None and 'alertTags' in kwargs:
             alert_tags = kwargs['alertTags']
-        if 'ownerTeamId' in kwargs:
+        if owner_team_id is None and 'ownerTeamId' in kwargs:
             owner_team_id = kwargs['ownerTeamId']
 
         _setter("enabled", enabled)
@@ -245,17 +251,17 @@ class _HeartbeatState:
              interval_unit: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              owner_team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alertMessage' in kwargs:
+        if alert_message is None and 'alertMessage' in kwargs:
             alert_message = kwargs['alertMessage']
-        if 'alertPriority' in kwargs:
+        if alert_priority is None and 'alertPriority' in kwargs:
             alert_priority = kwargs['alertPriority']
-        if 'alertTags' in kwargs:
+        if alert_tags is None and 'alertTags' in kwargs:
             alert_tags = kwargs['alertTags']
-        if 'intervalUnit' in kwargs:
+        if interval_unit is None and 'intervalUnit' in kwargs:
             interval_unit = kwargs['intervalUnit']
-        if 'ownerTeamId' in kwargs:
+        if owner_team_id is None and 'ownerTeamId' in kwargs:
             owner_team_id = kwargs['ownerTeamId']
 
         if alert_message is not None:
