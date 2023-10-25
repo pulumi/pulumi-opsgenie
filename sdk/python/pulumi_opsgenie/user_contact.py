@@ -35,12 +35,18 @@ class UserContactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             method: pulumi.Input[str],
-             to: pulumi.Input[str],
-             username: pulumi.Input[str],
+             method: Optional[pulumi.Input[str]] = None,
+             to: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if method is None:
+            raise TypeError("Missing 'method' argument")
+        if to is None:
+            raise TypeError("Missing 'to' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("method", method)
         _setter("to", to)
@@ -125,7 +131,7 @@ class _UserContactState:
              method: Optional[pulumi.Input[str]] = None,
              to: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if enabled is not None:

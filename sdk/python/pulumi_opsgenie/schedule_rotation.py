@@ -48,23 +48,31 @@ class ScheduleRotationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             participants: pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]],
-             schedule_id: pulumi.Input[str],
-             start_date: pulumi.Input[str],
-             type: pulumi.Input[str],
+             participants: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]]] = None,
+             schedule_id: Optional[pulumi.Input[str]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              end_date: Optional[pulumi.Input[str]] = None,
              length: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'scheduleId' in kwargs:
+        if participants is None:
+            raise TypeError("Missing 'participants' argument")
+        if schedule_id is None and 'scheduleId' in kwargs:
             schedule_id = kwargs['scheduleId']
-        if 'startDate' in kwargs:
+        if schedule_id is None:
+            raise TypeError("Missing 'schedule_id' argument")
+        if start_date is None and 'startDate' in kwargs:
             start_date = kwargs['startDate']
-        if 'endDate' in kwargs:
+        if start_date is None:
+            raise TypeError("Missing 'start_date' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if end_date is None and 'endDate' in kwargs:
             end_date = kwargs['endDate']
-        if 'timeRestrictions' in kwargs:
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
             time_restrictions = kwargs['timeRestrictions']
 
         _setter("participants", participants)
@@ -217,15 +225,15 @@ class _ScheduleRotationState:
              start_date: Optional[pulumi.Input[str]] = None,
              time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endDate' in kwargs:
+        if end_date is None and 'endDate' in kwargs:
             end_date = kwargs['endDate']
-        if 'scheduleId' in kwargs:
+        if schedule_id is None and 'scheduleId' in kwargs:
             schedule_id = kwargs['scheduleId']
-        if 'startDate' in kwargs:
+        if start_date is None and 'startDate' in kwargs:
             start_date = kwargs['startDate']
-        if 'timeRestrictions' in kwargs:
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
             time_restrictions = kwargs['timeRestrictions']
 
         if end_date is not None:

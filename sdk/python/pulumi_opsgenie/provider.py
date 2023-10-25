@@ -27,13 +27,15 @@ class ProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
+             api_key: Optional[pulumi.Input[str]] = None,
              api_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'apiUrl' in kwargs:
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if api_url is None and 'apiUrl' in kwargs:
             api_url = kwargs['apiUrl']
 
         _setter("api_key", api_key)

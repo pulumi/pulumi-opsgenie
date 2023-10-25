@@ -38,17 +38,19 @@ class IntegrationActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             integration_id: pulumi.Input[str],
+             integration_id: Optional[pulumi.Input[str]] = None,
              acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]] = None,
              add_notes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]] = None,
              closes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]] = None,
              creates: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]] = None,
              ignores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'integrationId' in kwargs:
+        if integration_id is None and 'integrationId' in kwargs:
             integration_id = kwargs['integrationId']
-        if 'addNotes' in kwargs:
+        if integration_id is None:
+            raise TypeError("Missing 'integration_id' argument")
+        if add_notes is None and 'addNotes' in kwargs:
             add_notes = kwargs['addNotes']
 
         _setter("integration_id", integration_id)
@@ -152,11 +154,11 @@ class _IntegrationActionState:
              creates: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]] = None,
              ignores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None,
              integration_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addNotes' in kwargs:
+        if add_notes is None and 'addNotes' in kwargs:
             add_notes = kwargs['addNotes']
-        if 'integrationId' in kwargs:
+        if integration_id is None and 'integrationId' in kwargs:
             integration_id = kwargs['integrationId']
 
         if acknowledges is not None:

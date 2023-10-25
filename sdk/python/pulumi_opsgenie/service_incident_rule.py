@@ -31,14 +31,18 @@ class ServiceIncidentRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             incident_rules: pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]],
-             service_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]] = None,
+             service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'incidentRules' in kwargs:
+        if incident_rules is None and 'incidentRules' in kwargs:
             incident_rules = kwargs['incidentRules']
-        if 'serviceId' in kwargs:
+        if incident_rules is None:
+            raise TypeError("Missing 'incident_rules' argument")
+        if service_id is None and 'serviceId' in kwargs:
             service_id = kwargs['serviceId']
+        if service_id is None:
+            raise TypeError("Missing 'service_id' argument")
 
         _setter("incident_rules", incident_rules)
         _setter("service_id", service_id)
@@ -88,11 +92,11 @@ class _ServiceIncidentRuleState:
              _setter: Callable[[Any, Any], None],
              incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]] = None,
              service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'incidentRules' in kwargs:
+        if incident_rules is None and 'incidentRules' in kwargs:
             incident_rules = kwargs['incidentRules']
-        if 'serviceId' in kwargs:
+        if service_id is None and 'serviceId' in kwargs:
             service_id = kwargs['serviceId']
 
         if incident_rules is not None:

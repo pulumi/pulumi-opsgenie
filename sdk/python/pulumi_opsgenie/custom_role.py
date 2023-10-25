@@ -35,19 +35,21 @@ class CustomRoleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_name: pulumi.Input[str],
+             role_name: Optional[pulumi.Input[str]] = None,
              disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              extended_role: Optional[pulumi.Input[str]] = None,
              granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'disallowedRights' in kwargs:
+        if role_name is None:
+            raise TypeError("Missing 'role_name' argument")
+        if disallowed_rights is None and 'disallowedRights' in kwargs:
             disallowed_rights = kwargs['disallowedRights']
-        if 'extendedRole' in kwargs:
+        if extended_role is None and 'extendedRole' in kwargs:
             extended_role = kwargs['extendedRole']
-        if 'grantedRights' in kwargs:
+        if granted_rights is None and 'grantedRights' in kwargs:
             granted_rights = kwargs['grantedRights']
 
         _setter("role_name", role_name)
@@ -135,15 +137,15 @@ class _CustomRoleState:
              extended_role: Optional[pulumi.Input[str]] = None,
              granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disallowedRights' in kwargs:
+        if disallowed_rights is None and 'disallowedRights' in kwargs:
             disallowed_rights = kwargs['disallowedRights']
-        if 'extendedRole' in kwargs:
+        if extended_role is None and 'extendedRole' in kwargs:
             extended_role = kwargs['extendedRole']
-        if 'grantedRights' in kwargs:
+        if granted_rights is None and 'grantedRights' in kwargs:
             granted_rights = kwargs['grantedRights']
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
 
         if disallowed_rights is not None:

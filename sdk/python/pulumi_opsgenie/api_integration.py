@@ -64,17 +64,17 @@ class ApiIntegrationArgs:
              suppress_notifications: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
              webhook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowWriteAccess' in kwargs:
+        if allow_write_access is None and 'allowWriteAccess' in kwargs:
             allow_write_access = kwargs['allowWriteAccess']
-        if 'ignoreRespondersFromPayload' in kwargs:
+        if ignore_responders_from_payload is None and 'ignoreRespondersFromPayload' in kwargs:
             ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
-        if 'ownerTeamId' in kwargs:
+        if owner_team_id is None and 'ownerTeamId' in kwargs:
             owner_team_id = kwargs['ownerTeamId']
-        if 'suppressNotifications' in kwargs:
+        if suppress_notifications is None and 'suppressNotifications' in kwargs:
             suppress_notifications = kwargs['suppressNotifications']
-        if 'webhookUrl' in kwargs:
+        if webhook_url is None and 'webhookUrl' in kwargs:
             webhook_url = kwargs['webhookUrl']
 
         if allow_write_access is not None:
@@ -271,19 +271,19 @@ class _ApiIntegrationState:
              suppress_notifications: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
              webhook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowWriteAccess' in kwargs:
+        if allow_write_access is None and 'allowWriteAccess' in kwargs:
             allow_write_access = kwargs['allowWriteAccess']
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'ignoreRespondersFromPayload' in kwargs:
+        if ignore_responders_from_payload is None and 'ignoreRespondersFromPayload' in kwargs:
             ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
-        if 'ownerTeamId' in kwargs:
+        if owner_team_id is None and 'ownerTeamId' in kwargs:
             owner_team_id = kwargs['ownerTeamId']
-        if 'suppressNotifications' in kwargs:
+        if suppress_notifications is None and 'suppressNotifications' in kwargs:
             suppress_notifications = kwargs['suppressNotifications']
-        if 'webhookUrl' in kwargs:
+        if webhook_url is None and 'webhookUrl' in kwargs:
             webhook_url = kwargs['webhookUrl']
 
         if allow_write_access is not None:

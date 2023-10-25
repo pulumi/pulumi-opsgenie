@@ -52,24 +52,30 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             full_name: pulumi.Input[str],
-             role: pulumi.Input[str],
-             username: pulumi.Input[str],
+             full_name: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              locale: Optional[pulumi.Input[str]] = None,
              skype_username: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['UserUserAddressArgs']]]] = None,
              user_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'fullName' in kwargs:
+        if full_name is None and 'fullName' in kwargs:
             full_name = kwargs['fullName']
-        if 'skypeUsername' in kwargs:
+        if full_name is None:
+            raise TypeError("Missing 'full_name' argument")
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if skype_username is None and 'skypeUsername' in kwargs:
             skype_username = kwargs['skypeUsername']
-        if 'userAddresses' in kwargs:
+        if user_addresses is None and 'userAddresses' in kwargs:
             user_addresses = kwargs['userAddresses']
-        if 'userDetails' in kwargs:
+        if user_details is None and 'userDetails' in kwargs:
             user_details = kwargs['userDetails']
 
         _setter("full_name", full_name)
@@ -245,15 +251,15 @@ class _UserState:
              user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['UserUserAddressArgs']]]] = None,
              user_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'fullName' in kwargs:
+        if full_name is None and 'fullName' in kwargs:
             full_name = kwargs['fullName']
-        if 'skypeUsername' in kwargs:
+        if skype_username is None and 'skypeUsername' in kwargs:
             skype_username = kwargs['skypeUsername']
-        if 'userAddresses' in kwargs:
+        if user_addresses is None and 'userAddresses' in kwargs:
             user_addresses = kwargs['userAddresses']
-        if 'userDetails' in kwargs:
+        if user_details is None and 'userDetails' in kwargs:
             user_details = kwargs['userDetails']
 
         if full_name is not None:
