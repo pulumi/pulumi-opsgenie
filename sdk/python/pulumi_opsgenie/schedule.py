@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ScheduleArgs', 'Schedule']
@@ -27,37 +27,16 @@ class ScheduleArgs:
         :param pulumi.Input[str] owner_team_id: Owner team id of the schedule.
         :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
-        ScheduleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            enabled=enabled,
-            name=name,
-            owner_team_id=owner_team_id,
-            timezone=timezone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_team_id: Optional[pulumi.Input[str]] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if owner_team_id is None and 'ownerTeamId' in kwargs:
-            owner_team_id = kwargs['ownerTeamId']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
-            _setter("owner_team_id", owner_team_id)
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
@@ -136,37 +115,16 @@ class _ScheduleState:
         :param pulumi.Input[str] owner_team_id: Owner team id of the schedule.
         :param pulumi.Input[str] timezone: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
         """
-        _ScheduleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            enabled=enabled,
-            name=name,
-            owner_team_id=owner_team_id,
-            timezone=timezone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_team_id: Optional[pulumi.Input[str]] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if owner_team_id is None and 'ownerTeamId' in kwargs:
-            owner_team_id = kwargs['ownerTeamId']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
-            _setter("owner_team_id", owner_team_id)
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
@@ -312,10 +270,6 @@ class Schedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['HeartbeatArgs', 'Heartbeat']
@@ -35,64 +35,21 @@ class HeartbeatArgs:
         :param pulumi.Input[str] name: Name of the heartbeat
         :param pulumi.Input[str] owner_team_id: Owner team of the heartbeat.
         """
-        HeartbeatArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            interval=interval,
-            interval_unit=interval_unit,
-            alert_message=alert_message,
-            alert_priority=alert_priority,
-            alert_tags=alert_tags,
-            description=description,
-            name=name,
-            owner_team_id=owner_team_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             interval_unit: Optional[pulumi.Input[str]] = None,
-             alert_message: Optional[pulumi.Input[str]] = None,
-             alert_priority: Optional[pulumi.Input[str]] = None,
-             alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if interval is None:
-            raise TypeError("Missing 'interval' argument")
-        if interval_unit is None and 'intervalUnit' in kwargs:
-            interval_unit = kwargs['intervalUnit']
-        if interval_unit is None:
-            raise TypeError("Missing 'interval_unit' argument")
-        if alert_message is None and 'alertMessage' in kwargs:
-            alert_message = kwargs['alertMessage']
-        if alert_priority is None and 'alertPriority' in kwargs:
-            alert_priority = kwargs['alertPriority']
-        if alert_tags is None and 'alertTags' in kwargs:
-            alert_tags = kwargs['alertTags']
-        if owner_team_id is None and 'ownerTeamId' in kwargs:
-            owner_team_id = kwargs['ownerTeamId']
-
-        _setter("enabled", enabled)
-        _setter("interval", interval)
-        _setter("interval_unit", interval_unit)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "interval_unit", interval_unit)
         if alert_message is not None:
-            _setter("alert_message", alert_message)
+            pulumi.set(__self__, "alert_message", alert_message)
         if alert_priority is not None:
-            _setter("alert_priority", alert_priority)
+            pulumi.set(__self__, "alert_priority", alert_priority)
         if alert_tags is not None:
-            _setter("alert_tags", alert_tags)
+            pulumi.set(__self__, "alert_tags", alert_tags)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
-            _setter("owner_team_id", owner_team_id)
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
 
     @property
     @pulumi.getter
@@ -227,61 +184,24 @@ class _HeartbeatState:
         :param pulumi.Input[str] name: Name of the heartbeat
         :param pulumi.Input[str] owner_team_id: Owner team of the heartbeat.
         """
-        _HeartbeatState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alert_message=alert_message,
-            alert_priority=alert_priority,
-            alert_tags=alert_tags,
-            description=description,
-            enabled=enabled,
-            interval=interval,
-            interval_unit=interval_unit,
-            name=name,
-            owner_team_id=owner_team_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alert_message: Optional[pulumi.Input[str]] = None,
-             alert_priority: Optional[pulumi.Input[str]] = None,
-             alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             interval_unit: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alert_message is None and 'alertMessage' in kwargs:
-            alert_message = kwargs['alertMessage']
-        if alert_priority is None and 'alertPriority' in kwargs:
-            alert_priority = kwargs['alertPriority']
-        if alert_tags is None and 'alertTags' in kwargs:
-            alert_tags = kwargs['alertTags']
-        if interval_unit is None and 'intervalUnit' in kwargs:
-            interval_unit = kwargs['intervalUnit']
-        if owner_team_id is None and 'ownerTeamId' in kwargs:
-            owner_team_id = kwargs['ownerTeamId']
-
         if alert_message is not None:
-            _setter("alert_message", alert_message)
+            pulumi.set(__self__, "alert_message", alert_message)
         if alert_priority is not None:
-            _setter("alert_priority", alert_priority)
+            pulumi.set(__self__, "alert_priority", alert_priority)
         if alert_tags is not None:
-            _setter("alert_tags", alert_tags)
+            pulumi.set(__self__, "alert_tags", alert_tags)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if interval_unit is not None:
-            _setter("interval_unit", interval_unit)
+            pulumi.set(__self__, "interval_unit", interval_unit)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
-            _setter("owner_team_id", owner_team_id)
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
 
     @property
     @pulumi.getter(name="alertMessage")
@@ -497,10 +417,6 @@ class Heartbeat(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            HeartbeatArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

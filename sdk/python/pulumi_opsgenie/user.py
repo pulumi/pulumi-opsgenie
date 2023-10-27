@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,62 +37,21 @@ class UserArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UserUserAddressArgs']]] user_addresses: Address of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_details: Details about the user in form of key and list. of values.
         """
-        UserArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            full_name=full_name,
-            role=role,
-            username=username,
-            locale=locale,
-            skype_username=skype_username,
-            tags=tags,
-            timezone=timezone,
-            user_addresses=user_addresses,
-            user_details=user_details,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             full_name: Optional[pulumi.Input[str]] = None,
-             role: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             locale: Optional[pulumi.Input[str]] = None,
-             skype_username: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['UserUserAddressArgs']]]] = None,
-             user_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if full_name is None and 'fullName' in kwargs:
-            full_name = kwargs['fullName']
-        if full_name is None:
-            raise TypeError("Missing 'full_name' argument")
-        if role is None:
-            raise TypeError("Missing 'role' argument")
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-        if skype_username is None and 'skypeUsername' in kwargs:
-            skype_username = kwargs['skypeUsername']
-        if user_addresses is None and 'userAddresses' in kwargs:
-            user_addresses = kwargs['userAddresses']
-        if user_details is None and 'userDetails' in kwargs:
-            user_details = kwargs['userDetails']
-
-        _setter("full_name", full_name)
-        _setter("role", role)
-        _setter("username", username)
+        pulumi.set(__self__, "full_name", full_name)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "username", username)
         if locale is not None:
-            _setter("locale", locale)
+            pulumi.set(__self__, "locale", locale)
         if skype_username is not None:
-            _setter("skype_username", skype_username)
+            pulumi.set(__self__, "skype_username", skype_username)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
         if user_addresses is not None:
-            _setter("user_addresses", user_addresses)
+            pulumi.set(__self__, "user_addresses", user_addresses)
         if user_details is not None:
-            _setter("user_details", user_details)
+            pulumi.set(__self__, "user_details", user_details)
 
     @property
     @pulumi.getter(name="fullName")
@@ -227,59 +186,24 @@ class _UserState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_details: Details about the user in form of key and list. of values.
         :param pulumi.Input[str] username: The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters and must contain lowercase characters only.
         """
-        _UserState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            full_name=full_name,
-            locale=locale,
-            role=role,
-            skype_username=skype_username,
-            tags=tags,
-            timezone=timezone,
-            user_addresses=user_addresses,
-            user_details=user_details,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             full_name: Optional[pulumi.Input[str]] = None,
-             locale: Optional[pulumi.Input[str]] = None,
-             role: Optional[pulumi.Input[str]] = None,
-             skype_username: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['UserUserAddressArgs']]]] = None,
-             user_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if full_name is None and 'fullName' in kwargs:
-            full_name = kwargs['fullName']
-        if skype_username is None and 'skypeUsername' in kwargs:
-            skype_username = kwargs['skypeUsername']
-        if user_addresses is None and 'userAddresses' in kwargs:
-            user_addresses = kwargs['userAddresses']
-        if user_details is None and 'userDetails' in kwargs:
-            user_details = kwargs['userDetails']
-
         if full_name is not None:
-            _setter("full_name", full_name)
+            pulumi.set(__self__, "full_name", full_name)
         if locale is not None:
-            _setter("locale", locale)
+            pulumi.set(__self__, "locale", locale)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if skype_username is not None:
-            _setter("skype_username", skype_username)
+            pulumi.set(__self__, "skype_username", skype_username)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
         if user_addresses is not None:
-            _setter("user_addresses", user_addresses)
+            pulumi.set(__self__, "user_addresses", user_addresses)
         if user_details is not None:
-            _setter("user_details", user_details)
+            pulumi.set(__self__, "user_details", user_details)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="fullName")
@@ -515,10 +439,6 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
