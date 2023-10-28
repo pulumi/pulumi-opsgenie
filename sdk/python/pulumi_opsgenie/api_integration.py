@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -38,65 +38,26 @@ class ApiIntegrationArgs:
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
-        ApiIntegrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_write_access=allow_write_access,
-            enabled=enabled,
-            headers=headers,
-            ignore_responders_from_payload=ignore_responders_from_payload,
-            name=name,
-            owner_team_id=owner_team_id,
-            responders=responders,
-            suppress_notifications=suppress_notifications,
-            type=type,
-            webhook_url=webhook_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_write_access: Optional[pulumi.Input[bool]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_team_id: Optional[pulumi.Input[str]] = None,
-             responders: Optional[pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]] = None,
-             suppress_notifications: Optional[pulumi.Input[bool]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             webhook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_write_access is None and 'allowWriteAccess' in kwargs:
-            allow_write_access = kwargs['allowWriteAccess']
-        if ignore_responders_from_payload is None and 'ignoreRespondersFromPayload' in kwargs:
-            ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
-        if owner_team_id is None and 'ownerTeamId' in kwargs:
-            owner_team_id = kwargs['ownerTeamId']
-        if suppress_notifications is None and 'suppressNotifications' in kwargs:
-            suppress_notifications = kwargs['suppressNotifications']
-        if webhook_url is None and 'webhookUrl' in kwargs:
-            webhook_url = kwargs['webhookUrl']
-
         if allow_write_access is not None:
-            _setter("allow_write_access", allow_write_access)
+            pulumi.set(__self__, "allow_write_access", allow_write_access)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if ignore_responders_from_payload is not None:
-            _setter("ignore_responders_from_payload", ignore_responders_from_payload)
+            pulumi.set(__self__, "ignore_responders_from_payload", ignore_responders_from_payload)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
-            _setter("owner_team_id", owner_team_id)
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
         if responders is not None:
-            _setter("responders", responders)
+            pulumi.set(__self__, "responders", responders)
         if suppress_notifications is not None:
-            _setter("suppress_notifications", suppress_notifications)
+            pulumi.set(__self__, "suppress_notifications", suppress_notifications)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if webhook_url is not None:
-            _setter("webhook_url", webhook_url)
+            pulumi.set(__self__, "webhook_url", webhook_url)
 
     @property
     @pulumi.getter(name="allowWriteAccess")
@@ -243,71 +204,28 @@ class _ApiIntegrationState:
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
-        _ApiIntegrationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_write_access=allow_write_access,
-            api_key=api_key,
-            enabled=enabled,
-            headers=headers,
-            ignore_responders_from_payload=ignore_responders_from_payload,
-            name=name,
-            owner_team_id=owner_team_id,
-            responders=responders,
-            suppress_notifications=suppress_notifications,
-            type=type,
-            webhook_url=webhook_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_write_access: Optional[pulumi.Input[bool]] = None,
-             api_key: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_team_id: Optional[pulumi.Input[str]] = None,
-             responders: Optional[pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]] = None,
-             suppress_notifications: Optional[pulumi.Input[bool]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             webhook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_write_access is None and 'allowWriteAccess' in kwargs:
-            allow_write_access = kwargs['allowWriteAccess']
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if ignore_responders_from_payload is None and 'ignoreRespondersFromPayload' in kwargs:
-            ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
-        if owner_team_id is None and 'ownerTeamId' in kwargs:
-            owner_team_id = kwargs['ownerTeamId']
-        if suppress_notifications is None and 'suppressNotifications' in kwargs:
-            suppress_notifications = kwargs['suppressNotifications']
-        if webhook_url is None and 'webhookUrl' in kwargs:
-            webhook_url = kwargs['webhookUrl']
-
         if allow_write_access is not None:
-            _setter("allow_write_access", allow_write_access)
+            pulumi.set(__self__, "allow_write_access", allow_write_access)
         if api_key is not None:
-            _setter("api_key", api_key)
+            pulumi.set(__self__, "api_key", api_key)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if ignore_responders_from_payload is not None:
-            _setter("ignore_responders_from_payload", ignore_responders_from_payload)
+            pulumi.set(__self__, "ignore_responders_from_payload", ignore_responders_from_payload)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
-            _setter("owner_team_id", owner_team_id)
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
         if responders is not None:
-            _setter("responders", responders)
+            pulumi.set(__self__, "responders", responders)
         if suppress_notifications is not None:
-            _setter("suppress_notifications", suppress_notifications)
+            pulumi.set(__self__, "suppress_notifications", suppress_notifications)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if webhook_url is not None:
-            _setter("webhook_url", webhook_url)
+            pulumi.set(__self__, "webhook_url", webhook_url)
 
     @property
     @pulumi.getter(name="allowWriteAccess")
@@ -593,10 +511,6 @@ class ApiIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApiIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

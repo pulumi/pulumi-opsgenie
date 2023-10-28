@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -94,23 +94,10 @@ class AlertPolicyFilter(dict):
         :param Sequence['AlertPolicyFilterConditionArgs'] conditions: Conditions applied to filter. This is a block, structure is documented below.
         :param str type: A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
-        AlertPolicyFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            conditions=conditions,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             conditions: Optional[Sequence['outputs.AlertPolicyFilterCondition']] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -165,45 +152,16 @@ class AlertPolicyFilterCondition(dict):
         :param bool not_: Indicates behaviour of the given operation. Default: `false`
         :param int order: Order of the condition in conditions list
         """
-        AlertPolicyFilterCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            operation=operation,
-            expected_value=expected_value,
-            key=key,
-            not_=not_,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             operation: Optional[str] = None,
-             expected_value: Optional[str] = None,
-             key: Optional[str] = None,
-             not_: Optional[bool] = None,
-             order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
-        _setter("field", field)
-        _setter("operation", operation)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operation", operation)
         if expected_value is not None:
-            _setter("expected_value", expected_value)
+            pulumi.set(__self__, "expected_value", expected_value)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter
@@ -267,33 +225,12 @@ class AlertPolicyResponder(dict):
         :param str name: Name of the responder
         :param str username: Username of the responder
         """
-        AlertPolicyResponder._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            type=type,
-            name=name,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             type: Optional[str] = None,
-             name: Optional[str] = None,
-             username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("id", id)
-        _setter("type", type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -356,30 +293,11 @@ class AlertPolicyTimeRestriction(dict):
         :param Sequence['AlertPolicyTimeRestrictionRestrictionArgs'] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
         :param Sequence['AlertPolicyTimeRestrictionRestrictionListArgs'] restriction_list: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
-        AlertPolicyTimeRestriction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            restriction=restriction,
-            restriction_list=restriction_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             restriction: Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestriction']] = None,
-             restriction_list: Optional[Sequence['outputs.AlertPolicyTimeRestrictionRestrictionList']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if restriction_list is None and 'restrictionList' in kwargs:
-            restriction_list = kwargs['restrictionList']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if restriction is not None:
-            _setter("restriction", restriction)
+            pulumi.set(__self__, "restriction", restriction)
         if restriction_list is not None:
-            _setter("restriction_list", restriction_list)
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -442,43 +360,10 @@ class AlertPolicyTimeRestrictionRestriction(dict):
         :param int start_hour: Starting hour of restriction.
         :param int start_min: Staring minute of restriction on defined `start_hour`
         """
-        AlertPolicyTimeRestrictionRestriction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_hour=end_hour,
-            end_min=end_min,
-            start_hour=start_hour,
-            start_min=start_min,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_hour: Optional[int] = None,
-             end_min: Optional[int] = None,
-             start_hour: Optional[int] = None,
-             start_min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end_hour is None and 'endHour' in kwargs:
-            end_hour = kwargs['endHour']
-        if end_hour is None:
-            raise TypeError("Missing 'end_hour' argument")
-        if end_min is None and 'endMin' in kwargs:
-            end_min = kwargs['endMin']
-        if end_min is None:
-            raise TypeError("Missing 'end_min' argument")
-        if start_hour is None and 'startHour' in kwargs:
-            start_hour = kwargs['startHour']
-        if start_hour is None:
-            raise TypeError("Missing 'start_hour' argument")
-        if start_min is None and 'startMin' in kwargs:
-            start_min = kwargs['startMin']
-        if start_min is None:
-            raise TypeError("Missing 'start_min' argument")
-
-        _setter("end_hour", end_hour)
-        _setter("end_min", end_min)
-        _setter("start_hour", start_hour)
-        _setter("start_min", start_min)
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
 
     @property
     @pulumi.getter(name="endHour")
@@ -557,57 +442,12 @@ class AlertPolicyTimeRestrictionRestrictionList(dict):
         :param int start_hour: Starting hour of restriction on defined `start_day`
         :param int start_min: Staring minute of restriction on defined `start_hour`
         """
-        AlertPolicyTimeRestrictionRestrictionList._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_day=end_day,
-            end_hour=end_hour,
-            end_min=end_min,
-            start_day=start_day,
-            start_hour=start_hour,
-            start_min=start_min,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_day: Optional[str] = None,
-             end_hour: Optional[int] = None,
-             end_min: Optional[int] = None,
-             start_day: Optional[str] = None,
-             start_hour: Optional[int] = None,
-             start_min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end_day is None and 'endDay' in kwargs:
-            end_day = kwargs['endDay']
-        if end_day is None:
-            raise TypeError("Missing 'end_day' argument")
-        if end_hour is None and 'endHour' in kwargs:
-            end_hour = kwargs['endHour']
-        if end_hour is None:
-            raise TypeError("Missing 'end_hour' argument")
-        if end_min is None and 'endMin' in kwargs:
-            end_min = kwargs['endMin']
-        if end_min is None:
-            raise TypeError("Missing 'end_min' argument")
-        if start_day is None and 'startDay' in kwargs:
-            start_day = kwargs['startDay']
-        if start_day is None:
-            raise TypeError("Missing 'start_day' argument")
-        if start_hour is None and 'startHour' in kwargs:
-            start_hour = kwargs['startHour']
-        if start_hour is None:
-            raise TypeError("Missing 'start_hour' argument")
-        if start_min is None and 'startMin' in kwargs:
-            start_min = kwargs['startMin']
-        if start_min is None:
-            raise TypeError("Missing 'start_min' argument")
-
-        _setter("end_day", end_day)
-        _setter("end_hour", end_hour)
-        _setter("end_min", end_min)
-        _setter("start_day", start_day)
-        _setter("start_hour", start_hour)
-        _setter("start_min", start_min)
+        pulumi.set(__self__, "end_day", end_day)
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
 
     @property
     @pulumi.getter(name="endDay")
@@ -667,23 +507,10 @@ class ApiIntegrationResponder(dict):
         :param str id: The id of the responder.
         :param str type: The responder type.
         """
-        ApiIntegrationResponder._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -711,23 +538,10 @@ class EmailIntegrationResponder(dict):
         :param str id: The id of the responder.
         :param str type: The responder type.
         """
-        EmailIntegrationResponder._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -774,37 +588,14 @@ class EscalationRepeat(dict):
                  count: Optional[int] = None,
                  reset_recipient_states: Optional[bool] = None,
                  wait_interval: Optional[int] = None):
-        EscalationRepeat._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            close_alert_after_all=close_alert_after_all,
-            count=count,
-            reset_recipient_states=reset_recipient_states,
-            wait_interval=wait_interval,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             close_alert_after_all: Optional[bool] = None,
-             count: Optional[int] = None,
-             reset_recipient_states: Optional[bool] = None,
-             wait_interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if close_alert_after_all is None and 'closeAlertAfterAll' in kwargs:
-            close_alert_after_all = kwargs['closeAlertAfterAll']
-        if reset_recipient_states is None and 'resetRecipientStates' in kwargs:
-            reset_recipient_states = kwargs['resetRecipientStates']
-        if wait_interval is None and 'waitInterval' in kwargs:
-            wait_interval = kwargs['waitInterval']
-
         if close_alert_after_all is not None:
-            _setter("close_alert_after_all", close_alert_after_all)
+            pulumi.set(__self__, "close_alert_after_all", close_alert_after_all)
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
         if reset_recipient_states is not None:
-            _setter("reset_recipient_states", reset_recipient_states)
+            pulumi.set(__self__, "reset_recipient_states", reset_recipient_states)
         if wait_interval is not None:
-            _setter("wait_interval", wait_interval)
+            pulumi.set(__self__, "wait_interval", wait_interval)
 
     @property
     @pulumi.getter(name="closeAlertAfterAll")
@@ -857,37 +648,10 @@ class EscalationRule(dict):
         :param str notify_type: Recipient calculation logic for schedules. Possible values are:
         :param Sequence['EscalationRuleRecipientArgs'] recipients: Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
         """
-        EscalationRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            delay=delay,
-            notify_type=notify_type,
-            recipients=recipients,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: Optional[str] = None,
-             delay: Optional[int] = None,
-             notify_type: Optional[str] = None,
-             recipients: Optional[Sequence['outputs.EscalationRuleRecipient']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if condition is None:
-            raise TypeError("Missing 'condition' argument")
-        if delay is None:
-            raise TypeError("Missing 'delay' argument")
-        if notify_type is None and 'notifyType' in kwargs:
-            notify_type = kwargs['notifyType']
-        if notify_type is None:
-            raise TypeError("Missing 'notify_type' argument")
-        if recipients is None:
-            raise TypeError("Missing 'recipients' argument")
-
-        _setter("condition", condition)
-        _setter("delay", delay)
-        _setter("notify_type", notify_type)
-        _setter("recipients", recipients)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "delay", delay)
+        pulumi.set(__self__, "notify_type", notify_type)
+        pulumi.set(__self__, "recipients", recipients)
 
     @property
     @pulumi.getter
@@ -930,23 +694,10 @@ class EscalationRuleRecipient(dict):
         """
         :param str id: The ID of the Opsgenie Escalation.
         """
-        EscalationRuleRecipient._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -973,28 +724,11 @@ class IncidentTemplateStakeholderProperty(dict):
         :param str description: Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
         :param bool enable: Option to enable stakeholder notifications.Default value is true.
         """
-        IncidentTemplateStakeholderProperty._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message=message,
-            description=description,
-            enable=enable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message: Optional[str] = None,
-             description: Optional[str] = None,
-             enable: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if message is None:
-            raise TypeError("Missing 'message' argument")
-
-        _setter("message", message)
+        pulumi.set(__self__, "message", message)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enable is not None:
-            _setter("enable", enable)
+            pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
@@ -1043,44 +777,19 @@ class IntegrationActionAcknowledge(dict):
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
-        IntegrationActionAcknowledge._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            alias=alias,
-            filters=filters,
-            note=note,
-            order=order,
-            type=type,
-            user=user,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             alias: Optional[str] = None,
-             filters: Optional[Sequence['outputs.IntegrationActionAcknowledgeFilter']] = None,
-             note: Optional[str] = None,
-             order: Optional[int] = None,
-             type: Optional[str] = None,
-             user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if note is not None:
-            _setter("note", note)
+            pulumi.set(__self__, "note", note)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
@@ -1150,24 +859,9 @@ class IntegrationActionAcknowledgeFilter(dict):
         """
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        IntegrationActionAcknowledgeFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            conditions=conditions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             conditions: Optional[Sequence['outputs.IntegrationActionAcknowledgeFilterCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
@@ -1214,45 +908,16 @@ class IntegrationActionAcknowledgeFilterCondition(dict):
         """
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
-        IntegrationActionAcknowledgeFilterCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            operation=operation,
-            expected_value=expected_value,
-            key=key,
-            not_=not_,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             operation: Optional[str] = None,
-             expected_value: Optional[str] = None,
-             key: Optional[str] = None,
-             not_: Optional[bool] = None,
-             order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
-        _setter("field", field)
-        _setter("operation", operation)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operation", operation)
         if expected_value is not None:
-            _setter("expected_value", expected_value)
+            pulumi.set(__self__, "expected_value", expected_value)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter
@@ -1310,44 +975,19 @@ class IntegrationActionAddNote(dict):
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
-        IntegrationActionAddNote._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            alias=alias,
-            filters=filters,
-            note=note,
-            order=order,
-            type=type,
-            user=user,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             alias: Optional[str] = None,
-             filters: Optional[Sequence['outputs.IntegrationActionAddNoteFilter']] = None,
-             note: Optional[str] = None,
-             order: Optional[int] = None,
-             type: Optional[str] = None,
-             user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if note is not None:
-            _setter("note", note)
+            pulumi.set(__self__, "note", note)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
@@ -1417,24 +1057,9 @@ class IntegrationActionAddNoteFilter(dict):
         """
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        IntegrationActionAddNoteFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            conditions=conditions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             conditions: Optional[Sequence['outputs.IntegrationActionAddNoteFilterCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
@@ -1481,45 +1106,16 @@ class IntegrationActionAddNoteFilterCondition(dict):
         """
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
-        IntegrationActionAddNoteFilterCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            operation=operation,
-            expected_value=expected_value,
-            key=key,
-            not_=not_,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             operation: Optional[str] = None,
-             expected_value: Optional[str] = None,
-             key: Optional[str] = None,
-             not_: Optional[bool] = None,
-             order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
-        _setter("field", field)
-        _setter("operation", operation)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operation", operation)
         if expected_value is not None:
-            _setter("expected_value", expected_value)
+            pulumi.set(__self__, "expected_value", expected_value)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter
@@ -1577,44 +1173,19 @@ class IntegrationActionClose(dict):
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
-        IntegrationActionClose._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            alias=alias,
-            filters=filters,
-            note=note,
-            order=order,
-            type=type,
-            user=user,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             alias: Optional[str] = None,
-             filters: Optional[Sequence['outputs.IntegrationActionCloseFilter']] = None,
-             note: Optional[str] = None,
-             order: Optional[int] = None,
-             type: Optional[str] = None,
-             user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if note is not None:
-            _setter("note", note)
+            pulumi.set(__self__, "note", note)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
@@ -1684,24 +1255,9 @@ class IntegrationActionCloseFilter(dict):
         """
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        IntegrationActionCloseFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            conditions=conditions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             conditions: Optional[Sequence['outputs.IntegrationActionCloseFilterCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
@@ -1748,45 +1304,16 @@ class IntegrationActionCloseFilterCondition(dict):
         """
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
-        IntegrationActionCloseFilterCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            operation=operation,
-            expected_value=expected_value,
-            key=key,
-            not_=not_,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             operation: Optional[str] = None,
-             expected_value: Optional[str] = None,
-             key: Optional[str] = None,
-             not_: Optional[bool] = None,
-             order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
-        _setter("field", field)
-        _setter("operation", operation)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operation", operation)
         if expected_value is not None:
-            _setter("expected_value", expected_value)
+            pulumi.set(__self__, "expected_value", expected_value)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter
@@ -1904,126 +1431,51 @@ class IntegrationActionCreate(dict):
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
-        IntegrationActionCreate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            alert_actions=alert_actions,
-            alias=alias,
-            append_attachments=append_attachments,
-            custom_priority=custom_priority,
-            description=description,
-            entity=entity,
-            extra_properties=extra_properties,
-            filters=filters,
-            ignore_alert_actions_from_payload=ignore_alert_actions_from_payload,
-            ignore_extra_properties_from_payload=ignore_extra_properties_from_payload,
-            ignore_responders_from_payload=ignore_responders_from_payload,
-            ignore_tags_from_payload=ignore_tags_from_payload,
-            ignore_teams_from_payload=ignore_teams_from_payload,
-            message=message,
-            note=note,
-            order=order,
-            priority=priority,
-            responders=responders,
-            source=source,
-            tags=tags,
-            type=type,
-            user=user,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             alert_actions: Optional[Sequence[str]] = None,
-             alias: Optional[str] = None,
-             append_attachments: Optional[bool] = None,
-             custom_priority: Optional[str] = None,
-             description: Optional[str] = None,
-             entity: Optional[str] = None,
-             extra_properties: Optional[Mapping[str, str]] = None,
-             filters: Optional[Sequence['outputs.IntegrationActionCreateFilter']] = None,
-             ignore_alert_actions_from_payload: Optional[bool] = None,
-             ignore_extra_properties_from_payload: Optional[bool] = None,
-             ignore_responders_from_payload: Optional[bool] = None,
-             ignore_tags_from_payload: Optional[bool] = None,
-             ignore_teams_from_payload: Optional[bool] = None,
-             message: Optional[str] = None,
-             note: Optional[str] = None,
-             order: Optional[int] = None,
-             priority: Optional[str] = None,
-             responders: Optional[Sequence['outputs.IntegrationActionCreateResponder']] = None,
-             source: Optional[str] = None,
-             tags: Optional[Sequence[str]] = None,
-             type: Optional[str] = None,
-             user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if alert_actions is None and 'alertActions' in kwargs:
-            alert_actions = kwargs['alertActions']
-        if append_attachments is None and 'appendAttachments' in kwargs:
-            append_attachments = kwargs['appendAttachments']
-        if custom_priority is None and 'customPriority' in kwargs:
-            custom_priority = kwargs['customPriority']
-        if extra_properties is None and 'extraProperties' in kwargs:
-            extra_properties = kwargs['extraProperties']
-        if ignore_alert_actions_from_payload is None and 'ignoreAlertActionsFromPayload' in kwargs:
-            ignore_alert_actions_from_payload = kwargs['ignoreAlertActionsFromPayload']
-        if ignore_extra_properties_from_payload is None and 'ignoreExtraPropertiesFromPayload' in kwargs:
-            ignore_extra_properties_from_payload = kwargs['ignoreExtraPropertiesFromPayload']
-        if ignore_responders_from_payload is None and 'ignoreRespondersFromPayload' in kwargs:
-            ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
-        if ignore_tags_from_payload is None and 'ignoreTagsFromPayload' in kwargs:
-            ignore_tags_from_payload = kwargs['ignoreTagsFromPayload']
-        if ignore_teams_from_payload is None and 'ignoreTeamsFromPayload' in kwargs:
-            ignore_teams_from_payload = kwargs['ignoreTeamsFromPayload']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if alert_actions is not None:
-            _setter("alert_actions", alert_actions)
+            pulumi.set(__self__, "alert_actions", alert_actions)
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if append_attachments is not None:
-            _setter("append_attachments", append_attachments)
+            pulumi.set(__self__, "append_attachments", append_attachments)
         if custom_priority is not None:
-            _setter("custom_priority", custom_priority)
+            pulumi.set(__self__, "custom_priority", custom_priority)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if entity is not None:
-            _setter("entity", entity)
+            pulumi.set(__self__, "entity", entity)
         if extra_properties is not None:
-            _setter("extra_properties", extra_properties)
+            pulumi.set(__self__, "extra_properties", extra_properties)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if ignore_alert_actions_from_payload is not None:
-            _setter("ignore_alert_actions_from_payload", ignore_alert_actions_from_payload)
+            pulumi.set(__self__, "ignore_alert_actions_from_payload", ignore_alert_actions_from_payload)
         if ignore_extra_properties_from_payload is not None:
-            _setter("ignore_extra_properties_from_payload", ignore_extra_properties_from_payload)
+            pulumi.set(__self__, "ignore_extra_properties_from_payload", ignore_extra_properties_from_payload)
         if ignore_responders_from_payload is not None:
-            _setter("ignore_responders_from_payload", ignore_responders_from_payload)
+            pulumi.set(__self__, "ignore_responders_from_payload", ignore_responders_from_payload)
         if ignore_tags_from_payload is not None:
-            _setter("ignore_tags_from_payload", ignore_tags_from_payload)
+            pulumi.set(__self__, "ignore_tags_from_payload", ignore_tags_from_payload)
         if ignore_teams_from_payload is not None:
-            _setter("ignore_teams_from_payload", ignore_teams_from_payload)
+            pulumi.set(__self__, "ignore_teams_from_payload", ignore_teams_from_payload)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if note is not None:
-            _setter("note", note)
+            pulumi.set(__self__, "note", note)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if responders is not None:
-            _setter("responders", responders)
+            pulumi.set(__self__, "responders", responders)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
@@ -2206,24 +1658,9 @@ class IntegrationActionCreateFilter(dict):
         """
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        IntegrationActionCreateFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            conditions=conditions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             conditions: Optional[Sequence['outputs.IntegrationActionCreateFilterCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
@@ -2270,45 +1707,16 @@ class IntegrationActionCreateFilterCondition(dict):
         """
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
-        IntegrationActionCreateFilterCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            operation=operation,
-            expected_value=expected_value,
-            key=key,
-            not_=not_,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             operation: Optional[str] = None,
-             expected_value: Optional[str] = None,
-             key: Optional[str] = None,
-             not_: Optional[bool] = None,
-             order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
-        _setter("field", field)
-        _setter("operation", operation)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operation", operation)
         if expected_value is not None:
-            _setter("expected_value", expected_value)
+            pulumi.set(__self__, "expected_value", expected_value)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter
@@ -2353,25 +1761,8 @@ class IntegrationActionCreateResponder(dict):
         :param str id: The id of the responder.
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        IntegrationActionCreateResponder._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("id", id)
-        _setter("type", type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -2406,32 +1797,13 @@ class IntegrationActionIgnore(dict):
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        IntegrationActionIgnore._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            filters=filters,
-            order=order,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             filters: Optional[Sequence['outputs.IntegrationActionIgnoreFilter']] = None,
-             order: Optional[int] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -2477,24 +1849,9 @@ class IntegrationActionIgnoreFilter(dict):
         """
         :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
-        IntegrationActionIgnoreFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            conditions=conditions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             conditions: Optional[Sequence['outputs.IntegrationActionIgnoreFilterCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
@@ -2541,45 +1898,16 @@ class IntegrationActionIgnoreFilterCondition(dict):
         """
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
-        IntegrationActionIgnoreFilterCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            operation=operation,
-            expected_value=expected_value,
-            key=key,
-            not_=not_,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             operation: Optional[str] = None,
-             expected_value: Optional[str] = None,
-             key: Optional[str] = None,
-             not_: Optional[bool] = None,
-             order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
-        _setter("field", field)
-        _setter("operation", operation)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operation", operation)
         if expected_value is not None:
-            _setter("expected_value", expected_value)
+            pulumi.set(__self__, "expected_value", expected_value)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter
@@ -2624,24 +1952,9 @@ class MaintenanceRule(dict):
         :param Sequence['MaintenanceRuleEntityArgs'] entities: This field represents the entity that maintenance will be applied. Entity field takes two mandatory fields as id and type.
         :param str state: State of rule that will be defined in maintenance and can take either enabled or disabled for policy type rules. This field has to be disabled for integration type entity rules.
         """
-        MaintenanceRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            entities=entities,
-            state=state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             entities: Optional[Sequence['outputs.MaintenanceRuleEntity']] = None,
-             state: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if entities is None:
-            raise TypeError("Missing 'entities' argument")
-
-        _setter("entities", entities)
+        pulumi.set(__self__, "entities", entities)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
@@ -2669,23 +1982,10 @@ class MaintenanceRuleEntity(dict):
         :param str id: The id of the entity that maintenance will be applied.
         :param str type: The type of the entity that maintenance will be applied. It can be either integration or policy.
         """
-        MaintenanceRuleEntity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -2734,32 +2034,11 @@ class MaintenanceTime(dict):
         :param str end_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
         :param str start_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
         """
-        MaintenanceTime._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            end_date=end_date,
-            start_date=start_date,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             end_date: Optional[str] = None,
-             start_date: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if end_date is None and 'endDate' in kwargs:
-            end_date = kwargs['endDate']
-        if start_date is None and 'startDate' in kwargs:
-            start_date = kwargs['startDate']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if end_date is not None:
-            _setter("end_date", end_date)
+            pulumi.set(__self__, "end_date", end_date)
         if start_date is not None:
-            _setter("start_date", start_date)
+            pulumi.set(__self__, "start_date", start_date)
 
     @property
     @pulumi.getter
@@ -2793,20 +2072,7 @@ class NotificationPolicyAutoCloseAction(dict):
         """
         :param Sequence['NotificationPolicyAutoCloseActionDurationArgs'] durations: Duration of this action. This is a block, structure is documented below.
         """
-        NotificationPolicyAutoCloseAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            durations=durations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             durations: Optional[Sequence['outputs.NotificationPolicyAutoCloseActionDuration']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if durations is None:
-            raise TypeError("Missing 'durations' argument")
-
-        _setter("durations", durations)
+        pulumi.set(__self__, "durations", durations)
 
     @property
     @pulumi.getter
@@ -2845,28 +2111,9 @@ class NotificationPolicyAutoCloseActionDuration(dict):
         :param int time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param str time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
-        NotificationPolicyAutoCloseActionDuration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time_amount=time_amount,
-            time_unit=time_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time_amount: Optional[int] = None,
-             time_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if time_amount is None and 'timeAmount' in kwargs:
-            time_amount = kwargs['timeAmount']
-        if time_amount is None:
-            raise TypeError("Missing 'time_amount' argument")
-        if time_unit is None and 'timeUnit' in kwargs:
-            time_unit = kwargs['timeUnit']
-
-        _setter("time_amount", time_amount)
+        pulumi.set(__self__, "time_amount", time_amount)
         if time_unit is not None:
-            _setter("time_unit", time_unit)
+            pulumi.set(__self__, "time_unit", time_unit)
 
     @property
     @pulumi.getter(name="timeAmount")
@@ -2911,27 +2158,8 @@ class NotificationPolicyAutoRestartAction(dict):
         :param Sequence['NotificationPolicyAutoRestartActionDurationArgs'] durations: Duration of this action. This is a block, structure is documented below.
         :param int max_repeat_count: How many times to repeat. This is a integer attribute.
         """
-        NotificationPolicyAutoRestartAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            durations=durations,
-            max_repeat_count=max_repeat_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             durations: Optional[Sequence['outputs.NotificationPolicyAutoRestartActionDuration']] = None,
-             max_repeat_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if durations is None:
-            raise TypeError("Missing 'durations' argument")
-        if max_repeat_count is None and 'maxRepeatCount' in kwargs:
-            max_repeat_count = kwargs['maxRepeatCount']
-        if max_repeat_count is None:
-            raise TypeError("Missing 'max_repeat_count' argument")
-
-        _setter("durations", durations)
-        _setter("max_repeat_count", max_repeat_count)
+        pulumi.set(__self__, "durations", durations)
+        pulumi.set(__self__, "max_repeat_count", max_repeat_count)
 
     @property
     @pulumi.getter
@@ -2978,28 +2206,9 @@ class NotificationPolicyAutoRestartActionDuration(dict):
         :param int time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param str time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
-        NotificationPolicyAutoRestartActionDuration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time_amount=time_amount,
-            time_unit=time_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time_amount: Optional[int] = None,
-             time_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if time_amount is None and 'timeAmount' in kwargs:
-            time_amount = kwargs['timeAmount']
-        if time_amount is None:
-            raise TypeError("Missing 'time_amount' argument")
-        if time_unit is None and 'timeUnit' in kwargs:
-            time_unit = kwargs['timeUnit']
-
-        _setter("time_amount", time_amount)
+        pulumi.set(__self__, "time_amount", time_amount)
         if time_unit is not None:
-            _setter("time_unit", time_unit)
+            pulumi.set(__self__, "time_unit", time_unit)
 
     @property
     @pulumi.getter(name="timeAmount")
@@ -3046,31 +2255,10 @@ class NotificationPolicyDeDuplicationAction(dict):
         :param str de_duplication_action_type: Deduplication type. Possible values are: "value-based", "frequency-based"
         :param Sequence['NotificationPolicyDeDuplicationActionDurationArgs'] durations: Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
         """
-        NotificationPolicyDeDuplicationAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            de_duplication_action_type=de_duplication_action_type,
-            durations=durations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[int] = None,
-             de_duplication_action_type: Optional[str] = None,
-             durations: Optional[Sequence['outputs.NotificationPolicyDeDuplicationActionDuration']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if count is None:
-            raise TypeError("Missing 'count' argument")
-        if de_duplication_action_type is None and 'deDuplicationActionType' in kwargs:
-            de_duplication_action_type = kwargs['deDuplicationActionType']
-        if de_duplication_action_type is None:
-            raise TypeError("Missing 'de_duplication_action_type' argument")
-
-        _setter("count", count)
-        _setter("de_duplication_action_type", de_duplication_action_type)
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "de_duplication_action_type", de_duplication_action_type)
         if durations is not None:
-            _setter("durations", durations)
+            pulumi.set(__self__, "durations", durations)
 
     @property
     @pulumi.getter
@@ -3125,28 +2313,9 @@ class NotificationPolicyDeDuplicationActionDuration(dict):
         :param int time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param str time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
-        NotificationPolicyDeDuplicationActionDuration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time_amount=time_amount,
-            time_unit=time_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time_amount: Optional[int] = None,
-             time_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if time_amount is None and 'timeAmount' in kwargs:
-            time_amount = kwargs['timeAmount']
-        if time_amount is None:
-            raise TypeError("Missing 'time_amount' argument")
-        if time_unit is None and 'timeUnit' in kwargs:
-            time_unit = kwargs['timeUnit']
-
-        _setter("time_amount", time_amount)
+        pulumi.set(__self__, "time_amount", time_amount)
         if time_unit is not None:
-            _setter("time_unit", time_unit)
+            pulumi.set(__self__, "time_unit", time_unit)
 
     @property
     @pulumi.getter(name="timeAmount")
@@ -3199,38 +2368,13 @@ class NotificationPolicyDelayAction(dict):
         :param int until_hour: Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         :param int until_minute: Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         """
-        NotificationPolicyDelayAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delay_option=delay_option,
-            durations=durations,
-            until_hour=until_hour,
-            until_minute=until_minute,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delay_option: Optional[str] = None,
-             durations: Optional[Sequence['outputs.NotificationPolicyDelayActionDuration']] = None,
-             until_hour: Optional[int] = None,
-             until_minute: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if delay_option is None and 'delayOption' in kwargs:
-            delay_option = kwargs['delayOption']
-        if delay_option is None:
-            raise TypeError("Missing 'delay_option' argument")
-        if until_hour is None and 'untilHour' in kwargs:
-            until_hour = kwargs['untilHour']
-        if until_minute is None and 'untilMinute' in kwargs:
-            until_minute = kwargs['untilMinute']
-
-        _setter("delay_option", delay_option)
+        pulumi.set(__self__, "delay_option", delay_option)
         if durations is not None:
-            _setter("durations", durations)
+            pulumi.set(__self__, "durations", durations)
         if until_hour is not None:
-            _setter("until_hour", until_hour)
+            pulumi.set(__self__, "until_hour", until_hour)
         if until_minute is not None:
-            _setter("until_minute", until_minute)
+            pulumi.set(__self__, "until_minute", until_minute)
 
     @property
     @pulumi.getter(name="delayOption")
@@ -3293,28 +2437,9 @@ class NotificationPolicyDelayActionDuration(dict):
         :param int time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param str time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
-        NotificationPolicyDelayActionDuration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time_amount=time_amount,
-            time_unit=time_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time_amount: Optional[int] = None,
-             time_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if time_amount is None and 'timeAmount' in kwargs:
-            time_amount = kwargs['timeAmount']
-        if time_amount is None:
-            raise TypeError("Missing 'time_amount' argument")
-        if time_unit is None and 'timeUnit' in kwargs:
-            time_unit = kwargs['timeUnit']
-
-        _setter("time_amount", time_amount)
+        pulumi.set(__self__, "time_amount", time_amount)
         if time_unit is not None:
-            _setter("time_unit", time_unit)
+            pulumi.set(__self__, "time_unit", time_unit)
 
     @property
     @pulumi.getter(name="timeAmount")
@@ -3342,23 +2467,10 @@ class NotificationPolicyFilter(dict):
         :param Sequence['NotificationPolicyFilterConditionArgs'] conditions: Conditions applied to filter. This is a block, structure is documented below.
         :param str type: A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
-        NotificationPolicyFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            conditions=conditions,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             conditions: Optional[Sequence['outputs.NotificationPolicyFilterCondition']] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -3413,45 +2525,16 @@ class NotificationPolicyFilterCondition(dict):
         :param bool not_: Indicates behaviour of the given operation. Default: `false`
         :param int order: Order of the condition in conditions list
         """
-        NotificationPolicyFilterCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            operation=operation,
-            expected_value=expected_value,
-            key=key,
-            not_=not_,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             operation: Optional[str] = None,
-             expected_value: Optional[str] = None,
-             key: Optional[str] = None,
-             not_: Optional[bool] = None,
-             order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
-        _setter("field", field)
-        _setter("operation", operation)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operation", operation)
         if expected_value is not None:
-            _setter("expected_value", expected_value)
+            pulumi.set(__self__, "expected_value", expected_value)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter
@@ -3530,30 +2613,11 @@ class NotificationPolicyTimeRestriction(dict):
         :param Sequence['NotificationPolicyTimeRestrictionRestrictionArgs'] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
         :param Sequence['NotificationPolicyTimeRestrictionRestrictionListArgs'] restriction_list: List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
-        NotificationPolicyTimeRestriction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            restriction=restriction,
-            restriction_list=restriction_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             restriction: Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestriction']] = None,
-             restriction_list: Optional[Sequence['outputs.NotificationPolicyTimeRestrictionRestrictionList']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if restriction_list is None and 'restrictionList' in kwargs:
-            restriction_list = kwargs['restrictionList']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if restriction is not None:
-            _setter("restriction", restriction)
+            pulumi.set(__self__, "restriction", restriction)
         if restriction_list is not None:
-            _setter("restriction_list", restriction_list)
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -3616,43 +2680,10 @@ class NotificationPolicyTimeRestrictionRestriction(dict):
         :param int start_hour: Starting hour of restriction.
         :param int start_min: Staring minute of restriction on defined `start_hour`
         """
-        NotificationPolicyTimeRestrictionRestriction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_hour=end_hour,
-            end_min=end_min,
-            start_hour=start_hour,
-            start_min=start_min,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_hour: Optional[int] = None,
-             end_min: Optional[int] = None,
-             start_hour: Optional[int] = None,
-             start_min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end_hour is None and 'endHour' in kwargs:
-            end_hour = kwargs['endHour']
-        if end_hour is None:
-            raise TypeError("Missing 'end_hour' argument")
-        if end_min is None and 'endMin' in kwargs:
-            end_min = kwargs['endMin']
-        if end_min is None:
-            raise TypeError("Missing 'end_min' argument")
-        if start_hour is None and 'startHour' in kwargs:
-            start_hour = kwargs['startHour']
-        if start_hour is None:
-            raise TypeError("Missing 'start_hour' argument")
-        if start_min is None and 'startMin' in kwargs:
-            start_min = kwargs['startMin']
-        if start_min is None:
-            raise TypeError("Missing 'start_min' argument")
-
-        _setter("end_hour", end_hour)
-        _setter("end_min", end_min)
-        _setter("start_hour", start_hour)
-        _setter("start_min", start_min)
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
 
     @property
     @pulumi.getter(name="endHour")
@@ -3731,57 +2762,12 @@ class NotificationPolicyTimeRestrictionRestrictionList(dict):
         :param int start_hour: Starting hour of restriction on defined `start_day`
         :param int start_min: Staring minute of restriction on defined `start_hour`
         """
-        NotificationPolicyTimeRestrictionRestrictionList._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_day=end_day,
-            end_hour=end_hour,
-            end_min=end_min,
-            start_day=start_day,
-            start_hour=start_hour,
-            start_min=start_min,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_day: Optional[str] = None,
-             end_hour: Optional[int] = None,
-             end_min: Optional[int] = None,
-             start_day: Optional[str] = None,
-             start_hour: Optional[int] = None,
-             start_min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end_day is None and 'endDay' in kwargs:
-            end_day = kwargs['endDay']
-        if end_day is None:
-            raise TypeError("Missing 'end_day' argument")
-        if end_hour is None and 'endHour' in kwargs:
-            end_hour = kwargs['endHour']
-        if end_hour is None:
-            raise TypeError("Missing 'end_hour' argument")
-        if end_min is None and 'endMin' in kwargs:
-            end_min = kwargs['endMin']
-        if end_min is None:
-            raise TypeError("Missing 'end_min' argument")
-        if start_day is None and 'startDay' in kwargs:
-            start_day = kwargs['startDay']
-        if start_day is None:
-            raise TypeError("Missing 'start_day' argument")
-        if start_hour is None and 'startHour' in kwargs:
-            start_hour = kwargs['startHour']
-        if start_hour is None:
-            raise TypeError("Missing 'start_hour' argument")
-        if start_min is None and 'startMin' in kwargs:
-            start_min = kwargs['startMin']
-        if start_min is None:
-            raise TypeError("Missing 'start_min' argument")
-
-        _setter("end_day", end_day)
-        _setter("end_hour", end_hour)
-        _setter("end_min", end_min)
-        _setter("start_day", start_day)
-        _setter("start_hour", start_hour)
-        _setter("start_min", start_min)
+        pulumi.set(__self__, "end_day", end_day)
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
 
     @property
     @pulumi.getter(name="endDay")
@@ -3841,24 +2827,9 @@ class NotificationRuleCriteria(dict):
         :param str type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         :param Sequence['NotificationRuleCriteriaConditionArgs'] conditions: Defines the fields and values when the condition applies
         """
-        NotificationRuleCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            conditions=conditions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             conditions: Optional[Sequence['outputs.NotificationRuleCriteriaCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
@@ -3913,45 +2884,16 @@ class NotificationRuleCriteriaCondition(dict):
         :param bool not_: Indicates behaviour of the given operation. Default: `false`
         :param int order: Order of the condition in conditions list
         """
-        NotificationRuleCriteriaCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            operation=operation,
-            expected_value=expected_value,
-            key=key,
-            not_=not_,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             operation: Optional[str] = None,
-             expected_value: Optional[str] = None,
-             key: Optional[str] = None,
-             not_: Optional[bool] = None,
-             order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
-        _setter("field", field)
-        _setter("operation", operation)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operation", operation)
         if expected_value is not None:
-            _setter("expected_value", expected_value)
+            pulumi.set(__self__, "expected_value", expected_value)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter
@@ -4027,26 +2969,9 @@ class NotificationRuleRepeat(dict):
         """
         :param bool enabled: If policy should be enabled. Default: `true`
         """
-        NotificationRuleRepeat._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            loop_after=loop_after,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             loop_after: Optional[int] = None,
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if loop_after is None and 'loopAfter' in kwargs:
-            loop_after = kwargs['loopAfter']
-        if loop_after is None:
-            raise TypeError("Missing 'loop_after' argument")
-
-        _setter("loop_after", loop_after)
+        pulumi.set(__self__, "loop_after", loop_after)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="loopAfter")
@@ -4071,25 +2996,8 @@ class NotificationRuleSchedule(dict):
         :param str name: Name of the notification policy
         :param str type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
-        NotificationRuleSchedule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -4136,30 +3044,11 @@ class NotificationRuleStep(dict):
         :param bool enabled: Defined if this step is enabled. Default: `true`
         :param int send_after: Time period, in minutes, notification will be sent after.
         """
-        NotificationRuleStep._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contacts=contacts,
-            enabled=enabled,
-            send_after=send_after,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contacts: Optional[Sequence['outputs.NotificationRuleStepContact']] = None,
-             enabled: Optional[bool] = None,
-             send_after: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if contacts is None:
-            raise TypeError("Missing 'contacts' argument")
-        if send_after is None and 'sendAfter' in kwargs:
-            send_after = kwargs['sendAfter']
-
-        _setter("contacts", contacts)
+        pulumi.set(__self__, "contacts", contacts)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if send_after is not None:
-            _setter("send_after", send_after)
+            pulumi.set(__self__, "send_after", send_after)
 
     @property
     @pulumi.getter
@@ -4195,25 +3084,8 @@ class NotificationRuleStepContact(dict):
         :param str method: Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
         :param str to: Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
         """
-        NotificationRuleStepContact._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            method=method,
-            to=to,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             method: Optional[str] = None,
-             to: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if method is None:
-            raise TypeError("Missing 'method' argument")
-        if to is None:
-            raise TypeError("Missing 'to' argument")
-
-        _setter("method", method)
-        _setter("to", to)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter
@@ -4241,28 +3113,11 @@ class NotificationRuleTimeRestriction(dict):
         """
         :param str type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
-        NotificationRuleTimeRestriction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            restriction=restriction,
-            restrictions=restrictions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             restriction: Optional[Sequence['outputs.NotificationRuleTimeRestrictionRestriction']] = None,
-             restrictions: Optional[Sequence['outputs.NotificationRuleTimeRestrictionRestriction']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if restriction is not None:
-            _setter("restriction", restriction)
+            pulumi.set(__self__, "restriction", restriction)
         if restrictions is not None:
-            _setter("restrictions", restrictions)
+            pulumi.set(__self__, "restrictions", restrictions)
 
     @property
     @pulumi.getter
@@ -4319,57 +3174,12 @@ class NotificationRuleTimeRestrictionRestriction(dict):
                  start_day: str,
                  start_hour: int,
                  start_min: int):
-        NotificationRuleTimeRestrictionRestriction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_day=end_day,
-            end_hour=end_hour,
-            end_min=end_min,
-            start_day=start_day,
-            start_hour=start_hour,
-            start_min=start_min,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_day: Optional[str] = None,
-             end_hour: Optional[int] = None,
-             end_min: Optional[int] = None,
-             start_day: Optional[str] = None,
-             start_hour: Optional[int] = None,
-             start_min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end_day is None and 'endDay' in kwargs:
-            end_day = kwargs['endDay']
-        if end_day is None:
-            raise TypeError("Missing 'end_day' argument")
-        if end_hour is None and 'endHour' in kwargs:
-            end_hour = kwargs['endHour']
-        if end_hour is None:
-            raise TypeError("Missing 'end_hour' argument")
-        if end_min is None and 'endMin' in kwargs:
-            end_min = kwargs['endMin']
-        if end_min is None:
-            raise TypeError("Missing 'end_min' argument")
-        if start_day is None and 'startDay' in kwargs:
-            start_day = kwargs['startDay']
-        if start_day is None:
-            raise TypeError("Missing 'start_day' argument")
-        if start_hour is None and 'startHour' in kwargs:
-            start_hour = kwargs['startHour']
-        if start_hour is None:
-            raise TypeError("Missing 'start_hour' argument")
-        if start_min is None and 'startMin' in kwargs:
-            start_min = kwargs['startMin']
-        if start_min is None:
-            raise TypeError("Missing 'start_min' argument")
-
-        _setter("end_day", end_day)
-        _setter("end_hour", end_hour)
-        _setter("end_min", end_min)
-        _setter("start_day", start_day)
-        _setter("start_hour", start_hour)
-        _setter("start_min", start_min)
+        pulumi.set(__self__, "end_day", end_day)
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
 
     @property
     @pulumi.getter(name="endDay")
@@ -4411,24 +3221,9 @@ class ScheduleRotationParticipant(dict):
         :param str type: The responder type.
         :param str id: The id of the responder.
         """
-        ScheduleRotationParticipant._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -4475,30 +3270,11 @@ class ScheduleRotationTimeRestriction(dict):
         :param Sequence['ScheduleRotationTimeRestrictionRestrictionArgs'] restriction: It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
         :param Sequence['ScheduleRotationTimeRestrictionRestrictionListArgs'] restriction_list: It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         """
-        ScheduleRotationTimeRestriction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            restriction=restriction,
-            restriction_list=restriction_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             restriction: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestriction']] = None,
-             restriction_list: Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestrictionList']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if restriction_list is None and 'restrictionList' in kwargs:
-            restriction_list = kwargs['restrictionList']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if restriction is not None:
-            _setter("restriction", restriction)
+            pulumi.set(__self__, "restriction", restriction)
         if restriction_list is not None:
-            _setter("restriction_list", restriction_list)
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -4561,43 +3337,10 @@ class ScheduleRotationTimeRestrictionRestriction(dict):
         :param int start_hour: Value of the hour that frame will start.
         :param int start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
         """
-        ScheduleRotationTimeRestrictionRestriction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_hour=end_hour,
-            end_min=end_min,
-            start_hour=start_hour,
-            start_min=start_min,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_hour: Optional[int] = None,
-             end_min: Optional[int] = None,
-             start_hour: Optional[int] = None,
-             start_min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end_hour is None and 'endHour' in kwargs:
-            end_hour = kwargs['endHour']
-        if end_hour is None:
-            raise TypeError("Missing 'end_hour' argument")
-        if end_min is None and 'endMin' in kwargs:
-            end_min = kwargs['endMin']
-        if end_min is None:
-            raise TypeError("Missing 'end_min' argument")
-        if start_hour is None and 'startHour' in kwargs:
-            start_hour = kwargs['startHour']
-        if start_hour is None:
-            raise TypeError("Missing 'start_hour' argument")
-        if start_min is None and 'startMin' in kwargs:
-            start_min = kwargs['startMin']
-        if start_min is None:
-            raise TypeError("Missing 'start_min' argument")
-
-        _setter("end_hour", end_hour)
-        _setter("end_min", end_min)
-        _setter("start_hour", start_hour)
-        _setter("start_min", start_min)
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
 
     @property
     @pulumi.getter(name="endHour")
@@ -4678,57 +3421,12 @@ class ScheduleRotationTimeRestrictionRestrictionList(dict):
         :param int start_hour: Value of the hour that frame will start
         :param int start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
         """
-        ScheduleRotationTimeRestrictionRestrictionList._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_day=end_day,
-            end_hour=end_hour,
-            end_min=end_min,
-            start_day=start_day,
-            start_hour=start_hour,
-            start_min=start_min,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_day: Optional[str] = None,
-             end_hour: Optional[int] = None,
-             end_min: Optional[int] = None,
-             start_day: Optional[str] = None,
-             start_hour: Optional[int] = None,
-             start_min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end_day is None and 'endDay' in kwargs:
-            end_day = kwargs['endDay']
-        if end_day is None:
-            raise TypeError("Missing 'end_day' argument")
-        if end_hour is None and 'endHour' in kwargs:
-            end_hour = kwargs['endHour']
-        if end_hour is None:
-            raise TypeError("Missing 'end_hour' argument")
-        if end_min is None and 'endMin' in kwargs:
-            end_min = kwargs['endMin']
-        if end_min is None:
-            raise TypeError("Missing 'end_min' argument")
-        if start_day is None and 'startDay' in kwargs:
-            start_day = kwargs['startDay']
-        if start_day is None:
-            raise TypeError("Missing 'start_day' argument")
-        if start_hour is None and 'startHour' in kwargs:
-            start_hour = kwargs['startHour']
-        if start_hour is None:
-            raise TypeError("Missing 'start_hour' argument")
-        if start_min is None and 'startMin' in kwargs:
-            start_min = kwargs['startMin']
-        if start_min is None:
-            raise TypeError("Missing 'start_min' argument")
-
-        _setter("end_day", end_day)
-        _setter("end_hour", end_hour)
-        _setter("end_min", end_min)
-        _setter("start_day", start_day)
-        _setter("start_hour", start_hour)
-        _setter("start_min", start_min)
+        pulumi.set(__self__, "end_day", end_day)
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
 
     @property
     @pulumi.getter(name="endDay")
@@ -4811,32 +3509,11 @@ class ServiceIncidentRuleIncidentRule(dict):
         :param str condition_match_type: A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         :param Sequence['ServiceIncidentRuleIncidentRuleConditionArgs'] conditions: Conditions applied to incident. This is a block, structure is documented below.
         """
-        ServiceIncidentRuleIncidentRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            incident_properties=incident_properties,
-            condition_match_type=condition_match_type,
-            conditions=conditions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             incident_properties: Optional[Sequence['outputs.ServiceIncidentRuleIncidentRuleIncidentProperty']] = None,
-             condition_match_type: Optional[str] = None,
-             conditions: Optional[Sequence['outputs.ServiceIncidentRuleIncidentRuleCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if incident_properties is None and 'incidentProperties' in kwargs:
-            incident_properties = kwargs['incidentProperties']
-        if incident_properties is None:
-            raise TypeError("Missing 'incident_properties' argument")
-        if condition_match_type is None and 'conditionMatchType' in kwargs:
-            condition_match_type = kwargs['conditionMatchType']
-
-        _setter("incident_properties", incident_properties)
+        pulumi.set(__self__, "incident_properties", incident_properties)
         if condition_match_type is not None:
-            _setter("condition_match_type", condition_match_type)
+            pulumi.set(__self__, "condition_match_type", condition_match_type)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter(name="incidentProperties")
@@ -4896,41 +3573,14 @@ class ServiceIncidentRuleIncidentRuleCondition(dict):
         :param str expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
         :param bool not_: Indicates behaviour of the given operation. Default: false
         """
-        ServiceIncidentRuleIncidentRuleCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            operation=operation,
-            expected_value=expected_value,
-            key=key,
-            not_=not_,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             operation: Optional[str] = None,
-             expected_value: Optional[str] = None,
-             key: Optional[str] = None,
-             not_: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
-        _setter("field", field)
-        _setter("operation", operation)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operation", operation)
         if expected_value is not None:
-            _setter("expected_value", expected_value)
+            pulumi.set(__self__, "expected_value", expected_value)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
 
     @property
     @pulumi.getter
@@ -5004,44 +3654,15 @@ class ServiceIncidentRuleIncidentRuleIncidentProperty(dict):
         :param Mapping[str, str] details: Map of key-value pairs to use as custom properties of the alert.
         :param Sequence[str] tags: Tags of the alert.
         """
-        ServiceIncidentRuleIncidentRuleIncidentProperty._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message=message,
-            priority=priority,
-            stakeholder_properties=stakeholder_properties,
-            description=description,
-            details=details,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message: Optional[str] = None,
-             priority: Optional[str] = None,
-             stakeholder_properties: Optional[Sequence['outputs.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty']] = None,
-             description: Optional[str] = None,
-             details: Optional[Mapping[str, str]] = None,
-             tags: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if message is None:
-            raise TypeError("Missing 'message' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-        if stakeholder_properties is None and 'stakeholderProperties' in kwargs:
-            stakeholder_properties = kwargs['stakeholderProperties']
-        if stakeholder_properties is None:
-            raise TypeError("Missing 'stakeholder_properties' argument")
-
-        _setter("message", message)
-        _setter("priority", priority)
-        _setter("stakeholder_properties", stakeholder_properties)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "stakeholder_properties", stakeholder_properties)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if details is not None:
-            _setter("details", details)
+            pulumi.set(__self__, "details", details)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -5103,28 +3724,11 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty(dict):
         :param str description: Description that is generally used to provide a detailed information about the alert.
         :param bool enable: Option to enable stakeholder notifications.Default value is true.
         """
-        ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message=message,
-            description=description,
-            enable=enable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message: Optional[str] = None,
-             description: Optional[str] = None,
-             enable: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if message is None:
-            raise TypeError("Missing 'message' argument")
-
-        _setter("message", message)
+        pulumi.set(__self__, "message", message)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enable is not None:
-            _setter("enable", enable)
+            pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
@@ -5161,28 +3765,11 @@ class TeamMember(dict):
         :param str id: The UUID for the member to add to this Team.
         :param str role: The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
         """
-        TeamMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            role=role,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             role: Optional[str] = None,
-             username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -5215,24 +3802,9 @@ class TeamRoutingRuleCriteria(dict):
         :param str type: Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
         :param Sequence['TeamRoutingRuleCriteriaConditionArgs'] conditions: List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
         """
-        TeamRoutingRuleCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            conditions=conditions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             conditions: Optional[Sequence['outputs.TeamRoutingRuleCriteriaCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
@@ -5286,45 +3858,16 @@ class TeamRoutingRuleCriteriaCondition(dict):
         :param bool not_: Indicates behaviour of the given operation. Default value is false.
         :param int order: Order of the condition in conditions list.
         """
-        TeamRoutingRuleCriteriaCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            operation=operation,
-            expected_value=expected_value,
-            key=key,
-            not_=not_,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             operation: Optional[str] = None,
-             expected_value: Optional[str] = None,
-             key: Optional[str] = None,
-             not_: Optional[bool] = None,
-             order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if operation is None:
-            raise TypeError("Missing 'operation' argument")
-        if expected_value is None and 'expectedValue' in kwargs:
-            expected_value = kwargs['expectedValue']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-
-        _setter("field", field)
-        _setter("operation", operation)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "operation", operation)
         if expected_value is not None:
-            _setter("expected_value", expected_value)
+            pulumi.set(__self__, "expected_value", expected_value)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter
@@ -5378,28 +3921,11 @@ class TeamRoutingRuleNotify(dict):
                  type: str,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
-        TeamRoutingRuleNotify._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -5443,30 +3969,11 @@ class TeamRoutingRuleTimeRestriction(dict):
         """
         :param str type: Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
         """
-        TeamRoutingRuleTimeRestriction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            restriction=restriction,
-            restriction_list=restriction_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             restriction: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestriction']] = None,
-             restriction_list: Optional[Sequence['outputs.TeamRoutingRuleTimeRestrictionRestrictionList']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if restriction_list is None and 'restrictionList' in kwargs:
-            restriction_list = kwargs['restrictionList']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if restriction is not None:
-            _setter("restriction", restriction)
+            pulumi.set(__self__, "restriction", restriction)
         if restriction_list is not None:
-            _setter("restriction_list", restriction_list)
+            pulumi.set(__self__, "restriction_list", restriction_list)
 
     @property
     @pulumi.getter
@@ -5517,43 +4024,10 @@ class TeamRoutingRuleTimeRestrictionRestriction(dict):
                  end_min: int,
                  start_hour: int,
                  start_min: int):
-        TeamRoutingRuleTimeRestrictionRestriction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_hour=end_hour,
-            end_min=end_min,
-            start_hour=start_hour,
-            start_min=start_min,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_hour: Optional[int] = None,
-             end_min: Optional[int] = None,
-             start_hour: Optional[int] = None,
-             start_min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end_hour is None and 'endHour' in kwargs:
-            end_hour = kwargs['endHour']
-        if end_hour is None:
-            raise TypeError("Missing 'end_hour' argument")
-        if end_min is None and 'endMin' in kwargs:
-            end_min = kwargs['endMin']
-        if end_min is None:
-            raise TypeError("Missing 'end_min' argument")
-        if start_hour is None and 'startHour' in kwargs:
-            start_hour = kwargs['startHour']
-        if start_hour is None:
-            raise TypeError("Missing 'start_hour' argument")
-        if start_min is None and 'startMin' in kwargs:
-            start_min = kwargs['startMin']
-        if start_min is None:
-            raise TypeError("Missing 'start_min' argument")
-
-        _setter("end_hour", end_hour)
-        _setter("end_min", end_min)
-        _setter("start_hour", start_hour)
-        _setter("start_min", start_min)
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
 
     @property
     @pulumi.getter(name="endHour")
@@ -5612,57 +4086,12 @@ class TeamRoutingRuleTimeRestrictionRestrictionList(dict):
                  start_day: str,
                  start_hour: int,
                  start_min: int):
-        TeamRoutingRuleTimeRestrictionRestrictionList._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_day=end_day,
-            end_hour=end_hour,
-            end_min=end_min,
-            start_day=start_day,
-            start_hour=start_hour,
-            start_min=start_min,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_day: Optional[str] = None,
-             end_hour: Optional[int] = None,
-             end_min: Optional[int] = None,
-             start_day: Optional[str] = None,
-             start_hour: Optional[int] = None,
-             start_min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end_day is None and 'endDay' in kwargs:
-            end_day = kwargs['endDay']
-        if end_day is None:
-            raise TypeError("Missing 'end_day' argument")
-        if end_hour is None and 'endHour' in kwargs:
-            end_hour = kwargs['endHour']
-        if end_hour is None:
-            raise TypeError("Missing 'end_hour' argument")
-        if end_min is None and 'endMin' in kwargs:
-            end_min = kwargs['endMin']
-        if end_min is None:
-            raise TypeError("Missing 'end_min' argument")
-        if start_day is None and 'startDay' in kwargs:
-            start_day = kwargs['startDay']
-        if start_day is None:
-            raise TypeError("Missing 'start_day' argument")
-        if start_hour is None and 'startHour' in kwargs:
-            start_hour = kwargs['startHour']
-        if start_hour is None:
-            raise TypeError("Missing 'start_hour' argument")
-        if start_min is None and 'startMin' in kwargs:
-            start_min = kwargs['startMin']
-        if start_min is None:
-            raise TypeError("Missing 'start_min' argument")
-
-        _setter("end_day", end_day)
-        _setter("end_hour", end_hour)
-        _setter("end_min", end_min)
-        _setter("start_day", start_day)
-        _setter("start_hour", start_hour)
-        _setter("start_min", start_min)
+        pulumi.set(__self__, "end_day", end_day)
+        pulumi.set(__self__, "end_hour", end_hour)
+        pulumi.set(__self__, "end_min", end_min)
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_min", start_min)
 
     @property
     @pulumi.getter(name="endDay")
@@ -5703,40 +4132,11 @@ class UserUserAddress(dict):
                  line: str,
                  state: str,
                  zipcode: str):
-        UserUserAddress._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            city=city,
-            country=country,
-            line=line,
-            state=state,
-            zipcode=zipcode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             city: Optional[str] = None,
-             country: Optional[str] = None,
-             line: Optional[str] = None,
-             state: Optional[str] = None,
-             zipcode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if city is None:
-            raise TypeError("Missing 'city' argument")
-        if country is None:
-            raise TypeError("Missing 'country' argument")
-        if line is None:
-            raise TypeError("Missing 'line' argument")
-        if state is None:
-            raise TypeError("Missing 'state' argument")
-        if zipcode is None:
-            raise TypeError("Missing 'zipcode' argument")
-
-        _setter("city", city)
-        _setter("country", country)
-        _setter("line", line)
-        _setter("state", state)
-        _setter("zipcode", zipcode)
+        pulumi.set(__self__, "city", city)
+        pulumi.set(__self__, "country", country)
+        pulumi.set(__self__, "line", line)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "zipcode", zipcode)
 
     @property
     @pulumi.getter
@@ -5771,37 +4171,14 @@ class GetEscalationRepeatResult(dict):
                  count: Optional[int] = None,
                  reset_recipient_states: Optional[bool] = None,
                  wait_interval: Optional[int] = None):
-        GetEscalationRepeatResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            close_alert_after_all=close_alert_after_all,
-            count=count,
-            reset_recipient_states=reset_recipient_states,
-            wait_interval=wait_interval,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             close_alert_after_all: Optional[bool] = None,
-             count: Optional[int] = None,
-             reset_recipient_states: Optional[bool] = None,
-             wait_interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if close_alert_after_all is None and 'closeAlertAfterAll' in kwargs:
-            close_alert_after_all = kwargs['closeAlertAfterAll']
-        if reset_recipient_states is None and 'resetRecipientStates' in kwargs:
-            reset_recipient_states = kwargs['resetRecipientStates']
-        if wait_interval is None and 'waitInterval' in kwargs:
-            wait_interval = kwargs['waitInterval']
-
         if close_alert_after_all is not None:
-            _setter("close_alert_after_all", close_alert_after_all)
+            pulumi.set(__self__, "close_alert_after_all", close_alert_after_all)
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
         if reset_recipient_states is not None:
-            _setter("reset_recipient_states", reset_recipient_states)
+            pulumi.set(__self__, "reset_recipient_states", reset_recipient_states)
         if wait_interval is not None:
-            _setter("wait_interval", wait_interval)
+            pulumi.set(__self__, "wait_interval", wait_interval)
 
     @property
     @pulumi.getter(name="closeAlertAfterAll")
@@ -5831,37 +4208,10 @@ class GetEscalationRuleResult(dict):
                  delay: int,
                  notify_type: str,
                  recipients: Sequence['outputs.GetEscalationRuleRecipientResult']):
-        GetEscalationRuleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            delay=delay,
-            notify_type=notify_type,
-            recipients=recipients,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: Optional[str] = None,
-             delay: Optional[int] = None,
-             notify_type: Optional[str] = None,
-             recipients: Optional[Sequence['outputs.GetEscalationRuleRecipientResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if condition is None:
-            raise TypeError("Missing 'condition' argument")
-        if delay is None:
-            raise TypeError("Missing 'delay' argument")
-        if notify_type is None and 'notifyType' in kwargs:
-            notify_type = kwargs['notifyType']
-        if notify_type is None:
-            raise TypeError("Missing 'notify_type' argument")
-        if recipients is None:
-            raise TypeError("Missing 'recipients' argument")
-
-        _setter("condition", condition)
-        _setter("delay", delay)
-        _setter("notify_type", notify_type)
-        _setter("recipients", recipients)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "delay", delay)
+        pulumi.set(__self__, "notify_type", notify_type)
+        pulumi.set(__self__, "recipients", recipients)
 
     @property
     @pulumi.getter
@@ -5892,23 +4242,10 @@ class GetEscalationRuleRecipientResult(dict):
         """
         :param str id: The ID of the Opsgenie Escalation.
         """
-        GetEscalationRuleRecipientResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -5933,27 +4270,12 @@ class GetTeamMemberResult(dict):
         """
         :param str id: The ID of the Opsgenie Team.
         """
-        GetTeamMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            role=role,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             role: Optional[str] = None,
-             username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
