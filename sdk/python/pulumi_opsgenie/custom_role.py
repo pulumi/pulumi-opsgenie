@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CustomRoleArgs', 'CustomRole']
@@ -25,40 +25,13 @@ class CustomRoleArgs:
         :param pulumi.Input[str] extended_role: The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] granted_rights: The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
         """
-        CustomRoleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_name=role_name,
-            disallowed_rights=disallowed_rights,
-            extended_role=extended_role,
-            granted_rights=granted_rights,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_name: Optional[pulumi.Input[str]] = None,
-             disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             extended_role: Optional[pulumi.Input[str]] = None,
-             granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role_name is None and 'roleName' in kwargs:
-            role_name = kwargs['roleName']
-        if role_name is None:
-            raise TypeError("Missing 'role_name' argument")
-        if disallowed_rights is None and 'disallowedRights' in kwargs:
-            disallowed_rights = kwargs['disallowedRights']
-        if extended_role is None and 'extendedRole' in kwargs:
-            extended_role = kwargs['extendedRole']
-        if granted_rights is None and 'grantedRights' in kwargs:
-            granted_rights = kwargs['grantedRights']
-
-        _setter("role_name", role_name)
+        pulumi.set(__self__, "role_name", role_name)
         if disallowed_rights is not None:
-            _setter("disallowed_rights", disallowed_rights)
+            pulumi.set(__self__, "disallowed_rights", disallowed_rights)
         if extended_role is not None:
-            _setter("extended_role", extended_role)
+            pulumi.set(__self__, "extended_role", extended_role)
         if granted_rights is not None:
-            _setter("granted_rights", granted_rights)
+            pulumi.set(__self__, "granted_rights", granted_rights)
 
     @property
     @pulumi.getter(name="roleName")
@@ -123,39 +96,14 @@ class _CustomRoleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] granted_rights: The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
         :param pulumi.Input[str] role_name: Name of the custom role.
         """
-        _CustomRoleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            disallowed_rights=disallowed_rights,
-            extended_role=extended_role,
-            granted_rights=granted_rights,
-            role_name=role_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             extended_role: Optional[pulumi.Input[str]] = None,
-             granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             role_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if disallowed_rights is None and 'disallowedRights' in kwargs:
-            disallowed_rights = kwargs['disallowedRights']
-        if extended_role is None and 'extendedRole' in kwargs:
-            extended_role = kwargs['extendedRole']
-        if granted_rights is None and 'grantedRights' in kwargs:
-            granted_rights = kwargs['grantedRights']
-        if role_name is None and 'roleName' in kwargs:
-            role_name = kwargs['roleName']
-
         if disallowed_rights is not None:
-            _setter("disallowed_rights", disallowed_rights)
+            pulumi.set(__self__, "disallowed_rights", disallowed_rights)
         if extended_role is not None:
-            _setter("extended_role", extended_role)
+            pulumi.set(__self__, "extended_role", extended_role)
         if granted_rights is not None:
-            _setter("granted_rights", granted_rights)
+            pulumi.set(__self__, "granted_rights", granted_rights)
         if role_name is not None:
-            _setter("role_name", role_name)
+            pulumi.set(__self__, "role_name", role_name)
 
     @property
     @pulumi.getter(name="disallowedRights")
@@ -277,10 +225,6 @@ class CustomRole(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CustomRoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

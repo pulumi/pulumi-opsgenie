@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,38 +29,15 @@ class EscalationArgs:
         :param pulumi.Input[str] owner_team_id: Owner team id of the escalation.
         :param pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
         """
-        EscalationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rules=rules,
-            description=description,
-            name=name,
-            owner_team_id=owner_team_id,
-            repeats=repeats,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_team_id: Optional[pulumi.Input[str]] = None,
-             repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-        if owner_team_id is None and 'ownerTeamId' in kwargs:
-            owner_team_id = kwargs['ownerTeamId']
-
-        _setter("rules", rules)
+        pulumi.set(__self__, "rules", rules)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
-            _setter("owner_team_id", owner_team_id)
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
         if repeats is not None:
-            _setter("repeats", repeats)
+            pulumi.set(__self__, "repeats", repeats)
 
     @property
     @pulumi.getter
@@ -139,37 +116,16 @@ class _EscalationState:
         :param pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
         :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]] rules: List of the escalation rules. See below for how rules are defined.
         """
-        _EscalationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            name=name,
-            owner_team_id=owner_team_id,
-            repeats=repeats,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_team_id: Optional[pulumi.Input[str]] = None,
-             repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if owner_team_id is None and 'ownerTeamId' in kwargs:
-            owner_team_id = kwargs['ownerTeamId']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_team_id is not None:
-            _setter("owner_team_id", owner_team_id)
+            pulumi.set(__self__, "owner_team_id", owner_team_id)
         if repeats is not None:
-            _setter("repeats", repeats)
+            pulumi.set(__self__, "repeats", repeats)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -419,10 +375,6 @@ class Escalation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EscalationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

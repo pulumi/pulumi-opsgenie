@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserContactArgs', 'UserContact']
@@ -25,34 +25,11 @@ class UserContactArgs:
         :param pulumi.Input[str] username: The username for contact.(reference)
         :param pulumi.Input[bool] enabled: Enable contact of the user in OpsGenie. Default value is true.
         """
-        UserContactArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            method=method,
-            to=to,
-            username=username,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             method: Optional[pulumi.Input[str]] = None,
-             to: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if method is None:
-            raise TypeError("Missing 'method' argument")
-        if to is None:
-            raise TypeError("Missing 'to' argument")
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-
-        _setter("method", method)
-        _setter("to", to)
-        _setter("username", username)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "to", to)
+        pulumi.set(__self__, "username", username)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -117,31 +94,14 @@ class _UserContactState:
         :param pulumi.Input[str] to: to field is the address of given method.
         :param pulumi.Input[str] username: The username for contact.(reference)
         """
-        _UserContactState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            method=method,
-            to=to,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             method: Optional[pulumi.Input[str]] = None,
-             to: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if method is not None:
-            _setter("method", method)
+            pulumi.set(__self__, "method", method)
         if to is not None:
-            _setter("to", to)
+            pulumi.set(__self__, "to", to)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -287,10 +247,6 @@ class UserContact(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserContactArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

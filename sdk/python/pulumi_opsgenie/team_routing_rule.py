@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,55 +34,20 @@ class TeamRoutingRuleArgs:
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
         :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
         """
-        TeamRoutingRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            notifies=notifies,
-            team_id=team_id,
-            criterias=criterias,
-            is_default=is_default,
-            name=name,
-            order=order,
-            time_restrictions=time_restrictions,
-            timezone=timezone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             notifies: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]]] = None,
-             team_id: Optional[pulumi.Input[str]] = None,
-             criterias: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]]] = None,
-             is_default: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             order: Optional[pulumi.Input[int]] = None,
-             time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if notifies is None:
-            raise TypeError("Missing 'notifies' argument")
-        if team_id is None and 'teamId' in kwargs:
-            team_id = kwargs['teamId']
-        if team_id is None:
-            raise TypeError("Missing 'team_id' argument")
-        if is_default is None and 'isDefault' in kwargs:
-            is_default = kwargs['isDefault']
-        if time_restrictions is None and 'timeRestrictions' in kwargs:
-            time_restrictions = kwargs['timeRestrictions']
-
-        _setter("notifies", notifies)
-        _setter("team_id", team_id)
+        pulumi.set(__self__, "notifies", notifies)
+        pulumi.set(__self__, "team_id", team_id)
         if criterias is not None:
-            _setter("criterias", criterias)
+            pulumi.set(__self__, "criterias", criterias)
         if is_default is not None:
-            _setter("is_default", is_default)
+            pulumi.set(__self__, "is_default", is_default)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
         if time_restrictions is not None:
-            _setter("time_restrictions", time_restrictions)
+            pulumi.set(__self__, "time_restrictions", time_restrictions)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
@@ -199,53 +164,22 @@ class _TeamRoutingRuleState:
         :param pulumi.Input[str] team_id: Id of the team owning the routing rule
         :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
         """
-        _TeamRoutingRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            criterias=criterias,
-            is_default=is_default,
-            name=name,
-            notifies=notifies,
-            order=order,
-            team_id=team_id,
-            time_restrictions=time_restrictions,
-            timezone=timezone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             criterias: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaArgs']]]] = None,
-             is_default: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notifies: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]]] = None,
-             order: Optional[pulumi.Input[int]] = None,
-             team_id: Optional[pulumi.Input[str]] = None,
-             time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if is_default is None and 'isDefault' in kwargs:
-            is_default = kwargs['isDefault']
-        if team_id is None and 'teamId' in kwargs:
-            team_id = kwargs['teamId']
-        if time_restrictions is None and 'timeRestrictions' in kwargs:
-            time_restrictions = kwargs['timeRestrictions']
-
         if criterias is not None:
-            _setter("criterias", criterias)
+            pulumi.set(__self__, "criterias", criterias)
         if is_default is not None:
-            _setter("is_default", is_default)
+            pulumi.set(__self__, "is_default", is_default)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notifies is not None:
-            _setter("notifies", notifies)
+            pulumi.set(__self__, "notifies", notifies)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
         if team_id is not None:
-            _setter("team_id", team_id)
+            pulumi.set(__self__, "team_id", team_id)
         if time_restrictions is not None:
-            _setter("time_restrictions", time_restrictions)
+            pulumi.set(__self__, "time_restrictions", time_restrictions)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
@@ -485,10 +419,6 @@ class TeamRoutingRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TeamRoutingRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

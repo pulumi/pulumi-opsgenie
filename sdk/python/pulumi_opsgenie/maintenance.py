@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,29 +25,10 @@ class MaintenanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]] rules: Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]] times: Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
         """
-        MaintenanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            rules=rules,
-            times=times,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]]] = None,
-             times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-
-        _setter("description", description)
-        _setter("rules", rules)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "rules", rules)
         if times is not None:
-            _setter("times", times)
+            pulumi.set(__self__, "times", times)
 
     @property
     @pulumi.getter
@@ -98,27 +79,12 @@ class _MaintenanceState:
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]] rules: Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]] times: Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
         """
-        _MaintenanceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            rules=rules,
-            times=times,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]]] = None,
-             times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
         if times is not None:
-            _setter("times", times)
+            pulumi.set(__self__, "times", times)
 
     @property
     @pulumi.getter
@@ -254,10 +220,6 @@ class Maintenance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MaintenanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
