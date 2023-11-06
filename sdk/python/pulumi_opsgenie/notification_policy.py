@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,26 +41,75 @@ class NotificationPolicyArgs:
         :param pulumi.Input[bool] suppress: Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
-        pulumi.set(__self__, "filters", filters)
-        pulumi.set(__self__, "team_id", team_id)
+        NotificationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filters=filters,
+            team_id=team_id,
+            auto_close_actions=auto_close_actions,
+            auto_restart_actions=auto_restart_actions,
+            de_duplication_actions=de_duplication_actions,
+            delay_actions=delay_actions,
+            enabled=enabled,
+            name=name,
+            policy_description=policy_description,
+            suppress=suppress,
+            time_restrictions=time_restrictions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             auto_close_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionArgs']]]] = None,
+             auto_restart_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionArgs']]]] = None,
+             de_duplication_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionArgs']]]] = None,
+             delay_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_description: Optional[pulumi.Input[str]] = None,
+             suppress: Optional[pulumi.Input[bool]] = None,
+             time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if filters is None:
+            raise TypeError("Missing 'filters' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if auto_close_actions is None and 'autoCloseActions' in kwargs:
+            auto_close_actions = kwargs['autoCloseActions']
+        if auto_restart_actions is None and 'autoRestartActions' in kwargs:
+            auto_restart_actions = kwargs['autoRestartActions']
+        if de_duplication_actions is None and 'deDuplicationActions' in kwargs:
+            de_duplication_actions = kwargs['deDuplicationActions']
+        if delay_actions is None and 'delayActions' in kwargs:
+            delay_actions = kwargs['delayActions']
+        if policy_description is None and 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
+        _setter("filters", filters)
+        _setter("team_id", team_id)
         if auto_close_actions is not None:
-            pulumi.set(__self__, "auto_close_actions", auto_close_actions)
+            _setter("auto_close_actions", auto_close_actions)
         if auto_restart_actions is not None:
-            pulumi.set(__self__, "auto_restart_actions", auto_restart_actions)
+            _setter("auto_restart_actions", auto_restart_actions)
         if de_duplication_actions is not None:
-            pulumi.set(__self__, "de_duplication_actions", de_duplication_actions)
+            _setter("de_duplication_actions", de_duplication_actions)
         if delay_actions is not None:
-            pulumi.set(__self__, "delay_actions", delay_actions)
+            _setter("delay_actions", delay_actions)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_description is not None:
-            pulumi.set(__self__, "policy_description", policy_description)
+            _setter("policy_description", policy_description)
         if suppress is not None:
-            pulumi.set(__self__, "suppress", suppress)
+            _setter("suppress", suppress)
         if time_restrictions is not None:
-            pulumi.set(__self__, "time_restrictions", time_restrictions)
+            _setter("time_restrictions", time_restrictions)
 
     @property
     @pulumi.getter
@@ -223,28 +272,73 @@ class _NotificationPolicyState:
         :param pulumi.Input[str] team_id: Id of team that this policy belons to.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
+        _NotificationPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_close_actions=auto_close_actions,
+            auto_restart_actions=auto_restart_actions,
+            de_duplication_actions=de_duplication_actions,
+            delay_actions=delay_actions,
+            enabled=enabled,
+            filters=filters,
+            name=name,
+            policy_description=policy_description,
+            suppress=suppress,
+            team_id=team_id,
+            time_restrictions=time_restrictions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_close_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionArgs']]]] = None,
+             auto_restart_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionArgs']]]] = None,
+             de_duplication_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionArgs']]]] = None,
+             delay_actions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_description: Optional[pulumi.Input[str]] = None,
+             suppress: Optional[pulumi.Input[bool]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_close_actions is None and 'autoCloseActions' in kwargs:
+            auto_close_actions = kwargs['autoCloseActions']
+        if auto_restart_actions is None and 'autoRestartActions' in kwargs:
+            auto_restart_actions = kwargs['autoRestartActions']
+        if de_duplication_actions is None and 'deDuplicationActions' in kwargs:
+            de_duplication_actions = kwargs['deDuplicationActions']
+        if delay_actions is None and 'delayActions' in kwargs:
+            delay_actions = kwargs['delayActions']
+        if policy_description is None and 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         if auto_close_actions is not None:
-            pulumi.set(__self__, "auto_close_actions", auto_close_actions)
+            _setter("auto_close_actions", auto_close_actions)
         if auto_restart_actions is not None:
-            pulumi.set(__self__, "auto_restart_actions", auto_restart_actions)
+            _setter("auto_restart_actions", auto_restart_actions)
         if de_duplication_actions is not None:
-            pulumi.set(__self__, "de_duplication_actions", de_duplication_actions)
+            _setter("de_duplication_actions", de_duplication_actions)
         if delay_actions is not None:
-            pulumi.set(__self__, "delay_actions", delay_actions)
+            _setter("delay_actions", delay_actions)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_description is not None:
-            pulumi.set(__self__, "policy_description", policy_description)
+            _setter("policy_description", policy_description)
         if suppress is not None:
-            pulumi.set(__self__, "suppress", suppress)
+            _setter("suppress", suppress)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
         if time_restrictions is not None:
-            pulumi.set(__self__, "time_restrictions", time_restrictions)
+            _setter("time_restrictions", time_restrictions)
 
     @property
     @pulumi.getter(name="autoCloseActions")
@@ -448,6 +542,10 @@ class NotificationPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

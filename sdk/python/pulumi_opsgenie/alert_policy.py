@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,45 +59,114 @@ class AlertPolicyArgs:
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
-        pulumi.set(__self__, "message", message)
+        AlertPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            actions=actions,
+            alert_description=alert_description,
+            alias=alias,
+            continue_policy=continue_policy,
+            enabled=enabled,
+            entity=entity,
+            filters=filters,
+            ignore_original_actions=ignore_original_actions,
+            ignore_original_details=ignore_original_details,
+            ignore_original_responders=ignore_original_responders,
+            ignore_original_tags=ignore_original_tags,
+            name=name,
+            policy_description=policy_description,
+            priority=priority,
+            responders=responders,
+            source=source,
+            tags=tags,
+            team_id=team_id,
+            time_restrictions=time_restrictions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: Optional[pulumi.Input[str]] = None,
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             alert_description: Optional[pulumi.Input[str]] = None,
+             alias: Optional[pulumi.Input[str]] = None,
+             continue_policy: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             entity: Optional[pulumi.Input[str]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]] = None,
+             ignore_original_actions: Optional[pulumi.Input[bool]] = None,
+             ignore_original_details: Optional[pulumi.Input[bool]] = None,
+             ignore_original_responders: Optional[pulumi.Input[bool]] = None,
+             ignore_original_tags: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_description: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             responders: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if alert_description is None and 'alertDescription' in kwargs:
+            alert_description = kwargs['alertDescription']
+        if continue_policy is None and 'continuePolicy' in kwargs:
+            continue_policy = kwargs['continuePolicy']
+        if ignore_original_actions is None and 'ignoreOriginalActions' in kwargs:
+            ignore_original_actions = kwargs['ignoreOriginalActions']
+        if ignore_original_details is None and 'ignoreOriginalDetails' in kwargs:
+            ignore_original_details = kwargs['ignoreOriginalDetails']
+        if ignore_original_responders is None and 'ignoreOriginalResponders' in kwargs:
+            ignore_original_responders = kwargs['ignoreOriginalResponders']
+        if ignore_original_tags is None and 'ignoreOriginalTags' in kwargs:
+            ignore_original_tags = kwargs['ignoreOriginalTags']
+        if policy_description is None and 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
+        _setter("message", message)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if alert_description is not None:
-            pulumi.set(__self__, "alert_description", alert_description)
+            _setter("alert_description", alert_description)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if continue_policy is not None:
-            pulumi.set(__self__, "continue_policy", continue_policy)
+            _setter("continue_policy", continue_policy)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if entity is not None:
-            pulumi.set(__self__, "entity", entity)
+            _setter("entity", entity)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if ignore_original_actions is not None:
-            pulumi.set(__self__, "ignore_original_actions", ignore_original_actions)
+            _setter("ignore_original_actions", ignore_original_actions)
         if ignore_original_details is not None:
-            pulumi.set(__self__, "ignore_original_details", ignore_original_details)
+            _setter("ignore_original_details", ignore_original_details)
         if ignore_original_responders is not None:
-            pulumi.set(__self__, "ignore_original_responders", ignore_original_responders)
+            _setter("ignore_original_responders", ignore_original_responders)
         if ignore_original_tags is not None:
-            pulumi.set(__self__, "ignore_original_tags", ignore_original_tags)
+            _setter("ignore_original_tags", ignore_original_tags)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_description is not None:
-            pulumi.set(__self__, "policy_description", policy_description)
+            _setter("policy_description", policy_description)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if responders is not None:
-            pulumi.set(__self__, "responders", responders)
+            _setter("responders", responders)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
         if time_restrictions is not None:
-            pulumi.set(__self__, "time_restrictions", time_restrictions)
+            _setter("time_restrictions", time_restrictions)
 
     @property
     @pulumi.getter
@@ -386,46 +455,113 @@ class _AlertPolicyState:
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
+        _AlertPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            alert_description=alert_description,
+            alias=alias,
+            continue_policy=continue_policy,
+            enabled=enabled,
+            entity=entity,
+            filters=filters,
+            ignore_original_actions=ignore_original_actions,
+            ignore_original_details=ignore_original_details,
+            ignore_original_responders=ignore_original_responders,
+            ignore_original_tags=ignore_original_tags,
+            message=message,
+            name=name,
+            policy_description=policy_description,
+            priority=priority,
+            responders=responders,
+            source=source,
+            tags=tags,
+            team_id=team_id,
+            time_restrictions=time_restrictions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             alert_description: Optional[pulumi.Input[str]] = None,
+             alias: Optional[pulumi.Input[str]] = None,
+             continue_policy: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             entity: Optional[pulumi.Input[str]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]] = None,
+             ignore_original_actions: Optional[pulumi.Input[bool]] = None,
+             ignore_original_details: Optional[pulumi.Input[bool]] = None,
+             ignore_original_responders: Optional[pulumi.Input[bool]] = None,
+             ignore_original_tags: Optional[pulumi.Input[bool]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_description: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             responders: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if alert_description is None and 'alertDescription' in kwargs:
+            alert_description = kwargs['alertDescription']
+        if continue_policy is None and 'continuePolicy' in kwargs:
+            continue_policy = kwargs['continuePolicy']
+        if ignore_original_actions is None and 'ignoreOriginalActions' in kwargs:
+            ignore_original_actions = kwargs['ignoreOriginalActions']
+        if ignore_original_details is None and 'ignoreOriginalDetails' in kwargs:
+            ignore_original_details = kwargs['ignoreOriginalDetails']
+        if ignore_original_responders is None and 'ignoreOriginalResponders' in kwargs:
+            ignore_original_responders = kwargs['ignoreOriginalResponders']
+        if ignore_original_tags is None and 'ignoreOriginalTags' in kwargs:
+            ignore_original_tags = kwargs['ignoreOriginalTags']
+        if policy_description is None and 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if alert_description is not None:
-            pulumi.set(__self__, "alert_description", alert_description)
+            _setter("alert_description", alert_description)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if continue_policy is not None:
-            pulumi.set(__self__, "continue_policy", continue_policy)
+            _setter("continue_policy", continue_policy)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if entity is not None:
-            pulumi.set(__self__, "entity", entity)
+            _setter("entity", entity)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if ignore_original_actions is not None:
-            pulumi.set(__self__, "ignore_original_actions", ignore_original_actions)
+            _setter("ignore_original_actions", ignore_original_actions)
         if ignore_original_details is not None:
-            pulumi.set(__self__, "ignore_original_details", ignore_original_details)
+            _setter("ignore_original_details", ignore_original_details)
         if ignore_original_responders is not None:
-            pulumi.set(__self__, "ignore_original_responders", ignore_original_responders)
+            _setter("ignore_original_responders", ignore_original_responders)
         if ignore_original_tags is not None:
-            pulumi.set(__self__, "ignore_original_tags", ignore_original_tags)
+            _setter("ignore_original_tags", ignore_original_tags)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_description is not None:
-            pulumi.set(__self__, "policy_description", policy_description)
+            _setter("policy_description", policy_description)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if responders is not None:
-            pulumi.set(__self__, "responders", responders)
+            _setter("responders", responders)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
         if time_restrictions is not None:
-            pulumi.set(__self__, "time_restrictions", time_restrictions)
+            _setter("time_restrictions", time_restrictions)
 
     @property
     @pulumi.getter
@@ -837,6 +973,10 @@ class AlertPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AlertPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

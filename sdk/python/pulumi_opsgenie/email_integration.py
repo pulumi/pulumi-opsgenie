@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,19 +32,52 @@ class EmailIntegrationArgs:
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
         :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
-        pulumi.set(__self__, "email_username", email_username)
+        EmailIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_username=email_username,
+            enabled=enabled,
+            ignore_responders_from_payload=ignore_responders_from_payload,
+            name=name,
+            owner_team_id=owner_team_id,
+            responders=responders,
+            suppress_notifications=suppress_notifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_username: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_team_id: Optional[pulumi.Input[str]] = None,
+             responders: Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]] = None,
+             suppress_notifications: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_username is None and 'emailUsername' in kwargs:
+            email_username = kwargs['emailUsername']
+        if email_username is None:
+            raise TypeError("Missing 'email_username' argument")
+        if ignore_responders_from_payload is None and 'ignoreRespondersFromPayload' in kwargs:
+            ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
+        if owner_team_id is None and 'ownerTeamId' in kwargs:
+            owner_team_id = kwargs['ownerTeamId']
+        if suppress_notifications is None and 'suppressNotifications' in kwargs:
+            suppress_notifications = kwargs['suppressNotifications']
+
+        _setter("email_username", email_username)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if ignore_responders_from_payload is not None:
-            pulumi.set(__self__, "ignore_responders_from_payload", ignore_responders_from_payload)
+            _setter("ignore_responders_from_payload", ignore_responders_from_payload)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_team_id is not None:
-            pulumi.set(__self__, "owner_team_id", owner_team_id)
+            _setter("owner_team_id", owner_team_id)
         if responders is not None:
-            pulumi.set(__self__, "responders", responders)
+            _setter("responders", responders)
         if suppress_notifications is not None:
-            pulumi.set(__self__, "suppress_notifications", suppress_notifications)
+            _setter("suppress_notifications", suppress_notifications)
 
     @property
     @pulumi.getter(name="emailUsername")
@@ -147,20 +180,51 @@ class _EmailIntegrationState:
         :param pulumi.Input[str] owner_team_id: Owner team id of the integration.
         :param pulumi.Input[bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
+        _EmailIntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_username=email_username,
+            enabled=enabled,
+            ignore_responders_from_payload=ignore_responders_from_payload,
+            name=name,
+            owner_team_id=owner_team_id,
+            responders=responders,
+            suppress_notifications=suppress_notifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_username: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_team_id: Optional[pulumi.Input[str]] = None,
+             responders: Optional[pulumi.Input[Sequence[pulumi.Input['EmailIntegrationResponderArgs']]]] = None,
+             suppress_notifications: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_username is None and 'emailUsername' in kwargs:
+            email_username = kwargs['emailUsername']
+        if ignore_responders_from_payload is None and 'ignoreRespondersFromPayload' in kwargs:
+            ignore_responders_from_payload = kwargs['ignoreRespondersFromPayload']
+        if owner_team_id is None and 'ownerTeamId' in kwargs:
+            owner_team_id = kwargs['ownerTeamId']
+        if suppress_notifications is None and 'suppressNotifications' in kwargs:
+            suppress_notifications = kwargs['suppressNotifications']
+
         if email_username is not None:
-            pulumi.set(__self__, "email_username", email_username)
+            _setter("email_username", email_username)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if ignore_responders_from_payload is not None:
-            pulumi.set(__self__, "ignore_responders_from_payload", ignore_responders_from_payload)
+            _setter("ignore_responders_from_payload", ignore_responders_from_payload)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_team_id is not None:
-            pulumi.set(__self__, "owner_team_id", owner_team_id)
+            _setter("owner_team_id", owner_team_id)
         if responders is not None:
-            pulumi.set(__self__, "responders", responders)
+            _setter("responders", responders)
         if suppress_notifications is not None:
-            pulumi.set(__self__, "suppress_notifications", suppress_notifications)
+            _setter("suppress_notifications", suppress_notifications)
 
     @property
     @pulumi.getter(name="emailUsername")
@@ -388,6 +452,10 @@ class EmailIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,17 +26,44 @@ class IntegrationActionArgs:
         The set of arguments for constructing a IntegrationAction resource.
         :param pulumi.Input[str] integration_id: ID of the parent integration resource to bind to.
         """
-        pulumi.set(__self__, "integration_id", integration_id)
+        IntegrationActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            integration_id=integration_id,
+            acknowledges=acknowledges,
+            add_notes=add_notes,
+            closes=closes,
+            creates=creates,
+            ignores=ignores,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             integration_id: Optional[pulumi.Input[str]] = None,
+             acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]] = None,
+             add_notes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]] = None,
+             closes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]] = None,
+             creates: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]] = None,
+             ignores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if integration_id is None and 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+        if integration_id is None:
+            raise TypeError("Missing 'integration_id' argument")
+        if add_notes is None and 'addNotes' in kwargs:
+            add_notes = kwargs['addNotes']
+
+        _setter("integration_id", integration_id)
         if acknowledges is not None:
-            pulumi.set(__self__, "acknowledges", acknowledges)
+            _setter("acknowledges", acknowledges)
         if add_notes is not None:
-            pulumi.set(__self__, "add_notes", add_notes)
+            _setter("add_notes", add_notes)
         if closes is not None:
-            pulumi.set(__self__, "closes", closes)
+            _setter("closes", closes)
         if creates is not None:
-            pulumi.set(__self__, "creates", creates)
+            _setter("creates", creates)
         if ignores is not None:
-            pulumi.set(__self__, "ignores", ignores)
+            _setter("ignores", ignores)
 
     @property
     @pulumi.getter(name="integrationId")
@@ -109,18 +136,43 @@ class _IntegrationActionState:
         Input properties used for looking up and filtering IntegrationAction resources.
         :param pulumi.Input[str] integration_id: ID of the parent integration resource to bind to.
         """
+        _IntegrationActionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledges=acknowledges,
+            add_notes=add_notes,
+            closes=closes,
+            creates=creates,
+            ignores=ignores,
+            integration_id=integration_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]] = None,
+             add_notes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]] = None,
+             closes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]] = None,
+             creates: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]] = None,
+             ignores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None,
+             integration_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if add_notes is None and 'addNotes' in kwargs:
+            add_notes = kwargs['addNotes']
+        if integration_id is None and 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+
         if acknowledges is not None:
-            pulumi.set(__self__, "acknowledges", acknowledges)
+            _setter("acknowledges", acknowledges)
         if add_notes is not None:
-            pulumi.set(__self__, "add_notes", add_notes)
+            _setter("add_notes", add_notes)
         if closes is not None:
-            pulumi.set(__self__, "closes", closes)
+            _setter("closes", closes)
         if creates is not None:
-            pulumi.set(__self__, "creates", creates)
+            _setter("creates", creates)
         if ignores is not None:
-            pulumi.set(__self__, "ignores", ignores)
+            _setter("ignores", ignores)
         if integration_id is not None:
-            pulumi.set(__self__, "integration_id", integration_id)
+            _setter("integration_id", integration_id)
 
     @property
     @pulumi.getter
@@ -236,6 +288,10 @@ class IntegrationAction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

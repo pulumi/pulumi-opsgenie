@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,26 +37,67 @@ class NotificationRuleArgs:
         :param pulumi.Input[int] order: Order of the condition in conditions list
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]] steps: Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
         """
-        pulumi.set(__self__, "action_type", action_type)
-        pulumi.set(__self__, "username", username)
+        NotificationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            username=username,
+            criterias=criterias,
+            enabled=enabled,
+            name=name,
+            notification_times=notification_times,
+            order=order,
+            repeats=repeats,
+            schedules=schedules,
+            steps=steps,
+            time_restrictions=time_restrictions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             criterias: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             order: Optional[pulumi.Input[int]] = None,
+             repeats: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]] = None,
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]]] = None,
+             time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if notification_times is None and 'notificationTimes' in kwargs:
+            notification_times = kwargs['notificationTimes']
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
+        _setter("action_type", action_type)
+        _setter("username", username)
         if criterias is not None:
-            pulumi.set(__self__, "criterias", criterias)
+            _setter("criterias", criterias)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_times is not None:
-            pulumi.set(__self__, "notification_times", notification_times)
+            _setter("notification_times", notification_times)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if repeats is not None:
-            pulumi.set(__self__, "repeats", repeats)
+            _setter("repeats", repeats)
         if schedules is not None:
-            pulumi.set(__self__, "schedules", schedules)
+            _setter("schedules", schedules)
         if steps is not None:
-            pulumi.set(__self__, "steps", steps)
+            _setter("steps", steps)
         if time_restrictions is not None:
-            pulumi.set(__self__, "time_restrictions", time_restrictions)
+            _setter("time_restrictions", time_restrictions)
 
     @property
     @pulumi.getter(name="actionType")
@@ -203,28 +244,65 @@ class _NotificationRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]] steps: Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
         :param pulumi.Input[str] username: Username of user to which this notification rule belongs to.
         """
+        _NotificationRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            criterias=criterias,
+            enabled=enabled,
+            name=name,
+            notification_times=notification_times,
+            order=order,
+            repeats=repeats,
+            schedules=schedules,
+            steps=steps,
+            time_restrictions=time_restrictions,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: Optional[pulumi.Input[str]] = None,
+             criterias: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             order: Optional[pulumi.Input[int]] = None,
+             repeats: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]] = None,
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]]] = None,
+             time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if notification_times is None and 'notificationTimes' in kwargs:
+            notification_times = kwargs['notificationTimes']
+        if time_restrictions is None and 'timeRestrictions' in kwargs:
+            time_restrictions = kwargs['timeRestrictions']
+
         if action_type is not None:
-            pulumi.set(__self__, "action_type", action_type)
+            _setter("action_type", action_type)
         if criterias is not None:
-            pulumi.set(__self__, "criterias", criterias)
+            _setter("criterias", criterias)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_times is not None:
-            pulumi.set(__self__, "notification_times", notification_times)
+            _setter("notification_times", notification_times)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if repeats is not None:
-            pulumi.set(__self__, "repeats", repeats)
+            _setter("repeats", repeats)
         if schedules is not None:
-            pulumi.set(__self__, "schedules", schedules)
+            _setter("schedules", schedules)
         if steps is not None:
-            pulumi.set(__self__, "steps", steps)
+            _setter("steps", steps)
         if time_restrictions is not None:
-            pulumi.set(__self__, "time_restrictions", time_restrictions)
+            _setter("time_restrictions", time_restrictions)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="actionType")
@@ -462,6 +540,10 @@ class NotificationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
