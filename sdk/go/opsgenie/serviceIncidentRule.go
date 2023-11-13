@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Incident Rule within Opsgenie.
@@ -193,12 +192,6 @@ func (i *ServiceIncidentRule) ToServiceIncidentRuleOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleOutput)
 }
 
-func (i *ServiceIncidentRule) ToOutput(ctx context.Context) pulumix.Output[*ServiceIncidentRule] {
-	return pulumix.Output[*ServiceIncidentRule]{
-		OutputState: i.ToServiceIncidentRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceIncidentRuleArrayInput is an input type that accepts ServiceIncidentRuleArray and ServiceIncidentRuleArrayOutput values.
 // You can construct a concrete instance of `ServiceIncidentRuleArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i ServiceIncidentRuleArray) ToServiceIncidentRuleArrayOutput() ServiceInci
 
 func (i ServiceIncidentRuleArray) ToServiceIncidentRuleArrayOutputWithContext(ctx context.Context) ServiceIncidentRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleArrayOutput)
-}
-
-func (i ServiceIncidentRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceIncidentRule] {
-	return pulumix.Output[[]*ServiceIncidentRule]{
-		OutputState: i.ToServiceIncidentRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceIncidentRuleMapInput is an input type that accepts ServiceIncidentRuleMap and ServiceIncidentRuleMapOutput values.
@@ -255,12 +242,6 @@ func (i ServiceIncidentRuleMap) ToServiceIncidentRuleMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleMapOutput)
 }
 
-func (i ServiceIncidentRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceIncidentRule] {
-	return pulumix.Output[map[string]*ServiceIncidentRule]{
-		OutputState: i.ToServiceIncidentRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceIncidentRuleOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRuleOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o ServiceIncidentRuleOutput) ToServiceIncidentRuleOutput() ServiceIncident
 
 func (o ServiceIncidentRuleOutput) ToServiceIncidentRuleOutputWithContext(ctx context.Context) ServiceIncidentRuleOutput {
 	return o
-}
-
-func (o ServiceIncidentRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceIncidentRule] {
-	return pulumix.Output[*ServiceIncidentRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This is the rule configuration for this incident rule. This is a block, structure is documented below.
@@ -305,12 +280,6 @@ func (o ServiceIncidentRuleArrayOutput) ToServiceIncidentRuleArrayOutputWithCont
 	return o
 }
 
-func (o ServiceIncidentRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceIncidentRule] {
-	return pulumix.Output[[]*ServiceIncidentRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceIncidentRuleArrayOutput) Index(i pulumi.IntInput) ServiceIncidentRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceIncidentRule {
 		return vs[0].([]*ServiceIncidentRule)[vs[1].(int)]
@@ -329,12 +298,6 @@ func (o ServiceIncidentRuleMapOutput) ToServiceIncidentRuleMapOutput() ServiceIn
 
 func (o ServiceIncidentRuleMapOutput) ToServiceIncidentRuleMapOutputWithContext(ctx context.Context) ServiceIncidentRuleMapOutput {
 	return o
-}
-
-func (o ServiceIncidentRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceIncidentRule] {
-	return pulumix.Output[map[string]*ServiceIncidentRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceIncidentRuleMapOutput) MapIndex(k pulumi.StringInput) ServiceIncidentRuleOutput {

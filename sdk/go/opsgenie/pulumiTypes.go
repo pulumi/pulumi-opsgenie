@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i AlertPolicyFilterArgs) ToAlertPolicyFilterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyFilterOutput)
 }
 
-func (i AlertPolicyFilterArgs) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyFilter] {
-	return pulumix.Output[AlertPolicyFilter]{
-		OutputState: i.ToAlertPolicyFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertPolicyFilterArrayInput is an input type that accepts AlertPolicyFilterArray and AlertPolicyFilterArrayOutput values.
 // You can construct a concrete instance of `AlertPolicyFilterArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i AlertPolicyFilterArray) ToAlertPolicyFilterArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyFilterArrayOutput)
 }
 
-func (i AlertPolicyFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyFilter] {
-	return pulumix.Output[[]AlertPolicyFilter]{
-		OutputState: i.ToAlertPolicyFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertPolicyFilterOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyFilterOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o AlertPolicyFilterOutput) ToAlertPolicyFilterOutput() AlertPolicyFilterOu
 
 func (o AlertPolicyFilterOutput) ToAlertPolicyFilterOutputWithContext(ctx context.Context) AlertPolicyFilterOutput {
 	return o
-}
-
-func (o AlertPolicyFilterOutput) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyFilter] {
-	return pulumix.Output[AlertPolicyFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Conditions applied to filter. This is a block, structure is documented below.
@@ -130,12 +111,6 @@ func (o AlertPolicyFilterArrayOutput) ToAlertPolicyFilterArrayOutput() AlertPoli
 
 func (o AlertPolicyFilterArrayOutput) ToAlertPolicyFilterArrayOutputWithContext(ctx context.Context) AlertPolicyFilterArrayOutput {
 	return o
-}
-
-func (o AlertPolicyFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyFilter] {
-	return pulumix.Output[[]AlertPolicyFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertPolicyFilterArrayOutput) Index(i pulumi.IntInput) AlertPolicyFilterOutput {
@@ -197,12 +172,6 @@ func (i AlertPolicyFilterConditionArgs) ToAlertPolicyFilterConditionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyFilterConditionOutput)
 }
 
-func (i AlertPolicyFilterConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyFilterCondition] {
-	return pulumix.Output[AlertPolicyFilterCondition]{
-		OutputState: i.ToAlertPolicyFilterConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertPolicyFilterConditionArrayInput is an input type that accepts AlertPolicyFilterConditionArray and AlertPolicyFilterConditionArrayOutput values.
 // You can construct a concrete instance of `AlertPolicyFilterConditionArrayInput` via:
 //
@@ -228,12 +197,6 @@ func (i AlertPolicyFilterConditionArray) ToAlertPolicyFilterConditionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyFilterConditionArrayOutput)
 }
 
-func (i AlertPolicyFilterConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyFilterCondition] {
-	return pulumix.Output[[]AlertPolicyFilterCondition]{
-		OutputState: i.ToAlertPolicyFilterConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertPolicyFilterConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyFilterConditionOutput) ElementType() reflect.Type {
@@ -246,12 +209,6 @@ func (o AlertPolicyFilterConditionOutput) ToAlertPolicyFilterConditionOutput() A
 
 func (o AlertPolicyFilterConditionOutput) ToAlertPolicyFilterConditionOutputWithContext(ctx context.Context) AlertPolicyFilterConditionOutput {
 	return o
-}
-
-func (o AlertPolicyFilterConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyFilterCondition] {
-	return pulumix.Output[AlertPolicyFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // User defined value that will be compared with alert field according to the operation. Default: empty string
@@ -296,12 +253,6 @@ func (o AlertPolicyFilterConditionArrayOutput) ToAlertPolicyFilterConditionArray
 
 func (o AlertPolicyFilterConditionArrayOutput) ToAlertPolicyFilterConditionArrayOutputWithContext(ctx context.Context) AlertPolicyFilterConditionArrayOutput {
 	return o
-}
-
-func (o AlertPolicyFilterConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyFilterCondition] {
-	return pulumix.Output[[]AlertPolicyFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertPolicyFilterConditionArrayOutput) Index(i pulumi.IntInput) AlertPolicyFilterConditionOutput {
@@ -355,12 +306,6 @@ func (i AlertPolicyResponderArgs) ToAlertPolicyResponderOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyResponderOutput)
 }
 
-func (i AlertPolicyResponderArgs) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyResponder] {
-	return pulumix.Output[AlertPolicyResponder]{
-		OutputState: i.ToAlertPolicyResponderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertPolicyResponderArrayInput is an input type that accepts AlertPolicyResponderArray and AlertPolicyResponderArrayOutput values.
 // You can construct a concrete instance of `AlertPolicyResponderArrayInput` via:
 //
@@ -386,12 +331,6 @@ func (i AlertPolicyResponderArray) ToAlertPolicyResponderArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyResponderArrayOutput)
 }
 
-func (i AlertPolicyResponderArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyResponder] {
-	return pulumix.Output[[]AlertPolicyResponder]{
-		OutputState: i.ToAlertPolicyResponderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertPolicyResponderOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyResponderOutput) ElementType() reflect.Type {
@@ -404,12 +343,6 @@ func (o AlertPolicyResponderOutput) ToAlertPolicyResponderOutput() AlertPolicyRe
 
 func (o AlertPolicyResponderOutput) ToAlertPolicyResponderOutputWithContext(ctx context.Context) AlertPolicyResponderOutput {
 	return o
-}
-
-func (o AlertPolicyResponderOutput) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyResponder] {
-	return pulumix.Output[AlertPolicyResponder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the responder
@@ -444,12 +377,6 @@ func (o AlertPolicyResponderArrayOutput) ToAlertPolicyResponderArrayOutput() Ale
 
 func (o AlertPolicyResponderArrayOutput) ToAlertPolicyResponderArrayOutputWithContext(ctx context.Context) AlertPolicyResponderArrayOutput {
 	return o
-}
-
-func (o AlertPolicyResponderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyResponder] {
-	return pulumix.Output[[]AlertPolicyResponder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertPolicyResponderArrayOutput) Index(i pulumi.IntInput) AlertPolicyResponderOutput {
@@ -499,12 +426,6 @@ func (i AlertPolicyTimeRestrictionArgs) ToAlertPolicyTimeRestrictionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyTimeRestrictionOutput)
 }
 
-func (i AlertPolicyTimeRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyTimeRestriction] {
-	return pulumix.Output[AlertPolicyTimeRestriction]{
-		OutputState: i.ToAlertPolicyTimeRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertPolicyTimeRestrictionArrayInput is an input type that accepts AlertPolicyTimeRestrictionArray and AlertPolicyTimeRestrictionArrayOutput values.
 // You can construct a concrete instance of `AlertPolicyTimeRestrictionArrayInput` via:
 //
@@ -530,12 +451,6 @@ func (i AlertPolicyTimeRestrictionArray) ToAlertPolicyTimeRestrictionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyTimeRestrictionArrayOutput)
 }
 
-func (i AlertPolicyTimeRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyTimeRestriction] {
-	return pulumix.Output[[]AlertPolicyTimeRestriction]{
-		OutputState: i.ToAlertPolicyTimeRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertPolicyTimeRestrictionOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyTimeRestrictionOutput) ElementType() reflect.Type {
@@ -548,12 +463,6 @@ func (o AlertPolicyTimeRestrictionOutput) ToAlertPolicyTimeRestrictionOutput() A
 
 func (o AlertPolicyTimeRestrictionOutput) ToAlertPolicyTimeRestrictionOutputWithContext(ctx context.Context) AlertPolicyTimeRestrictionOutput {
 	return o
-}
-
-func (o AlertPolicyTimeRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyTimeRestriction] {
-	return pulumix.Output[AlertPolicyTimeRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
@@ -585,12 +494,6 @@ func (o AlertPolicyTimeRestrictionArrayOutput) ToAlertPolicyTimeRestrictionArray
 
 func (o AlertPolicyTimeRestrictionArrayOutput) ToAlertPolicyTimeRestrictionArrayOutputWithContext(ctx context.Context) AlertPolicyTimeRestrictionArrayOutput {
 	return o
-}
-
-func (o AlertPolicyTimeRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyTimeRestriction] {
-	return pulumix.Output[[]AlertPolicyTimeRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertPolicyTimeRestrictionArrayOutput) Index(i pulumi.IntInput) AlertPolicyTimeRestrictionOutput {
@@ -644,12 +547,6 @@ func (i AlertPolicyTimeRestrictionRestrictionArgs) ToAlertPolicyTimeRestrictionR
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyTimeRestrictionRestrictionOutput)
 }
 
-func (i AlertPolicyTimeRestrictionRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyTimeRestrictionRestriction] {
-	return pulumix.Output[AlertPolicyTimeRestrictionRestriction]{
-		OutputState: i.ToAlertPolicyTimeRestrictionRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertPolicyTimeRestrictionRestrictionArrayInput is an input type that accepts AlertPolicyTimeRestrictionRestrictionArray and AlertPolicyTimeRestrictionRestrictionArrayOutput values.
 // You can construct a concrete instance of `AlertPolicyTimeRestrictionRestrictionArrayInput` via:
 //
@@ -675,12 +572,6 @@ func (i AlertPolicyTimeRestrictionRestrictionArray) ToAlertPolicyTimeRestriction
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyTimeRestrictionRestrictionArrayOutput)
 }
 
-func (i AlertPolicyTimeRestrictionRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyTimeRestrictionRestriction] {
-	return pulumix.Output[[]AlertPolicyTimeRestrictionRestriction]{
-		OutputState: i.ToAlertPolicyTimeRestrictionRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertPolicyTimeRestrictionRestrictionOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyTimeRestrictionRestrictionOutput) ElementType() reflect.Type {
@@ -693,12 +584,6 @@ func (o AlertPolicyTimeRestrictionRestrictionOutput) ToAlertPolicyTimeRestrictio
 
 func (o AlertPolicyTimeRestrictionRestrictionOutput) ToAlertPolicyTimeRestrictionRestrictionOutputWithContext(ctx context.Context) AlertPolicyTimeRestrictionRestrictionOutput {
 	return o
-}
-
-func (o AlertPolicyTimeRestrictionRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyTimeRestrictionRestriction] {
-	return pulumix.Output[AlertPolicyTimeRestrictionRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Ending hour of restriction.
@@ -733,12 +618,6 @@ func (o AlertPolicyTimeRestrictionRestrictionArrayOutput) ToAlertPolicyTimeRestr
 
 func (o AlertPolicyTimeRestrictionRestrictionArrayOutput) ToAlertPolicyTimeRestrictionRestrictionArrayOutputWithContext(ctx context.Context) AlertPolicyTimeRestrictionRestrictionArrayOutput {
 	return o
-}
-
-func (o AlertPolicyTimeRestrictionRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyTimeRestrictionRestriction] {
-	return pulumix.Output[[]AlertPolicyTimeRestrictionRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertPolicyTimeRestrictionRestrictionArrayOutput) Index(i pulumi.IntInput) AlertPolicyTimeRestrictionRestrictionOutput {
@@ -800,12 +679,6 @@ func (i AlertPolicyTimeRestrictionRestrictionListArgs) ToAlertPolicyTimeRestrict
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyTimeRestrictionRestrictionListOutput)
 }
 
-func (i AlertPolicyTimeRestrictionRestrictionListArgs) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyTimeRestrictionRestrictionList] {
-	return pulumix.Output[AlertPolicyTimeRestrictionRestrictionList]{
-		OutputState: i.ToAlertPolicyTimeRestrictionRestrictionListOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertPolicyTimeRestrictionRestrictionListArrayInput is an input type that accepts AlertPolicyTimeRestrictionRestrictionListArray and AlertPolicyTimeRestrictionRestrictionListArrayOutput values.
 // You can construct a concrete instance of `AlertPolicyTimeRestrictionRestrictionListArrayInput` via:
 //
@@ -831,12 +704,6 @@ func (i AlertPolicyTimeRestrictionRestrictionListArray) ToAlertPolicyTimeRestric
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyTimeRestrictionRestrictionListArrayOutput)
 }
 
-func (i AlertPolicyTimeRestrictionRestrictionListArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyTimeRestrictionRestrictionList] {
-	return pulumix.Output[[]AlertPolicyTimeRestrictionRestrictionList]{
-		OutputState: i.ToAlertPolicyTimeRestrictionRestrictionListArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertPolicyTimeRestrictionRestrictionListOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyTimeRestrictionRestrictionListOutput) ElementType() reflect.Type {
@@ -849,12 +716,6 @@ func (o AlertPolicyTimeRestrictionRestrictionListOutput) ToAlertPolicyTimeRestri
 
 func (o AlertPolicyTimeRestrictionRestrictionListOutput) ToAlertPolicyTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) AlertPolicyTimeRestrictionRestrictionListOutput {
 	return o
-}
-
-func (o AlertPolicyTimeRestrictionRestrictionListOutput) ToOutput(ctx context.Context) pulumix.Output[AlertPolicyTimeRestrictionRestrictionList] {
-	return pulumix.Output[AlertPolicyTimeRestrictionRestrictionList]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Ending day of restriction (eg. `wednesday`)
@@ -901,12 +762,6 @@ func (o AlertPolicyTimeRestrictionRestrictionListArrayOutput) ToAlertPolicyTimeR
 	return o
 }
 
-func (o AlertPolicyTimeRestrictionRestrictionListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertPolicyTimeRestrictionRestrictionList] {
-	return pulumix.Output[[]AlertPolicyTimeRestrictionRestrictionList]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlertPolicyTimeRestrictionRestrictionListArrayOutput) Index(i pulumi.IntInput) AlertPolicyTimeRestrictionRestrictionListOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertPolicyTimeRestrictionRestrictionList {
 		return vs[0].([]AlertPolicyTimeRestrictionRestrictionList)[vs[1].(int)]
@@ -950,12 +805,6 @@ func (i ApiIntegrationResponderArgs) ToApiIntegrationResponderOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationResponderOutput)
 }
 
-func (i ApiIntegrationResponderArgs) ToOutput(ctx context.Context) pulumix.Output[ApiIntegrationResponder] {
-	return pulumix.Output[ApiIntegrationResponder]{
-		OutputState: i.ToApiIntegrationResponderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiIntegrationResponderArrayInput is an input type that accepts ApiIntegrationResponderArray and ApiIntegrationResponderArrayOutput values.
 // You can construct a concrete instance of `ApiIntegrationResponderArrayInput` via:
 //
@@ -981,12 +830,6 @@ func (i ApiIntegrationResponderArray) ToApiIntegrationResponderArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationResponderArrayOutput)
 }
 
-func (i ApiIntegrationResponderArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiIntegrationResponder] {
-	return pulumix.Output[[]ApiIntegrationResponder]{
-		OutputState: i.ToApiIntegrationResponderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiIntegrationResponderOutput struct{ *pulumi.OutputState }
 
 func (ApiIntegrationResponderOutput) ElementType() reflect.Type {
@@ -999,12 +842,6 @@ func (o ApiIntegrationResponderOutput) ToApiIntegrationResponderOutput() ApiInte
 
 func (o ApiIntegrationResponderOutput) ToApiIntegrationResponderOutputWithContext(ctx context.Context) ApiIntegrationResponderOutput {
 	return o
-}
-
-func (o ApiIntegrationResponderOutput) ToOutput(ctx context.Context) pulumix.Output[ApiIntegrationResponder] {
-	return pulumix.Output[ApiIntegrationResponder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The id of the responder.
@@ -1029,12 +866,6 @@ func (o ApiIntegrationResponderArrayOutput) ToApiIntegrationResponderArrayOutput
 
 func (o ApiIntegrationResponderArrayOutput) ToApiIntegrationResponderArrayOutputWithContext(ctx context.Context) ApiIntegrationResponderArrayOutput {
 	return o
-}
-
-func (o ApiIntegrationResponderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiIntegrationResponder] {
-	return pulumix.Output[[]ApiIntegrationResponder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiIntegrationResponderArrayOutput) Index(i pulumi.IntInput) ApiIntegrationResponderOutput {
@@ -1080,12 +911,6 @@ func (i EmailIntegrationResponderArgs) ToEmailIntegrationResponderOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationResponderOutput)
 }
 
-func (i EmailIntegrationResponderArgs) ToOutput(ctx context.Context) pulumix.Output[EmailIntegrationResponder] {
-	return pulumix.Output[EmailIntegrationResponder]{
-		OutputState: i.ToEmailIntegrationResponderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmailIntegrationResponderArrayInput is an input type that accepts EmailIntegrationResponderArray and EmailIntegrationResponderArrayOutput values.
 // You can construct a concrete instance of `EmailIntegrationResponderArrayInput` via:
 //
@@ -1111,12 +936,6 @@ func (i EmailIntegrationResponderArray) ToEmailIntegrationResponderArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIntegrationResponderArrayOutput)
 }
 
-func (i EmailIntegrationResponderArray) ToOutput(ctx context.Context) pulumix.Output[[]EmailIntegrationResponder] {
-	return pulumix.Output[[]EmailIntegrationResponder]{
-		OutputState: i.ToEmailIntegrationResponderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailIntegrationResponderOutput struct{ *pulumi.OutputState }
 
 func (EmailIntegrationResponderOutput) ElementType() reflect.Type {
@@ -1129,12 +948,6 @@ func (o EmailIntegrationResponderOutput) ToEmailIntegrationResponderOutput() Ema
 
 func (o EmailIntegrationResponderOutput) ToEmailIntegrationResponderOutputWithContext(ctx context.Context) EmailIntegrationResponderOutput {
 	return o
-}
-
-func (o EmailIntegrationResponderOutput) ToOutput(ctx context.Context) pulumix.Output[EmailIntegrationResponder] {
-	return pulumix.Output[EmailIntegrationResponder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The id of the responder.
@@ -1159,12 +972,6 @@ func (o EmailIntegrationResponderArrayOutput) ToEmailIntegrationResponderArrayOu
 
 func (o EmailIntegrationResponderArrayOutput) ToEmailIntegrationResponderArrayOutputWithContext(ctx context.Context) EmailIntegrationResponderArrayOutput {
 	return o
-}
-
-func (o EmailIntegrationResponderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EmailIntegrationResponder] {
-	return pulumix.Output[[]EmailIntegrationResponder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailIntegrationResponderArrayOutput) Index(i pulumi.IntInput) EmailIntegrationResponderOutput {
@@ -1210,12 +1017,6 @@ func (i EscalationRepeatArgs) ToEscalationRepeatOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationRepeatOutput)
 }
 
-func (i EscalationRepeatArgs) ToOutput(ctx context.Context) pulumix.Output[EscalationRepeat] {
-	return pulumix.Output[EscalationRepeat]{
-		OutputState: i.ToEscalationRepeatOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EscalationRepeatArrayInput is an input type that accepts EscalationRepeatArray and EscalationRepeatArrayOutput values.
 // You can construct a concrete instance of `EscalationRepeatArrayInput` via:
 //
@@ -1241,12 +1042,6 @@ func (i EscalationRepeatArray) ToEscalationRepeatArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationRepeatArrayOutput)
 }
 
-func (i EscalationRepeatArray) ToOutput(ctx context.Context) pulumix.Output[[]EscalationRepeat] {
-	return pulumix.Output[[]EscalationRepeat]{
-		OutputState: i.ToEscalationRepeatArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EscalationRepeatOutput struct{ *pulumi.OutputState }
 
 func (EscalationRepeatOutput) ElementType() reflect.Type {
@@ -1259,12 +1054,6 @@ func (o EscalationRepeatOutput) ToEscalationRepeatOutput() EscalationRepeatOutpu
 
 func (o EscalationRepeatOutput) ToEscalationRepeatOutputWithContext(ctx context.Context) EscalationRepeatOutput {
 	return o
-}
-
-func (o EscalationRepeatOutput) ToOutput(ctx context.Context) pulumix.Output[EscalationRepeat] {
-	return pulumix.Output[EscalationRepeat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EscalationRepeatOutput) CloseAlertAfterAll() pulumi.BoolPtrOutput {
@@ -1295,12 +1084,6 @@ func (o EscalationRepeatArrayOutput) ToEscalationRepeatArrayOutput() EscalationR
 
 func (o EscalationRepeatArrayOutput) ToEscalationRepeatArrayOutputWithContext(ctx context.Context) EscalationRepeatArrayOutput {
 	return o
-}
-
-func (o EscalationRepeatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EscalationRepeat] {
-	return pulumix.Output[[]EscalationRepeat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EscalationRepeatArrayOutput) Index(i pulumi.IntInput) EscalationRepeatOutput {
@@ -1354,12 +1137,6 @@ func (i EscalationRuleArgs) ToEscalationRuleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationRuleOutput)
 }
 
-func (i EscalationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[EscalationRule] {
-	return pulumix.Output[EscalationRule]{
-		OutputState: i.ToEscalationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EscalationRuleArrayInput is an input type that accepts EscalationRuleArray and EscalationRuleArrayOutput values.
 // You can construct a concrete instance of `EscalationRuleArrayInput` via:
 //
@@ -1385,12 +1162,6 @@ func (i EscalationRuleArray) ToEscalationRuleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationRuleArrayOutput)
 }
 
-func (i EscalationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]EscalationRule] {
-	return pulumix.Output[[]EscalationRule]{
-		OutputState: i.ToEscalationRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EscalationRuleOutput struct{ *pulumi.OutputState }
 
 func (EscalationRuleOutput) ElementType() reflect.Type {
@@ -1403,12 +1174,6 @@ func (o EscalationRuleOutput) ToEscalationRuleOutput() EscalationRuleOutput {
 
 func (o EscalationRuleOutput) ToEscalationRuleOutputWithContext(ctx context.Context) EscalationRuleOutput {
 	return o
-}
-
-func (o EscalationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[EscalationRule] {
-	return pulumix.Output[EscalationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
@@ -1443,12 +1208,6 @@ func (o EscalationRuleArrayOutput) ToEscalationRuleArrayOutput() EscalationRuleA
 
 func (o EscalationRuleArrayOutput) ToEscalationRuleArrayOutputWithContext(ctx context.Context) EscalationRuleArrayOutput {
 	return o
-}
-
-func (o EscalationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EscalationRule] {
-	return pulumix.Output[[]EscalationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EscalationRuleArrayOutput) Index(i pulumi.IntInput) EscalationRuleOutput {
@@ -1492,12 +1251,6 @@ func (i EscalationRuleRecipientArgs) ToEscalationRuleRecipientOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationRuleRecipientOutput)
 }
 
-func (i EscalationRuleRecipientArgs) ToOutput(ctx context.Context) pulumix.Output[EscalationRuleRecipient] {
-	return pulumix.Output[EscalationRuleRecipient]{
-		OutputState: i.ToEscalationRuleRecipientOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EscalationRuleRecipientArrayInput is an input type that accepts EscalationRuleRecipientArray and EscalationRuleRecipientArrayOutput values.
 // You can construct a concrete instance of `EscalationRuleRecipientArrayInput` via:
 //
@@ -1523,12 +1276,6 @@ func (i EscalationRuleRecipientArray) ToEscalationRuleRecipientArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationRuleRecipientArrayOutput)
 }
 
-func (i EscalationRuleRecipientArray) ToOutput(ctx context.Context) pulumix.Output[[]EscalationRuleRecipient] {
-	return pulumix.Output[[]EscalationRuleRecipient]{
-		OutputState: i.ToEscalationRuleRecipientArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EscalationRuleRecipientOutput struct{ *pulumi.OutputState }
 
 func (EscalationRuleRecipientOutput) ElementType() reflect.Type {
@@ -1541,12 +1288,6 @@ func (o EscalationRuleRecipientOutput) ToEscalationRuleRecipientOutput() Escalat
 
 func (o EscalationRuleRecipientOutput) ToEscalationRuleRecipientOutputWithContext(ctx context.Context) EscalationRuleRecipientOutput {
 	return o
-}
-
-func (o EscalationRuleRecipientOutput) ToOutput(ctx context.Context) pulumix.Output[EscalationRuleRecipient] {
-	return pulumix.Output[EscalationRuleRecipient]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Opsgenie Escalation.
@@ -1570,12 +1311,6 @@ func (o EscalationRuleRecipientArrayOutput) ToEscalationRuleRecipientArrayOutput
 
 func (o EscalationRuleRecipientArrayOutput) ToEscalationRuleRecipientArrayOutputWithContext(ctx context.Context) EscalationRuleRecipientArrayOutput {
 	return o
-}
-
-func (o EscalationRuleRecipientArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EscalationRuleRecipient] {
-	return pulumix.Output[[]EscalationRuleRecipient]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EscalationRuleRecipientArrayOutput) Index(i pulumi.IntInput) EscalationRuleRecipientOutput {
@@ -1625,12 +1360,6 @@ func (i IncidentTemplateStakeholderPropertyArgs) ToIncidentTemplateStakeholderPr
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateStakeholderPropertyOutput)
 }
 
-func (i IncidentTemplateStakeholderPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[IncidentTemplateStakeholderProperty] {
-	return pulumix.Output[IncidentTemplateStakeholderProperty]{
-		OutputState: i.ToIncidentTemplateStakeholderPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IncidentTemplateStakeholderPropertyArrayInput is an input type that accepts IncidentTemplateStakeholderPropertyArray and IncidentTemplateStakeholderPropertyArrayOutput values.
 // You can construct a concrete instance of `IncidentTemplateStakeholderPropertyArrayInput` via:
 //
@@ -1656,12 +1385,6 @@ func (i IncidentTemplateStakeholderPropertyArray) ToIncidentTemplateStakeholderP
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentTemplateStakeholderPropertyArrayOutput)
 }
 
-func (i IncidentTemplateStakeholderPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]IncidentTemplateStakeholderProperty] {
-	return pulumix.Output[[]IncidentTemplateStakeholderProperty]{
-		OutputState: i.ToIncidentTemplateStakeholderPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IncidentTemplateStakeholderPropertyOutput struct{ *pulumi.OutputState }
 
 func (IncidentTemplateStakeholderPropertyOutput) ElementType() reflect.Type {
@@ -1674,12 +1397,6 @@ func (o IncidentTemplateStakeholderPropertyOutput) ToIncidentTemplateStakeholder
 
 func (o IncidentTemplateStakeholderPropertyOutput) ToIncidentTemplateStakeholderPropertyOutputWithContext(ctx context.Context) IncidentTemplateStakeholderPropertyOutput {
 	return o
-}
-
-func (o IncidentTemplateStakeholderPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[IncidentTemplateStakeholderProperty] {
-	return pulumix.Output[IncidentTemplateStakeholderProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
@@ -1709,12 +1426,6 @@ func (o IncidentTemplateStakeholderPropertyArrayOutput) ToIncidentTemplateStakeh
 
 func (o IncidentTemplateStakeholderPropertyArrayOutput) ToIncidentTemplateStakeholderPropertyArrayOutputWithContext(ctx context.Context) IncidentTemplateStakeholderPropertyArrayOutput {
 	return o
-}
-
-func (o IncidentTemplateStakeholderPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IncidentTemplateStakeholderProperty] {
-	return pulumix.Output[[]IncidentTemplateStakeholderProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IncidentTemplateStakeholderPropertyArrayOutput) Index(i pulumi.IntInput) IncidentTemplateStakeholderPropertyOutput {
@@ -1786,12 +1497,6 @@ func (i IntegrationActionAcknowledgeArgs) ToIntegrationActionAcknowledgeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAcknowledgeOutput)
 }
 
-func (i IntegrationActionAcknowledgeArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAcknowledge] {
-	return pulumix.Output[IntegrationActionAcknowledge]{
-		OutputState: i.ToIntegrationActionAcknowledgeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionAcknowledgeArrayInput is an input type that accepts IntegrationActionAcknowledgeArray and IntegrationActionAcknowledgeArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionAcknowledgeArrayInput` via:
 //
@@ -1817,12 +1522,6 @@ func (i IntegrationActionAcknowledgeArray) ToIntegrationActionAcknowledgeArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAcknowledgeArrayOutput)
 }
 
-func (i IntegrationActionAcknowledgeArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAcknowledge] {
-	return pulumix.Output[[]IntegrationActionAcknowledge]{
-		OutputState: i.ToIntegrationActionAcknowledgeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionAcknowledgeOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionAcknowledgeOutput) ElementType() reflect.Type {
@@ -1835,12 +1534,6 @@ func (o IntegrationActionAcknowledgeOutput) ToIntegrationActionAcknowledgeOutput
 
 func (o IntegrationActionAcknowledgeOutput) ToIntegrationActionAcknowledgeOutputWithContext(ctx context.Context) IntegrationActionAcknowledgeOutput {
 	return o
-}
-
-func (o IntegrationActionAcknowledgeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAcknowledge] {
-	return pulumix.Output[IntegrationActionAcknowledge]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An identifier that is used for alert deduplication. Default: `{{alias}}`.
@@ -1895,12 +1588,6 @@ func (o IntegrationActionAcknowledgeArrayOutput) ToIntegrationActionAcknowledgeA
 	return o
 }
 
-func (o IntegrationActionAcknowledgeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAcknowledge] {
-	return pulumix.Output[[]IntegrationActionAcknowledge]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationActionAcknowledgeArrayOutput) Index(i pulumi.IntInput) IntegrationActionAcknowledgeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationActionAcknowledge {
 		return vs[0].([]IntegrationActionAcknowledge)[vs[1].(int)]
@@ -1942,12 +1629,6 @@ func (i IntegrationActionAcknowledgeFilterArgs) ToIntegrationActionAcknowledgeFi
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAcknowledgeFilterOutput)
 }
 
-func (i IntegrationActionAcknowledgeFilterArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAcknowledgeFilter] {
-	return pulumix.Output[IntegrationActionAcknowledgeFilter]{
-		OutputState: i.ToIntegrationActionAcknowledgeFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionAcknowledgeFilterArrayInput is an input type that accepts IntegrationActionAcknowledgeFilterArray and IntegrationActionAcknowledgeFilterArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionAcknowledgeFilterArrayInput` via:
 //
@@ -1973,12 +1654,6 @@ func (i IntegrationActionAcknowledgeFilterArray) ToIntegrationActionAcknowledgeF
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAcknowledgeFilterArrayOutput)
 }
 
-func (i IntegrationActionAcknowledgeFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAcknowledgeFilter] {
-	return pulumix.Output[[]IntegrationActionAcknowledgeFilter]{
-		OutputState: i.ToIntegrationActionAcknowledgeFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionAcknowledgeFilterOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionAcknowledgeFilterOutput) ElementType() reflect.Type {
@@ -1991,12 +1666,6 @@ func (o IntegrationActionAcknowledgeFilterOutput) ToIntegrationActionAcknowledge
 
 func (o IntegrationActionAcknowledgeFilterOutput) ToIntegrationActionAcknowledgeFilterOutputWithContext(ctx context.Context) IntegrationActionAcknowledgeFilterOutput {
 	return o
-}
-
-func (o IntegrationActionAcknowledgeFilterOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAcknowledgeFilter] {
-	return pulumix.Output[IntegrationActionAcknowledgeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionAcknowledgeFilterOutput) Conditions() IntegrationActionAcknowledgeFilterConditionArrayOutput {
@@ -2022,12 +1691,6 @@ func (o IntegrationActionAcknowledgeFilterArrayOutput) ToIntegrationActionAcknow
 
 func (o IntegrationActionAcknowledgeFilterArrayOutput) ToIntegrationActionAcknowledgeFilterArrayOutputWithContext(ctx context.Context) IntegrationActionAcknowledgeFilterArrayOutput {
 	return o
-}
-
-func (o IntegrationActionAcknowledgeFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAcknowledgeFilter] {
-	return pulumix.Output[[]IntegrationActionAcknowledgeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionAcknowledgeFilterArrayOutput) Index(i pulumi.IntInput) IntegrationActionAcknowledgeFilterOutput {
@@ -2079,12 +1742,6 @@ func (i IntegrationActionAcknowledgeFilterConditionArgs) ToIntegrationActionAckn
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAcknowledgeFilterConditionOutput)
 }
 
-func (i IntegrationActionAcknowledgeFilterConditionArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAcknowledgeFilterCondition] {
-	return pulumix.Output[IntegrationActionAcknowledgeFilterCondition]{
-		OutputState: i.ToIntegrationActionAcknowledgeFilterConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionAcknowledgeFilterConditionArrayInput is an input type that accepts IntegrationActionAcknowledgeFilterConditionArray and IntegrationActionAcknowledgeFilterConditionArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionAcknowledgeFilterConditionArrayInput` via:
 //
@@ -2110,12 +1767,6 @@ func (i IntegrationActionAcknowledgeFilterConditionArray) ToIntegrationActionAck
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAcknowledgeFilterConditionArrayOutput)
 }
 
-func (i IntegrationActionAcknowledgeFilterConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAcknowledgeFilterCondition] {
-	return pulumix.Output[[]IntegrationActionAcknowledgeFilterCondition]{
-		OutputState: i.ToIntegrationActionAcknowledgeFilterConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionAcknowledgeFilterConditionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionAcknowledgeFilterConditionOutput) ElementType() reflect.Type {
@@ -2128,12 +1779,6 @@ func (o IntegrationActionAcknowledgeFilterConditionOutput) ToIntegrationActionAc
 
 func (o IntegrationActionAcknowledgeFilterConditionOutput) ToIntegrationActionAcknowledgeFilterConditionOutputWithContext(ctx context.Context) IntegrationActionAcknowledgeFilterConditionOutput {
 	return o
-}
-
-func (o IntegrationActionAcknowledgeFilterConditionOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAcknowledgeFilterCondition] {
-	return pulumix.Output[IntegrationActionAcknowledgeFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionAcknowledgeFilterConditionOutput) ExpectedValue() pulumi.StringPtrOutput {
@@ -2173,12 +1818,6 @@ func (o IntegrationActionAcknowledgeFilterConditionArrayOutput) ToIntegrationAct
 
 func (o IntegrationActionAcknowledgeFilterConditionArrayOutput) ToIntegrationActionAcknowledgeFilterConditionArrayOutputWithContext(ctx context.Context) IntegrationActionAcknowledgeFilterConditionArrayOutput {
 	return o
-}
-
-func (o IntegrationActionAcknowledgeFilterConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAcknowledgeFilterCondition] {
-	return pulumix.Output[[]IntegrationActionAcknowledgeFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionAcknowledgeFilterConditionArrayOutput) Index(i pulumi.IntInput) IntegrationActionAcknowledgeFilterConditionOutput {
@@ -2250,12 +1889,6 @@ func (i IntegrationActionAddNoteArgs) ToIntegrationActionAddNoteOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAddNoteOutput)
 }
 
-func (i IntegrationActionAddNoteArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAddNote] {
-	return pulumix.Output[IntegrationActionAddNote]{
-		OutputState: i.ToIntegrationActionAddNoteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionAddNoteArrayInput is an input type that accepts IntegrationActionAddNoteArray and IntegrationActionAddNoteArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionAddNoteArrayInput` via:
 //
@@ -2281,12 +1914,6 @@ func (i IntegrationActionAddNoteArray) ToIntegrationActionAddNoteArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAddNoteArrayOutput)
 }
 
-func (i IntegrationActionAddNoteArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAddNote] {
-	return pulumix.Output[[]IntegrationActionAddNote]{
-		OutputState: i.ToIntegrationActionAddNoteArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionAddNoteOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionAddNoteOutput) ElementType() reflect.Type {
@@ -2299,12 +1926,6 @@ func (o IntegrationActionAddNoteOutput) ToIntegrationActionAddNoteOutput() Integ
 
 func (o IntegrationActionAddNoteOutput) ToIntegrationActionAddNoteOutputWithContext(ctx context.Context) IntegrationActionAddNoteOutput {
 	return o
-}
-
-func (o IntegrationActionAddNoteOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAddNote] {
-	return pulumix.Output[IntegrationActionAddNote]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An identifier that is used for alert deduplication. Default: `{{alias}}`.
@@ -2359,12 +1980,6 @@ func (o IntegrationActionAddNoteArrayOutput) ToIntegrationActionAddNoteArrayOutp
 	return o
 }
 
-func (o IntegrationActionAddNoteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAddNote] {
-	return pulumix.Output[[]IntegrationActionAddNote]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationActionAddNoteArrayOutput) Index(i pulumi.IntInput) IntegrationActionAddNoteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationActionAddNote {
 		return vs[0].([]IntegrationActionAddNote)[vs[1].(int)]
@@ -2406,12 +2021,6 @@ func (i IntegrationActionAddNoteFilterArgs) ToIntegrationActionAddNoteFilterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAddNoteFilterOutput)
 }
 
-func (i IntegrationActionAddNoteFilterArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAddNoteFilter] {
-	return pulumix.Output[IntegrationActionAddNoteFilter]{
-		OutputState: i.ToIntegrationActionAddNoteFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionAddNoteFilterArrayInput is an input type that accepts IntegrationActionAddNoteFilterArray and IntegrationActionAddNoteFilterArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionAddNoteFilterArrayInput` via:
 //
@@ -2437,12 +2046,6 @@ func (i IntegrationActionAddNoteFilterArray) ToIntegrationActionAddNoteFilterArr
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAddNoteFilterArrayOutput)
 }
 
-func (i IntegrationActionAddNoteFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAddNoteFilter] {
-	return pulumix.Output[[]IntegrationActionAddNoteFilter]{
-		OutputState: i.ToIntegrationActionAddNoteFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionAddNoteFilterOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionAddNoteFilterOutput) ElementType() reflect.Type {
@@ -2455,12 +2058,6 @@ func (o IntegrationActionAddNoteFilterOutput) ToIntegrationActionAddNoteFilterOu
 
 func (o IntegrationActionAddNoteFilterOutput) ToIntegrationActionAddNoteFilterOutputWithContext(ctx context.Context) IntegrationActionAddNoteFilterOutput {
 	return o
-}
-
-func (o IntegrationActionAddNoteFilterOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAddNoteFilter] {
-	return pulumix.Output[IntegrationActionAddNoteFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionAddNoteFilterOutput) Conditions() IntegrationActionAddNoteFilterConditionArrayOutput {
@@ -2484,12 +2081,6 @@ func (o IntegrationActionAddNoteFilterArrayOutput) ToIntegrationActionAddNoteFil
 
 func (o IntegrationActionAddNoteFilterArrayOutput) ToIntegrationActionAddNoteFilterArrayOutputWithContext(ctx context.Context) IntegrationActionAddNoteFilterArrayOutput {
 	return o
-}
-
-func (o IntegrationActionAddNoteFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAddNoteFilter] {
-	return pulumix.Output[[]IntegrationActionAddNoteFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionAddNoteFilterArrayOutput) Index(i pulumi.IntInput) IntegrationActionAddNoteFilterOutput {
@@ -2541,12 +2132,6 @@ func (i IntegrationActionAddNoteFilterConditionArgs) ToIntegrationActionAddNoteF
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAddNoteFilterConditionOutput)
 }
 
-func (i IntegrationActionAddNoteFilterConditionArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAddNoteFilterCondition] {
-	return pulumix.Output[IntegrationActionAddNoteFilterCondition]{
-		OutputState: i.ToIntegrationActionAddNoteFilterConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionAddNoteFilterConditionArrayInput is an input type that accepts IntegrationActionAddNoteFilterConditionArray and IntegrationActionAddNoteFilterConditionArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionAddNoteFilterConditionArrayInput` via:
 //
@@ -2572,12 +2157,6 @@ func (i IntegrationActionAddNoteFilterConditionArray) ToIntegrationActionAddNote
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionAddNoteFilterConditionArrayOutput)
 }
 
-func (i IntegrationActionAddNoteFilterConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAddNoteFilterCondition] {
-	return pulumix.Output[[]IntegrationActionAddNoteFilterCondition]{
-		OutputState: i.ToIntegrationActionAddNoteFilterConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionAddNoteFilterConditionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionAddNoteFilterConditionOutput) ElementType() reflect.Type {
@@ -2590,12 +2169,6 @@ func (o IntegrationActionAddNoteFilterConditionOutput) ToIntegrationActionAddNot
 
 func (o IntegrationActionAddNoteFilterConditionOutput) ToIntegrationActionAddNoteFilterConditionOutputWithContext(ctx context.Context) IntegrationActionAddNoteFilterConditionOutput {
 	return o
-}
-
-func (o IntegrationActionAddNoteFilterConditionOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionAddNoteFilterCondition] {
-	return pulumix.Output[IntegrationActionAddNoteFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionAddNoteFilterConditionOutput) ExpectedValue() pulumi.StringPtrOutput {
@@ -2635,12 +2208,6 @@ func (o IntegrationActionAddNoteFilterConditionArrayOutput) ToIntegrationActionA
 
 func (o IntegrationActionAddNoteFilterConditionArrayOutput) ToIntegrationActionAddNoteFilterConditionArrayOutputWithContext(ctx context.Context) IntegrationActionAddNoteFilterConditionArrayOutput {
 	return o
-}
-
-func (o IntegrationActionAddNoteFilterConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionAddNoteFilterCondition] {
-	return pulumix.Output[[]IntegrationActionAddNoteFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionAddNoteFilterConditionArrayOutput) Index(i pulumi.IntInput) IntegrationActionAddNoteFilterConditionOutput {
@@ -2712,12 +2279,6 @@ func (i IntegrationActionCloseArgs) ToIntegrationActionCloseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCloseOutput)
 }
 
-func (i IntegrationActionCloseArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionClose] {
-	return pulumix.Output[IntegrationActionClose]{
-		OutputState: i.ToIntegrationActionCloseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionCloseArrayInput is an input type that accepts IntegrationActionCloseArray and IntegrationActionCloseArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionCloseArrayInput` via:
 //
@@ -2743,12 +2304,6 @@ func (i IntegrationActionCloseArray) ToIntegrationActionCloseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCloseArrayOutput)
 }
 
-func (i IntegrationActionCloseArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionClose] {
-	return pulumix.Output[[]IntegrationActionClose]{
-		OutputState: i.ToIntegrationActionCloseArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionCloseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionCloseOutput) ElementType() reflect.Type {
@@ -2761,12 +2316,6 @@ func (o IntegrationActionCloseOutput) ToIntegrationActionCloseOutput() Integrati
 
 func (o IntegrationActionCloseOutput) ToIntegrationActionCloseOutputWithContext(ctx context.Context) IntegrationActionCloseOutput {
 	return o
-}
-
-func (o IntegrationActionCloseOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionClose] {
-	return pulumix.Output[IntegrationActionClose]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An identifier that is used for alert deduplication. Default: `{{alias}}`.
@@ -2821,12 +2370,6 @@ func (o IntegrationActionCloseArrayOutput) ToIntegrationActionCloseArrayOutputWi
 	return o
 }
 
-func (o IntegrationActionCloseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionClose] {
-	return pulumix.Output[[]IntegrationActionClose]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationActionCloseArrayOutput) Index(i pulumi.IntInput) IntegrationActionCloseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationActionClose {
 		return vs[0].([]IntegrationActionClose)[vs[1].(int)]
@@ -2868,12 +2411,6 @@ func (i IntegrationActionCloseFilterArgs) ToIntegrationActionCloseFilterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCloseFilterOutput)
 }
 
-func (i IntegrationActionCloseFilterArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCloseFilter] {
-	return pulumix.Output[IntegrationActionCloseFilter]{
-		OutputState: i.ToIntegrationActionCloseFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionCloseFilterArrayInput is an input type that accepts IntegrationActionCloseFilterArray and IntegrationActionCloseFilterArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionCloseFilterArrayInput` via:
 //
@@ -2899,12 +2436,6 @@ func (i IntegrationActionCloseFilterArray) ToIntegrationActionCloseFilterArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCloseFilterArrayOutput)
 }
 
-func (i IntegrationActionCloseFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCloseFilter] {
-	return pulumix.Output[[]IntegrationActionCloseFilter]{
-		OutputState: i.ToIntegrationActionCloseFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionCloseFilterOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionCloseFilterOutput) ElementType() reflect.Type {
@@ -2917,12 +2448,6 @@ func (o IntegrationActionCloseFilterOutput) ToIntegrationActionCloseFilterOutput
 
 func (o IntegrationActionCloseFilterOutput) ToIntegrationActionCloseFilterOutputWithContext(ctx context.Context) IntegrationActionCloseFilterOutput {
 	return o
-}
-
-func (o IntegrationActionCloseFilterOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCloseFilter] {
-	return pulumix.Output[IntegrationActionCloseFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionCloseFilterOutput) Conditions() IntegrationActionCloseFilterConditionArrayOutput {
@@ -2946,12 +2471,6 @@ func (o IntegrationActionCloseFilterArrayOutput) ToIntegrationActionCloseFilterA
 
 func (o IntegrationActionCloseFilterArrayOutput) ToIntegrationActionCloseFilterArrayOutputWithContext(ctx context.Context) IntegrationActionCloseFilterArrayOutput {
 	return o
-}
-
-func (o IntegrationActionCloseFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCloseFilter] {
-	return pulumix.Output[[]IntegrationActionCloseFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionCloseFilterArrayOutput) Index(i pulumi.IntInput) IntegrationActionCloseFilterOutput {
@@ -3003,12 +2522,6 @@ func (i IntegrationActionCloseFilterConditionArgs) ToIntegrationActionCloseFilte
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCloseFilterConditionOutput)
 }
 
-func (i IntegrationActionCloseFilterConditionArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCloseFilterCondition] {
-	return pulumix.Output[IntegrationActionCloseFilterCondition]{
-		OutputState: i.ToIntegrationActionCloseFilterConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionCloseFilterConditionArrayInput is an input type that accepts IntegrationActionCloseFilterConditionArray and IntegrationActionCloseFilterConditionArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionCloseFilterConditionArrayInput` via:
 //
@@ -3034,12 +2547,6 @@ func (i IntegrationActionCloseFilterConditionArray) ToIntegrationActionCloseFilt
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCloseFilterConditionArrayOutput)
 }
 
-func (i IntegrationActionCloseFilterConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCloseFilterCondition] {
-	return pulumix.Output[[]IntegrationActionCloseFilterCondition]{
-		OutputState: i.ToIntegrationActionCloseFilterConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionCloseFilterConditionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionCloseFilterConditionOutput) ElementType() reflect.Type {
@@ -3052,12 +2559,6 @@ func (o IntegrationActionCloseFilterConditionOutput) ToIntegrationActionCloseFil
 
 func (o IntegrationActionCloseFilterConditionOutput) ToIntegrationActionCloseFilterConditionOutputWithContext(ctx context.Context) IntegrationActionCloseFilterConditionOutput {
 	return o
-}
-
-func (o IntegrationActionCloseFilterConditionOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCloseFilterCondition] {
-	return pulumix.Output[IntegrationActionCloseFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionCloseFilterConditionOutput) ExpectedValue() pulumi.StringPtrOutput {
@@ -3097,12 +2598,6 @@ func (o IntegrationActionCloseFilterConditionArrayOutput) ToIntegrationActionClo
 
 func (o IntegrationActionCloseFilterConditionArrayOutput) ToIntegrationActionCloseFilterConditionArrayOutputWithContext(ctx context.Context) IntegrationActionCloseFilterConditionArrayOutput {
 	return o
-}
-
-func (o IntegrationActionCloseFilterConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCloseFilterCondition] {
-	return pulumix.Output[[]IntegrationActionCloseFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionCloseFilterConditionArrayOutput) Index(i pulumi.IntInput) IntegrationActionCloseFilterConditionOutput {
@@ -3228,12 +2723,6 @@ func (i IntegrationActionCreateArgs) ToIntegrationActionCreateOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCreateOutput)
 }
 
-func (i IntegrationActionCreateArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCreate] {
-	return pulumix.Output[IntegrationActionCreate]{
-		OutputState: i.ToIntegrationActionCreateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionCreateArrayInput is an input type that accepts IntegrationActionCreateArray and IntegrationActionCreateArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionCreateArrayInput` via:
 //
@@ -3259,12 +2748,6 @@ func (i IntegrationActionCreateArray) ToIntegrationActionCreateArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCreateArrayOutput)
 }
 
-func (i IntegrationActionCreateArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCreate] {
-	return pulumix.Output[[]IntegrationActionCreate]{
-		OutputState: i.ToIntegrationActionCreateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionCreateOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionCreateOutput) ElementType() reflect.Type {
@@ -3277,12 +2760,6 @@ func (o IntegrationActionCreateOutput) ToIntegrationActionCreateOutput() Integra
 
 func (o IntegrationActionCreateOutput) ToIntegrationActionCreateOutputWithContext(ctx context.Context) IntegrationActionCreateOutput {
 	return o
-}
-
-func (o IntegrationActionCreateOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCreate] {
-	return pulumix.Output[IntegrationActionCreate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionCreateOutput) AlertActions() pulumi.StringArrayOutput {
@@ -3412,12 +2889,6 @@ func (o IntegrationActionCreateArrayOutput) ToIntegrationActionCreateArrayOutput
 	return o
 }
 
-func (o IntegrationActionCreateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCreate] {
-	return pulumix.Output[[]IntegrationActionCreate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationActionCreateArrayOutput) Index(i pulumi.IntInput) IntegrationActionCreateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationActionCreate {
 		return vs[0].([]IntegrationActionCreate)[vs[1].(int)]
@@ -3459,12 +2930,6 @@ func (i IntegrationActionCreateFilterArgs) ToIntegrationActionCreateFilterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCreateFilterOutput)
 }
 
-func (i IntegrationActionCreateFilterArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCreateFilter] {
-	return pulumix.Output[IntegrationActionCreateFilter]{
-		OutputState: i.ToIntegrationActionCreateFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionCreateFilterArrayInput is an input type that accepts IntegrationActionCreateFilterArray and IntegrationActionCreateFilterArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionCreateFilterArrayInput` via:
 //
@@ -3490,12 +2955,6 @@ func (i IntegrationActionCreateFilterArray) ToIntegrationActionCreateFilterArray
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCreateFilterArrayOutput)
 }
 
-func (i IntegrationActionCreateFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCreateFilter] {
-	return pulumix.Output[[]IntegrationActionCreateFilter]{
-		OutputState: i.ToIntegrationActionCreateFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionCreateFilterOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionCreateFilterOutput) ElementType() reflect.Type {
@@ -3508,12 +2967,6 @@ func (o IntegrationActionCreateFilterOutput) ToIntegrationActionCreateFilterOutp
 
 func (o IntegrationActionCreateFilterOutput) ToIntegrationActionCreateFilterOutputWithContext(ctx context.Context) IntegrationActionCreateFilterOutput {
 	return o
-}
-
-func (o IntegrationActionCreateFilterOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCreateFilter] {
-	return pulumix.Output[IntegrationActionCreateFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionCreateFilterOutput) Conditions() IntegrationActionCreateFilterConditionArrayOutput {
@@ -3537,12 +2990,6 @@ func (o IntegrationActionCreateFilterArrayOutput) ToIntegrationActionCreateFilte
 
 func (o IntegrationActionCreateFilterArrayOutput) ToIntegrationActionCreateFilterArrayOutputWithContext(ctx context.Context) IntegrationActionCreateFilterArrayOutput {
 	return o
-}
-
-func (o IntegrationActionCreateFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCreateFilter] {
-	return pulumix.Output[[]IntegrationActionCreateFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionCreateFilterArrayOutput) Index(i pulumi.IntInput) IntegrationActionCreateFilterOutput {
@@ -3594,12 +3041,6 @@ func (i IntegrationActionCreateFilterConditionArgs) ToIntegrationActionCreateFil
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCreateFilterConditionOutput)
 }
 
-func (i IntegrationActionCreateFilterConditionArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCreateFilterCondition] {
-	return pulumix.Output[IntegrationActionCreateFilterCondition]{
-		OutputState: i.ToIntegrationActionCreateFilterConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionCreateFilterConditionArrayInput is an input type that accepts IntegrationActionCreateFilterConditionArray and IntegrationActionCreateFilterConditionArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionCreateFilterConditionArrayInput` via:
 //
@@ -3625,12 +3066,6 @@ func (i IntegrationActionCreateFilterConditionArray) ToIntegrationActionCreateFi
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCreateFilterConditionArrayOutput)
 }
 
-func (i IntegrationActionCreateFilterConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCreateFilterCondition] {
-	return pulumix.Output[[]IntegrationActionCreateFilterCondition]{
-		OutputState: i.ToIntegrationActionCreateFilterConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionCreateFilterConditionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionCreateFilterConditionOutput) ElementType() reflect.Type {
@@ -3643,12 +3078,6 @@ func (o IntegrationActionCreateFilterConditionOutput) ToIntegrationActionCreateF
 
 func (o IntegrationActionCreateFilterConditionOutput) ToIntegrationActionCreateFilterConditionOutputWithContext(ctx context.Context) IntegrationActionCreateFilterConditionOutput {
 	return o
-}
-
-func (o IntegrationActionCreateFilterConditionOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCreateFilterCondition] {
-	return pulumix.Output[IntegrationActionCreateFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionCreateFilterConditionOutput) ExpectedValue() pulumi.StringPtrOutput {
@@ -3688,12 +3117,6 @@ func (o IntegrationActionCreateFilterConditionArrayOutput) ToIntegrationActionCr
 
 func (o IntegrationActionCreateFilterConditionArrayOutput) ToIntegrationActionCreateFilterConditionArrayOutputWithContext(ctx context.Context) IntegrationActionCreateFilterConditionArrayOutput {
 	return o
-}
-
-func (o IntegrationActionCreateFilterConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCreateFilterCondition] {
-	return pulumix.Output[[]IntegrationActionCreateFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionCreateFilterConditionArrayOutput) Index(i pulumi.IntInput) IntegrationActionCreateFilterConditionOutput {
@@ -3739,12 +3162,6 @@ func (i IntegrationActionCreateResponderArgs) ToIntegrationActionCreateResponder
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCreateResponderOutput)
 }
 
-func (i IntegrationActionCreateResponderArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCreateResponder] {
-	return pulumix.Output[IntegrationActionCreateResponder]{
-		OutputState: i.ToIntegrationActionCreateResponderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionCreateResponderArrayInput is an input type that accepts IntegrationActionCreateResponderArray and IntegrationActionCreateResponderArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionCreateResponderArrayInput` via:
 //
@@ -3770,12 +3187,6 @@ func (i IntegrationActionCreateResponderArray) ToIntegrationActionCreateResponde
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionCreateResponderArrayOutput)
 }
 
-func (i IntegrationActionCreateResponderArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCreateResponder] {
-	return pulumix.Output[[]IntegrationActionCreateResponder]{
-		OutputState: i.ToIntegrationActionCreateResponderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionCreateResponderOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionCreateResponderOutput) ElementType() reflect.Type {
@@ -3788,12 +3199,6 @@ func (o IntegrationActionCreateResponderOutput) ToIntegrationActionCreateRespond
 
 func (o IntegrationActionCreateResponderOutput) ToIntegrationActionCreateResponderOutputWithContext(ctx context.Context) IntegrationActionCreateResponderOutput {
 	return o
-}
-
-func (o IntegrationActionCreateResponderOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionCreateResponder] {
-	return pulumix.Output[IntegrationActionCreateResponder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The id of the responder.
@@ -3818,12 +3223,6 @@ func (o IntegrationActionCreateResponderArrayOutput) ToIntegrationActionCreateRe
 
 func (o IntegrationActionCreateResponderArrayOutput) ToIntegrationActionCreateResponderArrayOutputWithContext(ctx context.Context) IntegrationActionCreateResponderArrayOutput {
 	return o
-}
-
-func (o IntegrationActionCreateResponderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionCreateResponder] {
-	return pulumix.Output[[]IntegrationActionCreateResponder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionCreateResponderArrayOutput) Index(i pulumi.IntInput) IntegrationActionCreateResponderOutput {
@@ -3883,12 +3282,6 @@ func (i IntegrationActionIgnoreArgs) ToIntegrationActionIgnoreOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionIgnoreOutput)
 }
 
-func (i IntegrationActionIgnoreArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionIgnore] {
-	return pulumix.Output[IntegrationActionIgnore]{
-		OutputState: i.ToIntegrationActionIgnoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionIgnoreArrayInput is an input type that accepts IntegrationActionIgnoreArray and IntegrationActionIgnoreArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionIgnoreArrayInput` via:
 //
@@ -3914,12 +3307,6 @@ func (i IntegrationActionIgnoreArray) ToIntegrationActionIgnoreArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionIgnoreArrayOutput)
 }
 
-func (i IntegrationActionIgnoreArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionIgnore] {
-	return pulumix.Output[[]IntegrationActionIgnore]{
-		OutputState: i.ToIntegrationActionIgnoreArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionIgnoreOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionIgnoreOutput) ElementType() reflect.Type {
@@ -3932,12 +3319,6 @@ func (o IntegrationActionIgnoreOutput) ToIntegrationActionIgnoreOutput() Integra
 
 func (o IntegrationActionIgnoreOutput) ToIntegrationActionIgnoreOutputWithContext(ctx context.Context) IntegrationActionIgnoreOutput {
 	return o
-}
-
-func (o IntegrationActionIgnoreOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionIgnore] {
-	return pulumix.Output[IntegrationActionIgnore]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
@@ -3975,12 +3356,6 @@ func (o IntegrationActionIgnoreArrayOutput) ToIntegrationActionIgnoreArrayOutput
 
 func (o IntegrationActionIgnoreArrayOutput) ToIntegrationActionIgnoreArrayOutputWithContext(ctx context.Context) IntegrationActionIgnoreArrayOutput {
 	return o
-}
-
-func (o IntegrationActionIgnoreArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionIgnore] {
-	return pulumix.Output[[]IntegrationActionIgnore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionIgnoreArrayOutput) Index(i pulumi.IntInput) IntegrationActionIgnoreOutput {
@@ -4024,12 +3399,6 @@ func (i IntegrationActionIgnoreFilterArgs) ToIntegrationActionIgnoreFilterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionIgnoreFilterOutput)
 }
 
-func (i IntegrationActionIgnoreFilterArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionIgnoreFilter] {
-	return pulumix.Output[IntegrationActionIgnoreFilter]{
-		OutputState: i.ToIntegrationActionIgnoreFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionIgnoreFilterArrayInput is an input type that accepts IntegrationActionIgnoreFilterArray and IntegrationActionIgnoreFilterArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionIgnoreFilterArrayInput` via:
 //
@@ -4055,12 +3424,6 @@ func (i IntegrationActionIgnoreFilterArray) ToIntegrationActionIgnoreFilterArray
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionIgnoreFilterArrayOutput)
 }
 
-func (i IntegrationActionIgnoreFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionIgnoreFilter] {
-	return pulumix.Output[[]IntegrationActionIgnoreFilter]{
-		OutputState: i.ToIntegrationActionIgnoreFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionIgnoreFilterOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionIgnoreFilterOutput) ElementType() reflect.Type {
@@ -4073,12 +3436,6 @@ func (o IntegrationActionIgnoreFilterOutput) ToIntegrationActionIgnoreFilterOutp
 
 func (o IntegrationActionIgnoreFilterOutput) ToIntegrationActionIgnoreFilterOutputWithContext(ctx context.Context) IntegrationActionIgnoreFilterOutput {
 	return o
-}
-
-func (o IntegrationActionIgnoreFilterOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionIgnoreFilter] {
-	return pulumix.Output[IntegrationActionIgnoreFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionIgnoreFilterOutput) Conditions() IntegrationActionIgnoreFilterConditionArrayOutput {
@@ -4102,12 +3459,6 @@ func (o IntegrationActionIgnoreFilterArrayOutput) ToIntegrationActionIgnoreFilte
 
 func (o IntegrationActionIgnoreFilterArrayOutput) ToIntegrationActionIgnoreFilterArrayOutputWithContext(ctx context.Context) IntegrationActionIgnoreFilterArrayOutput {
 	return o
-}
-
-func (o IntegrationActionIgnoreFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionIgnoreFilter] {
-	return pulumix.Output[[]IntegrationActionIgnoreFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionIgnoreFilterArrayOutput) Index(i pulumi.IntInput) IntegrationActionIgnoreFilterOutput {
@@ -4159,12 +3510,6 @@ func (i IntegrationActionIgnoreFilterConditionArgs) ToIntegrationActionIgnoreFil
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionIgnoreFilterConditionOutput)
 }
 
-func (i IntegrationActionIgnoreFilterConditionArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionIgnoreFilterCondition] {
-	return pulumix.Output[IntegrationActionIgnoreFilterCondition]{
-		OutputState: i.ToIntegrationActionIgnoreFilterConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationActionIgnoreFilterConditionArrayInput is an input type that accepts IntegrationActionIgnoreFilterConditionArray and IntegrationActionIgnoreFilterConditionArrayOutput values.
 // You can construct a concrete instance of `IntegrationActionIgnoreFilterConditionArrayInput` via:
 //
@@ -4190,12 +3535,6 @@ func (i IntegrationActionIgnoreFilterConditionArray) ToIntegrationActionIgnoreFi
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationActionIgnoreFilterConditionArrayOutput)
 }
 
-func (i IntegrationActionIgnoreFilterConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionIgnoreFilterCondition] {
-	return pulumix.Output[[]IntegrationActionIgnoreFilterCondition]{
-		OutputState: i.ToIntegrationActionIgnoreFilterConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationActionIgnoreFilterConditionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationActionIgnoreFilterConditionOutput) ElementType() reflect.Type {
@@ -4208,12 +3547,6 @@ func (o IntegrationActionIgnoreFilterConditionOutput) ToIntegrationActionIgnoreF
 
 func (o IntegrationActionIgnoreFilterConditionOutput) ToIntegrationActionIgnoreFilterConditionOutputWithContext(ctx context.Context) IntegrationActionIgnoreFilterConditionOutput {
 	return o
-}
-
-func (o IntegrationActionIgnoreFilterConditionOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationActionIgnoreFilterCondition] {
-	return pulumix.Output[IntegrationActionIgnoreFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionIgnoreFilterConditionOutput) ExpectedValue() pulumi.StringPtrOutput {
@@ -4253,12 +3586,6 @@ func (o IntegrationActionIgnoreFilterConditionArrayOutput) ToIntegrationActionIg
 
 func (o IntegrationActionIgnoreFilterConditionArrayOutput) ToIntegrationActionIgnoreFilterConditionArrayOutputWithContext(ctx context.Context) IntegrationActionIgnoreFilterConditionArrayOutput {
 	return o
-}
-
-func (o IntegrationActionIgnoreFilterConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationActionIgnoreFilterCondition] {
-	return pulumix.Output[[]IntegrationActionIgnoreFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationActionIgnoreFilterConditionArrayOutput) Index(i pulumi.IntInput) IntegrationActionIgnoreFilterConditionOutput {
@@ -4304,12 +3631,6 @@ func (i MaintenanceRuleArgs) ToMaintenanceRuleOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceRuleOutput)
 }
 
-func (i MaintenanceRuleArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceRule] {
-	return pulumix.Output[MaintenanceRule]{
-		OutputState: i.ToMaintenanceRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaintenanceRuleArrayInput is an input type that accepts MaintenanceRuleArray and MaintenanceRuleArrayOutput values.
 // You can construct a concrete instance of `MaintenanceRuleArrayInput` via:
 //
@@ -4335,12 +3656,6 @@ func (i MaintenanceRuleArray) ToMaintenanceRuleArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceRuleArrayOutput)
 }
 
-func (i MaintenanceRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceRule] {
-	return pulumix.Output[[]MaintenanceRule]{
-		OutputState: i.ToMaintenanceRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceRuleOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceRuleOutput) ElementType() reflect.Type {
@@ -4353,12 +3668,6 @@ func (o MaintenanceRuleOutput) ToMaintenanceRuleOutput() MaintenanceRuleOutput {
 
 func (o MaintenanceRuleOutput) ToMaintenanceRuleOutputWithContext(ctx context.Context) MaintenanceRuleOutput {
 	return o
-}
-
-func (o MaintenanceRuleOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceRule] {
-	return pulumix.Output[MaintenanceRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This field represents the entity that maintenance will be applied. Entity field takes two mandatory fields as id and type.
@@ -4383,12 +3692,6 @@ func (o MaintenanceRuleArrayOutput) ToMaintenanceRuleArrayOutput() MaintenanceRu
 
 func (o MaintenanceRuleArrayOutput) ToMaintenanceRuleArrayOutputWithContext(ctx context.Context) MaintenanceRuleArrayOutput {
 	return o
-}
-
-func (o MaintenanceRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceRule] {
-	return pulumix.Output[[]MaintenanceRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceRuleArrayOutput) Index(i pulumi.IntInput) MaintenanceRuleOutput {
@@ -4434,12 +3737,6 @@ func (i MaintenanceRuleEntityArgs) ToMaintenanceRuleEntityOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceRuleEntityOutput)
 }
 
-func (i MaintenanceRuleEntityArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceRuleEntity] {
-	return pulumix.Output[MaintenanceRuleEntity]{
-		OutputState: i.ToMaintenanceRuleEntityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaintenanceRuleEntityArrayInput is an input type that accepts MaintenanceRuleEntityArray and MaintenanceRuleEntityArrayOutput values.
 // You can construct a concrete instance of `MaintenanceRuleEntityArrayInput` via:
 //
@@ -4465,12 +3762,6 @@ func (i MaintenanceRuleEntityArray) ToMaintenanceRuleEntityArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceRuleEntityArrayOutput)
 }
 
-func (i MaintenanceRuleEntityArray) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceRuleEntity] {
-	return pulumix.Output[[]MaintenanceRuleEntity]{
-		OutputState: i.ToMaintenanceRuleEntityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceRuleEntityOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceRuleEntityOutput) ElementType() reflect.Type {
@@ -4483,12 +3774,6 @@ func (o MaintenanceRuleEntityOutput) ToMaintenanceRuleEntityOutput() Maintenance
 
 func (o MaintenanceRuleEntityOutput) ToMaintenanceRuleEntityOutputWithContext(ctx context.Context) MaintenanceRuleEntityOutput {
 	return o
-}
-
-func (o MaintenanceRuleEntityOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceRuleEntity] {
-	return pulumix.Output[MaintenanceRuleEntity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The id of the entity that maintenance will be applied.
@@ -4513,12 +3798,6 @@ func (o MaintenanceRuleEntityArrayOutput) ToMaintenanceRuleEntityArrayOutput() M
 
 func (o MaintenanceRuleEntityArrayOutput) ToMaintenanceRuleEntityArrayOutputWithContext(ctx context.Context) MaintenanceRuleEntityArrayOutput {
 	return o
-}
-
-func (o MaintenanceRuleEntityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceRuleEntity] {
-	return pulumix.Output[[]MaintenanceRuleEntity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceRuleEntityArrayOutput) Index(i pulumi.IntInput) MaintenanceRuleEntityOutput {
@@ -4568,12 +3847,6 @@ func (i MaintenanceTimeArgs) ToMaintenanceTimeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceTimeOutput)
 }
 
-func (i MaintenanceTimeArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceTime] {
-	return pulumix.Output[MaintenanceTime]{
-		OutputState: i.ToMaintenanceTimeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaintenanceTimeArrayInput is an input type that accepts MaintenanceTimeArray and MaintenanceTimeArrayOutput values.
 // You can construct a concrete instance of `MaintenanceTimeArrayInput` via:
 //
@@ -4599,12 +3872,6 @@ func (i MaintenanceTimeArray) ToMaintenanceTimeArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceTimeArrayOutput)
 }
 
-func (i MaintenanceTimeArray) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceTime] {
-	return pulumix.Output[[]MaintenanceTime]{
-		OutputState: i.ToMaintenanceTimeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceTimeOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceTimeOutput) ElementType() reflect.Type {
@@ -4617,12 +3884,6 @@ func (o MaintenanceTimeOutput) ToMaintenanceTimeOutput() MaintenanceTimeOutput {
 
 func (o MaintenanceTimeOutput) ToMaintenanceTimeOutputWithContext(ctx context.Context) MaintenanceTimeOutput {
 	return o
-}
-
-func (o MaintenanceTimeOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceTime] {
-	return pulumix.Output[MaintenanceTime]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
@@ -4652,12 +3913,6 @@ func (o MaintenanceTimeArrayOutput) ToMaintenanceTimeArrayOutput() MaintenanceTi
 
 func (o MaintenanceTimeArrayOutput) ToMaintenanceTimeArrayOutputWithContext(ctx context.Context) MaintenanceTimeArrayOutput {
 	return o
-}
-
-func (o MaintenanceTimeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceTime] {
-	return pulumix.Output[[]MaintenanceTime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceTimeArrayOutput) Index(i pulumi.IntInput) MaintenanceTimeOutput {
@@ -4699,12 +3954,6 @@ func (i NotificationPolicyAutoCloseActionArgs) ToNotificationPolicyAutoCloseActi
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyAutoCloseActionOutput)
 }
 
-func (i NotificationPolicyAutoCloseActionArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyAutoCloseAction] {
-	return pulumix.Output[NotificationPolicyAutoCloseAction]{
-		OutputState: i.ToNotificationPolicyAutoCloseActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyAutoCloseActionArrayInput is an input type that accepts NotificationPolicyAutoCloseActionArray and NotificationPolicyAutoCloseActionArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyAutoCloseActionArrayInput` via:
 //
@@ -4730,12 +3979,6 @@ func (i NotificationPolicyAutoCloseActionArray) ToNotificationPolicyAutoCloseAct
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyAutoCloseActionArrayOutput)
 }
 
-func (i NotificationPolicyAutoCloseActionArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyAutoCloseAction] {
-	return pulumix.Output[[]NotificationPolicyAutoCloseAction]{
-		OutputState: i.ToNotificationPolicyAutoCloseActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyAutoCloseActionOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyAutoCloseActionOutput) ElementType() reflect.Type {
@@ -4748,12 +3991,6 @@ func (o NotificationPolicyAutoCloseActionOutput) ToNotificationPolicyAutoCloseAc
 
 func (o NotificationPolicyAutoCloseActionOutput) ToNotificationPolicyAutoCloseActionOutputWithContext(ctx context.Context) NotificationPolicyAutoCloseActionOutput {
 	return o
-}
-
-func (o NotificationPolicyAutoCloseActionOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyAutoCloseAction] {
-	return pulumix.Output[NotificationPolicyAutoCloseAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Duration of this action. This is a block, structure is documented below.
@@ -4775,12 +4012,6 @@ func (o NotificationPolicyAutoCloseActionArrayOutput) ToNotificationPolicyAutoCl
 
 func (o NotificationPolicyAutoCloseActionArrayOutput) ToNotificationPolicyAutoCloseActionArrayOutputWithContext(ctx context.Context) NotificationPolicyAutoCloseActionArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyAutoCloseActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyAutoCloseAction] {
-	return pulumix.Output[[]NotificationPolicyAutoCloseAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyAutoCloseActionArrayOutput) Index(i pulumi.IntInput) NotificationPolicyAutoCloseActionOutput {
@@ -4826,12 +4057,6 @@ func (i NotificationPolicyAutoCloseActionDurationArgs) ToNotificationPolicyAutoC
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyAutoCloseActionDurationOutput)
 }
 
-func (i NotificationPolicyAutoCloseActionDurationArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyAutoCloseActionDuration] {
-	return pulumix.Output[NotificationPolicyAutoCloseActionDuration]{
-		OutputState: i.ToNotificationPolicyAutoCloseActionDurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyAutoCloseActionDurationArrayInput is an input type that accepts NotificationPolicyAutoCloseActionDurationArray and NotificationPolicyAutoCloseActionDurationArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyAutoCloseActionDurationArrayInput` via:
 //
@@ -4857,12 +4082,6 @@ func (i NotificationPolicyAutoCloseActionDurationArray) ToNotificationPolicyAuto
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyAutoCloseActionDurationArrayOutput)
 }
 
-func (i NotificationPolicyAutoCloseActionDurationArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyAutoCloseActionDuration] {
-	return pulumix.Output[[]NotificationPolicyAutoCloseActionDuration]{
-		OutputState: i.ToNotificationPolicyAutoCloseActionDurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyAutoCloseActionDurationOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyAutoCloseActionDurationOutput) ElementType() reflect.Type {
@@ -4875,12 +4094,6 @@ func (o NotificationPolicyAutoCloseActionDurationOutput) ToNotificationPolicyAut
 
 func (o NotificationPolicyAutoCloseActionDurationOutput) ToNotificationPolicyAutoCloseActionDurationOutputWithContext(ctx context.Context) NotificationPolicyAutoCloseActionDurationOutput {
 	return o
-}
-
-func (o NotificationPolicyAutoCloseActionDurationOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyAutoCloseActionDuration] {
-	return pulumix.Output[NotificationPolicyAutoCloseActionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A amount of time in `timeUnits`. This is a integer attribute.
@@ -4905,12 +4118,6 @@ func (o NotificationPolicyAutoCloseActionDurationArrayOutput) ToNotificationPoli
 
 func (o NotificationPolicyAutoCloseActionDurationArrayOutput) ToNotificationPolicyAutoCloseActionDurationArrayOutputWithContext(ctx context.Context) NotificationPolicyAutoCloseActionDurationArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyAutoCloseActionDurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyAutoCloseActionDuration] {
-	return pulumix.Output[[]NotificationPolicyAutoCloseActionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyAutoCloseActionDurationArrayOutput) Index(i pulumi.IntInput) NotificationPolicyAutoCloseActionDurationOutput {
@@ -4956,12 +4163,6 @@ func (i NotificationPolicyAutoRestartActionArgs) ToNotificationPolicyAutoRestart
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyAutoRestartActionOutput)
 }
 
-func (i NotificationPolicyAutoRestartActionArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyAutoRestartAction] {
-	return pulumix.Output[NotificationPolicyAutoRestartAction]{
-		OutputState: i.ToNotificationPolicyAutoRestartActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyAutoRestartActionArrayInput is an input type that accepts NotificationPolicyAutoRestartActionArray and NotificationPolicyAutoRestartActionArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyAutoRestartActionArrayInput` via:
 //
@@ -4987,12 +4188,6 @@ func (i NotificationPolicyAutoRestartActionArray) ToNotificationPolicyAutoRestar
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyAutoRestartActionArrayOutput)
 }
 
-func (i NotificationPolicyAutoRestartActionArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyAutoRestartAction] {
-	return pulumix.Output[[]NotificationPolicyAutoRestartAction]{
-		OutputState: i.ToNotificationPolicyAutoRestartActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyAutoRestartActionOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyAutoRestartActionOutput) ElementType() reflect.Type {
@@ -5005,12 +4200,6 @@ func (o NotificationPolicyAutoRestartActionOutput) ToNotificationPolicyAutoResta
 
 func (o NotificationPolicyAutoRestartActionOutput) ToNotificationPolicyAutoRestartActionOutputWithContext(ctx context.Context) NotificationPolicyAutoRestartActionOutput {
 	return o
-}
-
-func (o NotificationPolicyAutoRestartActionOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyAutoRestartAction] {
-	return pulumix.Output[NotificationPolicyAutoRestartAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Duration of this action. This is a block, structure is documented below.
@@ -5037,12 +4226,6 @@ func (o NotificationPolicyAutoRestartActionArrayOutput) ToNotificationPolicyAuto
 
 func (o NotificationPolicyAutoRestartActionArrayOutput) ToNotificationPolicyAutoRestartActionArrayOutputWithContext(ctx context.Context) NotificationPolicyAutoRestartActionArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyAutoRestartActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyAutoRestartAction] {
-	return pulumix.Output[[]NotificationPolicyAutoRestartAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyAutoRestartActionArrayOutput) Index(i pulumi.IntInput) NotificationPolicyAutoRestartActionOutput {
@@ -5088,12 +4271,6 @@ func (i NotificationPolicyAutoRestartActionDurationArgs) ToNotificationPolicyAut
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyAutoRestartActionDurationOutput)
 }
 
-func (i NotificationPolicyAutoRestartActionDurationArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyAutoRestartActionDuration] {
-	return pulumix.Output[NotificationPolicyAutoRestartActionDuration]{
-		OutputState: i.ToNotificationPolicyAutoRestartActionDurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyAutoRestartActionDurationArrayInput is an input type that accepts NotificationPolicyAutoRestartActionDurationArray and NotificationPolicyAutoRestartActionDurationArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyAutoRestartActionDurationArrayInput` via:
 //
@@ -5119,12 +4296,6 @@ func (i NotificationPolicyAutoRestartActionDurationArray) ToNotificationPolicyAu
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyAutoRestartActionDurationArrayOutput)
 }
 
-func (i NotificationPolicyAutoRestartActionDurationArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyAutoRestartActionDuration] {
-	return pulumix.Output[[]NotificationPolicyAutoRestartActionDuration]{
-		OutputState: i.ToNotificationPolicyAutoRestartActionDurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyAutoRestartActionDurationOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyAutoRestartActionDurationOutput) ElementType() reflect.Type {
@@ -5137,12 +4308,6 @@ func (o NotificationPolicyAutoRestartActionDurationOutput) ToNotificationPolicyA
 
 func (o NotificationPolicyAutoRestartActionDurationOutput) ToNotificationPolicyAutoRestartActionDurationOutputWithContext(ctx context.Context) NotificationPolicyAutoRestartActionDurationOutput {
 	return o
-}
-
-func (o NotificationPolicyAutoRestartActionDurationOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyAutoRestartActionDuration] {
-	return pulumix.Output[NotificationPolicyAutoRestartActionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A amount of time in `timeUnits`. This is a integer attribute.
@@ -5167,12 +4332,6 @@ func (o NotificationPolicyAutoRestartActionDurationArrayOutput) ToNotificationPo
 
 func (o NotificationPolicyAutoRestartActionDurationArrayOutput) ToNotificationPolicyAutoRestartActionDurationArrayOutputWithContext(ctx context.Context) NotificationPolicyAutoRestartActionDurationArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyAutoRestartActionDurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyAutoRestartActionDuration] {
-	return pulumix.Output[[]NotificationPolicyAutoRestartActionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyAutoRestartActionDurationArrayOutput) Index(i pulumi.IntInput) NotificationPolicyAutoRestartActionDurationOutput {
@@ -5222,12 +4381,6 @@ func (i NotificationPolicyDeDuplicationActionArgs) ToNotificationPolicyDeDuplica
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyDeDuplicationActionOutput)
 }
 
-func (i NotificationPolicyDeDuplicationActionArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyDeDuplicationAction] {
-	return pulumix.Output[NotificationPolicyDeDuplicationAction]{
-		OutputState: i.ToNotificationPolicyDeDuplicationActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyDeDuplicationActionArrayInput is an input type that accepts NotificationPolicyDeDuplicationActionArray and NotificationPolicyDeDuplicationActionArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyDeDuplicationActionArrayInput` via:
 //
@@ -5253,12 +4406,6 @@ func (i NotificationPolicyDeDuplicationActionArray) ToNotificationPolicyDeDuplic
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyDeDuplicationActionArrayOutput)
 }
 
-func (i NotificationPolicyDeDuplicationActionArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyDeDuplicationAction] {
-	return pulumix.Output[[]NotificationPolicyDeDuplicationAction]{
-		OutputState: i.ToNotificationPolicyDeDuplicationActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyDeDuplicationActionOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyDeDuplicationActionOutput) ElementType() reflect.Type {
@@ -5271,12 +4418,6 @@ func (o NotificationPolicyDeDuplicationActionOutput) ToNotificationPolicyDeDupli
 
 func (o NotificationPolicyDeDuplicationActionOutput) ToNotificationPolicyDeDuplicationActionOutputWithContext(ctx context.Context) NotificationPolicyDeDuplicationActionOutput {
 	return o
-}
-
-func (o NotificationPolicyDeDuplicationActionOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyDeDuplicationAction] {
-	return pulumix.Output[NotificationPolicyDeDuplicationAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Count
@@ -5308,12 +4449,6 @@ func (o NotificationPolicyDeDuplicationActionArrayOutput) ToNotificationPolicyDe
 
 func (o NotificationPolicyDeDuplicationActionArrayOutput) ToNotificationPolicyDeDuplicationActionArrayOutputWithContext(ctx context.Context) NotificationPolicyDeDuplicationActionArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyDeDuplicationActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyDeDuplicationAction] {
-	return pulumix.Output[[]NotificationPolicyDeDuplicationAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyDeDuplicationActionArrayOutput) Index(i pulumi.IntInput) NotificationPolicyDeDuplicationActionOutput {
@@ -5359,12 +4494,6 @@ func (i NotificationPolicyDeDuplicationActionDurationArgs) ToNotificationPolicyD
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyDeDuplicationActionDurationOutput)
 }
 
-func (i NotificationPolicyDeDuplicationActionDurationArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyDeDuplicationActionDuration] {
-	return pulumix.Output[NotificationPolicyDeDuplicationActionDuration]{
-		OutputState: i.ToNotificationPolicyDeDuplicationActionDurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyDeDuplicationActionDurationArrayInput is an input type that accepts NotificationPolicyDeDuplicationActionDurationArray and NotificationPolicyDeDuplicationActionDurationArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyDeDuplicationActionDurationArrayInput` via:
 //
@@ -5390,12 +4519,6 @@ func (i NotificationPolicyDeDuplicationActionDurationArray) ToNotificationPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyDeDuplicationActionDurationArrayOutput)
 }
 
-func (i NotificationPolicyDeDuplicationActionDurationArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyDeDuplicationActionDuration] {
-	return pulumix.Output[[]NotificationPolicyDeDuplicationActionDuration]{
-		OutputState: i.ToNotificationPolicyDeDuplicationActionDurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyDeDuplicationActionDurationOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyDeDuplicationActionDurationOutput) ElementType() reflect.Type {
@@ -5408,12 +4531,6 @@ func (o NotificationPolicyDeDuplicationActionDurationOutput) ToNotificationPolic
 
 func (o NotificationPolicyDeDuplicationActionDurationOutput) ToNotificationPolicyDeDuplicationActionDurationOutputWithContext(ctx context.Context) NotificationPolicyDeDuplicationActionDurationOutput {
 	return o
-}
-
-func (o NotificationPolicyDeDuplicationActionDurationOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyDeDuplicationActionDuration] {
-	return pulumix.Output[NotificationPolicyDeDuplicationActionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A amount of time in `timeUnits`. This is a integer attribute.
@@ -5438,12 +4555,6 @@ func (o NotificationPolicyDeDuplicationActionDurationArrayOutput) ToNotification
 
 func (o NotificationPolicyDeDuplicationActionDurationArrayOutput) ToNotificationPolicyDeDuplicationActionDurationArrayOutputWithContext(ctx context.Context) NotificationPolicyDeDuplicationActionDurationArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyDeDuplicationActionDurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyDeDuplicationActionDuration] {
-	return pulumix.Output[[]NotificationPolicyDeDuplicationActionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyDeDuplicationActionDurationArrayOutput) Index(i pulumi.IntInput) NotificationPolicyDeDuplicationActionDurationOutput {
@@ -5497,12 +4608,6 @@ func (i NotificationPolicyDelayActionArgs) ToNotificationPolicyDelayActionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyDelayActionOutput)
 }
 
-func (i NotificationPolicyDelayActionArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyDelayAction] {
-	return pulumix.Output[NotificationPolicyDelayAction]{
-		OutputState: i.ToNotificationPolicyDelayActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyDelayActionArrayInput is an input type that accepts NotificationPolicyDelayActionArray and NotificationPolicyDelayActionArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyDelayActionArrayInput` via:
 //
@@ -5528,12 +4633,6 @@ func (i NotificationPolicyDelayActionArray) ToNotificationPolicyDelayActionArray
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyDelayActionArrayOutput)
 }
 
-func (i NotificationPolicyDelayActionArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyDelayAction] {
-	return pulumix.Output[[]NotificationPolicyDelayAction]{
-		OutputState: i.ToNotificationPolicyDelayActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyDelayActionOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyDelayActionOutput) ElementType() reflect.Type {
@@ -5546,12 +4645,6 @@ func (o NotificationPolicyDelayActionOutput) ToNotificationPolicyDelayActionOutp
 
 func (o NotificationPolicyDelayActionOutput) ToNotificationPolicyDelayActionOutputWithContext(ctx context.Context) NotificationPolicyDelayActionOutput {
 	return o
-}
-
-func (o NotificationPolicyDelayActionOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyDelayAction] {
-	return pulumix.Output[NotificationPolicyDelayAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
@@ -5586,12 +4679,6 @@ func (o NotificationPolicyDelayActionArrayOutput) ToNotificationPolicyDelayActio
 
 func (o NotificationPolicyDelayActionArrayOutput) ToNotificationPolicyDelayActionArrayOutputWithContext(ctx context.Context) NotificationPolicyDelayActionArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyDelayActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyDelayAction] {
-	return pulumix.Output[[]NotificationPolicyDelayAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyDelayActionArrayOutput) Index(i pulumi.IntInput) NotificationPolicyDelayActionOutput {
@@ -5637,12 +4724,6 @@ func (i NotificationPolicyDelayActionDurationArgs) ToNotificationPolicyDelayActi
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyDelayActionDurationOutput)
 }
 
-func (i NotificationPolicyDelayActionDurationArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyDelayActionDuration] {
-	return pulumix.Output[NotificationPolicyDelayActionDuration]{
-		OutputState: i.ToNotificationPolicyDelayActionDurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyDelayActionDurationArrayInput is an input type that accepts NotificationPolicyDelayActionDurationArray and NotificationPolicyDelayActionDurationArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyDelayActionDurationArrayInput` via:
 //
@@ -5668,12 +4749,6 @@ func (i NotificationPolicyDelayActionDurationArray) ToNotificationPolicyDelayAct
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyDelayActionDurationArrayOutput)
 }
 
-func (i NotificationPolicyDelayActionDurationArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyDelayActionDuration] {
-	return pulumix.Output[[]NotificationPolicyDelayActionDuration]{
-		OutputState: i.ToNotificationPolicyDelayActionDurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyDelayActionDurationOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyDelayActionDurationOutput) ElementType() reflect.Type {
@@ -5686,12 +4761,6 @@ func (o NotificationPolicyDelayActionDurationOutput) ToNotificationPolicyDelayAc
 
 func (o NotificationPolicyDelayActionDurationOutput) ToNotificationPolicyDelayActionDurationOutputWithContext(ctx context.Context) NotificationPolicyDelayActionDurationOutput {
 	return o
-}
-
-func (o NotificationPolicyDelayActionDurationOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyDelayActionDuration] {
-	return pulumix.Output[NotificationPolicyDelayActionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A amount of time in `timeUnits`. This is a integer attribute.
@@ -5716,12 +4785,6 @@ func (o NotificationPolicyDelayActionDurationArrayOutput) ToNotificationPolicyDe
 
 func (o NotificationPolicyDelayActionDurationArrayOutput) ToNotificationPolicyDelayActionDurationArrayOutputWithContext(ctx context.Context) NotificationPolicyDelayActionDurationArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyDelayActionDurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyDelayActionDuration] {
-	return pulumix.Output[[]NotificationPolicyDelayActionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyDelayActionDurationArrayOutput) Index(i pulumi.IntInput) NotificationPolicyDelayActionDurationOutput {
@@ -5767,12 +4830,6 @@ func (i NotificationPolicyFilterArgs) ToNotificationPolicyFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyFilterOutput)
 }
 
-func (i NotificationPolicyFilterArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyFilter] {
-	return pulumix.Output[NotificationPolicyFilter]{
-		OutputState: i.ToNotificationPolicyFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyFilterArrayInput is an input type that accepts NotificationPolicyFilterArray and NotificationPolicyFilterArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyFilterArrayInput` via:
 //
@@ -5798,12 +4855,6 @@ func (i NotificationPolicyFilterArray) ToNotificationPolicyFilterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyFilterArrayOutput)
 }
 
-func (i NotificationPolicyFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyFilter] {
-	return pulumix.Output[[]NotificationPolicyFilter]{
-		OutputState: i.ToNotificationPolicyFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyFilterOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyFilterOutput) ElementType() reflect.Type {
@@ -5816,12 +4867,6 @@ func (o NotificationPolicyFilterOutput) ToNotificationPolicyFilterOutput() Notif
 
 func (o NotificationPolicyFilterOutput) ToNotificationPolicyFilterOutputWithContext(ctx context.Context) NotificationPolicyFilterOutput {
 	return o
-}
-
-func (o NotificationPolicyFilterOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyFilter] {
-	return pulumix.Output[NotificationPolicyFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Conditions applied to filter. This is a block, structure is documented below.
@@ -5846,12 +4891,6 @@ func (o NotificationPolicyFilterArrayOutput) ToNotificationPolicyFilterArrayOutp
 
 func (o NotificationPolicyFilterArrayOutput) ToNotificationPolicyFilterArrayOutputWithContext(ctx context.Context) NotificationPolicyFilterArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyFilter] {
-	return pulumix.Output[[]NotificationPolicyFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyFilterArrayOutput) Index(i pulumi.IntInput) NotificationPolicyFilterOutput {
@@ -5913,12 +4952,6 @@ func (i NotificationPolicyFilterConditionArgs) ToNotificationPolicyFilterConditi
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyFilterConditionOutput)
 }
 
-func (i NotificationPolicyFilterConditionArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyFilterCondition] {
-	return pulumix.Output[NotificationPolicyFilterCondition]{
-		OutputState: i.ToNotificationPolicyFilterConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyFilterConditionArrayInput is an input type that accepts NotificationPolicyFilterConditionArray and NotificationPolicyFilterConditionArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyFilterConditionArrayInput` via:
 //
@@ -5944,12 +4977,6 @@ func (i NotificationPolicyFilterConditionArray) ToNotificationPolicyFilterCondit
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyFilterConditionArrayOutput)
 }
 
-func (i NotificationPolicyFilterConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyFilterCondition] {
-	return pulumix.Output[[]NotificationPolicyFilterCondition]{
-		OutputState: i.ToNotificationPolicyFilterConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyFilterConditionOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyFilterConditionOutput) ElementType() reflect.Type {
@@ -5962,12 +4989,6 @@ func (o NotificationPolicyFilterConditionOutput) ToNotificationPolicyFilterCondi
 
 func (o NotificationPolicyFilterConditionOutput) ToNotificationPolicyFilterConditionOutputWithContext(ctx context.Context) NotificationPolicyFilterConditionOutput {
 	return o
-}
-
-func (o NotificationPolicyFilterConditionOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyFilterCondition] {
-	return pulumix.Output[NotificationPolicyFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // User defined value that will be compared with alert field according to the operation. Default: empty string
@@ -6012,12 +5033,6 @@ func (o NotificationPolicyFilterConditionArrayOutput) ToNotificationPolicyFilter
 
 func (o NotificationPolicyFilterConditionArrayOutput) ToNotificationPolicyFilterConditionArrayOutputWithContext(ctx context.Context) NotificationPolicyFilterConditionArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyFilterConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyFilterCondition] {
-	return pulumix.Output[[]NotificationPolicyFilterCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyFilterConditionArrayOutput) Index(i pulumi.IntInput) NotificationPolicyFilterConditionOutput {
@@ -6067,12 +5082,6 @@ func (i NotificationPolicyTimeRestrictionArgs) ToNotificationPolicyTimeRestricti
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyTimeRestrictionOutput)
 }
 
-func (i NotificationPolicyTimeRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyTimeRestriction] {
-	return pulumix.Output[NotificationPolicyTimeRestriction]{
-		OutputState: i.ToNotificationPolicyTimeRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyTimeRestrictionArrayInput is an input type that accepts NotificationPolicyTimeRestrictionArray and NotificationPolicyTimeRestrictionArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyTimeRestrictionArrayInput` via:
 //
@@ -6098,12 +5107,6 @@ func (i NotificationPolicyTimeRestrictionArray) ToNotificationPolicyTimeRestrict
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyTimeRestrictionArrayOutput)
 }
 
-func (i NotificationPolicyTimeRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyTimeRestriction] {
-	return pulumix.Output[[]NotificationPolicyTimeRestriction]{
-		OutputState: i.ToNotificationPolicyTimeRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyTimeRestrictionOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyTimeRestrictionOutput) ElementType() reflect.Type {
@@ -6116,12 +5119,6 @@ func (o NotificationPolicyTimeRestrictionOutput) ToNotificationPolicyTimeRestric
 
 func (o NotificationPolicyTimeRestrictionOutput) ToNotificationPolicyTimeRestrictionOutputWithContext(ctx context.Context) NotificationPolicyTimeRestrictionOutput {
 	return o
-}
-
-func (o NotificationPolicyTimeRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyTimeRestriction] {
-	return pulumix.Output[NotificationPolicyTimeRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
@@ -6155,12 +5152,6 @@ func (o NotificationPolicyTimeRestrictionArrayOutput) ToNotificationPolicyTimeRe
 
 func (o NotificationPolicyTimeRestrictionArrayOutput) ToNotificationPolicyTimeRestrictionArrayOutputWithContext(ctx context.Context) NotificationPolicyTimeRestrictionArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyTimeRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyTimeRestriction] {
-	return pulumix.Output[[]NotificationPolicyTimeRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyTimeRestrictionArrayOutput) Index(i pulumi.IntInput) NotificationPolicyTimeRestrictionOutput {
@@ -6214,12 +5205,6 @@ func (i NotificationPolicyTimeRestrictionRestrictionArgs) ToNotificationPolicyTi
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyTimeRestrictionRestrictionOutput)
 }
 
-func (i NotificationPolicyTimeRestrictionRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyTimeRestrictionRestriction] {
-	return pulumix.Output[NotificationPolicyTimeRestrictionRestriction]{
-		OutputState: i.ToNotificationPolicyTimeRestrictionRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyTimeRestrictionRestrictionArrayInput is an input type that accepts NotificationPolicyTimeRestrictionRestrictionArray and NotificationPolicyTimeRestrictionRestrictionArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyTimeRestrictionRestrictionArrayInput` via:
 //
@@ -6245,12 +5230,6 @@ func (i NotificationPolicyTimeRestrictionRestrictionArray) ToNotificationPolicyT
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyTimeRestrictionRestrictionArrayOutput)
 }
 
-func (i NotificationPolicyTimeRestrictionRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyTimeRestrictionRestriction] {
-	return pulumix.Output[[]NotificationPolicyTimeRestrictionRestriction]{
-		OutputState: i.ToNotificationPolicyTimeRestrictionRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyTimeRestrictionRestrictionOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyTimeRestrictionRestrictionOutput) ElementType() reflect.Type {
@@ -6263,12 +5242,6 @@ func (o NotificationPolicyTimeRestrictionRestrictionOutput) ToNotificationPolicy
 
 func (o NotificationPolicyTimeRestrictionRestrictionOutput) ToNotificationPolicyTimeRestrictionRestrictionOutputWithContext(ctx context.Context) NotificationPolicyTimeRestrictionRestrictionOutput {
 	return o
-}
-
-func (o NotificationPolicyTimeRestrictionRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyTimeRestrictionRestriction] {
-	return pulumix.Output[NotificationPolicyTimeRestrictionRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Ending hour of restriction.
@@ -6303,12 +5276,6 @@ func (o NotificationPolicyTimeRestrictionRestrictionArrayOutput) ToNotificationP
 
 func (o NotificationPolicyTimeRestrictionRestrictionArrayOutput) ToNotificationPolicyTimeRestrictionRestrictionArrayOutputWithContext(ctx context.Context) NotificationPolicyTimeRestrictionRestrictionArrayOutput {
 	return o
-}
-
-func (o NotificationPolicyTimeRestrictionRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyTimeRestrictionRestriction] {
-	return pulumix.Output[[]NotificationPolicyTimeRestrictionRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationPolicyTimeRestrictionRestrictionArrayOutput) Index(i pulumi.IntInput) NotificationPolicyTimeRestrictionRestrictionOutput {
@@ -6370,12 +5337,6 @@ func (i NotificationPolicyTimeRestrictionRestrictionListArgs) ToNotificationPoli
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyTimeRestrictionRestrictionListOutput)
 }
 
-func (i NotificationPolicyTimeRestrictionRestrictionListArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyTimeRestrictionRestrictionList] {
-	return pulumix.Output[NotificationPolicyTimeRestrictionRestrictionList]{
-		OutputState: i.ToNotificationPolicyTimeRestrictionRestrictionListOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationPolicyTimeRestrictionRestrictionListArrayInput is an input type that accepts NotificationPolicyTimeRestrictionRestrictionListArray and NotificationPolicyTimeRestrictionRestrictionListArrayOutput values.
 // You can construct a concrete instance of `NotificationPolicyTimeRestrictionRestrictionListArrayInput` via:
 //
@@ -6401,12 +5362,6 @@ func (i NotificationPolicyTimeRestrictionRestrictionListArray) ToNotificationPol
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationPolicyTimeRestrictionRestrictionListArrayOutput)
 }
 
-func (i NotificationPolicyTimeRestrictionRestrictionListArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyTimeRestrictionRestrictionList] {
-	return pulumix.Output[[]NotificationPolicyTimeRestrictionRestrictionList]{
-		OutputState: i.ToNotificationPolicyTimeRestrictionRestrictionListArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationPolicyTimeRestrictionRestrictionListOutput struct{ *pulumi.OutputState }
 
 func (NotificationPolicyTimeRestrictionRestrictionListOutput) ElementType() reflect.Type {
@@ -6419,12 +5374,6 @@ func (o NotificationPolicyTimeRestrictionRestrictionListOutput) ToNotificationPo
 
 func (o NotificationPolicyTimeRestrictionRestrictionListOutput) ToNotificationPolicyTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) NotificationPolicyTimeRestrictionRestrictionListOutput {
 	return o
-}
-
-func (o NotificationPolicyTimeRestrictionRestrictionListOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationPolicyTimeRestrictionRestrictionList] {
-	return pulumix.Output[NotificationPolicyTimeRestrictionRestrictionList]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Ending day of restriction (eg. `wednesday`)
@@ -6471,12 +5420,6 @@ func (o NotificationPolicyTimeRestrictionRestrictionListArrayOutput) ToNotificat
 	return o
 }
 
-func (o NotificationPolicyTimeRestrictionRestrictionListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationPolicyTimeRestrictionRestrictionList] {
-	return pulumix.Output[[]NotificationPolicyTimeRestrictionRestrictionList]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationPolicyTimeRestrictionRestrictionListArrayOutput) Index(i pulumi.IntInput) NotificationPolicyTimeRestrictionRestrictionListOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationPolicyTimeRestrictionRestrictionList {
 		return vs[0].([]NotificationPolicyTimeRestrictionRestrictionList)[vs[1].(int)]
@@ -6520,12 +5463,6 @@ func (i NotificationRuleCriteriaArgs) ToNotificationRuleCriteriaOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleCriteriaOutput)
 }
 
-func (i NotificationRuleCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleCriteria] {
-	return pulumix.Output[NotificationRuleCriteria]{
-		OutputState: i.ToNotificationRuleCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationRuleCriteriaArrayInput is an input type that accepts NotificationRuleCriteriaArray and NotificationRuleCriteriaArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleCriteriaArrayInput` via:
 //
@@ -6551,12 +5488,6 @@ func (i NotificationRuleCriteriaArray) ToNotificationRuleCriteriaArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleCriteriaArrayOutput)
 }
 
-func (i NotificationRuleCriteriaArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleCriteria] {
-	return pulumix.Output[[]NotificationRuleCriteria]{
-		OutputState: i.ToNotificationRuleCriteriaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationRuleCriteriaOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleCriteriaOutput) ElementType() reflect.Type {
@@ -6569,12 +5500,6 @@ func (o NotificationRuleCriteriaOutput) ToNotificationRuleCriteriaOutput() Notif
 
 func (o NotificationRuleCriteriaOutput) ToNotificationRuleCriteriaOutputWithContext(ctx context.Context) NotificationRuleCriteriaOutput {
 	return o
-}
-
-func (o NotificationRuleCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleCriteria] {
-	return pulumix.Output[NotificationRuleCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Defines the fields and values when the condition applies
@@ -6599,12 +5524,6 @@ func (o NotificationRuleCriteriaArrayOutput) ToNotificationRuleCriteriaArrayOutp
 
 func (o NotificationRuleCriteriaArrayOutput) ToNotificationRuleCriteriaArrayOutputWithContext(ctx context.Context) NotificationRuleCriteriaArrayOutput {
 	return o
-}
-
-func (o NotificationRuleCriteriaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleCriteria] {
-	return pulumix.Output[[]NotificationRuleCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleCriteriaArrayOutput) Index(i pulumi.IntInput) NotificationRuleCriteriaOutput {
@@ -6666,12 +5585,6 @@ func (i NotificationRuleCriteriaConditionArgs) ToNotificationRuleCriteriaConditi
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleCriteriaConditionOutput)
 }
 
-func (i NotificationRuleCriteriaConditionArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleCriteriaCondition] {
-	return pulumix.Output[NotificationRuleCriteriaCondition]{
-		OutputState: i.ToNotificationRuleCriteriaConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationRuleCriteriaConditionArrayInput is an input type that accepts NotificationRuleCriteriaConditionArray and NotificationRuleCriteriaConditionArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleCriteriaConditionArrayInput` via:
 //
@@ -6697,12 +5610,6 @@ func (i NotificationRuleCriteriaConditionArray) ToNotificationRuleCriteriaCondit
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleCriteriaConditionArrayOutput)
 }
 
-func (i NotificationRuleCriteriaConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleCriteriaCondition] {
-	return pulumix.Output[[]NotificationRuleCriteriaCondition]{
-		OutputState: i.ToNotificationRuleCriteriaConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationRuleCriteriaConditionOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleCriteriaConditionOutput) ElementType() reflect.Type {
@@ -6715,12 +5622,6 @@ func (o NotificationRuleCriteriaConditionOutput) ToNotificationRuleCriteriaCondi
 
 func (o NotificationRuleCriteriaConditionOutput) ToNotificationRuleCriteriaConditionOutputWithContext(ctx context.Context) NotificationRuleCriteriaConditionOutput {
 	return o
-}
-
-func (o NotificationRuleCriteriaConditionOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleCriteriaCondition] {
-	return pulumix.Output[NotificationRuleCriteriaCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // User defined value that will be compared with alert field according to the operation. Default: empty string
@@ -6767,12 +5668,6 @@ func (o NotificationRuleCriteriaConditionArrayOutput) ToNotificationRuleCriteria
 	return o
 }
 
-func (o NotificationRuleCriteriaConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleCriteriaCondition] {
-	return pulumix.Output[[]NotificationRuleCriteriaCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationRuleCriteriaConditionArrayOutput) Index(i pulumi.IntInput) NotificationRuleCriteriaConditionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationRuleCriteriaCondition {
 		return vs[0].([]NotificationRuleCriteriaCondition)[vs[1].(int)]
@@ -6814,12 +5709,6 @@ func (i NotificationRuleRepeatArgs) ToNotificationRuleRepeatOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleRepeatOutput)
 }
 
-func (i NotificationRuleRepeatArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleRepeat] {
-	return pulumix.Output[NotificationRuleRepeat]{
-		OutputState: i.ToNotificationRuleRepeatOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationRuleRepeatArrayInput is an input type that accepts NotificationRuleRepeatArray and NotificationRuleRepeatArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleRepeatArrayInput` via:
 //
@@ -6845,12 +5734,6 @@ func (i NotificationRuleRepeatArray) ToNotificationRuleRepeatArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleRepeatArrayOutput)
 }
 
-func (i NotificationRuleRepeatArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleRepeat] {
-	return pulumix.Output[[]NotificationRuleRepeat]{
-		OutputState: i.ToNotificationRuleRepeatArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationRuleRepeatOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleRepeatOutput) ElementType() reflect.Type {
@@ -6863,12 +5746,6 @@ func (o NotificationRuleRepeatOutput) ToNotificationRuleRepeatOutput() Notificat
 
 func (o NotificationRuleRepeatOutput) ToNotificationRuleRepeatOutputWithContext(ctx context.Context) NotificationRuleRepeatOutput {
 	return o
-}
-
-func (o NotificationRuleRepeatOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleRepeat] {
-	return pulumix.Output[NotificationRuleRepeat]{
-		OutputState: o.OutputState,
-	}
 }
 
 // If policy should be enabled. Default: `true`
@@ -6892,12 +5769,6 @@ func (o NotificationRuleRepeatArrayOutput) ToNotificationRuleRepeatArrayOutput()
 
 func (o NotificationRuleRepeatArrayOutput) ToNotificationRuleRepeatArrayOutputWithContext(ctx context.Context) NotificationRuleRepeatArrayOutput {
 	return o
-}
-
-func (o NotificationRuleRepeatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleRepeat] {
-	return pulumix.Output[[]NotificationRuleRepeat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleRepeatArrayOutput) Index(i pulumi.IntInput) NotificationRuleRepeatOutput {
@@ -6943,12 +5814,6 @@ func (i NotificationRuleScheduleArgs) ToNotificationRuleScheduleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleScheduleOutput)
 }
 
-func (i NotificationRuleScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleSchedule] {
-	return pulumix.Output[NotificationRuleSchedule]{
-		OutputState: i.ToNotificationRuleScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationRuleScheduleArrayInput is an input type that accepts NotificationRuleScheduleArray and NotificationRuleScheduleArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleScheduleArrayInput` via:
 //
@@ -6974,12 +5839,6 @@ func (i NotificationRuleScheduleArray) ToNotificationRuleScheduleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleScheduleArrayOutput)
 }
 
-func (i NotificationRuleScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleSchedule] {
-	return pulumix.Output[[]NotificationRuleSchedule]{
-		OutputState: i.ToNotificationRuleScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationRuleScheduleOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleScheduleOutput) ElementType() reflect.Type {
@@ -6992,12 +5851,6 @@ func (o NotificationRuleScheduleOutput) ToNotificationRuleScheduleOutput() Notif
 
 func (o NotificationRuleScheduleOutput) ToNotificationRuleScheduleOutputWithContext(ctx context.Context) NotificationRuleScheduleOutput {
 	return o
-}
-
-func (o NotificationRuleScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleSchedule] {
-	return pulumix.Output[NotificationRuleSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the notification policy
@@ -7022,12 +5875,6 @@ func (o NotificationRuleScheduleArrayOutput) ToNotificationRuleScheduleArrayOutp
 
 func (o NotificationRuleScheduleArrayOutput) ToNotificationRuleScheduleArrayOutputWithContext(ctx context.Context) NotificationRuleScheduleArrayOutput {
 	return o
-}
-
-func (o NotificationRuleScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleSchedule] {
-	return pulumix.Output[[]NotificationRuleSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleScheduleArrayOutput) Index(i pulumi.IntInput) NotificationRuleScheduleOutput {
@@ -7077,12 +5924,6 @@ func (i NotificationRuleStepArgs) ToNotificationRuleStepOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleStepOutput)
 }
 
-func (i NotificationRuleStepArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleStep] {
-	return pulumix.Output[NotificationRuleStep]{
-		OutputState: i.ToNotificationRuleStepOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationRuleStepArrayInput is an input type that accepts NotificationRuleStepArray and NotificationRuleStepArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleStepArrayInput` via:
 //
@@ -7108,12 +5949,6 @@ func (i NotificationRuleStepArray) ToNotificationRuleStepArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleStepArrayOutput)
 }
 
-func (i NotificationRuleStepArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleStep] {
-	return pulumix.Output[[]NotificationRuleStep]{
-		OutputState: i.ToNotificationRuleStepArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationRuleStepOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleStepOutput) ElementType() reflect.Type {
@@ -7126,12 +5961,6 @@ func (o NotificationRuleStepOutput) ToNotificationRuleStepOutput() NotificationR
 
 func (o NotificationRuleStepOutput) ToNotificationRuleStepOutputWithContext(ctx context.Context) NotificationRuleStepOutput {
 	return o
-}
-
-func (o NotificationRuleStepOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleStep] {
-	return pulumix.Output[NotificationRuleStep]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Defines the contact that notification will be sent to. This is a block, structure is documented below.
@@ -7161,12 +5990,6 @@ func (o NotificationRuleStepArrayOutput) ToNotificationRuleStepArrayOutput() Not
 
 func (o NotificationRuleStepArrayOutput) ToNotificationRuleStepArrayOutputWithContext(ctx context.Context) NotificationRuleStepArrayOutput {
 	return o
-}
-
-func (o NotificationRuleStepArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleStep] {
-	return pulumix.Output[[]NotificationRuleStep]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleStepArrayOutput) Index(i pulumi.IntInput) NotificationRuleStepOutput {
@@ -7212,12 +6035,6 @@ func (i NotificationRuleStepContactArgs) ToNotificationRuleStepContactOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleStepContactOutput)
 }
 
-func (i NotificationRuleStepContactArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleStepContact] {
-	return pulumix.Output[NotificationRuleStepContact]{
-		OutputState: i.ToNotificationRuleStepContactOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationRuleStepContactArrayInput is an input type that accepts NotificationRuleStepContactArray and NotificationRuleStepContactArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleStepContactArrayInput` via:
 //
@@ -7243,12 +6060,6 @@ func (i NotificationRuleStepContactArray) ToNotificationRuleStepContactArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleStepContactArrayOutput)
 }
 
-func (i NotificationRuleStepContactArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleStepContact] {
-	return pulumix.Output[[]NotificationRuleStepContact]{
-		OutputState: i.ToNotificationRuleStepContactArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationRuleStepContactOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleStepContactOutput) ElementType() reflect.Type {
@@ -7261,12 +6072,6 @@ func (o NotificationRuleStepContactOutput) ToNotificationRuleStepContactOutput()
 
 func (o NotificationRuleStepContactOutput) ToNotificationRuleStepContactOutputWithContext(ctx context.Context) NotificationRuleStepContactOutput {
 	return o
-}
-
-func (o NotificationRuleStepContactOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleStepContact] {
-	return pulumix.Output[NotificationRuleStepContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
@@ -7291,12 +6096,6 @@ func (o NotificationRuleStepContactArrayOutput) ToNotificationRuleStepContactArr
 
 func (o NotificationRuleStepContactArrayOutput) ToNotificationRuleStepContactArrayOutputWithContext(ctx context.Context) NotificationRuleStepContactArrayOutput {
 	return o
-}
-
-func (o NotificationRuleStepContactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleStepContact] {
-	return pulumix.Output[[]NotificationRuleStepContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleStepContactArrayOutput) Index(i pulumi.IntInput) NotificationRuleStepContactOutput {
@@ -7342,12 +6141,6 @@ func (i NotificationRuleTimeRestrictionArgs) ToNotificationRuleTimeRestrictionOu
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleTimeRestrictionOutput)
 }
 
-func (i NotificationRuleTimeRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleTimeRestriction] {
-	return pulumix.Output[NotificationRuleTimeRestriction]{
-		OutputState: i.ToNotificationRuleTimeRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationRuleTimeRestrictionArrayInput is an input type that accepts NotificationRuleTimeRestrictionArray and NotificationRuleTimeRestrictionArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleTimeRestrictionArrayInput` via:
 //
@@ -7373,12 +6166,6 @@ func (i NotificationRuleTimeRestrictionArray) ToNotificationRuleTimeRestrictionA
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleTimeRestrictionArrayOutput)
 }
 
-func (i NotificationRuleTimeRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleTimeRestriction] {
-	return pulumix.Output[[]NotificationRuleTimeRestriction]{
-		OutputState: i.ToNotificationRuleTimeRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationRuleTimeRestrictionOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleTimeRestrictionOutput) ElementType() reflect.Type {
@@ -7391,12 +6178,6 @@ func (o NotificationRuleTimeRestrictionOutput) ToNotificationRuleTimeRestriction
 
 func (o NotificationRuleTimeRestrictionOutput) ToNotificationRuleTimeRestrictionOutputWithContext(ctx context.Context) NotificationRuleTimeRestrictionOutput {
 	return o
-}
-
-func (o NotificationRuleTimeRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleTimeRestriction] {
-	return pulumix.Output[NotificationRuleTimeRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleTimeRestrictionOutput) Restriction() NotificationRuleTimeRestrictionRestrictionArrayOutput {
@@ -7428,12 +6209,6 @@ func (o NotificationRuleTimeRestrictionArrayOutput) ToNotificationRuleTimeRestri
 
 func (o NotificationRuleTimeRestrictionArrayOutput) ToNotificationRuleTimeRestrictionArrayOutputWithContext(ctx context.Context) NotificationRuleTimeRestrictionArrayOutput {
 	return o
-}
-
-func (o NotificationRuleTimeRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleTimeRestriction] {
-	return pulumix.Output[[]NotificationRuleTimeRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleTimeRestrictionArrayOutput) Index(i pulumi.IntInput) NotificationRuleTimeRestrictionOutput {
@@ -7483,12 +6258,6 @@ func (i NotificationRuleTimeRestrictionRestrictionArgs) ToNotificationRuleTimeRe
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleTimeRestrictionRestrictionOutput)
 }
 
-func (i NotificationRuleTimeRestrictionRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleTimeRestrictionRestriction] {
-	return pulumix.Output[NotificationRuleTimeRestrictionRestriction]{
-		OutputState: i.ToNotificationRuleTimeRestrictionRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationRuleTimeRestrictionRestrictionArrayInput is an input type that accepts NotificationRuleTimeRestrictionRestrictionArray and NotificationRuleTimeRestrictionRestrictionArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleTimeRestrictionRestrictionArrayInput` via:
 //
@@ -7514,12 +6283,6 @@ func (i NotificationRuleTimeRestrictionRestrictionArray) ToNotificationRuleTimeR
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleTimeRestrictionRestrictionArrayOutput)
 }
 
-func (i NotificationRuleTimeRestrictionRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleTimeRestrictionRestriction] {
-	return pulumix.Output[[]NotificationRuleTimeRestrictionRestriction]{
-		OutputState: i.ToNotificationRuleTimeRestrictionRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationRuleTimeRestrictionRestrictionOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleTimeRestrictionRestrictionOutput) ElementType() reflect.Type {
@@ -7532,12 +6295,6 @@ func (o NotificationRuleTimeRestrictionRestrictionOutput) ToNotificationRuleTime
 
 func (o NotificationRuleTimeRestrictionRestrictionOutput) ToNotificationRuleTimeRestrictionRestrictionOutputWithContext(ctx context.Context) NotificationRuleTimeRestrictionRestrictionOutput {
 	return o
-}
-
-func (o NotificationRuleTimeRestrictionRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleTimeRestrictionRestriction] {
-	return pulumix.Output[NotificationRuleTimeRestrictionRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleTimeRestrictionRestrictionOutput) EndDay() pulumi.StringOutput {
@@ -7576,12 +6333,6 @@ func (o NotificationRuleTimeRestrictionRestrictionArrayOutput) ToNotificationRul
 
 func (o NotificationRuleTimeRestrictionRestrictionArrayOutput) ToNotificationRuleTimeRestrictionRestrictionArrayOutputWithContext(ctx context.Context) NotificationRuleTimeRestrictionRestrictionArrayOutput {
 	return o
-}
-
-func (o NotificationRuleTimeRestrictionRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleTimeRestrictionRestriction] {
-	return pulumix.Output[[]NotificationRuleTimeRestrictionRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleTimeRestrictionRestrictionArrayOutput) Index(i pulumi.IntInput) NotificationRuleTimeRestrictionRestrictionOutput {
@@ -7627,12 +6378,6 @@ func (i ScheduleRotationParticipantArgs) ToScheduleRotationParticipantOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationParticipantOutput)
 }
 
-func (i ScheduleRotationParticipantArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleRotationParticipant] {
-	return pulumix.Output[ScheduleRotationParticipant]{
-		OutputState: i.ToScheduleRotationParticipantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduleRotationParticipantArrayInput is an input type that accepts ScheduleRotationParticipantArray and ScheduleRotationParticipantArrayOutput values.
 // You can construct a concrete instance of `ScheduleRotationParticipantArrayInput` via:
 //
@@ -7658,12 +6403,6 @@ func (i ScheduleRotationParticipantArray) ToScheduleRotationParticipantArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationParticipantArrayOutput)
 }
 
-func (i ScheduleRotationParticipantArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleRotationParticipant] {
-	return pulumix.Output[[]ScheduleRotationParticipant]{
-		OutputState: i.ToScheduleRotationParticipantArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleRotationParticipantOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationParticipantOutput) ElementType() reflect.Type {
@@ -7676,12 +6415,6 @@ func (o ScheduleRotationParticipantOutput) ToScheduleRotationParticipantOutput()
 
 func (o ScheduleRotationParticipantOutput) ToScheduleRotationParticipantOutputWithContext(ctx context.Context) ScheduleRotationParticipantOutput {
 	return o
-}
-
-func (o ScheduleRotationParticipantOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleRotationParticipant] {
-	return pulumix.Output[ScheduleRotationParticipant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The id of the responder.
@@ -7706,12 +6439,6 @@ func (o ScheduleRotationParticipantArrayOutput) ToScheduleRotationParticipantArr
 
 func (o ScheduleRotationParticipantArrayOutput) ToScheduleRotationParticipantArrayOutputWithContext(ctx context.Context) ScheduleRotationParticipantArrayOutput {
 	return o
-}
-
-func (o ScheduleRotationParticipantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleRotationParticipant] {
-	return pulumix.Output[[]ScheduleRotationParticipant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleRotationParticipantArrayOutput) Index(i pulumi.IntInput) ScheduleRotationParticipantOutput {
@@ -7761,12 +6488,6 @@ func (i ScheduleRotationTimeRestrictionArgs) ToScheduleRotationTimeRestrictionOu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationTimeRestrictionOutput)
 }
 
-func (i ScheduleRotationTimeRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleRotationTimeRestriction] {
-	return pulumix.Output[ScheduleRotationTimeRestriction]{
-		OutputState: i.ToScheduleRotationTimeRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduleRotationTimeRestrictionArrayInput is an input type that accepts ScheduleRotationTimeRestrictionArray and ScheduleRotationTimeRestrictionArrayOutput values.
 // You can construct a concrete instance of `ScheduleRotationTimeRestrictionArrayInput` via:
 //
@@ -7792,12 +6513,6 @@ func (i ScheduleRotationTimeRestrictionArray) ToScheduleRotationTimeRestrictionA
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationTimeRestrictionArrayOutput)
 }
 
-func (i ScheduleRotationTimeRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleRotationTimeRestriction] {
-	return pulumix.Output[[]ScheduleRotationTimeRestriction]{
-		OutputState: i.ToScheduleRotationTimeRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleRotationTimeRestrictionOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationTimeRestrictionOutput) ElementType() reflect.Type {
@@ -7810,12 +6525,6 @@ func (o ScheduleRotationTimeRestrictionOutput) ToScheduleRotationTimeRestriction
 
 func (o ScheduleRotationTimeRestrictionOutput) ToScheduleRotationTimeRestrictionOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionOutput {
 	return o
-}
-
-func (o ScheduleRotationTimeRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleRotationTimeRestriction] {
-	return pulumix.Output[ScheduleRotationTimeRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
@@ -7849,12 +6558,6 @@ func (o ScheduleRotationTimeRestrictionArrayOutput) ToScheduleRotationTimeRestri
 
 func (o ScheduleRotationTimeRestrictionArrayOutput) ToScheduleRotationTimeRestrictionArrayOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionArrayOutput {
 	return o
-}
-
-func (o ScheduleRotationTimeRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleRotationTimeRestriction] {
-	return pulumix.Output[[]ScheduleRotationTimeRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleRotationTimeRestrictionArrayOutput) Index(i pulumi.IntInput) ScheduleRotationTimeRestrictionOutput {
@@ -7908,12 +6611,6 @@ func (i ScheduleRotationTimeRestrictionRestrictionArgs) ToScheduleRotationTimeRe
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationTimeRestrictionRestrictionOutput)
 }
 
-func (i ScheduleRotationTimeRestrictionRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleRotationTimeRestrictionRestriction] {
-	return pulumix.Output[ScheduleRotationTimeRestrictionRestriction]{
-		OutputState: i.ToScheduleRotationTimeRestrictionRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduleRotationTimeRestrictionRestrictionArrayInput is an input type that accepts ScheduleRotationTimeRestrictionRestrictionArray and ScheduleRotationTimeRestrictionRestrictionArrayOutput values.
 // You can construct a concrete instance of `ScheduleRotationTimeRestrictionRestrictionArrayInput` via:
 //
@@ -7939,12 +6636,6 @@ func (i ScheduleRotationTimeRestrictionRestrictionArray) ToScheduleRotationTimeR
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationTimeRestrictionRestrictionArrayOutput)
 }
 
-func (i ScheduleRotationTimeRestrictionRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleRotationTimeRestrictionRestriction] {
-	return pulumix.Output[[]ScheduleRotationTimeRestrictionRestriction]{
-		OutputState: i.ToScheduleRotationTimeRestrictionRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleRotationTimeRestrictionRestrictionOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationTimeRestrictionRestrictionOutput) ElementType() reflect.Type {
@@ -7957,12 +6648,6 @@ func (o ScheduleRotationTimeRestrictionRestrictionOutput) ToScheduleRotationTime
 
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) ToScheduleRotationTimeRestrictionRestrictionOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionRestrictionOutput {
 	return o
-}
-
-func (o ScheduleRotationTimeRestrictionRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleRotationTimeRestrictionRestriction] {
-	return pulumix.Output[ScheduleRotationTimeRestrictionRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Value of the hour that frame will end.
@@ -7997,12 +6682,6 @@ func (o ScheduleRotationTimeRestrictionRestrictionArrayOutput) ToScheduleRotatio
 
 func (o ScheduleRotationTimeRestrictionRestrictionArrayOutput) ToScheduleRotationTimeRestrictionRestrictionArrayOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionRestrictionArrayOutput {
 	return o
-}
-
-func (o ScheduleRotationTimeRestrictionRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleRotationTimeRestrictionRestriction] {
-	return pulumix.Output[[]ScheduleRotationTimeRestrictionRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleRotationTimeRestrictionRestrictionArrayOutput) Index(i pulumi.IntInput) ScheduleRotationTimeRestrictionRestrictionOutput {
@@ -8068,12 +6747,6 @@ func (i ScheduleRotationTimeRestrictionRestrictionListArgs) ToScheduleRotationTi
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationTimeRestrictionRestrictionListOutput)
 }
 
-func (i ScheduleRotationTimeRestrictionRestrictionListArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleRotationTimeRestrictionRestrictionList] {
-	return pulumix.Output[ScheduleRotationTimeRestrictionRestrictionList]{
-		OutputState: i.ToScheduleRotationTimeRestrictionRestrictionListOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduleRotationTimeRestrictionRestrictionListArrayInput is an input type that accepts ScheduleRotationTimeRestrictionRestrictionListArray and ScheduleRotationTimeRestrictionRestrictionListArrayOutput values.
 // You can construct a concrete instance of `ScheduleRotationTimeRestrictionRestrictionListArrayInput` via:
 //
@@ -8099,12 +6772,6 @@ func (i ScheduleRotationTimeRestrictionRestrictionListArray) ToScheduleRotationT
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationTimeRestrictionRestrictionListArrayOutput)
 }
 
-func (i ScheduleRotationTimeRestrictionRestrictionListArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleRotationTimeRestrictionRestrictionList] {
-	return pulumix.Output[[]ScheduleRotationTimeRestrictionRestrictionList]{
-		OutputState: i.ToScheduleRotationTimeRestrictionRestrictionListArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleRotationTimeRestrictionRestrictionListOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationTimeRestrictionRestrictionListOutput) ElementType() reflect.Type {
@@ -8117,12 +6784,6 @@ func (o ScheduleRotationTimeRestrictionRestrictionListOutput) ToScheduleRotation
 
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) ToScheduleRotationTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionRestrictionListOutput {
 	return o
-}
-
-func (o ScheduleRotationTimeRestrictionRestrictionListOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleRotationTimeRestrictionRestrictionList] {
-	return pulumix.Output[ScheduleRotationTimeRestrictionRestrictionList]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Value of the day that frame will end.
@@ -8169,12 +6830,6 @@ func (o ScheduleRotationTimeRestrictionRestrictionListArrayOutput) ToScheduleRot
 
 func (o ScheduleRotationTimeRestrictionRestrictionListArrayOutput) ToScheduleRotationTimeRestrictionRestrictionListArrayOutputWithContext(ctx context.Context) ScheduleRotationTimeRestrictionRestrictionListArrayOutput {
 	return o
-}
-
-func (o ScheduleRotationTimeRestrictionRestrictionListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleRotationTimeRestrictionRestrictionList] {
-	return pulumix.Output[[]ScheduleRotationTimeRestrictionRestrictionList]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleRotationTimeRestrictionRestrictionListArrayOutput) Index(i pulumi.IntInput) ScheduleRotationTimeRestrictionRestrictionListOutput {
@@ -8224,12 +6879,6 @@ func (i ServiceIncidentRuleIncidentRuleArgs) ToServiceIncidentRuleIncidentRuleOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleIncidentRuleOutput)
 }
 
-func (i ServiceIncidentRuleIncidentRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentRuleIncidentRule] {
-	return pulumix.Output[ServiceIncidentRuleIncidentRule]{
-		OutputState: i.ToServiceIncidentRuleIncidentRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceIncidentRuleIncidentRuleArrayInput is an input type that accepts ServiceIncidentRuleIncidentRuleArray and ServiceIncidentRuleIncidentRuleArrayOutput values.
 // You can construct a concrete instance of `ServiceIncidentRuleIncidentRuleArrayInput` via:
 //
@@ -8255,12 +6904,6 @@ func (i ServiceIncidentRuleIncidentRuleArray) ToServiceIncidentRuleIncidentRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleIncidentRuleArrayOutput)
 }
 
-func (i ServiceIncidentRuleIncidentRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIncidentRuleIncidentRule] {
-	return pulumix.Output[[]ServiceIncidentRuleIncidentRule]{
-		OutputState: i.ToServiceIncidentRuleIncidentRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceIncidentRuleIncidentRuleOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRuleIncidentRuleOutput) ElementType() reflect.Type {
@@ -8273,12 +6916,6 @@ func (o ServiceIncidentRuleIncidentRuleOutput) ToServiceIncidentRuleIncidentRule
 
 func (o ServiceIncidentRuleIncidentRuleOutput) ToServiceIncidentRuleIncidentRuleOutputWithContext(ctx context.Context) ServiceIncidentRuleIncidentRuleOutput {
 	return o
-}
-
-func (o ServiceIncidentRuleIncidentRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentRuleIncidentRule] {
-	return pulumix.Output[ServiceIncidentRuleIncidentRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
@@ -8312,12 +6949,6 @@ func (o ServiceIncidentRuleIncidentRuleArrayOutput) ToServiceIncidentRuleInciden
 
 func (o ServiceIncidentRuleIncidentRuleArrayOutput) ToServiceIncidentRuleIncidentRuleArrayOutputWithContext(ctx context.Context) ServiceIncidentRuleIncidentRuleArrayOutput {
 	return o
-}
-
-func (o ServiceIncidentRuleIncidentRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIncidentRuleIncidentRule] {
-	return pulumix.Output[[]ServiceIncidentRuleIncidentRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceIncidentRuleIncidentRuleArrayOutput) Index(i pulumi.IntInput) ServiceIncidentRuleIncidentRuleOutput {
@@ -8373,12 +7004,6 @@ func (i ServiceIncidentRuleIncidentRuleConditionArgs) ToServiceIncidentRuleIncid
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleIncidentRuleConditionOutput)
 }
 
-func (i ServiceIncidentRuleIncidentRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentRuleIncidentRuleCondition] {
-	return pulumix.Output[ServiceIncidentRuleIncidentRuleCondition]{
-		OutputState: i.ToServiceIncidentRuleIncidentRuleConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceIncidentRuleIncidentRuleConditionArrayInput is an input type that accepts ServiceIncidentRuleIncidentRuleConditionArray and ServiceIncidentRuleIncidentRuleConditionArrayOutput values.
 // You can construct a concrete instance of `ServiceIncidentRuleIncidentRuleConditionArrayInput` via:
 //
@@ -8404,12 +7029,6 @@ func (i ServiceIncidentRuleIncidentRuleConditionArray) ToServiceIncidentRuleInci
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleIncidentRuleConditionArrayOutput)
 }
 
-func (i ServiceIncidentRuleIncidentRuleConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIncidentRuleIncidentRuleCondition] {
-	return pulumix.Output[[]ServiceIncidentRuleIncidentRuleCondition]{
-		OutputState: i.ToServiceIncidentRuleIncidentRuleConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceIncidentRuleIncidentRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRuleIncidentRuleConditionOutput) ElementType() reflect.Type {
@@ -8422,12 +7041,6 @@ func (o ServiceIncidentRuleIncidentRuleConditionOutput) ToServiceIncidentRuleInc
 
 func (o ServiceIncidentRuleIncidentRuleConditionOutput) ToServiceIncidentRuleIncidentRuleConditionOutputWithContext(ctx context.Context) ServiceIncidentRuleIncidentRuleConditionOutput {
 	return o
-}
-
-func (o ServiceIncidentRuleIncidentRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentRuleIncidentRuleCondition] {
-	return pulumix.Output[ServiceIncidentRuleIncidentRuleCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // User defined value that will be compared with alert field according to the operation. Default: empty string
@@ -8466,12 +7079,6 @@ func (o ServiceIncidentRuleIncidentRuleConditionArrayOutput) ToServiceIncidentRu
 
 func (o ServiceIncidentRuleIncidentRuleConditionArrayOutput) ToServiceIncidentRuleIncidentRuleConditionArrayOutputWithContext(ctx context.Context) ServiceIncidentRuleIncidentRuleConditionArrayOutput {
 	return o
-}
-
-func (o ServiceIncidentRuleIncidentRuleConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIncidentRuleIncidentRuleCondition] {
-	return pulumix.Output[[]ServiceIncidentRuleIncidentRuleCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceIncidentRuleIncidentRuleConditionArrayOutput) Index(i pulumi.IntInput) ServiceIncidentRuleIncidentRuleConditionOutput {
@@ -8533,12 +7140,6 @@ func (i ServiceIncidentRuleIncidentRuleIncidentPropertyArgs) ToServiceIncidentRu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleIncidentRuleIncidentPropertyOutput)
 }
 
-func (i ServiceIncidentRuleIncidentRuleIncidentPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentRuleIncidentRuleIncidentProperty] {
-	return pulumix.Output[ServiceIncidentRuleIncidentRuleIncidentProperty]{
-		OutputState: i.ToServiceIncidentRuleIncidentRuleIncidentPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceIncidentRuleIncidentRuleIncidentPropertyArrayInput is an input type that accepts ServiceIncidentRuleIncidentRuleIncidentPropertyArray and ServiceIncidentRuleIncidentRuleIncidentPropertyArrayOutput values.
 // You can construct a concrete instance of `ServiceIncidentRuleIncidentRuleIncidentPropertyArrayInput` via:
 //
@@ -8564,12 +7165,6 @@ func (i ServiceIncidentRuleIncidentRuleIncidentPropertyArray) ToServiceIncidentR
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleIncidentRuleIncidentPropertyArrayOutput)
 }
 
-func (i ServiceIncidentRuleIncidentRuleIncidentPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIncidentRuleIncidentRuleIncidentProperty] {
-	return pulumix.Output[[]ServiceIncidentRuleIncidentRuleIncidentProperty]{
-		OutputState: i.ToServiceIncidentRuleIncidentRuleIncidentPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceIncidentRuleIncidentRuleIncidentPropertyOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRuleIncidentRuleIncidentPropertyOutput) ElementType() reflect.Type {
@@ -8582,12 +7177,6 @@ func (o ServiceIncidentRuleIncidentRuleIncidentPropertyOutput) ToServiceIncident
 
 func (o ServiceIncidentRuleIncidentRuleIncidentPropertyOutput) ToServiceIncidentRuleIncidentRuleIncidentPropertyOutputWithContext(ctx context.Context) ServiceIncidentRuleIncidentRuleIncidentPropertyOutput {
 	return o
-}
-
-func (o ServiceIncidentRuleIncidentRuleIncidentPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentRuleIncidentRuleIncidentProperty] {
-	return pulumix.Output[ServiceIncidentRuleIncidentRuleIncidentProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description field of the incident rule.
@@ -8634,12 +7223,6 @@ func (o ServiceIncidentRuleIncidentRuleIncidentPropertyArrayOutput) ToServiceInc
 
 func (o ServiceIncidentRuleIncidentRuleIncidentPropertyArrayOutput) ToServiceIncidentRuleIncidentRuleIncidentPropertyArrayOutputWithContext(ctx context.Context) ServiceIncidentRuleIncidentRuleIncidentPropertyArrayOutput {
 	return o
-}
-
-func (o ServiceIncidentRuleIncidentRuleIncidentPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIncidentRuleIncidentRuleIncidentProperty] {
-	return pulumix.Output[[]ServiceIncidentRuleIncidentRuleIncidentProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceIncidentRuleIncidentRuleIncidentPropertyArrayOutput) Index(i pulumi.IntInput) ServiceIncidentRuleIncidentRuleIncidentPropertyOutput {
@@ -8689,12 +7272,6 @@ func (i ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyOutput)
 }
 
-func (i ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty] {
-	return pulumix.Output[ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty]{
-		OutputState: i.ToServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayInput is an input type that accepts ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArray and ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayOutput values.
 // You can construct a concrete instance of `ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayInput` via:
 //
@@ -8720,12 +7297,6 @@ func (i ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArray)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayOutput)
 }
 
-func (i ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty] {
-	return pulumix.Output[[]ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty]{
-		OutputState: i.ToServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyOutput) ElementType() reflect.Type {
@@ -8738,12 +7309,6 @@ func (o ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyOutput
 
 func (o ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyOutput) ToServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyOutputWithContext(ctx context.Context) ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyOutput {
 	return o
-}
-
-func (o ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty] {
-	return pulumix.Output[ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description that is generally used to provide a detailed information about the alert.
@@ -8775,12 +7340,6 @@ func (o ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayO
 
 func (o ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayOutput) ToServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayOutputWithContext(ctx context.Context) ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayOutput {
 	return o
-}
-
-func (o ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty] {
-	return pulumix.Output[[]ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArrayOutput) Index(i pulumi.IntInput) ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyOutput {
@@ -8828,12 +7387,6 @@ func (i TeamMemberArgs) ToTeamMemberOutputWithContext(ctx context.Context) TeamM
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMemberOutput)
 }
 
-func (i TeamMemberArgs) ToOutput(ctx context.Context) pulumix.Output[TeamMember] {
-	return pulumix.Output[TeamMember]{
-		OutputState: i.ToTeamMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamMemberArrayInput is an input type that accepts TeamMemberArray and TeamMemberArrayOutput values.
 // You can construct a concrete instance of `TeamMemberArrayInput` via:
 //
@@ -8859,12 +7412,6 @@ func (i TeamMemberArray) ToTeamMemberArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMemberArrayOutput)
 }
 
-func (i TeamMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamMember] {
-	return pulumix.Output[[]TeamMember]{
-		OutputState: i.ToTeamMemberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamMemberOutput struct{ *pulumi.OutputState }
 
 func (TeamMemberOutput) ElementType() reflect.Type {
@@ -8877,12 +7424,6 @@ func (o TeamMemberOutput) ToTeamMemberOutput() TeamMemberOutput {
 
 func (o TeamMemberOutput) ToTeamMemberOutputWithContext(ctx context.Context) TeamMemberOutput {
 	return o
-}
-
-func (o TeamMemberOutput) ToOutput(ctx context.Context) pulumix.Output[TeamMember] {
-	return pulumix.Output[TeamMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The UUID for the member to add to this Team.
@@ -8911,12 +7452,6 @@ func (o TeamMemberArrayOutput) ToTeamMemberArrayOutput() TeamMemberArrayOutput {
 
 func (o TeamMemberArrayOutput) ToTeamMemberArrayOutputWithContext(ctx context.Context) TeamMemberArrayOutput {
 	return o
-}
-
-func (o TeamMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamMember] {
-	return pulumix.Output[[]TeamMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamMemberArrayOutput) Index(i pulumi.IntInput) TeamMemberOutput {
@@ -8962,12 +7497,6 @@ func (i TeamRoutingRuleCriteriaArgs) ToTeamRoutingRuleCriteriaOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleCriteriaOutput)
 }
 
-func (i TeamRoutingRuleCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleCriteria] {
-	return pulumix.Output[TeamRoutingRuleCriteria]{
-		OutputState: i.ToTeamRoutingRuleCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamRoutingRuleCriteriaArrayInput is an input type that accepts TeamRoutingRuleCriteriaArray and TeamRoutingRuleCriteriaArrayOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleCriteriaArrayInput` via:
 //
@@ -8993,12 +7522,6 @@ func (i TeamRoutingRuleCriteriaArray) ToTeamRoutingRuleCriteriaArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleCriteriaArrayOutput)
 }
 
-func (i TeamRoutingRuleCriteriaArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleCriteria] {
-	return pulumix.Output[[]TeamRoutingRuleCriteria]{
-		OutputState: i.ToTeamRoutingRuleCriteriaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamRoutingRuleCriteriaOutput struct{ *pulumi.OutputState }
 
 func (TeamRoutingRuleCriteriaOutput) ElementType() reflect.Type {
@@ -9011,12 +7534,6 @@ func (o TeamRoutingRuleCriteriaOutput) ToTeamRoutingRuleCriteriaOutput() TeamRou
 
 func (o TeamRoutingRuleCriteriaOutput) ToTeamRoutingRuleCriteriaOutputWithContext(ctx context.Context) TeamRoutingRuleCriteriaOutput {
 	return o
-}
-
-func (o TeamRoutingRuleCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleCriteria] {
-	return pulumix.Output[TeamRoutingRuleCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
@@ -9041,12 +7558,6 @@ func (o TeamRoutingRuleCriteriaArrayOutput) ToTeamRoutingRuleCriteriaArrayOutput
 
 func (o TeamRoutingRuleCriteriaArrayOutput) ToTeamRoutingRuleCriteriaArrayOutputWithContext(ctx context.Context) TeamRoutingRuleCriteriaArrayOutput {
 	return o
-}
-
-func (o TeamRoutingRuleCriteriaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleCriteria] {
-	return pulumix.Output[[]TeamRoutingRuleCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleCriteriaArrayOutput) Index(i pulumi.IntInput) TeamRoutingRuleCriteriaOutput {
@@ -9106,12 +7617,6 @@ func (i TeamRoutingRuleCriteriaConditionArgs) ToTeamRoutingRuleCriteriaCondition
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleCriteriaConditionOutput)
 }
 
-func (i TeamRoutingRuleCriteriaConditionArgs) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleCriteriaCondition] {
-	return pulumix.Output[TeamRoutingRuleCriteriaCondition]{
-		OutputState: i.ToTeamRoutingRuleCriteriaConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamRoutingRuleCriteriaConditionArrayInput is an input type that accepts TeamRoutingRuleCriteriaConditionArray and TeamRoutingRuleCriteriaConditionArrayOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleCriteriaConditionArrayInput` via:
 //
@@ -9137,12 +7642,6 @@ func (i TeamRoutingRuleCriteriaConditionArray) ToTeamRoutingRuleCriteriaConditio
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleCriteriaConditionArrayOutput)
 }
 
-func (i TeamRoutingRuleCriteriaConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleCriteriaCondition] {
-	return pulumix.Output[[]TeamRoutingRuleCriteriaCondition]{
-		OutputState: i.ToTeamRoutingRuleCriteriaConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamRoutingRuleCriteriaConditionOutput struct{ *pulumi.OutputState }
 
 func (TeamRoutingRuleCriteriaConditionOutput) ElementType() reflect.Type {
@@ -9155,12 +7654,6 @@ func (o TeamRoutingRuleCriteriaConditionOutput) ToTeamRoutingRuleCriteriaConditi
 
 func (o TeamRoutingRuleCriteriaConditionOutput) ToTeamRoutingRuleCriteriaConditionOutputWithContext(ctx context.Context) TeamRoutingRuleCriteriaConditionOutput {
 	return o
-}
-
-func (o TeamRoutingRuleCriteriaConditionOutput) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleCriteriaCondition] {
-	return pulumix.Output[TeamRoutingRuleCriteriaCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleCriteriaConditionOutput) ExpectedValue() pulumi.StringPtrOutput {
@@ -9206,12 +7699,6 @@ func (o TeamRoutingRuleCriteriaConditionArrayOutput) ToTeamRoutingRuleCriteriaCo
 	return o
 }
 
-func (o TeamRoutingRuleCriteriaConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleCriteriaCondition] {
-	return pulumix.Output[[]TeamRoutingRuleCriteriaCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TeamRoutingRuleCriteriaConditionArrayOutput) Index(i pulumi.IntInput) TeamRoutingRuleCriteriaConditionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamRoutingRuleCriteriaCondition {
 		return vs[0].([]TeamRoutingRuleCriteriaCondition)[vs[1].(int)]
@@ -9253,12 +7740,6 @@ func (i TeamRoutingRuleNotifyArgs) ToTeamRoutingRuleNotifyOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleNotifyOutput)
 }
 
-func (i TeamRoutingRuleNotifyArgs) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleNotify] {
-	return pulumix.Output[TeamRoutingRuleNotify]{
-		OutputState: i.ToTeamRoutingRuleNotifyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamRoutingRuleNotifyArrayInput is an input type that accepts TeamRoutingRuleNotifyArray and TeamRoutingRuleNotifyArrayOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleNotifyArrayInput` via:
 //
@@ -9284,12 +7765,6 @@ func (i TeamRoutingRuleNotifyArray) ToTeamRoutingRuleNotifyArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleNotifyArrayOutput)
 }
 
-func (i TeamRoutingRuleNotifyArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleNotify] {
-	return pulumix.Output[[]TeamRoutingRuleNotify]{
-		OutputState: i.ToTeamRoutingRuleNotifyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamRoutingRuleNotifyOutput struct{ *pulumi.OutputState }
 
 func (TeamRoutingRuleNotifyOutput) ElementType() reflect.Type {
@@ -9302,12 +7777,6 @@ func (o TeamRoutingRuleNotifyOutput) ToTeamRoutingRuleNotifyOutput() TeamRouting
 
 func (o TeamRoutingRuleNotifyOutput) ToTeamRoutingRuleNotifyOutputWithContext(ctx context.Context) TeamRoutingRuleNotifyOutput {
 	return o
-}
-
-func (o TeamRoutingRuleNotifyOutput) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleNotify] {
-	return pulumix.Output[TeamRoutingRuleNotify]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleNotifyOutput) Id() pulumi.StringPtrOutput {
@@ -9334,12 +7803,6 @@ func (o TeamRoutingRuleNotifyArrayOutput) ToTeamRoutingRuleNotifyArrayOutput() T
 
 func (o TeamRoutingRuleNotifyArrayOutput) ToTeamRoutingRuleNotifyArrayOutputWithContext(ctx context.Context) TeamRoutingRuleNotifyArrayOutput {
 	return o
-}
-
-func (o TeamRoutingRuleNotifyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleNotify] {
-	return pulumix.Output[[]TeamRoutingRuleNotify]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleNotifyArrayOutput) Index(i pulumi.IntInput) TeamRoutingRuleNotifyOutput {
@@ -9385,12 +7848,6 @@ func (i TeamRoutingRuleTimeRestrictionArgs) ToTeamRoutingRuleTimeRestrictionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleTimeRestrictionOutput)
 }
 
-func (i TeamRoutingRuleTimeRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleTimeRestriction] {
-	return pulumix.Output[TeamRoutingRuleTimeRestriction]{
-		OutputState: i.ToTeamRoutingRuleTimeRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamRoutingRuleTimeRestrictionArrayInput is an input type that accepts TeamRoutingRuleTimeRestrictionArray and TeamRoutingRuleTimeRestrictionArrayOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleTimeRestrictionArrayInput` via:
 //
@@ -9416,12 +7873,6 @@ func (i TeamRoutingRuleTimeRestrictionArray) ToTeamRoutingRuleTimeRestrictionArr
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleTimeRestrictionArrayOutput)
 }
 
-func (i TeamRoutingRuleTimeRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleTimeRestriction] {
-	return pulumix.Output[[]TeamRoutingRuleTimeRestriction]{
-		OutputState: i.ToTeamRoutingRuleTimeRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamRoutingRuleTimeRestrictionOutput struct{ *pulumi.OutputState }
 
 func (TeamRoutingRuleTimeRestrictionOutput) ElementType() reflect.Type {
@@ -9434,12 +7885,6 @@ func (o TeamRoutingRuleTimeRestrictionOutput) ToTeamRoutingRuleTimeRestrictionOu
 
 func (o TeamRoutingRuleTimeRestrictionOutput) ToTeamRoutingRuleTimeRestrictionOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionOutput {
 	return o
-}
-
-func (o TeamRoutingRuleTimeRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleTimeRestriction] {
-	return pulumix.Output[TeamRoutingRuleTimeRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleTimeRestrictionOutput) Restriction() TeamRoutingRuleTimeRestrictionRestrictionArrayOutput {
@@ -9471,12 +7916,6 @@ func (o TeamRoutingRuleTimeRestrictionArrayOutput) ToTeamRoutingRuleTimeRestrict
 
 func (o TeamRoutingRuleTimeRestrictionArrayOutput) ToTeamRoutingRuleTimeRestrictionArrayOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionArrayOutput {
 	return o
-}
-
-func (o TeamRoutingRuleTimeRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleTimeRestriction] {
-	return pulumix.Output[[]TeamRoutingRuleTimeRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleTimeRestrictionArrayOutput) Index(i pulumi.IntInput) TeamRoutingRuleTimeRestrictionOutput {
@@ -9522,12 +7961,6 @@ func (i TeamRoutingRuleTimeRestrictionRestrictionArgs) ToTeamRoutingRuleTimeRest
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleTimeRestrictionRestrictionOutput)
 }
 
-func (i TeamRoutingRuleTimeRestrictionRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleTimeRestrictionRestriction] {
-	return pulumix.Output[TeamRoutingRuleTimeRestrictionRestriction]{
-		OutputState: i.ToTeamRoutingRuleTimeRestrictionRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamRoutingRuleTimeRestrictionRestrictionArrayInput is an input type that accepts TeamRoutingRuleTimeRestrictionRestrictionArray and TeamRoutingRuleTimeRestrictionRestrictionArrayOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleTimeRestrictionRestrictionArrayInput` via:
 //
@@ -9553,12 +7986,6 @@ func (i TeamRoutingRuleTimeRestrictionRestrictionArray) ToTeamRoutingRuleTimeRes
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleTimeRestrictionRestrictionArrayOutput)
 }
 
-func (i TeamRoutingRuleTimeRestrictionRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleTimeRestrictionRestriction] {
-	return pulumix.Output[[]TeamRoutingRuleTimeRestrictionRestriction]{
-		OutputState: i.ToTeamRoutingRuleTimeRestrictionRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamRoutingRuleTimeRestrictionRestrictionOutput struct{ *pulumi.OutputState }
 
 func (TeamRoutingRuleTimeRestrictionRestrictionOutput) ElementType() reflect.Type {
@@ -9571,12 +7998,6 @@ func (o TeamRoutingRuleTimeRestrictionRestrictionOutput) ToTeamRoutingRuleTimeRe
 
 func (o TeamRoutingRuleTimeRestrictionRestrictionOutput) ToTeamRoutingRuleTimeRestrictionRestrictionOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionRestrictionOutput {
 	return o
-}
-
-func (o TeamRoutingRuleTimeRestrictionRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleTimeRestrictionRestriction] {
-	return pulumix.Output[TeamRoutingRuleTimeRestrictionRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleTimeRestrictionRestrictionOutput) EndHour() pulumi.IntOutput {
@@ -9607,12 +8028,6 @@ func (o TeamRoutingRuleTimeRestrictionRestrictionArrayOutput) ToTeamRoutingRuleT
 
 func (o TeamRoutingRuleTimeRestrictionRestrictionArrayOutput) ToTeamRoutingRuleTimeRestrictionRestrictionArrayOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionRestrictionArrayOutput {
 	return o
-}
-
-func (o TeamRoutingRuleTimeRestrictionRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleTimeRestrictionRestriction] {
-	return pulumix.Output[[]TeamRoutingRuleTimeRestrictionRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleTimeRestrictionRestrictionArrayOutput) Index(i pulumi.IntInput) TeamRoutingRuleTimeRestrictionRestrictionOutput {
@@ -9662,12 +8077,6 @@ func (i TeamRoutingRuleTimeRestrictionRestrictionListArgs) ToTeamRoutingRuleTime
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleTimeRestrictionRestrictionListOutput)
 }
 
-func (i TeamRoutingRuleTimeRestrictionRestrictionListArgs) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleTimeRestrictionRestrictionList] {
-	return pulumix.Output[TeamRoutingRuleTimeRestrictionRestrictionList]{
-		OutputState: i.ToTeamRoutingRuleTimeRestrictionRestrictionListOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamRoutingRuleTimeRestrictionRestrictionListArrayInput is an input type that accepts TeamRoutingRuleTimeRestrictionRestrictionListArray and TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleTimeRestrictionRestrictionListArrayInput` via:
 //
@@ -9693,12 +8102,6 @@ func (i TeamRoutingRuleTimeRestrictionRestrictionListArray) ToTeamRoutingRuleTim
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput)
 }
 
-func (i TeamRoutingRuleTimeRestrictionRestrictionListArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleTimeRestrictionRestrictionList] {
-	return pulumix.Output[[]TeamRoutingRuleTimeRestrictionRestrictionList]{
-		OutputState: i.ToTeamRoutingRuleTimeRestrictionRestrictionListArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamRoutingRuleTimeRestrictionRestrictionListOutput struct{ *pulumi.OutputState }
 
 func (TeamRoutingRuleTimeRestrictionRestrictionListOutput) ElementType() reflect.Type {
@@ -9711,12 +8114,6 @@ func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) ToTeamRoutingRuleTi
 
 func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) ToTeamRoutingRuleTimeRestrictionRestrictionListOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionRestrictionListOutput {
 	return o
-}
-
-func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) ToOutput(ctx context.Context) pulumix.Output[TeamRoutingRuleTimeRestrictionRestrictionList] {
-	return pulumix.Output[TeamRoutingRuleTimeRestrictionRestrictionList]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleTimeRestrictionRestrictionListOutput) EndDay() pulumi.StringOutput {
@@ -9755,12 +8152,6 @@ func (o TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput) ToTeamRoutingR
 
 func (o TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput) ToTeamRoutingRuleTimeRestrictionRestrictionListArrayOutputWithContext(ctx context.Context) TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput {
 	return o
-}
-
-func (o TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamRoutingRuleTimeRestrictionRestrictionList] {
-	return pulumix.Output[[]TeamRoutingRuleTimeRestrictionRestrictionList]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput) Index(i pulumi.IntInput) TeamRoutingRuleTimeRestrictionRestrictionListOutput {
@@ -9808,12 +8199,6 @@ func (i UserUserAddressArgs) ToUserUserAddressOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserUserAddressOutput)
 }
 
-func (i UserUserAddressArgs) ToOutput(ctx context.Context) pulumix.Output[UserUserAddress] {
-	return pulumix.Output[UserUserAddress]{
-		OutputState: i.ToUserUserAddressOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserUserAddressArrayInput is an input type that accepts UserUserAddressArray and UserUserAddressArrayOutput values.
 // You can construct a concrete instance of `UserUserAddressArrayInput` via:
 //
@@ -9839,12 +8224,6 @@ func (i UserUserAddressArray) ToUserUserAddressArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(UserUserAddressArrayOutput)
 }
 
-func (i UserUserAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]UserUserAddress] {
-	return pulumix.Output[[]UserUserAddress]{
-		OutputState: i.ToUserUserAddressArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserUserAddressOutput struct{ *pulumi.OutputState }
 
 func (UserUserAddressOutput) ElementType() reflect.Type {
@@ -9857,12 +8236,6 @@ func (o UserUserAddressOutput) ToUserUserAddressOutput() UserUserAddressOutput {
 
 func (o UserUserAddressOutput) ToUserUserAddressOutputWithContext(ctx context.Context) UserUserAddressOutput {
 	return o
-}
-
-func (o UserUserAddressOutput) ToOutput(ctx context.Context) pulumix.Output[UserUserAddress] {
-	return pulumix.Output[UserUserAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserUserAddressOutput) City() pulumi.StringOutput {
@@ -9897,12 +8270,6 @@ func (o UserUserAddressArrayOutput) ToUserUserAddressArrayOutput() UserUserAddre
 
 func (o UserUserAddressArrayOutput) ToUserUserAddressArrayOutputWithContext(ctx context.Context) UserUserAddressArrayOutput {
 	return o
-}
-
-func (o UserUserAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserUserAddress] {
-	return pulumix.Output[[]UserUserAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserUserAddressArrayOutput) Index(i pulumi.IntInput) UserUserAddressOutput {
@@ -9948,12 +8315,6 @@ func (i GetEscalationRepeatArgs) ToGetEscalationRepeatOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationRepeatOutput)
 }
 
-func (i GetEscalationRepeatArgs) ToOutput(ctx context.Context) pulumix.Output[GetEscalationRepeat] {
-	return pulumix.Output[GetEscalationRepeat]{
-		OutputState: i.ToGetEscalationRepeatOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetEscalationRepeatArrayInput is an input type that accepts GetEscalationRepeatArray and GetEscalationRepeatArrayOutput values.
 // You can construct a concrete instance of `GetEscalationRepeatArrayInput` via:
 //
@@ -9979,12 +8340,6 @@ func (i GetEscalationRepeatArray) ToGetEscalationRepeatArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationRepeatArrayOutput)
 }
 
-func (i GetEscalationRepeatArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEscalationRepeat] {
-	return pulumix.Output[[]GetEscalationRepeat]{
-		OutputState: i.ToGetEscalationRepeatArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetEscalationRepeatOutput struct{ *pulumi.OutputState }
 
 func (GetEscalationRepeatOutput) ElementType() reflect.Type {
@@ -9997,12 +8352,6 @@ func (o GetEscalationRepeatOutput) ToGetEscalationRepeatOutput() GetEscalationRe
 
 func (o GetEscalationRepeatOutput) ToGetEscalationRepeatOutputWithContext(ctx context.Context) GetEscalationRepeatOutput {
 	return o
-}
-
-func (o GetEscalationRepeatOutput) ToOutput(ctx context.Context) pulumix.Output[GetEscalationRepeat] {
-	return pulumix.Output[GetEscalationRepeat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEscalationRepeatOutput) CloseAlertAfterAll() pulumi.BoolPtrOutput {
@@ -10033,12 +8382,6 @@ func (o GetEscalationRepeatArrayOutput) ToGetEscalationRepeatArrayOutput() GetEs
 
 func (o GetEscalationRepeatArrayOutput) ToGetEscalationRepeatArrayOutputWithContext(ctx context.Context) GetEscalationRepeatArrayOutput {
 	return o
-}
-
-func (o GetEscalationRepeatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEscalationRepeat] {
-	return pulumix.Output[[]GetEscalationRepeat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEscalationRepeatArrayOutput) Index(i pulumi.IntInput) GetEscalationRepeatOutput {
@@ -10084,12 +8427,6 @@ func (i GetEscalationRuleArgs) ToGetEscalationRuleOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationRuleOutput)
 }
 
-func (i GetEscalationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetEscalationRule] {
-	return pulumix.Output[GetEscalationRule]{
-		OutputState: i.ToGetEscalationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetEscalationRuleArrayInput is an input type that accepts GetEscalationRuleArray and GetEscalationRuleArrayOutput values.
 // You can construct a concrete instance of `GetEscalationRuleArrayInput` via:
 //
@@ -10115,12 +8452,6 @@ func (i GetEscalationRuleArray) ToGetEscalationRuleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationRuleArrayOutput)
 }
 
-func (i GetEscalationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEscalationRule] {
-	return pulumix.Output[[]GetEscalationRule]{
-		OutputState: i.ToGetEscalationRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetEscalationRuleOutput struct{ *pulumi.OutputState }
 
 func (GetEscalationRuleOutput) ElementType() reflect.Type {
@@ -10133,12 +8464,6 @@ func (o GetEscalationRuleOutput) ToGetEscalationRuleOutput() GetEscalationRuleOu
 
 func (o GetEscalationRuleOutput) ToGetEscalationRuleOutputWithContext(ctx context.Context) GetEscalationRuleOutput {
 	return o
-}
-
-func (o GetEscalationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetEscalationRule] {
-	return pulumix.Output[GetEscalationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEscalationRuleOutput) Condition() pulumi.StringOutput {
@@ -10169,12 +8494,6 @@ func (o GetEscalationRuleArrayOutput) ToGetEscalationRuleArrayOutput() GetEscala
 
 func (o GetEscalationRuleArrayOutput) ToGetEscalationRuleArrayOutputWithContext(ctx context.Context) GetEscalationRuleArrayOutput {
 	return o
-}
-
-func (o GetEscalationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEscalationRule] {
-	return pulumix.Output[[]GetEscalationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEscalationRuleArrayOutput) Index(i pulumi.IntInput) GetEscalationRuleOutput {
@@ -10218,12 +8537,6 @@ func (i GetEscalationRuleRecipientArgs) ToGetEscalationRuleRecipientOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationRuleRecipientOutput)
 }
 
-func (i GetEscalationRuleRecipientArgs) ToOutput(ctx context.Context) pulumix.Output[GetEscalationRuleRecipient] {
-	return pulumix.Output[GetEscalationRuleRecipient]{
-		OutputState: i.ToGetEscalationRuleRecipientOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetEscalationRuleRecipientArrayInput is an input type that accepts GetEscalationRuleRecipientArray and GetEscalationRuleRecipientArrayOutput values.
 // You can construct a concrete instance of `GetEscalationRuleRecipientArrayInput` via:
 //
@@ -10249,12 +8562,6 @@ func (i GetEscalationRuleRecipientArray) ToGetEscalationRuleRecipientArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationRuleRecipientArrayOutput)
 }
 
-func (i GetEscalationRuleRecipientArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEscalationRuleRecipient] {
-	return pulumix.Output[[]GetEscalationRuleRecipient]{
-		OutputState: i.ToGetEscalationRuleRecipientArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetEscalationRuleRecipientOutput struct{ *pulumi.OutputState }
 
 func (GetEscalationRuleRecipientOutput) ElementType() reflect.Type {
@@ -10267,12 +8574,6 @@ func (o GetEscalationRuleRecipientOutput) ToGetEscalationRuleRecipientOutput() G
 
 func (o GetEscalationRuleRecipientOutput) ToGetEscalationRuleRecipientOutputWithContext(ctx context.Context) GetEscalationRuleRecipientOutput {
 	return o
-}
-
-func (o GetEscalationRuleRecipientOutput) ToOutput(ctx context.Context) pulumix.Output[GetEscalationRuleRecipient] {
-	return pulumix.Output[GetEscalationRuleRecipient]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Opsgenie Escalation.
@@ -10296,12 +8597,6 @@ func (o GetEscalationRuleRecipientArrayOutput) ToGetEscalationRuleRecipientArray
 
 func (o GetEscalationRuleRecipientArrayOutput) ToGetEscalationRuleRecipientArrayOutputWithContext(ctx context.Context) GetEscalationRuleRecipientArrayOutput {
 	return o
-}
-
-func (o GetEscalationRuleRecipientArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEscalationRuleRecipient] {
-	return pulumix.Output[[]GetEscalationRuleRecipient]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEscalationRuleRecipientArrayOutput) Index(i pulumi.IntInput) GetEscalationRuleRecipientOutput {
@@ -10347,12 +8642,6 @@ func (i GetTeamMemberArgs) ToGetTeamMemberOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetTeamMemberOutput)
 }
 
-func (i GetTeamMemberArgs) ToOutput(ctx context.Context) pulumix.Output[GetTeamMember] {
-	return pulumix.Output[GetTeamMember]{
-		OutputState: i.ToGetTeamMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTeamMemberArrayInput is an input type that accepts GetTeamMemberArray and GetTeamMemberArrayOutput values.
 // You can construct a concrete instance of `GetTeamMemberArrayInput` via:
 //
@@ -10378,12 +8667,6 @@ func (i GetTeamMemberArray) ToGetTeamMemberArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetTeamMemberArrayOutput)
 }
 
-func (i GetTeamMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTeamMember] {
-	return pulumix.Output[[]GetTeamMember]{
-		OutputState: i.ToGetTeamMemberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTeamMemberOutput struct{ *pulumi.OutputState }
 
 func (GetTeamMemberOutput) ElementType() reflect.Type {
@@ -10396,12 +8679,6 @@ func (o GetTeamMemberOutput) ToGetTeamMemberOutput() GetTeamMemberOutput {
 
 func (o GetTeamMemberOutput) ToGetTeamMemberOutputWithContext(ctx context.Context) GetTeamMemberOutput {
 	return o
-}
-
-func (o GetTeamMemberOutput) ToOutput(ctx context.Context) pulumix.Output[GetTeamMember] {
-	return pulumix.Output[GetTeamMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Opsgenie Team.
@@ -10429,12 +8706,6 @@ func (o GetTeamMemberArrayOutput) ToGetTeamMemberArrayOutput() GetTeamMemberArra
 
 func (o GetTeamMemberArrayOutput) ToGetTeamMemberArrayOutputWithContext(ctx context.Context) GetTeamMemberArrayOutput {
 	return o
-}
-
-func (o GetTeamMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTeamMember] {
-	return pulumix.Output[[]GetTeamMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTeamMemberArrayOutput) Index(i pulumi.IntInput) GetTeamMemberOutput {
