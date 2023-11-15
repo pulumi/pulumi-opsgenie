@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Schedule Rotation within Opsgenie.
@@ -234,12 +233,6 @@ func (i *ScheduleRotation) ToScheduleRotationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationOutput)
 }
 
-func (i *ScheduleRotation) ToOutput(ctx context.Context) pulumix.Output[*ScheduleRotation] {
-	return pulumix.Output[*ScheduleRotation]{
-		OutputState: i.ToScheduleRotationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduleRotationArrayInput is an input type that accepts ScheduleRotationArray and ScheduleRotationArrayOutput values.
 // You can construct a concrete instance of `ScheduleRotationArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i ScheduleRotationArray) ToScheduleRotationArrayOutput() ScheduleRotationA
 
 func (i ScheduleRotationArray) ToScheduleRotationArrayOutputWithContext(ctx context.Context) ScheduleRotationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationArrayOutput)
-}
-
-func (i ScheduleRotationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduleRotation] {
-	return pulumix.Output[[]*ScheduleRotation]{
-		OutputState: i.ToScheduleRotationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScheduleRotationMapInput is an input type that accepts ScheduleRotationMap and ScheduleRotationMapOutput values.
@@ -296,12 +283,6 @@ func (i ScheduleRotationMap) ToScheduleRotationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRotationMapOutput)
 }
 
-func (i ScheduleRotationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduleRotation] {
-	return pulumix.Output[map[string]*ScheduleRotation]{
-		OutputState: i.ToScheduleRotationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleRotationOutput struct{ *pulumi.OutputState }
 
 func (ScheduleRotationOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o ScheduleRotationOutput) ToScheduleRotationOutput() ScheduleRotationOutpu
 
 func (o ScheduleRotationOutput) ToScheduleRotationOutputWithContext(ctx context.Context) ScheduleRotationOutput {
 	return o
-}
-
-func (o ScheduleRotationOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleRotation] {
-	return pulumix.Output[*ScheduleRotation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
@@ -375,12 +350,6 @@ func (o ScheduleRotationArrayOutput) ToScheduleRotationArrayOutputWithContext(ct
 	return o
 }
 
-func (o ScheduleRotationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduleRotation] {
-	return pulumix.Output[[]*ScheduleRotation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleRotationArrayOutput) Index(i pulumi.IntInput) ScheduleRotationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScheduleRotation {
 		return vs[0].([]*ScheduleRotation)[vs[1].(int)]
@@ -399,12 +368,6 @@ func (o ScheduleRotationMapOutput) ToScheduleRotationMapOutput() ScheduleRotatio
 
 func (o ScheduleRotationMapOutput) ToScheduleRotationMapOutputWithContext(ctx context.Context) ScheduleRotationMapOutput {
 	return o
-}
-
-func (o ScheduleRotationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduleRotation] {
-	return pulumix.Output[map[string]*ScheduleRotation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleRotationMapOutput) MapIndex(k pulumi.StringInput) ScheduleRotationOutput {

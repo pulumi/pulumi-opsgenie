@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Team Routing Rule within Opsgenie.
@@ -255,12 +254,6 @@ func (i *TeamRoutingRule) ToTeamRoutingRuleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleOutput)
 }
 
-func (i *TeamRoutingRule) ToOutput(ctx context.Context) pulumix.Output[*TeamRoutingRule] {
-	return pulumix.Output[*TeamRoutingRule]{
-		OutputState: i.ToTeamRoutingRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamRoutingRuleArrayInput is an input type that accepts TeamRoutingRuleArray and TeamRoutingRuleArrayOutput values.
 // You can construct a concrete instance of `TeamRoutingRuleArrayInput` via:
 //
@@ -284,12 +277,6 @@ func (i TeamRoutingRuleArray) ToTeamRoutingRuleArrayOutput() TeamRoutingRuleArra
 
 func (i TeamRoutingRuleArray) ToTeamRoutingRuleArrayOutputWithContext(ctx context.Context) TeamRoutingRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleArrayOutput)
-}
-
-func (i TeamRoutingRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*TeamRoutingRule] {
-	return pulumix.Output[[]*TeamRoutingRule]{
-		OutputState: i.ToTeamRoutingRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TeamRoutingRuleMapInput is an input type that accepts TeamRoutingRuleMap and TeamRoutingRuleMapOutput values.
@@ -317,12 +304,6 @@ func (i TeamRoutingRuleMap) ToTeamRoutingRuleMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRoutingRuleMapOutput)
 }
 
-func (i TeamRoutingRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamRoutingRule] {
-	return pulumix.Output[map[string]*TeamRoutingRule]{
-		OutputState: i.ToTeamRoutingRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamRoutingRuleOutput struct{ *pulumi.OutputState }
 
 func (TeamRoutingRuleOutput) ElementType() reflect.Type {
@@ -335,12 +316,6 @@ func (o TeamRoutingRuleOutput) ToTeamRoutingRuleOutput() TeamRoutingRuleOutput {
 
 func (o TeamRoutingRuleOutput) ToTeamRoutingRuleOutputWithContext(ctx context.Context) TeamRoutingRuleOutput {
 	return o
-}
-
-func (o TeamRoutingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*TeamRoutingRule] {
-	return pulumix.Output[*TeamRoutingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // You can refer Criteria for detailed information about criteria and its fields
@@ -396,12 +371,6 @@ func (o TeamRoutingRuleArrayOutput) ToTeamRoutingRuleArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o TeamRoutingRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TeamRoutingRule] {
-	return pulumix.Output[[]*TeamRoutingRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TeamRoutingRuleArrayOutput) Index(i pulumi.IntInput) TeamRoutingRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamRoutingRule {
 		return vs[0].([]*TeamRoutingRule)[vs[1].(int)]
@@ -420,12 +389,6 @@ func (o TeamRoutingRuleMapOutput) ToTeamRoutingRuleMapOutput() TeamRoutingRuleMa
 
 func (o TeamRoutingRuleMapOutput) ToTeamRoutingRuleMapOutputWithContext(ctx context.Context) TeamRoutingRuleMapOutput {
 	return o
-}
-
-func (o TeamRoutingRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamRoutingRule] {
-	return pulumix.Output[map[string]*TeamRoutingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRoutingRuleMapOutput) MapIndex(k pulumi.StringInput) TeamRoutingRuleOutput {
