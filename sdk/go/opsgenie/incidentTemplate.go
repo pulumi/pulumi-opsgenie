@@ -84,12 +84,12 @@ import (
 type IncidentTemplate struct {
 	pulumi.CustomResourceState
 
-	// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+	// Description field of the incident template. This field must not be longer than 10000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
 	Details          pulumi.StringMapOutput   `pulumi:"details"`
 	ImpactedServices pulumi.StringArrayOutput `pulumi:"impactedServices"`
-	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+	// Message of the related incident template. This field must not be longer than 130 characters.
 	Message pulumi.StringOutput `pulumi:"message"`
 	// Name of the incident template.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -139,12 +139,12 @@ func GetIncidentTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IncidentTemplate resources.
 type incidentTemplateState struct {
-	// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+	// Description field of the incident template. This field must not be longer than 10000 characters.
 	Description *string `pulumi:"description"`
 	// Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
 	Details          map[string]string `pulumi:"details"`
 	ImpactedServices []string          `pulumi:"impactedServices"`
-	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+	// Message of the related incident template. This field must not be longer than 130 characters.
 	Message *string `pulumi:"message"`
 	// Name of the incident template.
 	Name *string `pulumi:"name"`
@@ -156,12 +156,12 @@ type incidentTemplateState struct {
 }
 
 type IncidentTemplateState struct {
-	// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+	// Description field of the incident template. This field must not be longer than 10000 characters.
 	Description pulumi.StringPtrInput
 	// Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
 	Details          pulumi.StringMapInput
 	ImpactedServices pulumi.StringArrayInput
-	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+	// Message of the related incident template. This field must not be longer than 130 characters.
 	Message pulumi.StringPtrInput
 	// Name of the incident template.
 	Name pulumi.StringPtrInput
@@ -177,12 +177,12 @@ func (IncidentTemplateState) ElementType() reflect.Type {
 }
 
 type incidentTemplateArgs struct {
-	// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+	// Description field of the incident template. This field must not be longer than 10000 characters.
 	Description *string `pulumi:"description"`
 	// Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
 	Details          map[string]string `pulumi:"details"`
 	ImpactedServices []string          `pulumi:"impactedServices"`
-	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+	// Message of the related incident template. This field must not be longer than 130 characters.
 	Message string `pulumi:"message"`
 	// Name of the incident template.
 	Name *string `pulumi:"name"`
@@ -195,12 +195,12 @@ type incidentTemplateArgs struct {
 
 // The set of arguments for constructing a IncidentTemplate resource.
 type IncidentTemplateArgs struct {
-	// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+	// Description field of the incident template. This field must not be longer than 10000 characters.
 	Description pulumi.StringPtrInput
 	// Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
 	Details          pulumi.StringMapInput
 	ImpactedServices pulumi.StringArrayInput
-	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+	// Message of the related incident template. This field must not be longer than 130 characters.
 	Message pulumi.StringInput
 	// Name of the incident template.
 	Name pulumi.StringPtrInput
@@ -298,7 +298,7 @@ func (o IncidentTemplateOutput) ToIncidentTemplateOutputWithContext(ctx context.
 	return o
 }
 
-// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+// Description field of the incident template. This field must not be longer than 10000 characters.
 func (o IncidentTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -312,7 +312,7 @@ func (o IncidentTemplateOutput) ImpactedServices() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringArrayOutput { return v.ImpactedServices }).(pulumi.StringArrayOutput)
 }
 
-// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+// Message of the related incident template. This field must not be longer than 130 characters.
 func (o IncidentTemplateOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
 }

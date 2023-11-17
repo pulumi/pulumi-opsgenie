@@ -751,8 +751,8 @@ class IncidentTemplateStakeholderPropertyArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  enable: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
-        :param pulumi.Input[str] description: Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        :param pulumi.Input[str] message: Message of the related incident template. This field must not be longer than 130 characters.
+        :param pulumi.Input[str] description: Description field of the incident template. This field must not be longer than 10000 characters.
         :param pulumi.Input[bool] enable: Option to enable stakeholder notifications.Default value is true.
         """
         pulumi.set(__self__, "message", message)
@@ -765,7 +765,7 @@ class IncidentTemplateStakeholderPropertyArgs:
     @pulumi.getter
     def message(self) -> pulumi.Input[str]:
         """
-        Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        Message of the related incident template. This field must not be longer than 130 characters.
         """
         return pulumi.get(self, "message")
 
@@ -777,7 +777,7 @@ class IncidentTemplateStakeholderPropertyArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        Description field of the incident template. This field must not be longer than 10000 characters.
         """
         return pulumi.get(self, "description")
 
@@ -4107,7 +4107,7 @@ class TeamRoutingRuleCriteriaConditionArgs:
                  order: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
-        :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+        :param pulumi.Input[str] operation: (true) It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
         :param pulumi.Input[str] key: If field is set as extra-properties, key could be used for key-value pair.
         :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default value is false.
         :param pulumi.Input[int] order: Order of the condition in conditions list.
@@ -4139,7 +4139,7 @@ class TeamRoutingRuleCriteriaConditionArgs:
     @pulumi.getter
     def operation(self) -> pulumi.Input[str]:
         """
-        It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+        (true) It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
         """
         return pulumi.get(self, "operation")
 

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IncidentTemplateStakeholderProperty {
     /**
-     * @return Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * @return Description field of the incident template. This field must not be longer than 10000 characters.
      * 
      */
     private @Nullable String description;
@@ -23,14 +23,14 @@ public final class IncidentTemplateStakeholderProperty {
      */
     private @Nullable Boolean enable;
     /**
-     * @return Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * @return Message of the related incident template. This field must not be longer than 130 characters.
      * 
      */
     private String message;
 
     private IncidentTemplateStakeholderProperty() {}
     /**
-     * @return Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * @return Description field of the incident template. This field must not be longer than 10000 characters.
      * 
      */
     public Optional<String> description() {
@@ -44,7 +44,7 @@ public final class IncidentTemplateStakeholderProperty {
         return Optional.ofNullable(this.enable);
     }
     /**
-     * @return Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * @return Message of the related incident template. This field must not be longer than 130 characters.
      * 
      */
     public String message() {

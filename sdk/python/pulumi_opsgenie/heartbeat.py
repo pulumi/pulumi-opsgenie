@@ -25,7 +25,7 @@ class HeartbeatArgs:
                  owner_team_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Heartbeat resource.
-        :param pulumi.Input[bool] enabled: Enable/disable heartbeat monitoring.
+        :param pulumi.Input[bool] enabled: (True) Enable/disable heartbeat monitoring.
         :param pulumi.Input[int] interval: Specifies how often a heartbeat message should be expected.
         :param pulumi.Input[str] interval_unit: Interval specified as minutes, hours or days.
         :param pulumi.Input[str] alert_message: Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
@@ -55,7 +55,7 @@ class HeartbeatArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Enable/disable heartbeat monitoring.
+        (True) Enable/disable heartbeat monitoring.
         """
         return pulumi.get(self, "enabled")
 
@@ -178,7 +178,7 @@ class _HeartbeatState:
         :param pulumi.Input[str] alert_priority: Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alert_tags: Specifies the alert tags for heartbeat expiration alert.
         :param pulumi.Input[str] description: An optional description of the heartbeat
-        :param pulumi.Input[bool] enabled: Enable/disable heartbeat monitoring.
+        :param pulumi.Input[bool] enabled: (True) Enable/disable heartbeat monitoring.
         :param pulumi.Input[int] interval: Specifies how often a heartbeat message should be expected.
         :param pulumi.Input[str] interval_unit: Interval specified as minutes, hours or days.
         :param pulumi.Input[str] name: Name of the heartbeat
@@ -255,7 +255,7 @@ class _HeartbeatState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable/disable heartbeat monitoring.
+        (True) Enable/disable heartbeat monitoring.
         """
         return pulumi.get(self, "enabled")
 
@@ -364,7 +364,7 @@ class Heartbeat(pulumi.CustomResource):
         :param pulumi.Input[str] alert_priority: Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alert_tags: Specifies the alert tags for heartbeat expiration alert.
         :param pulumi.Input[str] description: An optional description of the heartbeat
-        :param pulumi.Input[bool] enabled: Enable/disable heartbeat monitoring.
+        :param pulumi.Input[bool] enabled: (True) Enable/disable heartbeat monitoring.
         :param pulumi.Input[int] interval: Specifies how often a heartbeat message should be expected.
         :param pulumi.Input[str] interval_unit: Interval specified as minutes, hours or days.
         :param pulumi.Input[str] name: Name of the heartbeat
@@ -485,7 +485,7 @@ class Heartbeat(pulumi.CustomResource):
         :param pulumi.Input[str] alert_priority: Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alert_tags: Specifies the alert tags for heartbeat expiration alert.
         :param pulumi.Input[str] description: An optional description of the heartbeat
-        :param pulumi.Input[bool] enabled: Enable/disable heartbeat monitoring.
+        :param pulumi.Input[bool] enabled: (True) Enable/disable heartbeat monitoring.
         :param pulumi.Input[int] interval: Specifies how often a heartbeat message should be expected.
         :param pulumi.Input[str] interval_unit: Interval specified as minutes, hours or days.
         :param pulumi.Input[str] name: Name of the heartbeat
@@ -542,7 +542,7 @@ class Heartbeat(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
         """
-        Enable/disable heartbeat monitoring.
+        (True) Enable/disable heartbeat monitoring.
         """
         return pulumi.get(self, "enabled")
 

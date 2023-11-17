@@ -70,7 +70,7 @@ type Heartbeat struct {
 	AlertTags pulumi.StringArrayOutput `pulumi:"alertTags"`
 	// An optional description of the heartbeat
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Enable/disable heartbeat monitoring.
+	// (True) Enable/disable heartbeat monitoring.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Specifies how often a heartbeat message should be expected.
 	Interval pulumi.IntOutput `pulumi:"interval"`
@@ -129,7 +129,7 @@ type heartbeatState struct {
 	AlertTags []string `pulumi:"alertTags"`
 	// An optional description of the heartbeat
 	Description *string `pulumi:"description"`
-	// Enable/disable heartbeat monitoring.
+	// (True) Enable/disable heartbeat monitoring.
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies how often a heartbeat message should be expected.
 	Interval *int `pulumi:"interval"`
@@ -150,7 +150,7 @@ type HeartbeatState struct {
 	AlertTags pulumi.StringArrayInput
 	// An optional description of the heartbeat
 	Description pulumi.StringPtrInput
-	// Enable/disable heartbeat monitoring.
+	// (True) Enable/disable heartbeat monitoring.
 	Enabled pulumi.BoolPtrInput
 	// Specifies how often a heartbeat message should be expected.
 	Interval pulumi.IntPtrInput
@@ -175,7 +175,7 @@ type heartbeatArgs struct {
 	AlertTags []string `pulumi:"alertTags"`
 	// An optional description of the heartbeat
 	Description *string `pulumi:"description"`
-	// Enable/disable heartbeat monitoring.
+	// (True) Enable/disable heartbeat monitoring.
 	Enabled bool `pulumi:"enabled"`
 	// Specifies how often a heartbeat message should be expected.
 	Interval int `pulumi:"interval"`
@@ -197,7 +197,7 @@ type HeartbeatArgs struct {
 	AlertTags pulumi.StringArrayInput
 	// An optional description of the heartbeat
 	Description pulumi.StringPtrInput
-	// Enable/disable heartbeat monitoring.
+	// (True) Enable/disable heartbeat monitoring.
 	Enabled pulumi.BoolInput
 	// Specifies how often a heartbeat message should be expected.
 	Interval pulumi.IntInput
@@ -316,7 +316,7 @@ func (o HeartbeatOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Heartbeat) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Enable/disable heartbeat monitoring.
+// (True) Enable/disable heartbeat monitoring.
 func (o HeartbeatOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Heartbeat) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }

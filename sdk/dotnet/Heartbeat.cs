@@ -77,7 +77,7 @@ namespace Pulumi.Opsgenie
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Enable/disable heartbeat monitoring.
+        /// (True) Enable/disable heartbeat monitoring.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Enable/disable heartbeat monitoring.
+        /// (True) Enable/disable heartbeat monitoring.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Enable/disable heartbeat monitoring.
+        /// (True) Enable/disable heartbeat monitoring.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

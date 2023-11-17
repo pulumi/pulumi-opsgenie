@@ -243,7 +243,7 @@ export interface GetTeamMemberArgs {
 
 export interface IncidentTemplateStakeholderProperty {
     /**
-     * Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * Description field of the incident template. This field must not be longer than 10000 characters.
      */
     description?: pulumi.Input<string>;
     /**
@@ -251,7 +251,7 @@ export interface IncidentTemplateStakeholderProperty {
      */
     enable?: pulumi.Input<boolean>;
     /**
-     * Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * Message of the related incident template. This field must not be longer than 130 characters.
      */
     message: pulumi.Input<string>;
 }
@@ -1096,7 +1096,7 @@ export interface TeamRoutingRuleCriteriaCondition {
      */
     not?: pulumi.Input<boolean>;
     /**
-     * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+     * (true) It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
      */
     operation: pulumi.Input<string>;
     /**

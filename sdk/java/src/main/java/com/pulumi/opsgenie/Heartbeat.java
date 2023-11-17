@@ -127,14 +127,14 @@ public class Heartbeat extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Enable/disable heartbeat monitoring.
+     * (True) Enable/disable heartbeat monitoring.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output<Boolean> enabled;
 
     /**
-     * @return Enable/disable heartbeat monitoring.
+     * @return (True) Enable/disable heartbeat monitoring.
      * 
      */
     public Output<Boolean> enabled() {

@@ -90,14 +90,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="opsgenie:index/incidentTemplate:IncidentTemplate")
 public class IncidentTemplate extends com.pulumi.resources.CustomResource {
     /**
-     * Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * Description field of the incident template. This field must not be longer than 10000 characters.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * @return Description field of the incident template. This field must not be longer than 10000 characters.
      * 
      */
     public Output<Optional<String>> description() {
@@ -124,14 +124,14 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.impactedServices);
     }
     /**
-     * Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * Message of the related incident template. This field must not be longer than 130 characters.
      * 
      */
     @Export(name="message", type=String.class, parameters={})
     private Output<String> message;
 
     /**
-     * @return Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * @return Message of the related incident template. This field must not be longer than 130 characters.
      * 
      */
     public Output<String> message() {

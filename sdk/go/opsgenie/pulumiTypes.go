@@ -1320,11 +1320,11 @@ func (o EscalationRuleRecipientArrayOutput) Index(i pulumi.IntInput) EscalationR
 }
 
 type IncidentTemplateStakeholderProperty struct {
-	// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+	// Description field of the incident template. This field must not be longer than 10000 characters.
 	Description *string `pulumi:"description"`
 	// Option to enable stakeholder notifications.Default value is true.
 	Enable *bool `pulumi:"enable"`
-	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+	// Message of the related incident template. This field must not be longer than 130 characters.
 	Message string `pulumi:"message"`
 }
 
@@ -1340,11 +1340,11 @@ type IncidentTemplateStakeholderPropertyInput interface {
 }
 
 type IncidentTemplateStakeholderPropertyArgs struct {
-	// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+	// Description field of the incident template. This field must not be longer than 10000 characters.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Option to enable stakeholder notifications.Default value is true.
 	Enable pulumi.BoolPtrInput `pulumi:"enable"`
-	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+	// Message of the related incident template. This field must not be longer than 130 characters.
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
@@ -1399,7 +1399,7 @@ func (o IncidentTemplateStakeholderPropertyOutput) ToIncidentTemplateStakeholder
 	return o
 }
 
-// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+// Description field of the incident template. This field must not be longer than 10000 characters.
 func (o IncidentTemplateStakeholderPropertyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentTemplateStakeholderProperty) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -1409,7 +1409,7 @@ func (o IncidentTemplateStakeholderPropertyOutput) Enable() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v IncidentTemplateStakeholderProperty) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
-// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+// Message of the related incident template. This field must not be longer than 130 characters.
 func (o IncidentTemplateStakeholderPropertyOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v IncidentTemplateStakeholderProperty) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -7574,7 +7574,7 @@ type TeamRoutingRuleCriteriaCondition struct {
 	Key *string `pulumi:"key"`
 	// Indicates behaviour of the given operation. Default value is false.
 	Not *bool `pulumi:"not"`
-	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+	// (true) It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
 	Operation string `pulumi:"operation"`
 	// Order of the condition in conditions list.
 	Order *int `pulumi:"order"`
@@ -7599,7 +7599,7 @@ type TeamRoutingRuleCriteriaConditionArgs struct {
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Indicates behaviour of the given operation. Default value is false.
 	Not pulumi.BoolPtrInput `pulumi:"not"`
-	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+	// (true) It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
 	Operation pulumi.StringInput `pulumi:"operation"`
 	// Order of the condition in conditions list.
 	Order pulumi.IntPtrInput `pulumi:"order"`
@@ -7675,7 +7675,7 @@ func (o TeamRoutingRuleCriteriaConditionOutput) Not() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TeamRoutingRuleCriteriaCondition) *bool { return v.Not }).(pulumi.BoolPtrOutput)
 }
 
-// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+// (true) It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
 func (o TeamRoutingRuleCriteriaConditionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamRoutingRuleCriteriaCondition) string { return v.Operation }).(pulumi.StringOutput)
 }

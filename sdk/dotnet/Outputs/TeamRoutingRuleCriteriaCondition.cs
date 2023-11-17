@@ -27,7 +27,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly bool? Not;
         /// <summary>
-        /// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+        /// (true) It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
         /// </summary>
         public readonly string Operation;
         /// <summary>

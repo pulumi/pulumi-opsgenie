@@ -79,14 +79,14 @@ public final class HeartbeatState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable/disable heartbeat monitoring.
+     * (True) Enable/disable heartbeat monitoring.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enable/disable heartbeat monitoring.
+     * @return (True) Enable/disable heartbeat monitoring.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -280,7 +280,7 @@ public final class HeartbeatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Enable/disable heartbeat monitoring.
+         * @param enabled (True) Enable/disable heartbeat monitoring.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class HeartbeatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Enable/disable heartbeat monitoring.
+         * @param enabled (True) Enable/disable heartbeat monitoring.
          * 
          * @return builder
          * 

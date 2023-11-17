@@ -81,7 +81,7 @@ export class Heartbeat extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Enable/disable heartbeat monitoring.
+     * (True) Enable/disable heartbeat monitoring.
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
@@ -170,7 +170,7 @@ export interface HeartbeatState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Enable/disable heartbeat monitoring.
+     * (True) Enable/disable heartbeat monitoring.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -212,7 +212,7 @@ export interface HeartbeatArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Enable/disable heartbeat monitoring.
+     * (True) Enable/disable heartbeat monitoring.
      */
     enabled: pulumi.Input<boolean>;
     /**

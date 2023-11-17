@@ -75,7 +75,7 @@ export class IncidentTemplate extends pulumi.CustomResource {
     }
 
     /**
-     * Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * Description field of the incident template. This field must not be longer than 10000 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -84,7 +84,7 @@ export class IncidentTemplate extends pulumi.CustomResource {
     public readonly details!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly impactedServices!: pulumi.Output<string[] | undefined>;
     /**
-     * Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * Message of the related incident template. This field must not be longer than 130 characters.
      */
     public readonly message!: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export class IncidentTemplate extends pulumi.CustomResource {
  */
 export interface IncidentTemplateState {
     /**
-     * Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * Description field of the incident template. This field must not be longer than 10000 characters.
      */
     description?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface IncidentTemplateState {
     details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     impactedServices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * Message of the related incident template. This field must not be longer than 130 characters.
      */
     message?: pulumi.Input<string>;
     /**
@@ -184,7 +184,7 @@ export interface IncidentTemplateState {
  */
 export interface IncidentTemplateArgs {
     /**
-     * Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * Description field of the incident template. This field must not be longer than 10000 characters.
      */
     description?: pulumi.Input<string>;
     /**
@@ -193,7 +193,7 @@ export interface IncidentTemplateArgs {
     details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     impactedServices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * Message of the related incident template. This field must not be longer than 130 characters.
      */
     message: pulumi.Input<string>;
     /**
