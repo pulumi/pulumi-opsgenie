@@ -320,7 +320,7 @@
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.\n"
+                    "description": "Description field of the incident template. This field must not be longer than 10000 characters.\n"
                 },
                 "enable": {
                     "type": "boolean",
@@ -328,7 +328,7 @@
                 },
                 "message": {
                     "type": "string",
-                    "description": "Message that is to be passed to audience that is generally used to provide a content information about the alert.\n"
+                    "description": "Message of the related incident template. This field must not be longer than 130 characters.\n"
                 }
             },
             "type": "object",
@@ -1645,7 +1645,7 @@
                 },
                 "operation": {
                     "type": "string",
-                    "description": "It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.\n"
+                    "description": "(true) It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.\n"
                 },
                 "order": {
                     "type": "integer",
@@ -2681,7 +2681,7 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Enable/disable heartbeat monitoring.\n"
+                    "description": "(True) Enable/disable heartbeat monitoring.\n"
                 },
                 "interval": {
                     "type": "integer",
@@ -2728,7 +2728,7 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Enable/disable heartbeat monitoring.\n"
+                    "description": "(True) Enable/disable heartbeat monitoring.\n"
                 },
                 "interval": {
                     "type": "integer",
@@ -2777,7 +2777,7 @@
                     },
                     "enabled": {
                         "type": "boolean",
-                        "description": "Enable/disable heartbeat monitoring.\n"
+                        "description": "(True) Enable/disable heartbeat monitoring.\n"
                     },
                     "interval": {
                         "type": "integer",
@@ -2805,7 +2805,7 @@
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.\n"
+                    "description": "Description field of the incident template. This field must not be longer than 10000 characters.\n"
                 },
                 "details": {
                     "type": "object",
@@ -2822,7 +2822,7 @@
                 },
                 "message": {
                     "type": "string",
-                    "description": "Message that is to be passed to audience that is generally used to provide a content information about the alert.\n"
+                    "description": "Message of the related incident template. This field must not be longer than 130 characters.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2855,7 +2855,7 @@
             "inputProperties": {
                 "description": {
                     "type": "string",
-                    "description": "Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.\n"
+                    "description": "Description field of the incident template. This field must not be longer than 10000 characters.\n"
                 },
                 "details": {
                     "type": "object",
@@ -2872,7 +2872,7 @@
                 },
                 "message": {
                     "type": "string",
-                    "description": "Message that is to be passed to audience that is generally used to provide a content information about the alert.\n"
+                    "description": "Message of the related incident template. This field must not be longer than 130 characters.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2906,7 +2906,7 @@
                 "properties": {
                     "description": {
                         "type": "string",
-                        "description": "Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.\n"
+                        "description": "Description field of the incident template. This field must not be longer than 10000 characters.\n"
                     },
                     "details": {
                         "type": "object",
@@ -2923,7 +2923,7 @@
                     },
                     "message": {
                         "type": "string",
-                        "description": "Message that is to be passed to audience that is generally used to provide a content information about the alert.\n"
+                        "description": "Message of the related incident template. This field must not be longer than 130 characters.\n"
                     },
                     "name": {
                         "type": "string",
