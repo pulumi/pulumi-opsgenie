@@ -94,11 +94,11 @@ public final class AlertPolicyTimeRestriction {
             return this;
         }
         public AlertPolicyTimeRestriction build() {
-            final var o = new AlertPolicyTimeRestriction();
-            o.restriction = restriction;
-            o.restrictionList = restrictionList;
-            o.type = type;
-            return o;
+            final var _resultValue = new AlertPolicyTimeRestriction();
+            _resultValue.restriction = restriction;
+            _resultValue.restrictionList = restrictionList;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

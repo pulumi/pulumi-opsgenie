@@ -65,10 +65,10 @@ public final class IntegrationActionCreateResponder {
             return this;
         }
         public IntegrationActionCreateResponder build() {
-            final var o = new IntegrationActionCreateResponder();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new IntegrationActionCreateResponder();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

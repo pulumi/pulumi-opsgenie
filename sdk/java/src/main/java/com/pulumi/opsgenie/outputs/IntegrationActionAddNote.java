@@ -174,15 +174,15 @@ public final class IntegrationActionAddNote {
             return this;
         }
         public IntegrationActionAddNote build() {
-            final var o = new IntegrationActionAddNote();
-            o.alias = alias;
-            o.filters = filters;
-            o.name = name;
-            o.note = note;
-            o.order = order;
-            o.type = type;
-            o.user = user;
-            return o;
+            final var _resultValue = new IntegrationActionAddNote();
+            _resultValue.alias = alias;
+            _resultValue.filters = filters;
+            _resultValue.name = name;
+            _resultValue.note = note;
+            _resultValue.order = order;
+            _resultValue.type = type;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

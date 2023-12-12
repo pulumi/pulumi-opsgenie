@@ -92,11 +92,11 @@ public final class NotificationRuleStep {
             return this;
         }
         public NotificationRuleStep build() {
-            final var o = new NotificationRuleStep();
-            o.contacts = contacts;
-            o.enabled = enabled;
-            o.sendAfter = sendAfter;
-            return o;
+            final var _resultValue = new NotificationRuleStep();
+            _resultValue.contacts = contacts;
+            _resultValue.enabled = enabled;
+            _resultValue.sendAfter = sendAfter;
+            return _resultValue;
         }
     }
 }

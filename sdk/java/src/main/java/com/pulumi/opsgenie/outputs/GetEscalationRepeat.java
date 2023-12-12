@@ -74,12 +74,12 @@ public final class GetEscalationRepeat {
             return this;
         }
         public GetEscalationRepeat build() {
-            final var o = new GetEscalationRepeat();
-            o.closeAlertAfterAll = closeAlertAfterAll;
-            o.count = count;
-            o.resetRecipientStates = resetRecipientStates;
-            o.waitInterval = waitInterval;
-            return o;
+            final var _resultValue = new GetEscalationRepeat();
+            _resultValue.closeAlertAfterAll = closeAlertAfterAll;
+            _resultValue.count = count;
+            _resultValue.resetRecipientStates = resetRecipientStates;
+            _resultValue.waitInterval = waitInterval;
+            return _resultValue;
         }
     }
 }

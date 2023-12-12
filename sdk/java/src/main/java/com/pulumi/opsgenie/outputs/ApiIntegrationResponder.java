@@ -67,10 +67,10 @@ public final class ApiIntegrationResponder {
             return this;
         }
         public ApiIntegrationResponder build() {
-            final var o = new ApiIntegrationResponder();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new ApiIntegrationResponder();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

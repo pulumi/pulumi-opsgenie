@@ -79,7 +79,7 @@ public class Maintenance extends com.pulumi.resources.CustomResource {
      * Description for the maintenance.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -93,7 +93,7 @@ public class Maintenance extends com.pulumi.resources.CustomResource {
      * Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={MaintenanceRule.class})
+    @Export(name="rules", refs={List.class,MaintenanceRule.class}, tree="[0,1]")
     private Output<List<MaintenanceRule>> rules;
 
     /**
@@ -107,7 +107,7 @@ public class Maintenance extends com.pulumi.resources.CustomResource {
      * Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
      * 
      */
-    @Export(name="times", type=List.class, parameters={MaintenanceTime.class})
+    @Export(name="times", refs={List.class,MaintenanceTime.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MaintenanceTime>> times;
 
     /**

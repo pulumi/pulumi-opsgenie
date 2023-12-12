@@ -71,10 +71,10 @@ public final class TeamRoutingRuleCriteria {
             return this;
         }
         public TeamRoutingRuleCriteria build() {
-            final var o = new TeamRoutingRuleCriteria();
-            o.conditions = conditions;
-            o.type = type;
-            return o;
+            final var _resultValue = new TeamRoutingRuleCriteria();
+            _resultValue.conditions = conditions;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

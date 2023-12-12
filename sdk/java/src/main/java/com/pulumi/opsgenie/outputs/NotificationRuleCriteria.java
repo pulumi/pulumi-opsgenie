@@ -71,10 +71,10 @@ public final class NotificationRuleCriteria {
             return this;
         }
         public NotificationRuleCriteria build() {
-            final var o = new NotificationRuleCriteria();
-            o.conditions = conditions;
-            o.type = type;
-            return o;
+            final var _resultValue = new NotificationRuleCriteria();
+            _resultValue.conditions = conditions;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

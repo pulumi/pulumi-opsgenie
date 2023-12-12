@@ -152,14 +152,14 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
             return tags(List.of(tags));
         }
         public ServiceIncidentRuleIncidentRuleIncidentProperty build() {
-            final var o = new ServiceIncidentRuleIncidentRuleIncidentProperty();
-            o.description = description;
-            o.details = details;
-            o.message = message;
-            o.priority = priority;
-            o.stakeholderProperties = stakeholderProperties;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new ServiceIncidentRuleIncidentRuleIncidentProperty();
+            _resultValue.description = description;
+            _resultValue.details = details;
+            _resultValue.message = message;
+            _resultValue.priority = priority;
+            _resultValue.stakeholderProperties = stakeholderProperties;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

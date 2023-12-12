@@ -74,7 +74,7 @@ public class Heartbeat extends com.pulumi.resources.CustomResource {
      * Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is &#34;HeartbeatName is expired&#34;.
      * 
      */
-    @Export(name="alertMessage", type=String.class, parameters={})
+    @Export(name="alertMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertMessage;
 
     /**
@@ -88,7 +88,7 @@ public class Heartbeat extends com.pulumi.resources.CustomResource {
      * Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
      * 
      */
-    @Export(name="alertPriority", type=String.class, parameters={})
+    @Export(name="alertPriority", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertPriority;
 
     /**
@@ -102,7 +102,7 @@ public class Heartbeat extends com.pulumi.resources.CustomResource {
      * Specifies the alert tags for heartbeat expiration alert.
      * 
      */
-    @Export(name="alertTags", type=List.class, parameters={String.class})
+    @Export(name="alertTags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> alertTags;
 
     /**
@@ -116,7 +116,7 @@ public class Heartbeat extends com.pulumi.resources.CustomResource {
      * An optional description of the heartbeat
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -130,7 +130,7 @@ public class Heartbeat extends com.pulumi.resources.CustomResource {
      * Enable/disable heartbeat monitoring.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -144,7 +144,7 @@ public class Heartbeat extends com.pulumi.resources.CustomResource {
      * Specifies how often a heartbeat message should be expected.
      * 
      */
-    @Export(name="interval", type=Integer.class, parameters={})
+    @Export(name="interval", refs={Integer.class}, tree="[0]")
     private Output<Integer> interval;
 
     /**
@@ -158,7 +158,7 @@ public class Heartbeat extends com.pulumi.resources.CustomResource {
      * Interval specified as minutes, hours or days.
      * 
      */
-    @Export(name="intervalUnit", type=String.class, parameters={})
+    @Export(name="intervalUnit", refs={String.class}, tree="[0]")
     private Output<String> intervalUnit;
 
     /**
@@ -172,7 +172,7 @@ public class Heartbeat extends com.pulumi.resources.CustomResource {
      * Name of the heartbeat
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -186,7 +186,7 @@ public class Heartbeat extends com.pulumi.resources.CustomResource {
      * Owner team of the heartbeat.
      * 
      */
-    @Export(name="ownerTeamId", type=String.class, parameters={})
+    @Export(name="ownerTeamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ownerTeamId;
 
     /**

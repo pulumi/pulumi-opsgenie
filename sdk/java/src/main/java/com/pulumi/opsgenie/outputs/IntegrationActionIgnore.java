@@ -117,12 +117,12 @@ public final class IntegrationActionIgnore {
             return this;
         }
         public IntegrationActionIgnore build() {
-            final var o = new IntegrationActionIgnore();
-            o.filters = filters;
-            o.name = name;
-            o.order = order;
-            o.type = type;
-            return o;
+            final var _resultValue = new IntegrationActionIgnore();
+            _resultValue.filters = filters;
+            _resultValue.name = name;
+            _resultValue.order = order;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

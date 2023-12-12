@@ -68,10 +68,10 @@ public final class NotificationPolicyAutoRestartActionDuration {
             return this;
         }
         public NotificationPolicyAutoRestartActionDuration build() {
-            final var o = new NotificationPolicyAutoRestartActionDuration();
-            o.timeAmount = timeAmount;
-            o.timeUnit = timeUnit;
-            return o;
+            final var _resultValue = new NotificationPolicyAutoRestartActionDuration();
+            _resultValue.timeAmount = timeAmount;
+            _resultValue.timeUnit = timeUnit;
+            return _resultValue;
         }
     }
 }

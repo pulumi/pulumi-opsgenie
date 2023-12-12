@@ -77,7 +77,7 @@ public class UserContact extends com.pulumi.resources.CustomResource {
      * Enable contact of the user in OpsGenie. Default value is true.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -91,7 +91,7 @@ public class UserContact extends com.pulumi.resources.CustomResource {
      * This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
      * 
      */
-    @Export(name="method", type=String.class, parameters={})
+    @Export(name="method", refs={String.class}, tree="[0]")
     private Output<String> method;
 
     /**
@@ -105,7 +105,7 @@ public class UserContact extends com.pulumi.resources.CustomResource {
      * to field is the address of given method.
      * 
      */
-    @Export(name="to", type=String.class, parameters={})
+    @Export(name="to", refs={String.class}, tree="[0]")
     private Output<String> to;
 
     /**
@@ -119,7 +119,7 @@ public class UserContact extends com.pulumi.resources.CustomResource {
      * The username for contact.(reference)
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

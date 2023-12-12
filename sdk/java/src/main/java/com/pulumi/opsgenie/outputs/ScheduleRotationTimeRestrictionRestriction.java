@@ -103,12 +103,12 @@ public final class ScheduleRotationTimeRestrictionRestriction {
             return this;
         }
         public ScheduleRotationTimeRestrictionRestriction build() {
-            final var o = new ScheduleRotationTimeRestrictionRestriction();
-            o.endHour = endHour;
-            o.endMin = endMin;
-            o.startHour = startHour;
-            o.startMin = startMin;
-            return o;
+            final var _resultValue = new ScheduleRotationTimeRestrictionRestriction();
+            _resultValue.endHour = endHour;
+            _resultValue.endMin = endMin;
+            _resultValue.startHour = startHour;
+            _resultValue.startMin = startMin;
+            return _resultValue;
         }
     }
 }

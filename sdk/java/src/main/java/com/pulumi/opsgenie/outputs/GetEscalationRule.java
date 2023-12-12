@@ -77,12 +77,12 @@ public final class GetEscalationRule {
             return recipients(List.of(recipients));
         }
         public GetEscalationRule build() {
-            final var o = new GetEscalationRule();
-            o.condition = condition;
-            o.delay = delay;
-            o.notifyType = notifyType;
-            o.recipients = recipients;
-            return o;
+            final var _resultValue = new GetEscalationRule();
+            _resultValue.condition = condition;
+            _resultValue.delay = delay;
+            _resultValue.notifyType = notifyType;
+            _resultValue.recipients = recipients;
+            return _resultValue;
         }
     }
 }

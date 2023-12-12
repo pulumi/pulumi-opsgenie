@@ -81,12 +81,12 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.teamId = teamId;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.teamId = teamId;
+            return _resultValue;
         }
     }
 }

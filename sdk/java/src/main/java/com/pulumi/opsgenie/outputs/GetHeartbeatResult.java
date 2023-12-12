@@ -217,18 +217,18 @@ public final class GetHeartbeatResult {
             return this;
         }
         public GetHeartbeatResult build() {
-            final var o = new GetHeartbeatResult();
-            o.alertMessage = alertMessage;
-            o.alertPriority = alertPriority;
-            o.alertTags = alertTags;
-            o.description = description;
-            o.enabled = enabled;
-            o.id = id;
-            o.interval = interval;
-            o.intervalUnit = intervalUnit;
-            o.name = name;
-            o.ownerTeamId = ownerTeamId;
-            return o;
+            final var _resultValue = new GetHeartbeatResult();
+            _resultValue.alertMessage = alertMessage;
+            _resultValue.alertPriority = alertPriority;
+            _resultValue.alertTags = alertTags;
+            _resultValue.description = description;
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.interval = interval;
+            _resultValue.intervalUnit = intervalUnit;
+            _resultValue.name = name;
+            _resultValue.ownerTeamId = ownerTeamId;
+            return _resultValue;
         }
     }
 }

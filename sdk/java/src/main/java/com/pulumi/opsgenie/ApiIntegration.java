@@ -102,7 +102,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      * 
      */
-    @Export(name="allowWriteAccess", type=Boolean.class, parameters={})
+    @Export(name="allowWriteAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowWriteAccess;
 
     /**
@@ -116,7 +116,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * (Computed) API key of the created integration
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
     /**
@@ -130,7 +130,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * This parameter is for specifying whether the integration will be enabled or not. Default: `true`
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -140,7 +140,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    @Export(name="headers", type=Map.class, parameters={String.class, String.class})
+    @Export(name="headers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> headers;
 
     public Output<Optional<Map<String,String>>> headers() {
@@ -150,7 +150,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      * 
      */
-    @Export(name="ignoreRespondersFromPayload", type=Boolean.class, parameters={})
+    @Export(name="ignoreRespondersFromPayload", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreRespondersFromPayload;
 
     /**
@@ -164,7 +164,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * Name of the integration. Name must be unique for each integration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -178,7 +178,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
      * 
      */
-    @Export(name="ownerTeamId", type=String.class, parameters={})
+    @Export(name="ownerTeamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ownerTeamId;
 
     /**
@@ -192,7 +192,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
      * 
      */
-    @Export(name="responders", type=List.class, parameters={ApiIntegrationResponder.class})
+    @Export(name="responders", refs={List.class,ApiIntegrationResponder.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApiIntegrationResponder>> responders;
 
     /**
@@ -206,7 +206,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      * 
      */
-    @Export(name="suppressNotifications", type=Boolean.class, parameters={})
+    @Export(name="suppressNotifications", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> suppressNotifications;
 
     /**
@@ -220,7 +220,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -234,7 +234,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
      * 
      */
-    @Export(name="webhookUrl", type=String.class, parameters={})
+    @Export(name="webhookUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> webhookUrl;
 
     /**

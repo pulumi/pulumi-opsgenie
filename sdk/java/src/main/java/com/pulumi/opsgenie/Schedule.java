@@ -66,7 +66,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The description of schedule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -80,7 +80,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Enable/disable state of schedule
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -94,7 +94,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Name of the schedule.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -108,7 +108,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Owner team id of the schedule.
      * 
      */
-    @Export(name="ownerTeamId", type=String.class, parameters={})
+    @Export(name="ownerTeamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ownerTeamId;
 
     /**
@@ -122,7 +122,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
      * 
      */
-    @Export(name="timezone", type=String.class, parameters={})
+    @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**

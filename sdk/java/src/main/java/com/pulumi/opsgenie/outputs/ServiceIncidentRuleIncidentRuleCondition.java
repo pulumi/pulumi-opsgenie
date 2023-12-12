@@ -117,13 +117,13 @@ public final class ServiceIncidentRuleIncidentRuleCondition {
             return this;
         }
         public ServiceIncidentRuleIncidentRuleCondition build() {
-            final var o = new ServiceIncidentRuleIncidentRuleCondition();
-            o.expectedValue = expectedValue;
-            o.field = field;
-            o.key = key;
-            o.not = not;
-            o.operation = operation;
-            return o;
+            final var _resultValue = new ServiceIncidentRuleIncidentRuleCondition();
+            _resultValue.expectedValue = expectedValue;
+            _resultValue.field = field;
+            _resultValue.key = key;
+            _resultValue.not = not;
+            _resultValue.operation = operation;
+            return _resultValue;
         }
     }
 }

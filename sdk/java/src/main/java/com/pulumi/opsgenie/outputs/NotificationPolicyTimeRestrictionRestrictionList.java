@@ -142,14 +142,14 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
             return this;
         }
         public NotificationPolicyTimeRestrictionRestrictionList build() {
-            final var o = new NotificationPolicyTimeRestrictionRestrictionList();
-            o.endDay = endDay;
-            o.endHour = endHour;
-            o.endMin = endMin;
-            o.startDay = startDay;
-            o.startHour = startHour;
-            o.startMin = startMin;
-            return o;
+            final var _resultValue = new NotificationPolicyTimeRestrictionRestrictionList();
+            _resultValue.endDay = endDay;
+            _resultValue.endHour = endHour;
+            _resultValue.endMin = endMin;
+            _resultValue.startDay = startDay;
+            _resultValue.startHour = startHour;
+            _resultValue.startMin = startMin;
+            return _resultValue;
         }
     }
 }

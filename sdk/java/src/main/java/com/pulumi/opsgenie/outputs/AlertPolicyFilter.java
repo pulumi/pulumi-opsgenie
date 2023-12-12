@@ -72,10 +72,10 @@ public final class AlertPolicyFilter {
             return this;
         }
         public AlertPolicyFilter build() {
-            final var o = new AlertPolicyFilter();
-            o.conditions = conditions;
-            o.type = type;
-            return o;
+            final var _resultValue = new AlertPolicyFilter();
+            _resultValue.conditions = conditions;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

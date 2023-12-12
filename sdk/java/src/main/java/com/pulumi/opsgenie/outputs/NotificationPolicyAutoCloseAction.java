@@ -50,9 +50,9 @@ public final class NotificationPolicyAutoCloseAction {
             return durations(List.of(durations));
         }
         public NotificationPolicyAutoCloseAction build() {
-            final var o = new NotificationPolicyAutoCloseAction();
-            o.durations = durations;
-            return o;
+            final var _resultValue = new NotificationPolicyAutoCloseAction();
+            _resultValue.durations = durations;
+            return _resultValue;
         }
     }
 }

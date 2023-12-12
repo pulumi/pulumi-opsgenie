@@ -104,7 +104,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
      * 
      */
-    @Export(name="actions", type=List.class, parameters={String.class})
+    @Export(name="actions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> actions;
 
     /**
@@ -118,7 +118,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
      * 
      */
-    @Export(name="alertDescription", type=String.class, parameters={})
+    @Export(name="alertDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertDescription;
 
     /**
@@ -132,7 +132,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
      * 
      */
-    @Export(name="alias", type=String.class, parameters={})
+    @Export(name="alias", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alias;
 
     /**
@@ -146,7 +146,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * It will trigger other modify policies if set to `true`. Default: `false`
      * 
      */
-    @Export(name="continuePolicy", type=Boolean.class, parameters={})
+    @Export(name="continuePolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> continuePolicy;
 
     /**
@@ -160,7 +160,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * If policy should be enabled. Default: `true`
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -174,7 +174,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
      * 
      */
-    @Export(name="entity", type=String.class, parameters={})
+    @Export(name="entity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> entity;
 
     /**
@@ -188,7 +188,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      * 
      */
-    @Export(name="filters", type=List.class, parameters={AlertPolicyFilter.class})
+    @Export(name="filters", refs={List.class,AlertPolicyFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertPolicyFilter>> filters;
 
     /**
@@ -202,7 +202,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * If set to `true`, policy will ignore the original actions of the alert. Default: `false`
      * 
      */
-    @Export(name="ignoreOriginalActions", type=Boolean.class, parameters={})
+    @Export(name="ignoreOriginalActions", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreOriginalActions;
 
     /**
@@ -216,7 +216,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * If set to `true`, policy will ignore the original details of the alert. Default: `false`
      * 
      */
-    @Export(name="ignoreOriginalDetails", type=Boolean.class, parameters={})
+    @Export(name="ignoreOriginalDetails", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreOriginalDetails;
 
     /**
@@ -230,7 +230,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * If set to `true`, policy will ignore the original responders of the alert. Default: `false`
      * 
      */
-    @Export(name="ignoreOriginalResponders", type=Boolean.class, parameters={})
+    @Export(name="ignoreOriginalResponders", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreOriginalResponders;
 
     /**
@@ -244,7 +244,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * If set to `true`, policy will ignore the original tags of the alert. Default: `false`
      * 
      */
-    @Export(name="ignoreOriginalTags", type=Boolean.class, parameters={})
+    @Export(name="ignoreOriginalTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreOriginalTags;
 
     /**
@@ -258,7 +258,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Message of the alerts
      * 
      */
-    @Export(name="message", type=String.class, parameters={})
+    @Export(name="message", refs={String.class}, tree="[0]")
     private Output<String> message;
 
     /**
@@ -272,7 +272,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Name of the alert policy
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -286,7 +286,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Description of the policy. This can be max 512 characters.
      * 
      */
-    @Export(name="policyDescription", type=String.class, parameters={})
+    @Export(name="policyDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDescription;
 
     /**
@@ -300,7 +300,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
      * 
      */
-    @Export(name="priority", type=String.class, parameters={})
+    @Export(name="priority", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> priority;
 
     /**
@@ -314,7 +314,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      * 
      */
-    @Export(name="responders", type=List.class, parameters={AlertPolicyResponder.class})
+    @Export(name="responders", refs={List.class,AlertPolicyResponder.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertPolicyResponder>> responders;
 
     /**
@@ -328,7 +328,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
      * 
      */
-    @Export(name="source", type=String.class, parameters={})
+    @Export(name="source", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> source;
 
     /**
@@ -342,7 +342,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -356,7 +356,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Id of team that this policy belongs to.
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> teamId;
 
     /**
@@ -370,7 +370,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
      * 
      */
-    @Export(name="timeRestrictions", type=List.class, parameters={AlertPolicyTimeRestriction.class})
+    @Export(name="timeRestrictions", refs={List.class,AlertPolicyTimeRestriction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertPolicyTimeRestriction>> timeRestrictions;
 
     /**

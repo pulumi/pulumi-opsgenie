@@ -62,11 +62,11 @@ public final class TeamRoutingRuleNotify {
             return this;
         }
         public TeamRoutingRuleNotify build() {
-            final var o = new TeamRoutingRuleNotify();
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new TeamRoutingRuleNotify();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

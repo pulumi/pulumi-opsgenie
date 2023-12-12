@@ -65,10 +65,10 @@ public final class NotificationRuleSchedule {
             return this;
         }
         public NotificationRuleSchedule build() {
-            final var o = new NotificationRuleSchedule();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new NotificationRuleSchedule();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

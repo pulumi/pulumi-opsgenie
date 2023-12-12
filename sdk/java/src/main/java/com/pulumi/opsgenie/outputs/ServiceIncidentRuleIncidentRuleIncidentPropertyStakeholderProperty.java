@@ -87,11 +87,11 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPro
             return this;
         }
         public ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty build() {
-            final var o = new ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty();
-            o.description = description;
-            o.enable = enable;
-            o.message = message;
-            return o;
+            final var _resultValue = new ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty();
+            _resultValue.description = description;
+            _resultValue.enable = enable;
+            _resultValue.message = message;
+            return _resultValue;
         }
     }
 }

@@ -145,14 +145,14 @@ public final class NotificationRuleCriteriaCondition {
             return this;
         }
         public NotificationRuleCriteriaCondition build() {
-            final var o = new NotificationRuleCriteriaCondition();
-            o.expectedValue = expectedValue;
-            o.field = field;
-            o.key = key;
-            o.not = not;
-            o.operation = operation;
-            o.order = order;
-            return o;
+            final var _resultValue = new NotificationRuleCriteriaCondition();
+            _resultValue.expectedValue = expectedValue;
+            _resultValue.field = field;
+            _resultValue.key = key;
+            _resultValue.not = not;
+            _resultValue.operation = operation;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

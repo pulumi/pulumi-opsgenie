@@ -59,10 +59,10 @@ public final class EscalationRuleRecipient {
             return this;
         }
         public EscalationRuleRecipient build() {
-            final var o = new EscalationRuleRecipient();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new EscalationRuleRecipient();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

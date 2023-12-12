@@ -65,10 +65,10 @@ public final class NotificationRuleStepContact {
             return this;
         }
         public NotificationRuleStepContact build() {
-            final var o = new NotificationRuleStepContact();
-            o.method = method;
-            o.to = to;
-            return o;
+            final var _resultValue = new NotificationRuleStepContact();
+            _resultValue.method = method;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

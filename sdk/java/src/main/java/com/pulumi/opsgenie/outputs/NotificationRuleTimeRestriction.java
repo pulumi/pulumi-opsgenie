@@ -77,11 +77,11 @@ public final class NotificationRuleTimeRestriction {
             return this;
         }
         public NotificationRuleTimeRestriction build() {
-            final var o = new NotificationRuleTimeRestriction();
-            o.restriction = restriction;
-            o.restrictions = restrictions;
-            o.type = type;
-            return o;
+            final var _resultValue = new NotificationRuleTimeRestriction();
+            _resultValue.restriction = restriction;
+            _resultValue.restrictions = restrictions;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

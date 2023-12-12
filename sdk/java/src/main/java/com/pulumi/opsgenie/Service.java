@@ -69,7 +69,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Description field of the service that is generally used to provide a detailed information about the service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -83,7 +83,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Name of the service. This field must not be longer than 100 characters.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -97,7 +97,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Tags for the service, with a maximum of 20 tags per service.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -111,7 +111,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Team id of the service. This field must not be longer than 512 characters.
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**

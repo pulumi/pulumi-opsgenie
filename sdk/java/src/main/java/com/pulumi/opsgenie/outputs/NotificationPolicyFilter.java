@@ -72,10 +72,10 @@ public final class NotificationPolicyFilter {
             return this;
         }
         public NotificationPolicyFilter build() {
-            final var o = new NotificationPolicyFilter();
-            o.conditions = conditions;
-            o.type = type;
-            return o;
+            final var _resultValue = new NotificationPolicyFilter();
+            _resultValue.conditions = conditions;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -35,31 +35,31 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="opsgenie:index/integrationAction:IntegrationAction")
 public class IntegrationAction extends com.pulumi.resources.CustomResource {
-    @Export(name="acknowledges", type=List.class, parameters={IntegrationActionAcknowledge.class})
+    @Export(name="acknowledges", refs={List.class,IntegrationActionAcknowledge.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IntegrationActionAcknowledge>> acknowledges;
 
     public Output<Optional<List<IntegrationActionAcknowledge>>> acknowledges() {
         return Codegen.optional(this.acknowledges);
     }
-    @Export(name="addNotes", type=List.class, parameters={IntegrationActionAddNote.class})
+    @Export(name="addNotes", refs={List.class,IntegrationActionAddNote.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IntegrationActionAddNote>> addNotes;
 
     public Output<Optional<List<IntegrationActionAddNote>>> addNotes() {
         return Codegen.optional(this.addNotes);
     }
-    @Export(name="closes", type=List.class, parameters={IntegrationActionClose.class})
+    @Export(name="closes", refs={List.class,IntegrationActionClose.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IntegrationActionClose>> closes;
 
     public Output<Optional<List<IntegrationActionClose>>> closes() {
         return Codegen.optional(this.closes);
     }
-    @Export(name="creates", type=List.class, parameters={IntegrationActionCreate.class})
+    @Export(name="creates", refs={List.class,IntegrationActionCreate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IntegrationActionCreate>> creates;
 
     public Output<Optional<List<IntegrationActionCreate>>> creates() {
         return Codegen.optional(this.creates);
     }
-    @Export(name="ignores", type=List.class, parameters={IntegrationActionIgnore.class})
+    @Export(name="ignores", refs={List.class,IntegrationActionIgnore.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IntegrationActionIgnore>> ignores;
 
     public Output<Optional<List<IntegrationActionIgnore>>> ignores() {
@@ -69,7 +69,7 @@ public class IntegrationAction extends com.pulumi.resources.CustomResource {
      * ID of the parent integration resource to bind to.
      * 
      */
-    @Export(name="integrationId", type=String.class, parameters={})
+    @Export(name="integrationId", refs={String.class}, tree="[0]")
     private Output<String> integrationId;
 
     /**

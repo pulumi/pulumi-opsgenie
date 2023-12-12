@@ -63,10 +63,10 @@ public final class IntegrationActionIgnoreFilter {
             return this;
         }
         public IntegrationActionIgnoreFilter build() {
-            final var o = new IntegrationActionIgnoreFilter();
-            o.conditions = conditions;
-            o.type = type;
-            return o;
+            final var _resultValue = new IntegrationActionIgnoreFilter();
+            _resultValue.conditions = conditions;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }
