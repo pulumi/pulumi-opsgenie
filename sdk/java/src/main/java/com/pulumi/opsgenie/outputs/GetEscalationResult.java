@@ -144,14 +144,14 @@ public final class GetEscalationResult {
             return rules(List.of(rules));
         }
         public GetEscalationResult build() {
-            final var o = new GetEscalationResult();
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.ownerTeamId = ownerTeamId;
-            o.repeats = repeats;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new GetEscalationResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.ownerTeamId = ownerTeamId;
+            _resultValue.repeats = repeats;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

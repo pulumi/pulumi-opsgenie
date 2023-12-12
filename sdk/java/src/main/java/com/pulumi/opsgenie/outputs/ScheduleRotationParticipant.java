@@ -67,10 +67,10 @@ public final class ScheduleRotationParticipant {
             return this;
         }
         public ScheduleRotationParticipant build() {
-            final var o = new ScheduleRotationParticipant();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new ScheduleRotationParticipant();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

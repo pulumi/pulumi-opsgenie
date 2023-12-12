@@ -70,10 +70,10 @@ public final class NotificationPolicyAutoRestartAction {
             return this;
         }
         public NotificationPolicyAutoRestartAction build() {
-            final var o = new NotificationPolicyAutoRestartAction();
-            o.durations = durations;
-            o.maxRepeatCount = maxRepeatCount;
-            return o;
+            final var _resultValue = new NotificationPolicyAutoRestartAction();
+            _resultValue.durations = durations;
+            _resultValue.maxRepeatCount = maxRepeatCount;
+            return _resultValue;
         }
     }
 }

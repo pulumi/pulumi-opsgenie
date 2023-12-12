@@ -93,7 +93,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
      * Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -107,7 +107,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
      * Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
      * 
      */
-    @Export(name="details", type=Map.class, parameters={String.class, String.class})
+    @Export(name="details", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> details;
 
     /**
@@ -117,7 +117,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> details() {
         return Codegen.optional(this.details);
     }
-    @Export(name="impactedServices", type=List.class, parameters={String.class})
+    @Export(name="impactedServices", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> impactedServices;
 
     public Output<Optional<List<String>>> impactedServices() {
@@ -127,7 +127,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
      * Message that is to be passed to audience that is generally used to provide a content information about the alert.
      * 
      */
-    @Export(name="message", type=String.class, parameters={})
+    @Export(name="message", refs={String.class}, tree="[0]")
     private Output<String> message;
 
     /**
@@ -141,7 +141,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
      * Name of the incident template.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -155,7 +155,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      * 
      */
-    @Export(name="priority", type=String.class, parameters={})
+    @Export(name="priority", refs={String.class}, tree="[0]")
     private Output<String> priority;
 
     /**
@@ -165,7 +165,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
     public Output<String> priority() {
         return this.priority;
     }
-    @Export(name="stakeholderProperties", type=List.class, parameters={IncidentTemplateStakeholderProperty.class})
+    @Export(name="stakeholderProperties", refs={List.class,IncidentTemplateStakeholderProperty.class}, tree="[0,1]")
     private Output<List<IncidentTemplateStakeholderProperty>> stakeholderProperties;
 
     public Output<List<IncidentTemplateStakeholderProperty>> stakeholderProperties() {
@@ -175,7 +175,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
      * Tags of the incident template.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**

@@ -85,7 +85,7 @@ public class ScheduleRotation extends com.pulumi.resources.CustomResource {
      * This parameter takes a date format as (yyyy-MM-dd&#39;T&#39;HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
      * 
      */
-    @Export(name="endDate", type=String.class, parameters={})
+    @Export(name="endDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endDate;
 
     /**
@@ -99,7 +99,7 @@ public class ScheduleRotation extends com.pulumi.resources.CustomResource {
      * Length of the rotation with default value 1.
      * 
      */
-    @Export(name="length", type=Integer.class, parameters={})
+    @Export(name="length", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> length;
 
     /**
@@ -113,7 +113,7 @@ public class ScheduleRotation extends com.pulumi.resources.CustomResource {
      * Name of rotation.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -127,7 +127,7 @@ public class ScheduleRotation extends com.pulumi.resources.CustomResource {
      * List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. &#34;user,escalation,team,none&#34;
      * 
      */
-    @Export(name="participants", type=List.class, parameters={ScheduleRotationParticipant.class})
+    @Export(name="participants", refs={List.class,ScheduleRotationParticipant.class}, tree="[0,1]")
     private Output<List<ScheduleRotationParticipant>> participants;
 
     /**
@@ -141,7 +141,7 @@ public class ScheduleRotation extends com.pulumi.resources.CustomResource {
      * Identifier of the schedule.
      * 
      */
-    @Export(name="scheduleId", type=String.class, parameters={})
+    @Export(name="scheduleId", refs={String.class}, tree="[0]")
     private Output<String> scheduleId;
 
     /**
@@ -155,7 +155,7 @@ public class ScheduleRotation extends com.pulumi.resources.CustomResource {
      * This parameter takes a date format as (yyyy-MM-dd&#39;T&#39;HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
      * 
      */
-    @Export(name="startDate", type=String.class, parameters={})
+    @Export(name="startDate", refs={String.class}, tree="[0]")
     private Output<String> startDate;
 
     /**
@@ -165,7 +165,7 @@ public class ScheduleRotation extends com.pulumi.resources.CustomResource {
     public Output<String> startDate() {
         return this.startDate;
     }
-    @Export(name="timeRestrictions", type=List.class, parameters={ScheduleRotationTimeRestriction.class})
+    @Export(name="timeRestrictions", refs={List.class,ScheduleRotationTimeRestriction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScheduleRotationTimeRestriction>> timeRestrictions;
 
     public Output<Optional<List<ScheduleRotationTimeRestriction>>> timeRestrictions() {
@@ -175,7 +175,7 @@ public class ScheduleRotation extends com.pulumi.resources.CustomResource {
      * Type of rotation. May be one of daily, weekly and hourly.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

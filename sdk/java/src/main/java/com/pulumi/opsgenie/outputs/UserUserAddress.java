@@ -82,13 +82,13 @@ public final class UserUserAddress {
             return this;
         }
         public UserUserAddress build() {
-            final var o = new UserUserAddress();
-            o.city = city;
-            o.country = country;
-            o.line = line;
-            o.state = state;
-            o.zipcode = zipcode;
-            return o;
+            final var _resultValue = new UserUserAddress();
+            _resultValue.city = city;
+            _resultValue.country = country;
+            _resultValue.line = line;
+            _resultValue.state = state;
+            _resultValue.zipcode = zipcode;
+            return _resultValue;
         }
     }
 }

@@ -40,7 +40,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * Auto Restart Action of the policy. This is a block, structure is documented below.
      * 
      */
-    @Export(name="autoCloseActions", type=List.class, parameters={NotificationPolicyAutoCloseAction.class})
+    @Export(name="autoCloseActions", refs={List.class,NotificationPolicyAutoCloseAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationPolicyAutoCloseAction>> autoCloseActions;
 
     /**
@@ -54,7 +54,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * Auto Restart Action of the policy. This is a block, structure is documented below.
      * 
      */
-    @Export(name="autoRestartActions", type=List.class, parameters={NotificationPolicyAutoRestartAction.class})
+    @Export(name="autoRestartActions", refs={List.class,NotificationPolicyAutoRestartAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationPolicyAutoRestartAction>> autoRestartActions;
 
     /**
@@ -68,7 +68,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * Deduplication Action of the policy. This is a block, structure is documented below.
      * 
      */
-    @Export(name="deDuplicationActions", type=List.class, parameters={NotificationPolicyDeDuplicationAction.class})
+    @Export(name="deDuplicationActions", refs={List.class,NotificationPolicyDeDuplicationAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationPolicyDeDuplicationAction>> deDuplicationActions;
 
     /**
@@ -82,7 +82,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * Delay notifications. This is a block, structure is documented below.
      * 
      */
-    @Export(name="delayActions", type=List.class, parameters={NotificationPolicyDelayAction.class})
+    @Export(name="delayActions", refs={List.class,NotificationPolicyDelayAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationPolicyDelayAction>> delayActions;
 
     /**
@@ -96,7 +96,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * If policy should be enabled. Default: `true`
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -110,7 +110,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      * 
      */
-    @Export(name="filters", type=List.class, parameters={NotificationPolicyFilter.class})
+    @Export(name="filters", refs={List.class,NotificationPolicyFilter.class}, tree="[0,1]")
     private Output<List<NotificationPolicyFilter>> filters;
 
     /**
@@ -124,7 +124,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * Name of the notification policy
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * Description of the policy. This can be max 512 characters.
      * 
      */
-    @Export(name="policyDescription", type=String.class, parameters={})
+    @Export(name="policyDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDescription;
 
     /**
@@ -152,7 +152,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * Suppress value of the policy. Values are: `true`, `false`. Default: `false`
      * 
      */
-    @Export(name="suppress", type=Boolean.class, parameters={})
+    @Export(name="suppress", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> suppress;
 
     /**
@@ -166,7 +166,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * Id of team that this policy belons to.
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
@@ -180,7 +180,7 @@ public class NotificationPolicy extends com.pulumi.resources.CustomResource {
      * Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
      * 
      */
-    @Export(name="timeRestrictions", type=List.class, parameters={NotificationPolicyTimeRestriction.class})
+    @Export(name="timeRestrictions", refs={List.class,NotificationPolicyTimeRestriction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationPolicyTimeRestriction>> timeRestrictions;
 
     /**

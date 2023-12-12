@@ -89,7 +89,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
      * 
      */
-    @Export(name="actionType", type=String.class, parameters={})
+    @Export(name="actionType", refs={String.class}, tree="[0]")
     private Output<String> actionType;
 
     /**
@@ -99,7 +99,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
     public Output<String> actionType() {
         return this.actionType;
     }
-    @Export(name="criterias", type=List.class, parameters={NotificationRuleCriteria.class})
+    @Export(name="criterias", refs={List.class,NotificationRuleCriteria.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationRuleCriteria>> criterias;
 
     public Output<Optional<List<NotificationRuleCriteria>>> criterias() {
@@ -109,7 +109,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * If policy should be enabled. Default: `true`
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -123,7 +123,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * Name of the notification policy
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -137,7 +137,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
      * 
      */
-    @Export(name="notificationTimes", type=List.class, parameters={String.class})
+    @Export(name="notificationTimes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notificationTimes;
 
     /**
@@ -151,7 +151,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * Order of the condition in conditions list
      * 
      */
-    @Export(name="order", type=Integer.class, parameters={})
+    @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
     /**
@@ -161,13 +161,13 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
     public Output<Integer> order() {
         return this.order;
     }
-    @Export(name="repeats", type=List.class, parameters={NotificationRuleRepeat.class})
+    @Export(name="repeats", refs={List.class,NotificationRuleRepeat.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationRuleRepeat>> repeats;
 
     public Output<Optional<List<NotificationRuleRepeat>>> repeats() {
         return Codegen.optional(this.repeats);
     }
-    @Export(name="schedules", type=List.class, parameters={NotificationRuleSchedule.class})
+    @Export(name="schedules", refs={List.class,NotificationRuleSchedule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationRuleSchedule>> schedules;
 
     public Output<Optional<List<NotificationRuleSchedule>>> schedules() {
@@ -177,7 +177,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
      * 
      */
-    @Export(name="steps", type=List.class, parameters={NotificationRuleStep.class})
+    @Export(name="steps", refs={List.class,NotificationRuleStep.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationRuleStep>> steps;
 
     /**
@@ -187,7 +187,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<NotificationRuleStep>>> steps() {
         return Codegen.optional(this.steps);
     }
-    @Export(name="timeRestrictions", type=List.class, parameters={NotificationRuleTimeRestriction.class})
+    @Export(name="timeRestrictions", refs={List.class,NotificationRuleTimeRestriction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationRuleTimeRestriction>> timeRestrictions;
 
     public Output<Optional<List<NotificationRuleTimeRestriction>>> timeRestrictions() {
@@ -197,7 +197,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * Username of user to which this notification rule belongs to.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

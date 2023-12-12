@@ -450,31 +450,31 @@ public final class IntegrationActionCreate {
             return this;
         }
         public IntegrationActionCreate build() {
-            final var o = new IntegrationActionCreate();
-            o.alertActions = alertActions;
-            o.alias = alias;
-            o.appendAttachments = appendAttachments;
-            o.customPriority = customPriority;
-            o.description = description;
-            o.entity = entity;
-            o.extraProperties = extraProperties;
-            o.filters = filters;
-            o.ignoreAlertActionsFromPayload = ignoreAlertActionsFromPayload;
-            o.ignoreExtraPropertiesFromPayload = ignoreExtraPropertiesFromPayload;
-            o.ignoreRespondersFromPayload = ignoreRespondersFromPayload;
-            o.ignoreTagsFromPayload = ignoreTagsFromPayload;
-            o.ignoreTeamsFromPayload = ignoreTeamsFromPayload;
-            o.message = message;
-            o.name = name;
-            o.note = note;
-            o.order = order;
-            o.priority = priority;
-            o.responders = responders;
-            o.source = source;
-            o.tags = tags;
-            o.type = type;
-            o.user = user;
-            return o;
+            final var _resultValue = new IntegrationActionCreate();
+            _resultValue.alertActions = alertActions;
+            _resultValue.alias = alias;
+            _resultValue.appendAttachments = appendAttachments;
+            _resultValue.customPriority = customPriority;
+            _resultValue.description = description;
+            _resultValue.entity = entity;
+            _resultValue.extraProperties = extraProperties;
+            _resultValue.filters = filters;
+            _resultValue.ignoreAlertActionsFromPayload = ignoreAlertActionsFromPayload;
+            _resultValue.ignoreExtraPropertiesFromPayload = ignoreExtraPropertiesFromPayload;
+            _resultValue.ignoreRespondersFromPayload = ignoreRespondersFromPayload;
+            _resultValue.ignoreTagsFromPayload = ignoreTagsFromPayload;
+            _resultValue.ignoreTeamsFromPayload = ignoreTeamsFromPayload;
+            _resultValue.message = message;
+            _resultValue.name = name;
+            _resultValue.note = note;
+            _resultValue.order = order;
+            _resultValue.priority = priority;
+            _resultValue.responders = responders;
+            _resultValue.source = source;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

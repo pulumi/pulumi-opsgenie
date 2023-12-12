@@ -87,11 +87,11 @@ public final class IncidentTemplateStakeholderProperty {
             return this;
         }
         public IncidentTemplateStakeholderProperty build() {
-            final var o = new IncidentTemplateStakeholderProperty();
-            o.description = description;
-            o.enable = enable;
-            o.message = message;
-            return o;
+            final var _resultValue = new IncidentTemplateStakeholderProperty();
+            _resultValue.description = description;
+            _resultValue.enable = enable;
+            _resultValue.message = message;
+            return _resultValue;
         }
     }
 }

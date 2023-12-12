@@ -91,11 +91,11 @@ public final class NotificationPolicyDeDuplicationAction {
             return durations(List.of(durations));
         }
         public NotificationPolicyDeDuplicationAction build() {
-            final var o = new NotificationPolicyDeDuplicationAction();
-            o.count = count;
-            o.deDuplicationActionType = deDuplicationActionType;
-            o.durations = durations;
-            return o;
+            final var _resultValue = new NotificationPolicyDeDuplicationAction();
+            _resultValue.count = count;
+            _resultValue.deDuplicationActionType = deDuplicationActionType;
+            _resultValue.durations = durations;
+            return _resultValue;
         }
     }
 }

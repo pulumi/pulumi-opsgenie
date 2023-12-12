@@ -60,7 +60,7 @@ public class CustomRole extends com.pulumi.resources.CustomResource {
      * The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      * 
      */
-    @Export(name="disallowedRights", type=List.class, parameters={String.class})
+    @Export(name="disallowedRights", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> disallowedRights;
 
     /**
@@ -74,7 +74,7 @@ public class CustomRole extends com.pulumi.resources.CustomResource {
      * The role from which this role has been derived. Allowed Values: &#34;user&#34;, &#34;observer&#34;, &#34;stakeholder&#34;.
      * 
      */
-    @Export(name="extendedRole", type=String.class, parameters={})
+    @Export(name="extendedRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> extendedRole;
 
     /**
@@ -88,7 +88,7 @@ public class CustomRole extends com.pulumi.resources.CustomResource {
      * The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      * 
      */
-    @Export(name="grantedRights", type=List.class, parameters={String.class})
+    @Export(name="grantedRights", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> grantedRights;
 
     /**
@@ -102,7 +102,7 @@ public class CustomRole extends com.pulumi.resources.CustomResource {
      * Name of the custom role.
      * 
      */
-    @Export(name="roleName", type=String.class, parameters={})
+    @Export(name="roleName", refs={String.class}, tree="[0]")
     private Output<String> roleName;
 
     /**

@@ -103,12 +103,12 @@ public final class AlertPolicyTimeRestrictionRestriction {
             return this;
         }
         public AlertPolicyTimeRestrictionRestriction build() {
-            final var o = new AlertPolicyTimeRestrictionRestriction();
-            o.endHour = endHour;
-            o.endMin = endMin;
-            o.startHour = startHour;
-            o.startMin = startMin;
-            return o;
+            final var _resultValue = new AlertPolicyTimeRestrictionRestriction();
+            _resultValue.endHour = endHour;
+            _resultValue.endMin = endMin;
+            _resultValue.startHour = startHour;
+            _resultValue.startMin = startMin;
+            return _resultValue;
         }
     }
 }

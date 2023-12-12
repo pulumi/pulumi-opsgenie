@@ -60,10 +60,10 @@ public final class NotificationRuleRepeat {
             return this;
         }
         public NotificationRuleRepeat build() {
-            final var o = new NotificationRuleRepeat();
-            o.enabled = enabled;
-            o.loopAfter = loopAfter;
-            return o;
+            final var _resultValue = new NotificationRuleRepeat();
+            _resultValue.enabled = enabled;
+            _resultValue.loopAfter = loopAfter;
+            return _resultValue;
         }
     }
 }

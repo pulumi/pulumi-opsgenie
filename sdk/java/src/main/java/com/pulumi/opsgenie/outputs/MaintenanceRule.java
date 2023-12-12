@@ -72,10 +72,10 @@ public final class MaintenanceRule {
             return this;
         }
         public MaintenanceRule build() {
-            final var o = new MaintenanceRule();
-            o.entities = entities;
-            o.state = state;
-            return o;
+            final var _resultValue = new MaintenanceRule();
+            _resultValue.entities = entities;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

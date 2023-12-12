@@ -95,11 +95,11 @@ public final class ServiceIncidentRuleIncidentRule {
             return incidentProperties(List.of(incidentProperties));
         }
         public ServiceIncidentRuleIncidentRule build() {
-            final var o = new ServiceIncidentRuleIncidentRule();
-            o.conditionMatchType = conditionMatchType;
-            o.conditions = conditions;
-            o.incidentProperties = incidentProperties;
-            return o;
+            final var _resultValue = new ServiceIncidentRuleIncidentRule();
+            _resultValue.conditionMatchType = conditionMatchType;
+            _resultValue.conditions = conditions;
+            _resultValue.incidentProperties = incidentProperties;
+            return _resultValue;
         }
     }
 }

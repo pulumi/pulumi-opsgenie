@@ -71,12 +71,12 @@ public final class TeamRoutingRuleTimeRestrictionRestriction {
             return this;
         }
         public TeamRoutingRuleTimeRestrictionRestriction build() {
-            final var o = new TeamRoutingRuleTimeRestrictionRestriction();
-            o.endHour = endHour;
-            o.endMin = endMin;
-            o.startHour = startHour;
-            o.startMin = startMin;
-            return o;
+            final var _resultValue = new TeamRoutingRuleTimeRestrictionRestriction();
+            _resultValue.endHour = endHour;
+            _resultValue.endMin = endMin;
+            _resultValue.startHour = startHour;
+            _resultValue.startMin = startMin;
+            return _resultValue;
         }
     }
 }

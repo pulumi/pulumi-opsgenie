@@ -105,12 +105,12 @@ public final class AlertPolicyResponder {
             return this;
         }
         public AlertPolicyResponder build() {
-            final var o = new AlertPolicyResponder();
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            o.username = username;
-            return o;
+            final var _resultValue = new AlertPolicyResponder();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

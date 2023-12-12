@@ -78,11 +78,11 @@ public final class TeamRoutingRuleTimeRestriction {
             return this;
         }
         public TeamRoutingRuleTimeRestriction build() {
-            final var o = new TeamRoutingRuleTimeRestriction();
-            o.restriction = restriction;
-            o.restrictionList = restrictionList;
-            o.type = type;
-            return o;
+            final var _resultValue = new TeamRoutingRuleTimeRestriction();
+            _resultValue.restriction = restriction;
+            _resultValue.restrictionList = restrictionList;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

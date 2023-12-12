@@ -68,10 +68,10 @@ public final class NotificationPolicyDeDuplicationActionDuration {
             return this;
         }
         public NotificationPolicyDeDuplicationActionDuration build() {
-            final var o = new NotificationPolicyDeDuplicationActionDuration();
-            o.timeAmount = timeAmount;
-            o.timeUnit = timeUnit;
-            return o;
+            final var _resultValue = new NotificationPolicyDeDuplicationActionDuration();
+            _resultValue.timeAmount = timeAmount;
+            _resultValue.timeUnit = timeUnit;
+            return _resultValue;
         }
     }
 }

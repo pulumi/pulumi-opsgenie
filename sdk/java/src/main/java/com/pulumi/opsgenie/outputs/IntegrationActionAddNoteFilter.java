@@ -63,10 +63,10 @@ public final class IntegrationActionAddNoteFilter {
             return this;
         }
         public IntegrationActionAddNoteFilter build() {
-            final var o = new IntegrationActionAddNoteFilter();
-            o.conditions = conditions;
-            o.type = type;
-            return o;
+            final var _resultValue = new IntegrationActionAddNoteFilter();
+            _resultValue.conditions = conditions;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -135,14 +135,14 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.fullName = fullName;
-            o.id = id;
-            o.locale = locale;
-            o.role = role;
-            o.timezone = timezone;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.fullName = fullName;
+            _resultValue.id = id;
+            _resultValue.locale = locale;
+            _resultValue.role = role;
+            _resultValue.timezone = timezone;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

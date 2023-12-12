@@ -102,7 +102,7 @@ public class EmailIntegration extends com.pulumi.resources.CustomResource {
      * The username part of the email address. It must be unique for each integration.
      * 
      */
-    @Export(name="emailUsername", type=String.class, parameters={})
+    @Export(name="emailUsername", refs={String.class}, tree="[0]")
     private Output<String> emailUsername;
 
     /**
@@ -116,7 +116,7 @@ public class EmailIntegration extends com.pulumi.resources.CustomResource {
      * A Member block as documented below.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -130,7 +130,7 @@ public class EmailIntegration extends com.pulumi.resources.CustomResource {
      * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      * 
      */
-    @Export(name="ignoreRespondersFromPayload", type=Boolean.class, parameters={})
+    @Export(name="ignoreRespondersFromPayload", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreRespondersFromPayload;
 
     /**
@@ -144,7 +144,7 @@ public class EmailIntegration extends com.pulumi.resources.CustomResource {
      * Name of the integration. Name must be unique for each integration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -158,7 +158,7 @@ public class EmailIntegration extends com.pulumi.resources.CustomResource {
      * Owner team id of the integration.
      * 
      */
-    @Export(name="ownerTeamId", type=String.class, parameters={})
+    @Export(name="ownerTeamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ownerTeamId;
 
     /**
@@ -168,7 +168,7 @@ public class EmailIntegration extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> ownerTeamId() {
         return Codegen.optional(this.ownerTeamId);
     }
-    @Export(name="responders", type=List.class, parameters={EmailIntegrationResponder.class})
+    @Export(name="responders", refs={List.class,EmailIntegrationResponder.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EmailIntegrationResponder>> responders;
 
     public Output<Optional<List<EmailIntegrationResponder>>> responders() {
@@ -178,7 +178,7 @@ public class EmailIntegration extends com.pulumi.resources.CustomResource {
      * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      * 
      */
-    @Export(name="suppressNotifications", type=Boolean.class, parameters={})
+    @Export(name="suppressNotifications", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> suppressNotifications;
 
     /**

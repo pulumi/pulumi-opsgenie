@@ -86,11 +86,11 @@ public final class MaintenanceTime {
             return this;
         }
         public MaintenanceTime build() {
-            final var o = new MaintenanceTime();
-            o.endDate = endDate;
-            o.startDate = startDate;
-            o.type = type;
-            return o;
+            final var _resultValue = new MaintenanceTime();
+            _resultValue.endDate = endDate;
+            _resultValue.startDate = startDate;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -95,7 +95,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
      * 
      */
-    @Export(name="deleteDefaultResources", type=Boolean.class, parameters={})
+    @Export(name="deleteDefaultResources", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteDefaultResources;
 
     /**
@@ -109,7 +109,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * A description for this team.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -123,7 +123,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
      * 
      */
-    @Export(name="ignoreMembers", type=Boolean.class, parameters={})
+    @Export(name="ignoreMembers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreMembers;
 
     /**
@@ -137,7 +137,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * A Member block as documented below.
      * 
      */
-    @Export(name="members", type=List.class, parameters={TeamMember.class})
+    @Export(name="members", refs={List.class,TeamMember.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TeamMember>> members;
 
     /**
@@ -151,7 +151,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

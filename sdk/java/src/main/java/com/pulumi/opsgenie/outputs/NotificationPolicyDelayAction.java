@@ -111,12 +111,12 @@ public final class NotificationPolicyDelayAction {
             return this;
         }
         public NotificationPolicyDelayAction build() {
-            final var o = new NotificationPolicyDelayAction();
-            o.delayOption = delayOption;
-            o.durations = durations;
-            o.untilHour = untilHour;
-            o.untilMinute = untilMinute;
-            return o;
+            final var _resultValue = new NotificationPolicyDelayAction();
+            _resultValue.delayOption = delayOption;
+            _resultValue.durations = durations;
+            _resultValue.untilHour = untilHour;
+            _resultValue.untilMinute = untilMinute;
+            return _resultValue;
         }
     }
 }

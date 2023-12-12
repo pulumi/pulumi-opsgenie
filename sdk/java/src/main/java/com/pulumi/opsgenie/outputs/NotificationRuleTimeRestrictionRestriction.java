@@ -94,14 +94,14 @@ public final class NotificationRuleTimeRestrictionRestriction {
             return this;
         }
         public NotificationRuleTimeRestrictionRestriction build() {
-            final var o = new NotificationRuleTimeRestrictionRestriction();
-            o.endDay = endDay;
-            o.endHour = endHour;
-            o.endMin = endMin;
-            o.startDay = startDay;
-            o.startHour = startHour;
-            o.startMin = startMin;
-            return o;
+            final var _resultValue = new NotificationRuleTimeRestrictionRestriction();
+            _resultValue.endDay = endDay;
+            _resultValue.endHour = endHour;
+            _resultValue.endMin = endMin;
+            _resultValue.startDay = startDay;
+            _resultValue.startHour = startHour;
+            _resultValue.startMin = startMin;
+            return _resultValue;
         }
     }
 }

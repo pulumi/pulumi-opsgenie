@@ -67,10 +67,10 @@ public final class MaintenanceRuleEntity {
             return this;
         }
         public MaintenanceRuleEntity build() {
-            final var o = new MaintenanceRuleEntity();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new MaintenanceRuleEntity();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

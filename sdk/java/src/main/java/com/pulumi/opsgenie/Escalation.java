@@ -143,7 +143,7 @@ public class Escalation extends com.pulumi.resources.CustomResource {
      * Description of the escalation.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -157,7 +157,7 @@ public class Escalation extends com.pulumi.resources.CustomResource {
      * Name of the escalation.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -171,7 +171,7 @@ public class Escalation extends com.pulumi.resources.CustomResource {
      * Owner team id of the escalation.
      * 
      */
-    @Export(name="ownerTeamId", type=String.class, parameters={})
+    @Export(name="ownerTeamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ownerTeamId;
 
     /**
@@ -185,7 +185,7 @@ public class Escalation extends com.pulumi.resources.CustomResource {
      * Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
      * 
      */
-    @Export(name="repeats", type=List.class, parameters={EscalationRepeat.class})
+    @Export(name="repeats", refs={List.class,EscalationRepeat.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EscalationRepeat>> repeats;
 
     /**
@@ -199,7 +199,7 @@ public class Escalation extends com.pulumi.resources.CustomResource {
      * List of the escalation rules. See below for how rules are defined.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={EscalationRule.class})
+    @Export(name="rules", refs={List.class,EscalationRule.class}, tree="[0,1]")
     private Output<List<EscalationRule>> rules;
 
     /**

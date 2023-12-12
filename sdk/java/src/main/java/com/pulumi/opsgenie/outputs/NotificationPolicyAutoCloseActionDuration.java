@@ -68,10 +68,10 @@ public final class NotificationPolicyAutoCloseActionDuration {
             return this;
         }
         public NotificationPolicyAutoCloseActionDuration build() {
-            final var o = new NotificationPolicyAutoCloseActionDuration();
-            o.timeAmount = timeAmount;
-            o.timeUnit = timeUnit;
-            return o;
+            final var _resultValue = new NotificationPolicyAutoCloseActionDuration();
+            _resultValue.timeAmount = timeAmount;
+            _resultValue.timeUnit = timeUnit;
+            return _resultValue;
         }
     }
 }

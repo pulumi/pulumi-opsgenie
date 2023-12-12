@@ -100,7 +100,7 @@ public class ServiceIncidentRule extends com.pulumi.resources.CustomResource {
      * This is the rule configuration for this incident rule. This is a block, structure is documented below.
      * 
      */
-    @Export(name="incidentRules", type=List.class, parameters={ServiceIncidentRuleIncidentRule.class})
+    @Export(name="incidentRules", refs={List.class,ServiceIncidentRuleIncidentRule.class}, tree="[0,1]")
     private Output<List<ServiceIncidentRuleIncidentRule>> incidentRules;
 
     /**
@@ -114,7 +114,7 @@ public class ServiceIncidentRule extends com.pulumi.resources.CustomResource {
      * ID of the service associated
      * 
      */
-    @Export(name="serviceId", type=String.class, parameters={})
+    @Export(name="serviceId", refs={String.class}, tree="[0]")
     private Output<String> serviceId;
 
     /**

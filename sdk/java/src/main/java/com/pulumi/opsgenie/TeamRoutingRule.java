@@ -111,7 +111,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * You can refer Criteria for detailed information about criteria and its fields
      * 
      */
-    @Export(name="criterias", type=List.class, parameters={TeamRoutingRuleCriteria.class})
+    @Export(name="criterias", refs={List.class,TeamRoutingRuleCriteria.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TeamRoutingRuleCriteria>> criterias;
 
     /**
@@ -125,7 +125,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * Only use when importing default routing rule
      * 
      */
-    @Export(name="isDefault", type=Boolean.class, parameters={})
+    @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isDefault;
 
     /**
@@ -139,7 +139,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * Name of the team routing rule
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -153,7 +153,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
      * 
      */
-    @Export(name="notifies", type=List.class, parameters={TeamRoutingRuleNotify.class})
+    @Export(name="notifies", refs={List.class,TeamRoutingRuleNotify.class}, tree="[0,1]")
     private Output<List<TeamRoutingRuleNotify>> notifies;
 
     /**
@@ -167,7 +167,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
      * 
      */
-    @Export(name="order", type=Integer.class, parameters={})
+    @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> order;
 
     /**
@@ -181,7 +181,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * Id of the team owning the routing rule
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
@@ -191,7 +191,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
     public Output<String> teamId() {
         return this.teamId;
     }
-    @Export(name="timeRestrictions", type=List.class, parameters={TeamRoutingRuleTimeRestriction.class})
+    @Export(name="timeRestrictions", refs={List.class,TeamRoutingRuleTimeRestriction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TeamRoutingRuleTimeRestriction>> timeRestrictions;
 
     public Output<Optional<List<TeamRoutingRuleTimeRestriction>>> timeRestrictions() {
@@ -201,7 +201,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
      * 
      */
-    @Export(name="timezone", type=String.class, parameters={})
+    @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**

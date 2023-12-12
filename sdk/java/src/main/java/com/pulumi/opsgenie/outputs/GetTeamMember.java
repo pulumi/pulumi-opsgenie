@@ -70,11 +70,11 @@ public final class GetTeamMember {
             return this;
         }
         public GetTeamMember build() {
-            final var o = new GetTeamMember();
-            o.id = id;
-            o.role = role;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetTeamMember();
+            _resultValue.id = id;
+            _resultValue.role = role;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

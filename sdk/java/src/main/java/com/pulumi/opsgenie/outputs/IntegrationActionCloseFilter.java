@@ -63,10 +63,10 @@ public final class IntegrationActionCloseFilter {
             return this;
         }
         public IntegrationActionCloseFilter build() {
-            final var o = new IntegrationActionCloseFilter();
-            o.conditions = conditions;
-            o.type = type;
-            return o;
+            final var _resultValue = new IntegrationActionCloseFilter();
+            _resultValue.conditions = conditions;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -86,12 +86,12 @@ public final class GetTeamResult {
             return this;
         }
         public GetTeamResult build() {
-            final var o = new GetTeamResult();
-            o.description = description;
-            o.id = id;
-            o.members = members;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetTeamResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.members = members;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -85,7 +85,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The Full Name of the User.
      * 
      */
-    @Export(name="fullName", type=String.class, parameters={})
+    @Export(name="fullName", refs={String.class}, tree="[0]")
     private Output<String> fullName;
 
     /**
@@ -99,7 +99,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
      * 
      */
-    @Export(name="locale", type=String.class, parameters={})
+    @Export(name="locale", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> locale;
 
     /**
@@ -113,7 +113,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The Role assigned to the User. Either a built-in such as &#39;Admin&#39; or &#39;User&#39; - or the name of a custom role.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
@@ -127,7 +127,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Skype username of the user.
      * 
      */
-    @Export(name="skypeUsername", type=String.class, parameters={})
+    @Export(name="skypeUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skypeUsername;
 
     /**
@@ -141,7 +141,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A list of tags to be associated with the user.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -155,7 +155,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
      * 
      */
-    @Export(name="timezone", type=String.class, parameters={})
+    @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**
@@ -169,7 +169,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Address of the user.
      * 
      */
-    @Export(name="userAddresses", type=List.class, parameters={UserUserAddress.class})
+    @Export(name="userAddresses", refs={List.class,UserUserAddress.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserUserAddress>> userAddresses;
 
     /**
@@ -183,7 +183,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Details about the user in form of key and list. of values.
      * 
      */
-    @Export(name="userDetails", type=Map.class, parameters={String.class, String.class})
+    @Export(name="userDetails", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> userDetails;
 
     /**
@@ -197,7 +197,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters and must contain lowercase characters only.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

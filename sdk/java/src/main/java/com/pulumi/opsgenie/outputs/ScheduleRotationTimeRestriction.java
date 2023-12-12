@@ -94,11 +94,11 @@ public final class ScheduleRotationTimeRestriction {
             return this;
         }
         public ScheduleRotationTimeRestriction build() {
-            final var o = new ScheduleRotationTimeRestriction();
-            o.restriction = restriction;
-            o.restrictionList = restrictionList;
-            o.type = type;
-            return o;
+            final var _resultValue = new ScheduleRotationTimeRestriction();
+            _resultValue.restriction = restriction;
+            _resultValue.restrictionList = restrictionList;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

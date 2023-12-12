@@ -136,14 +136,14 @@ public final class GetScheduleResult {
             return this;
         }
         public GetScheduleResult build() {
-            final var o = new GetScheduleResult();
-            o.description = description;
-            o.enabled = enabled;
-            o.id = id;
-            o.name = name;
-            o.ownerTeamId = ownerTeamId;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new GetScheduleResult();
+            _resultValue.description = description;
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.ownerTeamId = ownerTeamId;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }
