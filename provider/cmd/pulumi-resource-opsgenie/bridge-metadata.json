@@ -522,6 +522,7 @@
             }
         }
     },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "opsgenie:index/alertPolicy:AlertPolicy": "opsgenie_alert_policy",
