@@ -12,6 +12,43 @@ namespace Pulumi.Opsgenie
     /// <summary>
     /// Manages a Notification Policy within Opsgenie.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Opsgenie = Pulumi.Opsgenie;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testTeam = new Opsgenie.Team("testTeam", new()
+    ///     {
+    ///         Description = "This team deals with all the things",
+    ///     });
+    /// 
+    ///     var testNotificationPolicy = new Opsgenie.NotificationPolicy("testNotificationPolicy", new()
+    ///     {
+    ///         TeamId = testTeam.Id,
+    ///         PolicyDescription = "This policy has a delay action",
+    ///         DelayActions = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.NotificationPolicyDelayActionArgs
+    ///             {
+    ///                 DelayOption = "next-time",
+    ///                 UntilMinute = 1,
+    ///                 UntilHour = 9,
+    ///             },
+    ///         },
+    ///         Filters = new[]
+    ///         {
+    ///             null,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
