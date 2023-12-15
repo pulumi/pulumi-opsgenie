@@ -9,6 +9,25 @@ import * as utilities from "./utilities";
 /**
  * Manages a Notification Policy within Opsgenie.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as opsgenie from "@pulumi/opsgenie";
+ *
+ * const testTeam = new opsgenie.Team("testTeam", {description: "This team deals with all the things"});
+ * const testNotificationPolicy = new opsgenie.NotificationPolicy("testNotificationPolicy", {
+ *     teamId: testTeam.id,
+ *     policyDescription: "This policy has a delay action",
+ *     delayActions: [{
+ *         delayOption: "next-time",
+ *         untilMinute: 1,
+ *         untilHour: 9,
+ *     }],
+ *     filters: [{}],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.

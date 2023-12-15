@@ -399,6 +399,24 @@ class NotificationPolicy(pulumi.CustomResource):
         """
         Manages a Notification Policy within Opsgenie.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
+        test_notification_policy = opsgenie.NotificationPolicy("testNotificationPolicy",
+            team_id=test_team.id,
+            policy_description="This policy has a delay action",
+            delay_actions=[opsgenie.NotificationPolicyDelayActionArgs(
+                delay_option="next-time",
+                until_minute=1,
+                until_hour=9,
+            )],
+            filters=[opsgenie.NotificationPolicyFilterArgs()])
+        ```
+
         ## Import
 
         Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
@@ -429,6 +447,24 @@ class NotificationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Notification Policy within Opsgenie.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_opsgenie as opsgenie
+
+        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
+        test_notification_policy = opsgenie.NotificationPolicy("testNotificationPolicy",
+            team_id=test_team.id,
+            policy_description="This policy has a delay action",
+            delay_actions=[opsgenie.NotificationPolicyDelayActionArgs(
+                delay_option="next-time",
+                until_minute=1,
+                until_hour=9,
+            )],
+            filters=[opsgenie.NotificationPolicyFilterArgs()])
+        ```
 
         ## Import
 

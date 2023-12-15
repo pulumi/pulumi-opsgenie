@@ -14,6 +14,49 @@ import (
 
 // Manages a Notification Policy within Opsgenie.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//				Description: pulumi.String("This team deals with all the things"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opsgenie.NewNotificationPolicy(ctx, "testNotificationPolicy", &opsgenie.NotificationPolicyArgs{
+//				TeamId:            testTeam.ID(),
+//				PolicyDescription: pulumi.String("This policy has a delay action"),
+//				DelayActions: opsgenie.NotificationPolicyDelayActionArray{
+//					&opsgenie.NotificationPolicyDelayActionArgs{
+//						DelayOption: pulumi.String("next-time"),
+//						UntilMinute: pulumi.Int(1),
+//						UntilHour:   pulumi.Int(9),
+//					},
+//				},
+//				Filters: opsgenie.NotificationPolicyFilterArray{
+//					nil,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
