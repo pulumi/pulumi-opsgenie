@@ -113,7 +113,8 @@ type TeamRoutingRule struct {
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
 	Order pulumi.IntPtrOutput `pulumi:"order"`
 	// Id of the team owning the routing rule
-	TeamId           pulumi.StringOutput                       `pulumi:"teamId"`
+	TeamId pulumi.StringOutput `pulumi:"teamId"`
+	// You can refer Time Restriction for detailed information about time restriction and its fields.
 	TimeRestrictions TeamRoutingRuleTimeRestrictionArrayOutput `pulumi:"timeRestrictions"`
 	// Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
@@ -166,7 +167,8 @@ type teamRoutingRuleState struct {
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
 	Order *int `pulumi:"order"`
 	// Id of the team owning the routing rule
-	TeamId           *string                          `pulumi:"teamId"`
+	TeamId *string `pulumi:"teamId"`
+	// You can refer Time Restriction for detailed information about time restriction and its fields.
 	TimeRestrictions []TeamRoutingRuleTimeRestriction `pulumi:"timeRestrictions"`
 	// Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
 	Timezone *string `pulumi:"timezone"`
@@ -184,7 +186,8 @@ type TeamRoutingRuleState struct {
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
 	Order pulumi.IntPtrInput
 	// Id of the team owning the routing rule
-	TeamId           pulumi.StringPtrInput
+	TeamId pulumi.StringPtrInput
+	// You can refer Time Restriction for detailed information about time restriction and its fields.
 	TimeRestrictions TeamRoutingRuleTimeRestrictionArrayInput
 	// Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
 	Timezone pulumi.StringPtrInput
@@ -206,7 +209,8 @@ type teamRoutingRuleArgs struct {
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
 	Order *int `pulumi:"order"`
 	// Id of the team owning the routing rule
-	TeamId           string                           `pulumi:"teamId"`
+	TeamId string `pulumi:"teamId"`
+	// You can refer Time Restriction for detailed information about time restriction and its fields.
 	TimeRestrictions []TeamRoutingRuleTimeRestriction `pulumi:"timeRestrictions"`
 	// Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
 	Timezone *string `pulumi:"timezone"`
@@ -225,7 +229,8 @@ type TeamRoutingRuleArgs struct {
 	// The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
 	Order pulumi.IntPtrInput
 	// Id of the team owning the routing rule
-	TeamId           pulumi.StringInput
+	TeamId pulumi.StringInput
+	// You can refer Time Restriction for detailed information about time restriction and its fields.
 	TimeRestrictions TeamRoutingRuleTimeRestrictionArrayInput
 	// Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
 	Timezone pulumi.StringPtrInput
@@ -348,6 +353,7 @@ func (o TeamRoutingRuleOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamRoutingRule) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }
 
+// You can refer Time Restriction for detailed information about time restriction and its fields.
 func (o TeamRoutingRuleOutput) TimeRestrictions() TeamRoutingRuleTimeRestrictionArrayOutput {
 	return o.ApplyT(func(v *TeamRoutingRule) TeamRoutingRuleTimeRestrictionArrayOutput { return v.TimeRestrictions }).(TeamRoutingRuleTimeRestrictionArrayOutput)
 }

@@ -112,6 +112,9 @@ export class TeamRoutingRule extends pulumi.CustomResource {
      * Id of the team owning the routing rule
      */
     public readonly teamId!: pulumi.Output<string>;
+    /**
+     * You can refer Time Restriction for detailed information about time restriction and its fields.
+     */
     public readonly timeRestrictions!: pulumi.Output<outputs.TeamRoutingRuleTimeRestriction[] | undefined>;
     /**
      * Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
@@ -189,6 +192,9 @@ export interface TeamRoutingRuleState {
      * Id of the team owning the routing rule
      */
     teamId?: pulumi.Input<string>;
+    /**
+     * You can refer Time Restriction for detailed information about time restriction and its fields.
+     */
     timeRestrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestriction>[]>;
     /**
      * Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
@@ -224,6 +230,9 @@ export interface TeamRoutingRuleArgs {
      * Id of the team owning the routing rule
      */
     teamId: pulumi.Input<string>;
+    /**
+     * You can refer Time Restriction for detailed information about time restriction and its fields.
+     */
     timeRestrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestriction>[]>;
     /**
      * Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones

@@ -111,9 +111,17 @@ public final class TeamRoutingRuleArgs extends com.pulumi.resources.ResourceArgs
         return this.teamId;
     }
 
+    /**
+     * You can refer Time Restriction for detailed information about time restriction and its fields.
+     * 
+     */
     @Import(name="timeRestrictions")
     private @Nullable Output<List<TeamRoutingRuleTimeRestrictionArgs>> timeRestrictions;
 
+    /**
+     * @return You can refer Time Restriction for detailed information about time restriction and its fields.
+     * 
+     */
     public Optional<Output<List<TeamRoutingRuleTimeRestrictionArgs>>> timeRestrictions() {
         return Optional.ofNullable(this.timeRestrictions);
     }
@@ -310,15 +318,33 @@ public final class TeamRoutingRuleArgs extends com.pulumi.resources.ResourceArgs
             return teamId(Output.of(teamId));
         }
 
+        /**
+         * @param timeRestrictions You can refer Time Restriction for detailed information about time restriction and its fields.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeRestrictions(@Nullable Output<List<TeamRoutingRuleTimeRestrictionArgs>> timeRestrictions) {
             $.timeRestrictions = timeRestrictions;
             return this;
         }
 
+        /**
+         * @param timeRestrictions You can refer Time Restriction for detailed information about time restriction and its fields.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeRestrictions(List<TeamRoutingRuleTimeRestrictionArgs> timeRestrictions) {
             return timeRestrictions(Output.of(timeRestrictions));
         }
 
+        /**
+         * @param timeRestrictions You can refer Time Restriction for detailed information about time restriction and its fields.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeRestrictions(TeamRoutingRuleTimeRestrictionArgs... timeRestrictions) {
             return timeRestrictions(List.of(timeRestrictions));
         }
