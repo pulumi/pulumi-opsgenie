@@ -522,6 +522,46 @@
             }
         }
     },
+    "auto-settings": {
+        "resources": {
+            "opsgenie_alert_policy": {
+                "maxItemsOneOverrides": {
+                    "filter": false,
+                    "time_restriction": false,
+                    "time_restriction.$.restriction": false
+                }
+            },
+            "opsgenie_notification_policy": {
+                "maxItemsOneOverrides": {
+                    "auto_close_action": false,
+                    "auto_restart_action": false,
+                    "de_duplication_action": false,
+                    "delay_action": false,
+                    "filter": false,
+                    "time_restriction": false,
+                    "time_restriction.$.restriction": false
+                }
+            },
+            "opsgenie_notification_rule": {
+                "maxItemsOneOverrides": {
+                    "time_restriction": false,
+                    "time_restriction.$.restriction": false
+                }
+            },
+            "opsgenie_schedule_rotation": {
+                "maxItemsOneOverrides": {
+                    "time_restriction": false,
+                    "time_restriction.$.restriction": false
+                }
+            },
+            "opsgenie_team_routing_rule": {
+                "maxItemsOneOverrides": {
+                    "time_restriction": false,
+                    "time_restriction.$.restriction": false
+                }
+            }
+        }
+    },
     "renames": {
         "resources": {
             "opsgenie:index/alertPolicy:AlertPolicy": "opsgenie_alert_policy",
