@@ -191,9 +191,17 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
     public Output<String> teamId() {
         return this.teamId;
     }
+    /**
+     * You can refer Time Restriction for detailed information about time restriction and its fields.
+     * 
+     */
     @Export(name="timeRestrictions", refs={List.class,TeamRoutingRuleTimeRestriction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TeamRoutingRuleTimeRestriction>> timeRestrictions;
 
+    /**
+     * @return You can refer Time Restriction for detailed information about time restriction and its fields.
+     * 
+     */
     public Output<Optional<List<TeamRoutingRuleTimeRestriction>>> timeRestrictions() {
         return Codegen.optional(this.timeRestrictions);
     }

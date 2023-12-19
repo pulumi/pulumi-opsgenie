@@ -32,6 +32,7 @@ class TeamRoutingRuleArgs:
         :param pulumi.Input[bool] is_default: Only use when importing default routing rule
         :param pulumi.Input[str] name: Name of the team routing rule
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
+        :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]] time_restrictions: You can refer Time Restriction for detailed information about time restriction and its fields.
         :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
         """
         pulumi.set(__self__, "notifies", notifies)
@@ -124,6 +125,9 @@ class TeamRoutingRuleArgs:
     @property
     @pulumi.getter(name="timeRestrictions")
     def time_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]]:
+        """
+        You can refer Time Restriction for detailed information about time restriction and its fields.
+        """
         return pulumi.get(self, "time_restrictions")
 
     @time_restrictions.setter
@@ -162,6 +166,7 @@ class _TeamRoutingRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleNotifyArgs']]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
         :param pulumi.Input[str] team_id: Id of the team owning the routing rule
+        :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]] time_restrictions: You can refer Time Restriction for detailed information about time restriction and its fields.
         :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
         """
         if criterias is not None:
@@ -256,6 +261,9 @@ class _TeamRoutingRuleState:
     @property
     @pulumi.getter(name="timeRestrictions")
     def time_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionArgs']]]]:
+        """
+        You can refer Time Restriction for detailed information about time restriction and its fields.
+        """
         return pulumi.get(self, "time_restrictions")
 
     @time_restrictions.setter
@@ -349,6 +357,7 @@ class TeamRoutingRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
         :param pulumi.Input[str] team_id: Id of the team owning the routing rule
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleTimeRestrictionArgs']]]] time_restrictions: You can refer Time Restriction for detailed information about time restriction and its fields.
         :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
         """
         ...
@@ -484,6 +493,7 @@ class TeamRoutingRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleNotifyArgs']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
         :param pulumi.Input[str] team_id: Id of the team owning the routing rule
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamRoutingRuleTimeRestrictionArgs']]]] time_restrictions: You can refer Time Restriction for detailed information about time restriction and its fields.
         :param pulumi.Input[str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -551,6 +561,9 @@ class TeamRoutingRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="timeRestrictions")
     def time_restrictions(self) -> pulumi.Output[Optional[Sequence['outputs.TeamRoutingRuleTimeRestriction']]]:
+        """
+        You can refer Time Restriction for detailed information about time restriction and its fields.
+        """
         return pulumi.get(self, "time_restrictions")
 
     @property

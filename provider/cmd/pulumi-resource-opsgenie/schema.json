@@ -4021,7 +4021,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/TeamRoutingRuleTimeRestriction:TeamRoutingRuleTimeRestriction"
-                    }
+                    },
+                    "description": "You can refer Time Restriction for detailed information about time restriction and its fields.\n"
                 },
                 "timezone": {
                     "type": "string",
@@ -4068,7 +4069,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/TeamRoutingRuleTimeRestriction:TeamRoutingRuleTimeRestriction"
-                    }
+                    },
+                    "description": "You can refer Time Restriction for detailed information about time restriction and its fields.\n"
                 },
                 "timezone": {
                     "type": "string",
@@ -4116,7 +4118,8 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/opsgenie:index/TeamRoutingRuleTimeRestriction:TeamRoutingRuleTimeRestriction"
-                        }
+                        },
+                        "description": "You can refer Time Restriction for detailed information about time restriction and its fields.\n"
                     },
                     "timezone": {
                         "type": "string",

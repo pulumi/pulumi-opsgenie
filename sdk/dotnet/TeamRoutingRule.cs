@@ -135,6 +135,9 @@ namespace Pulumi.Opsgenie
         [Output("teamId")]
         public Output<string> TeamId { get; private set; } = null!;
 
+        /// <summary>
+        /// You can refer Time Restriction for detailed information about time restriction and its fields.
+        /// </summary>
         [Output("timeRestrictions")]
         public Output<ImmutableArray<Outputs.TeamRoutingRuleTimeRestriction>> TimeRestrictions { get; private set; } = null!;
 
@@ -240,6 +243,10 @@ namespace Pulumi.Opsgenie
 
         [Input("timeRestrictions")]
         private InputList<Inputs.TeamRoutingRuleTimeRestrictionArgs>? _timeRestrictions;
+
+        /// <summary>
+        /// You can refer Time Restriction for detailed information about time restriction and its fields.
+        /// </summary>
         public InputList<Inputs.TeamRoutingRuleTimeRestrictionArgs> TimeRestrictions
         {
             get => _timeRestrictions ?? (_timeRestrictions = new InputList<Inputs.TeamRoutingRuleTimeRestrictionArgs>());
@@ -310,6 +317,10 @@ namespace Pulumi.Opsgenie
 
         [Input("timeRestrictions")]
         private InputList<Inputs.TeamRoutingRuleTimeRestrictionGetArgs>? _timeRestrictions;
+
+        /// <summary>
+        /// You can refer Time Restriction for detailed information about time restriction and its fields.
+        /// </summary>
         public InputList<Inputs.TeamRoutingRuleTimeRestrictionGetArgs> TimeRestrictions
         {
             get => _timeRestrictions ?? (_timeRestrictions = new InputList<Inputs.TeamRoutingRuleTimeRestrictionGetArgs>());
