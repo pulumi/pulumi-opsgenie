@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -260,12 +261,24 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         public NotificationPolicyTimeRestrictionRestrictionListArgs build() {
-            $.endDay = Objects.requireNonNull($.endDay, "expected parameter 'endDay' to be non-null");
-            $.endHour = Objects.requireNonNull($.endHour, "expected parameter 'endHour' to be non-null");
-            $.endMin = Objects.requireNonNull($.endMin, "expected parameter 'endMin' to be non-null");
-            $.startDay = Objects.requireNonNull($.startDay, "expected parameter 'startDay' to be non-null");
-            $.startHour = Objects.requireNonNull($.startHour, "expected parameter 'startHour' to be non-null");
-            $.startMin = Objects.requireNonNull($.startMin, "expected parameter 'startMin' to be non-null");
+            if ($.endDay == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionListArgs", "endDay");
+            }
+            if ($.endHour == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionListArgs", "endHour");
+            }
+            if ($.endMin == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionListArgs", "endMin");
+            }
+            if ($.startDay == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionListArgs", "startDay");
+            }
+            if ($.startHour == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionListArgs", "startHour");
+            }
+            if ($.startMin == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionListArgs", "startMin");
+            }
             return $;
         }
     }

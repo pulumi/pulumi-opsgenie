@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.IntegrationActionCloseFilter;
 import java.lang.Integer;
 import java.lang.String;
@@ -137,11 +138,13 @@ public final class IntegrationActionClose {
 
         @CustomType.Setter
         public Builder alias(@Nullable String alias) {
+
             this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<IntegrationActionCloseFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -150,26 +153,33 @@ public final class IntegrationActionClose {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IntegrationActionClose", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder note(@Nullable String note) {
+
             this.note = note;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable Integer order) {
+
             this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder user(@Nullable String user) {
+
             this.user = user;
             return this;
         }

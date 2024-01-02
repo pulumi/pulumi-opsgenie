@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.IntegrationActionIgnoreFilter;
 import java.lang.Integer;
 import java.lang.String;
@@ -95,6 +96,7 @@ public final class IntegrationActionIgnore {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<IntegrationActionIgnoreFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -103,16 +105,21 @@ public final class IntegrationActionIgnore {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IntegrationActionIgnore", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable Integer order) {
+
             this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

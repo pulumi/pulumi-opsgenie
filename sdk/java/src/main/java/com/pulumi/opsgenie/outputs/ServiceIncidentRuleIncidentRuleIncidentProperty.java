@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty;
 import java.lang.String;
 import java.util.List;
@@ -117,27 +118,38 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder details(@Nullable Map<String,String> details) {
+
             this.details = details;
             return this;
         }
         @CustomType.Setter
         public Builder message(String message) {
-            this.message = Objects.requireNonNull(message);
+            if (message == null) {
+              throw new MissingRequiredPropertyException("ServiceIncidentRuleIncidentRuleIncidentProperty", "message");
+            }
+            this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder priority(String priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("ServiceIncidentRuleIncidentRuleIncidentProperty", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder stakeholderProperties(List<ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty> stakeholderProperties) {
-            this.stakeholderProperties = Objects.requireNonNull(stakeholderProperties);
+            if (stakeholderProperties == null) {
+              throw new MissingRequiredPropertyException("ServiceIncidentRuleIncidentRuleIncidentProperty", "stakeholderProperties");
+            }
+            this.stakeholderProperties = stakeholderProperties;
             return this;
         }
         public Builder stakeholderProperties(ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty... stakeholderProperties) {
@@ -145,6 +157,7 @@ public final class ServiceIncidentRuleIncidentRuleIncidentProperty {
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<String> tags) {
+
             this.tags = tags;
             return this;
         }

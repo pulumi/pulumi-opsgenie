@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.NotificationRuleCriteriaConditionArgs;
 import java.lang.String;
 import java.util.List;
@@ -125,7 +126,9 @@ public final class NotificationRuleCriteriaArgs extends com.pulumi.resources.Res
         }
 
         public NotificationRuleCriteriaArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("NotificationRuleCriteriaArgs", "type");
+            }
             return $;
         }
     }

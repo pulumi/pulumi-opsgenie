@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.ScheduleRotationTimeRestrictionRestriction;
 import com.pulumi.opsgenie.outputs.ScheduleRotationTimeRestrictionRestrictionList;
 import java.lang.String;
@@ -74,6 +75,7 @@ public final class ScheduleRotationTimeRestriction {
 
         @CustomType.Setter
         public Builder restriction(@Nullable List<ScheduleRotationTimeRestrictionRestriction> restriction) {
+
             this.restriction = restriction;
             return this;
         }
@@ -82,6 +84,7 @@ public final class ScheduleRotationTimeRestriction {
         }
         @CustomType.Setter
         public Builder restrictionList(@Nullable List<ScheduleRotationTimeRestrictionRestrictionList> restrictionList) {
+
             this.restrictionList = restrictionList;
             return this;
         }
@@ -90,7 +93,10 @@ public final class ScheduleRotationTimeRestriction {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ScheduleRotationTimeRestriction", "type");
+            }
+            this.type = type;
             return this;
         }
         public ScheduleRotationTimeRestriction build() {

@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.AlertPolicyTimeRestrictionRestrictionArgs;
 import com.pulumi.opsgenie.inputs.AlertPolicyTimeRestrictionRestrictionListArgs;
 import java.lang.String;
@@ -173,7 +174,9 @@ public final class AlertPolicyTimeRestrictionArgs extends com.pulumi.resources.R
         }
 
         public AlertPolicyTimeRestrictionArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AlertPolicyTimeRestrictionArgs", "type");
+            }
             return $;
         }
     }

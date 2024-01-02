@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -163,8 +164,12 @@ public final class IntegrationActionCreateFilterConditionArgs extends com.pulumi
         }
 
         public IntegrationActionCreateFilterConditionArgs build() {
-            $.field = Objects.requireNonNull($.field, "expected parameter 'field' to be non-null");
-            $.operation = Objects.requireNonNull($.operation, "expected parameter 'operation' to be non-null");
+            if ($.field == null) {
+                throw new MissingRequiredPropertyException("IntegrationActionCreateFilterConditionArgs", "field");
+            }
+            if ($.operation == null) {
+                throw new MissingRequiredPropertyException("IntegrationActionCreateFilterConditionArgs", "operation");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.TeamRoutingRuleCriteriaArgs;
 import com.pulumi.opsgenie.inputs.TeamRoutingRuleNotifyArgs;
 import com.pulumi.opsgenie.inputs.TeamRoutingRuleTimeRestrictionArgs;
@@ -371,8 +372,12 @@ public final class TeamRoutingRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public TeamRoutingRuleArgs build() {
-            $.notifies = Objects.requireNonNull($.notifies, "expected parameter 'notifies' to be non-null");
-            $.teamId = Objects.requireNonNull($.teamId, "expected parameter 'teamId' to be non-null");
+            if ($.notifies == null) {
+                throw new MissingRequiredPropertyException("TeamRoutingRuleArgs", "notifies");
+            }
+            if ($.teamId == null) {
+                throw new MissingRequiredPropertyException("TeamRoutingRuleArgs", "teamId");
+            }
             return $;
         }
     }

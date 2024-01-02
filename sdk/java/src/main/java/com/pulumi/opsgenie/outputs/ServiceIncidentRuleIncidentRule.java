@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.ServiceIncidentRuleIncidentRuleCondition;
 import com.pulumi.opsgenie.outputs.ServiceIncidentRuleIncidentRuleIncidentProperty;
 import java.lang.String;
@@ -75,11 +76,13 @@ public final class ServiceIncidentRuleIncidentRule {
 
         @CustomType.Setter
         public Builder conditionMatchType(@Nullable String conditionMatchType) {
+
             this.conditionMatchType = conditionMatchType;
             return this;
         }
         @CustomType.Setter
         public Builder conditions(@Nullable List<ServiceIncidentRuleIncidentRuleCondition> conditions) {
+
             this.conditions = conditions;
             return this;
         }
@@ -88,7 +91,10 @@ public final class ServiceIncidentRuleIncidentRule {
         }
         @CustomType.Setter
         public Builder incidentProperties(List<ServiceIncidentRuleIncidentRuleIncidentProperty> incidentProperties) {
-            this.incidentProperties = Objects.requireNonNull(incidentProperties);
+            if (incidentProperties == null) {
+              throw new MissingRequiredPropertyException("ServiceIncidentRuleIncidentRule", "incidentProperties");
+            }
+            this.incidentProperties = incidentProperties;
             return this;
         }
         public Builder incidentProperties(ServiceIncidentRuleIncidentRuleIncidentProperty... incidentProperties) {

@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.AlertPolicyFilterArgs;
 import com.pulumi.opsgenie.inputs.AlertPolicyResponderArgs;
 import com.pulumi.opsgenie.inputs.AlertPolicyTimeRestrictionArgs;
@@ -834,7 +835,9 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AlertPolicyArgs build() {
-            $.message = Objects.requireNonNull($.message, "expected parameter 'message' to be non-null");
+            if ($.message == null) {
+                throw new MissingRequiredPropertyException("AlertPolicyArgs", "message");
+            }
             return $;
         }
     }

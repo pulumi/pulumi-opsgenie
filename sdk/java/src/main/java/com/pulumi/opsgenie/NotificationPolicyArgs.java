@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.NotificationPolicyAutoCloseActionArgs;
 import com.pulumi.opsgenie.inputs.NotificationPolicyAutoRestartActionArgs;
 import com.pulumi.opsgenie.inputs.NotificationPolicyDeDuplicationActionArgs;
@@ -514,8 +515,12 @@ public final class NotificationPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         public NotificationPolicyArgs build() {
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
-            $.teamId = Objects.requireNonNull($.teamId, "expected parameter 'teamId' to be non-null");
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyArgs", "filters");
+            }
+            if ($.teamId == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyArgs", "teamId");
+            }
             return $;
         }
     }

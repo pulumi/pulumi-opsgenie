@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.UserUserAddressArgs;
 import java.lang.String;
 import java.util.List;
@@ -395,9 +396,15 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserArgs build() {
-            $.fullName = Objects.requireNonNull($.fullName, "expected parameter 'fullName' to be non-null");
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.fullName == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "fullName");
+            }
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "role");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "username");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.EmailIntegrationResponderArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -285,7 +286,9 @@ public final class EmailIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public EmailIntegrationArgs build() {
-            $.emailUsername = Objects.requireNonNull($.emailUsername, "expected parameter 'emailUsername' to be non-null");
+            if ($.emailUsername == null) {
+                throw new MissingRequiredPropertyException("EmailIntegrationArgs", "emailUsername");
+            }
             return $;
         }
     }

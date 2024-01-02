@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class NotificationRuleStepContact {
 
         @CustomType.Setter
         public Builder method(String method) {
-            this.method = Objects.requireNonNull(method);
+            if (method == null) {
+              throw new MissingRequiredPropertyException("NotificationRuleStepContact", "method");
+            }
+            this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder to(String to) {
-            this.to = Objects.requireNonNull(to);
+            if (to == null) {
+              throw new MissingRequiredPropertyException("NotificationRuleStepContact", "to");
+            }
+            this.to = to;
             return this;
         }
         public NotificationRuleStepContact build() {

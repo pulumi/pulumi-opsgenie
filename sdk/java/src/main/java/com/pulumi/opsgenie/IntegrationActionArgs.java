@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.IntegrationActionAcknowledgeArgs;
 import com.pulumi.opsgenie.inputs.IntegrationActionAddNoteArgs;
 import com.pulumi.opsgenie.inputs.IntegrationActionCloseArgs;
@@ -187,7 +188,9 @@ public final class IntegrationActionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public IntegrationActionArgs build() {
-            $.integrationId = Objects.requireNonNull($.integrationId, "expected parameter 'integrationId' to be non-null");
+            if ($.integrationId == null) {
+                throw new MissingRequiredPropertyException("IntegrationActionArgs", "integrationId");
+            }
             return $;
         }
     }

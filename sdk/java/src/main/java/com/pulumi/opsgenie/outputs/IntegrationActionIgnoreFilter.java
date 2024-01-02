@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.IntegrationActionIgnoreFilterCondition;
 import java.lang.String;
 import java.util.List;
@@ -51,6 +52,7 @@ public final class IntegrationActionIgnoreFilter {
 
         @CustomType.Setter
         public Builder conditions(@Nullable List<IntegrationActionIgnoreFilterCondition> conditions) {
+
             this.conditions = conditions;
             return this;
         }
@@ -59,7 +61,10 @@ public final class IntegrationActionIgnoreFilter {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("IntegrationActionIgnoreFilter", "type");
+            }
+            this.type = type;
             return this;
         }
         public IntegrationActionIgnoreFilter build() {

@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.NotificationRuleCriteriaArgs;
 import com.pulumi.opsgenie.inputs.NotificationRuleRepeatArgs;
 import com.pulumi.opsgenie.inputs.NotificationRuleScheduleArgs;
@@ -410,8 +411,12 @@ public final class NotificationRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         public NotificationRuleArgs build() {
-            $.actionType = Objects.requireNonNull($.actionType, "expected parameter 'actionType' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.actionType == null) {
+                throw new MissingRequiredPropertyException("NotificationRuleArgs", "actionType");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("NotificationRuleArgs", "username");
+            }
             return $;
         }
     }

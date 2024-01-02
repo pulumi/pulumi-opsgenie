@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -105,10 +106,18 @@ public final class TeamRoutingRuleTimeRestrictionRestrictionArgs extends com.pul
         }
 
         public TeamRoutingRuleTimeRestrictionRestrictionArgs build() {
-            $.endHour = Objects.requireNonNull($.endHour, "expected parameter 'endHour' to be non-null");
-            $.endMin = Objects.requireNonNull($.endMin, "expected parameter 'endMin' to be non-null");
-            $.startHour = Objects.requireNonNull($.startHour, "expected parameter 'startHour' to be non-null");
-            $.startMin = Objects.requireNonNull($.startMin, "expected parameter 'startMin' to be non-null");
+            if ($.endHour == null) {
+                throw new MissingRequiredPropertyException("TeamRoutingRuleTimeRestrictionRestrictionArgs", "endHour");
+            }
+            if ($.endMin == null) {
+                throw new MissingRequiredPropertyException("TeamRoutingRuleTimeRestrictionRestrictionArgs", "endMin");
+            }
+            if ($.startHour == null) {
+                throw new MissingRequiredPropertyException("TeamRoutingRuleTimeRestrictionRestrictionArgs", "startHour");
+            }
+            if ($.startMin == null) {
+                throw new MissingRequiredPropertyException("TeamRoutingRuleTimeRestrictionRestrictionArgs", "startMin");
+            }
             return $;
         }
     }

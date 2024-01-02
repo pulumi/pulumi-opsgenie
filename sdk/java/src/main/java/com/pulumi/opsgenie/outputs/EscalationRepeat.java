@@ -55,21 +55,25 @@ public final class EscalationRepeat {
 
         @CustomType.Setter
         public Builder closeAlertAfterAll(@Nullable Boolean closeAlertAfterAll) {
+
             this.closeAlertAfterAll = closeAlertAfterAll;
             return this;
         }
         @CustomType.Setter
         public Builder count(@Nullable Integer count) {
+
             this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder resetRecipientStates(@Nullable Boolean resetRecipientStates) {
+
             this.resetRecipientStates = resetRecipientStates;
             return this;
         }
         @CustomType.Setter
         public Builder waitInterval(@Nullable Integer waitInterval) {
+
             this.waitInterval = waitInterval;
             return this;
         }

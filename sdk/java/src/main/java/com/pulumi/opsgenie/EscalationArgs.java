@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.EscalationRepeatArgs;
 import com.pulumi.opsgenie.inputs.EscalationRuleArgs;
 import java.lang.String;
@@ -247,7 +248,9 @@ public final class EscalationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EscalationArgs build() {
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("EscalationArgs", "rules");
+            }
             return $;
         }
     }
