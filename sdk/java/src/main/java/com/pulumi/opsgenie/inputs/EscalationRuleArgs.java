@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.EscalationRuleRecipientArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -198,10 +199,18 @@ public final class EscalationRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public EscalationRuleArgs build() {
-            $.condition = Objects.requireNonNull($.condition, "expected parameter 'condition' to be non-null");
-            $.delay = Objects.requireNonNull($.delay, "expected parameter 'delay' to be non-null");
-            $.notifyType = Objects.requireNonNull($.notifyType, "expected parameter 'notifyType' to be non-null");
-            $.recipients = Objects.requireNonNull($.recipients, "expected parameter 'recipients' to be non-null");
+            if ($.condition == null) {
+                throw new MissingRequiredPropertyException("EscalationRuleArgs", "condition");
+            }
+            if ($.delay == null) {
+                throw new MissingRequiredPropertyException("EscalationRuleArgs", "delay");
+            }
+            if ($.notifyType == null) {
+                throw new MissingRequiredPropertyException("EscalationRuleArgs", "notifyType");
+            }
+            if ($.recipients == null) {
+                throw new MissingRequiredPropertyException("EscalationRuleArgs", "recipients");
+            }
             return $;
         }
     }

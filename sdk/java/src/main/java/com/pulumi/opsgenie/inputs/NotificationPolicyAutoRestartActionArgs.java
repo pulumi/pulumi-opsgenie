@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.NotificationPolicyAutoRestartActionDurationArgs;
 import java.lang.Integer;
 import java.util.List;
@@ -123,8 +124,12 @@ public final class NotificationPolicyAutoRestartActionArgs extends com.pulumi.re
         }
 
         public NotificationPolicyAutoRestartActionArgs build() {
-            $.durations = Objects.requireNonNull($.durations, "expected parameter 'durations' to be non-null");
-            $.maxRepeatCount = Objects.requireNonNull($.maxRepeatCount, "expected parameter 'maxRepeatCount' to be non-null");
+            if ($.durations == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyAutoRestartActionArgs", "durations");
+            }
+            if ($.maxRepeatCount == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyAutoRestartActionArgs", "maxRepeatCount");
+            }
             return $;
         }
     }

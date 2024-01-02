@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.NotificationPolicyAutoRestartActionDuration;
 import java.lang.Integer;
 import java.util.List;
@@ -58,7 +59,10 @@ public final class NotificationPolicyAutoRestartAction {
 
         @CustomType.Setter
         public Builder durations(List<NotificationPolicyAutoRestartActionDuration> durations) {
-            this.durations = Objects.requireNonNull(durations);
+            if (durations == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyAutoRestartAction", "durations");
+            }
+            this.durations = durations;
             return this;
         }
         public Builder durations(NotificationPolicyAutoRestartActionDuration... durations) {
@@ -66,7 +70,10 @@ public final class NotificationPolicyAutoRestartAction {
         }
         @CustomType.Setter
         public Builder maxRepeatCount(Integer maxRepeatCount) {
-            this.maxRepeatCount = Objects.requireNonNull(maxRepeatCount);
+            if (maxRepeatCount == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyAutoRestartAction", "maxRepeatCount");
+            }
+            this.maxRepeatCount = maxRepeatCount;
             return this;
         }
         public NotificationPolicyAutoRestartAction build() {

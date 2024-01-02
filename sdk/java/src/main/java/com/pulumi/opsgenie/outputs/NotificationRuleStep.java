@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.NotificationRuleStepContact;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -75,7 +76,10 @@ public final class NotificationRuleStep {
 
         @CustomType.Setter
         public Builder contacts(List<NotificationRuleStepContact> contacts) {
-            this.contacts = Objects.requireNonNull(contacts);
+            if (contacts == null) {
+              throw new MissingRequiredPropertyException("NotificationRuleStep", "contacts");
+            }
+            this.contacts = contacts;
             return this;
         }
         public Builder contacts(NotificationRuleStepContact... contacts) {
@@ -83,11 +87,13 @@ public final class NotificationRuleStep {
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder sendAfter(@Nullable Integer sendAfter) {
+
             this.sendAfter = sendAfter;
             return this;
         }

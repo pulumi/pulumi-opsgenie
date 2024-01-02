@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.NotificationRuleTimeRestrictionRestriction;
 import java.lang.String;
 import java.util.List;
@@ -57,6 +58,7 @@ public final class NotificationRuleTimeRestriction {
 
         @CustomType.Setter
         public Builder restriction(@Nullable List<NotificationRuleTimeRestrictionRestriction> restriction) {
+
             this.restriction = restriction;
             return this;
         }
@@ -65,6 +67,7 @@ public final class NotificationRuleTimeRestriction {
         }
         @CustomType.Setter
         public Builder restrictions(@Nullable List<NotificationRuleTimeRestrictionRestriction> restrictions) {
+
             this.restrictions = restrictions;
             return this;
         }
@@ -73,7 +76,10 @@ public final class NotificationRuleTimeRestriction {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("NotificationRuleTimeRestriction", "type");
+            }
+            this.type = type;
             return this;
         }
         public NotificationRuleTimeRestriction build() {

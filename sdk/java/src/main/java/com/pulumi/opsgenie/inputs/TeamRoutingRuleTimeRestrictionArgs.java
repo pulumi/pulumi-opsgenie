@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.TeamRoutingRuleTimeRestrictionRestrictionArgs;
 import com.pulumi.opsgenie.inputs.TeamRoutingRuleTimeRestrictionRestrictionListArgs;
 import java.lang.String;
@@ -121,7 +122,9 @@ public final class TeamRoutingRuleTimeRestrictionArgs extends com.pulumi.resourc
         }
 
         public TeamRoutingRuleTimeRestrictionArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("TeamRoutingRuleTimeRestrictionArgs", "type");
+            }
             return $;
         }
     }

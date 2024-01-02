@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs;
 import java.lang.String;
 import java.util.List;
@@ -284,9 +285,15 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs extends c
         }
 
         public ServiceIncidentRuleIncidentRuleIncidentPropertyArgs build() {
-            $.message = Objects.requireNonNull($.message, "expected parameter 'message' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.stakeholderProperties = Objects.requireNonNull($.stakeholderProperties, "expected parameter 'stakeholderProperties' to be non-null");
+            if ($.message == null) {
+                throw new MissingRequiredPropertyException("ServiceIncidentRuleIncidentRuleIncidentPropertyArgs", "message");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("ServiceIncidentRuleIncidentRuleIncidentPropertyArgs", "priority");
+            }
+            if ($.stakeholderProperties == null) {
+                throw new MissingRequiredPropertyException("ServiceIncidentRuleIncidentRuleIncidentPropertyArgs", "stakeholderProperties");
+            }
             return $;
         }
     }

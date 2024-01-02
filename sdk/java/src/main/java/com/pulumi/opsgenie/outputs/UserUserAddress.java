@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -58,27 +59,42 @@ public final class UserUserAddress {
 
         @CustomType.Setter
         public Builder city(String city) {
-            this.city = Objects.requireNonNull(city);
+            if (city == null) {
+              throw new MissingRequiredPropertyException("UserUserAddress", "city");
+            }
+            this.city = city;
             return this;
         }
         @CustomType.Setter
         public Builder country(String country) {
-            this.country = Objects.requireNonNull(country);
+            if (country == null) {
+              throw new MissingRequiredPropertyException("UserUserAddress", "country");
+            }
+            this.country = country;
             return this;
         }
         @CustomType.Setter
         public Builder line(String line) {
-            this.line = Objects.requireNonNull(line);
+            if (line == null) {
+              throw new MissingRequiredPropertyException("UserUserAddress", "line");
+            }
+            this.line = line;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("UserUserAddress", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder zipcode(String zipcode) {
-            this.zipcode = Objects.requireNonNull(zipcode);
+            if (zipcode == null) {
+              throw new MissingRequiredPropertyException("UserUserAddress", "zipcode");
+            }
+            this.zipcode = zipcode;
             return this;
         }
         public UserUserAddress build() {

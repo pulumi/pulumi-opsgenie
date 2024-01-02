@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class NotificationPolicyTimeRestrictionRestrictionArgs extends com.
         }
 
         public NotificationPolicyTimeRestrictionRestrictionArgs build() {
-            $.endHour = Objects.requireNonNull($.endHour, "expected parameter 'endHour' to be non-null");
-            $.endMin = Objects.requireNonNull($.endMin, "expected parameter 'endMin' to be non-null");
-            $.startHour = Objects.requireNonNull($.startHour, "expected parameter 'startHour' to be non-null");
-            $.startMin = Objects.requireNonNull($.startMin, "expected parameter 'startMin' to be non-null");
+            if ($.endHour == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionArgs", "endHour");
+            }
+            if ($.endMin == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionArgs", "endMin");
+            }
+            if ($.startHour == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionArgs", "startHour");
+            }
+            if ($.startMin == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionArgs", "startMin");
+            }
             return $;
         }
     }

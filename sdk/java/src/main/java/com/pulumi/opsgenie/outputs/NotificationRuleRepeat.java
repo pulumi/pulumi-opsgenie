@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -51,12 +52,16 @@ public final class NotificationRuleRepeat {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder loopAfter(Integer loopAfter) {
-            this.loopAfter = Objects.requireNonNull(loopAfter);
+            if (loopAfter == null) {
+              throw new MissingRequiredPropertyException("NotificationRuleRepeat", "loopAfter");
+            }
+            this.loopAfter = loopAfter;
             return this;
         }
         public NotificationRuleRepeat build() {

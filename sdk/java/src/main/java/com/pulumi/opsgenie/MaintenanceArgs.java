@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.MaintenanceRuleArgs;
 import com.pulumi.opsgenie.inputs.MaintenanceTimeArgs;
 import java.lang.String;
@@ -173,8 +174,12 @@ public final class MaintenanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MaintenanceArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("MaintenanceArgs", "description");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("MaintenanceArgs", "rules");
+            }
             return $;
         }
     }

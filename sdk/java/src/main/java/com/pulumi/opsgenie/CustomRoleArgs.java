@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,7 +209,9 @@ public final class CustomRoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CustomRoleArgs build() {
-            $.roleName = Objects.requireNonNull($.roleName, "expected parameter 'roleName' to be non-null");
+            if ($.roleName == null) {
+                throw new MissingRequiredPropertyException("CustomRoleArgs", "roleName");
+            }
             return $;
         }
     }

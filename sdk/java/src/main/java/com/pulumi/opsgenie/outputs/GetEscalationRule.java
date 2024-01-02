@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.GetEscalationRuleRecipient;
 import java.lang.Integer;
 import java.lang.String;
@@ -55,22 +56,34 @@ public final class GetEscalationRule {
 
         @CustomType.Setter
         public Builder condition(String condition) {
-            this.condition = Objects.requireNonNull(condition);
+            if (condition == null) {
+              throw new MissingRequiredPropertyException("GetEscalationRule", "condition");
+            }
+            this.condition = condition;
             return this;
         }
         @CustomType.Setter
         public Builder delay(Integer delay) {
-            this.delay = Objects.requireNonNull(delay);
+            if (delay == null) {
+              throw new MissingRequiredPropertyException("GetEscalationRule", "delay");
+            }
+            this.delay = delay;
             return this;
         }
         @CustomType.Setter
         public Builder notifyType(String notifyType) {
-            this.notifyType = Objects.requireNonNull(notifyType);
+            if (notifyType == null) {
+              throw new MissingRequiredPropertyException("GetEscalationRule", "notifyType");
+            }
+            this.notifyType = notifyType;
             return this;
         }
         @CustomType.Setter
         public Builder recipients(List<GetEscalationRuleRecipient> recipients) {
-            this.recipients = Objects.requireNonNull(recipients);
+            if (recipients == null) {
+              throw new MissingRequiredPropertyException("GetEscalationRule", "recipients");
+            }
+            this.recipients = recipients;
             return this;
         }
         public Builder recipients(GetEscalationRuleRecipient... recipients) {

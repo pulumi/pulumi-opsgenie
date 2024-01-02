@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.GetEscalationRepeat;
 import com.pulumi.opsgenie.inputs.GetEscalationRule;
 import java.lang.String;
@@ -196,7 +197,9 @@ public final class GetEscalationPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetEscalationPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetEscalationPlainArgs", "name");
+            }
             return $;
         }
     }

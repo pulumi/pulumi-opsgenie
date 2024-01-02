@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.ServiceIncidentRuleIncidentRuleArgs;
 import java.lang.String;
 import java.util.List;
@@ -123,8 +124,12 @@ public final class ServiceIncidentRuleArgs extends com.pulumi.resources.Resource
         }
 
         public ServiceIncidentRuleArgs build() {
-            $.incidentRules = Objects.requireNonNull($.incidentRules, "expected parameter 'incidentRules' to be non-null");
-            $.serviceId = Objects.requireNonNull($.serviceId, "expected parameter 'serviceId' to be non-null");
+            if ($.incidentRules == null) {
+                throw new MissingRequiredPropertyException("ServiceIncidentRuleArgs", "incidentRules");
+            }
+            if ($.serviceId == null) {
+                throw new MissingRequiredPropertyException("ServiceIncidentRuleArgs", "serviceId");
+            }
             return $;
         }
     }

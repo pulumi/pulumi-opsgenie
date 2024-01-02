@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.MaintenanceRuleEntity;
 import java.lang.String;
 import java.util.List;
@@ -60,7 +61,10 @@ public final class MaintenanceRule {
 
         @CustomType.Setter
         public Builder entities(List<MaintenanceRuleEntity> entities) {
-            this.entities = Objects.requireNonNull(entities);
+            if (entities == null) {
+              throw new MissingRequiredPropertyException("MaintenanceRule", "entities");
+            }
+            this.entities = entities;
             return this;
         }
         public Builder entities(MaintenanceRuleEntity... entities) {
@@ -68,6 +72,7 @@ public final class MaintenanceRule {
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }

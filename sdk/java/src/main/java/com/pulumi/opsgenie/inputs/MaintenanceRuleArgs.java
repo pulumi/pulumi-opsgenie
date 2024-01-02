@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.MaintenanceRuleEntityArgs;
 import java.lang.String;
 import java.util.List;
@@ -125,7 +126,9 @@ public final class MaintenanceRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public MaintenanceRuleArgs build() {
-            $.entities = Objects.requireNonNull($.entities, "expected parameter 'entities' to be non-null");
+            if ($.entities == null) {
+                throw new MissingRequiredPropertyException("MaintenanceRuleArgs", "entities");
+            }
             return $;
         }
     }
