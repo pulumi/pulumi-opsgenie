@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.IntegrationActionCreateFilter;
 import com.pulumi.opsgenie.outputs.IntegrationActionCreateResponder;
 import java.lang.Boolean;
@@ -324,6 +325,7 @@ public final class IntegrationActionCreate {
 
         @CustomType.Setter
         public Builder alertActions(@Nullable List<String> alertActions) {
+
             this.alertActions = alertActions;
             return this;
         }
@@ -332,36 +334,43 @@ public final class IntegrationActionCreate {
         }
         @CustomType.Setter
         public Builder alias(@Nullable String alias) {
+
             this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder appendAttachments(@Nullable Boolean appendAttachments) {
+
             this.appendAttachments = appendAttachments;
             return this;
         }
         @CustomType.Setter
         public Builder customPriority(@Nullable String customPriority) {
+
             this.customPriority = customPriority;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder entity(@Nullable String entity) {
+
             this.entity = entity;
             return this;
         }
         @CustomType.Setter
         public Builder extraProperties(@Nullable Map<String,String> extraProperties) {
+
             this.extraProperties = extraProperties;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<IntegrationActionCreateFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -370,56 +379,69 @@ public final class IntegrationActionCreate {
         }
         @CustomType.Setter
         public Builder ignoreAlertActionsFromPayload(@Nullable Boolean ignoreAlertActionsFromPayload) {
+
             this.ignoreAlertActionsFromPayload = ignoreAlertActionsFromPayload;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreExtraPropertiesFromPayload(@Nullable Boolean ignoreExtraPropertiesFromPayload) {
+
             this.ignoreExtraPropertiesFromPayload = ignoreExtraPropertiesFromPayload;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreRespondersFromPayload(@Nullable Boolean ignoreRespondersFromPayload) {
+
             this.ignoreRespondersFromPayload = ignoreRespondersFromPayload;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreTagsFromPayload(@Nullable Boolean ignoreTagsFromPayload) {
+
             this.ignoreTagsFromPayload = ignoreTagsFromPayload;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreTeamsFromPayload(@Nullable Boolean ignoreTeamsFromPayload) {
+
             this.ignoreTeamsFromPayload = ignoreTeamsFromPayload;
             return this;
         }
         @CustomType.Setter
         public Builder message(@Nullable String message) {
+
             this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IntegrationActionCreate", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder note(@Nullable String note) {
+
             this.note = note;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable Integer order) {
+
             this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable String priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder responders(@Nullable List<IntegrationActionCreateResponder> responders) {
+
             this.responders = responders;
             return this;
         }
@@ -428,11 +450,13 @@ public final class IntegrationActionCreate {
         }
         @CustomType.Setter
         public Builder source(@Nullable String source) {
+
             this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<String> tags) {
+
             this.tags = tags;
             return this;
         }
@@ -441,11 +465,13 @@ public final class IntegrationActionCreate {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder user(@Nullable String user) {
+
             this.user = user;
             return this;
         }

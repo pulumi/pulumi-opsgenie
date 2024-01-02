@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class NotificationPolicyDelayActionDurationArgs extends com.pulumi.
         }
 
         public NotificationPolicyDelayActionDurationArgs build() {
-            $.timeAmount = Objects.requireNonNull($.timeAmount, "expected parameter 'timeAmount' to be non-null");
+            if ($.timeAmount == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyDelayActionDurationArgs", "timeAmount");
+            }
             return $;
         }
     }

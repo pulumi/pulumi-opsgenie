@@ -60,6 +60,7 @@ public final class AlertPolicyFilter {
 
         @CustomType.Setter
         public Builder conditions(@Nullable List<AlertPolicyFilterCondition> conditions) {
+
             this.conditions = conditions;
             return this;
         }
@@ -68,6 +69,7 @@ public final class AlertPolicyFilter {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

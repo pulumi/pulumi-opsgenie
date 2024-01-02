@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.TeamRoutingRuleTimeRestrictionRestriction;
 import com.pulumi.opsgenie.outputs.TeamRoutingRuleTimeRestrictionRestrictionList;
 import java.lang.String;
@@ -58,6 +59,7 @@ public final class TeamRoutingRuleTimeRestriction {
 
         @CustomType.Setter
         public Builder restriction(@Nullable List<TeamRoutingRuleTimeRestrictionRestriction> restriction) {
+
             this.restriction = restriction;
             return this;
         }
@@ -66,6 +68,7 @@ public final class TeamRoutingRuleTimeRestriction {
         }
         @CustomType.Setter
         public Builder restrictionList(@Nullable List<TeamRoutingRuleTimeRestrictionRestrictionList> restrictionList) {
+
             this.restrictionList = restrictionList;
             return this;
         }
@@ -74,7 +77,10 @@ public final class TeamRoutingRuleTimeRestriction {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("TeamRoutingRuleTimeRestriction", "type");
+            }
+            this.type = type;
             return this;
         }
         public TeamRoutingRuleTimeRestriction build() {

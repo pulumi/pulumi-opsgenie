@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -294,7 +295,9 @@ public final class GetHeartbeatPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetHeartbeatPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetHeartbeatPlainArgs", "name");
+            }
             return $;
         }
     }

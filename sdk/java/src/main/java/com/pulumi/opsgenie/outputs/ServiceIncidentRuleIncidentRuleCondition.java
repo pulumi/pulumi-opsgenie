@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -93,27 +94,36 @@ public final class ServiceIncidentRuleIncidentRuleCondition {
 
         @CustomType.Setter
         public Builder expectedValue(@Nullable String expectedValue) {
+
             this.expectedValue = expectedValue;
             return this;
         }
         @CustomType.Setter
         public Builder field(String field) {
-            this.field = Objects.requireNonNull(field);
+            if (field == null) {
+              throw new MissingRequiredPropertyException("ServiceIncidentRuleIncidentRuleCondition", "field");
+            }
+            this.field = field;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder not(@Nullable Boolean not) {
+
             this.not = not;
             return this;
         }
         @CustomType.Setter
         public Builder operation(String operation) {
-            this.operation = Objects.requireNonNull(operation);
+            if (operation == null) {
+              throw new MissingRequiredPropertyException("ServiceIncidentRuleIncidentRuleCondition", "operation");
+            }
+            this.operation = operation;
             return this;
         }
         public ServiceIncidentRuleIncidentRuleCondition build() {

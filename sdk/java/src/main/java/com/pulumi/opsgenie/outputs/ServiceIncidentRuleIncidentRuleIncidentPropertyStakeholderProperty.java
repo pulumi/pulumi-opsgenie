@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,22 @@ public final class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPro
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder enable(@Nullable Boolean enable) {
+
             this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder message(String message) {
-            this.message = Objects.requireNonNull(message);
+            if (message == null) {
+              throw new MissingRequiredPropertyException("ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty", "message");
+            }
+            this.message = message;
             return this;
         }
         public ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty build() {

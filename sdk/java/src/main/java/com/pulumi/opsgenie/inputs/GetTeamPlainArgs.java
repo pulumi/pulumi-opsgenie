@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.GetTeamMember;
 import java.lang.String;
 import java.util.List;
@@ -137,7 +138,9 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetTeamPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetTeamPlainArgs", "name");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.NotificationPolicyDelayActionDuration;
 import java.lang.Integer;
 import java.lang.String;
@@ -89,11 +90,15 @@ public final class NotificationPolicyDelayAction {
 
         @CustomType.Setter
         public Builder delayOption(String delayOption) {
-            this.delayOption = Objects.requireNonNull(delayOption);
+            if (delayOption == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyDelayAction", "delayOption");
+            }
+            this.delayOption = delayOption;
             return this;
         }
         @CustomType.Setter
         public Builder durations(@Nullable List<NotificationPolicyDelayActionDuration> durations) {
+
             this.durations = durations;
             return this;
         }
@@ -102,11 +107,13 @@ public final class NotificationPolicyDelayAction {
         }
         @CustomType.Setter
         public Builder untilHour(@Nullable Integer untilHour) {
+
             this.untilHour = untilHour;
             return this;
         }
         @CustomType.Setter
         public Builder untilMinute(@Nullable Integer untilMinute) {
+
             this.untilMinute = untilMinute;
             return this;
         }

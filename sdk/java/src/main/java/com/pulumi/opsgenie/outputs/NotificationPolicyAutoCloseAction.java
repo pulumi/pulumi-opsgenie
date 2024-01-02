@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.NotificationPolicyAutoCloseActionDuration;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class NotificationPolicyAutoCloseAction {
 
         @CustomType.Setter
         public Builder durations(List<NotificationPolicyAutoCloseActionDuration> durations) {
-            this.durations = Objects.requireNonNull(durations);
+            if (durations == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyAutoCloseAction", "durations");
+            }
+            this.durations = durations;
             return this;
         }
         public Builder durations(NotificationPolicyAutoCloseActionDuration... durations) {

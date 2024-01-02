@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.NotificationPolicyDeDuplicationActionDurationArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -163,8 +164,12 @@ public final class NotificationPolicyDeDuplicationActionArgs extends com.pulumi.
         }
 
         public NotificationPolicyDeDuplicationActionArgs build() {
-            $.count = Objects.requireNonNull($.count, "expected parameter 'count' to be non-null");
-            $.deDuplicationActionType = Objects.requireNonNull($.deDuplicationActionType, "expected parameter 'deDuplicationActionType' to be non-null");
+            if ($.count == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyDeDuplicationActionArgs", "count");
+            }
+            if ($.deDuplicationActionType == null) {
+                throw new MissingRequiredPropertyException("NotificationPolicyDeDuplicationActionArgs", "deDuplicationActionType");
+            }
             return $;
         }
     }

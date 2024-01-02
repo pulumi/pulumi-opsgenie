@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.ScheduleRotationParticipantArgs;
 import com.pulumi.opsgenie.inputs.ScheduleRotationTimeRestrictionArgs;
 import java.lang.Integer;
@@ -333,10 +334,18 @@ public final class ScheduleRotationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ScheduleRotationArgs build() {
-            $.participants = Objects.requireNonNull($.participants, "expected parameter 'participants' to be non-null");
-            $.scheduleId = Objects.requireNonNull($.scheduleId, "expected parameter 'scheduleId' to be non-null");
-            $.startDate = Objects.requireNonNull($.startDate, "expected parameter 'startDate' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.participants == null) {
+                throw new MissingRequiredPropertyException("ScheduleRotationArgs", "participants");
+            }
+            if ($.scheduleId == null) {
+                throw new MissingRequiredPropertyException("ScheduleRotationArgs", "scheduleId");
+            }
+            if ($.startDate == null) {
+                throw new MissingRequiredPropertyException("ScheduleRotationArgs", "startDate");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ScheduleRotationArgs", "type");
+            }
             return $;
         }
     }

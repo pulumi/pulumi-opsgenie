@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -165,16 +166,19 @@ public final class GetHeartbeatResult {
 
         @CustomType.Setter
         public Builder alertMessage(@Nullable String alertMessage) {
+
             this.alertMessage = alertMessage;
             return this;
         }
         @CustomType.Setter
         public Builder alertPriority(@Nullable String alertPriority) {
+
             this.alertPriority = alertPriority;
             return this;
         }
         @CustomType.Setter
         public Builder alertTags(@Nullable List<String> alertTags) {
+
             this.alertTags = alertTags;
             return this;
         }
@@ -183,36 +187,47 @@ public final class GetHeartbeatResult {
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetHeartbeatResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder intervalUnit(@Nullable String intervalUnit) {
+
             this.intervalUnit = intervalUnit;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetHeartbeatResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ownerTeamId(@Nullable String ownerTeamId) {
+
             this.ownerTeamId = ownerTeamId;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class NotificationRuleStepContactArgs extends com.pulumi.resources.
         }
 
         public NotificationRuleStepContactArgs build() {
-            $.method = Objects.requireNonNull($.method, "expected parameter 'method' to be non-null");
-            $.to = Objects.requireNonNull($.to, "expected parameter 'to' to be non-null");
+            if ($.method == null) {
+                throw new MissingRequiredPropertyException("NotificationRuleStepContactArgs", "method");
+            }
+            if ($.to == null) {
+                throw new MissingRequiredPropertyException("NotificationRuleStepContactArgs", "to");
+            }
             return $;
         }
     }

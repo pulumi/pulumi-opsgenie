@@ -5,6 +5,7 @@ package com.pulumi.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.inputs.IncidentTemplateStakeholderPropertyArgs;
 import java.lang.String;
 import java.util.List;
@@ -316,9 +317,15 @@ public final class IncidentTemplateArgs extends com.pulumi.resources.ResourceArg
         }
 
         public IncidentTemplateArgs build() {
-            $.message = Objects.requireNonNull($.message, "expected parameter 'message' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.stakeholderProperties = Objects.requireNonNull($.stakeholderProperties, "expected parameter 'stakeholderProperties' to be non-null");
+            if ($.message == null) {
+                throw new MissingRequiredPropertyException("IncidentTemplateArgs", "message");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("IncidentTemplateArgs", "priority");
+            }
+            if ($.stakeholderProperties == null) {
+                throw new MissingRequiredPropertyException("IncidentTemplateArgs", "stakeholderProperties");
+            }
             return $;
         }
     }

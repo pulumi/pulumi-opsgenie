@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -113,32 +114,50 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
 
         @CustomType.Setter
         public Builder endDay(String endDay) {
-            this.endDay = Objects.requireNonNull(endDay);
+            if (endDay == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionList", "endDay");
+            }
+            this.endDay = endDay;
             return this;
         }
         @CustomType.Setter
         public Builder endHour(Integer endHour) {
-            this.endHour = Objects.requireNonNull(endHour);
+            if (endHour == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionList", "endHour");
+            }
+            this.endHour = endHour;
             return this;
         }
         @CustomType.Setter
         public Builder endMin(Integer endMin) {
-            this.endMin = Objects.requireNonNull(endMin);
+            if (endMin == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionList", "endMin");
+            }
+            this.endMin = endMin;
             return this;
         }
         @CustomType.Setter
         public Builder startDay(String startDay) {
-            this.startDay = Objects.requireNonNull(startDay);
+            if (startDay == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionList", "startDay");
+            }
+            this.startDay = startDay;
             return this;
         }
         @CustomType.Setter
         public Builder startHour(Integer startHour) {
-            this.startHour = Objects.requireNonNull(startHour);
+            if (startHour == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionList", "startHour");
+            }
+            this.startHour = startHour;
             return this;
         }
         @CustomType.Setter
         public Builder startMin(Integer startMin) {
-            this.startMin = Objects.requireNonNull(startMin);
+            if (startMin == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyTimeRestrictionRestrictionList", "startMin");
+            }
+            this.startMin = startMin;
             return this;
         }
         public NotificationPolicyTimeRestrictionRestrictionList build() {

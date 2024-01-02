@@ -5,6 +5,7 @@ package com.pulumi.opsgenie.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -122,11 +123,21 @@ public final class UserUserAddressArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public UserUserAddressArgs build() {
-            $.city = Objects.requireNonNull($.city, "expected parameter 'city' to be non-null");
-            $.country = Objects.requireNonNull($.country, "expected parameter 'country' to be non-null");
-            $.line = Objects.requireNonNull($.line, "expected parameter 'line' to be non-null");
-            $.state = Objects.requireNonNull($.state, "expected parameter 'state' to be non-null");
-            $.zipcode = Objects.requireNonNull($.zipcode, "expected parameter 'zipcode' to be non-null");
+            if ($.city == null) {
+                throw new MissingRequiredPropertyException("UserUserAddressArgs", "city");
+            }
+            if ($.country == null) {
+                throw new MissingRequiredPropertyException("UserUserAddressArgs", "country");
+            }
+            if ($.line == null) {
+                throw new MissingRequiredPropertyException("UserUserAddressArgs", "line");
+            }
+            if ($.state == null) {
+                throw new MissingRequiredPropertyException("UserUserAddressArgs", "state");
+            }
+            if ($.zipcode == null) {
+                throw new MissingRequiredPropertyException("UserUserAddressArgs", "zipcode");
+            }
             return $;
         }
     }

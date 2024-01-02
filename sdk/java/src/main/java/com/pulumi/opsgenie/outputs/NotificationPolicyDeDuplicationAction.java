@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.opsgenie.outputs.NotificationPolicyDeDuplicationActionDuration;
 import java.lang.Integer;
 import java.lang.String;
@@ -74,16 +75,23 @@ public final class NotificationPolicyDeDuplicationAction {
 
         @CustomType.Setter
         public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+            if (count == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyDeDuplicationAction", "count");
+            }
+            this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder deDuplicationActionType(String deDuplicationActionType) {
-            this.deDuplicationActionType = Objects.requireNonNull(deDuplicationActionType);
+            if (deDuplicationActionType == null) {
+              throw new MissingRequiredPropertyException("NotificationPolicyDeDuplicationAction", "deDuplicationActionType");
+            }
+            this.deDuplicationActionType = deDuplicationActionType;
             return this;
         }
         @CustomType.Setter
         public Builder durations(@Nullable List<NotificationPolicyDeDuplicationActionDuration> durations) {
+
             this.durations = durations;
             return this;
         }
