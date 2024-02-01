@@ -21,6 +21,9 @@ namespace Pulumi.Opsgenie.Outputs
         /// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
         /// </summary>
         public readonly string Field;
+        /// <summary>
+        /// If 'field' is set as 'extra-properties', key could be used for key-value pair
+        /// </summary>
         public readonly string? Key;
         /// <summary>
         /// Indicates behaviour of the given operation. Default: false
