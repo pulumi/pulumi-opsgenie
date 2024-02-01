@@ -3571,6 +3571,7 @@ class ServiceIncidentRuleIncidentRuleCondition(dict):
         :param str field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
         :param str operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         :param str expected_value: User defined value that will be compared with alert field according to the operation. Default: empty string
+        :param str key: If 'field' is set as 'extra-properties', key could be used for key-value pair
         :param bool not_: Indicates behaviour of the given operation. Default: false
         """
         pulumi.set(__self__, "field", field)
@@ -3609,6 +3610,9 @@ class ServiceIncidentRuleIncidentRuleCondition(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        If 'field' is set as 'extra-properties', key could be used for key-value pair
+        """
         return pulumi.get(self, "key")
 
     @property

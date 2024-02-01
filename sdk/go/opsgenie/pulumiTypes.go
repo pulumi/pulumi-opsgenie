@@ -6961,8 +6961,9 @@ type ServiceIncidentRuleIncidentRuleCondition struct {
 	// User defined value that will be compared with alert field according to the operation. Default: empty string
 	ExpectedValue *string `pulumi:"expectedValue"`
 	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
-	Field string  `pulumi:"field"`
-	Key   *string `pulumi:"key"`
+	Field string `pulumi:"field"`
+	// If 'field' is set as 'extra-properties', key could be used for key-value pair
+	Key *string `pulumi:"key"`
 	// Indicates behaviour of the given operation. Default: false
 	Not *bool `pulumi:"not"`
 	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
@@ -6984,8 +6985,9 @@ type ServiceIncidentRuleIncidentRuleConditionArgs struct {
 	// User defined value that will be compared with alert field according to the operation. Default: empty string
 	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
 	// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
-	Field pulumi.StringInput    `pulumi:"field"`
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Field pulumi.StringInput `pulumi:"field"`
+	// If 'field' is set as 'extra-properties', key could be used for key-value pair
+	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Indicates behaviour of the given operation. Default: false
 	Not pulumi.BoolPtrInput `pulumi:"not"`
 	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
@@ -7053,6 +7055,7 @@ func (o ServiceIncidentRuleIncidentRuleConditionOutput) Field() pulumi.StringOut
 	return o.ApplyT(func(v ServiceIncidentRuleIncidentRuleCondition) string { return v.Field }).(pulumi.StringOutput)
 }
 
+// If 'field' is set as 'extra-properties', key could be used for key-value pair
 func (o ServiceIncidentRuleIncidentRuleConditionOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentRuleIncidentRuleCondition) *string { return v.Key }).(pulumi.StringPtrOutput)
 }

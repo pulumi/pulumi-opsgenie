@@ -47,9 +47,17 @@ public final class ServiceIncidentRuleIncidentRuleConditionArgs extends com.pulu
         return this.field;
     }
 
+    /**
+     * If &#39;field&#39; is set as &#39;extra-properties&#39;, key could be used for key-value pair
+     * 
+     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
+    /**
+     * @return If &#39;field&#39; is set as &#39;extra-properties&#39;, key could be used for key-value pair
+     * 
+     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
@@ -154,11 +162,23 @@ public final class ServiceIncidentRuleIncidentRuleConditionArgs extends com.pulu
             return field(Output.of(field));
         }
 
+        /**
+         * @param key If &#39;field&#39; is set as &#39;extra-properties&#39;, key could be used for key-value pair
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key If &#39;field&#39; is set as &#39;extra-properties&#39;, key could be used for key-value pair
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
