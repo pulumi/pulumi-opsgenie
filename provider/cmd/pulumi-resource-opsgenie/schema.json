@@ -1500,7 +1500,8 @@
                     "description": "Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`\n"
                 },
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "If 'field' is set as 'extra-properties', key could be used for key-value pair\n"
                 },
                 "not": {
                     "type": "boolean",
