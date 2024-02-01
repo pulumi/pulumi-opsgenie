@@ -23,6 +23,10 @@ public final class ServiceIncidentRuleIncidentRuleCondition {
      * 
      */
     private String field;
+    /**
+     * @return If &#39;field&#39; is set as &#39;extra-properties&#39;, key could be used for key-value pair
+     * 
+     */
     private @Nullable String key;
     /**
      * @return Indicates behaviour of the given operation. Default: false
@@ -50,6 +54,10 @@ public final class ServiceIncidentRuleIncidentRuleCondition {
     public String field() {
         return this.field;
     }
+    /**
+     * @return If &#39;field&#39; is set as &#39;extra-properties&#39;, key could be used for key-value pair
+     * 
+     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }

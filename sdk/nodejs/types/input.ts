@@ -1005,6 +1005,9 @@ export interface ServiceIncidentRuleIncidentRuleCondition {
      * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
      */
     field: pulumi.Input<string>;
+    /**
+     * If 'field' is set as 'extra-properties', key could be used for key-value pair
+     */
     key?: pulumi.Input<string>;
     /**
      * Indicates behaviour of the given operation. Default: false

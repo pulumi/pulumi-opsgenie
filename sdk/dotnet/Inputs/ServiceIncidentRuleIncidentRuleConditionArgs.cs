@@ -24,6 +24,9 @@ namespace Pulumi.Opsgenie.Inputs
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
 
+        /// <summary>
+        /// If 'field' is set as 'extra-properties', key could be used for key-value pair
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
