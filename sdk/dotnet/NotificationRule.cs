@@ -62,7 +62,7 @@ namespace Pulumi.Opsgenie
     /// Notification policies can be imported using the `user_id/notification_rule_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/notificationRule:NotificationRule test user_id/notification_rule_id`
+    /// $ pulumi import opsgenie:index/notificationRule:NotificationRule test user_id/notification_rule_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/notificationRule:NotificationRule")]

@@ -87,7 +87,7 @@ namespace Pulumi.Opsgenie
     /// API Integrations can be imported using the `integration_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
+    /// $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/apiIntegration:ApiIntegration")]

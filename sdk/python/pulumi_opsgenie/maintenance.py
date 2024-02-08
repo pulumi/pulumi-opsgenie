@@ -162,7 +162,7 @@ class Maintenance(pulumi.CustomResource):
         Maintenance policies can be imported using the `policy_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
+        $ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -207,7 +207,7 @@ class Maintenance(pulumi.CustomResource):
         Maintenance policies can be imported using the `policy_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
+        $ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
         ```
 
         :param str resource_name: The name of the resource.

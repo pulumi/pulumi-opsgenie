@@ -61,7 +61,7 @@ import * as utilities from "./utilities";
  * API Integrations can be imported using the `integration_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
+ * $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
  * ```
  */
 export class ApiIntegration extends pulumi.CustomResource {

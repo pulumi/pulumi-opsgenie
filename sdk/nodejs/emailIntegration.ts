@@ -58,7 +58,7 @@ import * as utilities from "./utilities";
  * Email Integrations can be imported using the `id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
+ * $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
  * ```
  */
 export class EmailIntegration extends pulumi.CustomResource {

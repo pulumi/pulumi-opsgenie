@@ -63,9 +63,7 @@ import (
 // Maintenance policies can be imported using the `policy_id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
-//
+// $ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
 // ```
 type Maintenance struct {
 	pulumi.CustomResourceState

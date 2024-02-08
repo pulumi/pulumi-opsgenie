@@ -88,13 +88,13 @@ import javax.annotation.Nullable;
  * Alert policies can be imported using the `team_id/policy_id`, e.g.
  * 
  * ```sh
- *  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
+ * $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
  * ```
  * 
  *  You can import global polices using only policy identifier
  * 
  * ```sh
- *  $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`
+ * $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`
  * ```
  * 
  */

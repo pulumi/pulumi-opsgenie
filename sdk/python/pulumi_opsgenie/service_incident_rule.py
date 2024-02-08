@@ -144,7 +144,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
         Service Incident Rule can be imported using the `service_id/service_incident_rule_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/serviceIncidentRule:ServiceIncidentRule this service_id/service_incident_rule_id`
+        $ pulumi import opsgenie:index/serviceIncidentRule:ServiceIncidentRule this service_id/service_incident_rule_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -203,7 +203,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
         Service Incident Rule can be imported using the `service_id/service_incident_rule_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/serviceIncidentRule:ServiceIncidentRule this service_id/service_incident_rule_id`
+        $ pulumi import opsgenie:index/serviceIncidentRule:ServiceIncidentRule this service_id/service_incident_rule_id`
         ```
 
         :param str resource_name: The name of the resource.
