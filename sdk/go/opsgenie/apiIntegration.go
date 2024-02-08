@@ -90,9 +90,7 @@ import (
 // API Integrations can be imported using the `integration_id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
-//
+// $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
 // ```
 type ApiIntegration struct {
 	pulumi.CustomResourceState

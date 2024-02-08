@@ -88,9 +88,7 @@ import (
 // Email Integrations can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
-//
+// $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
 // ```
 type EmailIntegration struct {
 	pulumi.CustomResourceState

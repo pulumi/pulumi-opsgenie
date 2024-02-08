@@ -77,9 +77,7 @@ import (
 // Service can be imported using the `template_id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
-//
+// $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
 // ```
 type IncidentTemplate struct {
 	pulumi.CustomResourceState

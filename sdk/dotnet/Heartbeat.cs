@@ -46,7 +46,7 @@ namespace Pulumi.Opsgenie
     /// Heartbeat Integrations can be imported using the `name`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
+    /// $ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/heartbeat:Heartbeat")]

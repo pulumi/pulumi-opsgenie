@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * Teams can be imported using the `service_id`, e.g.
  * 
  * ```sh
- *  $ pulumi import opsgenie:index/service:Service this service_id`
+ * $ pulumi import opsgenie:index/service:Service this service_id`
  * ```
  * 
  */

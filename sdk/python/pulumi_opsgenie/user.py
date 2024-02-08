@@ -367,7 +367,7 @@ class User(pulumi.CustomResource):
         Users can be imported using the `user_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/user:User user user_id`
+        $ pulumi import opsgenie:index/user:User user user_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -426,7 +426,7 @@ class User(pulumi.CustomResource):
         Users can be imported using the `user_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/user:User user user_id`
+        $ pulumi import opsgenie:index/user:User user user_id`
         ```
 
         :param str resource_name: The name of the resource.

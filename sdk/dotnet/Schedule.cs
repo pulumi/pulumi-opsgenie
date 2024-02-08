@@ -38,7 +38,7 @@ namespace Pulumi.Opsgenie
     /// Schedule can be imported using the `schedule_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
+    /// $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/schedule:Schedule")]
