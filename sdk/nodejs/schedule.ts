@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  * Schedule can be imported using the `schedule_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
+ * $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
  * ```
  */
 export class Schedule extends pulumi.CustomResource {

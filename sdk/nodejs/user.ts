@@ -45,7 +45,7 @@ import * as utilities from "./utilities";
  * Users can be imported using the `user_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/user:User user user_id`
+ * $ pulumi import opsgenie:index/user:User user user_id`
  * ```
  */
 export class User extends pulumi.CustomResource {

@@ -83,7 +83,7 @@ namespace Pulumi.Opsgenie
     /// Email Integrations can be imported using the `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
+    /// $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/emailIntegration:EmailIntegration")]

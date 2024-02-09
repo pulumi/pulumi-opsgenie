@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * Teams can be imported using the `service_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/service:Service this service_id`
+ * $ pulumi import opsgenie:index/service:Service this service_id`
  * ```
  */
 export class Service extends pulumi.CustomResource {

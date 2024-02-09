@@ -182,7 +182,7 @@ class Service(pulumi.CustomResource):
         Teams can be imported using the `service_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/service:Service this service_id`
+        $ pulumi import opsgenie:index/service:Service this service_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,7 +216,7 @@ class Service(pulumi.CustomResource):
         Teams can be imported using the `service_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/service:Service this service_id`
+        $ pulumi import opsgenie:index/service:Service this service_id`
         ```
 
         :param str resource_name: The name of the resource.

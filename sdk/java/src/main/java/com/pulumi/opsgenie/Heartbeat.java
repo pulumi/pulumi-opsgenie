@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * Heartbeat Integrations can be imported using the `name`, e.g.
  * 
  * ```sh
- *  $ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
+ * $ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
  * ```
  * 
  */

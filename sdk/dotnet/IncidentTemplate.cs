@@ -70,7 +70,7 @@ namespace Pulumi.Opsgenie
     /// Service can be imported using the `template_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
+    /// $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/incidentTemplate:IncidentTemplate")]

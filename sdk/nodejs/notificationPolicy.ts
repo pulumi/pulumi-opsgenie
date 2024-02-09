@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  * Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test team_id/notification_policy_id`
+ * $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test team_id/notification_policy_id`
  * ```
  */
 export class NotificationPolicy extends pulumi.CustomResource {

@@ -64,7 +64,7 @@ namespace Pulumi.Opsgenie
     /// Schedule Rotations can be imported using the `schedule_id/rotation_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/rotation_id`
+    /// $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/rotation_id`
     /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/scheduleRotation:ScheduleRotation")]
