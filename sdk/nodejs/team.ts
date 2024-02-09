@@ -50,7 +50,7 @@ import * as utilities from "./utilities";
  * Teams can be imported using the `team_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/team:Team team1 team_id`
+ * $ pulumi import opsgenie:index/team:Team team1 team_id`
  * ```
  */
 export class Team extends pulumi.CustomResource {

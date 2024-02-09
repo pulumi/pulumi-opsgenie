@@ -37,7 +37,7 @@ import * as utilities from "./utilities";
  * Maintenance policies can be imported using the `policy_id`, e.g.
  *
  * ```sh
- *  $ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
+ * $ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
  * ```
  */
 export class Maintenance extends pulumi.CustomResource {

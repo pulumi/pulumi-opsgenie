@@ -425,7 +425,7 @@ class ApiIntegration(pulumi.CustomResource):
         API Integrations can be imported using the `integration_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
+        $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -498,7 +498,7 @@ class ApiIntegration(pulumi.CustomResource):
         API Integrations can be imported using the `integration_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
+        $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
         ```
 
         :param str resource_name: The name of the resource.

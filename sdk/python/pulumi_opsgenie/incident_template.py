@@ -316,7 +316,7 @@ class IncidentTemplate(pulumi.CustomResource):
         Service can be imported using the `template_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
+        $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -370,7 +370,7 @@ class IncidentTemplate(pulumi.CustomResource):
         Service can be imported using the `template_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
+        $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
         ```
 
         :param str resource_name: The name of the resource.

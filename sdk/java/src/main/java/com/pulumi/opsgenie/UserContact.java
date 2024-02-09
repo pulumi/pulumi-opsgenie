@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * Users can be imported using the `username/contact_id`, e.g.
  * 
  * ```sh
- *  $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
+ * $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
  * ```
  * 
  */

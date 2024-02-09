@@ -190,7 +190,7 @@ class UserContact(pulumi.CustomResource):
         Users can be imported using the `username/contact_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
+        $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -234,7 +234,7 @@ class UserContact(pulumi.CustomResource):
         Users can be imported using the `username/contact_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
+        $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
         ```
 
         :param str resource_name: The name of the resource.

@@ -272,7 +272,7 @@ class Escalation(pulumi.CustomResource):
         Escalations can be imported using the `escalation_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
+        $ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
         ```
 
         :param str resource_name: The name of the resource.
@@ -362,7 +362,7 @@ class Escalation(pulumi.CustomResource):
         Escalations can be imported using the `escalation_id`, e.g.
 
         ```sh
-         $ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
+        $ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
         ```
 
         :param str resource_name: The name of the resource.
