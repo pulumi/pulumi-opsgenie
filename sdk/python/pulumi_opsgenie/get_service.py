@@ -80,12 +80,14 @@ def get_service(description: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     this = opsgenie.get_service(name="Payment")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: Description field of the service that is generally used to provide a detailed information about the service.
@@ -118,12 +120,14 @@ def get_service_output(description: Optional[pulumi.Input[Optional[str]]] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     this = opsgenie.get_service(name="Payment")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: Description field of the service that is generally used to provide a detailed information about the service.

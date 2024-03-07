@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Manages a Alert Policy within Opsgenie.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,6 +84,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -91,7 +94,7 @@ import javax.annotation.Nullable;
  * $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
  * ```
  * 
- *  You can import global polices using only policy identifier
+ * You can import global polices using only policy identifier
  * 
  * ```sh
  * $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`

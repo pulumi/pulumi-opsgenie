@@ -285,6 +285,7 @@ class IncidentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -310,6 +311,7 @@ class IncidentTemplate(pulumi.CustomResource):
             },
             impacted_services=[test_service.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -339,6 +341,7 @@ class IncidentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -364,6 +367,7 @@ class IncidentTemplate(pulumi.CustomResource):
             },
             impacted_services=[test_service.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

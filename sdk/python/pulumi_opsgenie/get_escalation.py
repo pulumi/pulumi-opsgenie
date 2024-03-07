@@ -114,12 +114,14 @@ def get_escalation(description: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     test = opsgenie.get_escalation(name="existing-escalation")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: Escalation Description
@@ -158,12 +160,14 @@ def get_escalation_output(description: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     test = opsgenie.get_escalation(name="existing-escalation")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: Escalation Description

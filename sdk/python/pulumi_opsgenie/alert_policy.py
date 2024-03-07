@@ -699,6 +699,7 @@ class AlertPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -731,6 +732,7 @@ class AlertPolicy(pulumi.CustomResource):
                 ],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -740,7 +742,7 @@ class AlertPolicy(pulumi.CustomResource):
         $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
         ```
 
-         You can import global polices using only policy identifier
+        You can import global polices using only policy identifier
 
         ```sh
         $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`
@@ -780,6 +782,7 @@ class AlertPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -812,6 +815,7 @@ class AlertPolicy(pulumi.CustomResource):
                 ],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -821,7 +825,7 @@ class AlertPolicy(pulumi.CustomResource):
         $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
         ```
 
-         You can import global polices using only policy identifier
+        You can import global polices using only policy identifier
 
         ```sh
         $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`

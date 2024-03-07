@@ -14,6 +14,7 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,6 +69,7 @@ namespace Pulumi.Opsgenie
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -77,7 +79,7 @@ namespace Pulumi.Opsgenie
     /// $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
     /// ```
     /// 
-    ///  You can import global polices using only policy identifier
+    /// You can import global polices using only policy identifier
     /// 
     /// ```sh
     /// $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`

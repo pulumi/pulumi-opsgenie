@@ -203,6 +203,7 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -213,6 +214,7 @@ class Schedule(pulumi.CustomResource):
             owner_team_id=opsgenie_team["test"]["id"],
             timezone="Europe/Rome")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,6 +243,7 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -251,6 +254,7 @@ class Schedule(pulumi.CustomResource):
             owner_team_id=opsgenie_team["test"]["id"],
             timezone="Europe/Rome")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
