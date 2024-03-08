@@ -167,6 +167,7 @@ class UserContact(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -184,6 +185,7 @@ class UserContact(pulumi.CustomResource):
             to="39-123",
             username=opsgenie_user["exampleuser"]["username"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -211,6 +213,7 @@ class UserContact(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -228,6 +231,7 @@ class UserContact(pulumi.CustomResource):
             to="39-123",
             username=opsgenie_user["exampleuser"]["username"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

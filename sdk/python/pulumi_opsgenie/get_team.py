@@ -82,12 +82,14 @@ def get_team(description: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     sre_team = opsgenie.get_team(name="sre-team")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: A description for this team.
@@ -120,12 +122,14 @@ def get_team_output(description: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     sre_team = opsgenie.get_team(name="sre-team")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: A description for this team.

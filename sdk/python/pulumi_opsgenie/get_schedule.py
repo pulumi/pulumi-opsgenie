@@ -112,12 +112,14 @@ def get_schedule(description: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     test = opsgenie.get_schedule(name="sre-team schedule")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
@@ -156,12 +158,14 @@ def get_schedule_output(description: Optional[pulumi.Input[Optional[str]]] = Non
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     test = opsgenie.get_schedule(name="sre-team schedule")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
