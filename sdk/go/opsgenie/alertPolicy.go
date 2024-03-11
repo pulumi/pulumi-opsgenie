@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,6 +74,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -82,7 +84,7 @@ import (
 // $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
 // ```
 //
-//	You can import global polices using only policy identifier
+// # You can import global polices using only policy identifier
 //
 // ```sh
 // $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`
