@@ -33,6 +33,8 @@ public final class OpsgenieFunctions {
      * Manages an Escalation within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -61,6 +63,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEscalationResult> getEscalation(GetEscalationArgs args) {
@@ -70,6 +73,8 @@ public final class OpsgenieFunctions {
      * Manages an Escalation within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -98,6 +103,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEscalationResult> getEscalationPlain(GetEscalationPlainArgs args) {
@@ -107,6 +113,8 @@ public final class OpsgenieFunctions {
      * Manages an Escalation within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +143,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEscalationResult> getEscalation(GetEscalationArgs args, InvokeOptions options) {
@@ -144,6 +153,8 @@ public final class OpsgenieFunctions {
      * Manages an Escalation within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -172,6 +183,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEscalationResult> getEscalationPlain(GetEscalationPlainArgs args, InvokeOptions options) {
@@ -181,6 +193,8 @@ public final class OpsgenieFunctions {
      * Manages existing heartbeat within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -209,6 +223,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHeartbeatResult> getHeartbeat(GetHeartbeatArgs args) {
@@ -218,6 +233,8 @@ public final class OpsgenieFunctions {
      * Manages existing heartbeat within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -246,6 +263,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHeartbeatResult> getHeartbeatPlain(GetHeartbeatPlainArgs args) {
@@ -255,6 +273,8 @@ public final class OpsgenieFunctions {
      * Manages existing heartbeat within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -283,6 +303,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHeartbeatResult> getHeartbeat(GetHeartbeatArgs args, InvokeOptions options) {
@@ -292,6 +313,8 @@ public final class OpsgenieFunctions {
      * Manages existing heartbeat within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -320,6 +343,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHeartbeatResult> getHeartbeatPlain(GetHeartbeatPlainArgs args, InvokeOptions options) {
@@ -329,6 +353,8 @@ public final class OpsgenieFunctions {
      * Manages a Schedule within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -357,6 +383,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetScheduleResult> getSchedule(GetScheduleArgs args) {
@@ -366,6 +393,8 @@ public final class OpsgenieFunctions {
      * Manages a Schedule within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -394,6 +423,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetScheduleResult> getSchedulePlain(GetSchedulePlainArgs args) {
@@ -403,6 +433,8 @@ public final class OpsgenieFunctions {
      * Manages a Schedule within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -431,6 +463,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetScheduleResult> getSchedule(GetScheduleArgs args, InvokeOptions options) {
@@ -440,6 +473,8 @@ public final class OpsgenieFunctions {
      * Manages a Schedule within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -468,6 +503,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetScheduleResult> getSchedulePlain(GetSchedulePlainArgs args, InvokeOptions options) {
@@ -477,6 +513,8 @@ public final class OpsgenieFunctions {
      * Manages existing Service within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -505,6 +543,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -514,6 +553,8 @@ public final class OpsgenieFunctions {
      * Manages existing Service within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -542,6 +583,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -551,6 +593,8 @@ public final class OpsgenieFunctions {
      * Manages existing Service within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -579,6 +623,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -588,6 +633,8 @@ public final class OpsgenieFunctions {
      * Manages existing Service within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -616,6 +663,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
@@ -625,6 +673,8 @@ public final class OpsgenieFunctions {
      * Manages existing Team within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -653,6 +703,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamResult> getTeam(GetTeamArgs args) {
@@ -662,6 +713,8 @@ public final class OpsgenieFunctions {
      * Manages existing Team within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -690,6 +743,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args) {
@@ -699,6 +753,8 @@ public final class OpsgenieFunctions {
      * Manages existing Team within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -727,6 +783,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOptions options) {
@@ -736,6 +793,8 @@ public final class OpsgenieFunctions {
      * Manages existing Team within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -764,6 +823,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args, InvokeOptions options) {
@@ -773,6 +833,8 @@ public final class OpsgenieFunctions {
      * Manages existing User within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -801,6 +863,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
@@ -810,6 +873,8 @@ public final class OpsgenieFunctions {
      * Manages existing User within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -838,6 +903,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -847,6 +913,8 @@ public final class OpsgenieFunctions {
      * Manages existing User within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -875,6 +943,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
@@ -884,6 +953,8 @@ public final class OpsgenieFunctions {
      * Manages existing User within Opsgenie.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -912,6 +983,7 @@ public final class OpsgenieFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {

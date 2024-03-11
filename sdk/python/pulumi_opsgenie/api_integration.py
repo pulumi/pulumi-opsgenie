@@ -378,6 +378,7 @@ class ApiIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -419,6 +420,7 @@ class ApiIntegration(pulumi.CustomResource):
                 "header1": value1,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -451,6 +453,7 @@ class ApiIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -492,6 +495,7 @@ class ApiIntegration(pulumi.CustomResource):
                 "header1": value1,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
@@ -16,6 +17,7 @@ import * as utilities from "./utilities";
  * const payment = new opsgenie.Team("payment", {description: "This team deals with all the things"});
  * const _this = new opsgenie.Service("this", {teamId: "$opsgenie_team.payment.id"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -332,6 +332,7 @@ class Heartbeat(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -349,6 +350,7 @@ class Heartbeat(pulumi.CustomResource):
             interval_unit="minutes",
             owner_team_id=opsgenie_team["test"]["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -381,6 +383,7 @@ class Heartbeat(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -398,6 +401,7 @@ class Heartbeat(pulumi.CustomResource):
             interval_unit="minutes",
             owner_team_id=opsgenie_team["test"]["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -262,6 +262,7 @@ class EmailIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -301,6 +302,7 @@ class EmailIntegration(pulumi.CustomResource):
             suppress_notifications=True,
             owner_team_id=opsgenie_team_genies["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -330,6 +332,7 @@ class EmailIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -369,6 +372,7 @@ class EmailIntegration(pulumi.CustomResource):
             suppress_notifications=True,
             owner_team_id=opsgenie_team_genies["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

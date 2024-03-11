@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
@@ -44,6 +45,7 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -53,7 +55,7 @@ import * as utilities from "./utilities";
  * $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
  * ```
  *
- *  You can import global polices using only policy identifier
+ * You can import global polices using only policy identifier
  *
  * ```sh
  * $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`
