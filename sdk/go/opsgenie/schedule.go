@@ -13,37 +13,6 @@ import (
 
 // Manages a Schedule within Opsgenie.
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsgenie.NewSchedule(ctx, "test", &opsgenie.ScheduleArgs{
-//				Description: pulumi.String("schedule test"),
-//				Enabled:     pulumi.Bool(false),
-//				OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
-//				Timezone:    pulumi.String("Europe/Rome"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // Schedule can be imported using the `schedule_id`, e.g.

@@ -15,17 +15,18 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const test = new opsgenie.Heartbeat("test", {
+ *     name: "genieheartbeat-test",
+ *     description: "test opsgenie heartbeat terraform",
+ *     intervalUnit: "minutes",
+ *     interval: 10,
+ *     enabled: false,
  *     alertMessage: "Test",
  *     alertPriority: "P3",
  *     alertTags: [
  *         "test",
  *         "fahri",
  *     ],
- *     description: "test opsgenie heartbeat terraform",
- *     enabled: false,
- *     interval: 10,
- *     intervalUnit: "minutes",
- *     ownerTeamId: opsgenie_team.test.id,
+ *     ownerTeamId: testOpsgenieTeam.id,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

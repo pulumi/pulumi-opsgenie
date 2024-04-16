@@ -30,21 +30,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewUser(ctx, "test", &opsgenie.UserArgs{
-//				FullName:      pulumi.String("Test User"),
-//				Locale:        pulumi.String("en_US"),
-//				Role:          pulumi.String("User"),
-//				SkypeUsername: pulumi.String("skypename"),
+//				Username: pulumi.String("user@domain.com"),
+//				FullName: pulumi.String("Test User"),
+//				Role:     pulumi.String("User"),
+//				Locale:   pulumi.String("en_US"),
+//				Timezone: pulumi.String("America/New_York"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("sre"),
 //					pulumi.String("opsgenie"),
 //				},
-//				Timezone: pulumi.String("America/New_York"),
+//				SkypeUsername: pulumi.String("skypename"),
 //				UserAddresses: opsgenie.UserUserAddressArray{
 //					&opsgenie.UserUserAddressArgs{
-//						City:    pulumi.String("City"),
 //						Country: pulumi.String("Country"),
-//						Line:    pulumi.String("Line"),
 //						State:   pulumi.String("State"),
+//						City:    pulumi.String("City"),
+//						Line:    pulumi.String("Line"),
 //						Zipcode: pulumi.String("998877"),
 //					},
 //				},
@@ -52,7 +53,6 @@ import (
 //					"key1": pulumi.String("val1,val2"),
 //					"key2": pulumi.String("val3,val4"),
 //				},
-//				Username: pulumi.String("user@domain.com"),
 //			})
 //			if err != nil {
 //				return err

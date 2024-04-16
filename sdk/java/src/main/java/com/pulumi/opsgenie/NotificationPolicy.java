@@ -38,8 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.opsgenie.TeamArgs;
  * import com.pulumi.opsgenie.NotificationPolicy;
  * import com.pulumi.opsgenie.NotificationPolicyArgs;
- * import com.pulumi.opsgenie.inputs.NotificationPolicyDelayActionArgs;
  * import com.pulumi.opsgenie.inputs.NotificationPolicyFilterArgs;
+ * import com.pulumi.opsgenie.inputs.NotificationPolicyDelayActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,19 +53,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTeam = new Team(&#34;testTeam&#34;, TeamArgs.builder()        
+ *         var test = new Team(&#34;test&#34;, TeamArgs.builder()        
+ *             .name(&#34;example team&#34;)
  *             .description(&#34;This team deals with all the things&#34;)
  *             .build());
  * 
  *         var testNotificationPolicy = new NotificationPolicy(&#34;testNotificationPolicy&#34;, NotificationPolicyArgs.builder()        
- *             .teamId(testTeam.id())
+ *             .filters()
+ *             .name(&#34;example policy&#34;)
+ *             .teamId(test.id())
  *             .policyDescription(&#34;This policy has a delay action&#34;)
  *             .delayActions(NotificationPolicyDelayActionArgs.builder()
  *                 .delayOption(&#34;next-time&#34;)
  *                 .untilMinute(1)
  *                 .untilHour(9)
  *                 .build())
- *             .filters()
  *             .build());
  * 
  *     }

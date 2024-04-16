@@ -9,55 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Manages an API Integration within Opsgenie.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as opsgenie from "@pulumi/opsgenie";
- *
- * const example_api_integrationApiIntegration = new opsgenie.ApiIntegration("example-api-integrationApiIntegration", {
- *     type: "API",
- *     responders: [
- *         {
- *             type: "user",
- *             id: opsgenie_user.user.id,
- *         },
- *         {
- *             type: "user",
- *             id: opsgenie_user.fahri.id,
- *         },
- *     ],
- * });
- * const example_api_integrationIndex_apiIntegrationApiIntegration = new opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration", {
- *     type: "Prometheus",
- *     responders: [{
- *         type: "user",
- *         id: opsgenie_user.user.id,
- *     }],
- *     enabled: false,
- *     allowWriteAccess: false,
- *     ignoreRespondersFromPayload: true,
- *     suppressNotifications: true,
- *     ownerTeamId: opsgenie_team.team.id,
- * });
- * const test3 = new opsgenie.ApiIntegration("test3", {
- *     type: "Webhook",
- *     responders: [{
- *         type: "user",
- *         id: opsgenie_user.user.id,
- *     }],
- *     enabled: false,
- *     allowWriteAccess: false,
- *     suppressNotifications: true,
- *     webhookUrl: "https://api.example.com/v1",
- *     headers: {
- *         header1: value1,
- *     },
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * API Integrations can be imported using the `integration_id`, e.g.

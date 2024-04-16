@@ -23,67 +23,70 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testSchedule = new Opsgenie.Schedule("testSchedule", new()
+    ///     var test = new Opsgenie.Schedule("test", new()
     ///     {
+    ///         Name = "genieschedule",
     ///         Description = "schedule test",
-    ///         Enabled = false,
     ///         Timezone = "Europe/Rome",
+    ///         Enabled = false,
     ///     });
     /// 
-    ///     var testTeam = new Opsgenie.Team("testTeam", new()
+    ///     var testTeam = new Opsgenie.Team("test", new()
     ///     {
+    ///         Name = "example team",
     ///         Description = "This team deals with all the things",
     ///     });
     /// 
-    ///     var testTeamRoutingRule = new Opsgenie.TeamRoutingRule("testTeamRoutingRule", new()
+    ///     var testTeamRoutingRule = new Opsgenie.TeamRoutingRule("test", new()
     ///     {
+    ///         Name = "routing rule example",
+    ///         TeamId = testTeam.Id,
+    ///         Order = 0,
+    ///         Timezone = "America/Los_Angeles",
     ///         Criterias = new[]
     ///         {
     ///             new Opsgenie.Inputs.TeamRoutingRuleCriteriaArgs
     ///             {
+    ///                 Type = "match-any-condition",
     ///                 Conditions = new[]
     ///                 {
     ///                     new Opsgenie.Inputs.TeamRoutingRuleCriteriaConditionArgs
     ///                     {
-    ///                         ExpectedValue = "expected1",
     ///                         Field = "message",
-    ///                         Not = false,
     ///                         Operation = "contains",
+    ///                         ExpectedValue = "expected1",
+    ///                         Not = false,
     ///                     },
     ///                 },
-    ///                 Type = "match-any-condition",
+    ///             },
+    ///         },
+    ///         TimeRestrictions = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionArgs
+    ///             {
+    ///                 Type = "weekday-and-time-of-day",
+    ///                 RestrictionList = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionRestrictionListArgs
+    ///                     {
+    ///                         StartDay = "monday",
+    ///                         StartHour = 8,
+    ///                         StartMin = 0,
+    ///                         EndDay = "tuesday",
+    ///                         EndHour = 18,
+    ///                         EndMin = 30,
+    ///                     },
+    ///                 },
     ///             },
     ///         },
     ///         Notifies = new[]
     ///         {
     ///             new Opsgenie.Inputs.TeamRoutingRuleNotifyArgs
     ///             {
-    ///                 Name = testSchedule.Name,
+    ///                 Name = test.Name,
     ///                 Type = "schedule",
     ///             },
     ///         },
-    ///         Order = 0,
-    ///         TeamId = testTeam.Id,
-    ///         TimeRestrictions = new[]
-    ///         {
-    ///             new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionArgs
-    ///             {
-    ///                 RestrictionList = new[]
-    ///                 {
-    ///                     new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionRestrictionListArgs
-    ///                     {
-    ///                         EndDay = "tuesday",
-    ///                         EndHour = 18,
-    ///                         EndMin = 30,
-    ///                         StartDay = "monday",
-    ///                         StartHour = 8,
-    ///                         StartMin = 0,
-    ///                     },
-    ///                 },
-    ///                 Type = "weekday-and-time-of-day",
-    ///             },
-    ///         },
-    ///         Timezone = "America/Los_Angeles",
     ///     });
     /// 
     /// });

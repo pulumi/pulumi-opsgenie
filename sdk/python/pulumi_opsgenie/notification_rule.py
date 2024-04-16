@@ -374,12 +374,13 @@ class NotificationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_user = opsgenie.User("testUser",
+        test = opsgenie.User("test",
             username="Example user",
             full_name="Name Lastname",
             role="User")
-        test_notification_rule = opsgenie.NotificationRule("testNotificationRule",
-            username=test_user.username,
+        test_notification_rule = opsgenie.NotificationRule("test",
+            name="Example notification rule",
+            username=test.username,
             action_type="schedule-end",
             notification_times=[
                 "just-before",
@@ -428,12 +429,13 @@ class NotificationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_user = opsgenie.User("testUser",
+        test = opsgenie.User("test",
             username="Example user",
             full_name="Name Lastname",
             role="User")
-        test_notification_rule = opsgenie.NotificationRule("testNotificationRule",
-            username=test_user.username,
+        test_notification_rule = opsgenie.NotificationRule("test",
+            name="Example notification rule",
+            username=test.username,
             action_type="schedule-end",
             notification_times=[
                 "just-before",

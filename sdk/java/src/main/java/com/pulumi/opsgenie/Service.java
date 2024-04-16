@@ -45,10 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var payment = new Team(&#34;payment&#34;, TeamArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;This team deals with all the things&#34;)
  *             .build());
  * 
  *         var this_ = new Service(&#34;this&#34;, ServiceArgs.builder()        
+ *             .name(&#34;Payment&#34;)
  *             .teamId(&#34;$opsgenie_team.payment.id&#34;)
  *             .build());
  * 

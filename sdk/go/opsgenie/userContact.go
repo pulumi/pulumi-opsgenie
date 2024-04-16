@@ -30,25 +30,25 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewUserContact(ctx, "sms", &opsgenie.UserContactArgs{
-//				Method:   pulumi.String("sms"),
+//				Username: pulumi.Any(exampleuser.Username),
 //				To:       pulumi.String("39-123"),
-//				Username: pulumi.Any(opsgenie_user.Exampleuser.Username),
+//				Method:   pulumi.String("sms"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = opsgenie.NewUserContact(ctx, "email", &opsgenie.UserContactArgs{
-//				Method:   pulumi.String("email"),
+//				Username: pulumi.Any(exampleuser.Username),
 //				To:       pulumi.String("fahri@opsgenie.com"),
-//				Username: pulumi.Any(opsgenie_user.Exampleuser.Username),
+//				Method:   pulumi.String("email"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = opsgenie.NewUserContact(ctx, "voice", &opsgenie.UserContactArgs{
-//				Method:   pulumi.String("voice"),
+//				Username: pulumi.Any(exampleuser.Username),
 //				To:       pulumi.String("39-123"),
-//				Username: pulumi.Any(opsgenie_user.Exampleuser.Username),
+//				Method:   pulumi.String("voice"),
 //			})
 //			if err != nil {
 //				return err

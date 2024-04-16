@@ -9,31 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Manages a Maintenance within Opsgenie.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as opsgenie from "@pulumi/opsgenie";
- *
- * const test = new opsgenie.Maintenance("test", {
- *     description: "geniemaintenance-%s",
- *     rules: [{
- *         entities: [{
- *             id: opsgenie_email_integration.test.id,
- *             type: "integration",
- *         }],
- *         state: "enabled",
- *     }],
- *     times: [{
- *         endDate: "2019-06-%dT17:50:00Z",
- *         startDate: "2019-06-20T17:45:00Z",
- *         type: "schedule",
- *     }],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Maintenance policies can be imported using the `policy_id`, e.g.

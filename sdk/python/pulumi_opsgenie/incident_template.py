@@ -290,9 +290,14 @@ class IncidentTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_service = opsgenie.Service("testService", team_id=test_team.id)
-        test_incident_template = opsgenie.IncidentTemplate("testIncidentTemplate",
+        test = opsgenie.Team("test",
+            name="genietest-team",
+            description="This team deals with all the things")
+        test_service = opsgenie.Service("test",
+            name="genietest-service",
+            team_id=test.id)
+        test_incident_template = opsgenie.IncidentTemplate("test",
+            name="genietest-incident-template",
             message="Incident Message",
             priority="P2",
             stakeholder_properties=[opsgenie.IncidentTemplateStakeholderPropertyArgs(
@@ -346,9 +351,14 @@ class IncidentTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_service = opsgenie.Service("testService", team_id=test_team.id)
-        test_incident_template = opsgenie.IncidentTemplate("testIncidentTemplate",
+        test = opsgenie.Team("test",
+            name="genietest-team",
+            description="This team deals with all the things")
+        test_service = opsgenie.Service("test",
+            name="genietest-service",
+            team_id=test.id)
+        test_incident_template = opsgenie.IncidentTemplate("test",
+            name="genietest-incident-template",
             message="Incident Message",
             priority="P2",
             stakeholder_properties=[opsgenie.IncidentTemplateStakeholderPropertyArgs(

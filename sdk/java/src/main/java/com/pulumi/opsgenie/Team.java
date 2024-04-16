@@ -48,18 +48,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var first = new User(&#34;first&#34;, UserArgs.builder()        
+ *             .username(&#34;user@domain.com&#34;)
  *             .fullName(&#34;name &#34;)
  *             .role(&#34;User&#34;)
- *             .username(&#34;user@domain.com&#34;)
  *             .build());
  * 
  *         var second = new User(&#34;second&#34;, UserArgs.builder()        
+ *             .username(&#34;test@domain.com&#34;)
  *             .fullName(&#34;name &#34;)
  *             .role(&#34;User&#34;)
- *             .username(&#34;test@domain.com&#34;)
  *             .build());
  * 
  *         var test = new Team(&#34;test&#34;, TeamArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;This team deals with all the things&#34;)
  *             .members(            
  *                 TeamMemberArgs.builder()
@@ -73,9 +74,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var self_service = new Team(&#34;self-service&#34;, TeamArgs.builder()        
- *             .deleteDefaultResources(true)
+ *             .name(&#34;Self Service&#34;)
  *             .description(&#34;Membership in this team is managed via OpsGenie web UI only&#34;)
  *             .ignoreMembers(true)
+ *             .deleteDefaultResources(true)
  *             .build());
  * 
  *     }

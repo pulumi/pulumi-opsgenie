@@ -174,8 +174,12 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        payment = opsgenie.Team("payment", description="This team deals with all the things")
-        this = opsgenie.Service("this", team_id="$opsgenie_team.payment.id")
+        payment = opsgenie.Team("payment",
+            name="example",
+            description="This team deals with all the things")
+        this = opsgenie.Service("this",
+            name="Payment",
+            team_id="$opsgenie_team.payment.id")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -210,8 +214,12 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        payment = opsgenie.Team("payment", description="This team deals with all the things")
-        this = opsgenie.Service("this", team_id="$opsgenie_team.payment.id")
+        payment = opsgenie.Team("payment",
+            name="example",
+            description="This team deals with all the things")
+        this = opsgenie.Service("this",
+            name="Payment",
+            team_id="$opsgenie_team.payment.id")
         ```
         <!--End PulumiCodeChooser -->
 

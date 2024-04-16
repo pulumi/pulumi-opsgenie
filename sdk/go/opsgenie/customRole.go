@@ -30,15 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewCustomRole(ctx, "test", &opsgenie.CustomRoleArgs{
-//				DisallowedRights: pulumi.StringArray{
-//					pulumi.String("profile-edit"),
-//					pulumi.String("contacts-edit"),
-//				},
+//				RoleName:     pulumi.String("genierole"),
 //				ExtendedRole: pulumi.String("user"),
 //				GrantedRights: pulumi.StringArray{
 //					pulumi.String("alert-delete"),
 //				},
-//				RoleName: pulumi.String("genierole"),
+//				DisallowedRights: pulumi.StringArray{
+//					pulumi.String("profile-edit"),
+//					pulumi.String("contacts-edit"),
+//				},
 //			})
 //			if err != nil {
 //				return err

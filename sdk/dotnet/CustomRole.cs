@@ -25,17 +25,17 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var test = new Opsgenie.CustomRole("test", new()
     ///     {
-    ///         DisallowedRights = new[]
-    ///         {
-    ///             "profile-edit",
-    ///             "contacts-edit",
-    ///         },
+    ///         RoleName = "genierole",
     ///         ExtendedRole = "user",
     ///         GrantedRights = new[]
     ///         {
     ///             "alert-delete",
     ///         },
-    ///         RoleName = "genierole",
+    ///         DisallowedRights = new[]
+    ///         {
+    ///             "profile-edit",
+    ///             "contacts-edit",
+    ///         },
     ///     });
     /// 
     /// });

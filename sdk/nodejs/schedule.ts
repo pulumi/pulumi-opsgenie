@@ -7,22 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages a Schedule within Opsgenie.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as opsgenie from "@pulumi/opsgenie";
- *
- * const test = new opsgenie.Schedule("test", {
- *     description: "schedule test",
- *     enabled: false,
- *     ownerTeamId: opsgenie_team.test.id,
- *     timezone: "Europe/Rome",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Schedule can be imported using the `schedule_id`, e.g.

@@ -17,27 +17,27 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const test = new opsgenie.User("test", {
+ *     username: "user@domain.com",
  *     fullName: "Test User",
- *     locale: "en_US",
  *     role: "User",
- *     skypeUsername: "skypename",
+ *     locale: "en_US",
+ *     timezone: "America/New_York",
  *     tags: [
  *         "sre",
  *         "opsgenie",
  *     ],
- *     timezone: "America/New_York",
+ *     skypeUsername: "skypename",
  *     userAddresses: [{
- *         city: "City",
  *         country: "Country",
- *         line: "Line",
  *         state: "State",
+ *         city: "City",
+ *         line: "Line",
  *         zipcode: "998877",
  *     }],
  *     userDetails: {
  *         key1: "val1,val2",
  *         key2: "val3,val4",
  *     },
- *     username: "user@domain.com",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

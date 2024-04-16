@@ -16,13 +16,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const testUser = new opsgenie.User("testUser", {
+ * const test = new opsgenie.User("test", {
  *     username: "Example user",
  *     fullName: "Name Lastname",
  *     role: "User",
  * });
- * const testNotificationRule = new opsgenie.NotificationRule("testNotificationRule", {
- *     username: testUser.username,
+ * const testNotificationRule = new opsgenie.NotificationRule("test", {
+ *     name: "Example notification rule",
+ *     username: test.username,
  *     actionType: "schedule-end",
  *     notificationTimes: [
  *         "just-before",

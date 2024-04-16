@@ -704,12 +704,15 @@ class AlertPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_alert_policy = opsgenie.AlertPolicy("testAlertPolicy",
-            team_id=test_team.id,
+        test = opsgenie.Team("test",
+            name="example team",
+            description="This team deals with all the things")
+        test_alert_policy = opsgenie.AlertPolicy("test",
+            filters=[opsgenie.AlertPolicyFilterArgs()],
+            name="example policy",
+            team_id=test.id,
             policy_description="This is sample policy",
             message="{{message}}",
-            filters=[opsgenie.AlertPolicyFilterArgs()],
             time_restrictions=[opsgenie.AlertPolicyTimeRestrictionArgs(
                 type="weekday-and-time-of-day",
                 restriction_list=[
@@ -787,12 +790,15 @@ class AlertPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_alert_policy = opsgenie.AlertPolicy("testAlertPolicy",
-            team_id=test_team.id,
+        test = opsgenie.Team("test",
+            name="example team",
+            description="This team deals with all the things")
+        test_alert_policy = opsgenie.AlertPolicy("test",
+            filters=[opsgenie.AlertPolicyFilterArgs()],
+            name="example policy",
+            team_id=test.id,
             policy_description="This is sample policy",
             message="{{message}}",
-            filters=[opsgenie.AlertPolicyFilterArgs()],
             time_restrictions=[opsgenie.AlertPolicyTimeRestrictionArgs(
                 type="weekday-and-time-of-day",
                 restriction_list=[

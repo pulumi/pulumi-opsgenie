@@ -12,50 +12,6 @@ namespace Pulumi.Opsgenie
     /// <summary>
     /// Manages a Maintenance within Opsgenie.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Opsgenie = Pulumi.Opsgenie;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Opsgenie.Maintenance("test", new()
-    ///     {
-    ///         Description = "geniemaintenance-%s",
-    ///         Rules = new[]
-    ///         {
-    ///             new Opsgenie.Inputs.MaintenanceRuleArgs
-    ///             {
-    ///                 Entities = new[]
-    ///                 {
-    ///                     new Opsgenie.Inputs.MaintenanceRuleEntityArgs
-    ///                     {
-    ///                         Id = opsgenie_email_integration.Test.Id,
-    ///                         Type = "integration",
-    ///                     },
-    ///                 },
-    ///                 State = "enabled",
-    ///             },
-    ///         },
-    ///         Times = new[]
-    ///         {
-    ///             new Opsgenie.Inputs.MaintenanceTimeArgs
-    ///             {
-    ///                 EndDate = "2019-06-%dT17:50:00Z",
-    ///                 StartDate = "2019-06-20T17:45:00Z",
-    ///                 Type = "schedule",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// Maintenance policies can be imported using the `policy_id`, e.g.

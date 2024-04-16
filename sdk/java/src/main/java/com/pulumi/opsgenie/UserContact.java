@@ -43,21 +43,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sms = new UserContact(&#34;sms&#34;, UserContactArgs.builder()        
- *             .method(&#34;sms&#34;)
+ *             .username(exampleuser.username())
  *             .to(&#34;39-123&#34;)
- *             .username(opsgenie_user.exampleuser().username())
+ *             .method(&#34;sms&#34;)
  *             .build());
  * 
  *         var email = new UserContact(&#34;email&#34;, UserContactArgs.builder()        
- *             .method(&#34;email&#34;)
+ *             .username(exampleuser.username())
  *             .to(&#34;fahri@opsgenie.com&#34;)
- *             .username(opsgenie_user.exampleuser().username())
+ *             .method(&#34;email&#34;)
  *             .build());
  * 
  *         var voice = new UserContact(&#34;voice&#34;, UserContactArgs.builder()        
- *             .method(&#34;voice&#34;)
+ *             .username(exampleuser.username())
  *             .to(&#34;39-123&#34;)
- *             .username(opsgenie_user.exampleuser().username())
+ *             .method(&#34;voice&#34;)
  *             .build());
  * 
  *     }

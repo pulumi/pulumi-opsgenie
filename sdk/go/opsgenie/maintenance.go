@@ -14,52 +14,6 @@ import (
 
 // Manages a Maintenance within Opsgenie.
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsgenie.NewMaintenance(ctx, "test", &opsgenie.MaintenanceArgs{
-//				Description: pulumi.String("geniemaintenance-%s"),
-//				Rules: opsgenie.MaintenanceRuleArray{
-//					&opsgenie.MaintenanceRuleArgs{
-//						Entities: opsgenie.MaintenanceRuleEntityArray{
-//							&opsgenie.MaintenanceRuleEntityArgs{
-//								Id:   pulumi.Any(opsgenie_email_integration.Test.Id),
-//								Type: pulumi.String("integration"),
-//							},
-//						},
-//						State: pulumi.String("enabled"),
-//					},
-//				},
-//				Times: opsgenie.MaintenanceTimeArray{
-//					&opsgenie.MaintenanceTimeArgs{
-//						EndDate:   pulumi.String("2019-06-%dT17:50:00Z"),
-//						StartDate: pulumi.String("2019-06-20T17:45:00Z"),
-//						Type:      pulumi.String("schedule"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // Maintenance policies can be imported using the `policy_id`, e.g.

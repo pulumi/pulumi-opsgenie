@@ -9,52 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Manages an Email Integration within Opsgenie.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as opsgenie from "@pulumi/opsgenie";
- *
- * const testEmailIntegration = new opsgenie.EmailIntegration("testEmailIntegration", {emailUsername: "fahri"});
- * const testIndex_emailIntegrationEmailIntegration = new opsgenie.EmailIntegration("testIndex/emailIntegrationEmailIntegration", {
- *     responders: [
- *         {
- *             type: "user",
- *             id: opsgenie_user.test.id,
- *         },
- *         {
- *             type: "schedule",
- *             id: opsgenie_schedule.test.id,
- *         },
- *         {
- *             type: "escalation",
- *             id: opsgenie_escalation.test.id,
- *         },
- *         {
- *             type: "team",
- *             id: opsgenie_team.test2.id,
- *         },
- *     ],
- *     emailUsername: "test",
- *     enabled: true,
- *     ignoreRespondersFromPayload: true,
- *     suppressNotifications: true,
- * });
- * const testOpsgenieIndex_emailIntegrationEmailIntegration = new opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration", {
- *     responders: [{
- *         type: "user",
- *         id: opsgenie_user.test.id,
- *     }],
- *     emailUsername: "test",
- *     enabled: true,
- *     ignoreRespondersFromPayload: true,
- *     suppressNotifications: true,
- *     ownerTeamId: opsgenie_team_genies.id,
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Email Integrations can be imported using the `id`, e.g.

@@ -109,9 +109,13 @@ class ServiceIncidentRule(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_service = opsgenie.Service("testService", team_id=test_team.id)
-        test_service_incident_rule = opsgenie.ServiceIncidentRule("testServiceIncidentRule",
+        test = opsgenie.Team("test",
+            name="example-team",
+            description="This team deals with all the things")
+        test_service = opsgenie.Service("test",
+            name="example-service",
+            team_id=test.id)
+        test_service_incident_rule = opsgenie.ServiceIncidentRule("test",
             service_id=test_service.id,
             incident_rules=[opsgenie.ServiceIncidentRuleIncidentRuleArgs(
                 condition_match_type="match-any-condition",
@@ -170,9 +174,13 @@ class ServiceIncidentRule(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_service = opsgenie.Service("testService", team_id=test_team.id)
-        test_service_incident_rule = opsgenie.ServiceIncidentRule("testServiceIncidentRule",
+        test = opsgenie.Team("test",
+            name="example-team",
+            description="This team deals with all the things")
+        test_service = opsgenie.Service("test",
+            name="example-service",
+            team_id=test.id)
+        test_service_incident_rule = opsgenie.ServiceIncidentRule("test",
             service_id=test_service.id,
             incident_rules=[opsgenie.ServiceIncidentRuleIncidentRuleArgs(
                 condition_match_type="match-any-condition",

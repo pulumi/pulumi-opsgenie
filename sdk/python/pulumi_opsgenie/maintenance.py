@@ -135,30 +135,6 @@ class Maintenance(pulumi.CustomResource):
         """
         Manages a Maintenance within Opsgenie.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_opsgenie as opsgenie
-
-        test = opsgenie.Maintenance("test",
-            description="geniemaintenance-%s",
-            rules=[opsgenie.MaintenanceRuleArgs(
-                entities=[opsgenie.MaintenanceRuleEntityArgs(
-                    id=opsgenie_email_integration["test"]["id"],
-                    type="integration",
-                )],
-                state="enabled",
-            )],
-            times=[opsgenie.MaintenanceTimeArgs(
-                end_date="2019-06-%dT17:50:00Z",
-                start_date="2019-06-20T17:45:00Z",
-                type="schedule",
-            )])
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Maintenance policies can be imported using the `policy_id`, e.g.
@@ -181,30 +157,6 @@ class Maintenance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Maintenance within Opsgenie.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_opsgenie as opsgenie
-
-        test = opsgenie.Maintenance("test",
-            description="geniemaintenance-%s",
-            rules=[opsgenie.MaintenanceRuleArgs(
-                entities=[opsgenie.MaintenanceRuleEntityArgs(
-                    id=opsgenie_email_integration["test"]["id"],
-                    type="integration",
-                )],
-                state="enabled",
-            )],
-            times=[opsgenie.MaintenanceTimeArgs(
-                end_date="2019-06-%dT17:50:00Z",
-                start_date="2019-06-20T17:45:00Z",
-                type="schedule",
-            )])
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

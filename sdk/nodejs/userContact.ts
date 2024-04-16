@@ -15,19 +15,19 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const sms = new opsgenie.UserContact("sms", {
- *     method: "sms",
+ *     username: exampleuser.username,
  *     to: "39-123",
- *     username: opsgenie_user.exampleuser.username,
+ *     method: "sms",
  * });
  * const email = new opsgenie.UserContact("email", {
- *     method: "email",
+ *     username: exampleuser.username,
  *     to: "fahri@opsgenie.com",
- *     username: opsgenie_user.exampleuser.username,
+ *     method: "email",
  * });
  * const voice = new opsgenie.UserContact("voice", {
- *     method: "voice",
+ *     username: exampleuser.username,
  *     to: "39-123",
- *     username: opsgenie_user.exampleuser.username,
+ *     method: "voice",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

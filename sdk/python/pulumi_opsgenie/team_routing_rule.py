@@ -307,39 +307,43 @@ class TeamRoutingRule(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_schedule = opsgenie.Schedule("testSchedule",
+        test = opsgenie.Schedule("test",
+            name="genieschedule",
             description="schedule test",
-            enabled=False,
-            timezone="Europe/Rome")
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_team_routing_rule = opsgenie.TeamRoutingRule("testTeamRoutingRule",
-            criterias=[opsgenie.TeamRoutingRuleCriteriaArgs(
-                conditions=[opsgenie.TeamRoutingRuleCriteriaConditionArgs(
-                    expected_value="expected1",
-                    field="message",
-                    not_=False,
-                    operation="contains",
-                )],
-                type="match-any-condition",
-            )],
-            notifies=[opsgenie.TeamRoutingRuleNotifyArgs(
-                name=test_schedule.name,
-                type="schedule",
-            )],
-            order=0,
+            timezone="Europe/Rome",
+            enabled=False)
+        test_team = opsgenie.Team("test",
+            name="example team",
+            description="This team deals with all the things")
+        test_team_routing_rule = opsgenie.TeamRoutingRule("test",
+            name="routing rule example",
             team_id=test_team.id,
+            order=0,
+            timezone="America/Los_Angeles",
+            criterias=[opsgenie.TeamRoutingRuleCriteriaArgs(
+                type="match-any-condition",
+                conditions=[opsgenie.TeamRoutingRuleCriteriaConditionArgs(
+                    field="message",
+                    operation="contains",
+                    expected_value="expected1",
+                    not_=False,
+                )],
+            )],
             time_restrictions=[opsgenie.TeamRoutingRuleTimeRestrictionArgs(
+                type="weekday-and-time-of-day",
                 restriction_list=[opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArgs(
-                    end_day="tuesday",
-                    end_hour=18,
-                    end_min=30,
                     start_day="monday",
                     start_hour=8,
                     start_min=0,
+                    end_day="tuesday",
+                    end_hour=18,
+                    end_min=30,
                 )],
-                type="weekday-and-time-of-day",
             )],
-            timezone="America/Los_Angeles")
+            notifies=[opsgenie.TeamRoutingRuleNotifyArgs(
+                name=test.name,
+                type="schedule",
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -378,39 +382,43 @@ class TeamRoutingRule(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_schedule = opsgenie.Schedule("testSchedule",
+        test = opsgenie.Schedule("test",
+            name="genieschedule",
             description="schedule test",
-            enabled=False,
-            timezone="Europe/Rome")
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_team_routing_rule = opsgenie.TeamRoutingRule("testTeamRoutingRule",
-            criterias=[opsgenie.TeamRoutingRuleCriteriaArgs(
-                conditions=[opsgenie.TeamRoutingRuleCriteriaConditionArgs(
-                    expected_value="expected1",
-                    field="message",
-                    not_=False,
-                    operation="contains",
-                )],
-                type="match-any-condition",
-            )],
-            notifies=[opsgenie.TeamRoutingRuleNotifyArgs(
-                name=test_schedule.name,
-                type="schedule",
-            )],
-            order=0,
+            timezone="Europe/Rome",
+            enabled=False)
+        test_team = opsgenie.Team("test",
+            name="example team",
+            description="This team deals with all the things")
+        test_team_routing_rule = opsgenie.TeamRoutingRule("test",
+            name="routing rule example",
             team_id=test_team.id,
+            order=0,
+            timezone="America/Los_Angeles",
+            criterias=[opsgenie.TeamRoutingRuleCriteriaArgs(
+                type="match-any-condition",
+                conditions=[opsgenie.TeamRoutingRuleCriteriaConditionArgs(
+                    field="message",
+                    operation="contains",
+                    expected_value="expected1",
+                    not_=False,
+                )],
+            )],
             time_restrictions=[opsgenie.TeamRoutingRuleTimeRestrictionArgs(
+                type="weekday-and-time-of-day",
                 restriction_list=[opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArgs(
-                    end_day="tuesday",
-                    end_hour=18,
-                    end_min=30,
                     start_day="monday",
                     start_hour=8,
                     start_min=0,
+                    end_day="tuesday",
+                    end_hour=18,
+                    end_min=30,
                 )],
-                type="weekday-and-time-of-day",
             )],
-            timezone="America/Los_Angeles")
+            notifies=[opsgenie.TeamRoutingRuleNotifyArgs(
+                name=test.name,
+                type="schedule",
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

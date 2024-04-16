@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewEscalation(ctx, "default", &opsgenie.EscalationArgs{
+//				Name: pulumi.String("genieescalation"),
 //				Rules: opsgenie.EscalationRuleArray{
 //					&opsgenie.EscalationRuleArgs{
 //						Condition:  pulumi.String("if-not-acked"),
@@ -40,7 +41,7 @@ import (
 //						Recipients: opsgenie.EscalationRuleRecipientArray{
 //							&opsgenie.EscalationRuleRecipientArgs{
 //								Type: pulumi.String("user"),
-//								Id:   pulumi.Any(opsgenie_user.Test.Id),
+//								Id:   pulumi.Any(test.Id),
 //							},
 //						},
 //					},
@@ -72,8 +73,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewEscalation(ctx, "default", &opsgenie.EscalationArgs{
+//				Name:        pulumi.String("genieescalation"),
 //				Description: pulumi.String("test"),
-//				OwnerTeamId: pulumi.Any(opsgenie_team.Test.Id),
+//				OwnerTeamId: pulumi.Any(testOpsgenieTeam.Id),
 //				Rules: opsgenie.EscalationRuleArray{
 //					&opsgenie.EscalationRuleArgs{
 //						Condition:  pulumi.String("if-not-acked"),
@@ -82,7 +84,7 @@ import (
 //						Recipients: opsgenie.EscalationRuleRecipientArray{
 //							&opsgenie.EscalationRuleRecipientArgs{
 //								Type: pulumi.String("user"),
-//								Id:   pulumi.Any(opsgenie_user.Test.Id),
+//								Id:   pulumi.Any(test.Id),
 //							},
 //						},
 //					},
@@ -93,7 +95,7 @@ import (
 //						Recipients: opsgenie.EscalationRuleRecipientArray{
 //							&opsgenie.EscalationRuleRecipientArgs{
 //								Type: pulumi.String("team"),
-//								Id:   pulumi.Any(opsgenie_team.Test.Id),
+//								Id:   pulumi.Any(testOpsgenieTeam.Id),
 //							},
 //						},
 //					},
@@ -104,7 +106,7 @@ import (
 //						Recipients: opsgenie.EscalationRuleRecipientArray{
 //							&opsgenie.EscalationRuleRecipientArgs{
 //								Type: pulumi.String("schedule"),
-//								Id:   pulumi.Any(opsgenie_schedule.Test.Id),
+//								Id:   pulumi.Any(testOpsgenieSchedule.Id),
 //							},
 //						},
 //					},

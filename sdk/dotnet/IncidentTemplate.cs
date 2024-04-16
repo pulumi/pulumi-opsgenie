@@ -23,18 +23,21 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTeam = new Opsgenie.Team("testTeam", new()
+    ///     var test = new Opsgenie.Team("test", new()
     ///     {
+    ///         Name = "genietest-team",
     ///         Description = "This team deals with all the things",
     ///     });
     /// 
-    ///     var testService = new Opsgenie.Service("testService", new()
+    ///     var testService = new Opsgenie.Service("test", new()
     ///     {
-    ///         TeamId = testTeam.Id,
+    ///         Name = "genietest-service",
+    ///         TeamId = test.Id,
     ///     });
     /// 
-    ///     var testIncidentTemplate = new Opsgenie.IncidentTemplate("testIncidentTemplate", new()
+    ///     var testIncidentTemplate = new Opsgenie.IncidentTemplate("test", new()
     ///     {
+    ///         Name = "genietest-incident-template",
     ///         Message = "Incident Message",
     ///         Priority = "P2",
     ///         StakeholderProperties = new[]

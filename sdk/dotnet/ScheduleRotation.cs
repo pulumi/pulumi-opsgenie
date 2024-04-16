@@ -25,36 +25,37 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var test = new Opsgenie.ScheduleRotation("test", new()
     ///     {
+    ///         ScheduleId = testOpsgenieSchedule.Id,
+    ///         Name = "test",
+    ///         StartDate = "2019-06-18T17:00:00Z",
     ///         EndDate = "2019-06-20T17:30:00Z",
+    ///         Type = "hourly",
     ///         Length = 6,
     ///         Participants = new[]
     ///         {
     ///             new Opsgenie.Inputs.ScheduleRotationParticipantArgs
     ///             {
-    ///                 Id = opsgenie_user.Test.Id,
     ///                 Type = "user",
+    ///                 Id = testOpsgenieUser.Id,
     ///             },
     ///         },
-    ///         ScheduleId = opsgenie_schedule.Test.Id,
-    ///         StartDate = "2019-06-18T17:00:00Z",
     ///         TimeRestrictions = new[]
     ///         {
     ///             new Opsgenie.Inputs.ScheduleRotationTimeRestrictionArgs
     ///             {
+    ///                 Type = "time-of-day",
     ///                 Restriction = new[]
     ///                 {
     ///                     new Opsgenie.Inputs.ScheduleRotationTimeRestrictionRestrictionArgs
     ///                     {
-    ///                         EndHour = 10,
-    ///                         EndMin = 1,
     ///                         StartHour = 1,
     ///                         StartMin = 1,
+    ///                         EndHour = 10,
+    ///                         EndMin = 1,
     ///                     },
     ///                 },
-    ///                 Type = "time-of-day",
     ///             },
     ///         },
-    ///         Type = "hourly",
     ///     });
     /// 
     /// });

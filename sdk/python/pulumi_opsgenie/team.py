@@ -211,14 +211,15 @@ class Team(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         first = opsgenie.User("first",
+            username="user@domain.com",
             full_name="name ",
-            role="User",
-            username="user@domain.com")
+            role="User")
         second = opsgenie.User("second",
+            username="test@domain.com",
             full_name="name ",
-            role="User",
-            username="test@domain.com")
+            role="User")
         test = opsgenie.Team("test",
+            name="example",
             description="This team deals with all the things",
             members=[
                 opsgenie.TeamMemberArgs(
@@ -231,9 +232,10 @@ class Team(pulumi.CustomResource):
                 ),
             ])
         self_service = opsgenie.Team("self-service",
-            delete_default_resources=True,
+            name="Self Service",
             description="Membership in this team is managed via OpsGenie web UI only",
-            ignore_members=True)
+            ignore_members=True,
+            delete_default_resources=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -270,14 +272,15 @@ class Team(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         first = opsgenie.User("first",
+            username="user@domain.com",
             full_name="name ",
-            role="User",
-            username="user@domain.com")
+            role="User")
         second = opsgenie.User("second",
+            username="test@domain.com",
             full_name="name ",
-            role="User",
-            username="test@domain.com")
+            role="User")
         test = opsgenie.Team("test",
+            name="example",
             description="This team deals with all the things",
             members=[
                 opsgenie.TeamMemberArgs(
@@ -290,9 +293,10 @@ class Team(pulumi.CustomResource):
                 ),
             ])
         self_service = opsgenie.Team("self-service",
-            delete_default_resources=True,
+            name="Self Service",
             description="Membership in this team is managed via OpsGenie web UI only",
-            ignore_members=True)
+            ignore_members=True,
+            delete_default_resources=True)
         ```
         <!--End PulumiCodeChooser -->
 

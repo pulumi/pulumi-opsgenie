@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testUser, err := opsgenie.NewUser(ctx, "testUser", &opsgenie.UserArgs{
+//			test, err := opsgenie.NewUser(ctx, "test", &opsgenie.UserArgs{
 //				Username: pulumi.String("Example user"),
 //				FullName: pulumi.String("Name Lastname"),
 //				Role:     pulumi.String("User"),
@@ -37,8 +37,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opsgenie.NewNotificationRule(ctx, "testNotificationRule", &opsgenie.NotificationRuleArgs{
-//				Username:   testUser.Username,
+//			_, err = opsgenie.NewNotificationRule(ctx, "test", &opsgenie.NotificationRuleArgs{
+//				Name:       pulumi.String("Example notification rule"),
+//				Username:   test.Username,
 //				ActionType: pulumi.String("schedule-end"),
 //				NotificationTimes: pulumi.StringArray{
 //					pulumi.String("just-before"),
