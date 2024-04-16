@@ -4,3 +4,8 @@ env:
   OPSGENIE_API_KEY: ${{ secrets.OPSGENIE_API_KEY }}
 makeTemplate: bridged
 team: ecosystem
+pulumiConvert: 1
+plugins:
+  - name: terraform
+    version: "1.0.16"
+    kind: converter
