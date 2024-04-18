@@ -17,6 +17,157 @@ import * as utilities from "./utilities";
  * * `acknowledge`
  * * `addNote`
  * * `ignore`
+ *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as opsgenie from "@pulumi/opsgenie";
+ * import * as std from "@pulumi/std";
+ *
+ * const testAction = new opsgenie.IntegrationAction("test_action", {
+ *     integrationId: testOpsgenieApiIntegration.id,
+ *     creates: [
+ *         {
+ *             name: "create action",
+ *             tags: [
+ *                 "CRITICAL",
+ *                 "SEV-0",
+ *             ],
+ *             user: "Example-service",
+ *             note: "{{note}}",
+ *             alias: "{{alias}}",
+ *             source: "{{source}}",
+ *             message: "{{message}}",
+ *             description: "{{description}}",
+ *             entity: "{{entity}}",
+ *             alertActions: ["Runbook ID#342"],
+ *             filters: [{
+ *                 type: "match-all-conditions",
+ *                 conditions: [{
+ *                     field: "priority",
+ *                     operation: "equals",
+ *                     expectedValue: "P1",
+ *                 }],
+ *             }],
+ *             responders: [{
+ *                 id: test.id,
+ *                 type: "team",
+ *             }],
+ *         },
+ *         {
+ *             name: "create action with multiline description",
+ *             message: "{{message}}",
+ *             description: std.chomp({
+ *                 input: `This
+ * is a multiline
+ * description.
+ * `,
+ *             }).then(invoke => invoke.result),
+ *             filters: [{
+ *                 type: "match-all-conditions",
+ *                 conditions: [{
+ *                     field: "priority",
+ *                     operation: "equals",
+ *                     expectedValue: "P1",
+ *                 }],
+ *             }],
+ *         },
+ *         {
+ *             name: "Create medium priority alerts",
+ *             tags: [
+ *                 "SEVERE",
+ *                 "SEV-1",
+ *             ],
+ *             priority: "P3",
+ *             filters: [{
+ *                 type: "match-all-conditions",
+ *                 conditions: [{
+ *                     field: "priority",
+ *                     operation: "equals",
+ *                     expectedValue: "P2",
+ *                 }],
+ *             }],
+ *         },
+ *         {
+ *             name: "Create alert with priority from message",
+ *             customPriority: "{{message.substringAfter(\"[custom]\")}}",
+ *             filters: [{
+ *                 type: "match-all-conditions",
+ *                 conditions: [
+ *                     {
+ *                         field: "tags",
+ *                         operation: "contains",
+ *                         expectedValue: "P5",
+ *                     },
+ *                     {
+ *                         field: "message",
+ *                         operation: "starts-with",
+ *                         expectedValue: "[custom]",
+ *                     },
+ *                 ],
+ *             }],
+ *         },
+ *     ],
+ *     closes: [{
+ *         name: "Low priority alerts",
+ *         filters: [{
+ *             type: "match-any-condition",
+ *             conditions: [
+ *                 {
+ *                     field: "priority",
+ *                     operation: "equals",
+ *                     expectedValue: "P5",
+ *                 },
+ *                 {
+ *                     field: "message",
+ *                     operation: "contains",
+ *                     expectedValue: "DEBUG",
+ *                 },
+ *             ],
+ *         }],
+ *     }],
+ *     acknowledges: [{
+ *         name: "Auto-ack test alerts",
+ *         filters: [{
+ *             type: "match-all-conditions",
+ *             conditions: [
+ *                 {
+ *                     field: "message",
+ *                     not: true,
+ *                     operation: "contains",
+ *                     expectedValue: "TEST",
+ *                 },
+ *                 {
+ *                     field: "priority",
+ *                     operation: "equals",
+ *                     expectedValue: "P5",
+ *                 },
+ *             ],
+ *         }],
+ *     }],
+ *     addNotes: [{
+ *         name: "Add note to all alerts",
+ *         note: "Created from test integration",
+ *         filters: [{
+ *             type: "match-all",
+ *         }],
+ *     }],
+ *     ignores: [{
+ *         name: "Ignore alerts with ignore tag",
+ *         filters: [{
+ *             type: "match-all-conditions",
+ *             conditions: [{
+ *                 field: "tags",
+ *                 operation: "contains",
+ *                 expectedValue: "ignore",
+ *             }],
+ *         }],
+ *     }],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class IntegrationAction extends pulumi.CustomResource {
     /**
