@@ -20,53 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Maintenance within Opsgenie.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.opsgenie.Maintenance;
- * import com.pulumi.opsgenie.MaintenanceArgs;
- * import com.pulumi.opsgenie.inputs.MaintenanceRuleArgs;
- * import com.pulumi.opsgenie.inputs.MaintenanceTimeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Maintenance(&#34;test&#34;, MaintenanceArgs.builder()        
- *             .description(&#34;geniemaintenance-%s&#34;)
- *             .rules(MaintenanceRuleArgs.builder()
- *                 .entities(MaintenanceRuleEntityArgs.builder()
- *                     .id(opsgenie_email_integration.test().id())
- *                     .type(&#34;integration&#34;)
- *                     .build())
- *                 .state(&#34;enabled&#34;)
- *                 .build())
- *             .times(MaintenanceTimeArgs.builder()
- *                 .endDate(&#34;2019-06-%dT17:50:00Z&#34;)
- *                 .startDate(&#34;2019-06-20T17:45:00Z&#34;)
- *                 .type(&#34;schedule&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Maintenance policies can be imported using the `policy_id`, e.g.

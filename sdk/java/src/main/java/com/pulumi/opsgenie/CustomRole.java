@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new CustomRole(&#34;test&#34;, CustomRoleArgs.builder()        
+ *             .roleName(&#34;genierole&#34;)
+ *             .extendedRole(&#34;user&#34;)
+ *             .grantedRights(&#34;alert-delete&#34;)
  *             .disallowedRights(            
  *                 &#34;profile-edit&#34;,
  *                 &#34;contacts-edit&#34;)
- *             .extendedRole(&#34;user&#34;)
- *             .grantedRights(&#34;alert-delete&#34;)
- *             .roleName(&#34;genierole&#34;)
  *             .build());
  * 
  *     }

@@ -25,24 +25,25 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var test = new Opsgenie.User("test", new()
     ///     {
+    ///         Username = "user@domain.com",
     ///         FullName = "Test User",
-    ///         Locale = "en_US",
     ///         Role = "User",
-    ///         SkypeUsername = "skypename",
+    ///         Locale = "en_US",
+    ///         Timezone = "America/New_York",
     ///         Tags = new[]
     ///         {
     ///             "sre",
     ///             "opsgenie",
     ///         },
-    ///         Timezone = "America/New_York",
+    ///         SkypeUsername = "skypename",
     ///         UserAddresses = new[]
     ///         {
     ///             new Opsgenie.Inputs.UserUserAddressArgs
     ///             {
-    ///                 City = "City",
     ///                 Country = "Country",
-    ///                 Line = "Line",
     ///                 State = "State",
+    ///                 City = "City",
+    ///                 Line = "Line",
     ///                 Zipcode = "998877",
     ///             },
     ///         },
@@ -51,7 +52,6 @@ namespace Pulumi.Opsgenie
     ///             { "key1", "val1,val2" },
     ///             { "key2", "val3,val4" },
     ///         },
-    ///         Username = "user@domain.com",
     ///     });
     /// 
     /// });

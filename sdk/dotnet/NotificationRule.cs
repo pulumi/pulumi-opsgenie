@@ -23,16 +23,17 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testUser = new Opsgenie.User("testUser", new()
+    ///     var test = new Opsgenie.User("test", new()
     ///     {
     ///         Username = "Example user",
     ///         FullName = "Name Lastname",
     ///         Role = "User",
     ///     });
     /// 
-    ///     var testNotificationRule = new Opsgenie.NotificationRule("testNotificationRule", new()
+    ///     var testNotificationRule = new Opsgenie.NotificationRule("test", new()
     ///     {
-    ///         Username = testUser.Username,
+    ///         Name = "Example notification rule",
+    ///         Username = test.Username,
     ///         ActionType = "schedule-end",
     ///         NotificationTimes = new[]
     ///         {

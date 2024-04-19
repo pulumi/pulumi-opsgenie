@@ -16,40 +16,45 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const testSchedule = new opsgenie.Schedule("testSchedule", {
+ * const test = new opsgenie.Schedule("test", {
+ *     name: "genieschedule",
  *     description: "schedule test",
- *     enabled: false,
  *     timezone: "Europe/Rome",
+ *     enabled: false,
  * });
- * const testTeam = new opsgenie.Team("testTeam", {description: "This team deals with all the things"});
- * const testTeamRoutingRule = new opsgenie.TeamRoutingRule("testTeamRoutingRule", {
- *     criterias: [{
- *         conditions: [{
- *             expectedValue: "expected1",
- *             field: "message",
- *             not: false,
- *             operation: "contains",
- *         }],
- *         type: "match-any-condition",
- *     }],
- *     notifies: [{
- *         name: testSchedule.name,
- *         type: "schedule",
- *     }],
- *     order: 0,
+ * const testTeam = new opsgenie.Team("test", {
+ *     name: "example team",
+ *     description: "This team deals with all the things",
+ * });
+ * const testTeamRoutingRule = new opsgenie.TeamRoutingRule("test", {
+ *     name: "routing rule example",
  *     teamId: testTeam.id,
+ *     order: 0,
+ *     timezone: "America/Los_Angeles",
+ *     criterias: [{
+ *         type: "match-any-condition",
+ *         conditions: [{
+ *             field: "message",
+ *             operation: "contains",
+ *             expectedValue: "expected1",
+ *             not: false,
+ *         }],
+ *     }],
  *     timeRestrictions: [{
+ *         type: "weekday-and-time-of-day",
  *         restrictionList: [{
- *             endDay: "tuesday",
- *             endHour: 18,
- *             endMin: 30,
  *             startDay: "monday",
  *             startHour: 8,
  *             startMin: 0,
+ *             endDay: "tuesday",
+ *             endHour: 18,
+ *             endMin: 30,
  *         }],
- *         type: "weekday-and-time-of-day",
  *     }],
- *     timezone: "America/Los_Angeles",
+ *     notifies: [{
+ *         name: test.name,
+ *         type: "schedule",
+ *     }],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

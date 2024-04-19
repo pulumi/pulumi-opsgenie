@@ -15,13 +15,13 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const test = new opsgenie.CustomRole("test", {
+ *     roleName: "genierole",
+ *     extendedRole: "user",
+ *     grantedRights: ["alert-delete"],
  *     disallowedRights: [
  *         "profile-edit",
  *         "contacts-edit",
  *     ],
- *     extendedRole: "user",
- *     grantedRights: ["alert-delete"],
- *     roleName: "genierole",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

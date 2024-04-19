@@ -16,12 +16,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const testTeam = new opsgenie.Team("testTeam", {description: "This team deals with all the things"});
- * const testAlertPolicy = new opsgenie.AlertPolicy("testAlertPolicy", {
- *     teamId: testTeam.id,
+ * const test = new opsgenie.Team("test", {
+ *     name: "example team",
+ *     description: "This team deals with all the things",
+ * });
+ * const testAlertPolicy = new opsgenie.AlertPolicy("test", {
+ *     filters: [{}],
+ *     name: "example policy",
+ *     teamId: test.id,
  *     policyDescription: "This is sample policy",
  *     message: "{{message}}",
- *     filters: [{}],
  *     timeRestrictions: [{
  *         type: "weekday-and-time-of-day",
  *         restrictionList: [

@@ -48,13 +48,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new Escalation(&#34;default&#34;, EscalationArgs.builder()        
+ *             .name(&#34;genieescalation&#34;)
  *             .rules(EscalationRuleArgs.builder()
  *                 .condition(&#34;if-not-acked&#34;)
  *                 .notifyType(&#34;default&#34;)
  *                 .delay(1)
  *                 .recipients(EscalationRuleRecipientArgs.builder()
  *                     .type(&#34;user&#34;)
- *                     .id(opsgenie_user.test().id())
+ *                     .id(test.id())
  *                     .build())
  *                 .build())
  *             .build());
@@ -91,8 +92,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new Escalation(&#34;default&#34;, EscalationArgs.builder()        
+ *             .name(&#34;genieescalation&#34;)
  *             .description(&#34;test&#34;)
- *             .ownerTeamId(opsgenie_team.test().id())
+ *             .ownerTeamId(testOpsgenieTeam.id())
  *             .rules(            
  *                 EscalationRuleArgs.builder()
  *                     .condition(&#34;if-not-acked&#34;)
@@ -100,7 +102,7 @@ import javax.annotation.Nullable;
  *                     .delay(1)
  *                     .recipients(EscalationRuleRecipientArgs.builder()
  *                         .type(&#34;user&#34;)
- *                         .id(opsgenie_user.test().id())
+ *                         .id(test.id())
  *                         .build())
  *                     .build(),
  *                 EscalationRuleArgs.builder()
@@ -109,7 +111,7 @@ import javax.annotation.Nullable;
  *                     .delay(1)
  *                     .recipients(EscalationRuleRecipientArgs.builder()
  *                         .type(&#34;team&#34;)
- *                         .id(opsgenie_team.test().id())
+ *                         .id(testOpsgenieTeam.id())
  *                         .build())
  *                     .build(),
  *                 EscalationRuleArgs.builder()
@@ -118,7 +120,7 @@ import javax.annotation.Nullable;
  *                     .delay(1)
  *                     .recipients(EscalationRuleRecipientArgs.builder()
  *                         .type(&#34;schedule&#34;)
- *                         .id(opsgenie_schedule.test().id())
+ *                         .id(testOpsgenieSchedule.id())
  *                         .build())
  *                     .build())
  *             .repeats(EscalationRepeatArgs.builder()

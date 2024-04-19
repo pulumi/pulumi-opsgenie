@@ -17,16 +17,17 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const first = new opsgenie.User("first", {
+ *     username: "user@domain.com",
  *     fullName: "name ",
  *     role: "User",
- *     username: "user@domain.com",
  * });
  * const second = new opsgenie.User("second", {
+ *     username: "test@domain.com",
  *     fullName: "name ",
  *     role: "User",
- *     username: "test@domain.com",
  * });
  * const test = new opsgenie.Team("test", {
+ *     name: "example",
  *     description: "This team deals with all the things",
  *     members: [
  *         {
@@ -40,9 +41,10 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * const self_service = new opsgenie.Team("self-service", {
- *     deleteDefaultResources: true,
+ *     name: "Self Service",
  *     description: "Membership in this team is managed via OpsGenie web UI only",
  *     ignoreMembers: true,
+ *     deleteDefaultResources: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

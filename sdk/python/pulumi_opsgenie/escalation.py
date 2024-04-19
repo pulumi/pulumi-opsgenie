@@ -211,15 +211,17 @@ class Escalation(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        default = opsgenie.Escalation("default", rules=[opsgenie.EscalationRuleArgs(
-            condition="if-not-acked",
-            notify_type="default",
-            delay=1,
-            recipients=[opsgenie.EscalationRuleRecipientArgs(
-                type="user",
-                id=opsgenie_user["test"]["id"],
-            )],
-        )])
+        default = opsgenie.Escalation("default",
+            name="genieescalation",
+            rules=[opsgenie.EscalationRuleArgs(
+                condition="if-not-acked",
+                notify_type="default",
+                delay=1,
+                recipients=[opsgenie.EscalationRuleRecipientArgs(
+                    type="user",
+                    id=test["id"],
+                )],
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -231,8 +233,9 @@ class Escalation(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         default = opsgenie.Escalation("default",
+            name="genieescalation",
             description="test",
-            owner_team_id=opsgenie_team["test"]["id"],
+            owner_team_id=test_opsgenie_team["id"],
             rules=[
                 opsgenie.EscalationRuleArgs(
                     condition="if-not-acked",
@@ -240,7 +243,7 @@ class Escalation(pulumi.CustomResource):
                     delay=1,
                     recipients=[opsgenie.EscalationRuleRecipientArgs(
                         type="user",
-                        id=opsgenie_user["test"]["id"],
+                        id=test["id"],
                     )],
                 ),
                 opsgenie.EscalationRuleArgs(
@@ -249,7 +252,7 @@ class Escalation(pulumi.CustomResource):
                     delay=1,
                     recipients=[opsgenie.EscalationRuleRecipientArgs(
                         type="team",
-                        id=opsgenie_team["test"]["id"],
+                        id=test_opsgenie_team["id"],
                     )],
                 ),
                 opsgenie.EscalationRuleArgs(
@@ -258,7 +261,7 @@ class Escalation(pulumi.CustomResource):
                     delay=1,
                     recipients=[opsgenie.EscalationRuleRecipientArgs(
                         type="schedule",
-                        id=opsgenie_schedule["test"]["id"],
+                        id=test_opsgenie_schedule["id"],
                     )],
                 ),
             ],
@@ -305,15 +308,17 @@ class Escalation(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        default = opsgenie.Escalation("default", rules=[opsgenie.EscalationRuleArgs(
-            condition="if-not-acked",
-            notify_type="default",
-            delay=1,
-            recipients=[opsgenie.EscalationRuleRecipientArgs(
-                type="user",
-                id=opsgenie_user["test"]["id"],
-            )],
-        )])
+        default = opsgenie.Escalation("default",
+            name="genieescalation",
+            rules=[opsgenie.EscalationRuleArgs(
+                condition="if-not-acked",
+                notify_type="default",
+                delay=1,
+                recipients=[opsgenie.EscalationRuleRecipientArgs(
+                    type="user",
+                    id=test["id"],
+                )],
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -325,8 +330,9 @@ class Escalation(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         default = opsgenie.Escalation("default",
+            name="genieescalation",
             description="test",
-            owner_team_id=opsgenie_team["test"]["id"],
+            owner_team_id=test_opsgenie_team["id"],
             rules=[
                 opsgenie.EscalationRuleArgs(
                     condition="if-not-acked",
@@ -334,7 +340,7 @@ class Escalation(pulumi.CustomResource):
                     delay=1,
                     recipients=[opsgenie.EscalationRuleRecipientArgs(
                         type="user",
-                        id=opsgenie_user["test"]["id"],
+                        id=test["id"],
                     )],
                 ),
                 opsgenie.EscalationRuleArgs(
@@ -343,7 +349,7 @@ class Escalation(pulumi.CustomResource):
                     delay=1,
                     recipients=[opsgenie.EscalationRuleRecipientArgs(
                         type="team",
-                        id=opsgenie_team["test"]["id"],
+                        id=test_opsgenie_team["id"],
                     )],
                 ),
                 opsgenie.EscalationRuleArgs(
@@ -352,7 +358,7 @@ class Escalation(pulumi.CustomResource):
                     delay=1,
                     recipients=[opsgenie.EscalationRuleRecipientArgs(
                         type="schedule",
-                        id=opsgenie_schedule["test"]["id"],
+                        id=test_opsgenie_schedule["id"],
                     )],
                 ),
             ],

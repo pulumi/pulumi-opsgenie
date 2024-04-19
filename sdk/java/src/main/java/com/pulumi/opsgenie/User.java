@@ -46,26 +46,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .username(&#34;user@domain.com&#34;)
  *             .fullName(&#34;Test User&#34;)
- *             .locale(&#34;en_US&#34;)
  *             .role(&#34;User&#34;)
- *             .skypeUsername(&#34;skypename&#34;)
+ *             .locale(&#34;en_US&#34;)
+ *             .timezone(&#34;America/New_York&#34;)
  *             .tags(            
  *                 &#34;sre&#34;,
  *                 &#34;opsgenie&#34;)
- *             .timezone(&#34;America/New_York&#34;)
+ *             .skypeUsername(&#34;skypename&#34;)
  *             .userAddresses(UserUserAddressArgs.builder()
- *                 .city(&#34;City&#34;)
  *                 .country(&#34;Country&#34;)
- *                 .line(&#34;Line&#34;)
  *                 .state(&#34;State&#34;)
+ *                 .city(&#34;City&#34;)
+ *                 .line(&#34;Line&#34;)
  *                 .zipcode(&#34;998877&#34;)
  *                 .build())
  *             .userDetails(Map.ofEntries(
  *                 Map.entry(&#34;key1&#34;, &#34;val1,val2&#34;),
  *                 Map.entry(&#34;key2&#34;, &#34;val3,val4&#34;)
  *             ))
- *             .username(&#34;user@domain.com&#34;)
  *             .build());
  * 
  *     }

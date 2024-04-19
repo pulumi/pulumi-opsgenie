@@ -16,9 +16,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const testTeam = new opsgenie.Team("testTeam", {description: "This team deals with all the things"});
- * const testService = new opsgenie.Service("testService", {teamId: testTeam.id});
- * const testIncidentTemplate = new opsgenie.IncidentTemplate("testIncidentTemplate", {
+ * const test = new opsgenie.Team("test", {
+ *     name: "genietest-team",
+ *     description: "This team deals with all the things",
+ * });
+ * const testService = new opsgenie.Service("test", {
+ *     name: "genietest-service",
+ *     teamId: test.id,
+ * });
+ * const testIncidentTemplate = new opsgenie.IncidentTemplate("test", {
+ *     name: "genietest-incident-template",
  *     message: "Incident Message",
  *     priority: "P2",
  *     stakeholderProperties: [{

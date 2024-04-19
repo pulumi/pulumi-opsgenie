@@ -260,50 +260,6 @@ class EmailIntegration(pulumi.CustomResource):
         """
         Manages an Email Integration within Opsgenie.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_opsgenie as opsgenie
-
-        test_email_integration = opsgenie.EmailIntegration("testEmailIntegration", email_username="fahri")
-        test_index_email_integration_email_integration = opsgenie.EmailIntegration("testIndex/emailIntegrationEmailIntegration",
-            responders=[
-                opsgenie.EmailIntegrationResponderArgs(
-                    type="user",
-                    id=opsgenie_user["test"]["id"],
-                ),
-                opsgenie.EmailIntegrationResponderArgs(
-                    type="schedule",
-                    id=opsgenie_schedule["test"]["id"],
-                ),
-                opsgenie.EmailIntegrationResponderArgs(
-                    type="escalation",
-                    id=opsgenie_escalation["test"]["id"],
-                ),
-                opsgenie.EmailIntegrationResponderArgs(
-                    type="team",
-                    id=opsgenie_team["test2"]["id"],
-                ),
-            ],
-            email_username="test",
-            enabled=True,
-            ignore_responders_from_payload=True,
-            suppress_notifications=True)
-        test_opsgenie_index_email_integration_email_integration = opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration",
-            responders=[opsgenie.EmailIntegrationResponderArgs(
-                type="user",
-                id=opsgenie_user["test"]["id"],
-            )],
-            email_username="test",
-            enabled=True,
-            ignore_responders_from_payload=True,
-            suppress_notifications=True,
-            owner_team_id=opsgenie_team_genies["id"])
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Email Integrations can be imported using the `id`, e.g.
@@ -329,50 +285,6 @@ class EmailIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Email Integration within Opsgenie.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_opsgenie as opsgenie
-
-        test_email_integration = opsgenie.EmailIntegration("testEmailIntegration", email_username="fahri")
-        test_index_email_integration_email_integration = opsgenie.EmailIntegration("testIndex/emailIntegrationEmailIntegration",
-            responders=[
-                opsgenie.EmailIntegrationResponderArgs(
-                    type="user",
-                    id=opsgenie_user["test"]["id"],
-                ),
-                opsgenie.EmailIntegrationResponderArgs(
-                    type="schedule",
-                    id=opsgenie_schedule["test"]["id"],
-                ),
-                opsgenie.EmailIntegrationResponderArgs(
-                    type="escalation",
-                    id=opsgenie_escalation["test"]["id"],
-                ),
-                opsgenie.EmailIntegrationResponderArgs(
-                    type="team",
-                    id=opsgenie_team["test2"]["id"],
-                ),
-            ],
-            email_username="test",
-            enabled=True,
-            ignore_responders_from_payload=True,
-            suppress_notifications=True)
-        test_opsgenie_index_email_integration_email_integration = opsgenie.EmailIntegration("testOpsgenieIndex/emailIntegrationEmailIntegration",
-            responders=[opsgenie.EmailIntegrationResponderArgs(
-                type="user",
-                id=opsgenie_user["test"]["id"],
-            )],
-            email_username="test",
-            enabled=True,
-            ignore_responders_from_payload=True,
-            suppress_notifications=True,
-            owner_team_id=opsgenie_team_genies["id"])
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

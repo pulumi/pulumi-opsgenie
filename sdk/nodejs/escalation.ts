@@ -18,15 +18,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const _default = new opsgenie.Escalation("default", {rules: [{
- *     condition: "if-not-acked",
- *     notifyType: "default",
- *     delay: 1,
- *     recipients: [{
- *         type: "user",
- *         id: opsgenie_user.test.id,
+ * const _default = new opsgenie.Escalation("default", {
+ *     name: "genieescalation",
+ *     rules: [{
+ *         condition: "if-not-acked",
+ *         notifyType: "default",
+ *         delay: 1,
+ *         recipients: [{
+ *             type: "user",
+ *             id: test.id,
+ *         }],
  *     }],
- * }]});
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *
@@ -38,8 +41,9 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const _default = new opsgenie.Escalation("default", {
+ *     name: "genieescalation",
  *     description: "test",
- *     ownerTeamId: opsgenie_team.test.id,
+ *     ownerTeamId: testOpsgenieTeam.id,
  *     rules: [
  *         {
  *             condition: "if-not-acked",
@@ -47,7 +51,7 @@ import * as utilities from "./utilities";
  *             delay: 1,
  *             recipients: [{
  *                 type: "user",
- *                 id: opsgenie_user.test.id,
+ *                 id: test.id,
  *             }],
  *         },
  *         {
@@ -56,7 +60,7 @@ import * as utilities from "./utilities";
  *             delay: 1,
  *             recipients: [{
  *                 type: "team",
- *                 id: opsgenie_team.test.id,
+ *                 id: testOpsgenieTeam.id,
  *             }],
  *         },
  *         {
@@ -65,7 +69,7 @@ import * as utilities from "./utilities";
  *             delay: 1,
  *             recipients: [{
  *                 type: "schedule",
- *                 id: opsgenie_schedule.test.id,
+ *                 id: testOpsgenieSchedule.id,
  *             }],
  *         },
  *     ],

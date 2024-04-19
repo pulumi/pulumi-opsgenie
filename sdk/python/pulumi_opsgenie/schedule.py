@@ -201,21 +201,6 @@ class Schedule(pulumi.CustomResource):
         """
         Manages a Schedule within Opsgenie.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_opsgenie as opsgenie
-
-        test = opsgenie.Schedule("test",
-            description="schedule test",
-            enabled=False,
-            owner_team_id=opsgenie_team["test"]["id"],
-            timezone="Europe/Rome")
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Schedule can be imported using the `schedule_id`, e.g.
@@ -240,21 +225,6 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Schedule within Opsgenie.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_opsgenie as opsgenie
-
-        test = opsgenie.Schedule("test",
-            description="schedule test",
-            enabled=False,
-            owner_team_id=opsgenie_team["test"]["id"],
-            timezone="Europe/Rome")
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

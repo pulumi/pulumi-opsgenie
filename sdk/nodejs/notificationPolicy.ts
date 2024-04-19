@@ -16,16 +16,20 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const testTeam = new opsgenie.Team("testTeam", {description: "This team deals with all the things"});
- * const testNotificationPolicy = new opsgenie.NotificationPolicy("testNotificationPolicy", {
- *     teamId: testTeam.id,
+ * const test = new opsgenie.Team("test", {
+ *     name: "example team",
+ *     description: "This team deals with all the things",
+ * });
+ * const testNotificationPolicy = new opsgenie.NotificationPolicy("test", {
+ *     filters: [{}],
+ *     name: "example policy",
+ *     teamId: test.id,
  *     policyDescription: "This policy has a delay action",
  *     delayActions: [{
  *         delayOption: "next-time",
  *         untilMinute: 1,
  *         untilHour: 9,
  *     }],
- *     filters: [{}],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

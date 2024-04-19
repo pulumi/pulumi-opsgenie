@@ -30,17 +30,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewHeartbeat(ctx, "test", &opsgenie.HeartbeatArgs{
+//				Name:          pulumi.String("genieheartbeat-test"),
+//				Description:   pulumi.String("test opsgenie heartbeat terraform"),
+//				IntervalUnit:  pulumi.String("minutes"),
+//				Interval:      pulumi.Int(10),
+//				Enabled:       pulumi.Bool(false),
 //				AlertMessage:  pulumi.String("Test"),
 //				AlertPriority: pulumi.String("P3"),
 //				AlertTags: pulumi.StringArray{
 //					pulumi.String("test"),
 //					pulumi.String("fahri"),
 //				},
-//				Description:  pulumi.String("test opsgenie heartbeat terraform"),
-//				Enabled:      pulumi.Bool(false),
-//				Interval:     pulumi.Int(10),
-//				IntervalUnit: pulumi.String("minutes"),
-//				OwnerTeamId:  pulumi.Any(opsgenie_team.Test.Id),
+//				OwnerTeamId: pulumi.Any(testOpsgenieTeam.Id),
 //			})
 //			if err != nil {
 //				return err

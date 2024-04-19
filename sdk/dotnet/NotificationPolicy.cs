@@ -23,14 +23,20 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTeam = new Opsgenie.Team("testTeam", new()
+    ///     var test = new Opsgenie.Team("test", new()
     ///     {
+    ///         Name = "example team",
     ///         Description = "This team deals with all the things",
     ///     });
     /// 
-    ///     var testNotificationPolicy = new Opsgenie.NotificationPolicy("testNotificationPolicy", new()
+    ///     var testNotificationPolicy = new Opsgenie.NotificationPolicy("test", new()
     ///     {
-    ///         TeamId = testTeam.Id,
+    ///         Filters = new[]
+    ///         {
+    ///             null,
+    ///         },
+    ///         Name = "example policy",
+    ///         TeamId = test.Id,
     ///         PolicyDescription = "This policy has a delay action",
     ///         DelayActions = new[]
     ///         {
@@ -40,10 +46,6 @@ namespace Pulumi.Opsgenie
     ///                 UntilMinute = 1,
     ///                 UntilHour = 9,
     ///             },
-    ///         },
-    ///         Filters = new[]
-    ///         {
-    ///             null,
     ///         },
     ///     });
     /// 

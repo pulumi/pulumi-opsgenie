@@ -25,6 +25,11 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var test = new Opsgenie.Heartbeat("test", new()
     ///     {
+    ///         Name = "genieheartbeat-test",
+    ///         Description = "test opsgenie heartbeat terraform",
+    ///         IntervalUnit = "minutes",
+    ///         Interval = 10,
+    ///         Enabled = false,
     ///         AlertMessage = "Test",
     ///         AlertPriority = "P3",
     ///         AlertTags = new[]
@@ -32,11 +37,7 @@ namespace Pulumi.Opsgenie
     ///             "test",
     ///             "fahri",
     ///         },
-    ///         Description = "test opsgenie heartbeat terraform",
-    ///         Enabled = false,
-    ///         Interval = 10,
-    ///         IntervalUnit = "minutes",
-    ///         OwnerTeamId = opsgenie_team.Test.Id,
+    ///         OwnerTeamId = testOpsgenieTeam.Id,
     ///     });
     /// 
     /// });

@@ -340,27 +340,27 @@ class User(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         test = opsgenie.User("test",
+            username="user@domain.com",
             full_name="Test User",
-            locale="en_US",
             role="User",
-            skype_username="skypename",
+            locale="en_US",
+            timezone="America/New_York",
             tags=[
                 "sre",
                 "opsgenie",
             ],
-            timezone="America/New_York",
+            skype_username="skypename",
             user_addresses=[opsgenie.UserUserAddressArgs(
-                city="City",
                 country="Country",
-                line="Line",
                 state="State",
+                city="City",
+                line="Line",
                 zipcode="998877",
             )],
             user_details={
                 "key1": "val1,val2",
                 "key2": "val3,val4",
-            },
-            username="user@domain.com")
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -401,27 +401,27 @@ class User(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         test = opsgenie.User("test",
+            username="user@domain.com",
             full_name="Test User",
-            locale="en_US",
             role="User",
-            skype_username="skypename",
+            locale="en_US",
+            timezone="America/New_York",
             tags=[
                 "sre",
                 "opsgenie",
             ],
-            timezone="America/New_York",
+            skype_username="skypename",
             user_addresses=[opsgenie.UserUserAddressArgs(
-                city="City",
                 country="Country",
-                line="Line",
                 state="State",
+                city="City",
+                line="Line",
                 zipcode="998877",
             )],
             user_details={
                 "key1": "val1,val2",
                 "key2": "val3,val4",
-            },
-            username="user@domain.com")
+            })
         ```
         <!--End PulumiCodeChooser -->
 

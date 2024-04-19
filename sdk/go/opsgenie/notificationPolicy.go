@@ -29,14 +29,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//			test, err := opsgenie.NewTeam(ctx, "test", &opsgenie.TeamArgs{
+//				Name:        pulumi.String("example team"),
 //				Description: pulumi.String("This team deals with all the things"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opsgenie.NewNotificationPolicy(ctx, "testNotificationPolicy", &opsgenie.NotificationPolicyArgs{
-//				TeamId:            testTeam.ID(),
+//			_, err = opsgenie.NewNotificationPolicy(ctx, "test", &opsgenie.NotificationPolicyArgs{
+//				Filters: opsgenie.NotificationPolicyFilterArray{
+//					nil,
+//				},
+//				Name:              pulumi.String("example policy"),
+//				TeamId:            test.ID(),
 //				PolicyDescription: pulumi.String("This policy has a delay action"),
 //				DelayActions: opsgenie.NotificationPolicyDelayActionArray{
 //					&opsgenie.NotificationPolicyDelayActionArgs{
@@ -44,9 +49,6 @@ import (
 //						UntilMinute: pulumi.Int(1),
 //						UntilHour:   pulumi.Int(9),
 //					},
-//				},
-//				Filters: opsgenie.NotificationPolicyFilterArray{
-//					nil,
 //				},
 //			})
 //			if err != nil {

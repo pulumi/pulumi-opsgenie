@@ -45,16 +45,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Heartbeat(&#34;test&#34;, HeartbeatArgs.builder()        
+ *             .name(&#34;genieheartbeat-test&#34;)
+ *             .description(&#34;test opsgenie heartbeat terraform&#34;)
+ *             .intervalUnit(&#34;minutes&#34;)
+ *             .interval(10)
+ *             .enabled(false)
  *             .alertMessage(&#34;Test&#34;)
  *             .alertPriority(&#34;P3&#34;)
  *             .alertTags(            
  *                 &#34;test&#34;,
  *                 &#34;fahri&#34;)
- *             .description(&#34;test opsgenie heartbeat terraform&#34;)
- *             .enabled(false)
- *             .interval(10)
- *             .intervalUnit(&#34;minutes&#34;)
- *             .ownerTeamId(opsgenie_team.test().id())
+ *             .ownerTeamId(testOpsgenieTeam.id())
  *             .build());
  * 
  *     }

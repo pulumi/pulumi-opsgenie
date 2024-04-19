@@ -27,6 +27,7 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var @default = new Opsgenie.Escalation("default", new()
     ///     {
+    ///         Name = "genieescalation",
     ///         Rules = new[]
     ///         {
     ///             new Opsgenie.Inputs.EscalationRuleArgs
@@ -39,7 +40,7 @@ namespace Pulumi.Opsgenie
     ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
     ///                     {
     ///                         Type = "user",
-    ///                         Id = opsgenie_user.Test.Id,
+    ///                         Id = test.Id,
     ///                     },
     ///                 },
     ///             },
@@ -63,8 +64,9 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var @default = new Opsgenie.Escalation("default", new()
     ///     {
+    ///         Name = "genieescalation",
     ///         Description = "test",
-    ///         OwnerTeamId = opsgenie_team.Test.Id,
+    ///         OwnerTeamId = testOpsgenieTeam.Id,
     ///         Rules = new[]
     ///         {
     ///             new Opsgenie.Inputs.EscalationRuleArgs
@@ -77,7 +79,7 @@ namespace Pulumi.Opsgenie
     ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
     ///                     {
     ///                         Type = "user",
-    ///                         Id = opsgenie_user.Test.Id,
+    ///                         Id = test.Id,
     ///                     },
     ///                 },
     ///             },
@@ -91,7 +93,7 @@ namespace Pulumi.Opsgenie
     ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
     ///                     {
     ///                         Type = "team",
-    ///                         Id = opsgenie_team.Test.Id,
+    ///                         Id = testOpsgenieTeam.Id,
     ///                     },
     ///                 },
     ///             },
@@ -105,7 +107,7 @@ namespace Pulumi.Opsgenie
     ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
     ///                     {
     ///                         Type = "schedule",
-    ///                         Id = opsgenie_schedule.Test.Id,
+    ///                         Id = testOpsgenieSchedule.Id,
     ///                     },
     ///                 },
     ///             },

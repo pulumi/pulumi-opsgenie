@@ -29,19 +29,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//			test, err := opsgenie.NewTeam(ctx, "test", &opsgenie.TeamArgs{
+//				Name:        pulumi.String("example team"),
 //				Description: pulumi.String("This team deals with all the things"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opsgenie.NewAlertPolicy(ctx, "testAlertPolicy", &opsgenie.AlertPolicyArgs{
-//				TeamId:            testTeam.ID(),
-//				PolicyDescription: pulumi.String("This is sample policy"),
-//				Message:           pulumi.String("{{message}}"),
+//			_, err = opsgenie.NewAlertPolicy(ctx, "test", &opsgenie.AlertPolicyArgs{
 //				Filters: opsgenie.AlertPolicyFilterArray{
 //					nil,
 //				},
+//				Name:              pulumi.String("example policy"),
+//				TeamId:            test.ID(),
+//				PolicyDescription: pulumi.String("This is sample policy"),
+//				Message:           pulumi.String("{{message}}"),
 //				TimeRestrictions: opsgenie.AlertPolicyTimeRestrictionArray{
 //					&opsgenie.AlertPolicyTimeRestrictionArgs{
 //						Type: pulumi.String("weekday-and-time-of-day"),

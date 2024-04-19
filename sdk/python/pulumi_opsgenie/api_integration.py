@@ -376,52 +376,6 @@ class ApiIntegration(pulumi.CustomResource):
         """
         Manages an API Integration within Opsgenie.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_opsgenie as opsgenie
-
-        example_api_integration_api_integration = opsgenie.ApiIntegration("example-api-integrationApiIntegration",
-            type="API",
-            responders=[
-                opsgenie.ApiIntegrationResponderArgs(
-                    type="user",
-                    id=opsgenie_user["user"]["id"],
-                ),
-                opsgenie.ApiIntegrationResponderArgs(
-                    type="user",
-                    id=opsgenie_user["fahri"]["id"],
-                ),
-            ])
-        example_api_integration_index_api_integration_api_integration = opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration",
-            type="Prometheus",
-            responders=[opsgenie.ApiIntegrationResponderArgs(
-                type="user",
-                id=opsgenie_user["user"]["id"],
-            )],
-            enabled=False,
-            allow_write_access=False,
-            ignore_responders_from_payload=True,
-            suppress_notifications=True,
-            owner_team_id=opsgenie_team["team"]["id"])
-        test3 = opsgenie.ApiIntegration("test3",
-            type="Webhook",
-            responders=[opsgenie.ApiIntegrationResponderArgs(
-                type="user",
-                id=opsgenie_user["user"]["id"],
-            )],
-            enabled=False,
-            allow_write_access=False,
-            suppress_notifications=True,
-            webhook_url="https://api.example.com/v1",
-            headers={
-                "header1": value1,
-            })
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         API Integrations can be imported using the `integration_id`, e.g.
@@ -450,52 +404,6 @@ class ApiIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Integration within Opsgenie.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_opsgenie as opsgenie
-
-        example_api_integration_api_integration = opsgenie.ApiIntegration("example-api-integrationApiIntegration",
-            type="API",
-            responders=[
-                opsgenie.ApiIntegrationResponderArgs(
-                    type="user",
-                    id=opsgenie_user["user"]["id"],
-                ),
-                opsgenie.ApiIntegrationResponderArgs(
-                    type="user",
-                    id=opsgenie_user["fahri"]["id"],
-                ),
-            ])
-        example_api_integration_index_api_integration_api_integration = opsgenie.ApiIntegration("example-api-integrationIndex/apiIntegrationApiIntegration",
-            type="Prometheus",
-            responders=[opsgenie.ApiIntegrationResponderArgs(
-                type="user",
-                id=opsgenie_user["user"]["id"],
-            )],
-            enabled=False,
-            allow_write_access=False,
-            ignore_responders_from_payload=True,
-            suppress_notifications=True,
-            owner_team_id=opsgenie_team["team"]["id"])
-        test3 = opsgenie.ApiIntegration("test3",
-            type="Webhook",
-            responders=[opsgenie.ApiIntegrationResponderArgs(
-                type="user",
-                id=opsgenie_user["user"]["id"],
-            )],
-            enabled=False,
-            allow_write_access=False,
-            suppress_notifications=True,
-            webhook_url="https://api.example.com/v1",
-            headers={
-                "header1": value1,
-            })
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -20,6 +20,252 @@ namespace Pulumi.Opsgenie
     /// * `acknowledge`
     /// * `add_note`
     /// * `ignore`
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Opsgenie = Pulumi.Opsgenie;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testAction = new Opsgenie.IntegrationAction("test_action", new()
+    ///     {
+    ///         IntegrationId = testOpsgenieApiIntegration.Id,
+    ///         Creates = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.IntegrationActionCreateArgs
+    ///             {
+    ///                 Name = "create action",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     "CRITICAL",
+    ///                     "SEV-0",
+    ///                 },
+    ///                 User = "Example-service",
+    ///                 Note = "{{note}}",
+    ///                 Alias = "{{alias}}",
+    ///                 Source = "{{source}}",
+    ///                 Message = "{{message}}",
+    ///                 Description = "{{description}}",
+    ///                 Entity = "{{entity}}",
+    ///                 AlertActions = new[]
+    ///                 {
+    ///                     "Runbook ID#342",
+    ///                 },
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.IntegrationActionCreateFilterArgs
+    ///                     {
+    ///                         Type = "match-all-conditions",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs
+    ///                             {
+    ///                                 Field = "priority",
+    ///                                 Operation = "equals",
+    ///                                 ExpectedValue = "P1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Responders = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.IntegrationActionCreateResponderArgs
+    ///                     {
+    ///                         Id = test.Id,
+    ///                         Type = "team",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Opsgenie.Inputs.IntegrationActionCreateArgs
+    ///             {
+    ///                 Name = "create action with multiline description",
+    ///                 Message = "{{message}}",
+    ///                 Description = Std.Chomp.Invoke(new()
+    ///                 {
+    ///                     Input = @"This
+    /// is a multiline
+    /// description.
+    /// ",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.IntegrationActionCreateFilterArgs
+    ///                     {
+    ///                         Type = "match-all-conditions",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs
+    ///                             {
+    ///                                 Field = "priority",
+    ///                                 Operation = "equals",
+    ///                                 ExpectedValue = "P1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Opsgenie.Inputs.IntegrationActionCreateArgs
+    ///             {
+    ///                 Name = "Create medium priority alerts",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     "SEVERE",
+    ///                     "SEV-1",
+    ///                 },
+    ///                 Priority = "P3",
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.IntegrationActionCreateFilterArgs
+    ///                     {
+    ///                         Type = "match-all-conditions",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs
+    ///                             {
+    ///                                 Field = "priority",
+    ///                                 Operation = "equals",
+    ///                                 ExpectedValue = "P2",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Opsgenie.Inputs.IntegrationActionCreateArgs
+    ///             {
+    ///                 Name = "Create alert with priority from message",
+    ///                 CustomPriority = "{{message.substringAfter(\"[custom]\")}}",
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.IntegrationActionCreateFilterArgs
+    ///                     {
+    ///                         Type = "match-all-conditions",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs
+    ///                             {
+    ///                                 Field = "tags",
+    ///                                 Operation = "contains",
+    ///                                 ExpectedValue = "P5",
+    ///                             },
+    ///                             new Opsgenie.Inputs.IntegrationActionCreateFilterConditionArgs
+    ///                             {
+    ///                                 Field = "message",
+    ///                                 Operation = "starts-with",
+    ///                                 ExpectedValue = "[custom]",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Closes = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.IntegrationActionCloseArgs
+    ///             {
+    ///                 Name = "Low priority alerts",
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.IntegrationActionCloseFilterArgs
+    ///                     {
+    ///                         Type = "match-any-condition",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Opsgenie.Inputs.IntegrationActionCloseFilterConditionArgs
+    ///                             {
+    ///                                 Field = "priority",
+    ///                                 Operation = "equals",
+    ///                                 ExpectedValue = "P5",
+    ///                             },
+    ///                             new Opsgenie.Inputs.IntegrationActionCloseFilterConditionArgs
+    ///                             {
+    ///                                 Field = "message",
+    ///                                 Operation = "contains",
+    ///                                 ExpectedValue = "DEBUG",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Acknowledges = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.IntegrationActionAcknowledgeArgs
+    ///             {
+    ///                 Name = "Auto-ack test alerts",
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.IntegrationActionAcknowledgeFilterArgs
+    ///                     {
+    ///                         Type = "match-all-conditions",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Opsgenie.Inputs.IntegrationActionAcknowledgeFilterConditionArgs
+    ///                             {
+    ///                                 Field = "message",
+    ///                                 Not = true,
+    ///                                 Operation = "contains",
+    ///                                 ExpectedValue = "TEST",
+    ///                             },
+    ///                             new Opsgenie.Inputs.IntegrationActionAcknowledgeFilterConditionArgs
+    ///                             {
+    ///                                 Field = "priority",
+    ///                                 Operation = "equals",
+    ///                                 ExpectedValue = "P5",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AddNotes = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.IntegrationActionAddNoteArgs
+    ///             {
+    ///                 Name = "Add note to all alerts",
+    ///                 Note = "Created from test integration",
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.IntegrationActionAddNoteFilterArgs
+    ///                     {
+    ///                         Type = "match-all",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Ignores = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.IntegrationActionIgnoreArgs
+    ///             {
+    ///                 Name = "Ignore alerts with ignore tag",
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.IntegrationActionIgnoreFilterArgs
+    ///                     {
+    ///                         Type = "match-all-conditions",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Opsgenie.Inputs.IntegrationActionIgnoreFilterConditionArgs
+    ///                             {
+    ///                                 Field = "tags",
+    ///                                 Operation = "contains",
+    ///                                 ExpectedValue = "ignore",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/integrationAction:IntegrationAction")]
     public partial class IntegrationAction : global::Pulumi.CustomResource

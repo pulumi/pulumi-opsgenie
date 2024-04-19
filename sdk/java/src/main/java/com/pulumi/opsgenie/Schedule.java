@@ -18,42 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Schedule within Opsgenie.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.opsgenie.Schedule;
- * import com.pulumi.opsgenie.ScheduleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Schedule(&#34;test&#34;, ScheduleArgs.builder()        
- *             .description(&#34;schedule test&#34;)
- *             .enabled(false)
- *             .ownerTeamId(opsgenie_team.test().id())
- *             .timezone(&#34;Europe/Rome&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Schedule can be imported using the `schedule_id`, e.g.

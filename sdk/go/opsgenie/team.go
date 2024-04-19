@@ -29,22 +29,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			first, err := opsgenie.NewUser(ctx, "first", &opsgenie.UserArgs{
+//				Username: pulumi.String("user@domain.com"),
 //				FullName: pulumi.String("name "),
 //				Role:     pulumi.String("User"),
-//				Username: pulumi.String("user@domain.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			second, err := opsgenie.NewUser(ctx, "second", &opsgenie.UserArgs{
+//				Username: pulumi.String("test@domain.com"),
 //				FullName: pulumi.String("name "),
 //				Role:     pulumi.String("User"),
-//				Username: pulumi.String("test@domain.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = opsgenie.NewTeam(ctx, "test", &opsgenie.TeamArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("This team deals with all the things"),
 //				Members: opsgenie.TeamMemberArray{
 //					&opsgenie.TeamMemberArgs{
@@ -61,9 +62,10 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewTeam(ctx, "self-service", &opsgenie.TeamArgs{
-//				DeleteDefaultResources: pulumi.Bool(true),
+//				Name:                   pulumi.String("Self Service"),
 //				Description:            pulumi.String("Membership in this team is managed via OpsGenie web UI only"),
 //				IgnoreMembers:          pulumi.Bool(true),
+//				DeleteDefaultResources: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

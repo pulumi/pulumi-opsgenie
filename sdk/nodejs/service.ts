@@ -14,8 +14,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const payment = new opsgenie.Team("payment", {description: "This team deals with all the things"});
- * const _this = new opsgenie.Service("this", {teamId: "$opsgenie_team.payment.id"});
+ * const payment = new opsgenie.Team("payment", {
+ *     name: "example",
+ *     description: "This team deals with all the things",
+ * });
+ * const _this = new opsgenie.Service("this", {
+ *     name: "Payment",
+ *     teamId: "$opsgenie_team.payment.id",
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

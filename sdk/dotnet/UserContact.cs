@@ -25,23 +25,23 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var sms = new Opsgenie.UserContact("sms", new()
     ///     {
-    ///         Method = "sms",
+    ///         Username = exampleuser.Username,
     ///         To = "39-123",
-    ///         Username = opsgenie_user.Exampleuser.Username,
+    ///         Method = "sms",
     ///     });
     /// 
     ///     var email = new Opsgenie.UserContact("email", new()
     ///     {
-    ///         Method = "email",
+    ///         Username = exampleuser.Username,
     ///         To = "fahri@opsgenie.com",
-    ///         Username = opsgenie_user.Exampleuser.Username,
+    ///         Method = "email",
     ///     });
     /// 
     ///     var voice = new Opsgenie.UserContact("voice", new()
     ///     {
-    ///         Method = "voice",
+    ///         Username = exampleuser.Username,
     ///         To = "39-123",
-    ///         Username = opsgenie_user.Exampleuser.Username,
+    ///         Method = "voice",
     ///     });
     /// 
     /// });

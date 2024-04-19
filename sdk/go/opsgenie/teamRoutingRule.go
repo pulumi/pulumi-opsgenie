@@ -29,58 +29,61 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSchedule, err := opsgenie.NewSchedule(ctx, "testSchedule", &opsgenie.ScheduleArgs{
+//			test, err := opsgenie.NewSchedule(ctx, "test", &opsgenie.ScheduleArgs{
+//				Name:        pulumi.String("genieschedule"),
 //				Description: pulumi.String("schedule test"),
-//				Enabled:     pulumi.Bool(false),
 //				Timezone:    pulumi.String("Europe/Rome"),
+//				Enabled:     pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//			testTeam, err := opsgenie.NewTeam(ctx, "test", &opsgenie.TeamArgs{
+//				Name:        pulumi.String("example team"),
 //				Description: pulumi.String("This team deals with all the things"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opsgenie.NewTeamRoutingRule(ctx, "testTeamRoutingRule", &opsgenie.TeamRoutingRuleArgs{
+//			_, err = opsgenie.NewTeamRoutingRule(ctx, "test", &opsgenie.TeamRoutingRuleArgs{
+//				Name:     pulumi.String("routing rule example"),
+//				TeamId:   testTeam.ID(),
+//				Order:    pulumi.Int(0),
+//				Timezone: pulumi.String("America/Los_Angeles"),
 //				Criterias: opsgenie.TeamRoutingRuleCriteriaArray{
 //					&opsgenie.TeamRoutingRuleCriteriaArgs{
+//						Type: pulumi.String("match-any-condition"),
 //						Conditions: opsgenie.TeamRoutingRuleCriteriaConditionArray{
 //							&opsgenie.TeamRoutingRuleCriteriaConditionArgs{
-//								ExpectedValue: pulumi.String("expected1"),
 //								Field:         pulumi.String("message"),
-//								Not:           pulumi.Bool(false),
 //								Operation:     pulumi.String("contains"),
+//								ExpectedValue: pulumi.String("expected1"),
+//								Not:           pulumi.Bool(false),
 //							},
 //						},
-//						Type: pulumi.String("match-any-condition"),
+//					},
+//				},
+//				TimeRestrictions: opsgenie.TeamRoutingRuleTimeRestrictionArray{
+//					&opsgenie.TeamRoutingRuleTimeRestrictionArgs{
+//						Type: pulumi.String("weekday-and-time-of-day"),
+//						RestrictionList: opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArray{
+//							&opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArgs{
+//								StartDay:  pulumi.String("monday"),
+//								StartHour: pulumi.Int(8),
+//								StartMin:  pulumi.Int(0),
+//								EndDay:    pulumi.String("tuesday"),
+//								EndHour:   pulumi.Int(18),
+//								EndMin:    pulumi.Int(30),
+//							},
+//						},
 //					},
 //				},
 //				Notifies: opsgenie.TeamRoutingRuleNotifyArray{
 //					&opsgenie.TeamRoutingRuleNotifyArgs{
-//						Name: testSchedule.Name,
+//						Name: test.Name,
 //						Type: pulumi.String("schedule"),
 //					},
 //				},
-//				Order:  pulumi.Int(0),
-//				TeamId: testTeam.ID(),
-//				TimeRestrictions: opsgenie.TeamRoutingRuleTimeRestrictionArray{
-//					&opsgenie.TeamRoutingRuleTimeRestrictionArgs{
-//						RestrictionList: opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArray{
-//							&opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArgs{
-//								EndDay:    pulumi.String("tuesday"),
-//								EndHour:   pulumi.Int(18),
-//								EndMin:    pulumi.Int(30),
-//								StartDay:  pulumi.String("monday"),
-//								StartHour: pulumi.Int(8),
-//								StartMin:  pulumi.Int(0),
-//							},
-//						},
-//						Type: pulumi.String("weekday-and-time-of-day"),
-//					},
-//				},
-//				Timezone: pulumi.String("America/Los_Angeles"),
 //			})
 //			if err != nil {
 //				return err

@@ -175,13 +175,13 @@ class CustomRole(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         test = opsgenie.CustomRole("test",
+            role_name="genierole",
+            extended_role="user",
+            granted_rights=["alert-delete"],
             disallowed_rights=[
                 "profile-edit",
                 "contacts-edit",
-            ],
-            extended_role="user",
-            granted_rights=["alert-delete"],
-            role_name="genierole")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -209,13 +209,13 @@ class CustomRole(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         test = opsgenie.CustomRole("test",
+            role_name="genierole",
+            extended_role="user",
+            granted_rights=["alert-delete"],
             disallowed_rights=[
                 "profile-edit",
                 "contacts-edit",
-            ],
-            extended_role="user",
-            granted_rights=["alert-delete"],
-            role_name="genierole")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

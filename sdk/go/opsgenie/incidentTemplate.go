@@ -29,19 +29,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTeam, err := opsgenie.NewTeam(ctx, "testTeam", &opsgenie.TeamArgs{
+//			test, err := opsgenie.NewTeam(ctx, "test", &opsgenie.TeamArgs{
+//				Name:        pulumi.String("genietest-team"),
 //				Description: pulumi.String("This team deals with all the things"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testService, err := opsgenie.NewService(ctx, "testService", &opsgenie.ServiceArgs{
-//				TeamId: testTeam.ID(),
+//			testService, err := opsgenie.NewService(ctx, "test", &opsgenie.ServiceArgs{
+//				Name:   pulumi.String("genietest-service"),
+//				TeamId: test.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opsgenie.NewIncidentTemplate(ctx, "testIncidentTemplate", &opsgenie.IncidentTemplateArgs{
+//			_, err = opsgenie.NewIncidentTemplate(ctx, "test", &opsgenie.IncidentTemplateArgs{
+//				Name:     pulumi.String("genietest-incident-template"),
 //				Message:  pulumi.String("Incident Message"),
 //				Priority: pulumi.String("P2"),
 //				StakeholderProperties: opsgenie.IncidentTemplateStakeholderPropertyArray{

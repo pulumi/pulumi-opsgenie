@@ -298,24 +298,25 @@ class ScheduleRotation(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         test = opsgenie.ScheduleRotation("test",
+            schedule_id=test_opsgenie_schedule["id"],
+            name="test",
+            start_date="2019-06-18T17:00:00Z",
             end_date="2019-06-20T17:30:00Z",
+            type="hourly",
             length=6,
             participants=[opsgenie.ScheduleRotationParticipantArgs(
-                id=opsgenie_user["test"]["id"],
                 type="user",
+                id=test_opsgenie_user["id"],
             )],
-            schedule_id=opsgenie_schedule["test"]["id"],
-            start_date="2019-06-18T17:00:00Z",
             time_restrictions=[opsgenie.ScheduleRotationTimeRestrictionArgs(
+                type="time-of-day",
                 restriction=[opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs(
-                    end_hour=10,
-                    end_min=1,
                     start_hour=1,
                     start_min=1,
+                    end_hour=10,
+                    end_min=1,
                 )],
-                type="time-of-day",
-            )],
-            type="hourly")
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -354,24 +355,25 @@ class ScheduleRotation(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         test = opsgenie.ScheduleRotation("test",
+            schedule_id=test_opsgenie_schedule["id"],
+            name="test",
+            start_date="2019-06-18T17:00:00Z",
             end_date="2019-06-20T17:30:00Z",
+            type="hourly",
             length=6,
             participants=[opsgenie.ScheduleRotationParticipantArgs(
-                id=opsgenie_user["test"]["id"],
                 type="user",
+                id=test_opsgenie_user["id"],
             )],
-            schedule_id=opsgenie_schedule["test"]["id"],
-            start_date="2019-06-18T17:00:00Z",
             time_restrictions=[opsgenie.ScheduleRotationTimeRestrictionArgs(
+                type="time-of-day",
                 restriction=[opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs(
-                    end_hour=10,
-                    end_min=1,
                     start_hour=1,
                     start_min=1,
+                    end_hour=10,
+                    end_min=1,
                 )],
-                type="time-of-day",
-            )],
-            type="hourly")
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

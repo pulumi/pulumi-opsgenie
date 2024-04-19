@@ -17,24 +17,25 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const test = new opsgenie.ScheduleRotation("test", {
+ *     scheduleId: testOpsgenieSchedule.id,
+ *     name: "test",
+ *     startDate: "2019-06-18T17:00:00Z",
  *     endDate: "2019-06-20T17:30:00Z",
+ *     type: "hourly",
  *     length: 6,
  *     participants: [{
- *         id: opsgenie_user.test.id,
  *         type: "user",
+ *         id: testOpsgenieUser.id,
  *     }],
- *     scheduleId: opsgenie_schedule.test.id,
- *     startDate: "2019-06-18T17:00:00Z",
  *     timeRestrictions: [{
+ *         type: "time-of-day",
  *         restriction: [{
- *             endHour: 10,
- *             endMin: 1,
  *             startHour: 1,
  *             startMin: 1,
+ *             endHour: 10,
+ *             endMin: 1,
  *         }],
- *         type: "time-of-day",
  *     }],
- *     type: "hourly",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

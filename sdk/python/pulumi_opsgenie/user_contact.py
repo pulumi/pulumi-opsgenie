@@ -173,17 +173,17 @@ class UserContact(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         sms = opsgenie.UserContact("sms",
-            method="sms",
+            username=exampleuser["username"],
             to="39-123",
-            username=opsgenie_user["exampleuser"]["username"])
+            method="sms")
         email = opsgenie.UserContact("email",
-            method="email",
+            username=exampleuser["username"],
             to="fahri@opsgenie.com",
-            username=opsgenie_user["exampleuser"]["username"])
+            method="email")
         voice = opsgenie.UserContact("voice",
-            method="voice",
+            username=exampleuser["username"],
             to="39-123",
-            username=opsgenie_user["exampleuser"]["username"])
+            method="voice")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -219,17 +219,17 @@ class UserContact(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         sms = opsgenie.UserContact("sms",
-            method="sms",
+            username=exampleuser["username"],
             to="39-123",
-            username=opsgenie_user["exampleuser"]["username"])
+            method="sms")
         email = opsgenie.UserContact("email",
-            method="email",
+            username=exampleuser["username"],
             to="fahri@opsgenie.com",
-            username=opsgenie_user["exampleuser"]["username"])
+            method="email")
         voice = opsgenie.UserContact("voice",
-            method="voice",
+            username=exampleuser["username"],
             to="39-123",
-            username=opsgenie_user["exampleuser"]["username"])
+            method="voice")
         ```
         <!--End PulumiCodeChooser -->
 

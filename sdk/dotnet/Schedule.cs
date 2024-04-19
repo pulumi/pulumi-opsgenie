@@ -12,29 +12,6 @@ namespace Pulumi.Opsgenie
     /// <summary>
     /// Manages a Schedule within Opsgenie.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Opsgenie = Pulumi.Opsgenie;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Opsgenie.Schedule("test", new()
-    ///     {
-    ///         Description = "schedule test",
-    ///         Enabled = false,
-    ///         OwnerTeamId = opsgenie_team.Test.Id,
-    ///         Timezone = "Europe/Rome",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// Schedule can be imported using the `schedule_id`, e.g.

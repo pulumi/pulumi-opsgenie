@@ -406,16 +406,19 @@ class NotificationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_notification_policy = opsgenie.NotificationPolicy("testNotificationPolicy",
-            team_id=test_team.id,
+        test = opsgenie.Team("test",
+            name="example team",
+            description="This team deals with all the things")
+        test_notification_policy = opsgenie.NotificationPolicy("test",
+            filters=[opsgenie.NotificationPolicyFilterArgs()],
+            name="example policy",
+            team_id=test.id,
             policy_description="This policy has a delay action",
             delay_actions=[opsgenie.NotificationPolicyDelayActionArgs(
                 delay_option="next-time",
                 until_minute=1,
                 until_hour=9,
-            )],
-            filters=[opsgenie.NotificationPolicyFilterArgs()])
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -457,16 +460,19 @@ class NotificationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_opsgenie as opsgenie
 
-        test_team = opsgenie.Team("testTeam", description="This team deals with all the things")
-        test_notification_policy = opsgenie.NotificationPolicy("testNotificationPolicy",
-            team_id=test_team.id,
+        test = opsgenie.Team("test",
+            name="example team",
+            description="This team deals with all the things")
+        test_notification_policy = opsgenie.NotificationPolicy("test",
+            filters=[opsgenie.NotificationPolicyFilterArgs()],
+            name="example policy",
+            team_id=test.id,
             policy_description="This policy has a delay action",
             delay_actions=[opsgenie.NotificationPolicyDelayActionArgs(
                 delay_option="next-time",
                 until_minute=1,
                 until_hour=9,
-            )],
-            filters=[opsgenie.NotificationPolicyFilterArgs()])
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

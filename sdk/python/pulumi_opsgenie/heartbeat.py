@@ -338,17 +338,18 @@ class Heartbeat(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         test = opsgenie.Heartbeat("test",
+            name="genieheartbeat-test",
+            description="test opsgenie heartbeat terraform",
+            interval_unit="minutes",
+            interval=10,
+            enabled=False,
             alert_message="Test",
             alert_priority="P3",
             alert_tags=[
                 "test",
                 "fahri",
             ],
-            description="test opsgenie heartbeat terraform",
-            enabled=False,
-            interval=10,
-            interval_unit="minutes",
-            owner_team_id=opsgenie_team["test"]["id"])
+            owner_team_id=test_opsgenie_team["id"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -389,17 +390,18 @@ class Heartbeat(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         test = opsgenie.Heartbeat("test",
+            name="genieheartbeat-test",
+            description="test opsgenie heartbeat terraform",
+            interval_unit="minutes",
+            interval=10,
+            enabled=False,
             alert_message="Test",
             alert_priority="P3",
             alert_tags=[
                 "test",
                 "fahri",
             ],
-            description="test opsgenie heartbeat terraform",
-            enabled=False,
-            interval=10,
-            interval_unit="minutes",
-            owner_team_id=opsgenie_team["test"]["id"])
+            owner_team_id=test_opsgenie_team["id"])
         ```
         <!--End PulumiCodeChooser -->
 
