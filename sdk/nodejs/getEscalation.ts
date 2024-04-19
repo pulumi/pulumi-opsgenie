@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "existing-escalation",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEscalation(args: GetEscalationArgs, opts?: pulumi.InvokeOptions): Promise<GetEscalationResult> {
 
@@ -91,7 +89,6 @@ export interface GetEscalationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
@@ -100,7 +97,6 @@ export interface GetEscalationResult {
  *     name: "existing-escalation",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEscalationOutput(args: GetEscalationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEscalationResult> {
     return pulumi.output(args).apply((a: any) => getEscalation(a, opts))

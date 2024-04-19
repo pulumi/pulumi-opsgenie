@@ -302,7 +302,6 @@ class TeamRoutingRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -341,7 +340,6 @@ class TeamRoutingRule(pulumi.CustomResource):
             )],
             timezone="America/Los_Angeles")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -373,7 +371,6 @@ class TeamRoutingRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -412,7 +409,6 @@ class TeamRoutingRule(pulumi.CustomResource):
             )],
             timezone="America/Los_Angeles")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

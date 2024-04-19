@@ -401,7 +401,6 @@ class NotificationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -417,7 +416,6 @@ class NotificationPolicy(pulumi.CustomResource):
             )],
             filters=[opsgenie.NotificationPolicyFilterArgs()])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -452,7 +450,6 @@ class NotificationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -468,7 +465,6 @@ class NotificationPolicy(pulumi.CustomResource):
             )],
             filters=[opsgenie.NotificationPolicyFilterArgs()])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -137,7 +137,6 @@ class Maintenance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -157,7 +156,6 @@ class Maintenance(pulumi.CustomResource):
                 type="schedule",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -184,7 +182,6 @@ class Maintenance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -204,7 +201,6 @@ class Maintenance(pulumi.CustomResource):
                 type="schedule",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

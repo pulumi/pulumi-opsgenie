@@ -206,7 +206,6 @@ class Escalation(pulumi.CustomResource):
 
         An escalation with a single rule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -221,11 +220,9 @@ class Escalation(pulumi.CustomResource):
             )],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         An escalation with a multiple rules
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -269,7 +266,6 @@ class Escalation(pulumi.CustomResource):
                 close_alert_after_all=False,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -300,7 +296,6 @@ class Escalation(pulumi.CustomResource):
 
         An escalation with a single rule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -315,11 +310,9 @@ class Escalation(pulumi.CustomResource):
             )],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         An escalation with a multiple rules
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -363,7 +356,6 @@ class Escalation(pulumi.CustomResource):
                 close_alert_after_all=False,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
