@@ -136,12 +136,9 @@ export interface ApiIntegrationResponder {
 
 export interface EmailIntegrationResponder {
     /**
-     * The id of the responder.
+     * The ID of the Opsgenie Email based Integration.
      */
     id?: pulumi.Input<string>;
-    /**
-     * The responder type.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -243,15 +240,12 @@ export interface GetTeamMemberArgs {
 
 export interface IncidentTemplateStakeholderProperty {
     /**
-     * Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * Description field of the incident template. This field must not be longer than 10000 characters.
      */
     description?: pulumi.Input<string>;
-    /**
-     * Option to enable stakeholder notifications.Default value is true.
-     */
     enable?: pulumi.Input<boolean>;
     /**
-     * Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * Message of the related incident template. This field must not be longer than 130 characters.
      */
     message: pulumi.Input<string>;
 }
@@ -280,9 +274,6 @@ export interface IntegrationActionAcknowledge {
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     */
     type?: pulumi.Input<string>;
     /**
      * Owner of the execution for integration action.
@@ -292,9 +283,6 @@ export interface IntegrationActionAcknowledge {
 
 export interface IntegrationActionAcknowledgeFilter {
     conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledgeFilterCondition>[]>;
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     */
     type: pulumi.Input<string>;
 }
 
@@ -334,9 +322,6 @@ export interface IntegrationActionAddNote {
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     */
     type?: pulumi.Input<string>;
     /**
      * Owner of the execution for integration action.
@@ -346,9 +331,6 @@ export interface IntegrationActionAddNote {
 
 export interface IntegrationActionAddNoteFilter {
     conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNoteFilterCondition>[]>;
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     */
     type: pulumi.Input<string>;
 }
 
@@ -388,9 +370,6 @@ export interface IntegrationActionClose {
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     */
     type?: pulumi.Input<string>;
     /**
      * Owner of the execution for integration action.
@@ -400,9 +379,6 @@ export interface IntegrationActionClose {
 
 export interface IntegrationActionCloseFilter {
     conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCloseFilterCondition>[]>;
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     */
     type: pulumi.Input<string>;
 }
 
@@ -425,21 +401,9 @@ export interface IntegrationActionCreate {
      */
     alias?: pulumi.Input<string>;
     appendAttachments?: pulumi.Input<boolean>;
-    /**
-     * Custom alert priority. e.g. ``{{message.substring(0,2)}}``
-     */
     customPriority?: pulumi.Input<string>;
-    /**
-     * Detailed description of the alert, anything that may not have fit in the `message` field.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The entity the alert is related to.
-     */
     entity?: pulumi.Input<string>;
-    /**
-     * Set of user defined properties specified as a map.
-     */
     extraProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
@@ -450,18 +414,9 @@ export interface IntegrationActionCreate {
     filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreateFilter>[]>;
     ignoreAlertActionsFromPayload?: pulumi.Input<boolean>;
     ignoreExtraPropertiesFromPayload?: pulumi.Input<boolean>;
-    /**
-     * If enabled, the integration will ignore responders sent in request payloads.
-     */
     ignoreRespondersFromPayload?: pulumi.Input<boolean>;
     ignoreTagsFromPayload?: pulumi.Input<boolean>;
-    /**
-     * If enabled, the integration will ignore teams sent in request payloads.
-     */
     ignoreTeamsFromPayload?: pulumi.Input<boolean>;
-    /**
-     * Alert text limited to 130 characters.
-     */
     message?: pulumi.Input<string>;
     /**
      * Name of the integration action.
@@ -475,25 +430,10 @@ export interface IntegrationActionCreate {
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
-    /**
-     * Alert priority.
-     */
     priority?: pulumi.Input<string>;
-    /**
-     * User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
-     */
     responders?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreateResponder>[]>;
-    /**
-     * User defined field to specify source of action.
-     */
     source?: pulumi.Input<string>;
-    /**
-     * Comma separated list of labels to be attached to the alert.
-     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     */
     type?: pulumi.Input<string>;
     /**
      * Owner of the execution for integration action.
@@ -503,9 +443,6 @@ export interface IntegrationActionCreate {
 
 export interface IntegrationActionCreateFilter {
     conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreateFilterCondition>[]>;
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     */
     type: pulumi.Input<string>;
 }
 
@@ -548,17 +485,11 @@ export interface IntegrationActionIgnore {
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
     order?: pulumi.Input<number>;
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     */
     type?: pulumi.Input<string>;
 }
 
 export interface IntegrationActionIgnoreFilter {
     conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnoreFilterCondition>[]>;
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     */
     type: pulumi.Input<string>;
 }
 
@@ -597,17 +528,8 @@ export interface MaintenanceRuleEntity {
 }
 
 export interface MaintenanceTime {
-    /**
-     * This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-     */
     endDate?: pulumi.Input<string>;
-    /**
-     * This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-     */
     startDate?: pulumi.Input<string>;
-    /**
-     * The type of the entity that maintenance will be applied. It can be either integration or policy.
-     */
     type: pulumi.Input<string>;
 }
 
@@ -857,9 +779,6 @@ export interface NotificationRuleSchedule {
      * Name of the notification policy
      */
     name: pulumi.Input<string>;
-    /**
-     * Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-     */
     type: pulumi.Input<string>;
 }
 
@@ -892,9 +811,6 @@ export interface NotificationRuleStepContact {
 export interface NotificationRuleTimeRestriction {
     restriction?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestrictionRestriction>[]>;
     restrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestrictionRestriction>[]>;
-    /**
-     * Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-     */
     type: pulumi.Input<string>;
 }
 
@@ -923,9 +839,6 @@ export interface ScheduleRotationTimeRestriction {
      * It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
      */
     restriction?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestrictionRestriction>[]>;
-    /**
-     * It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
-     */
     restrictionList?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestrictionRestrictionList>[]>;
     /**
      * This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
@@ -934,50 +847,18 @@ export interface ScheduleRotationTimeRestriction {
 }
 
 export interface ScheduleRotationTimeRestrictionRestriction {
-    /**
-     * Value of the hour that frame will end.
-     */
     endHour: pulumi.Input<number>;
-    /**
-     * Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     */
     endMin: pulumi.Input<number>;
-    /**
-     * Value of the hour that frame will start.
-     */
     startHour: pulumi.Input<number>;
-    /**
-     * Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     */
     startMin: pulumi.Input<number>;
 }
 
 export interface ScheduleRotationTimeRestrictionRestrictionList {
-    /**
-     * Value of the day that frame will end.
-     */
     endDay: pulumi.Input<string>;
-    /**
-     * Value of the hour that frame will end.
-     */
     endHour: pulumi.Input<number>;
-    /**
-     * Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     *
-     * Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
-     */
     endMin: pulumi.Input<number>;
-    /**
-     * Value of the day that frame will start.
-     */
     startDay: pulumi.Input<string>;
-    /**
-     * Value of the hour that frame will start
-     */
     startHour: pulumi.Input<number>;
-    /**
-     * Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     */
     startMin: pulumi.Input<number>;
 }
 
@@ -1117,9 +998,6 @@ export interface TeamRoutingRuleNotify {
 export interface TeamRoutingRuleTimeRestriction {
     restriction?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestriction>[]>;
     restrictionList?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestrictionList>[]>;
-    /**
-     * Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
-     */
     type: pulumi.Input<string>;
 }
 

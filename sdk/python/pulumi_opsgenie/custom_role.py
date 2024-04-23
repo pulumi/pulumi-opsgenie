@@ -169,7 +169,6 @@ class CustomRole(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -183,7 +182,6 @@ class CustomRole(pulumi.CustomResource):
                 "contacts-edit",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +201,6 @@ class CustomRole(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -217,7 +214,6 @@ class CustomRole(pulumi.CustomResource):
                 "contacts-edit",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param CustomRoleArgs args: The arguments to use to populate this resource's properties.

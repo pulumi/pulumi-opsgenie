@@ -14,62 +14,30 @@ public final class ScheduleRotationTimeRestrictionRestrictionArgs extends com.pu
 
     public static final ScheduleRotationTimeRestrictionRestrictionArgs Empty = new ScheduleRotationTimeRestrictionRestrictionArgs();
 
-    /**
-     * Value of the hour that frame will end.
-     * 
-     */
     @Import(name="endHour", required=true)
     private Output<Integer> endHour;
 
-    /**
-     * @return Value of the hour that frame will end.
-     * 
-     */
     public Output<Integer> endHour() {
         return this.endHour;
     }
 
-    /**
-     * Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     */
     @Import(name="endMin", required=true)
     private Output<Integer> endMin;
 
-    /**
-     * @return Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     */
     public Output<Integer> endMin() {
         return this.endMin;
     }
 
-    /**
-     * Value of the hour that frame will start.
-     * 
-     */
     @Import(name="startHour", required=true)
     private Output<Integer> startHour;
 
-    /**
-     * @return Value of the hour that frame will start.
-     * 
-     */
     public Output<Integer> startHour() {
         return this.startHour;
     }
 
-    /**
-     * Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     */
     @Import(name="startMin", required=true)
     private Output<Integer> startMin;
 
-    /**
-     * @return Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     */
     public Output<Integer> startMin() {
         return this.startMin;
     }
@@ -101,86 +69,38 @@ public final class ScheduleRotationTimeRestrictionRestrictionArgs extends com.pu
             $ = new ScheduleRotationTimeRestrictionRestrictionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endHour Value of the hour that frame will end.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endHour(Output<Integer> endHour) {
             $.endHour = endHour;
             return this;
         }
 
-        /**
-         * @param endHour Value of the hour that frame will end.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endHour(Integer endHour) {
             return endHour(Output.of(endHour));
         }
 
-        /**
-         * @param endMin Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endMin(Output<Integer> endMin) {
             $.endMin = endMin;
             return this;
         }
 
-        /**
-         * @param endMin Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endMin(Integer endMin) {
             return endMin(Output.of(endMin));
         }
 
-        /**
-         * @param startHour Value of the hour that frame will start.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startHour(Output<Integer> startHour) {
             $.startHour = startHour;
             return this;
         }
 
-        /**
-         * @param startHour Value of the hour that frame will start.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startHour(Integer startHour) {
             return startHour(Output.of(startHour));
         }
 
-        /**
-         * @param startMin Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startMin(Output<Integer> startMin) {
             $.startMin = startMin;
             return this;
         }
 
-        /**
-         * @param startMin Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startMin(Integer startMin) {
             return startMin(Output.of(startMin));
         }

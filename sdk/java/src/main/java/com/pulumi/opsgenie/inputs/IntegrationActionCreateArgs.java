@@ -51,62 +51,30 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.appendAttachments);
     }
 
-    /**
-     * Custom alert priority. e.g. ``{{message.substring(0,2)}}``
-     * 
-     */
     @Import(name="customPriority")
     private @Nullable Output<String> customPriority;
 
-    /**
-     * @return Custom alert priority. e.g. ``{{message.substring(0,2)}}``
-     * 
-     */
     public Optional<Output<String>> customPriority() {
         return Optional.ofNullable(this.customPriority);
     }
 
-    /**
-     * Detailed description of the alert, anything that may not have fit in the `message` field.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Detailed description of the alert, anything that may not have fit in the `message` field.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The entity the alert is related to.
-     * 
-     */
     @Import(name="entity")
     private @Nullable Output<String> entity;
 
-    /**
-     * @return The entity the alert is related to.
-     * 
-     */
     public Optional<Output<String>> entity() {
         return Optional.ofNullable(this.entity);
     }
 
-    /**
-     * Set of user defined properties specified as a map.
-     * 
-     */
     @Import(name="extraProperties")
     private @Nullable Output<Map<String,String>> extraProperties;
 
-    /**
-     * @return Set of user defined properties specified as a map.
-     * 
-     */
     public Optional<Output<Map<String,String>>> extraProperties() {
         return Optional.ofNullable(this.extraProperties);
     }
@@ -146,17 +114,9 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.ignoreExtraPropertiesFromPayload);
     }
 
-    /**
-     * If enabled, the integration will ignore responders sent in request payloads.
-     * 
-     */
     @Import(name="ignoreRespondersFromPayload")
     private @Nullable Output<Boolean> ignoreRespondersFromPayload;
 
-    /**
-     * @return If enabled, the integration will ignore responders sent in request payloads.
-     * 
-     */
     public Optional<Output<Boolean>> ignoreRespondersFromPayload() {
         return Optional.ofNullable(this.ignoreRespondersFromPayload);
     }
@@ -168,32 +128,16 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.ignoreTagsFromPayload);
     }
 
-    /**
-     * If enabled, the integration will ignore teams sent in request payloads.
-     * 
-     */
     @Import(name="ignoreTeamsFromPayload")
     private @Nullable Output<Boolean> ignoreTeamsFromPayload;
 
-    /**
-     * @return If enabled, the integration will ignore teams sent in request payloads.
-     * 
-     */
     public Optional<Output<Boolean>> ignoreTeamsFromPayload() {
         return Optional.ofNullable(this.ignoreTeamsFromPayload);
     }
 
-    /**
-     * Alert text limited to 130 characters.
-     * 
-     */
     @Import(name="message")
     private @Nullable Output<String> message;
 
-    /**
-     * @return Alert text limited to 130 characters.
-     * 
-     */
     public Optional<Output<String>> message() {
         return Optional.ofNullable(this.message);
     }
@@ -243,77 +187,37 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.order);
     }
 
-    /**
-     * Alert priority.
-     * 
-     */
     @Import(name="priority")
     private @Nullable Output<String> priority;
 
-    /**
-     * @return Alert priority.
-     * 
-     */
     public Optional<Output<String>> priority() {
         return Optional.ofNullable(this.priority);
     }
 
-    /**
-     * User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
-     * 
-     */
     @Import(name="responders")
     private @Nullable Output<List<IntegrationActionCreateResponderArgs>> responders;
 
-    /**
-     * @return User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
-     * 
-     */
     public Optional<Output<List<IntegrationActionCreateResponderArgs>>> responders() {
         return Optional.ofNullable(this.responders);
     }
 
-    /**
-     * User defined field to specify source of action.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<String> source;
 
-    /**
-     * @return User defined field to specify source of action.
-     * 
-     */
     public Optional<Output<String>> source() {
         return Optional.ofNullable(this.source);
     }
 
-    /**
-     * Comma separated list of labels to be attached to the alert.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
-    /**
-     * @return Comma separated list of labels to be attached to the alert.
-     * 
-     */
     public Optional<Output<List<String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The responder type - can be `escalation`, `team` or `user`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The responder type - can be `escalation`, `team` or `user`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -422,86 +326,38 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
             return appendAttachments(Output.of(appendAttachments));
         }
 
-        /**
-         * @param customPriority Custom alert priority. e.g. ``{{message.substring(0,2)}}``
-         * 
-         * @return builder
-         * 
-         */
         public Builder customPriority(@Nullable Output<String> customPriority) {
             $.customPriority = customPriority;
             return this;
         }
 
-        /**
-         * @param customPriority Custom alert priority. e.g. ``{{message.substring(0,2)}}``
-         * 
-         * @return builder
-         * 
-         */
         public Builder customPriority(String customPriority) {
             return customPriority(Output.of(customPriority));
         }
 
-        /**
-         * @param description Detailed description of the alert, anything that may not have fit in the `message` field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Detailed description of the alert, anything that may not have fit in the `message` field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param entity The entity the alert is related to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entity(@Nullable Output<String> entity) {
             $.entity = entity;
             return this;
         }
 
-        /**
-         * @param entity The entity the alert is related to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entity(String entity) {
             return entity(Output.of(entity));
         }
 
-        /**
-         * @param extraProperties Set of user defined properties specified as a map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extraProperties(@Nullable Output<Map<String,String>> extraProperties) {
             $.extraProperties = extraProperties;
             return this;
         }
 
-        /**
-         * @param extraProperties Set of user defined properties specified as a map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extraProperties(Map<String,String> extraProperties) {
             return extraProperties(Output.of(extraProperties));
         }
@@ -564,23 +420,11 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
             return ignoreExtraPropertiesFromPayload(Output.of(ignoreExtraPropertiesFromPayload));
         }
 
-        /**
-         * @param ignoreRespondersFromPayload If enabled, the integration will ignore responders sent in request payloads.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreRespondersFromPayload(@Nullable Output<Boolean> ignoreRespondersFromPayload) {
             $.ignoreRespondersFromPayload = ignoreRespondersFromPayload;
             return this;
         }
 
-        /**
-         * @param ignoreRespondersFromPayload If enabled, the integration will ignore responders sent in request payloads.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreRespondersFromPayload(Boolean ignoreRespondersFromPayload) {
             return ignoreRespondersFromPayload(Output.of(ignoreRespondersFromPayload));
         }
@@ -594,44 +438,20 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
             return ignoreTagsFromPayload(Output.of(ignoreTagsFromPayload));
         }
 
-        /**
-         * @param ignoreTeamsFromPayload If enabled, the integration will ignore teams sent in request payloads.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreTeamsFromPayload(@Nullable Output<Boolean> ignoreTeamsFromPayload) {
             $.ignoreTeamsFromPayload = ignoreTeamsFromPayload;
             return this;
         }
 
-        /**
-         * @param ignoreTeamsFromPayload If enabled, the integration will ignore teams sent in request payloads.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreTeamsFromPayload(Boolean ignoreTeamsFromPayload) {
             return ignoreTeamsFromPayload(Output.of(ignoreTeamsFromPayload));
         }
 
-        /**
-         * @param message Alert text limited to 130 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(@Nullable Output<String> message) {
             $.message = message;
             return this;
         }
 
-        /**
-         * @param message Alert text limited to 130 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(String message) {
             return message(Output.of(message));
         }
@@ -699,127 +519,55 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
             return order(Output.of(order));
         }
 
-        /**
-         * @param priority Alert priority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(@Nullable Output<String> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority Alert priority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(String priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param responders User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responders(@Nullable Output<List<IntegrationActionCreateResponderArgs>> responders) {
             $.responders = responders;
             return this;
         }
 
-        /**
-         * @param responders User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responders(List<IntegrationActionCreateResponderArgs> responders) {
             return responders(Output.of(responders));
         }
 
-        /**
-         * @param responders User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responders(IntegrationActionCreateResponderArgs... responders) {
             return responders(List.of(responders));
         }
 
-        /**
-         * @param source User defined field to specify source of action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source User defined field to specify source of action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param tags Comma separated list of labels to be attached to the alert.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<List<String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Comma separated list of labels to be attached to the alert.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(List<String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tags Comma separated list of labels to be attached to the alert.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(String... tags) {
             return tags(List.of(tags));
         }
 
-        /**
-         * @param type The responder type - can be `escalation`, `team` or `user`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The responder type - can be `escalation`, `team` or `user`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

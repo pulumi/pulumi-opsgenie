@@ -16,7 +16,6 @@ namespace Pulumi.Opsgenie
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Opsgenie
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEscalationResult> InvokeAsync(GetEscalationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Opsgenie
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Opsgenie
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEscalationResult> Invoke(GetEscalationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationInvokeArgs(), options.WithDefaults());

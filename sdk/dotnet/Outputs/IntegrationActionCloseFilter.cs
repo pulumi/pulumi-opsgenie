@@ -14,9 +14,6 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class IntegrationActionCloseFilter
     {
         public readonly ImmutableArray<Outputs.IntegrationActionCloseFilterCondition> Conditions;
-        /// <summary>
-        /// The responder type - can be `escalation`, `team` or `user`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -14,15 +14,12 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class IncidentTemplateStakeholderProperty
     {
         /// <summary>
-        /// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        /// Description field of the incident template. This field must not be longer than 10000 characters.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Option to enable stakeholder notifications.Default value is true.
-        /// </summary>
         public readonly bool? Enable;
         /// <summary>
-        /// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        /// Message of the related incident template. This field must not be longer than 130 characters.
         /// </summary>
         public readonly string Message;
 

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupHeartbeat(ctx *pulumi.Context, args *LookupHeartbeatArgs, opts ...pulumi.InvokeOption) (*LookupHeartbeatResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHeartbeatResult

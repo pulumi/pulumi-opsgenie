@@ -205,7 +205,6 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -237,7 +236,6 @@ class Team(pulumi.CustomResource):
             ignore_members=True,
             delete_default_resources=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -266,7 +264,6 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -298,7 +295,6 @@ class Team(pulumi.CustomResource):
             ignore_members=True,
             delete_default_resources=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

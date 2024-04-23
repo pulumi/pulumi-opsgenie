@@ -164,14 +164,12 @@ def get_heartbeat(alert_message: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     test = opsgenie.get_heartbeat(name="genieheartbeat-existing")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str alert_message: Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
@@ -226,14 +224,12 @@ def get_heartbeat_output(alert_message: Optional[pulumi.Input[Optional[str]]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     test = opsgenie.get_heartbeat(name="genieheartbeat-existing")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str alert_message: Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".

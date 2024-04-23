@@ -15,9 +15,6 @@ namespace Pulumi.Opsgenie.Outputs
     {
         public readonly ImmutableArray<Outputs.TeamRoutingRuleTimeRestrictionRestriction> Restriction;
         public readonly ImmutableArray<Outputs.TeamRoutingRuleTimeRestrictionRestrictionList> RestrictionList;
-        /// <summary>
-        /// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -13,14 +13,11 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class EmailIntegrationResponderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The id of the responder.
+        /// The ID of the Opsgenie Email based Integration.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// The responder type.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

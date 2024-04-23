@@ -334,7 +334,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -362,7 +361,6 @@ class User(pulumi.CustomResource):
                 "key2": "val3,val4",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -395,7 +393,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -423,7 +420,6 @@ class User(pulumi.CustomResource):
                 "key2": "val3,val4",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

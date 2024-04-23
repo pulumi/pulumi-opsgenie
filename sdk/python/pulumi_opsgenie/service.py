@@ -169,7 +169,6 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -181,7 +180,6 @@ class Service(pulumi.CustomResource):
             name="Payment",
             team_id="$opsgenie_team.payment.id")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -209,7 +207,6 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -221,7 +218,6 @@ class Service(pulumi.CustomResource):
             name="Payment",
             team_id="$opsgenie_team.payment.id")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
