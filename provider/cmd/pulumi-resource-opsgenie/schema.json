@@ -248,11 +248,10 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The id of the responder.\n"
+                    "description": "The ID of the Opsgenie Email based Integration.\n"
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type.\n"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -320,15 +319,14 @@
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.\n"
+                    "description": "Description field of the incident template. This field must not be longer than 10000 characters.\n"
                 },
                 "enable": {
-                    "type": "boolean",
-                    "description": "Option to enable stakeholder notifications.Default value is true.\n"
+                    "type": "boolean"
                 },
                 "message": {
                     "type": "string",
-                    "description": "Message that is to be passed to audience that is generally used to provide a content information about the alert.\n"
+                    "description": "Message of the related incident template. This field must not be longer than 130 characters.\n"
                 }
             },
             "type": "object",
@@ -362,8 +360,7 @@
                     "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n"
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
+                    "type": "string"
                 },
                 "user": {
                     "type": "string",
@@ -384,8 +381,7 @@
                     }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -447,8 +443,7 @@
                     "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n"
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
+                    "type": "string"
                 },
                 "user": {
                     "type": "string",
@@ -469,8 +464,7 @@
                     }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -532,8 +526,7 @@
                     "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n"
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
+                    "type": "string"
                 },
                 "user": {
                     "type": "string",
@@ -554,8 +547,7 @@
                     }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -607,23 +599,19 @@
                     "type": "boolean"
                 },
                 "customPriority": {
-                    "type": "string",
-                    "description": "Custom alert priority. e.g. ``{{message.substring(0,2)}}``\n"
+                    "type": "string"
                 },
                 "description": {
-                    "type": "string",
-                    "description": "Detailed description of the alert, anything that may not have fit in the `message` field.\n"
+                    "type": "string"
                 },
                 "entity": {
-                    "type": "string",
-                    "description": "The entity the alert is related to.\n"
+                    "type": "string"
                 },
                 "extraProperties": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "description": "Set of user defined properties specified as a map.\n"
+                    }
                 },
                 "filters": {
                     "type": "array",
@@ -639,19 +627,16 @@
                     "type": "boolean"
                 },
                 "ignoreRespondersFromPayload": {
-                    "type": "boolean",
-                    "description": "If enabled, the integration will ignore responders sent in request payloads.\n"
+                    "type": "boolean"
                 },
                 "ignoreTagsFromPayload": {
                     "type": "boolean"
                 },
                 "ignoreTeamsFromPayload": {
-                    "type": "boolean",
-                    "description": "If enabled, the integration will ignore teams sent in request payloads.\n"
+                    "type": "boolean"
                 },
                 "message": {
-                    "type": "string",
-                    "description": "Alert text limited to 130 characters.\n"
+                    "type": "string"
                 },
                 "name": {
                     "type": "string",
@@ -666,30 +651,25 @@
                     "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n"
                 },
                 "priority": {
-                    "type": "string",
-                    "description": "Alert priority.\n"
+                    "type": "string"
                 },
                 "responders": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/IntegrationActionCreateResponder:IntegrationActionCreateResponder"
-                    },
-                    "description": "User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.\n"
+                    }
                 },
                 "source": {
-                    "type": "string",
-                    "description": "User defined field to specify source of action.\n"
+                    "type": "string"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "Comma separated list of labels to be attached to the alert.\n"
+                    }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
+                    "type": "string"
                 },
                 "user": {
                     "type": "string",
@@ -710,8 +690,7 @@
                     }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -782,8 +761,7 @@
                     "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n"
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -800,8 +778,7 @@
                     }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -872,16 +849,13 @@
         "opsgenie:index/MaintenanceTime:MaintenanceTime": {
             "properties": {
                 "endDate": {
-                    "type": "string",
-                    "description": "This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).\n"
+                    "type": "string"
                 },
                 "startDate": {
-                    "type": "string",
-                    "description": "This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).\n"
+                    "type": "string"
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The type of the entity that maintenance will be applied. It can be either integration or policy.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1252,8 +1226,7 @@
                     "description": "Name of the notification policy\n"
                 },
                 "type": {
-                    "type": "string",
-                    "description": "Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1317,8 +1290,7 @@
                     }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1386,8 +1358,7 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/ScheduleRotationTimeRestrictionRestrictionList:ScheduleRotationTimeRestrictionRestrictionList"
-                    },
-                    "description": "It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.\n"
+                    }
                 },
                 "type": {
                     "type": "string",
@@ -1402,20 +1373,16 @@
         "opsgenie:index/ScheduleRotationTimeRestrictionRestriction:ScheduleRotationTimeRestrictionRestriction": {
             "properties": {
                 "endHour": {
-                    "type": "integer",
-                    "description": "Value of the hour that frame will end.\n"
+                    "type": "integer"
                 },
                 "endMin": {
-                    "type": "integer",
-                    "description": "Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.\n"
+                    "type": "integer"
                 },
                 "startHour": {
-                    "type": "integer",
-                    "description": "Value of the hour that frame will start.\n"
+                    "type": "integer"
                 },
                 "startMin": {
-                    "type": "integer",
-                    "description": "Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.\n"
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1429,28 +1396,22 @@
         "opsgenie:index/ScheduleRotationTimeRestrictionRestrictionList:ScheduleRotationTimeRestrictionRestrictionList": {
             "properties": {
                 "endDay": {
-                    "type": "string",
-                    "description": "Value of the day that frame will end.\n"
+                    "type": "string"
                 },
                 "endHour": {
-                    "type": "integer",
-                    "description": "Value of the hour that frame will end.\n"
+                    "type": "integer"
                 },
                 "endMin": {
-                    "type": "integer",
-                    "description": "Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.\n\nBoth `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.\n"
+                    "type": "integer"
                 },
                 "startDay": {
-                    "type": "string",
-                    "description": "Value of the day that frame will start.\n"
+                    "type": "string"
                 },
                 "startHour": {
-                    "type": "integer",
-                    "description": "Value of the hour that frame will start\n"
+                    "type": "integer"
                 },
                 "startMin": {
-                    "type": "integer",
-                    "description": "Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.\n"
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1700,8 +1661,7 @@
                     }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2806,7 +2766,7 @@
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.\n"
+                    "description": "Description field of the incident template. This field must not be longer than 10000 characters.\n"
                 },
                 "details": {
                     "type": "object",
@@ -2823,7 +2783,7 @@
                 },
                 "message": {
                     "type": "string",
-                    "description": "Message that is to be passed to audience that is generally used to provide a content information about the alert.\n"
+                    "description": "Message of the related incident template. This field must not be longer than 130 characters.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2856,7 +2816,7 @@
             "inputProperties": {
                 "description": {
                     "type": "string",
-                    "description": "Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.\n"
+                    "description": "Description field of the incident template. This field must not be longer than 10000 characters.\n"
                 },
                 "details": {
                     "type": "object",
@@ -2873,7 +2833,7 @@
                 },
                 "message": {
                     "type": "string",
-                    "description": "Message that is to be passed to audience that is generally used to provide a content information about the alert.\n"
+                    "description": "Message of the related incident template. This field must not be longer than 130 characters.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2907,7 +2867,7 @@
                 "properties": {
                     "description": {
                         "type": "string",
-                        "description": "Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.\n"
+                        "description": "Description field of the incident template. This field must not be longer than 10000 characters.\n"
                     },
                     "details": {
                         "type": "object",
@@ -2924,7 +2884,7 @@
                     },
                     "message": {
                         "type": "string",
-                        "description": "Message that is to be passed to audience that is generally used to provide a content information about the alert.\n"
+                        "description": "Message of the related incident template. This field must not be longer than 130 characters.\n"
                     },
                     "name": {
                         "type": "string",
@@ -3384,8 +3344,7 @@
                     "description": "List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.\n"
                 },
                 "order": {
-                    "type": "integer",
-                    "description": "Order of the condition in conditions list\n"
+                    "type": "integer"
                 },
                 "repeats": {
                     "type": "array",
@@ -3452,8 +3411,7 @@
                     "description": "List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.\n"
                 },
                 "order": {
-                    "type": "integer",
-                    "description": "Order of the condition in conditions list\n"
+                    "type": "integer"
                 },
                 "repeats": {
                     "type": "array",
@@ -3520,8 +3478,7 @@
                         "description": "List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.\n"
                     },
                     "order": {
-                        "type": "integer",
-                        "description": "Order of the condition in conditions list\n"
+                        "type": "integer"
                     },
                     "repeats": {
                         "type": "array",
