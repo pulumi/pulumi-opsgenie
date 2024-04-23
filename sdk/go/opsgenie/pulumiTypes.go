@@ -875,9 +875,8 @@ func (o ApiIntegrationResponderArrayOutput) Index(i pulumi.IntInput) ApiIntegrat
 }
 
 type EmailIntegrationResponder struct {
-	// The id of the responder.
-	Id *string `pulumi:"id"`
-	// The responder type.
+	// The ID of the Opsgenie Email based Integration.
+	Id   *string `pulumi:"id"`
 	Type *string `pulumi:"type"`
 }
 
@@ -893,9 +892,8 @@ type EmailIntegrationResponderInput interface {
 }
 
 type EmailIntegrationResponderArgs struct {
-	// The id of the responder.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The responder type.
+	// The ID of the Opsgenie Email based Integration.
+	Id   pulumi.StringPtrInput `pulumi:"id"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -950,12 +948,11 @@ func (o EmailIntegrationResponderOutput) ToEmailIntegrationResponderOutputWithCo
 	return o
 }
 
-// The id of the responder.
+// The ID of the Opsgenie Email based Integration.
 func (o EmailIntegrationResponderOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailIntegrationResponder) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The responder type.
 func (o EmailIntegrationResponderOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailIntegrationResponder) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1320,11 +1317,10 @@ func (o EscalationRuleRecipientArrayOutput) Index(i pulumi.IntInput) EscalationR
 }
 
 type IncidentTemplateStakeholderProperty struct {
-	// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+	// Description field of the incident template. This field must not be longer than 10000 characters.
 	Description *string `pulumi:"description"`
-	// Option to enable stakeholder notifications.Default value is true.
-	Enable *bool `pulumi:"enable"`
-	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+	Enable      *bool   `pulumi:"enable"`
+	// Message of the related incident template. This field must not be longer than 130 characters.
 	Message string `pulumi:"message"`
 }
 
@@ -1340,11 +1336,10 @@ type IncidentTemplateStakeholderPropertyInput interface {
 }
 
 type IncidentTemplateStakeholderPropertyArgs struct {
-	// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+	// Description field of the incident template. This field must not be longer than 10000 characters.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Option to enable stakeholder notifications.Default value is true.
-	Enable pulumi.BoolPtrInput `pulumi:"enable"`
-	// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+	Enable      pulumi.BoolPtrInput   `pulumi:"enable"`
+	// Message of the related incident template. This field must not be longer than 130 characters.
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
@@ -1399,17 +1394,16 @@ func (o IncidentTemplateStakeholderPropertyOutput) ToIncidentTemplateStakeholder
 	return o
 }
 
-// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+// Description field of the incident template. This field must not be longer than 10000 characters.
 func (o IncidentTemplateStakeholderPropertyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentTemplateStakeholderProperty) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Option to enable stakeholder notifications.Default value is true.
 func (o IncidentTemplateStakeholderPropertyOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IncidentTemplateStakeholderProperty) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
-// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+// Message of the related incident template. This field must not be longer than 130 characters.
 func (o IncidentTemplateStakeholderPropertyOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v IncidentTemplateStakeholderProperty) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -1447,9 +1441,8 @@ type IntegrationActionAcknowledge struct {
 	// Additional alert action note.
 	Note *string `pulumi:"note"`
 	// Integer value that defines in which order the action will be performed. Default: `1`.
-	Order *int `pulumi:"order"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type *string `pulumi:"type"`
+	Order *int    `pulumi:"order"`
+	Type  *string `pulumi:"type"`
 	// Owner of the execution for integration action.
 	User *string `pulumi:"user"`
 }
@@ -1478,9 +1471,8 @@ type IntegrationActionAcknowledgeArgs struct {
 	// Additional alert action note.
 	Note pulumi.StringPtrInput `pulumi:"note"`
 	// Integer value that defines in which order the action will be performed. Default: `1`.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Order pulumi.IntPtrInput    `pulumi:"order"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 	// Owner of the execution for integration action.
 	User pulumi.StringPtrInput `pulumi:"user"`
 }
@@ -1564,7 +1556,6 @@ func (o IntegrationActionAcknowledgeOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntegrationActionAcknowledge) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// The responder type - can be `escalation`, `team` or `user`.
 func (o IntegrationActionAcknowledgeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionAcknowledge) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1596,8 +1587,7 @@ func (o IntegrationActionAcknowledgeArrayOutput) Index(i pulumi.IntInput) Integr
 
 type IntegrationActionAcknowledgeFilter struct {
 	Conditions []IntegrationActionAcknowledgeFilterCondition `pulumi:"conditions"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type string `pulumi:"type"`
+	Type       string                                        `pulumi:"type"`
 }
 
 // IntegrationActionAcknowledgeFilterInput is an input type that accepts IntegrationActionAcknowledgeFilterArgs and IntegrationActionAcknowledgeFilterOutput values.
@@ -1613,8 +1603,7 @@ type IntegrationActionAcknowledgeFilterInput interface {
 
 type IntegrationActionAcknowledgeFilterArgs struct {
 	Conditions IntegrationActionAcknowledgeFilterConditionArrayInput `pulumi:"conditions"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                                    `pulumi:"type"`
 }
 
 func (IntegrationActionAcknowledgeFilterArgs) ElementType() reflect.Type {
@@ -1674,7 +1663,6 @@ func (o IntegrationActionAcknowledgeFilterOutput) Conditions() IntegrationAction
 	}).(IntegrationActionAcknowledgeFilterConditionArrayOutput)
 }
 
-// The responder type - can be `escalation`, `team` or `user`.
 func (o IntegrationActionAcknowledgeFilterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationActionAcknowledgeFilter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1839,9 +1827,8 @@ type IntegrationActionAddNote struct {
 	// Additional alert action note.
 	Note *string `pulumi:"note"`
 	// Integer value that defines in which order the action will be performed. Default: `1`.
-	Order *int `pulumi:"order"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type *string `pulumi:"type"`
+	Order *int    `pulumi:"order"`
+	Type  *string `pulumi:"type"`
 	// Owner of the execution for integration action.
 	User *string `pulumi:"user"`
 }
@@ -1870,9 +1857,8 @@ type IntegrationActionAddNoteArgs struct {
 	// Additional alert action note.
 	Note pulumi.StringPtrInput `pulumi:"note"`
 	// Integer value that defines in which order the action will be performed. Default: `1`.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Order pulumi.IntPtrInput    `pulumi:"order"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 	// Owner of the execution for integration action.
 	User pulumi.StringPtrInput `pulumi:"user"`
 }
@@ -1956,7 +1942,6 @@ func (o IntegrationActionAddNoteOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntegrationActionAddNote) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// The responder type - can be `escalation`, `team` or `user`.
 func (o IntegrationActionAddNoteOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionAddNote) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1988,8 +1973,7 @@ func (o IntegrationActionAddNoteArrayOutput) Index(i pulumi.IntInput) Integratio
 
 type IntegrationActionAddNoteFilter struct {
 	Conditions []IntegrationActionAddNoteFilterCondition `pulumi:"conditions"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type string `pulumi:"type"`
+	Type       string                                    `pulumi:"type"`
 }
 
 // IntegrationActionAddNoteFilterInput is an input type that accepts IntegrationActionAddNoteFilterArgs and IntegrationActionAddNoteFilterOutput values.
@@ -2005,8 +1989,7 @@ type IntegrationActionAddNoteFilterInput interface {
 
 type IntegrationActionAddNoteFilterArgs struct {
 	Conditions IntegrationActionAddNoteFilterConditionArrayInput `pulumi:"conditions"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                                `pulumi:"type"`
 }
 
 func (IntegrationActionAddNoteFilterArgs) ElementType() reflect.Type {
@@ -2064,7 +2047,6 @@ func (o IntegrationActionAddNoteFilterOutput) Conditions() IntegrationActionAddN
 	return o.ApplyT(func(v IntegrationActionAddNoteFilter) []IntegrationActionAddNoteFilterCondition { return v.Conditions }).(IntegrationActionAddNoteFilterConditionArrayOutput)
 }
 
-// The responder type - can be `escalation`, `team` or `user`.
 func (o IntegrationActionAddNoteFilterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationActionAddNoteFilter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2229,9 +2211,8 @@ type IntegrationActionClose struct {
 	// Additional alert action note.
 	Note *string `pulumi:"note"`
 	// Integer value that defines in which order the action will be performed. Default: `1`.
-	Order *int `pulumi:"order"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type *string `pulumi:"type"`
+	Order *int    `pulumi:"order"`
+	Type  *string `pulumi:"type"`
 	// Owner of the execution for integration action.
 	User *string `pulumi:"user"`
 }
@@ -2260,9 +2241,8 @@ type IntegrationActionCloseArgs struct {
 	// Additional alert action note.
 	Note pulumi.StringPtrInput `pulumi:"note"`
 	// Integer value that defines in which order the action will be performed. Default: `1`.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Order pulumi.IntPtrInput    `pulumi:"order"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 	// Owner of the execution for integration action.
 	User pulumi.StringPtrInput `pulumi:"user"`
 }
@@ -2346,7 +2326,6 @@ func (o IntegrationActionCloseOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntegrationActionClose) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// The responder type - can be `escalation`, `team` or `user`.
 func (o IntegrationActionCloseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionClose) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2378,8 +2357,7 @@ func (o IntegrationActionCloseArrayOutput) Index(i pulumi.IntInput) IntegrationA
 
 type IntegrationActionCloseFilter struct {
 	Conditions []IntegrationActionCloseFilterCondition `pulumi:"conditions"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type string `pulumi:"type"`
+	Type       string                                  `pulumi:"type"`
 }
 
 // IntegrationActionCloseFilterInput is an input type that accepts IntegrationActionCloseFilterArgs and IntegrationActionCloseFilterOutput values.
@@ -2395,8 +2373,7 @@ type IntegrationActionCloseFilterInput interface {
 
 type IntegrationActionCloseFilterArgs struct {
 	Conditions IntegrationActionCloseFilterConditionArrayInput `pulumi:"conditions"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                              `pulumi:"type"`
 }
 
 func (IntegrationActionCloseFilterArgs) ElementType() reflect.Type {
@@ -2454,7 +2431,6 @@ func (o IntegrationActionCloseFilterOutput) Conditions() IntegrationActionCloseF
 	return o.ApplyT(func(v IntegrationActionCloseFilter) []IntegrationActionCloseFilterCondition { return v.Conditions }).(IntegrationActionCloseFilterConditionArrayOutput)
 }
 
-// The responder type - can be `escalation`, `team` or `user`.
 func (o IntegrationActionCloseFilterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationActionCloseFilter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2609,16 +2585,12 @@ func (o IntegrationActionCloseFilterConditionArrayOutput) Index(i pulumi.IntInpu
 type IntegrationActionCreate struct {
 	AlertActions []string `pulumi:"alertActions"`
 	// An identifier that is used for alert deduplication. Default: `{{alias}}`.
-	Alias             *string `pulumi:"alias"`
-	AppendAttachments *bool   `pulumi:"appendAttachments"`
-	// Custom alert priority. e.g. ``{{message.substring(0,2)}}``
-	CustomPriority *string `pulumi:"customPriority"`
-	// Detailed description of the alert, anything that may not have fit in the `message` field.
-	Description *string `pulumi:"description"`
-	// The entity the alert is related to.
-	Entity *string `pulumi:"entity"`
-	// Set of user defined properties specified as a map.
-	ExtraProperties map[string]string `pulumi:"extraProperties"`
+	Alias             *string           `pulumi:"alias"`
+	AppendAttachments *bool             `pulumi:"appendAttachments"`
+	CustomPriority    *string           `pulumi:"customPriority"`
+	Description       *string           `pulumi:"description"`
+	Entity            *string           `pulumi:"entity"`
+	ExtraProperties   map[string]string `pulumi:"extraProperties"`
 	// Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
 	// * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
 	// * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
@@ -2626,29 +2598,21 @@ type IntegrationActionCreate struct {
 	Filters                          []IntegrationActionCreateFilter `pulumi:"filters"`
 	IgnoreAlertActionsFromPayload    *bool                           `pulumi:"ignoreAlertActionsFromPayload"`
 	IgnoreExtraPropertiesFromPayload *bool                           `pulumi:"ignoreExtraPropertiesFromPayload"`
-	// If enabled, the integration will ignore responders sent in request payloads.
-	IgnoreRespondersFromPayload *bool `pulumi:"ignoreRespondersFromPayload"`
-	IgnoreTagsFromPayload       *bool `pulumi:"ignoreTagsFromPayload"`
-	// If enabled, the integration will ignore teams sent in request payloads.
-	IgnoreTeamsFromPayload *bool `pulumi:"ignoreTeamsFromPayload"`
-	// Alert text limited to 130 characters.
-	Message *string `pulumi:"message"`
+	IgnoreRespondersFromPayload      *bool                           `pulumi:"ignoreRespondersFromPayload"`
+	IgnoreTagsFromPayload            *bool                           `pulumi:"ignoreTagsFromPayload"`
+	IgnoreTeamsFromPayload           *bool                           `pulumi:"ignoreTeamsFromPayload"`
+	Message                          *string                         `pulumi:"message"`
 	// Name of the integration action.
 	Name string `pulumi:"name"`
 	// Additional alert action note.
 	Note *string `pulumi:"note"`
 	// Integer value that defines in which order the action will be performed. Default: `1`.
-	Order *int `pulumi:"order"`
-	// Alert priority.
-	Priority *string `pulumi:"priority"`
-	// User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
+	Order      *int                               `pulumi:"order"`
+	Priority   *string                            `pulumi:"priority"`
 	Responders []IntegrationActionCreateResponder `pulumi:"responders"`
-	// User defined field to specify source of action.
-	Source *string `pulumi:"source"`
-	// Comma separated list of labels to be attached to the alert.
-	Tags []string `pulumi:"tags"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type *string `pulumi:"type"`
+	Source     *string                            `pulumi:"source"`
+	Tags       []string                           `pulumi:"tags"`
+	Type       *string                            `pulumi:"type"`
 	// Owner of the execution for integration action.
 	User *string `pulumi:"user"`
 }
@@ -2669,14 +2633,10 @@ type IntegrationActionCreateArgs struct {
 	// An identifier that is used for alert deduplication. Default: `{{alias}}`.
 	Alias             pulumi.StringPtrInput `pulumi:"alias"`
 	AppendAttachments pulumi.BoolPtrInput   `pulumi:"appendAttachments"`
-	// Custom alert priority. e.g. ``{{message.substring(0,2)}}``
-	CustomPriority pulumi.StringPtrInput `pulumi:"customPriority"`
-	// Detailed description of the alert, anything that may not have fit in the `message` field.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The entity the alert is related to.
-	Entity pulumi.StringPtrInput `pulumi:"entity"`
-	// Set of user defined properties specified as a map.
-	ExtraProperties pulumi.StringMapInput `pulumi:"extraProperties"`
+	CustomPriority    pulumi.StringPtrInput `pulumi:"customPriority"`
+	Description       pulumi.StringPtrInput `pulumi:"description"`
+	Entity            pulumi.StringPtrInput `pulumi:"entity"`
+	ExtraProperties   pulumi.StringMapInput `pulumi:"extraProperties"`
 	// Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
 	// * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
 	// * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
@@ -2684,29 +2644,21 @@ type IntegrationActionCreateArgs struct {
 	Filters                          IntegrationActionCreateFilterArrayInput `pulumi:"filters"`
 	IgnoreAlertActionsFromPayload    pulumi.BoolPtrInput                     `pulumi:"ignoreAlertActionsFromPayload"`
 	IgnoreExtraPropertiesFromPayload pulumi.BoolPtrInput                     `pulumi:"ignoreExtraPropertiesFromPayload"`
-	// If enabled, the integration will ignore responders sent in request payloads.
-	IgnoreRespondersFromPayload pulumi.BoolPtrInput `pulumi:"ignoreRespondersFromPayload"`
-	IgnoreTagsFromPayload       pulumi.BoolPtrInput `pulumi:"ignoreTagsFromPayload"`
-	// If enabled, the integration will ignore teams sent in request payloads.
-	IgnoreTeamsFromPayload pulumi.BoolPtrInput `pulumi:"ignoreTeamsFromPayload"`
-	// Alert text limited to 130 characters.
-	Message pulumi.StringPtrInput `pulumi:"message"`
+	IgnoreRespondersFromPayload      pulumi.BoolPtrInput                     `pulumi:"ignoreRespondersFromPayload"`
+	IgnoreTagsFromPayload            pulumi.BoolPtrInput                     `pulumi:"ignoreTagsFromPayload"`
+	IgnoreTeamsFromPayload           pulumi.BoolPtrInput                     `pulumi:"ignoreTeamsFromPayload"`
+	Message                          pulumi.StringPtrInput                   `pulumi:"message"`
 	// Name of the integration action.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Additional alert action note.
 	Note pulumi.StringPtrInput `pulumi:"note"`
 	// Integer value that defines in which order the action will be performed. Default: `1`.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Alert priority.
-	Priority pulumi.StringPtrInput `pulumi:"priority"`
-	// User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
+	Order      pulumi.IntPtrInput                         `pulumi:"order"`
+	Priority   pulumi.StringPtrInput                      `pulumi:"priority"`
 	Responders IntegrationActionCreateResponderArrayInput `pulumi:"responders"`
-	// User defined field to specify source of action.
-	Source pulumi.StringPtrInput `pulumi:"source"`
-	// Comma separated list of labels to be attached to the alert.
-	Tags pulumi.StringArrayInput `pulumi:"tags"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Source     pulumi.StringPtrInput                      `pulumi:"source"`
+	Tags       pulumi.StringArrayInput                    `pulumi:"tags"`
+	Type       pulumi.StringPtrInput                      `pulumi:"type"`
 	// Owner of the execution for integration action.
 	User pulumi.StringPtrInput `pulumi:"user"`
 }
@@ -2775,22 +2727,18 @@ func (o IntegrationActionCreateOutput) AppendAttachments() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v IntegrationActionCreate) *bool { return v.AppendAttachments }).(pulumi.BoolPtrOutput)
 }
 
-// Custom alert priority. e.g. “{{message.substring(0,2)}}“
 func (o IntegrationActionCreateOutput) CustomPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *string { return v.CustomPriority }).(pulumi.StringPtrOutput)
 }
 
-// Detailed description of the alert, anything that may not have fit in the `message` field.
 func (o IntegrationActionCreateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The entity the alert is related to.
 func (o IntegrationActionCreateOutput) Entity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *string { return v.Entity }).(pulumi.StringPtrOutput)
 }
 
-// Set of user defined properties specified as a map.
 func (o IntegrationActionCreateOutput) ExtraProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) map[string]string { return v.ExtraProperties }).(pulumi.StringMapOutput)
 }
@@ -2811,7 +2759,6 @@ func (o IntegrationActionCreateOutput) IgnoreExtraPropertiesFromPayload() pulumi
 	return o.ApplyT(func(v IntegrationActionCreate) *bool { return v.IgnoreExtraPropertiesFromPayload }).(pulumi.BoolPtrOutput)
 }
 
-// If enabled, the integration will ignore responders sent in request payloads.
 func (o IntegrationActionCreateOutput) IgnoreRespondersFromPayload() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *bool { return v.IgnoreRespondersFromPayload }).(pulumi.BoolPtrOutput)
 }
@@ -2820,12 +2767,10 @@ func (o IntegrationActionCreateOutput) IgnoreTagsFromPayload() pulumi.BoolPtrOut
 	return o.ApplyT(func(v IntegrationActionCreate) *bool { return v.IgnoreTagsFromPayload }).(pulumi.BoolPtrOutput)
 }
 
-// If enabled, the integration will ignore teams sent in request payloads.
 func (o IntegrationActionCreateOutput) IgnoreTeamsFromPayload() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *bool { return v.IgnoreTeamsFromPayload }).(pulumi.BoolPtrOutput)
 }
 
-// Alert text limited to 130 characters.
 func (o IntegrationActionCreateOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -2845,27 +2790,22 @@ func (o IntegrationActionCreateOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Alert priority.
 func (o IntegrationActionCreateOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
-// User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
 func (o IntegrationActionCreateOutput) Responders() IntegrationActionCreateResponderArrayOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) []IntegrationActionCreateResponder { return v.Responders }).(IntegrationActionCreateResponderArrayOutput)
 }
 
-// User defined field to specify source of action.
 func (o IntegrationActionCreateOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// Comma separated list of labels to be attached to the alert.
 func (o IntegrationActionCreateOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The responder type - can be `escalation`, `team` or `user`.
 func (o IntegrationActionCreateOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2897,8 +2837,7 @@ func (o IntegrationActionCreateArrayOutput) Index(i pulumi.IntInput) Integration
 
 type IntegrationActionCreateFilter struct {
 	Conditions []IntegrationActionCreateFilterCondition `pulumi:"conditions"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type string `pulumi:"type"`
+	Type       string                                   `pulumi:"type"`
 }
 
 // IntegrationActionCreateFilterInput is an input type that accepts IntegrationActionCreateFilterArgs and IntegrationActionCreateFilterOutput values.
@@ -2914,8 +2853,7 @@ type IntegrationActionCreateFilterInput interface {
 
 type IntegrationActionCreateFilterArgs struct {
 	Conditions IntegrationActionCreateFilterConditionArrayInput `pulumi:"conditions"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                               `pulumi:"type"`
 }
 
 func (IntegrationActionCreateFilterArgs) ElementType() reflect.Type {
@@ -2973,7 +2911,6 @@ func (o IntegrationActionCreateFilterOutput) Conditions() IntegrationActionCreat
 	return o.ApplyT(func(v IntegrationActionCreateFilter) []IntegrationActionCreateFilterCondition { return v.Conditions }).(IntegrationActionCreateFilterConditionArrayOutput)
 }
 
-// The responder type - can be `escalation`, `team` or `user`.
 func (o IntegrationActionCreateFilterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationActionCreateFilter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3240,9 +3177,8 @@ type IntegrationActionIgnore struct {
 	// Name of the integration action.
 	Name string `pulumi:"name"`
 	// Integer value that defines in which order the action will be performed. Default: `1`.
-	Order *int `pulumi:"order"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type *string `pulumi:"type"`
+	Order *int    `pulumi:"order"`
+	Type  *string `pulumi:"type"`
 }
 
 // IntegrationActionIgnoreInput is an input type that accepts IntegrationActionIgnoreArgs and IntegrationActionIgnoreOutput values.
@@ -3265,9 +3201,8 @@ type IntegrationActionIgnoreArgs struct {
 	// Name of the integration action.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Integer value that defines in which order the action will be performed. Default: `1`.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Order pulumi.IntPtrInput    `pulumi:"order"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IntegrationActionIgnoreArgs) ElementType() reflect.Type {
@@ -3339,7 +3274,6 @@ func (o IntegrationActionIgnoreOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntegrationActionIgnore) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// The responder type - can be `escalation`, `team` or `user`.
 func (o IntegrationActionIgnoreOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionIgnore) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3366,8 +3300,7 @@ func (o IntegrationActionIgnoreArrayOutput) Index(i pulumi.IntInput) Integration
 
 type IntegrationActionIgnoreFilter struct {
 	Conditions []IntegrationActionIgnoreFilterCondition `pulumi:"conditions"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type string `pulumi:"type"`
+	Type       string                                   `pulumi:"type"`
 }
 
 // IntegrationActionIgnoreFilterInput is an input type that accepts IntegrationActionIgnoreFilterArgs and IntegrationActionIgnoreFilterOutput values.
@@ -3383,8 +3316,7 @@ type IntegrationActionIgnoreFilterInput interface {
 
 type IntegrationActionIgnoreFilterArgs struct {
 	Conditions IntegrationActionIgnoreFilterConditionArrayInput `pulumi:"conditions"`
-	// The responder type - can be `escalation`, `team` or `user`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                               `pulumi:"type"`
 }
 
 func (IntegrationActionIgnoreFilterArgs) ElementType() reflect.Type {
@@ -3442,7 +3374,6 @@ func (o IntegrationActionIgnoreFilterOutput) Conditions() IntegrationActionIgnor
 	return o.ApplyT(func(v IntegrationActionIgnoreFilter) []IntegrationActionIgnoreFilterCondition { return v.Conditions }).(IntegrationActionIgnoreFilterConditionArrayOutput)
 }
 
-// The responder type - can be `escalation`, `team` or `user`.
 func (o IntegrationActionIgnoreFilterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationActionIgnoreFilter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3807,12 +3738,9 @@ func (o MaintenanceRuleEntityArrayOutput) Index(i pulumi.IntInput) MaintenanceRu
 }
 
 type MaintenanceTime struct {
-	// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-	EndDate *string `pulumi:"endDate"`
-	// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+	EndDate   *string `pulumi:"endDate"`
 	StartDate *string `pulumi:"startDate"`
-	// The type of the entity that maintenance will be applied. It can be either integration or policy.
-	Type string `pulumi:"type"`
+	Type      string  `pulumi:"type"`
 }
 
 // MaintenanceTimeInput is an input type that accepts MaintenanceTimeArgs and MaintenanceTimeOutput values.
@@ -3827,12 +3755,9 @@ type MaintenanceTimeInput interface {
 }
 
 type MaintenanceTimeArgs struct {
-	// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
-	// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+	EndDate   pulumi.StringPtrInput `pulumi:"endDate"`
 	StartDate pulumi.StringPtrInput `pulumi:"startDate"`
-	// The type of the entity that maintenance will be applied. It can be either integration or policy.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type      pulumi.StringInput    `pulumi:"type"`
 }
 
 func (MaintenanceTimeArgs) ElementType() reflect.Type {
@@ -3886,17 +3811,14 @@ func (o MaintenanceTimeOutput) ToMaintenanceTimeOutputWithContext(ctx context.Co
 	return o
 }
 
-// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
 func (o MaintenanceTimeOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceTime) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
-// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
 func (o MaintenanceTimeOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceTime) *string { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
-// The type of the entity that maintenance will be applied. It can be either integration or policy.
 func (o MaintenanceTimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MaintenanceTime) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5780,7 +5702,6 @@ func (o NotificationRuleRepeatArrayOutput) Index(i pulumi.IntInput) Notification
 type NotificationRuleSchedule struct {
 	// Name of the notification policy
 	Name string `pulumi:"name"`
-	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 	Type string `pulumi:"type"`
 }
 
@@ -5798,7 +5719,6 @@ type NotificationRuleScheduleInput interface {
 type NotificationRuleScheduleArgs struct {
 	// Name of the notification policy
 	Name pulumi.StringInput `pulumi:"name"`
-	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5858,7 +5778,6 @@ func (o NotificationRuleScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleSchedule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 func (o NotificationRuleScheduleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleSchedule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6107,8 +6026,7 @@ func (o NotificationRuleStepContactArrayOutput) Index(i pulumi.IntInput) Notific
 type NotificationRuleTimeRestriction struct {
 	Restriction  []NotificationRuleTimeRestrictionRestriction `pulumi:"restriction"`
 	Restrictions []NotificationRuleTimeRestrictionRestriction `pulumi:"restrictions"`
-	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-	Type string `pulumi:"type"`
+	Type         string                                       `pulumi:"type"`
 }
 
 // NotificationRuleTimeRestrictionInput is an input type that accepts NotificationRuleTimeRestrictionArgs and NotificationRuleTimeRestrictionOutput values.
@@ -6125,8 +6043,7 @@ type NotificationRuleTimeRestrictionInput interface {
 type NotificationRuleTimeRestrictionArgs struct {
 	Restriction  NotificationRuleTimeRestrictionRestrictionArrayInput `pulumi:"restriction"`
 	Restrictions NotificationRuleTimeRestrictionRestrictionArrayInput `pulumi:"restrictions"`
-	// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type         pulumi.StringInput                                   `pulumi:"type"`
 }
 
 func (NotificationRuleTimeRestrictionArgs) ElementType() reflect.Type {
@@ -6192,7 +6109,6 @@ func (o NotificationRuleTimeRestrictionOutput) Restrictions() NotificationRuleTi
 	}).(NotificationRuleTimeRestrictionRestrictionArrayOutput)
 }
 
-// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
 func (o NotificationRuleTimeRestrictionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleTimeRestriction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6449,8 +6365,7 @@ func (o ScheduleRotationParticipantArrayOutput) Index(i pulumi.IntInput) Schedul
 
 type ScheduleRotationTimeRestriction struct {
 	// It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
-	Restriction []ScheduleRotationTimeRestrictionRestriction `pulumi:"restriction"`
-	// It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
+	Restriction     []ScheduleRotationTimeRestrictionRestriction     `pulumi:"restriction"`
 	RestrictionList []ScheduleRotationTimeRestrictionRestrictionList `pulumi:"restrictionList"`
 	// This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
 	Type string `pulumi:"type"`
@@ -6469,8 +6384,7 @@ type ScheduleRotationTimeRestrictionInput interface {
 
 type ScheduleRotationTimeRestrictionArgs struct {
 	// It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
-	Restriction ScheduleRotationTimeRestrictionRestrictionArrayInput `pulumi:"restriction"`
-	// It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
+	Restriction     ScheduleRotationTimeRestrictionRestrictionArrayInput     `pulumi:"restriction"`
 	RestrictionList ScheduleRotationTimeRestrictionRestrictionListArrayInput `pulumi:"restrictionList"`
 	// This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -6534,7 +6448,6 @@ func (o ScheduleRotationTimeRestrictionOutput) Restriction() ScheduleRotationTim
 	}).(ScheduleRotationTimeRestrictionRestrictionArrayOutput)
 }
 
-// It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
 func (o ScheduleRotationTimeRestrictionOutput) RestrictionList() ScheduleRotationTimeRestrictionRestrictionListArrayOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestriction) []ScheduleRotationTimeRestrictionRestrictionList {
 		return v.RestrictionList
@@ -6567,14 +6480,10 @@ func (o ScheduleRotationTimeRestrictionArrayOutput) Index(i pulumi.IntInput) Sch
 }
 
 type ScheduleRotationTimeRestrictionRestriction struct {
-	// Value of the hour that frame will end.
-	EndHour int `pulumi:"endHour"`
-	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-	EndMin int `pulumi:"endMin"`
-	// Value of the hour that frame will start.
+	EndHour   int `pulumi:"endHour"`
+	EndMin    int `pulumi:"endMin"`
 	StartHour int `pulumi:"startHour"`
-	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-	StartMin int `pulumi:"startMin"`
+	StartMin  int `pulumi:"startMin"`
 }
 
 // ScheduleRotationTimeRestrictionRestrictionInput is an input type that accepts ScheduleRotationTimeRestrictionRestrictionArgs and ScheduleRotationTimeRestrictionRestrictionOutput values.
@@ -6589,14 +6498,10 @@ type ScheduleRotationTimeRestrictionRestrictionInput interface {
 }
 
 type ScheduleRotationTimeRestrictionRestrictionArgs struct {
-	// Value of the hour that frame will end.
-	EndHour pulumi.IntInput `pulumi:"endHour"`
-	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-	EndMin pulumi.IntInput `pulumi:"endMin"`
-	// Value of the hour that frame will start.
+	EndHour   pulumi.IntInput `pulumi:"endHour"`
+	EndMin    pulumi.IntInput `pulumi:"endMin"`
 	StartHour pulumi.IntInput `pulumi:"startHour"`
-	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-	StartMin pulumi.IntInput `pulumi:"startMin"`
+	StartMin  pulumi.IntInput `pulumi:"startMin"`
 }
 
 func (ScheduleRotationTimeRestrictionRestrictionArgs) ElementType() reflect.Type {
@@ -6650,22 +6555,18 @@ func (o ScheduleRotationTimeRestrictionRestrictionOutput) ToScheduleRotationTime
 	return o
 }
 
-// Value of the hour that frame will end.
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) EndHour() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.EndHour }).(pulumi.IntOutput)
 }
 
-// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) EndMin() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.EndMin }).(pulumi.IntOutput)
 }
 
-// Value of the hour that frame will start.
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) StartHour() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.StartHour }).(pulumi.IntOutput)
 }
 
-// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) StartMin() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.StartMin }).(pulumi.IntOutput)
 }
@@ -6691,20 +6592,12 @@ func (o ScheduleRotationTimeRestrictionRestrictionArrayOutput) Index(i pulumi.In
 }
 
 type ScheduleRotationTimeRestrictionRestrictionList struct {
-	// Value of the day that frame will end.
-	EndDay string `pulumi:"endDay"`
-	// Value of the hour that frame will end.
-	EndHour int `pulumi:"endHour"`
-	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-	//
-	// Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
-	EndMin int `pulumi:"endMin"`
-	// Value of the day that frame will start.
-	StartDay string `pulumi:"startDay"`
-	// Value of the hour that frame will start
-	StartHour int `pulumi:"startHour"`
-	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-	StartMin int `pulumi:"startMin"`
+	EndDay    string `pulumi:"endDay"`
+	EndHour   int    `pulumi:"endHour"`
+	EndMin    int    `pulumi:"endMin"`
+	StartDay  string `pulumi:"startDay"`
+	StartHour int    `pulumi:"startHour"`
+	StartMin  int    `pulumi:"startMin"`
 }
 
 // ScheduleRotationTimeRestrictionRestrictionListInput is an input type that accepts ScheduleRotationTimeRestrictionRestrictionListArgs and ScheduleRotationTimeRestrictionRestrictionListOutput values.
@@ -6719,20 +6612,12 @@ type ScheduleRotationTimeRestrictionRestrictionListInput interface {
 }
 
 type ScheduleRotationTimeRestrictionRestrictionListArgs struct {
-	// Value of the day that frame will end.
-	EndDay pulumi.StringInput `pulumi:"endDay"`
-	// Value of the hour that frame will end.
-	EndHour pulumi.IntInput `pulumi:"endHour"`
-	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-	//
-	// Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
-	EndMin pulumi.IntInput `pulumi:"endMin"`
-	// Value of the day that frame will start.
-	StartDay pulumi.StringInput `pulumi:"startDay"`
-	// Value of the hour that frame will start
-	StartHour pulumi.IntInput `pulumi:"startHour"`
-	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-	StartMin pulumi.IntInput `pulumi:"startMin"`
+	EndDay    pulumi.StringInput `pulumi:"endDay"`
+	EndHour   pulumi.IntInput    `pulumi:"endHour"`
+	EndMin    pulumi.IntInput    `pulumi:"endMin"`
+	StartDay  pulumi.StringInput `pulumi:"startDay"`
+	StartHour pulumi.IntInput    `pulumi:"startHour"`
+	StartMin  pulumi.IntInput    `pulumi:"startMin"`
 }
 
 func (ScheduleRotationTimeRestrictionRestrictionListArgs) ElementType() reflect.Type {
@@ -6786,34 +6671,26 @@ func (o ScheduleRotationTimeRestrictionRestrictionListOutput) ToScheduleRotation
 	return o
 }
 
-// Value of the day that frame will end.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndDay() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) string { return v.EndDay }).(pulumi.StringOutput)
 }
 
-// Value of the hour that frame will end.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndHour() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.EndHour }).(pulumi.IntOutput)
 }
 
-// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-//
-// Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndMin() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.EndMin }).(pulumi.IntOutput)
 }
 
-// Value of the day that frame will start.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) StartDay() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) string { return v.StartDay }).(pulumi.StringOutput)
 }
 
-// Value of the hour that frame will start
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) StartHour() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.StartHour }).(pulumi.IntOutput)
 }
 
-// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) StartMin() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.StartMin }).(pulumi.IntOutput)
 }
@@ -7817,8 +7694,7 @@ func (o TeamRoutingRuleNotifyArrayOutput) Index(i pulumi.IntInput) TeamRoutingRu
 type TeamRoutingRuleTimeRestriction struct {
 	Restriction     []TeamRoutingRuleTimeRestrictionRestriction     `pulumi:"restriction"`
 	RestrictionList []TeamRoutingRuleTimeRestrictionRestrictionList `pulumi:"restrictionList"`
-	// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
-	Type string `pulumi:"type"`
+	Type            string                                          `pulumi:"type"`
 }
 
 // TeamRoutingRuleTimeRestrictionInput is an input type that accepts TeamRoutingRuleTimeRestrictionArgs and TeamRoutingRuleTimeRestrictionOutput values.
@@ -7835,8 +7711,7 @@ type TeamRoutingRuleTimeRestrictionInput interface {
 type TeamRoutingRuleTimeRestrictionArgs struct {
 	Restriction     TeamRoutingRuleTimeRestrictionRestrictionArrayInput     `pulumi:"restriction"`
 	RestrictionList TeamRoutingRuleTimeRestrictionRestrictionListArrayInput `pulumi:"restrictionList"`
-	// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type            pulumi.StringInput                                      `pulumi:"type"`
 }
 
 func (TeamRoutingRuleTimeRestrictionArgs) ElementType() reflect.Type {
@@ -7902,7 +7777,6 @@ func (o TeamRoutingRuleTimeRestrictionOutput) RestrictionList() TeamRoutingRuleT
 	}).(TeamRoutingRuleTimeRestrictionRestrictionListArrayOutput)
 }
 
-// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
 func (o TeamRoutingRuleTimeRestrictionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamRoutingRuleTimeRestriction) string { return v.Type }).(pulumi.StringOutput)
 }

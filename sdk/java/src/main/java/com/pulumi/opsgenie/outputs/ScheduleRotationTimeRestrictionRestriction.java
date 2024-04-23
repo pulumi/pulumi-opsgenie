@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduleRotationTimeRestrictionRestriction {
-    /**
-     * @return Value of the hour that frame will end.
-     * 
-     */
     private Integer endHour;
-    /**
-     * @return Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     */
     private Integer endMin;
-    /**
-     * @return Value of the hour that frame will start.
-     * 
-     */
     private Integer startHour;
-    /**
-     * @return Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     */
     private Integer startMin;
 
     private ScheduleRotationTimeRestrictionRestriction() {}
-    /**
-     * @return Value of the hour that frame will end.
-     * 
-     */
     public Integer endHour() {
         return this.endHour;
     }
-    /**
-     * @return Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     */
     public Integer endMin() {
         return this.endMin;
     }
-    /**
-     * @return Value of the hour that frame will start.
-     * 
-     */
     public Integer startHour() {
         return this.startHour;
     }
-    /**
-     * @return Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     */
     public Integer startMin() {
         return this.startMin;
     }

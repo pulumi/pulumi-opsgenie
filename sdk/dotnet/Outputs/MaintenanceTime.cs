@@ -13,17 +13,8 @@ namespace Pulumi.Opsgenie.Outputs
     [OutputType]
     public sealed class MaintenanceTime
     {
-        /// <summary>
-        /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-        /// </summary>
         public readonly string? EndDate;
-        /// <summary>
-        /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-        /// </summary>
         public readonly string? StartDate;
-        /// <summary>
-        /// The type of the entity that maintenance will be applied. It can be either integration or policy.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -32,17 +32,9 @@ public final class NotificationRuleTimeRestrictionArgs extends com.pulumi.resour
         return Optional.ofNullable(this.restrictions);
     }
 
-    /**
-     * Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -99,23 +91,11 @@ public final class NotificationRuleTimeRestrictionArgs extends com.pulumi.resour
             return restrictions(List.of(restrictions));
         }
 
-        /**
-         * @param type Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

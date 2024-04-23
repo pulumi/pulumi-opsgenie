@@ -151,17 +151,9 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> notificationTimes() {
         return Codegen.optional(this.notificationTimes);
     }
-    /**
-     * Order of the condition in conditions list
-     * 
-     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
-    /**
-     * @return Order of the condition in conditions list
-     * 
-     */
     public Output<Integer> order() {
         return this.order;
     }

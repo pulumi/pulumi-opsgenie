@@ -12,28 +12,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EmailIntegrationResponder {
     /**
-     * @return The id of the responder.
+     * @return The ID of the Opsgenie Email based Integration.
      * 
      */
     private @Nullable String id;
-    /**
-     * @return The responder type.
-     * 
-     */
     private @Nullable String type;
 
     private EmailIntegrationResponder() {}
     /**
-     * @return The id of the responder.
+     * @return The ID of the Opsgenie Email based Integration.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return The responder type.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "genieheartbeat-existing",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getHeartbeat(args: GetHeartbeatArgs, opts?: pulumi.InvokeOptions): Promise<GetHeartbeatResult> {
 
@@ -125,7 +123,6 @@ export interface GetHeartbeatResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
@@ -134,7 +131,6 @@ export interface GetHeartbeatResult {
  *     name: "genieheartbeat-existing",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getHeartbeatOutput(args: GetHeartbeatOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHeartbeatResult> {
     return pulumi.output(args).apply((a: any) => getHeartbeat(a, opts))

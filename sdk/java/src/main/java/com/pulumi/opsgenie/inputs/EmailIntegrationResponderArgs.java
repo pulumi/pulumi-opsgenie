@@ -16,31 +16,23 @@ public final class EmailIntegrationResponderArgs extends com.pulumi.resources.Re
     public static final EmailIntegrationResponderArgs Empty = new EmailIntegrationResponderArgs();
 
     /**
-     * The id of the responder.
+     * The ID of the Opsgenie Email based Integration.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The id of the responder.
+     * @return The ID of the Opsgenie Email based Integration.
      * 
      */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * The responder type.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The responder type.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -71,7 +63,7 @@ public final class EmailIntegrationResponderArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param id The id of the responder.
+         * @param id The ID of the Opsgenie Email based Integration.
          * 
          * @return builder
          * 
@@ -82,7 +74,7 @@ public final class EmailIntegrationResponderArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param id The id of the responder.
+         * @param id The ID of the Opsgenie Email based Integration.
          * 
          * @return builder
          * 
@@ -91,23 +83,11 @@ public final class EmailIntegrationResponderArgs extends com.pulumi.resources.Re
             return id(Output.of(id));
         }
 
-        /**
-         * @param type The responder type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The responder type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

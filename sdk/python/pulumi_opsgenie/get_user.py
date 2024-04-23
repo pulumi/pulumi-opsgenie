@@ -112,14 +112,12 @@ def get_user(full_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     test = opsgenie.get_user(username="user@domain.com")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str full_name: The Full Name of the User.
@@ -158,14 +156,12 @@ def get_user_output(full_name: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_opsgenie as opsgenie
 
     test = opsgenie.get_user(username="user@domain.com")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str full_name: The Full Name of the User.

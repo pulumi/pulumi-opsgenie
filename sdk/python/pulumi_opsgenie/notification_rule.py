@@ -34,7 +34,6 @@ class NotificationRuleArgs:
         :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_times: List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
-        :param pulumi.Input[int] order: Order of the condition in conditions list
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]] steps: Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
         """
         pulumi.set(__self__, "action_type", action_type)
@@ -130,9 +129,6 @@ class NotificationRuleArgs:
     @property
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
-        """
-        Order of the condition in conditions list
-        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -199,7 +195,6 @@ class _NotificationRuleState:
         :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_times: List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
-        :param pulumi.Input[int] order: Order of the condition in conditions list
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]] steps: Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
         :param pulumi.Input[str] username: Username of user to which this notification rule belongs to.
         """
@@ -286,9 +281,6 @@ class _NotificationRuleState:
     @property
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
-        """
-        Order of the condition in conditions list
-        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -369,7 +361,6 @@ class NotificationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -393,7 +384,6 @@ class NotificationRule(pulumi.CustomResource):
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -409,7 +399,6 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_times: List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
-        :param pulumi.Input[int] order: Order of the condition in conditions list
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleStepArgs']]]] steps: Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
         :param pulumi.Input[str] username: Username of user to which this notification rule belongs to.
         """
@@ -424,7 +413,6 @@ class NotificationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -448,7 +436,6 @@ class NotificationRule(pulumi.CustomResource):
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -540,7 +527,6 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] name: Name of the notification policy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_times: List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
-        :param pulumi.Input[int] order: Order of the condition in conditions list
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleStepArgs']]]] steps: Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
         :param pulumi.Input[str] username: Username of user to which this notification rule belongs to.
         """
@@ -601,9 +587,6 @@ class NotificationRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def order(self) -> pulumi.Output[int]:
-        """
-        Order of the condition in conditions list
-        """
         return pulumi.get(self, "order")
 
     @property

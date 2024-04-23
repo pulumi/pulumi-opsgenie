@@ -26,9 +26,9 @@ class IncidentTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IncidentTemplate resource.
-        :param pulumi.Input[str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        :param pulumi.Input[str] message: Message of the related incident template. This field must not be longer than 130 characters.
         :param pulumi.Input[str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
-        :param pulumi.Input[str] description: Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        :param pulumi.Input[str] description: Description field of the incident template. This field must not be longer than 10000 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
         :param pulumi.Input[str] name: Name of the incident template.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
@@ -51,7 +51,7 @@ class IncidentTemplateArgs:
     @pulumi.getter
     def message(self) -> pulumi.Input[str]:
         """
-        Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        Message of the related incident template. This field must not be longer than 130 characters.
         """
         return pulumi.get(self, "message")
 
@@ -84,7 +84,7 @@ class IncidentTemplateArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        Description field of the incident template. This field must not be longer than 10000 characters.
         """
         return pulumi.get(self, "description")
 
@@ -151,9 +151,9 @@ class _IncidentTemplateState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IncidentTemplate resources.
-        :param pulumi.Input[str] description: Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        :param pulumi.Input[str] description: Description field of the incident template. This field must not be longer than 10000 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
-        :param pulumi.Input[str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        :param pulumi.Input[str] message: Message of the related incident template. This field must not be longer than 130 characters.
         :param pulumi.Input[str] name: Name of the incident template.
         :param pulumi.Input[str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
@@ -179,7 +179,7 @@ class _IncidentTemplateState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        Description field of the incident template. This field must not be longer than 10000 characters.
         """
         return pulumi.get(self, "description")
 
@@ -212,7 +212,7 @@ class _IncidentTemplateState:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        Message of the related incident template. This field must not be longer than 130 characters.
         """
         return pulumi.get(self, "message")
 
@@ -285,7 +285,6 @@ class IncidentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -316,7 +315,6 @@ class IncidentTemplate(pulumi.CustomResource):
             },
             impacted_services=[test_service.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -328,9 +326,9 @@ class IncidentTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        :param pulumi.Input[str] description: Description field of the incident template. This field must not be longer than 10000 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
-        :param pulumi.Input[str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        :param pulumi.Input[str] message: Message of the related incident template. This field must not be longer than 130 characters.
         :param pulumi.Input[str] name: Name of the incident template.
         :param pulumi.Input[str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
@@ -346,7 +344,6 @@ class IncidentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -377,7 +374,6 @@ class IncidentTemplate(pulumi.CustomResource):
             },
             impacted_services=[test_service.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -458,9 +454,9 @@ class IncidentTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        :param pulumi.Input[str] description: Description field of the incident template. This field must not be longer than 10000 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
-        :param pulumi.Input[str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        :param pulumi.Input[str] message: Message of the related incident template. This field must not be longer than 130 characters.
         :param pulumi.Input[str] name: Name of the incident template.
         :param pulumi.Input[str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
@@ -483,7 +479,7 @@ class IncidentTemplate(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        Description field of the incident template. This field must not be longer than 10000 characters.
         """
         return pulumi.get(self, "description")
 
@@ -504,7 +500,7 @@ class IncidentTemplate(pulumi.CustomResource):
     @pulumi.getter
     def message(self) -> pulumi.Output[str]:
         """
-        Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        Message of the related incident template. This field must not be longer than 130 characters.
         """
         return pulumi.get(self, "message")
 

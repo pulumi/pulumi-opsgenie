@@ -13,19 +13,16 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class IncidentTemplateStakeholderPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        /// Description field of the incident template. This field must not be longer than 10000 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Option to enable stakeholder notifications.Default value is true.
-        /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 
         /// <summary>
-        /// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        /// Message of the related incident template. This field must not be longer than 130 characters.
         /// </summary>
         [Input("message", required: true)]
         public Input<string> Message { get; set; } = null!;
