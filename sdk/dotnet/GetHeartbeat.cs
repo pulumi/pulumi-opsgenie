@@ -16,7 +16,6 @@ namespace Pulumi.Opsgenie
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Opsgenie
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetHeartbeatResult> InvokeAsync(GetHeartbeatArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHeartbeatResult>("opsgenie:index/getHeartbeat:getHeartbeat", args ?? new GetHeartbeatArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Opsgenie
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Opsgenie
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetHeartbeatResult> Invoke(GetHeartbeatInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHeartbeatResult>("opsgenie:index/getHeartbeat:getHeartbeat", args ?? new GetHeartbeatInvokeArgs(), options.WithDefaults());

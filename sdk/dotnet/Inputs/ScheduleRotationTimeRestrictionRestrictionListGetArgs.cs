@@ -12,41 +12,21 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class ScheduleRotationTimeRestrictionRestrictionListGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Value of the day that frame will end.
-        /// </summary>
         [Input("endDay", required: true)]
         public Input<string> EndDay { get; set; } = null!;
 
-        /// <summary>
-        /// Value of the hour that frame will end.
-        /// </summary>
         [Input("endHour", required: true)]
         public Input<int> EndHour { get; set; } = null!;
 
-        /// <summary>
-        /// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-        /// 
-        /// Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
-        /// </summary>
         [Input("endMin", required: true)]
         public Input<int> EndMin { get; set; } = null!;
 
-        /// <summary>
-        /// Value of the day that frame will start.
-        /// </summary>
         [Input("startDay", required: true)]
         public Input<string> StartDay { get; set; } = null!;
 
-        /// <summary>
-        /// Value of the hour that frame will start
-        /// </summary>
         [Input("startHour", required: true)]
         public Input<int> StartHour { get; set; } = null!;
 
-        /// <summary>
-        /// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-        /// </summary>
         [Input("startMin", required: true)]
         public Input<int> StartMin { get; set; } = null!;
 

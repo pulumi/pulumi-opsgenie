@@ -28,9 +28,6 @@ namespace Pulumi.Opsgenie.Outputs
         /// Integer value that defines in which order the action will be performed. Default: `1`.
         /// </summary>
         public readonly int? Order;
-        /// <summary>
-        /// The responder type - can be `escalation`, `team` or `user`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 public final class NotificationRuleTimeRestriction {
     private @Nullable List<NotificationRuleTimeRestrictionRestriction> restriction;
     private @Nullable List<NotificationRuleTimeRestrictionRestriction> restrictions;
-    /**
-     * @return Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-     * 
-     */
     private String type;
 
     private NotificationRuleTimeRestriction() {}
@@ -28,10 +24,6 @@ public final class NotificationRuleTimeRestriction {
     public List<NotificationRuleTimeRestrictionRestriction> restrictions() {
         return this.restrictions == null ? List.of() : this.restrictions;
     }
-    /**
-     * @return Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-     * 
-     */
     public String type() {
         return this.type;
     }

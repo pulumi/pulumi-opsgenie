@@ -18,44 +18,36 @@ public final class IncidentTemplateStakeholderPropertyArgs extends com.pulumi.re
     public static final IncidentTemplateStakeholderPropertyArgs Empty = new IncidentTemplateStakeholderPropertyArgs();
 
     /**
-     * Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * Description field of the incident template. This field must not be longer than 10000 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+     * @return Description field of the incident template. This field must not be longer than 10000 characters.
      * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Option to enable stakeholder notifications.Default value is true.
-     * 
-     */
     @Import(name="enable")
     private @Nullable Output<Boolean> enable;
 
-    /**
-     * @return Option to enable stakeholder notifications.Default value is true.
-     * 
-     */
     public Optional<Output<Boolean>> enable() {
         return Optional.ofNullable(this.enable);
     }
 
     /**
-     * Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * Message of the related incident template. This field must not be longer than 130 characters.
      * 
      */
     @Import(name="message", required=true)
     private Output<String> message;
 
     /**
-     * @return Message that is to be passed to audience that is generally used to provide a content information about the alert.
+     * @return Message of the related incident template. This field must not be longer than 130 characters.
      * 
      */
     public Output<String> message() {
@@ -89,7 +81,7 @@ public final class IncidentTemplateStakeholderPropertyArgs extends com.pulumi.re
         }
 
         /**
-         * @param description Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+         * @param description Description field of the incident template. This field must not be longer than 10000 characters.
          * 
          * @return builder
          * 
@@ -100,7 +92,7 @@ public final class IncidentTemplateStakeholderPropertyArgs extends com.pulumi.re
         }
 
         /**
-         * @param description Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+         * @param description Description field of the incident template. This field must not be longer than 10000 characters.
          * 
          * @return builder
          * 
@@ -109,29 +101,17 @@ public final class IncidentTemplateStakeholderPropertyArgs extends com.pulumi.re
             return description(Output.of(description));
         }
 
-        /**
-         * @param enable Option to enable stakeholder notifications.Default value is true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(@Nullable Output<Boolean> enable) {
             $.enable = enable;
             return this;
         }
 
-        /**
-         * @param enable Option to enable stakeholder notifications.Default value is true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
         }
 
         /**
-         * @param message Message that is to be passed to audience that is generally used to provide a content information about the alert.
+         * @param message Message of the related incident template. This field must not be longer than 130 characters.
          * 
          * @return builder
          * 
@@ -142,7 +122,7 @@ public final class IncidentTemplateStakeholderPropertyArgs extends com.pulumi.re
         }
 
         /**
-         * @param message Message that is to be passed to audience that is generally used to provide a content information about the alert.
+         * @param message Message of the related incident template. This field must not be longer than 130 characters.
          * 
          * @return builder
          * 

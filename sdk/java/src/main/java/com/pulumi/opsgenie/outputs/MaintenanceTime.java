@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MaintenanceTime {
-    /**
-     * @return This parameter takes a date format as (yyyy-MM-dd&#39;T&#39;HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-     * 
-     */
     private @Nullable String endDate;
-    /**
-     * @return This parameter takes a date format as (yyyy-MM-dd&#39;T&#39;HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-     * 
-     */
     private @Nullable String startDate;
-    /**
-     * @return The type of the entity that maintenance will be applied. It can be either integration or policy.
-     * 
-     */
     private String type;
 
     private MaintenanceTime() {}
-    /**
-     * @return This parameter takes a date format as (yyyy-MM-dd&#39;T&#39;HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-     * 
-     */
     public Optional<String> endDate() {
         return Optional.ofNullable(this.endDate);
     }
-    /**
-     * @return This parameter takes a date format as (yyyy-MM-dd&#39;T&#39;HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-     * 
-     */
     public Optional<String> startDate() {
         return Optional.ofNullable(this.startDate);
     }
-    /**
-     * @return The type of the entity that maintenance will be applied. It can be either integration or policy.
-     * 
-     */
     public String type() {
         return this.type;
     }

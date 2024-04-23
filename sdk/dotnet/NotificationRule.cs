@@ -14,7 +14,6 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,7 +57,6 @@ namespace Pulumi.Opsgenie
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -98,9 +96,6 @@ namespace Pulumi.Opsgenie
         [Output("notificationTimes")]
         public Output<ImmutableArray<string>> NotificationTimes { get; private set; } = null!;
 
-        /// <summary>
-        /// Order of the condition in conditions list
-        /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
 
@@ -209,9 +204,6 @@ namespace Pulumi.Opsgenie
             set => _notificationTimes = value;
         }
 
-        /// <summary>
-        /// Order of the condition in conditions list
-        /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
 
@@ -303,9 +295,6 @@ namespace Pulumi.Opsgenie
             set => _notificationTimes = value;
         }
 
-        /// <summary>
-        /// Order of the condition in conditions list
-        /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
 

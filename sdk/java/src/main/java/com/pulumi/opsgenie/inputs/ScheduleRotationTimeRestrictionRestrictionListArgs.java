@@ -15,96 +15,44 @@ public final class ScheduleRotationTimeRestrictionRestrictionListArgs extends co
 
     public static final ScheduleRotationTimeRestrictionRestrictionListArgs Empty = new ScheduleRotationTimeRestrictionRestrictionListArgs();
 
-    /**
-     * Value of the day that frame will end.
-     * 
-     */
     @Import(name="endDay", required=true)
     private Output<String> endDay;
 
-    /**
-     * @return Value of the day that frame will end.
-     * 
-     */
     public Output<String> endDay() {
         return this.endDay;
     }
 
-    /**
-     * Value of the hour that frame will end.
-     * 
-     */
     @Import(name="endHour", required=true)
     private Output<Integer> endHour;
 
-    /**
-     * @return Value of the hour that frame will end.
-     * 
-     */
     public Output<Integer> endHour() {
         return this.endHour;
     }
 
-    /**
-     * Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     * Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
-     * 
-     */
     @Import(name="endMin", required=true)
     private Output<Integer> endMin;
 
-    /**
-     * @return Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     * Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
-     * 
-     */
     public Output<Integer> endMin() {
         return this.endMin;
     }
 
-    /**
-     * Value of the day that frame will start.
-     * 
-     */
     @Import(name="startDay", required=true)
     private Output<String> startDay;
 
-    /**
-     * @return Value of the day that frame will start.
-     * 
-     */
     public Output<String> startDay() {
         return this.startDay;
     }
 
-    /**
-     * Value of the hour that frame will start
-     * 
-     */
     @Import(name="startHour", required=true)
     private Output<Integer> startHour;
 
-    /**
-     * @return Value of the hour that frame will start
-     * 
-     */
     public Output<Integer> startHour() {
         return this.startHour;
     }
 
-    /**
-     * Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     */
     @Import(name="startMin", required=true)
     private Output<Integer> startMin;
 
-    /**
-     * @return Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-     * 
-     */
     public Output<Integer> startMin() {
         return this.startMin;
     }
@@ -138,132 +86,56 @@ public final class ScheduleRotationTimeRestrictionRestrictionListArgs extends co
             $ = new ScheduleRotationTimeRestrictionRestrictionListArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endDay Value of the day that frame will end.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endDay(Output<String> endDay) {
             $.endDay = endDay;
             return this;
         }
 
-        /**
-         * @param endDay Value of the day that frame will end.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endDay(String endDay) {
             return endDay(Output.of(endDay));
         }
 
-        /**
-         * @param endHour Value of the hour that frame will end.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endHour(Output<Integer> endHour) {
             $.endHour = endHour;
             return this;
         }
 
-        /**
-         * @param endHour Value of the hour that frame will end.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endHour(Integer endHour) {
             return endHour(Output.of(endHour));
         }
 
-        /**
-         * @param endMin Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-         * 
-         * Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endMin(Output<Integer> endMin) {
             $.endMin = endMin;
             return this;
         }
 
-        /**
-         * @param endMin Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-         * 
-         * Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endMin(Integer endMin) {
             return endMin(Output.of(endMin));
         }
 
-        /**
-         * @param startDay Value of the day that frame will start.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startDay(Output<String> startDay) {
             $.startDay = startDay;
             return this;
         }
 
-        /**
-         * @param startDay Value of the day that frame will start.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startDay(String startDay) {
             return startDay(Output.of(startDay));
         }
 
-        /**
-         * @param startHour Value of the hour that frame will start
-         * 
-         * @return builder
-         * 
-         */
         public Builder startHour(Output<Integer> startHour) {
             $.startHour = startHour;
             return this;
         }
 
-        /**
-         * @param startHour Value of the hour that frame will start
-         * 
-         * @return builder
-         * 
-         */
         public Builder startHour(Integer startHour) {
             return startHour(Output.of(startHour));
         }
 
-        /**
-         * @param startMin Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startMin(Output<Integer> startMin) {
             $.startMin = startMin;
             return this;
         }
 
-        /**
-         * @param startMin Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startMin(Integer startMin) {
             return startMin(Output.of(startMin));
         }

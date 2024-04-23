@@ -14,7 +14,6 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,7 +67,6 @@ namespace Pulumi.Opsgenie
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -82,7 +80,7 @@ namespace Pulumi.Opsgenie
     public partial class IncidentTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        /// Description field of the incident template. This field must not be longer than 10000 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -97,7 +95,7 @@ namespace Pulumi.Opsgenie
         public Output<ImmutableArray<string>> ImpactedServices { get; private set; } = null!;
 
         /// <summary>
-        /// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        /// Message of the related incident template. This field must not be longer than 130 characters.
         /// </summary>
         [Output("message")]
         public Output<string> Message { get; private set; } = null!;
@@ -170,7 +168,7 @@ namespace Pulumi.Opsgenie
     public sealed class IncidentTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        /// Description field of the incident template. This field must not be longer than 10000 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -196,7 +194,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        /// Message of the related incident template. This field must not be longer than 130 characters.
         /// </summary>
         [Input("message", required: true)]
         public Input<string> Message { get; set; } = null!;
@@ -242,7 +240,7 @@ namespace Pulumi.Opsgenie
     public sealed class IncidentTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description that is generally used to provide a detailed information about the alert. This field must not be longer than 15000 characters.
+        /// Description field of the incident template. This field must not be longer than 10000 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -268,7 +266,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        /// Message of the related incident template. This field must not be longer than 130 characters.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }

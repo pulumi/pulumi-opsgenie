@@ -34,17 +34,9 @@ public final class ScheduleRotationTimeRestrictionArgs extends com.pulumi.resour
         return Optional.ofNullable(this.restriction);
     }
 
-    /**
-     * It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
-     * 
-     */
     @Import(name="restrictionList")
     private @Nullable Output<List<ScheduleRotationTimeRestrictionRestrictionListArgs>> restrictionList;
 
-    /**
-     * @return It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
-     * 
-     */
     public Optional<Output<List<ScheduleRotationTimeRestrictionRestrictionListArgs>>> restrictionList() {
         return Optional.ofNullable(this.restrictionList);
     }
@@ -121,33 +113,15 @@ public final class ScheduleRotationTimeRestrictionArgs extends com.pulumi.resour
             return restriction(List.of(restriction));
         }
 
-        /**
-         * @param restrictionList It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictionList(@Nullable Output<List<ScheduleRotationTimeRestrictionRestrictionListArgs>> restrictionList) {
             $.restrictionList = restrictionList;
             return this;
         }
 
-        /**
-         * @param restrictionList It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictionList(List<ScheduleRotationTimeRestrictionRestrictionListArgs> restrictionList) {
             return restrictionList(Output.of(restrictionList));
         }
 
-        /**
-         * @param restrictionList It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictionList(ScheduleRotationTimeRestrictionRestrictionListArgs... restrictionList) {
             return restrictionList(List.of(restrictionList));
         }

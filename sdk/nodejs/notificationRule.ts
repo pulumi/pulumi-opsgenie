@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
@@ -37,7 +36,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -92,9 +90,6 @@ export class NotificationRule extends pulumi.CustomResource {
      * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
     public readonly notificationTimes!: pulumi.Output<string[] | undefined>;
-    /**
-     * Order of the condition in conditions list
-     */
     public readonly order!: pulumi.Output<number>;
     public readonly repeats!: pulumi.Output<outputs.NotificationRuleRepeat[] | undefined>;
     public readonly schedules!: pulumi.Output<outputs.NotificationRuleSchedule[] | undefined>;
@@ -178,9 +173,6 @@ export interface NotificationRuleState {
      * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
     notificationTimes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Order of the condition in conditions list
-     */
     order?: pulumi.Input<number>;
     repeats?: pulumi.Input<pulumi.Input<inputs.NotificationRuleRepeat>[]>;
     schedules?: pulumi.Input<pulumi.Input<inputs.NotificationRuleSchedule>[]>;
@@ -216,9 +208,6 @@ export interface NotificationRuleArgs {
      * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
     notificationTimes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Order of the condition in conditions list
-     */
     order?: pulumi.Input<number>;
     repeats?: pulumi.Input<pulumi.Input<inputs.NotificationRuleRepeat>[]>;
     schedules?: pulumi.Input<pulumi.Input<inputs.NotificationRuleSchedule>[]>;

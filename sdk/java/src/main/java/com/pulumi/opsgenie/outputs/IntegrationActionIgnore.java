@@ -33,10 +33,6 @@ public final class IntegrationActionIgnore {
      * 
      */
     private @Nullable Integer order;
-    /**
-     * @return The responder type - can be `escalation`, `team` or `user`.
-     * 
-     */
     private @Nullable String type;
 
     private IntegrationActionIgnore() {}
@@ -64,10 +60,6 @@ public final class IntegrationActionIgnore {
     public Optional<Integer> order() {
         return Optional.ofNullable(this.order);
     }
-    /**
-     * @return The responder type - can be `escalation`, `team` or `user`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

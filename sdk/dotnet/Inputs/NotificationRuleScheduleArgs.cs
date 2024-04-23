@@ -18,9 +18,6 @@ namespace Pulumi.Opsgenie.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

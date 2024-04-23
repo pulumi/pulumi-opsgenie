@@ -17,9 +17,6 @@ namespace Pulumi.Opsgenie.Outputs
         /// Name of the notification policy
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -28,9 +28,6 @@ namespace Pulumi.Opsgenie.Inputs
             set => _restrictionList = value;
         }
 
-        /// <summary>
-        /// Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

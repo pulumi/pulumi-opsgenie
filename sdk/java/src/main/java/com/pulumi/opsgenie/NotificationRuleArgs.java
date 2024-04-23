@@ -91,17 +91,9 @@ public final class NotificationRuleArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.notificationTimes);
     }
 
-    /**
-     * Order of the condition in conditions list
-     * 
-     */
     @Import(name="order")
     private @Nullable Output<Integer> order;
 
-    /**
-     * @return Order of the condition in conditions list
-     * 
-     */
     public Optional<Output<Integer>> order() {
         return Optional.ofNullable(this.order);
     }
@@ -298,23 +290,11 @@ public final class NotificationRuleArgs extends com.pulumi.resources.ResourceArg
             return notificationTimes(List.of(notificationTimes));
         }
 
-        /**
-         * @param order Order of the condition in conditions list
-         * 
-         * @return builder
-         * 
-         */
         public Builder order(@Nullable Output<Integer> order) {
             $.order = order;
             return this;
         }
 
-        /**
-         * @param order Order of the condition in conditions list
-         * 
-         * @return builder
-         * 
-         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }

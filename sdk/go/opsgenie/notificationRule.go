@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,7 +63,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -84,11 +82,10 @@ type NotificationRule struct {
 	// Name of the notification policy
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
-	NotificationTimes pulumi.StringArrayOutput `pulumi:"notificationTimes"`
-	// Order of the condition in conditions list
-	Order     pulumi.IntOutput                    `pulumi:"order"`
-	Repeats   NotificationRuleRepeatArrayOutput   `pulumi:"repeats"`
-	Schedules NotificationRuleScheduleArrayOutput `pulumi:"schedules"`
+	NotificationTimes pulumi.StringArrayOutput            `pulumi:"notificationTimes"`
+	Order             pulumi.IntOutput                    `pulumi:"order"`
+	Repeats           NotificationRuleRepeatArrayOutput   `pulumi:"repeats"`
+	Schedules         NotificationRuleScheduleArrayOutput `pulumi:"schedules"`
 	// Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
 	Steps            NotificationRuleStepArrayOutput            `pulumi:"steps"`
 	TimeRestrictions NotificationRuleTimeRestrictionArrayOutput `pulumi:"timeRestrictions"`
@@ -140,11 +137,10 @@ type notificationRuleState struct {
 	// Name of the notification policy
 	Name *string `pulumi:"name"`
 	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
-	NotificationTimes []string `pulumi:"notificationTimes"`
-	// Order of the condition in conditions list
-	Order     *int                       `pulumi:"order"`
-	Repeats   []NotificationRuleRepeat   `pulumi:"repeats"`
-	Schedules []NotificationRuleSchedule `pulumi:"schedules"`
+	NotificationTimes []string                   `pulumi:"notificationTimes"`
+	Order             *int                       `pulumi:"order"`
+	Repeats           []NotificationRuleRepeat   `pulumi:"repeats"`
+	Schedules         []NotificationRuleSchedule `pulumi:"schedules"`
 	// Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
 	Steps            []NotificationRuleStep            `pulumi:"steps"`
 	TimeRestrictions []NotificationRuleTimeRestriction `pulumi:"timeRestrictions"`
@@ -162,10 +158,9 @@ type NotificationRuleState struct {
 	Name pulumi.StringPtrInput
 	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
 	NotificationTimes pulumi.StringArrayInput
-	// Order of the condition in conditions list
-	Order     pulumi.IntPtrInput
-	Repeats   NotificationRuleRepeatArrayInput
-	Schedules NotificationRuleScheduleArrayInput
+	Order             pulumi.IntPtrInput
+	Repeats           NotificationRuleRepeatArrayInput
+	Schedules         NotificationRuleScheduleArrayInput
 	// Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
 	Steps            NotificationRuleStepArrayInput
 	TimeRestrictions NotificationRuleTimeRestrictionArrayInput
@@ -186,11 +181,10 @@ type notificationRuleArgs struct {
 	// Name of the notification policy
 	Name *string `pulumi:"name"`
 	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
-	NotificationTimes []string `pulumi:"notificationTimes"`
-	// Order of the condition in conditions list
-	Order     *int                       `pulumi:"order"`
-	Repeats   []NotificationRuleRepeat   `pulumi:"repeats"`
-	Schedules []NotificationRuleSchedule `pulumi:"schedules"`
+	NotificationTimes []string                   `pulumi:"notificationTimes"`
+	Order             *int                       `pulumi:"order"`
+	Repeats           []NotificationRuleRepeat   `pulumi:"repeats"`
+	Schedules         []NotificationRuleSchedule `pulumi:"schedules"`
 	// Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
 	Steps            []NotificationRuleStep            `pulumi:"steps"`
 	TimeRestrictions []NotificationRuleTimeRestriction `pulumi:"timeRestrictions"`
@@ -209,10 +203,9 @@ type NotificationRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
 	NotificationTimes pulumi.StringArrayInput
-	// Order of the condition in conditions list
-	Order     pulumi.IntPtrInput
-	Repeats   NotificationRuleRepeatArrayInput
-	Schedules NotificationRuleScheduleArrayInput
+	Order             pulumi.IntPtrInput
+	Repeats           NotificationRuleRepeatArrayInput
+	Schedules         NotificationRuleScheduleArrayInput
 	// Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
 	Steps            NotificationRuleStepArrayInput
 	TimeRestrictions NotificationRuleTimeRestrictionArrayInput
@@ -331,7 +324,6 @@ func (o NotificationRuleOutput) NotificationTimes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringArrayOutput { return v.NotificationTimes }).(pulumi.StringArrayOutput)
 }
 
-// Order of the condition in conditions list
 func (o NotificationRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }

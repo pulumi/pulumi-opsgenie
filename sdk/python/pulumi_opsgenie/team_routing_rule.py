@@ -302,7 +302,6 @@ class TeamRoutingRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -345,7 +344,6 @@ class TeamRoutingRule(pulumi.CustomResource):
                 type="schedule",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -377,7 +375,6 @@ class TeamRoutingRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_opsgenie as opsgenie
@@ -420,7 +417,6 @@ class TeamRoutingRule(pulumi.CustomResource):
                 type="schedule",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

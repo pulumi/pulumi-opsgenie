@@ -33,17 +33,9 @@ public final class TeamRoutingRuleTimeRestrictionArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.restrictionList);
     }
 
-    /**
-     * Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -100,23 +92,11 @@ public final class TeamRoutingRuleTimeRestrictionArgs extends com.pulumi.resourc
             return restrictionList(List.of(restrictionList));
         }
 
-        /**
-         * @param type Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

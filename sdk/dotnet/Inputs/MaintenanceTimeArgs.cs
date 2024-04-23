@@ -12,21 +12,12 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class MaintenanceTimeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-        /// </summary>
         [Input("endDate")]
         public Input<string>? EndDate { get; set; }
 
-        /// <summary>
-        /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
-        /// </summary>
         [Input("startDate")]
         public Input<string>? StartDate { get; set; }
 
-        /// <summary>
-        /// The type of the entity that maintenance will be applied. It can be either integration or policy.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
