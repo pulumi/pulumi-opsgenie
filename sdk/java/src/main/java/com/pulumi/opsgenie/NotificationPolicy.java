@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,18 +54,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Team(&#34;test&#34;, TeamArgs.builder()        
- *             .name(&#34;example team&#34;)
- *             .description(&#34;This team deals with all the things&#34;)
+ *         var test = new Team("test", TeamArgs.builder()        
+ *             .name("example team")
+ *             .description("This team deals with all the things")
  *             .build());
  * 
- *         var testNotificationPolicy = new NotificationPolicy(&#34;testNotificationPolicy&#34;, NotificationPolicyArgs.builder()        
+ *         var testNotificationPolicy = new NotificationPolicy("testNotificationPolicy", NotificationPolicyArgs.builder()        
  *             .filters()
- *             .name(&#34;example policy&#34;)
+ *             .name("example policy")
  *             .teamId(test.id())
- *             .policyDescription(&#34;This policy has a delay action&#34;)
+ *             .policyDescription("This policy has a delay action")
  *             .delayActions(NotificationPolicyDelayActionArgs.builder()
- *                 .delayOption(&#34;next-time&#34;)
+ *                 .delayOption("next-time")
  *                 .untilMinute(1)
  *                 .untilHour(9)
  *                 .build())
@@ -72,7 +73,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,33 +51,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Team(&#34;test&#34;, TeamArgs.builder()        
- *             .name(&#34;example team&#34;)
- *             .description(&#34;This team deals with all the things&#34;)
+ *         var test = new Team("test", TeamArgs.builder()        
+ *             .name("example team")
+ *             .description("This team deals with all the things")
  *             .build());
  * 
- *         var testAlertPolicy = new AlertPolicy(&#34;testAlertPolicy&#34;, AlertPolicyArgs.builder()        
+ *         var testAlertPolicy = new AlertPolicy("testAlertPolicy", AlertPolicyArgs.builder()        
  *             .filters()
- *             .name(&#34;example policy&#34;)
+ *             .name("example policy")
  *             .teamId(test.id())
- *             .policyDescription(&#34;This is sample policy&#34;)
- *             .message(&#34;{{message}}&#34;)
+ *             .policyDescription("This is sample policy")
+ *             .message("{{message}}")
  *             .timeRestrictions(AlertPolicyTimeRestrictionArgs.builder()
- *                 .type(&#34;weekday-and-time-of-day&#34;)
+ *                 .type("weekday-and-time-of-day")
  *                 .restrictionList(                
  *                     AlertPolicyTimeRestrictionRestrictionListArgs.builder()
- *                         .endDay(&#34;monday&#34;)
+ *                         .endDay("monday")
  *                         .endHour(7)
  *                         .endMin(0)
- *                         .startDay(&#34;sunday&#34;)
+ *                         .startDay("sunday")
  *                         .startHour(21)
  *                         .startMin(0)
  *                         .build(),
  *                     AlertPolicyTimeRestrictionRestrictionListArgs.builder()
- *                         .endDay(&#34;tuesday&#34;)
+ *                         .endDay("tuesday")
  *                         .endHour(7)
  *                         .endMin(0)
- *                         .startDay(&#34;monday&#34;)
+ *                         .startDay("monday")
  *                         .startHour(22)
  *                         .startMin(0)
  *                         .build())
@@ -85,7 +86,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

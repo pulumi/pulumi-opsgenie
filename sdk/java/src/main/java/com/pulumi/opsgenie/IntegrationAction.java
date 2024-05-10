@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,137 +62,137 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testAction = new IntegrationAction(&#34;testAction&#34;, IntegrationActionArgs.builder()        
+ *         var testAction = new IntegrationAction("testAction", IntegrationActionArgs.builder()        
  *             .integrationId(testOpsgenieApiIntegration.id())
  *             .creates(            
  *                 IntegrationActionCreateArgs.builder()
- *                     .name(&#34;create action&#34;)
+ *                     .name("create action")
  *                     .tags(                    
- *                         &#34;CRITICAL&#34;,
- *                         &#34;SEV-0&#34;)
- *                     .user(&#34;Example-service&#34;)
- *                     .note(&#34;{{note}}&#34;)
- *                     .alias(&#34;{{alias}}&#34;)
- *                     .source(&#34;{{source}}&#34;)
- *                     .message(&#34;{{message}}&#34;)
- *                     .description(&#34;{{description}}&#34;)
- *                     .entity(&#34;{{entity}}&#34;)
- *                     .alertActions(&#34;Runbook ID#342&#34;)
+ *                         "CRITICAL",
+ *                         "SEV-0")
+ *                     .user("Example-service")
+ *                     .note("{{note}}")
+ *                     .alias("{{alias}}")
+ *                     .source("{{source}}")
+ *                     .message("{{message}}")
+ *                     .description("{{description}}")
+ *                     .entity("{{entity}}")
+ *                     .alertActions("Runbook ID#342")
  *                     .filters(IntegrationActionCreateFilterArgs.builder()
- *                         .type(&#34;match-all-conditions&#34;)
+ *                         .type("match-all-conditions")
  *                         .conditions(IntegrationActionCreateFilterConditionArgs.builder()
- *                             .field(&#34;priority&#34;)
- *                             .operation(&#34;equals&#34;)
- *                             .expectedValue(&#34;P1&#34;)
+ *                             .field("priority")
+ *                             .operation("equals")
+ *                             .expectedValue("P1")
  *                             .build())
  *                         .build())
  *                     .responders(IntegrationActionCreateResponderArgs.builder()
  *                         .id(test.id())
- *                         .type(&#34;team&#34;)
+ *                         .type("team")
  *                         .build())
  *                     .build(),
  *                 IntegrationActionCreateArgs.builder()
- *                     .name(&#34;create action with multiline description&#34;)
- *                     .message(&#34;{{message}}&#34;)
+ *                     .name("create action with multiline description")
+ *                     .message("{{message}}")
  *                     .description(StdFunctions.chomp(ChompArgs.builder()
- *                         .input(&#34;&#34;&#34;
+ *                         .input("""
  * This
  * is a multiline
  * description.
- *                         &#34;&#34;&#34;)
+ *                         """)
  *                         .build()).result())
  *                     .filters(IntegrationActionCreateFilterArgs.builder()
- *                         .type(&#34;match-all-conditions&#34;)
+ *                         .type("match-all-conditions")
  *                         .conditions(IntegrationActionCreateFilterConditionArgs.builder()
- *                             .field(&#34;priority&#34;)
- *                             .operation(&#34;equals&#34;)
- *                             .expectedValue(&#34;P1&#34;)
+ *                             .field("priority")
+ *                             .operation("equals")
+ *                             .expectedValue("P1")
  *                             .build())
  *                         .build())
  *                     .build(),
  *                 IntegrationActionCreateArgs.builder()
- *                     .name(&#34;Create medium priority alerts&#34;)
+ *                     .name("Create medium priority alerts")
  *                     .tags(                    
- *                         &#34;SEVERE&#34;,
- *                         &#34;SEV-1&#34;)
- *                     .priority(&#34;P3&#34;)
+ *                         "SEVERE",
+ *                         "SEV-1")
+ *                     .priority("P3")
  *                     .filters(IntegrationActionCreateFilterArgs.builder()
- *                         .type(&#34;match-all-conditions&#34;)
+ *                         .type("match-all-conditions")
  *                         .conditions(IntegrationActionCreateFilterConditionArgs.builder()
- *                             .field(&#34;priority&#34;)
- *                             .operation(&#34;equals&#34;)
- *                             .expectedValue(&#34;P2&#34;)
+ *                             .field("priority")
+ *                             .operation("equals")
+ *                             .expectedValue("P2")
  *                             .build())
  *                         .build())
  *                     .build(),
  *                 IntegrationActionCreateArgs.builder()
- *                     .name(&#34;Create alert with priority from message&#34;)
- *                     .customPriority(&#34;{{message.substringAfter(\&#34;[custom]\&#34;)}}&#34;)
+ *                     .name("Create alert with priority from message")
+ *                     .customPriority("{{message.substringAfter(\"[custom]\")}}")
  *                     .filters(IntegrationActionCreateFilterArgs.builder()
- *                         .type(&#34;match-all-conditions&#34;)
+ *                         .type("match-all-conditions")
  *                         .conditions(                        
  *                             IntegrationActionCreateFilterConditionArgs.builder()
- *                                 .field(&#34;tags&#34;)
- *                                 .operation(&#34;contains&#34;)
- *                                 .expectedValue(&#34;P5&#34;)
+ *                                 .field("tags")
+ *                                 .operation("contains")
+ *                                 .expectedValue("P5")
  *                                 .build(),
  *                             IntegrationActionCreateFilterConditionArgs.builder()
- *                                 .field(&#34;message&#34;)
- *                                 .operation(&#34;starts-with&#34;)
- *                                 .expectedValue(&#34;[custom]&#34;)
+ *                                 .field("message")
+ *                                 .operation("starts-with")
+ *                                 .expectedValue("[custom]")
  *                                 .build())
  *                         .build())
  *                     .build())
  *             .closes(IntegrationActionCloseArgs.builder()
- *                 .name(&#34;Low priority alerts&#34;)
+ *                 .name("Low priority alerts")
  *                 .filters(IntegrationActionCloseFilterArgs.builder()
- *                     .type(&#34;match-any-condition&#34;)
+ *                     .type("match-any-condition")
  *                     .conditions(                    
  *                         IntegrationActionCloseFilterConditionArgs.builder()
- *                             .field(&#34;priority&#34;)
- *                             .operation(&#34;equals&#34;)
- *                             .expectedValue(&#34;P5&#34;)
+ *                             .field("priority")
+ *                             .operation("equals")
+ *                             .expectedValue("P5")
  *                             .build(),
  *                         IntegrationActionCloseFilterConditionArgs.builder()
- *                             .field(&#34;message&#34;)
- *                             .operation(&#34;contains&#34;)
- *                             .expectedValue(&#34;DEBUG&#34;)
+ *                             .field("message")
+ *                             .operation("contains")
+ *                             .expectedValue("DEBUG")
  *                             .build())
  *                     .build())
  *                 .build())
  *             .acknowledges(IntegrationActionAcknowledgeArgs.builder()
- *                 .name(&#34;Auto-ack test alerts&#34;)
+ *                 .name("Auto-ack test alerts")
  *                 .filters(IntegrationActionAcknowledgeFilterArgs.builder()
- *                     .type(&#34;match-all-conditions&#34;)
+ *                     .type("match-all-conditions")
  *                     .conditions(                    
  *                         IntegrationActionAcknowledgeFilterConditionArgs.builder()
- *                             .field(&#34;message&#34;)
+ *                             .field("message")
  *                             .not(true)
- *                             .operation(&#34;contains&#34;)
- *                             .expectedValue(&#34;TEST&#34;)
+ *                             .operation("contains")
+ *                             .expectedValue("TEST")
  *                             .build(),
  *                         IntegrationActionAcknowledgeFilterConditionArgs.builder()
- *                             .field(&#34;priority&#34;)
- *                             .operation(&#34;equals&#34;)
- *                             .expectedValue(&#34;P5&#34;)
+ *                             .field("priority")
+ *                             .operation("equals")
+ *                             .expectedValue("P5")
  *                             .build())
  *                     .build())
  *                 .build())
  *             .addNotes(IntegrationActionAddNoteArgs.builder()
- *                 .name(&#34;Add note to all alerts&#34;)
- *                 .note(&#34;Created from test integration&#34;)
+ *                 .name("Add note to all alerts")
+ *                 .note("Created from test integration")
  *                 .filters(IntegrationActionAddNoteFilterArgs.builder()
- *                     .type(&#34;match-all&#34;)
+ *                     .type("match-all")
  *                     .build())
  *                 .build())
  *             .ignores(IntegrationActionIgnoreArgs.builder()
- *                 .name(&#34;Ignore alerts with ignore tag&#34;)
+ *                 .name("Ignore alerts with ignore tag")
  *                 .filters(IntegrationActionIgnoreFilterArgs.builder()
- *                     .type(&#34;match-all-conditions&#34;)
+ *                     .type("match-all-conditions")
  *                     .conditions(IntegrationActionIgnoreFilterConditionArgs.builder()
- *                         .field(&#34;tags&#34;)
- *                         .operation(&#34;contains&#34;)
- *                         .expectedValue(&#34;ignore&#34;)
+ *                         .field("tags")
+ *                         .operation("contains")
+ *                         .expectedValue("ignore")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -199,7 +200,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * An escalation with a single rule
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,14 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Escalation(&#34;default&#34;, EscalationArgs.builder()        
- *             .name(&#34;genieescalation&#34;)
+ *         var default_ = new Escalation("default", EscalationArgs.builder()        
+ *             .name("genieescalation")
  *             .rules(EscalationRuleArgs.builder()
- *                 .condition(&#34;if-not-acked&#34;)
- *                 .notifyType(&#34;default&#34;)
+ *                 .condition("if-not-acked")
+ *                 .notifyType("default")
  *                 .delay(1)
  *                 .recipients(EscalationRuleRecipientArgs.builder()
- *                     .type(&#34;user&#34;)
+ *                     .type("user")
  *                     .id(test.id())
  *                     .build())
  *                 .build())
@@ -62,13 +63,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * An escalation with a multiple rules
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -91,35 +94,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Escalation(&#34;default&#34;, EscalationArgs.builder()        
- *             .name(&#34;genieescalation&#34;)
- *             .description(&#34;test&#34;)
+ *         var default_ = new Escalation("default", EscalationArgs.builder()        
+ *             .name("genieescalation")
+ *             .description("test")
  *             .ownerTeamId(testOpsgenieTeam.id())
  *             .rules(            
  *                 EscalationRuleArgs.builder()
- *                     .condition(&#34;if-not-acked&#34;)
- *                     .notifyType(&#34;default&#34;)
+ *                     .condition("if-not-acked")
+ *                     .notifyType("default")
  *                     .delay(1)
  *                     .recipients(EscalationRuleRecipientArgs.builder()
- *                         .type(&#34;user&#34;)
+ *                         .type("user")
  *                         .id(test.id())
  *                         .build())
  *                     .build(),
  *                 EscalationRuleArgs.builder()
- *                     .condition(&#34;if-not-acked&#34;)
- *                     .notifyType(&#34;default&#34;)
+ *                     .condition("if-not-acked")
+ *                     .notifyType("default")
  *                     .delay(1)
  *                     .recipients(EscalationRuleRecipientArgs.builder()
- *                         .type(&#34;team&#34;)
+ *                         .type("team")
  *                         .id(testOpsgenieTeam.id())
  *                         .build())
  *                     .build(),
  *                 EscalationRuleArgs.builder()
- *                     .condition(&#34;if-not-acked&#34;)
- *                     .notifyType(&#34;default&#34;)
+ *                     .condition("if-not-acked")
+ *                     .notifyType("default")
  *                     .delay(1)
  *                     .recipients(EscalationRuleRecipientArgs.builder()
- *                         .type(&#34;schedule&#34;)
+ *                         .type("schedule")
  *                         .id(testOpsgenieSchedule.id())
  *                         .build())
  *                     .build())
@@ -133,7 +136,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

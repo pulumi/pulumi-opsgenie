@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,19 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ScheduleRotation(&#34;test&#34;, ScheduleRotationArgs.builder()        
+ *         var test = new ScheduleRotation("test", ScheduleRotationArgs.builder()        
  *             .scheduleId(testOpsgenieSchedule.id())
- *             .name(&#34;test&#34;)
- *             .startDate(&#34;2019-06-18T17:00:00Z&#34;)
- *             .endDate(&#34;2019-06-20T17:30:00Z&#34;)
- *             .type(&#34;hourly&#34;)
+ *             .name("test")
+ *             .startDate("2019-06-18T17:00:00Z")
+ *             .endDate("2019-06-20T17:30:00Z")
+ *             .type("hourly")
  *             .length(6)
  *             .participants(ScheduleRotationParticipantArgs.builder()
- *                 .type(&#34;user&#34;)
+ *                 .type("user")
  *                 .id(testOpsgenieUser.id())
  *                 .build())
  *             .timeRestrictions(ScheduleRotationTimeRestrictionArgs.builder()
- *                 .type(&#34;time-of-day&#34;)
+ *                 .type("time-of-day")
  *                 .restriction(ScheduleRotationTimeRestrictionRestrictionArgs.builder()
  *                     .startHour(1)
  *                     .startMin(1)
@@ -71,7 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

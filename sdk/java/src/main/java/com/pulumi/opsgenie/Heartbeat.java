@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,23 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Heartbeat(&#34;test&#34;, HeartbeatArgs.builder()        
- *             .name(&#34;genieheartbeat-test&#34;)
- *             .description(&#34;test opsgenie heartbeat terraform&#34;)
- *             .intervalUnit(&#34;minutes&#34;)
+ *         var test = new Heartbeat("test", HeartbeatArgs.builder()        
+ *             .name("genieheartbeat-test")
+ *             .description("test opsgenie heartbeat terraform")
+ *             .intervalUnit("minutes")
  *             .interval(10)
  *             .enabled(false)
- *             .alertMessage(&#34;Test&#34;)
- *             .alertPriority(&#34;P3&#34;)
+ *             .alertMessage("Test")
+ *             .alertPriority("P3")
  *             .alertTags(            
- *                 &#34;test&#34;,
- *                 &#34;fahri&#34;)
+ *                 "test",
+ *                 "fahri")
  *             .ownerTeamId(testOpsgenieTeam.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

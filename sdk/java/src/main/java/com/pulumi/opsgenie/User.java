@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,32 +46,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User(&#34;test&#34;, UserArgs.builder()        
- *             .username(&#34;user@domain.com&#34;)
- *             .fullName(&#34;Test User&#34;)
- *             .role(&#34;User&#34;)
- *             .locale(&#34;en_US&#34;)
- *             .timezone(&#34;America/New_York&#34;)
+ *         var test = new User("test", UserArgs.builder()        
+ *             .username("user{@literal @}domain.com")
+ *             .fullName("Test User")
+ *             .role("User")
+ *             .locale("en_US")
+ *             .timezone("America/New_York")
  *             .tags(            
- *                 &#34;sre&#34;,
- *                 &#34;opsgenie&#34;)
- *             .skypeUsername(&#34;skypename&#34;)
+ *                 "sre",
+ *                 "opsgenie")
+ *             .skypeUsername("skypename")
  *             .userAddresses(UserUserAddressArgs.builder()
- *                 .country(&#34;Country&#34;)
- *                 .state(&#34;State&#34;)
- *                 .city(&#34;City&#34;)
- *                 .line(&#34;Line&#34;)
- *                 .zipcode(&#34;998877&#34;)
+ *                 .country("Country")
+ *                 .state("State")
+ *                 .city("City")
+ *                 .line("Line")
+ *                 .zipcode("998877")
  *                 .build())
  *             .userDetails(Map.ofEntries(
- *                 Map.entry(&#34;key1&#34;, &#34;val1,val2&#34;),
- *                 Map.entry(&#34;key2&#34;, &#34;val3,val4&#34;)
+ *                 Map.entry("key1", "val1,val2"),
+ *                 Map.entry("key2", "val3,val4")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new CustomRole(&#34;test&#34;, CustomRoleArgs.builder()        
- *             .roleName(&#34;genierole&#34;)
- *             .extendedRole(&#34;user&#34;)
- *             .grantedRights(&#34;alert-delete&#34;)
+ *         var test = new CustomRole("test", CustomRoleArgs.builder()        
+ *             .roleName("genierole")
+ *             .extendedRole("user")
+ *             .grantedRights("alert-delete")
  *             .disallowedRights(            
- *                 &#34;profile-edit&#34;,
- *                 &#34;contacts-edit&#34;)
+ *                 "profile-edit",
+ *                 "contacts-edit")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
