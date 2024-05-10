@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,52 +55,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Schedule(&#34;test&#34;, ScheduleArgs.builder()        
- *             .name(&#34;genieschedule&#34;)
- *             .description(&#34;schedule test&#34;)
- *             .timezone(&#34;Europe/Rome&#34;)
+ *         var test = new Schedule("test", ScheduleArgs.builder()        
+ *             .name("genieschedule")
+ *             .description("schedule test")
+ *             .timezone("Europe/Rome")
  *             .enabled(false)
  *             .build());
  * 
- *         var testTeam = new Team(&#34;testTeam&#34;, TeamArgs.builder()        
- *             .name(&#34;example team&#34;)
- *             .description(&#34;This team deals with all the things&#34;)
+ *         var testTeam = new Team("testTeam", TeamArgs.builder()        
+ *             .name("example team")
+ *             .description("This team deals with all the things")
  *             .build());
  * 
- *         var testTeamRoutingRule = new TeamRoutingRule(&#34;testTeamRoutingRule&#34;, TeamRoutingRuleArgs.builder()        
- *             .name(&#34;routing rule example&#34;)
+ *         var testTeamRoutingRule = new TeamRoutingRule("testTeamRoutingRule", TeamRoutingRuleArgs.builder()        
+ *             .name("routing rule example")
  *             .teamId(testTeam.id())
  *             .order(0)
- *             .timezone(&#34;America/Los_Angeles&#34;)
+ *             .timezone("America/Los_Angeles")
  *             .criterias(TeamRoutingRuleCriteriaArgs.builder()
- *                 .type(&#34;match-any-condition&#34;)
+ *                 .type("match-any-condition")
  *                 .conditions(TeamRoutingRuleCriteriaConditionArgs.builder()
- *                     .field(&#34;message&#34;)
- *                     .operation(&#34;contains&#34;)
- *                     .expectedValue(&#34;expected1&#34;)
+ *                     .field("message")
+ *                     .operation("contains")
+ *                     .expectedValue("expected1")
  *                     .not(false)
  *                     .build())
  *                 .build())
  *             .timeRestrictions(TeamRoutingRuleTimeRestrictionArgs.builder()
- *                 .type(&#34;weekday-and-time-of-day&#34;)
+ *                 .type("weekday-and-time-of-day")
  *                 .restrictionList(TeamRoutingRuleTimeRestrictionRestrictionListArgs.builder()
- *                     .startDay(&#34;monday&#34;)
+ *                     .startDay("monday")
  *                     .startHour(8)
  *                     .startMin(0)
- *                     .endDay(&#34;tuesday&#34;)
+ *                     .endDay("tuesday")
  *                     .endHour(18)
  *                     .endMin(30)
  *                     .build())
  *                 .build())
  *             .notifies(TeamRoutingRuleNotifyArgs.builder()
  *                 .name(test.name())
- *                 .type(&#34;schedule&#34;)
+ *                 .type("schedule")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

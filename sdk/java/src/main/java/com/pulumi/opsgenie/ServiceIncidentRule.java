@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,39 +48,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Team(&#34;test&#34;, TeamArgs.builder()        
- *             .name(&#34;example-team&#34;)
- *             .description(&#34;This team deals with all the things&#34;)
+ *         var test = new Team("test", TeamArgs.builder()        
+ *             .name("example-team")
+ *             .description("This team deals with all the things")
  *             .build());
  * 
- *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-service&#34;)
+ *         var testService = new Service("testService", ServiceArgs.builder()        
+ *             .name("example-service")
  *             .teamId(test.id())
  *             .build());
  * 
- *         var testServiceIncidentRule = new ServiceIncidentRule(&#34;testServiceIncidentRule&#34;, ServiceIncidentRuleArgs.builder()        
+ *         var testServiceIncidentRule = new ServiceIncidentRule("testServiceIncidentRule", ServiceIncidentRuleArgs.builder()        
  *             .serviceId(testService.id())
  *             .incidentRules(ServiceIncidentRuleIncidentRuleArgs.builder()
- *                 .conditionMatchType(&#34;match-any-condition&#34;)
+ *                 .conditionMatchType("match-any-condition")
  *                 .conditions(                
  *                     ServiceIncidentRuleIncidentRuleConditionArgs.builder()
- *                         .field(&#34;message&#34;)
+ *                         .field("message")
  *                         .not(false)
- *                         .operation(&#34;contains&#34;)
- *                         .expectedValue(&#34;expected1&#34;)
+ *                         .operation("contains")
+ *                         .expectedValue("expected1")
  *                         .build(),
  *                     ServiceIncidentRuleIncidentRuleConditionArgs.builder()
- *                         .field(&#34;message&#34;)
+ *                         .field("message")
  *                         .not(false)
- *                         .operation(&#34;contains&#34;)
- *                         .expectedValue(&#34;expected2&#34;)
+ *                         .operation("contains")
+ *                         .expectedValue("expected2")
  *                         .build())
  *                 .incidentProperties(ServiceIncidentRuleIncidentRuleIncidentPropertyArgs.builder()
- *                     .message(&#34;This is a test message&#34;)
- *                     .priority(&#34;P3&#34;)
+ *                     .message("This is a test message")
+ *                     .priority("P3")
  *                     .stakeholderProperties(ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs.builder()
- *                         .message(&#34;Message for stakeholders&#34;)
- *                         .enable(&#34;true&#34;)
+ *                         .message("Message for stakeholders")
+ *                         .enable("true")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -87,7 +88,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

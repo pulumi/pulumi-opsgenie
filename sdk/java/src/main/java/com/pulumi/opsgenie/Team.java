@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,42 +48,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var first = new User(&#34;first&#34;, UserArgs.builder()        
- *             .username(&#34;user@domain.com&#34;)
- *             .fullName(&#34;name &#34;)
- *             .role(&#34;User&#34;)
+ *         var first = new User("first", UserArgs.builder()        
+ *             .username("user{@literal @}domain.com")
+ *             .fullName("name ")
+ *             .role("User")
  *             .build());
  * 
- *         var second = new User(&#34;second&#34;, UserArgs.builder()        
- *             .username(&#34;test@domain.com&#34;)
- *             .fullName(&#34;name &#34;)
- *             .role(&#34;User&#34;)
+ *         var second = new User("second", UserArgs.builder()        
+ *             .username("test{@literal @}domain.com")
+ *             .fullName("name ")
+ *             .role("User")
  *             .build());
  * 
- *         var test = new Team(&#34;test&#34;, TeamArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;This team deals with all the things&#34;)
+ *         var test = new Team("test", TeamArgs.builder()        
+ *             .name("example")
+ *             .description("This team deals with all the things")
  *             .members(            
  *                 TeamMemberArgs.builder()
  *                     .id(first.id())
- *                     .role(&#34;admin&#34;)
+ *                     .role("admin")
  *                     .build(),
  *                 TeamMemberArgs.builder()
  *                     .id(second.id())
- *                     .role(&#34;user&#34;)
+ *                     .role("user")
  *                     .build())
  *             .build());
  * 
- *         var self_service = new Team(&#34;self-service&#34;, TeamArgs.builder()        
- *             .name(&#34;Self Service&#34;)
- *             .description(&#34;Membership in this team is managed via OpsGenie web UI only&#34;)
+ *         var self_service = new Team("self-service", TeamArgs.builder()        
+ *             .name("Self Service")
+ *             .description("Membership in this team is managed via OpsGenie web UI only")
  *             .ignoreMembers(true)
  *             .deleteDefaultResources(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

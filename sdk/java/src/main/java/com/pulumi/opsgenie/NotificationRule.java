@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,30 +53,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User(&#34;test&#34;, UserArgs.builder()        
- *             .username(&#34;Example user&#34;)
- *             .fullName(&#34;Name Lastname&#34;)
- *             .role(&#34;User&#34;)
+ *         var test = new User("test", UserArgs.builder()        
+ *             .username("Example user")
+ *             .fullName("Name Lastname")
+ *             .role("User")
  *             .build());
  * 
- *         var testNotificationRule = new NotificationRule(&#34;testNotificationRule&#34;, NotificationRuleArgs.builder()        
- *             .name(&#34;Example notification rule&#34;)
+ *         var testNotificationRule = new NotificationRule("testNotificationRule", NotificationRuleArgs.builder()        
+ *             .name("Example notification rule")
  *             .username(test.username())
- *             .actionType(&#34;schedule-end&#34;)
+ *             .actionType("schedule-end")
  *             .notificationTimes(            
- *                 &#34;just-before&#34;,
- *                 &#34;15-minutes-ago&#34;)
+ *                 "just-before",
+ *                 "15-minutes-ago")
  *             .steps(NotificationRuleStepArgs.builder()
  *                 .contacts(NotificationRuleStepContactArgs.builder()
- *                     .method(&#34;email&#34;)
- *                     .to(&#34;example@user.com&#34;)
+ *                     .method("email")
+ *                     .to("example{@literal @}user.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

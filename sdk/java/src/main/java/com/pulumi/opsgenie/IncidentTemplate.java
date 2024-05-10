@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,39 +50,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Team(&#34;test&#34;, TeamArgs.builder()        
- *             .name(&#34;genietest-team&#34;)
- *             .description(&#34;This team deals with all the things&#34;)
+ *         var test = new Team("test", TeamArgs.builder()        
+ *             .name("genietest-team")
+ *             .description("This team deals with all the things")
  *             .build());
  * 
- *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
- *             .name(&#34;genietest-service&#34;)
+ *         var testService = new Service("testService", ServiceArgs.builder()        
+ *             .name("genietest-service")
  *             .teamId(test.id())
  *             .build());
  * 
- *         var testIncidentTemplate = new IncidentTemplate(&#34;testIncidentTemplate&#34;, IncidentTemplateArgs.builder()        
- *             .name(&#34;genietest-incident-template&#34;)
- *             .message(&#34;Incident Message&#34;)
- *             .priority(&#34;P2&#34;)
+ *         var testIncidentTemplate = new IncidentTemplate("testIncidentTemplate", IncidentTemplateArgs.builder()        
+ *             .name("genietest-incident-template")
+ *             .message("Incident Message")
+ *             .priority("P2")
  *             .stakeholderProperties(IncidentTemplateStakeholderPropertyArgs.builder()
  *                 .enable(true)
- *                 .message(&#34;Stakeholder Message&#34;)
- *                 .description(&#34;Stakeholder Description&#34;)
+ *                 .message("Stakeholder Message")
+ *                 .description("Stakeholder Description")
  *                 .build())
  *             .tags(            
- *                 &#34;tag1&#34;,
- *                 &#34;tag2&#34;)
- *             .description(&#34;Incident Description&#34;)
+ *                 "tag1",
+ *                 "tag2")
+ *             .description("Incident Description")
  *             .details(Map.ofEntries(
- *                 Map.entry(&#34;key1&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;key2&#34;, &#34;value2&#34;)
+ *                 Map.entry("key1", "value1"),
+ *                 Map.entry("key2", "value2")
  *             ))
  *             .impactedServices(testService.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

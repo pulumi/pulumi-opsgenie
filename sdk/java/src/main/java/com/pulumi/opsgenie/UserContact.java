@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,27 +43,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sms = new UserContact(&#34;sms&#34;, UserContactArgs.builder()        
+ *         var sms = new UserContact("sms", UserContactArgs.builder()        
  *             .username(exampleuser.username())
- *             .to(&#34;39-123&#34;)
- *             .method(&#34;sms&#34;)
+ *             .to("39-123")
+ *             .method("sms")
  *             .build());
  * 
- *         var email = new UserContact(&#34;email&#34;, UserContactArgs.builder()        
+ *         var email = new UserContact("email", UserContactArgs.builder()        
  *             .username(exampleuser.username())
- *             .to(&#34;fahri@opsgenie.com&#34;)
- *             .method(&#34;email&#34;)
+ *             .to("fahri{@literal @}opsgenie.com")
+ *             .method("email")
  *             .build());
  * 
- *         var voice = new UserContact(&#34;voice&#34;, UserContactArgs.builder()        
+ *         var voice = new UserContact("voice", UserContactArgs.builder()        
  *             .username(exampleuser.username())
- *             .to(&#34;39-123&#34;)
- *             .method(&#34;voice&#34;)
+ *             .to("39-123")
+ *             .method("voice")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
