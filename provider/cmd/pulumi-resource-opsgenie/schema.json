@@ -1611,7 +1611,7 @@
                 },
                 "operation": {
                     "type": "string",
-                    "description": "It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.\n"
+                    "description": "It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.\n\n* `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.\n"
                 },
                 "order": {
                     "type": "integer",
@@ -2795,7 +2795,7 @@
                 },
                 "priority": {
                     "type": "string",
-                    "description": "Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.\n"
+                    "description": "Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.\n\n* `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.\n\n* `stakeholderProperties` (Required)\n"
                 },
                 "stakeholderProperties": {
                     "type": "array",
@@ -2845,7 +2845,7 @@
                 },
                 "priority": {
                     "type": "string",
-                    "description": "Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.\n"
+                    "description": "Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.\n\n* `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.\n\n* `stakeholderProperties` (Required)\n"
                 },
                 "stakeholderProperties": {
                     "type": "array",
@@ -2896,7 +2896,7 @@
                     },
                     "priority": {
                         "type": "string",
-                        "description": "Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.\n"
+                        "description": "Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.\n\n* `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.\n\n* `stakeholderProperties` (Required)\n"
                     },
                     "stakeholderProperties": {
                         "type": "array",
