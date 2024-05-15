@@ -3934,6 +3934,8 @@ class TeamRoutingRuleCriteriaConditionArgs:
         """
         :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
         :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+               
+               * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
         :param pulumi.Input[str] key: If field is set as extra-properties, key could be used for key-value pair.
         :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default value is false.
         :param pulumi.Input[int] order: Order of the condition in conditions list.
@@ -3966,6 +3968,8 @@ class TeamRoutingRuleCriteriaConditionArgs:
     def operation(self) -> pulumi.Input[str]:
         """
         It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+
+        * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
         """
         return pulumi.get(self, "operation")
 

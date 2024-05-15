@@ -108,6 +108,10 @@ namespace Pulumi.Opsgenie
 
         /// <summary>
         /// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+        /// 
+        /// * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+        /// 
+        /// * `stakeholderProperties` (Required)
         /// </summary>
         [Output("priority")]
         public Output<string> Priority { get; private set; } = null!;
@@ -207,6 +211,10 @@ namespace Pulumi.Opsgenie
 
         /// <summary>
         /// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+        /// 
+        /// * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+        /// 
+        /// * `stakeholderProperties` (Required)
         /// </summary>
         [Input("priority", required: true)]
         public Input<string> Priority { get; set; } = null!;
@@ -279,6 +287,10 @@ namespace Pulumi.Opsgenie
 
         /// <summary>
         /// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+        /// 
+        /// * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+        /// 
+        /// * `stakeholderProperties` (Required)
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }

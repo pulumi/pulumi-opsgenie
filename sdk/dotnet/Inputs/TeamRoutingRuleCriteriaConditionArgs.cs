@@ -35,6 +35,8 @@ namespace Pulumi.Opsgenie.Inputs
 
         /// <summary>
         /// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+        /// 
+        /// * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
         /// </summary>
         [Input("operation", required: true)]
         public Input<string> Operation { get; set; } = null!;

@@ -7455,6 +7455,8 @@ type TeamRoutingRuleCriteriaCondition struct {
 	// Indicates behaviour of the given operation. Default value is false.
 	Not *bool `pulumi:"not"`
 	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+	//
+	// * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
 	Operation string `pulumi:"operation"`
 	// Order of the condition in conditions list.
 	Order *int `pulumi:"order"`
@@ -7480,6 +7482,8 @@ type TeamRoutingRuleCriteriaConditionArgs struct {
 	// Indicates behaviour of the given operation. Default value is false.
 	Not pulumi.BoolPtrInput `pulumi:"not"`
 	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+	//
+	// * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
 	Operation pulumi.StringInput `pulumi:"operation"`
 	// Order of the condition in conditions list.
 	Order pulumi.IntPtrInput `pulumi:"order"`
@@ -7556,6 +7560,8 @@ func (o TeamRoutingRuleCriteriaConditionOutput) Not() pulumi.BoolPtrOutput {
 }
 
 // It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+//
+// * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
 func (o TeamRoutingRuleCriteriaConditionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamRoutingRuleCriteriaCondition) string { return v.Operation }).(pulumi.StringOutput)
 }

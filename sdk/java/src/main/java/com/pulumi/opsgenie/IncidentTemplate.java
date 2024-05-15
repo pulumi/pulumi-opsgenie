@@ -162,12 +162,20 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      * 
+     * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+     * 
+     * * `stakeholderProperties` (Required)
+     * 
      */
     @Export(name="priority", refs={String.class}, tree="[0]")
     private Output<String> priority;
 
     /**
      * @return Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+     * 
+     * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+     * 
+     * * `stakeholderProperties` (Required)
      * 
      */
     public Output<String> priority() {
