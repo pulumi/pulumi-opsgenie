@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User("test", UserArgs.builder()        
+ *         var test = new User("test", UserArgs.builder()
  *             .username("Example user")
  *             .fullName("Name Lastname")
  *             .role("User")
  *             .build());
  * 
- *         var testNotificationRule = new NotificationRule("testNotificationRule", NotificationRuleArgs.builder()        
+ *         var testNotificationRule = new NotificationRule("testNotificationRule", NotificationRuleArgs.builder()
  *             .name("Example notification rule")
  *             .username(test.username())
  *             .actionType("schedule-end")

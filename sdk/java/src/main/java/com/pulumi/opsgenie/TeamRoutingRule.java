@@ -55,19 +55,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Schedule("test", ScheduleArgs.builder()        
+ *         var test = new Schedule("test", ScheduleArgs.builder()
  *             .name("genieschedule")
  *             .description("schedule test")
  *             .timezone("Europe/Rome")
  *             .enabled(false)
  *             .build());
  * 
- *         var testTeam = new Team("testTeam", TeamArgs.builder()        
+ *         var testTeam = new Team("testTeam", TeamArgs.builder()
  *             .name("example team")
  *             .description("This team deals with all the things")
  *             .build());
  * 
- *         var testTeamRoutingRule = new TeamRoutingRule("testTeamRoutingRule", TeamRoutingRuleArgs.builder()        
+ *         var testTeamRoutingRule = new TeamRoutingRule("testTeamRoutingRule", TeamRoutingRuleArgs.builder()
  *             .name("routing rule example")
  *             .teamId(testTeam.id())
  *             .order(0)
