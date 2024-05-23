@@ -3201,6 +3201,12 @@ class ScheduleRotationTimeRestrictionRestriction(dict):
                  end_min: int,
                  start_hour: int,
                  start_min: int):
+        """
+        :param int end_hour: Value of the hour that frame will end.
+        :param int end_min: Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        :param int start_hour: Value of the hour that frame will start.
+        :param int start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
         pulumi.set(__self__, "end_hour", end_hour)
         pulumi.set(__self__, "end_min", end_min)
         pulumi.set(__self__, "start_hour", start_hour)
@@ -3209,21 +3215,33 @@ class ScheduleRotationTimeRestrictionRestriction(dict):
     @property
     @pulumi.getter(name="endHour")
     def end_hour(self) -> int:
+        """
+        Value of the hour that frame will end.
+        """
         return pulumi.get(self, "end_hour")
 
     @property
     @pulumi.getter(name="endMin")
     def end_min(self) -> int:
+        """
+        Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
         return pulumi.get(self, "end_min")
 
     @property
     @pulumi.getter(name="startHour")
     def start_hour(self) -> int:
+        """
+        Value of the hour that frame will start.
+        """
         return pulumi.get(self, "start_hour")
 
     @property
     @pulumi.getter(name="startMin")
     def start_min(self) -> int:
+        """
+        Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
         return pulumi.get(self, "start_min")
 
 
@@ -3263,6 +3281,16 @@ class ScheduleRotationTimeRestrictionRestrictionList(dict):
                  start_day: str,
                  start_hour: int,
                  start_min: int):
+        """
+        :param str end_day: Value of the day that frame will end.
+        :param int end_hour: Value of the hour that frame will end.
+        :param int end_min: Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+               
+               Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
+        :param str start_day: Value of the day that frame will start.
+        :param int start_hour: Value of the hour that frame will start
+        :param int start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
         pulumi.set(__self__, "end_day", end_day)
         pulumi.set(__self__, "end_hour", end_hour)
         pulumi.set(__self__, "end_min", end_min)
@@ -3273,31 +3301,51 @@ class ScheduleRotationTimeRestrictionRestrictionList(dict):
     @property
     @pulumi.getter(name="endDay")
     def end_day(self) -> str:
+        """
+        Value of the day that frame will end.
+        """
         return pulumi.get(self, "end_day")
 
     @property
     @pulumi.getter(name="endHour")
     def end_hour(self) -> int:
+        """
+        Value of the hour that frame will end.
+        """
         return pulumi.get(self, "end_hour")
 
     @property
     @pulumi.getter(name="endMin")
     def end_min(self) -> int:
+        """
+        Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+
+        Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
+        """
         return pulumi.get(self, "end_min")
 
     @property
     @pulumi.getter(name="startDay")
     def start_day(self) -> str:
+        """
+        Value of the day that frame will start.
+        """
         return pulumi.get(self, "start_day")
 
     @property
     @pulumi.getter(name="startHour")
     def start_hour(self) -> int:
+        """
+        Value of the hour that frame will start
+        """
         return pulumi.get(self, "start_hour")
 
     @property
     @pulumi.getter(name="startMin")
     def start_min(self) -> int:
+        """
+        Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
         return pulumi.get(self, "start_min")
 
 
@@ -3680,6 +3728,8 @@ class TeamRoutingRuleCriteriaCondition(dict):
         """
         :param str field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
         :param str operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+               
+               * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
         :param str key: If field is set as extra-properties, key could be used for key-value pair.
         :param bool not_: Indicates behaviour of the given operation. Default value is false.
         :param int order: Order of the condition in conditions list.
@@ -3708,6 +3758,8 @@ class TeamRoutingRuleCriteriaCondition(dict):
     def operation(self) -> str:
         """
         It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+
+        * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
         """
         return pulumi.get(self, "operation")
 

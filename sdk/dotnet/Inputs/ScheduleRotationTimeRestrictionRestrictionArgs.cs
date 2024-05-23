@@ -12,15 +12,27 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class ScheduleRotationTimeRestrictionRestrictionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Value of the hour that frame will end.
+        /// </summary>
         [Input("endHour", required: true)]
         public Input<int> EndHour { get; set; } = null!;
 
+        /// <summary>
+        /// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        /// </summary>
         [Input("endMin", required: true)]
         public Input<int> EndMin { get; set; } = null!;
 
+        /// <summary>
+        /// Value of the hour that frame will start.
+        /// </summary>
         [Input("startHour", required: true)]
         public Input<int> StartHour { get; set; } = null!;
 
+        /// <summary>
+        /// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        /// </summary>
         [Input("startMin", required: true)]
         public Input<int> StartMin { get; set; } = null!;
 

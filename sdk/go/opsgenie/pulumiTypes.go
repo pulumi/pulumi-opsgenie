@@ -6480,10 +6480,14 @@ func (o ScheduleRotationTimeRestrictionArrayOutput) Index(i pulumi.IntInput) Sch
 }
 
 type ScheduleRotationTimeRestrictionRestriction struct {
-	EndHour   int `pulumi:"endHour"`
-	EndMin    int `pulumi:"endMin"`
+	// Value of the hour that frame will end.
+	EndHour int `pulumi:"endHour"`
+	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	EndMin int `pulumi:"endMin"`
+	// Value of the hour that frame will start.
 	StartHour int `pulumi:"startHour"`
-	StartMin  int `pulumi:"startMin"`
+	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	StartMin int `pulumi:"startMin"`
 }
 
 // ScheduleRotationTimeRestrictionRestrictionInput is an input type that accepts ScheduleRotationTimeRestrictionRestrictionArgs and ScheduleRotationTimeRestrictionRestrictionOutput values.
@@ -6498,10 +6502,14 @@ type ScheduleRotationTimeRestrictionRestrictionInput interface {
 }
 
 type ScheduleRotationTimeRestrictionRestrictionArgs struct {
-	EndHour   pulumi.IntInput `pulumi:"endHour"`
-	EndMin    pulumi.IntInput `pulumi:"endMin"`
+	// Value of the hour that frame will end.
+	EndHour pulumi.IntInput `pulumi:"endHour"`
+	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	EndMin pulumi.IntInput `pulumi:"endMin"`
+	// Value of the hour that frame will start.
 	StartHour pulumi.IntInput `pulumi:"startHour"`
-	StartMin  pulumi.IntInput `pulumi:"startMin"`
+	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	StartMin pulumi.IntInput `pulumi:"startMin"`
 }
 
 func (ScheduleRotationTimeRestrictionRestrictionArgs) ElementType() reflect.Type {
@@ -6555,18 +6563,22 @@ func (o ScheduleRotationTimeRestrictionRestrictionOutput) ToScheduleRotationTime
 	return o
 }
 
+// Value of the hour that frame will end.
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) EndHour() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.EndHour }).(pulumi.IntOutput)
 }
 
+// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) EndMin() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.EndMin }).(pulumi.IntOutput)
 }
 
+// Value of the hour that frame will start.
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) StartHour() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.StartHour }).(pulumi.IntOutput)
 }
 
+// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
 func (o ScheduleRotationTimeRestrictionRestrictionOutput) StartMin() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestriction) int { return v.StartMin }).(pulumi.IntOutput)
 }
@@ -6592,12 +6604,20 @@ func (o ScheduleRotationTimeRestrictionRestrictionArrayOutput) Index(i pulumi.In
 }
 
 type ScheduleRotationTimeRestrictionRestrictionList struct {
-	EndDay    string `pulumi:"endDay"`
-	EndHour   int    `pulumi:"endHour"`
-	EndMin    int    `pulumi:"endMin"`
-	StartDay  string `pulumi:"startDay"`
-	StartHour int    `pulumi:"startHour"`
-	StartMin  int    `pulumi:"startMin"`
+	// Value of the day that frame will end.
+	EndDay string `pulumi:"endDay"`
+	// Value of the hour that frame will end.
+	EndHour int `pulumi:"endHour"`
+	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	//
+	// Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
+	EndMin int `pulumi:"endMin"`
+	// Value of the day that frame will start.
+	StartDay string `pulumi:"startDay"`
+	// Value of the hour that frame will start
+	StartHour int `pulumi:"startHour"`
+	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	StartMin int `pulumi:"startMin"`
 }
 
 // ScheduleRotationTimeRestrictionRestrictionListInput is an input type that accepts ScheduleRotationTimeRestrictionRestrictionListArgs and ScheduleRotationTimeRestrictionRestrictionListOutput values.
@@ -6612,12 +6632,20 @@ type ScheduleRotationTimeRestrictionRestrictionListInput interface {
 }
 
 type ScheduleRotationTimeRestrictionRestrictionListArgs struct {
-	EndDay    pulumi.StringInput `pulumi:"endDay"`
-	EndHour   pulumi.IntInput    `pulumi:"endHour"`
-	EndMin    pulumi.IntInput    `pulumi:"endMin"`
-	StartDay  pulumi.StringInput `pulumi:"startDay"`
-	StartHour pulumi.IntInput    `pulumi:"startHour"`
-	StartMin  pulumi.IntInput    `pulumi:"startMin"`
+	// Value of the day that frame will end.
+	EndDay pulumi.StringInput `pulumi:"endDay"`
+	// Value of the hour that frame will end.
+	EndHour pulumi.IntInput `pulumi:"endHour"`
+	// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	//
+	// Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
+	EndMin pulumi.IntInput `pulumi:"endMin"`
+	// Value of the day that frame will start.
+	StartDay pulumi.StringInput `pulumi:"startDay"`
+	// Value of the hour that frame will start
+	StartHour pulumi.IntInput `pulumi:"startHour"`
+	// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+	StartMin pulumi.IntInput `pulumi:"startMin"`
 }
 
 func (ScheduleRotationTimeRestrictionRestrictionListArgs) ElementType() reflect.Type {
@@ -6671,26 +6699,34 @@ func (o ScheduleRotationTimeRestrictionRestrictionListOutput) ToScheduleRotation
 	return o
 }
 
+// Value of the day that frame will end.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndDay() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) string { return v.EndDay }).(pulumi.StringOutput)
 }
 
+// Value of the hour that frame will end.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndHour() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.EndHour }).(pulumi.IntOutput)
 }
 
+// Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+//
+// Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) EndMin() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.EndMin }).(pulumi.IntOutput)
 }
 
+// Value of the day that frame will start.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) StartDay() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) string { return v.StartDay }).(pulumi.StringOutput)
 }
 
+// Value of the hour that frame will start
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) StartHour() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.StartHour }).(pulumi.IntOutput)
 }
 
+// Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
 func (o ScheduleRotationTimeRestrictionRestrictionListOutput) StartMin() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleRotationTimeRestrictionRestrictionList) int { return v.StartMin }).(pulumi.IntOutput)
 }
@@ -7455,6 +7491,8 @@ type TeamRoutingRuleCriteriaCondition struct {
 	// Indicates behaviour of the given operation. Default value is false.
 	Not *bool `pulumi:"not"`
 	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+	//
+	// * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
 	Operation string `pulumi:"operation"`
 	// Order of the condition in conditions list.
 	Order *int `pulumi:"order"`
@@ -7480,6 +7518,8 @@ type TeamRoutingRuleCriteriaConditionArgs struct {
 	// Indicates behaviour of the given operation. Default value is false.
 	Not pulumi.BoolPtrInput `pulumi:"not"`
 	// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+	//
+	// * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
 	Operation pulumi.StringInput `pulumi:"operation"`
 	// Order of the condition in conditions list.
 	Order pulumi.IntPtrInput `pulumi:"order"`
@@ -7556,6 +7596,8 @@ func (o TeamRoutingRuleCriteriaConditionOutput) Not() pulumi.BoolPtrOutput {
 }
 
 // It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+//
+// * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
 func (o TeamRoutingRuleCriteriaConditionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamRoutingRuleCriteriaCondition) string { return v.Operation }).(pulumi.StringOutput)
 }

@@ -847,18 +847,50 @@ export interface ScheduleRotationTimeRestriction {
 }
 
 export interface ScheduleRotationTimeRestrictionRestriction {
+    /**
+     * Value of the hour that frame will end.
+     */
     endHour: pulumi.Input<number>;
+    /**
+     * Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+     */
     endMin: pulumi.Input<number>;
+    /**
+     * Value of the hour that frame will start.
+     */
     startHour: pulumi.Input<number>;
+    /**
+     * Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+     */
     startMin: pulumi.Input<number>;
 }
 
 export interface ScheduleRotationTimeRestrictionRestrictionList {
+    /**
+     * Value of the day that frame will end.
+     */
     endDay: pulumi.Input<string>;
+    /**
+     * Value of the hour that frame will end.
+     */
     endHour: pulumi.Input<number>;
+    /**
+     * Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+     *
+     * Both `startDay` and `endDay` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
+     */
     endMin: pulumi.Input<number>;
+    /**
+     * Value of the day that frame will start.
+     */
     startDay: pulumi.Input<string>;
+    /**
+     * Value of the hour that frame will start
+     */
     startHour: pulumi.Input<number>;
+    /**
+     * Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+     */
     startMin: pulumi.Input<number>;
 }
 
@@ -981,6 +1013,8 @@ export interface TeamRoutingRuleCriteriaCondition {
     not?: pulumi.Input<boolean>;
     /**
      * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+     *
+     * * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
      */
     operation: pulumi.Input<string>;
     /**

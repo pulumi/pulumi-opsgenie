@@ -48,17 +48,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Team("test", TeamArgs.builder()        
+ *         var test = new Team("test", TeamArgs.builder()
  *             .name("example-team")
  *             .description("This team deals with all the things")
  *             .build());
  * 
- *         var testService = new Service("testService", ServiceArgs.builder()        
+ *         var testService = new Service("testService", ServiceArgs.builder()
  *             .name("example-service")
  *             .teamId(test.id())
  *             .build());
  * 
- *         var testServiceIncidentRule = new ServiceIncidentRule("testServiceIncidentRule", ServiceIncidentRuleArgs.builder()        
+ *         var testServiceIncidentRule = new ServiceIncidentRule("testServiceIncidentRule", ServiceIncidentRuleArgs.builder()
  *             .serviceId(testService.id())
  *             .incidentRules(ServiceIncidentRuleIncidentRuleArgs.builder()
  *                 .conditionMatchType("match-any-condition")

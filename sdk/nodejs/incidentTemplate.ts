@@ -100,6 +100,10 @@ export class IncidentTemplate extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+     *
+     * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+     *
+     * * `stakeholderProperties` (Required)
      */
     public readonly priority!: pulumi.Output<string>;
     public readonly stakeholderProperties!: pulumi.Output<outputs.IncidentTemplateStakeholderProperty[]>;
@@ -177,6 +181,10 @@ export interface IncidentTemplateState {
     name?: pulumi.Input<string>;
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+     *
+     * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+     *
+     * * `stakeholderProperties` (Required)
      */
     priority?: pulumi.Input<string>;
     stakeholderProperties?: pulumi.Input<pulumi.Input<inputs.IncidentTemplateStakeholderProperty>[]>;
@@ -209,6 +217,10 @@ export interface IncidentTemplateArgs {
     name?: pulumi.Input<string>;
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+     *
+     * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+     *
+     * * `stakeholderProperties` (Required)
      */
     priority: pulumi.Input<string>;
     stakeholderProperties: pulumi.Input<pulumi.Input<inputs.IncidentTemplateStakeholderProperty>[]>;
