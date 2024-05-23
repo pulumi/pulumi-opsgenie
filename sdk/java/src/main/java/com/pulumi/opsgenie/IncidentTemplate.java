@@ -50,17 +50,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Team("test", TeamArgs.builder()        
+ *         var test = new Team("test", TeamArgs.builder()
  *             .name("genietest-team")
  *             .description("This team deals with all the things")
  *             .build());
  * 
- *         var testService = new Service("testService", ServiceArgs.builder()        
+ *         var testService = new Service("testService", ServiceArgs.builder()
  *             .name("genietest-service")
  *             .teamId(test.id())
  *             .build());
  * 
- *         var testIncidentTemplate = new IncidentTemplate("testIncidentTemplate", IncidentTemplateArgs.builder()        
+ *         var testIncidentTemplate = new IncidentTemplate("testIncidentTemplate", IncidentTemplateArgs.builder()
  *             .name("genietest-incident-template")
  *             .message("Incident Message")
  *             .priority("P2")
@@ -162,12 +162,20 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      * 
+     * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+     * 
+     * * `stakeholderProperties` (Required)
+     * 
      */
     @Export(name="priority", refs={String.class}, tree="[0]")
     private Output<String> priority;
 
     /**
      * @return Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+     * 
+     * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+     * 
+     * * `stakeholderProperties` (Required)
      * 
      */
     public Output<String> priority() {

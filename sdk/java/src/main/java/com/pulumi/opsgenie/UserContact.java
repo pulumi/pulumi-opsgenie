@@ -43,19 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sms = new UserContact("sms", UserContactArgs.builder()        
+ *         var sms = new UserContact("sms", UserContactArgs.builder()
  *             .username(exampleuser.username())
  *             .to("39-123")
  *             .method("sms")
  *             .build());
  * 
- *         var email = new UserContact("email", UserContactArgs.builder()        
+ *         var email = new UserContact("email", UserContactArgs.builder()
  *             .username(exampleuser.username())
  *             .to("fahri{@literal @}opsgenie.com")
  *             .method("email")
  *             .build());
  * 
- *         var voice = new UserContact("voice", UserContactArgs.builder()        
+ *         var voice = new UserContact("voice", UserContactArgs.builder()
  *             .username(exampleuser.username())
  *             .to("39-123")
  *             .method("voice")

@@ -88,12 +88,20 @@ public final class IncidentTemplateState extends com.pulumi.resources.ResourceAr
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      * 
+     * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+     * 
+     * * `stakeholderProperties` (Required)
+     * 
      */
     @Import(name="priority")
     private @Nullable Output<String> priority;
 
     /**
      * @return Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+     * 
+     * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+     * 
+     * * `stakeholderProperties` (Required)
      * 
      */
     public Optional<Output<String>> priority() {
@@ -253,6 +261,10 @@ public final class IncidentTemplateState extends com.pulumi.resources.ResourceAr
         /**
          * @param priority Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
          * 
+         * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+         * 
+         * * `stakeholderProperties` (Required)
+         * 
          * @return builder
          * 
          */
@@ -263,6 +275,10 @@ public final class IncidentTemplateState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param priority Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+         * 
+         * * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+         * 
+         * * `stakeholderProperties` (Required)
          * 
          * @return builder
          * 

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Escalation("default", EscalationArgs.builder()        
+ *         var default_ = new Escalation("default", EscalationArgs.builder()
  *             .name("genieescalation")
  *             .rules(EscalationRuleArgs.builder()
  *                 .condition("if-not-acked")
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Escalation("default", EscalationArgs.builder()        
+ *         var default_ = new Escalation("default", EscalationArgs.builder()
  *             .name("genieescalation")
  *             .description("test")
  *             .ownerTeamId(testOpsgenieTeam.id())
