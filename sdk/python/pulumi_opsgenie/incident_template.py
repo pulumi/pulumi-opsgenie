@@ -28,6 +28,10 @@ class IncidentTemplateArgs:
         The set of arguments for constructing a IncidentTemplate resource.
         :param pulumi.Input[str] message: Message of the related incident template. This field must not be longer than 130 characters.
         :param pulumi.Input[str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+               
+               * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+               
+               * `stakeholderProperties` (Required)
         :param pulumi.Input[str] description: Description field of the incident template. This field must not be longer than 10000 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] details: Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
         :param pulumi.Input[str] name: Name of the incident template.
@@ -64,6 +68,10 @@ class IncidentTemplateArgs:
     def priority(self) -> pulumi.Input[str]:
         """
         Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+
+        * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+
+        * `stakeholderProperties` (Required)
         """
         return pulumi.get(self, "priority")
 
@@ -156,6 +164,10 @@ class _IncidentTemplateState:
         :param pulumi.Input[str] message: Message of the related incident template. This field must not be longer than 130 characters.
         :param pulumi.Input[str] name: Name of the incident template.
         :param pulumi.Input[str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+               
+               * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+               
+               * `stakeholderProperties` (Required)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
         """
         if description is not None:
@@ -237,6 +249,10 @@ class _IncidentTemplateState:
     def priority(self) -> Optional[pulumi.Input[str]]:
         """
         Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+
+        * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+
+        * `stakeholderProperties` (Required)
         """
         return pulumi.get(self, "priority")
 
@@ -331,6 +347,10 @@ class IncidentTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] message: Message of the related incident template. This field must not be longer than 130 characters.
         :param pulumi.Input[str] name: Name of the incident template.
         :param pulumi.Input[str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+               
+               * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+               
+               * `stakeholderProperties` (Required)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
         """
         ...
@@ -459,6 +479,10 @@ class IncidentTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] message: Message of the related incident template. This field must not be longer than 130 characters.
         :param pulumi.Input[str] name: Name of the incident template.
         :param pulumi.Input[str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+               
+               * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+               
+               * `stakeholderProperties` (Required)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the incident template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -517,6 +541,10 @@ class IncidentTemplate(pulumi.CustomResource):
     def priority(self) -> pulumi.Output[str]:
         """
         Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+
+        * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+
+        * `stakeholderProperties` (Required)
         """
         return pulumi.get(self, "priority")
 

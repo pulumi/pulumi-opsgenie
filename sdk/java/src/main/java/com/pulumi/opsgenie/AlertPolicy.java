@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Team("test", TeamArgs.builder()        
+ *         var test = new Team("test", TeamArgs.builder()
  *             .name("example team")
  *             .description("This team deals with all the things")
  *             .build());
  * 
- *         var testAlertPolicy = new AlertPolicy("testAlertPolicy", AlertPolicyArgs.builder()        
+ *         var testAlertPolicy = new AlertPolicy("testAlertPolicy", AlertPolicyArgs.builder()
  *             .filters()
  *             .name("example policy")
  *             .teamId(test.id())

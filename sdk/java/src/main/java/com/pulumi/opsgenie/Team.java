@@ -48,19 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var first = new User("first", UserArgs.builder()        
+ *         var first = new User("first", UserArgs.builder()
  *             .username("user{@literal @}domain.com")
  *             .fullName("name ")
  *             .role("User")
  *             .build());
  * 
- *         var second = new User("second", UserArgs.builder()        
+ *         var second = new User("second", UserArgs.builder()
  *             .username("test{@literal @}domain.com")
  *             .fullName("name ")
  *             .role("User")
  *             .build());
  * 
- *         var test = new Team("test", TeamArgs.builder()        
+ *         var test = new Team("test", TeamArgs.builder()
  *             .name("example")
  *             .description("This team deals with all the things")
  *             .members(            
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var self_service = new Team("self-service", TeamArgs.builder()        
+ *         var self_service = new Team("self-service", TeamArgs.builder()
  *             .name("Self Service")
  *             .description("Membership in this team is managed via OpsGenie web UI only")
  *             .ignoreMembers(true)
