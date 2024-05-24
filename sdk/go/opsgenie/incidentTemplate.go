@@ -95,6 +95,10 @@ type IncidentTemplate struct {
 	// Name of the incident template.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+	//
+	// * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+	//
+	// * `stakeholderProperties` (Required)
 	Priority              pulumi.StringOutput                            `pulumi:"priority"`
 	StakeholderProperties IncidentTemplateStakeholderPropertyArrayOutput `pulumi:"stakeholderProperties"`
 	// Tags of the incident template.
@@ -150,6 +154,10 @@ type incidentTemplateState struct {
 	// Name of the incident template.
 	Name *string `pulumi:"name"`
 	// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+	//
+	// * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+	//
+	// * `stakeholderProperties` (Required)
 	Priority              *string                               `pulumi:"priority"`
 	StakeholderProperties []IncidentTemplateStakeholderProperty `pulumi:"stakeholderProperties"`
 	// Tags of the incident template.
@@ -167,6 +175,10 @@ type IncidentTemplateState struct {
 	// Name of the incident template.
 	Name pulumi.StringPtrInput
 	// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+	//
+	// * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+	//
+	// * `stakeholderProperties` (Required)
 	Priority              pulumi.StringPtrInput
 	StakeholderProperties IncidentTemplateStakeholderPropertyArrayInput
 	// Tags of the incident template.
@@ -188,6 +200,10 @@ type incidentTemplateArgs struct {
 	// Name of the incident template.
 	Name *string `pulumi:"name"`
 	// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+	//
+	// * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+	//
+	// * `stakeholderProperties` (Required)
 	Priority              string                                `pulumi:"priority"`
 	StakeholderProperties []IncidentTemplateStakeholderProperty `pulumi:"stakeholderProperties"`
 	// Tags of the incident template.
@@ -206,6 +222,10 @@ type IncidentTemplateArgs struct {
 	// Name of the incident template.
 	Name pulumi.StringPtrInput
 	// Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+	//
+	// * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+	//
+	// * `stakeholderProperties` (Required)
 	Priority              pulumi.StringInput
 	StakeholderProperties IncidentTemplateStakeholderPropertyArrayInput
 	// Tags of the incident template.
@@ -324,6 +344,10 @@ func (o IncidentTemplateOutput) Name() pulumi.StringOutput {
 }
 
 // Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
+//
+// * `impactedServices` (Optional) Impacted services of incident template. Maximum 20 services.
+//
+// * `stakeholderProperties` (Required)
 func (o IncidentTemplateOutput) Priority() pulumi.StringOutput {
 	return o.ApplyT(func(v *IncidentTemplate) pulumi.StringOutput { return v.Priority }).(pulumi.StringOutput)
 }

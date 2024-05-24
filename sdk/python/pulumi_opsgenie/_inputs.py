@@ -3428,6 +3428,12 @@ class ScheduleRotationTimeRestrictionRestrictionArgs:
                  end_min: pulumi.Input[int],
                  start_hour: pulumi.Input[int],
                  start_min: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] end_hour: Value of the hour that frame will end.
+        :param pulumi.Input[int] end_min: Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        :param pulumi.Input[int] start_hour: Value of the hour that frame will start.
+        :param pulumi.Input[int] start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
         pulumi.set(__self__, "end_hour", end_hour)
         pulumi.set(__self__, "end_min", end_min)
         pulumi.set(__self__, "start_hour", start_hour)
@@ -3436,6 +3442,9 @@ class ScheduleRotationTimeRestrictionRestrictionArgs:
     @property
     @pulumi.getter(name="endHour")
     def end_hour(self) -> pulumi.Input[int]:
+        """
+        Value of the hour that frame will end.
+        """
         return pulumi.get(self, "end_hour")
 
     @end_hour.setter
@@ -3445,6 +3454,9 @@ class ScheduleRotationTimeRestrictionRestrictionArgs:
     @property
     @pulumi.getter(name="endMin")
     def end_min(self) -> pulumi.Input[int]:
+        """
+        Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
         return pulumi.get(self, "end_min")
 
     @end_min.setter
@@ -3454,6 +3466,9 @@ class ScheduleRotationTimeRestrictionRestrictionArgs:
     @property
     @pulumi.getter(name="startHour")
     def start_hour(self) -> pulumi.Input[int]:
+        """
+        Value of the hour that frame will start.
+        """
         return pulumi.get(self, "start_hour")
 
     @start_hour.setter
@@ -3463,6 +3478,9 @@ class ScheduleRotationTimeRestrictionRestrictionArgs:
     @property
     @pulumi.getter(name="startMin")
     def start_min(self) -> pulumi.Input[int]:
+        """
+        Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
         return pulumi.get(self, "start_min")
 
     @start_min.setter
@@ -3479,6 +3497,16 @@ class ScheduleRotationTimeRestrictionRestrictionListArgs:
                  start_day: pulumi.Input[str],
                  start_hour: pulumi.Input[int],
                  start_min: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] end_day: Value of the day that frame will end.
+        :param pulumi.Input[int] end_hour: Value of the hour that frame will end.
+        :param pulumi.Input[int] end_min: Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+               
+               Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
+        :param pulumi.Input[str] start_day: Value of the day that frame will start.
+        :param pulumi.Input[int] start_hour: Value of the hour that frame will start
+        :param pulumi.Input[int] start_min: Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
         pulumi.set(__self__, "end_day", end_day)
         pulumi.set(__self__, "end_hour", end_hour)
         pulumi.set(__self__, "end_min", end_min)
@@ -3489,6 +3517,9 @@ class ScheduleRotationTimeRestrictionRestrictionListArgs:
     @property
     @pulumi.getter(name="endDay")
     def end_day(self) -> pulumi.Input[str]:
+        """
+        Value of the day that frame will end.
+        """
         return pulumi.get(self, "end_day")
 
     @end_day.setter
@@ -3498,6 +3529,9 @@ class ScheduleRotationTimeRestrictionRestrictionListArgs:
     @property
     @pulumi.getter(name="endHour")
     def end_hour(self) -> pulumi.Input[int]:
+        """
+        Value of the hour that frame will end.
+        """
         return pulumi.get(self, "end_hour")
 
     @end_hour.setter
@@ -3507,6 +3541,11 @@ class ScheduleRotationTimeRestrictionRestrictionListArgs:
     @property
     @pulumi.getter(name="endMin")
     def end_min(self) -> pulumi.Input[int]:
+        """
+        Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+
+        Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
+        """
         return pulumi.get(self, "end_min")
 
     @end_min.setter
@@ -3516,6 +3555,9 @@ class ScheduleRotationTimeRestrictionRestrictionListArgs:
     @property
     @pulumi.getter(name="startDay")
     def start_day(self) -> pulumi.Input[str]:
+        """
+        Value of the day that frame will start.
+        """
         return pulumi.get(self, "start_day")
 
     @start_day.setter
@@ -3525,6 +3567,9 @@ class ScheduleRotationTimeRestrictionRestrictionListArgs:
     @property
     @pulumi.getter(name="startHour")
     def start_hour(self) -> pulumi.Input[int]:
+        """
+        Value of the hour that frame will start
+        """
         return pulumi.get(self, "start_hour")
 
     @start_hour.setter
@@ -3534,6 +3579,9 @@ class ScheduleRotationTimeRestrictionRestrictionListArgs:
     @property
     @pulumi.getter(name="startMin")
     def start_min(self) -> pulumi.Input[int]:
+        """
+        Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
         return pulumi.get(self, "start_min")
 
     @start_min.setter
@@ -3934,6 +3982,8 @@ class TeamRoutingRuleCriteriaConditionArgs:
         """
         :param pulumi.Input[str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
         :param pulumi.Input[str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+               
+               * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
         :param pulumi.Input[str] key: If field is set as extra-properties, key could be used for key-value pair.
         :param pulumi.Input[bool] not_: Indicates behaviour of the given operation. Default value is false.
         :param pulumi.Input[int] order: Order of the condition in conditions list.
@@ -3966,6 +4016,8 @@ class TeamRoutingRuleCriteriaConditionArgs:
     def operation(self) -> pulumi.Input[str]:
         """
         It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+
+        * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
         """
         return pulumi.get(self, "operation")
 

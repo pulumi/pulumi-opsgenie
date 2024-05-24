@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ScheduleRotation("test", ScheduleRotationArgs.builder()        
+ *         var test = new ScheduleRotation("test", ScheduleRotationArgs.builder()
  *             .scheduleId(testOpsgenieSchedule.id())
  *             .name("test")
  *             .startDate("2019-06-18T17:00:00Z")

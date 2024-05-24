@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testAction = new IntegrationAction("testAction", IntegrationActionArgs.builder()        
+ *         var testAction = new IntegrationAction("testAction", IntegrationActionArgs.builder()
  *             .integrationId(testOpsgenieApiIntegration.id())
  *             .creates(            
  *                 IntegrationActionCreateArgs.builder()
