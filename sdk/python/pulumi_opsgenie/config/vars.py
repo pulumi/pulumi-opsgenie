@@ -20,6 +20,18 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('apiKey')
 
     @property
+    def api_retry_count(self) -> Optional[int]:
+        return __config__.get_int('apiRetryCount')
+
+    @property
+    def api_retry_wait_max(self) -> Optional[int]:
+        return __config__.get_int('apiRetryWaitMax')
+
+    @property
+    def api_retry_wait_min(self) -> Optional[int]:
+        return __config__.get_int('apiRetryWaitMin')
+
+    @property
     def api_url(self) -> Optional[str]:
         return __config__.get('apiUrl') or _utilities.get_env('OPSGENIE_API_URL')
 

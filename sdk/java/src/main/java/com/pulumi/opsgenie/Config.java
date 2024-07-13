@@ -4,6 +4,7 @@
 package com.pulumi.opsgenie;
 
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 
@@ -12,6 +13,15 @@ public final class Config {
     private static final com.pulumi.Config config = com.pulumi.Config.of("opsgenie");
     public String apiKey() {
         return Codegen.stringProp("apiKey").config(config).require();
+    }
+    public Optional<Integer> apiRetryCount() {
+        return Codegen.integerProp("apiRetryCount").config(config).get();
+    }
+    public Optional<Integer> apiRetryWaitMax() {
+        return Codegen.integerProp("apiRetryWaitMax").config(config).get();
+    }
+    public Optional<Integer> apiRetryWaitMin() {
+        return Codegen.integerProp("apiRetryWaitMin").config(config).get();
     }
     public Optional<String> apiUrl() {
         return Codegen.stringProp("apiUrl").config(config).env("OPSGENIE_API_URL").get();

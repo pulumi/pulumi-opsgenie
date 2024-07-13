@@ -39,6 +39,27 @@ namespace Pulumi.Opsgenie
             set => _apiKey.Set(value);
         }
 
+        private static readonly __Value<int?> _apiRetryCount = new __Value<int?>(() => __config.GetInt32("apiRetryCount"));
+        public static int? ApiRetryCount
+        {
+            get => _apiRetryCount.Get();
+            set => _apiRetryCount.Set(value);
+        }
+
+        private static readonly __Value<int?> _apiRetryWaitMax = new __Value<int?>(() => __config.GetInt32("apiRetryWaitMax"));
+        public static int? ApiRetryWaitMax
+        {
+            get => _apiRetryWaitMax.Get();
+            set => _apiRetryWaitMax.Set(value);
+        }
+
+        private static readonly __Value<int?> _apiRetryWaitMin = new __Value<int?>(() => __config.GetInt32("apiRetryWaitMin"));
+        public static int? ApiRetryWaitMin
+        {
+            get => _apiRetryWaitMin.Get();
+            set => _apiRetryWaitMin.Set(value);
+        }
+
         private static readonly __Value<string?> _apiUrl = new __Value<string?>(() => __config.Get("apiUrl") ?? Utilities.GetEnv("OPSGENIE_API_URL"));
         public static string? ApiUrl
         {

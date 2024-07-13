@@ -14,6 +14,15 @@ var _ = internal.GetEnvOrDefault
 func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "opsgenie:apiKey")
 }
+func GetApiRetryCount(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "opsgenie:apiRetryCount")
+}
+func GetApiRetryWaitMax(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "opsgenie:apiRetryWaitMax")
+}
+func GetApiRetryWaitMin(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "opsgenie:apiRetryWaitMin")
+}
 func GetApiUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "opsgenie:apiUrl")
 	if err == nil {

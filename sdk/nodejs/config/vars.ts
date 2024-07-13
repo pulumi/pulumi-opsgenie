@@ -15,6 +15,30 @@ Object.defineProperty(exports, "apiKey", {
     enumerable: true,
 });
 
+export declare const apiRetryCount: number | undefined;
+Object.defineProperty(exports, "apiRetryCount", {
+    get() {
+        return __config.getObject<number>("apiRetryCount");
+    },
+    enumerable: true,
+});
+
+export declare const apiRetryWaitMax: number | undefined;
+Object.defineProperty(exports, "apiRetryWaitMax", {
+    get() {
+        return __config.getObject<number>("apiRetryWaitMax");
+    },
+    enumerable: true,
+});
+
+export declare const apiRetryWaitMin: number | undefined;
+Object.defineProperty(exports, "apiRetryWaitMin", {
+    get() {
+        return __config.getObject<number>("apiRetryWaitMin");
+    },
+    enumerable: true,
+});
+
 export declare const apiUrl: string | undefined;
 Object.defineProperty(exports, "apiUrl", {
     get() {

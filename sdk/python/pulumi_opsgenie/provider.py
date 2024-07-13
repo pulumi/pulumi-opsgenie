@@ -15,11 +15,20 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[str],
+                 api_retry_count: Optional[pulumi.Input[int]] = None,
+                 api_retry_wait_max: Optional[pulumi.Input[int]] = None,
+                 api_retry_wait_min: Optional[pulumi.Input[int]] = None,
                  api_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         """
         pulumi.set(__self__, "api_key", api_key)
+        if api_retry_count is not None:
+            pulumi.set(__self__, "api_retry_count", api_retry_count)
+        if api_retry_wait_max is not None:
+            pulumi.set(__self__, "api_retry_wait_max", api_retry_wait_max)
+        if api_retry_wait_min is not None:
+            pulumi.set(__self__, "api_retry_wait_min", api_retry_wait_min)
         if api_url is None:
             api_url = _utilities.get_env('OPSGENIE_API_URL')
         if api_url is not None:
@@ -33,6 +42,33 @@ class ProviderArgs:
     @api_key.setter
     def api_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "api_key", value)
+
+    @property
+    @pulumi.getter(name="apiRetryCount")
+    def api_retry_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "api_retry_count")
+
+    @api_retry_count.setter
+    def api_retry_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "api_retry_count", value)
+
+    @property
+    @pulumi.getter(name="apiRetryWaitMax")
+    def api_retry_wait_max(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "api_retry_wait_max")
+
+    @api_retry_wait_max.setter
+    def api_retry_wait_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "api_retry_wait_max", value)
+
+    @property
+    @pulumi.getter(name="apiRetryWaitMin")
+    def api_retry_wait_min(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "api_retry_wait_min")
+
+    @api_retry_wait_min.setter
+    def api_retry_wait_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "api_retry_wait_min", value)
 
     @property
     @pulumi.getter(name="apiUrl")
@@ -50,6 +86,9 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
+                 api_retry_count: Optional[pulumi.Input[int]] = None,
+                 api_retry_wait_max: Optional[pulumi.Input[int]] = None,
+                 api_retry_wait_min: Optional[pulumi.Input[int]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -89,6 +128,9 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
+                 api_retry_count: Optional[pulumi.Input[int]] = None,
+                 api_retry_wait_max: Optional[pulumi.Input[int]] = None,
+                 api_retry_wait_min: Optional[pulumi.Input[int]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -102,6 +144,9 @@ class Provider(pulumi.ProviderResource):
             if api_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_key'")
             __props__.__dict__["api_key"] = api_key
+            __props__.__dict__["api_retry_count"] = pulumi.Output.from_input(api_retry_count).apply(pulumi.runtime.to_json) if api_retry_count is not None else None
+            __props__.__dict__["api_retry_wait_max"] = pulumi.Output.from_input(api_retry_wait_max).apply(pulumi.runtime.to_json) if api_retry_wait_max is not None else None
+            __props__.__dict__["api_retry_wait_min"] = pulumi.Output.from_input(api_retry_wait_min).apply(pulumi.runtime.to_json) if api_retry_wait_min is not None else None
             if api_url is None:
                 api_url = _utilities.get_env('OPSGENIE_API_URL')
             __props__.__dict__["api_url"] = api_url

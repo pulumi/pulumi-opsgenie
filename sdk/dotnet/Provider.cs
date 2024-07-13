@@ -55,6 +55,15 @@ namespace Pulumi.Opsgenie
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
+        [Input("apiRetryCount", json: true)]
+        public Input<int>? ApiRetryCount { get; set; }
+
+        [Input("apiRetryWaitMax", json: true)]
+        public Input<int>? ApiRetryWaitMax { get; set; }
+
+        [Input("apiRetryWaitMin", json: true)]
+        public Input<int>? ApiRetryWaitMin { get; set; }
+
         [Input("apiUrl")]
         public Input<string>? ApiUrl { get; set; }
 

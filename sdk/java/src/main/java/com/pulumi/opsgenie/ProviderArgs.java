@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -24,6 +25,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return this.apiKey;
     }
 
+    @Import(name="apiRetryCount", json=true)
+    private @Nullable Output<Integer> apiRetryCount;
+
+    public Optional<Output<Integer>> apiRetryCount() {
+        return Optional.ofNullable(this.apiRetryCount);
+    }
+
+    @Import(name="apiRetryWaitMax", json=true)
+    private @Nullable Output<Integer> apiRetryWaitMax;
+
+    public Optional<Output<Integer>> apiRetryWaitMax() {
+        return Optional.ofNullable(this.apiRetryWaitMax);
+    }
+
+    @Import(name="apiRetryWaitMin", json=true)
+    private @Nullable Output<Integer> apiRetryWaitMin;
+
+    public Optional<Output<Integer>> apiRetryWaitMin() {
+        return Optional.ofNullable(this.apiRetryWaitMin);
+    }
+
     @Import(name="apiUrl")
     private @Nullable Output<String> apiUrl;
 
@@ -35,6 +57,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     private ProviderArgs(ProviderArgs $) {
         this.apiKey = $.apiKey;
+        this.apiRetryCount = $.apiRetryCount;
+        this.apiRetryWaitMax = $.apiRetryWaitMax;
+        this.apiRetryWaitMin = $.apiRetryWaitMin;
         this.apiUrl = $.apiUrl;
     }
 
@@ -63,6 +88,33 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
+        }
+
+        public Builder apiRetryCount(@Nullable Output<Integer> apiRetryCount) {
+            $.apiRetryCount = apiRetryCount;
+            return this;
+        }
+
+        public Builder apiRetryCount(Integer apiRetryCount) {
+            return apiRetryCount(Output.of(apiRetryCount));
+        }
+
+        public Builder apiRetryWaitMax(@Nullable Output<Integer> apiRetryWaitMax) {
+            $.apiRetryWaitMax = apiRetryWaitMax;
+            return this;
+        }
+
+        public Builder apiRetryWaitMax(Integer apiRetryWaitMax) {
+            return apiRetryWaitMax(Output.of(apiRetryWaitMax));
+        }
+
+        public Builder apiRetryWaitMin(@Nullable Output<Integer> apiRetryWaitMin) {
+            $.apiRetryWaitMin = apiRetryWaitMin;
+            return this;
+        }
+
+        public Builder apiRetryWaitMin(Integer apiRetryWaitMin) {
+            return apiRetryWaitMin(Output.of(apiRetryWaitMin));
         }
 
         public Builder apiUrl(@Nullable Output<String> apiUrl) {
