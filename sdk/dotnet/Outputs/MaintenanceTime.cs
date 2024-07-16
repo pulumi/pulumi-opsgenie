@@ -13,7 +13,13 @@ namespace Pulumi.Opsgenie.Outputs
     [OutputType]
     public sealed class MaintenanceTime
     {
+        /// <summary>
+        /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+        /// </summary>
         public readonly string? EndDate;
+        /// <summary>
+        /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+        /// </summary>
         public readonly string? StartDate;
         public readonly string Type;
 

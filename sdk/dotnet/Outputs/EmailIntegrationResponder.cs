@@ -17,6 +17,9 @@ namespace Pulumi.Opsgenie.Outputs
         /// The ID of the Opsgenie Email based Integration.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The responder type.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

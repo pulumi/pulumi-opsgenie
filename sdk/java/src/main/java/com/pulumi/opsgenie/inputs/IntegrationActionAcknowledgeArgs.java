@@ -100,9 +100,17 @@ public final class IntegrationActionAcknowledgeArgs extends com.pulumi.resources
         return Optional.ofNullable(this.order);
     }
 
+    /**
+     * The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -276,11 +284,23 @@ public final class IntegrationActionAcknowledgeArgs extends com.pulumi.resources
             return order(Output.of(order));
         }
 
+        /**
+         * @param type The responder type - can be `escalation`, `team` or `user`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The responder type - can be `escalation`, `team` or `user`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

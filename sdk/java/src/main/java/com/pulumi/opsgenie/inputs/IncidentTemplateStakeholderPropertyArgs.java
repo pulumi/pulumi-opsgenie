@@ -32,9 +32,17 @@ public final class IncidentTemplateStakeholderPropertyArgs extends com.pulumi.re
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Option to enable stakeholder notifications.Default value is true.
+     * 
+     */
     @Import(name="enable")
     private @Nullable Output<Boolean> enable;
 
+    /**
+     * @return Option to enable stakeholder notifications.Default value is true.
+     * 
+     */
     public Optional<Output<Boolean>> enable() {
         return Optional.ofNullable(this.enable);
     }
@@ -101,11 +109,23 @@ public final class IncidentTemplateStakeholderPropertyArgs extends com.pulumi.re
             return description(Output.of(description));
         }
 
+        /**
+         * @param enable Option to enable stakeholder notifications.Default value is true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enable(@Nullable Output<Boolean> enable) {
             $.enable = enable;
             return this;
         }
 
+        /**
+         * @param enable Option to enable stakeholder notifications.Default value is true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
         }

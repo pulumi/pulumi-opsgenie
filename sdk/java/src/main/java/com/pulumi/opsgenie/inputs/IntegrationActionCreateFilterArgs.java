@@ -25,9 +25,17 @@ public final class IntegrationActionCreateFilterArgs extends com.pulumi.resource
         return Optional.ofNullable(this.conditions);
     }
 
+    /**
+     * The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -70,11 +78,23 @@ public final class IntegrationActionCreateFilterArgs extends com.pulumi.resource
             return conditions(List.of(conditions));
         }
 
+        /**
+         * @param type The responder type - can be `escalation`, `team` or `user`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The responder type - can be `escalation`, `team` or `user`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

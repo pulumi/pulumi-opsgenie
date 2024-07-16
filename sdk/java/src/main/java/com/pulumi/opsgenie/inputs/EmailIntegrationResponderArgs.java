@@ -30,9 +30,17 @@ public final class EmailIntegrationResponderArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * The responder type.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The responder type.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -83,11 +91,23 @@ public final class EmailIntegrationResponderArgs extends com.pulumi.resources.Re
             return id(Output.of(id));
         }
 
+        /**
+         * @param type The responder type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The responder type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -536,6 +536,7 @@ class EmailIntegrationResponder(dict):
                  type: Optional[str] = None):
         """
         :param str id: The ID of the Opsgenie Email based Integration.
+        :param str type: The responder type.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -553,6 +554,9 @@ class EmailIntegrationResponder(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The responder type.
+        """
         return pulumi.get(self, "type")
 
 
@@ -718,6 +722,7 @@ class IncidentTemplateStakeholderProperty(dict):
         """
         :param str message: Message of the related incident template. This field must not be longer than 130 characters.
         :param str description: Description field of the incident template. This field must not be longer than 10000 characters.
+        :param bool enable: Option to enable stakeholder notifications.Default value is true.
         """
         pulumi.set(__self__, "message", message)
         if description is not None:
@@ -744,6 +749,9 @@ class IncidentTemplateStakeholderProperty(dict):
     @property
     @pulumi.getter
     def enable(self) -> Optional[bool]:
+        """
+        Option to enable stakeholder notifications.Default value is true.
+        """
         return pulumi.get(self, "enable")
 
 
@@ -766,6 +774,7 @@ class IntegrationActionAcknowledge(dict):
                * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
         :param str note: Additional alert action note.
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
+        :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
         pulumi.set(__self__, "name", name)
@@ -828,6 +837,9 @@ class IntegrationActionAcknowledge(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -844,6 +856,9 @@ class IntegrationActionAcknowledgeFilter(dict):
     def __init__(__self__, *,
                  type: str,
                  conditions: Optional[Sequence['outputs.IntegrationActionAcknowledgeFilterCondition']] = None):
+        """
+        :param str type: The responder type - can be `escalation`, `team` or `user`.
+        """
         pulumi.set(__self__, "type", type)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -851,6 +866,9 @@ class IntegrationActionAcknowledgeFilter(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -954,6 +972,7 @@ class IntegrationActionAddNote(dict):
                * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
         :param str note: Additional alert action note.
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
+        :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
         pulumi.set(__self__, "name", name)
@@ -1016,6 +1035,9 @@ class IntegrationActionAddNote(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -1032,6 +1054,9 @@ class IntegrationActionAddNoteFilter(dict):
     def __init__(__self__, *,
                  type: str,
                  conditions: Optional[Sequence['outputs.IntegrationActionAddNoteFilterCondition']] = None):
+        """
+        :param str type: The responder type - can be `escalation`, `team` or `user`.
+        """
         pulumi.set(__self__, "type", type)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -1039,6 +1064,9 @@ class IntegrationActionAddNoteFilter(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -1142,6 +1170,7 @@ class IntegrationActionClose(dict):
                * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
         :param str note: Additional alert action note.
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
+        :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
         pulumi.set(__self__, "name", name)
@@ -1204,6 +1233,9 @@ class IntegrationActionClose(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -1220,6 +1252,9 @@ class IntegrationActionCloseFilter(dict):
     def __init__(__self__, *,
                  type: str,
                  conditions: Optional[Sequence['outputs.IntegrationActionCloseFilterCondition']] = None):
+        """
+        :param str type: The responder type - can be `escalation`, `team` or `user`.
+        """
         pulumi.set(__self__, "type", type)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -1227,6 +1262,9 @@ class IntegrationActionCloseFilter(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -1373,12 +1411,24 @@ class IntegrationActionCreate(dict):
         """
         :param str name: Name of the integration action.
         :param str alias: An identifier that is used for alert deduplication. Default: `{{alias}}`.
+        :param str custom_priority: Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+        :param str description: Detailed description of the alert, anything that may not have fit in the `message` field.
+        :param str entity: The entity the alert is related to.
+        :param Mapping[str, str] extra_properties: Set of user defined properties specified as a map.
         :param Sequence['IntegrationActionCreateFilterArgs'] filters: Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
                * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
                * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
                * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+        :param bool ignore_responders_from_payload: If enabled, the integration will ignore responders sent in request payloads.
+        :param bool ignore_teams_from_payload: If enabled, the integration will ignore teams sent in request payloads.
+        :param str message: Alert text limited to 130 characters.
         :param str note: Additional alert action note.
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
+        :param str priority: Alert priority.
+        :param Sequence['IntegrationActionCreateResponderArgs'] responders: User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
+        :param str source: User defined field to specify source of action.
+        :param Sequence[str] tags: Comma separated list of labels to be attached to the alert.
+        :param str type: The responder type - can be `escalation`, `team` or `user`.
         :param str user: Owner of the execution for integration action.
         """
         pulumi.set(__self__, "name", name)
@@ -1456,21 +1506,33 @@ class IntegrationActionCreate(dict):
     @property
     @pulumi.getter(name="customPriority")
     def custom_priority(self) -> Optional[str]:
+        """
+        Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+        """
         return pulumi.get(self, "custom_priority")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Detailed description of the alert, anything that may not have fit in the `message` field.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def entity(self) -> Optional[str]:
+        """
+        The entity the alert is related to.
+        """
         return pulumi.get(self, "entity")
 
     @property
     @pulumi.getter(name="extraProperties")
     def extra_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Set of user defined properties specified as a map.
+        """
         return pulumi.get(self, "extra_properties")
 
     @property
@@ -1497,6 +1559,9 @@ class IntegrationActionCreate(dict):
     @property
     @pulumi.getter(name="ignoreRespondersFromPayload")
     def ignore_responders_from_payload(self) -> Optional[bool]:
+        """
+        If enabled, the integration will ignore responders sent in request payloads.
+        """
         return pulumi.get(self, "ignore_responders_from_payload")
 
     @property
@@ -1507,11 +1572,17 @@ class IntegrationActionCreate(dict):
     @property
     @pulumi.getter(name="ignoreTeamsFromPayload")
     def ignore_teams_from_payload(self) -> Optional[bool]:
+        """
+        If enabled, the integration will ignore teams sent in request payloads.
+        """
         return pulumi.get(self, "ignore_teams_from_payload")
 
     @property
     @pulumi.getter
     def message(self) -> Optional[str]:
+        """
+        Alert text limited to 130 characters.
+        """
         return pulumi.get(self, "message")
 
     @property
@@ -1533,26 +1604,41 @@ class IntegrationActionCreate(dict):
     @property
     @pulumi.getter
     def priority(self) -> Optional[str]:
+        """
+        Alert priority.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def responders(self) -> Optional[Sequence['outputs.IntegrationActionCreateResponder']]:
+        """
+        User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
+        """
         return pulumi.get(self, "responders")
 
     @property
     @pulumi.getter
     def source(self) -> Optional[str]:
+        """
+        User defined field to specify source of action.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence[str]]:
+        """
+        Comma separated list of labels to be attached to the alert.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -1569,6 +1655,9 @@ class IntegrationActionCreateFilter(dict):
     def __init__(__self__, *,
                  type: str,
                  conditions: Optional[Sequence['outputs.IntegrationActionCreateFilterCondition']] = None):
+        """
+        :param str type: The responder type - can be `escalation`, `team` or `user`.
+        """
         pulumi.set(__self__, "type", type)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -1576,6 +1665,9 @@ class IntegrationActionCreateFilter(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -1703,6 +1795,7 @@ class IntegrationActionIgnore(dict):
                * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
                * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
         :param int order: Integer value that defines in which order the action will be performed. Default: `1`.
+        :param str type: The responder type - can be `escalation`, `team` or `user`.
         """
         pulumi.set(__self__, "name", name)
         if filters is not None:
@@ -1742,6 +1835,9 @@ class IntegrationActionIgnore(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
         return pulumi.get(self, "type")
 
 
@@ -1750,6 +1846,9 @@ class IntegrationActionIgnoreFilter(dict):
     def __init__(__self__, *,
                  type: str,
                  conditions: Optional[Sequence['outputs.IntegrationActionIgnoreFilterCondition']] = None):
+        """
+        :param str type: The responder type - can be `escalation`, `team` or `user`.
+        """
         pulumi.set(__self__, "type", type)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -1757,6 +1856,9 @@ class IntegrationActionIgnoreFilter(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -1927,6 +2029,10 @@ class MaintenanceTime(dict):
                  type: str,
                  end_date: Optional[str] = None,
                  start_date: Optional[str] = None):
+        """
+        :param str end_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+        :param str start_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+        """
         pulumi.set(__self__, "type", type)
         if end_date is not None:
             pulumi.set(__self__, "end_date", end_date)
@@ -1941,11 +2047,17 @@ class MaintenanceTime(dict):
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[str]:
+        """
+        This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+        """
         return pulumi.get(self, "end_date")
 
     @property
     @pulumi.getter(name="startDate")
     def start_date(self) -> Optional[str]:
+        """
+        This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+        """
         return pulumi.get(self, "start_date")
 
 
@@ -2878,6 +2990,7 @@ class NotificationRuleSchedule(dict):
                  type: str):
         """
         :param str name: Name of the notification policy
+        :param str type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -2893,6 +3006,9 @@ class NotificationRuleSchedule(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
+        """
         return pulumi.get(self, "type")
 
 
@@ -2990,6 +3106,9 @@ class NotificationRuleTimeRestriction(dict):
                  type: str,
                  restriction: Optional[Sequence['outputs.NotificationRuleTimeRestrictionRestriction']] = None,
                  restrictions: Optional[Sequence['outputs.NotificationRuleTimeRestrictionRestriction']] = None):
+        """
+        :param str type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
+        """
         pulumi.set(__self__, "type", type)
         if restriction is not None:
             pulumi.set(__self__, "restriction", restriction)
@@ -2999,6 +3118,9 @@ class NotificationRuleTimeRestriction(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -3142,6 +3264,7 @@ class ScheduleRotationTimeRestriction(dict):
         """
         :param str type: This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
         :param Sequence['ScheduleRotationTimeRestrictionRestrictionArgs'] restriction: It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
+        :param Sequence['ScheduleRotationTimeRestrictionRestrictionListArgs'] restriction_list: It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         """
         pulumi.set(__self__, "type", type)
         if restriction is not None:
@@ -3168,6 +3291,9 @@ class ScheduleRotationTimeRestriction(dict):
     @property
     @pulumi.getter(name="restrictionList")
     def restriction_list(self) -> Optional[Sequence['outputs.ScheduleRotationTimeRestrictionRestrictionList']]:
+        """
+        It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
+        """
         return pulumi.get(self, "restriction_list")
 
 
