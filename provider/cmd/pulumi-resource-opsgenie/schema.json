@@ -57,6 +57,15 @@
             "apiKey": {
                 "type": "string"
             },
+            "apiRetryCount": {
+                "type": "integer"
+            },
+            "apiRetryWaitMax": {
+                "type": "integer"
+            },
+            "apiRetryWaitMin": {
+                "type": "integer"
+            },
             "apiUrl": {
                 "type": "string",
                 "defaultInfo": {
@@ -1841,6 +1850,15 @@
             "apiKey": {
                 "type": "string"
             },
+            "apiRetryCount": {
+                "type": "integer"
+            },
+            "apiRetryWaitMax": {
+                "type": "integer"
+            },
+            "apiRetryWaitMin": {
+                "type": "integer"
+            },
             "apiUrl": {
                 "type": "string"
             }
@@ -1851,6 +1869,15 @@
         "inputProperties": {
             "apiKey": {
                 "type": "string"
+            },
+            "apiRetryCount": {
+                "type": "integer"
+            },
+            "apiRetryWaitMax": {
+                "type": "integer"
+            },
+            "apiRetryWaitMin": {
+                "type": "integer"
             },
             "apiUrl": {
                 "type": "string",

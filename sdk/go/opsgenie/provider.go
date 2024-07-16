@@ -48,14 +48,20 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	ApiKey string  `pulumi:"apiKey"`
-	ApiUrl *string `pulumi:"apiUrl"`
+	ApiKey          string  `pulumi:"apiKey"`
+	ApiRetryCount   *int    `pulumi:"apiRetryCount"`
+	ApiRetryWaitMax *int    `pulumi:"apiRetryWaitMax"`
+	ApiRetryWaitMin *int    `pulumi:"apiRetryWaitMin"`
+	ApiUrl          *string `pulumi:"apiUrl"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	ApiKey pulumi.StringInput
-	ApiUrl pulumi.StringPtrInput
+	ApiKey          pulumi.StringInput
+	ApiRetryCount   pulumi.IntPtrInput
+	ApiRetryWaitMax pulumi.IntPtrInput
+	ApiRetryWaitMin pulumi.IntPtrInput
+	ApiUrl          pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

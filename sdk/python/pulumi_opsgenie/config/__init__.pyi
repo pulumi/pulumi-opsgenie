@@ -11,5 +11,11 @@ from .. import _utilities
 
 apiKey: Optional[str]
 
+apiRetryCount: Optional[int]
+
+apiRetryWaitMax: Optional[int]
+
+apiRetryWaitMin: Optional[int]
+
 apiUrl: Optional[str]
 

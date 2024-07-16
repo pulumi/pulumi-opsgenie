@@ -43,6 +43,9 @@ export class Provider extends pulumi.ProviderResource {
                 throw new Error("Missing required property 'apiKey'");
             }
             resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["apiRetryCount"] = pulumi.output(args ? args.apiRetryCount : undefined).apply(JSON.stringify);
+            resourceInputs["apiRetryWaitMax"] = pulumi.output(args ? args.apiRetryWaitMax : undefined).apply(JSON.stringify);
+            resourceInputs["apiRetryWaitMin"] = pulumi.output(args ? args.apiRetryWaitMin : undefined).apply(JSON.stringify);
             resourceInputs["apiUrl"] = (args ? args.apiUrl : undefined) ?? utilities.getEnv("OPSGENIE_API_URL");
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -55,5 +58,8 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     apiKey: pulumi.Input<string>;
+    apiRetryCount?: pulumi.Input<number>;
+    apiRetryWaitMax?: pulumi.Input<number>;
+    apiRetryWaitMin?: pulumi.Input<number>;
     apiUrl?: pulumi.Input<string>;
 }
