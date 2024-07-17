@@ -264,7 +264,8 @@
                     "description": "The ID of the Opsgenie Email based Integration.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type.\n"
                 }
             },
             "type": "object"
@@ -335,7 +336,8 @@
                     "description": "Description field of the incident template. This field must not be longer than 10000 characters.\n"
                 },
                 "enable": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Option to enable stakeholder notifications.Default value is true.\n"
                 },
                 "message": {
                     "type": "string",
@@ -373,7 +375,8 @@
                     "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
                 },
                 "user": {
                     "type": "string",
@@ -394,7 +397,8 @@
                     }
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
                 }
             },
             "type": "object",
@@ -456,7 +460,8 @@
                     "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
                 },
                 "user": {
                     "type": "string",
@@ -477,7 +482,8 @@
                     }
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
                 }
             },
             "type": "object",
@@ -539,7 +545,8 @@
                     "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
                 },
                 "user": {
                     "type": "string",
@@ -560,7 +567,8 @@
                     }
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
                 }
             },
             "type": "object",
@@ -612,19 +620,23 @@
                     "type": "boolean"
                 },
                 "customPriority": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Custom alert priority. e.g. ``{{message.substring(0,2)}}``\n"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Detailed description of the alert, anything that may not have fit in the `message` field.\n"
                 },
                 "entity": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The entity the alert is related to.\n"
                 },
                 "extraProperties": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Set of user defined properties specified as a map.\n"
                 },
                 "filters": {
                     "type": "array",
@@ -640,16 +652,19 @@
                     "type": "boolean"
                 },
                 "ignoreRespondersFromPayload": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If enabled, the integration will ignore responders sent in request payloads.\n"
                 },
                 "ignoreTagsFromPayload": {
                     "type": "boolean"
                 },
                 "ignoreTeamsFromPayload": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If enabled, the integration will ignore teams sent in request payloads.\n"
                 },
                 "message": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Alert text limited to 130 characters.\n"
                 },
                 "name": {
                     "type": "string",
@@ -664,25 +679,30 @@
                     "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n"
                 },
                 "priority": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Alert priority.\n"
                 },
                 "responders": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/IntegrationActionCreateResponder:IntegrationActionCreateResponder"
-                    }
+                    },
+                    "description": "User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.\n"
                 },
                 "source": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "User defined field to specify source of action.\n"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Comma separated list of labels to be attached to the alert.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
                 },
                 "user": {
                     "type": "string",
@@ -703,7 +723,8 @@
                     }
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
                 }
             },
             "type": "object",
@@ -774,7 +795,8 @@
                     "description": "Integer value that defines in which order the action will be performed. Default: `1`.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
                 }
             },
             "type": "object",
@@ -791,7 +813,8 @@
                     }
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The responder type - can be `escalation`, `team` or `user`.\n"
                 }
             },
             "type": "object",
@@ -862,10 +885,12 @@
         "opsgenie:index/MaintenanceTime:MaintenanceTime": {
             "properties": {
                 "endDate": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).\n"
                 },
                 "startDate": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).\n"
                 },
                 "type": {
                     "type": "string"
@@ -1239,7 +1264,8 @@
                     "description": "Name of the notification policy\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`\n"
                 }
             },
             "type": "object",
@@ -1303,7 +1329,8 @@
                     }
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`\n"
                 }
             },
             "type": "object",
@@ -1371,7 +1398,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/opsgenie:index/ScheduleRotationTimeRestrictionRestrictionList:ScheduleRotationTimeRestrictionRestrictionList"
-                    }
+                    },
+                    "description": "It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.\n"
                 },
                 "type": {
                     "type": "string",
