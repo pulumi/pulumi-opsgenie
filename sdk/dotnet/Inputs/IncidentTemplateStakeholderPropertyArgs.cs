@@ -18,6 +18,9 @@ namespace Pulumi.Opsgenie.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Option to enable stakeholder notifications.Default value is true.
+        /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 

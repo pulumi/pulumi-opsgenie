@@ -20,6 +20,9 @@ namespace Pulumi.Opsgenie.Inputs
             set => _conditions = value;
         }
 
+        /// <summary>
+        /// The responder type - can be `escalation`, `team` or `user`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

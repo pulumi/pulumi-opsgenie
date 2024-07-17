@@ -18,6 +18,10 @@ public final class IncidentTemplateStakeholderProperty {
      * 
      */
     private @Nullable String description;
+    /**
+     * @return Option to enable stakeholder notifications.Default value is true.
+     * 
+     */
     private @Nullable Boolean enable;
     /**
      * @return Message of the related incident template. This field must not be longer than 130 characters.
@@ -33,6 +37,10 @@ public final class IncidentTemplateStakeholderProperty {
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return Option to enable stakeholder notifications.Default value is true.
+     * 
+     */
     public Optional<Boolean> enable() {
         return Optional.ofNullable(this.enable);
     }

@@ -19,9 +19,21 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string? Alias;
         public readonly bool? AppendAttachments;
+        /// <summary>
+        /// Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+        /// </summary>
         public readonly string? CustomPriority;
+        /// <summary>
+        /// Detailed description of the alert, anything that may not have fit in the `message` field.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The entity the alert is related to.
+        /// </summary>
         public readonly string? Entity;
+        /// <summary>
+        /// Set of user defined properties specified as a map.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? ExtraProperties;
         /// <summary>
         /// Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
@@ -32,9 +44,18 @@ namespace Pulumi.Opsgenie.Outputs
         public readonly ImmutableArray<Outputs.IntegrationActionCreateFilter> Filters;
         public readonly bool? IgnoreAlertActionsFromPayload;
         public readonly bool? IgnoreExtraPropertiesFromPayload;
+        /// <summary>
+        /// If enabled, the integration will ignore responders sent in request payloads.
+        /// </summary>
         public readonly bool? IgnoreRespondersFromPayload;
         public readonly bool? IgnoreTagsFromPayload;
+        /// <summary>
+        /// If enabled, the integration will ignore teams sent in request payloads.
+        /// </summary>
         public readonly bool? IgnoreTeamsFromPayload;
+        /// <summary>
+        /// Alert text limited to 130 characters.
+        /// </summary>
         public readonly string? Message;
         /// <summary>
         /// Name of the integration action.
@@ -48,10 +69,25 @@ namespace Pulumi.Opsgenie.Outputs
         /// Integer value that defines in which order the action will be performed. Default: `1`.
         /// </summary>
         public readonly int? Order;
+        /// <summary>
+        /// Alert priority.
+        /// </summary>
         public readonly string? Priority;
+        /// <summary>
+        /// User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
+        /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationActionCreateResponder> Responders;
+        /// <summary>
+        /// User defined field to specify source of action.
+        /// </summary>
         public readonly string? Source;
+        /// <summary>
+        /// Comma separated list of labels to be attached to the alert.
+        /// </summary>
         public readonly ImmutableArray<string> Tags;
+        /// <summary>
+        /// The responder type - can be `escalation`, `team` or `user`.
+        /// </summary>
         public readonly string? Type;
         /// <summary>
         /// Owner of the execution for integration action.

@@ -15,6 +15,10 @@ public final class NotificationRuleSchedule {
      * 
      */
     private String name;
+    /**
+     * @return Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
+     * 
+     */
     private String type;
 
     private NotificationRuleSchedule() {}
@@ -25,6 +29,10 @@ public final class NotificationRuleSchedule {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
+     * 
+     */
     public String type() {
         return this.type;
     }

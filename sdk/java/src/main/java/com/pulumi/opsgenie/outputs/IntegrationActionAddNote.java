@@ -43,6 +43,10 @@ public final class IntegrationActionAddNote {
      * 
      */
     private @Nullable Integer order;
+    /**
+     * @return The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     private @Nullable String type;
     /**
      * @return Owner of the execution for integration action.
@@ -89,6 +93,10 @@ public final class IntegrationActionAddNote {
     public Optional<Integer> order() {
         return Optional.ofNullable(this.order);
     }
+    /**
+     * @return The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

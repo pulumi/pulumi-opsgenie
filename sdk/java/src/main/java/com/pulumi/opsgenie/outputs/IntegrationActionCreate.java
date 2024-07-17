@@ -25,9 +25,25 @@ public final class IntegrationActionCreate {
      */
     private @Nullable String alias;
     private @Nullable Boolean appendAttachments;
+    /**
+     * @return Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+     * 
+     */
     private @Nullable String customPriority;
+    /**
+     * @return Detailed description of the alert, anything that may not have fit in the `message` field.
+     * 
+     */
     private @Nullable String description;
+    /**
+     * @return The entity the alert is related to.
+     * 
+     */
     private @Nullable String entity;
+    /**
+     * @return Set of user defined properties specified as a map.
+     * 
+     */
     private @Nullable Map<String,String> extraProperties;
     /**
      * @return Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
@@ -39,9 +55,21 @@ public final class IntegrationActionCreate {
     private @Nullable List<IntegrationActionCreateFilter> filters;
     private @Nullable Boolean ignoreAlertActionsFromPayload;
     private @Nullable Boolean ignoreExtraPropertiesFromPayload;
+    /**
+     * @return If enabled, the integration will ignore responders sent in request payloads.
+     * 
+     */
     private @Nullable Boolean ignoreRespondersFromPayload;
     private @Nullable Boolean ignoreTagsFromPayload;
+    /**
+     * @return If enabled, the integration will ignore teams sent in request payloads.
+     * 
+     */
     private @Nullable Boolean ignoreTeamsFromPayload;
+    /**
+     * @return Alert text limited to 130 characters.
+     * 
+     */
     private @Nullable String message;
     /**
      * @return Name of the integration action.
@@ -58,10 +86,30 @@ public final class IntegrationActionCreate {
      * 
      */
     private @Nullable Integer order;
+    /**
+     * @return Alert priority.
+     * 
+     */
     private @Nullable String priority;
+    /**
+     * @return User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
+     * 
+     */
     private @Nullable List<IntegrationActionCreateResponder> responders;
+    /**
+     * @return User defined field to specify source of action.
+     * 
+     */
     private @Nullable String source;
+    /**
+     * @return Comma separated list of labels to be attached to the alert.
+     * 
+     */
     private @Nullable List<String> tags;
+    /**
+     * @return The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     private @Nullable String type;
     /**
      * @return Owner of the execution for integration action.
@@ -83,15 +131,31 @@ public final class IntegrationActionCreate {
     public Optional<Boolean> appendAttachments() {
         return Optional.ofNullable(this.appendAttachments);
     }
+    /**
+     * @return Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+     * 
+     */
     public Optional<String> customPriority() {
         return Optional.ofNullable(this.customPriority);
     }
+    /**
+     * @return Detailed description of the alert, anything that may not have fit in the `message` field.
+     * 
+     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return The entity the alert is related to.
+     * 
+     */
     public Optional<String> entity() {
         return Optional.ofNullable(this.entity);
     }
+    /**
+     * @return Set of user defined properties specified as a map.
+     * 
+     */
     public Map<String,String> extraProperties() {
         return this.extraProperties == null ? Map.of() : this.extraProperties;
     }
@@ -111,15 +175,27 @@ public final class IntegrationActionCreate {
     public Optional<Boolean> ignoreExtraPropertiesFromPayload() {
         return Optional.ofNullable(this.ignoreExtraPropertiesFromPayload);
     }
+    /**
+     * @return If enabled, the integration will ignore responders sent in request payloads.
+     * 
+     */
     public Optional<Boolean> ignoreRespondersFromPayload() {
         return Optional.ofNullable(this.ignoreRespondersFromPayload);
     }
     public Optional<Boolean> ignoreTagsFromPayload() {
         return Optional.ofNullable(this.ignoreTagsFromPayload);
     }
+    /**
+     * @return If enabled, the integration will ignore teams sent in request payloads.
+     * 
+     */
     public Optional<Boolean> ignoreTeamsFromPayload() {
         return Optional.ofNullable(this.ignoreTeamsFromPayload);
     }
+    /**
+     * @return Alert text limited to 130 characters.
+     * 
+     */
     public Optional<String> message() {
         return Optional.ofNullable(this.message);
     }
@@ -144,18 +220,38 @@ public final class IntegrationActionCreate {
     public Optional<Integer> order() {
         return Optional.ofNullable(this.order);
     }
+    /**
+     * @return Alert priority.
+     * 
+     */
     public Optional<String> priority() {
         return Optional.ofNullable(this.priority);
     }
+    /**
+     * @return User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
+     * 
+     */
     public List<IntegrationActionCreateResponder> responders() {
         return this.responders == null ? List.of() : this.responders;
     }
+    /**
+     * @return User defined field to specify source of action.
+     * 
+     */
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }
+    /**
+     * @return Comma separated list of labels to be attached to the alert.
+     * 
+     */
     public List<String> tags() {
         return this.tags == null ? List.of() : this.tags;
     }
+    /**
+     * @return The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -29,17 +29,30 @@ namespace Pulumi.Opsgenie.Inputs
         [Input("appendAttachments")]
         public Input<bool>? AppendAttachments { get; set; }
 
+        /// <summary>
+        /// Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+        /// </summary>
         [Input("customPriority")]
         public Input<string>? CustomPriority { get; set; }
 
+        /// <summary>
+        /// Detailed description of the alert, anything that may not have fit in the `message` field.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The entity the alert is related to.
+        /// </summary>
         [Input("entity")]
         public Input<string>? Entity { get; set; }
 
         [Input("extraProperties")]
         private InputMap<string>? _extraProperties;
+
+        /// <summary>
+        /// Set of user defined properties specified as a map.
+        /// </summary>
         public InputMap<string> ExtraProperties
         {
             get => _extraProperties ?? (_extraProperties = new InputMap<string>());
@@ -67,15 +80,24 @@ namespace Pulumi.Opsgenie.Inputs
         [Input("ignoreExtraPropertiesFromPayload")]
         public Input<bool>? IgnoreExtraPropertiesFromPayload { get; set; }
 
+        /// <summary>
+        /// If enabled, the integration will ignore responders sent in request payloads.
+        /// </summary>
         [Input("ignoreRespondersFromPayload")]
         public Input<bool>? IgnoreRespondersFromPayload { get; set; }
 
         [Input("ignoreTagsFromPayload")]
         public Input<bool>? IgnoreTagsFromPayload { get; set; }
 
+        /// <summary>
+        /// If enabled, the integration will ignore teams sent in request payloads.
+        /// </summary>
         [Input("ignoreTeamsFromPayload")]
         public Input<bool>? IgnoreTeamsFromPayload { get; set; }
 
+        /// <summary>
+        /// Alert text limited to 130 characters.
+        /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
@@ -97,28 +119,45 @@ namespace Pulumi.Opsgenie.Inputs
         [Input("order")]
         public Input<int>? Order { get; set; }
 
+        /// <summary>
+        /// Alert priority.
+        /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
         [Input("responders")]
         private InputList<Inputs.IntegrationActionCreateResponderGetArgs>? _responders;
+
+        /// <summary>
+        /// User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
+        /// </summary>
         public InputList<Inputs.IntegrationActionCreateResponderGetArgs> Responders
         {
             get => _responders ?? (_responders = new InputList<Inputs.IntegrationActionCreateResponderGetArgs>());
             set => _responders = value;
         }
 
+        /// <summary>
+        /// User defined field to specify source of action.
+        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// Comma separated list of labels to be attached to the alert.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The responder type - can be `escalation`, `team` or `user`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

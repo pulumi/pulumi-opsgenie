@@ -18,6 +18,9 @@ namespace Pulumi.Opsgenie.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The responder type.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
