@@ -14,6 +14,9 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class IntegrationActionIgnoreFilter
     {
         public readonly ImmutableArray<Outputs.IntegrationActionIgnoreFilterCondition> Conditions;
+        /// <summary>
+        /// The responder type - can be `escalation`, `team` or `user`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

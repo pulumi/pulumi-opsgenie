@@ -14,12 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntegrationActionAcknowledgeFilter {
     private @Nullable List<IntegrationActionAcknowledgeFilterCondition> conditions;
+    /**
+     * @return The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     private String type;
 
     private IntegrationActionAcknowledgeFilter() {}
     public List<IntegrationActionAcknowledgeFilterCondition> conditions() {
         return this.conditions == null ? List.of() : this.conditions;
     }
+    /**
+     * @return The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     public String type() {
         return this.type;
     }

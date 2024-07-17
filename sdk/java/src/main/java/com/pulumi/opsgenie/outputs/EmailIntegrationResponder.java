@@ -16,6 +16,10 @@ public final class EmailIntegrationResponder {
      * 
      */
     private @Nullable String id;
+    /**
+     * @return The responder type.
+     * 
+     */
     private @Nullable String type;
 
     private EmailIntegrationResponder() {}
@@ -26,6 +30,10 @@ public final class EmailIntegrationResponder {
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return The responder type.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

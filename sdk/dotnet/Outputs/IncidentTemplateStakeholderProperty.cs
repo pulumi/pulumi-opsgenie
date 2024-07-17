@@ -17,6 +17,9 @@ namespace Pulumi.Opsgenie.Outputs
         /// Description field of the incident template. This field must not be longer than 10000 characters.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Option to enable stakeholder notifications.Default value is true.
+        /// </summary>
         public readonly bool? Enable;
         /// <summary>
         /// Message of the related incident template. This field must not be longer than 130 characters.

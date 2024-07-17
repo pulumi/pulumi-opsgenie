@@ -19,6 +19,10 @@ public final class ScheduleRotationTimeRestriction {
      * 
      */
     private @Nullable List<ScheduleRotationTimeRestrictionRestriction> restriction;
+    /**
+     * @return It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
+     * 
+     */
     private @Nullable List<ScheduleRotationTimeRestrictionRestrictionList> restrictionList;
     /**
      * @return This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
@@ -34,6 +38,10 @@ public final class ScheduleRotationTimeRestriction {
     public List<ScheduleRotationTimeRestrictionRestriction> restriction() {
         return this.restriction == null ? List.of() : this.restriction;
     }
+    /**
+     * @return It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
+     * 
+     */
     public List<ScheduleRotationTimeRestrictionRestrictionList> restrictionList() {
         return this.restrictionList == null ? List.of() : this.restrictionList;
     }

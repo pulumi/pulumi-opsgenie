@@ -51,6 +51,9 @@ namespace Pulumi.Opsgenie.Inputs
         [Input("order")]
         public Input<int>? Order { get; set; }
 
+        /// <summary>
+        /// The responder type - can be `escalation`, `team` or `user`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

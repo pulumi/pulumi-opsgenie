@@ -14,12 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntegrationActionCreateFilter {
     private @Nullable List<IntegrationActionCreateFilterCondition> conditions;
+    /**
+     * @return The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     private String type;
 
     private IntegrationActionCreateFilter() {}
     public List<IntegrationActionCreateFilterCondition> conditions() {
         return this.conditions == null ? List.of() : this.conditions;
     }
+    /**
+     * @return The responder type - can be `escalation`, `team` or `user`.
+     * 
+     */
     public String type() {
         return this.type;
     }

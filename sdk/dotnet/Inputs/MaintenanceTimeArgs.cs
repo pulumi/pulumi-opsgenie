@@ -12,9 +12,15 @@ namespace Pulumi.Opsgenie.Inputs
 
     public sealed class MaintenanceTimeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+        /// </summary>
         [Input("endDate")]
         public Input<string>? EndDate { get; set; }
 
+        /// <summary>
+        /// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+        /// </summary>
         [Input("startDate")]
         public Input<string>? StartDate { get; set; }
 
