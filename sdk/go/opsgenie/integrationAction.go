@@ -85,7 +85,7 @@ import (
 //					&opsgenie.IntegrationActionCreateArgs{
 //						Name:        pulumi.String("create action with multiline description"),
 //						Message:     pulumi.String("{{message}}"),
-//						Description: invokeChomp.Result,
+//						Description: pulumi.String(invokeChomp.Result),
 //						Filters: opsgenie.IntegrationActionCreateFilterArray{
 //							&opsgenie.IntegrationActionCreateFilterArgs{
 //								Type: pulumi.String("match-all-conditions"),
