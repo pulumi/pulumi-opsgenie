@@ -2229,6 +2229,9 @@
         "opsgenie:index/apiIntegration:ApiIntegration": {
             "description": "Manages an API Integration within Opsgenie.\n\n## Import\n\nAPI Integrations can be imported using the `integration_id`, e.g.\n\n```sh\n$ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`\n```\n\n",
             "properties": {
+                "allowConfigurationAccess": {
+                    "type": "boolean"
+                },
                 "allowWriteAccess": {
                     "type": "boolean",
                     "description": "This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.\n"
@@ -2285,6 +2288,9 @@
                 "name"
             ],
             "inputProperties": {
+                "allowConfigurationAccess": {
+                    "type": "boolean"
+                },
                 "allowWriteAccess": {
                     "type": "boolean",
                     "description": "This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.\n"
@@ -2336,6 +2342,9 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ApiIntegration resources.\n",
                 "properties": {
+                    "allowConfigurationAccess": {
+                        "type": "boolean"
+                    },
                     "allowWriteAccess": {
                         "type": "boolean",
                         "description": "This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.\n"

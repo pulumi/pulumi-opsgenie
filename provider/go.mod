@@ -8,7 +8,7 @@ replace (
 )
 
 require (
-	github.com/opsgenie/terraform-provider-opsgenie v0.6.36
+	github.com/opsgenie/terraform-provider-opsgenie v0.6.37
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.88.0
 	github.com/pulumi/pulumi/sdk/v3 v3.126.0
 )
@@ -156,7 +156,7 @@ require (
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
-	github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.22 // indirect
+	github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.23 // indirect
 	github.com/pgavlin/fx v0.1.6 // indirect
 	github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
