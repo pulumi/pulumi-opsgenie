@@ -23,6 +23,9 @@ namespace Pulumi.Opsgenie
     [OpsgenieResourceType("opsgenie:index/apiIntegration:ApiIntegration")]
     public partial class ApiIntegration : global::Pulumi.CustomResource
     {
+        [Output("allowConfigurationAccess")]
+        public Output<bool?> AllowConfigurationAccess { get; private set; } = null!;
+
         /// <summary>
         /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         /// </summary>
@@ -136,6 +139,9 @@ namespace Pulumi.Opsgenie
 
     public sealed class ApiIntegrationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowConfigurationAccess")]
+        public Input<bool>? AllowConfigurationAccess { get; set; }
+
         /// <summary>
         /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         /// </summary>
@@ -212,6 +218,9 @@ namespace Pulumi.Opsgenie
 
     public sealed class ApiIntegrationState : global::Pulumi.ResourceArgs
     {
+        [Input("allowConfigurationAccess")]
+        public Input<bool>? AllowConfigurationAccess { get; set; }
+
         /// <summary>
         /// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         /// </summary>

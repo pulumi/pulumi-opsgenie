@@ -16,6 +16,7 @@ __all__ = ['ApiIntegrationArgs', 'ApiIntegration']
 @pulumi.input_type
 class ApiIntegrationArgs:
     def __init__(__self__, *,
+                 allow_configuration_access: Optional[pulumi.Input[bool]] = None,
                  allow_write_access: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -38,6 +39,8 @@ class ApiIntegrationArgs:
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
+        if allow_configuration_access is not None:
+            pulumi.set(__self__, "allow_configuration_access", allow_configuration_access)
         if allow_write_access is not None:
             pulumi.set(__self__, "allow_write_access", allow_write_access)
         if enabled is not None:
@@ -58,6 +61,15 @@ class ApiIntegrationArgs:
             pulumi.set(__self__, "type", type)
         if webhook_url is not None:
             pulumi.set(__self__, "webhook_url", webhook_url)
+
+    @property
+    @pulumi.getter(name="allowConfigurationAccess")
+    def allow_configuration_access(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_configuration_access")
+
+    @allow_configuration_access.setter
+    def allow_configuration_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_configuration_access", value)
 
     @property
     @pulumi.getter(name="allowWriteAccess")
@@ -180,6 +192,7 @@ class ApiIntegrationArgs:
 @pulumi.input_type
 class _ApiIntegrationState:
     def __init__(__self__, *,
+                 allow_configuration_access: Optional[pulumi.Input[bool]] = None,
                  allow_write_access: Optional[pulumi.Input[bool]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -204,6 +217,8 @@ class _ApiIntegrationState:
         :param pulumi.Input[str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
+        if allow_configuration_access is not None:
+            pulumi.set(__self__, "allow_configuration_access", allow_configuration_access)
         if allow_write_access is not None:
             pulumi.set(__self__, "allow_write_access", allow_write_access)
         if api_key is not None:
@@ -226,6 +241,15 @@ class _ApiIntegrationState:
             pulumi.set(__self__, "type", type)
         if webhook_url is not None:
             pulumi.set(__self__, "webhook_url", webhook_url)
+
+    @property
+    @pulumi.getter(name="allowConfigurationAccess")
+    def allow_configuration_access(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_configuration_access")
+
+    @allow_configuration_access.setter
+    def allow_configuration_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_configuration_access", value)
 
     @property
     @pulumi.getter(name="allowWriteAccess")
@@ -362,6 +386,7 @@ class ApiIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_configuration_access: Optional[pulumi.Input[bool]] = None,
                  allow_write_access: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -428,6 +453,7 @@ class ApiIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_configuration_access: Optional[pulumi.Input[bool]] = None,
                  allow_write_access: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -447,6 +473,7 @@ class ApiIntegration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApiIntegrationArgs.__new__(ApiIntegrationArgs)
 
+            __props__.__dict__["allow_configuration_access"] = allow_configuration_access
             __props__.__dict__["allow_write_access"] = allow_write_access
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["headers"] = headers
@@ -470,6 +497,7 @@ class ApiIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allow_configuration_access: Optional[pulumi.Input[bool]] = None,
             allow_write_access: Optional[pulumi.Input[bool]] = None,
             api_key: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -503,6 +531,7 @@ class ApiIntegration(pulumi.CustomResource):
 
         __props__ = _ApiIntegrationState.__new__(_ApiIntegrationState)
 
+        __props__.__dict__["allow_configuration_access"] = allow_configuration_access
         __props__.__dict__["allow_write_access"] = allow_write_access
         __props__.__dict__["api_key"] = api_key
         __props__.__dict__["enabled"] = enabled
@@ -515,6 +544,11 @@ class ApiIntegration(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         __props__.__dict__["webhook_url"] = webhook_url
         return ApiIntegration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowConfigurationAccess")
+    def allow_configuration_access(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "allow_configuration_access")
 
     @property
     @pulumi.getter(name="allowWriteAccess")

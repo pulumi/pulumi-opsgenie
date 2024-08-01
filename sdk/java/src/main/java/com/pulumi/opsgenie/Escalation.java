@@ -244,11 +244,18 @@ public class Escalation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Escalation(String name, EscalationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/escalation:Escalation", name, args == null ? EscalationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("opsgenie:index/escalation:Escalation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Escalation(String name, Output<String> id, @Nullable EscalationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("opsgenie:index/escalation:Escalation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EscalationArgs makeArgs(EscalationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EscalationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

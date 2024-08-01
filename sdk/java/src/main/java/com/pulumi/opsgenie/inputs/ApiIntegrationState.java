@@ -19,6 +19,13 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
 
     public static final ApiIntegrationState Empty = new ApiIntegrationState();
 
+    @Import(name="allowConfigurationAccess")
+    private @Nullable Output<Boolean> allowConfigurationAccess;
+
+    public Optional<Output<Boolean>> allowConfigurationAccess() {
+        return Optional.ofNullable(this.allowConfigurationAccess);
+    }
+
     /**
      * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      * 
@@ -179,6 +186,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     private ApiIntegrationState() {}
 
     private ApiIntegrationState(ApiIntegrationState $) {
+        this.allowConfigurationAccess = $.allowConfigurationAccess;
         this.allowWriteAccess = $.allowWriteAccess;
         this.apiKey = $.apiKey;
         this.enabled = $.enabled;
@@ -208,6 +216,15 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
 
         public Builder(ApiIntegrationState defaults) {
             $ = new ApiIntegrationState(Objects.requireNonNull(defaults));
+        }
+
+        public Builder allowConfigurationAccess(@Nullable Output<Boolean> allowConfigurationAccess) {
+            $.allowConfigurationAccess = allowConfigurationAccess;
+            return this;
+        }
+
+        public Builder allowConfigurationAccess(Boolean allowConfigurationAccess) {
+            return allowConfigurationAccess(Output.of(allowConfigurationAccess));
         }
 
         /**

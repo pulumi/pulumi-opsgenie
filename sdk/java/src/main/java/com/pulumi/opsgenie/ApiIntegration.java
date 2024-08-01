@@ -32,6 +32,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="opsgenie:index/apiIntegration:ApiIntegration")
 public class ApiIntegration extends com.pulumi.resources.CustomResource {
+    @Export(name="allowConfigurationAccess", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> allowConfigurationAccess;
+
+    public Output<Optional<Boolean>> allowConfigurationAccess() {
+        return Codegen.optional(this.allowConfigurationAccess);
+    }
     /**
      * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      * 
@@ -201,11 +207,18 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApiIntegration(String name, @Nullable ApiIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/apiIntegration:ApiIntegration", name, args == null ? ApiIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("opsgenie:index/apiIntegration:ApiIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApiIntegration(String name, Output<String> id, @Nullable ApiIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("opsgenie:index/apiIntegration:ApiIntegration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApiIntegrationArgs makeArgs(@Nullable ApiIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiIntegrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

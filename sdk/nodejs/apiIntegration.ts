@@ -45,6 +45,7 @@ export class ApiIntegration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiIntegration.__pulumiType;
     }
 
+    public readonly allowConfigurationAccess!: pulumi.Output<boolean | undefined>;
     /**
      * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      */
@@ -100,6 +101,7 @@ export class ApiIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiIntegrationState | undefined;
+            resourceInputs["allowConfigurationAccess"] = state ? state.allowConfigurationAccess : undefined;
             resourceInputs["allowWriteAccess"] = state ? state.allowWriteAccess : undefined;
             resourceInputs["apiKey"] = state ? state.apiKey : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
@@ -113,6 +115,7 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["webhookUrl"] = state ? state.webhookUrl : undefined;
         } else {
             const args = argsOrState as ApiIntegrationArgs | undefined;
+            resourceInputs["allowConfigurationAccess"] = args ? args.allowConfigurationAccess : undefined;
             resourceInputs["allowWriteAccess"] = args ? args.allowWriteAccess : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["headers"] = args ? args.headers : undefined;
@@ -136,6 +139,7 @@ export class ApiIntegration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApiIntegration resources.
  */
 export interface ApiIntegrationState {
+    allowConfigurationAccess?: pulumi.Input<boolean>;
     /**
      * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      */
@@ -183,6 +187,7 @@ export interface ApiIntegrationState {
  * The set of arguments for constructing a ApiIntegration resource.
  */
 export interface ApiIntegrationArgs {
+    allowConfigurationAccess?: pulumi.Input<boolean>;
     /**
      * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      */
