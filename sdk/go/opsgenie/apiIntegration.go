@@ -23,6 +23,7 @@ import (
 type ApiIntegration struct {
 	pulumi.CustomResourceState
 
+	AllowConfigurationAccess pulumi.BoolPtrOutput `pulumi:"allowConfigurationAccess"`
 	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
 	AllowWriteAccess pulumi.BoolPtrOutput `pulumi:"allowWriteAccess"`
 	// (Computed) API key of the created integration
@@ -80,6 +81,7 @@ func GetApiIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiIntegration resources.
 type apiIntegrationState struct {
+	AllowConfigurationAccess *bool `pulumi:"allowConfigurationAccess"`
 	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
 	AllowWriteAccess *bool `pulumi:"allowWriteAccess"`
 	// (Computed) API key of the created integration
@@ -104,6 +106,7 @@ type apiIntegrationState struct {
 }
 
 type ApiIntegrationState struct {
+	AllowConfigurationAccess pulumi.BoolPtrInput
 	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
 	AllowWriteAccess pulumi.BoolPtrInput
 	// (Computed) API key of the created integration
@@ -132,6 +135,7 @@ func (ApiIntegrationState) ElementType() reflect.Type {
 }
 
 type apiIntegrationArgs struct {
+	AllowConfigurationAccess *bool `pulumi:"allowConfigurationAccess"`
 	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
 	AllowWriteAccess *bool `pulumi:"allowWriteAccess"`
 	// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
@@ -155,6 +159,7 @@ type apiIntegrationArgs struct {
 
 // The set of arguments for constructing a ApiIntegration resource.
 type ApiIntegrationArgs struct {
+	AllowConfigurationAccess pulumi.BoolPtrInput
 	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
 	AllowWriteAccess pulumi.BoolPtrInput
 	// This parameter is for specifying whether the integration will be enabled or not. Default: `true`
@@ -261,6 +266,10 @@ func (o ApiIntegrationOutput) ToApiIntegrationOutput() ApiIntegrationOutput {
 
 func (o ApiIntegrationOutput) ToApiIntegrationOutputWithContext(ctx context.Context) ApiIntegrationOutput {
 	return o
+}
+
+func (o ApiIntegrationOutput) AllowConfigurationAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.BoolPtrOutput { return v.AllowConfigurationAccess }).(pulumi.BoolPtrOutput)
 }
 
 // This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.

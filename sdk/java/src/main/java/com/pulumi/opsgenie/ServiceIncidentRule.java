@@ -154,11 +154,18 @@ public class ServiceIncidentRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceIncidentRule(String name, ServiceIncidentRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/serviceIncidentRule:ServiceIncidentRule", name, args == null ? ServiceIncidentRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("opsgenie:index/serviceIncidentRule:ServiceIncidentRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceIncidentRule(String name, Output<String> id, @Nullable ServiceIncidentRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("opsgenie:index/serviceIncidentRule:ServiceIncidentRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceIncidentRuleArgs makeArgs(ServiceIncidentRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceIncidentRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

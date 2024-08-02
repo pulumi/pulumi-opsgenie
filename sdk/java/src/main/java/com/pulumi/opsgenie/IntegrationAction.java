@@ -274,11 +274,18 @@ public class IntegrationAction extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IntegrationAction(String name, IntegrationActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/integrationAction:IntegrationAction", name, args == null ? IntegrationActionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("opsgenie:index/integrationAction:IntegrationAction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IntegrationAction(String name, Output<String> id, @Nullable IntegrationActionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("opsgenie:index/integrationAction:IntegrationAction", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IntegrationActionArgs makeArgs(IntegrationActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationActionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
