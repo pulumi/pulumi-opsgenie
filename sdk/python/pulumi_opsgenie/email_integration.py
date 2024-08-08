@@ -254,7 +254,7 @@ class EmailIntegration(pulumi.CustomResource):
                  ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_team_id: Optional[pulumi.Input[str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailIntegrationResponderArgs']]]]] = None,
+                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailIntegrationResponderArgs', 'EmailIntegrationResponderArgsDict']]]]] = None,
                  suppress_notifications: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -314,7 +314,7 @@ class EmailIntegration(pulumi.CustomResource):
                  ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_team_id: Optional[pulumi.Input[str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailIntegrationResponderArgs']]]]] = None,
+                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailIntegrationResponderArgs', 'EmailIntegrationResponderArgsDict']]]]] = None,
                  suppress_notifications: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -349,7 +349,7 @@ class EmailIntegration(pulumi.CustomResource):
             ignore_responders_from_payload: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner_team_id: Optional[pulumi.Input[str]] = None,
-            responders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailIntegrationResponderArgs']]]]] = None,
+            responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailIntegrationResponderArgs', 'EmailIntegrationResponderArgsDict']]]]] = None,
             suppress_notifications: Optional[pulumi.Input[bool]] = None) -> 'EmailIntegration':
         """
         Get an existing EmailIntegration resource's state with the given name, id, and optional extra
