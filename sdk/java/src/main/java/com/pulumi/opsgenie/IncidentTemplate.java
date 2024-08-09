@@ -206,7 +206,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IncidentTemplate(String name) {
+    public IncidentTemplate(java.lang.String name) {
         this(name, IncidentTemplateArgs.Empty);
     }
     /**
@@ -214,7 +214,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IncidentTemplate(String name, IncidentTemplateArgs args) {
+    public IncidentTemplate(java.lang.String name, IncidentTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -223,12 +223,12 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IncidentTemplate(String name, IncidentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/incidentTemplate:IncidentTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IncidentTemplate(java.lang.String name, IncidentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/incidentTemplate:IncidentTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IncidentTemplate(String name, Output<String> id, @Nullable IncidentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/incidentTemplate:IncidentTemplate", name, state, makeResourceOptions(options, id));
+    private IncidentTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable IncidentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/incidentTemplate:IncidentTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IncidentTemplateArgs makeArgs(IncidentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -238,7 +238,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
         return args == null ? IncidentTemplateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -254,7 +254,7 @@ public class IncidentTemplate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IncidentTemplate get(String name, Output<String> id, @Nullable IncidentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IncidentTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable IncidentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IncidentTemplate(name, id, state, options);
     }
 }

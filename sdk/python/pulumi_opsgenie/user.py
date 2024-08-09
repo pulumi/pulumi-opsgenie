@@ -325,7 +325,7 @@ class User(pulumi.CustomResource):
                  skype_username: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
-                 user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserUserAddressArgs']]]]] = None,
+                 user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserUserAddressArgs', 'UserUserAddressArgsDict']]]]] = None,
                  user_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -349,13 +349,13 @@ class User(pulumi.CustomResource):
                 "opsgenie",
             ],
             skype_username="skypename",
-            user_addresses=[opsgenie.UserUserAddressArgs(
-                country="Country",
-                state="State",
-                city="City",
-                line="Line",
-                zipcode="998877",
-            )],
+            user_addresses=[{
+                "country": "Country",
+                "state": "State",
+                "city": "City",
+                "line": "Line",
+                "zipcode": "998877",
+            }],
             user_details={
                 "key1": "val1,val2",
                 "key2": "val3,val4",
@@ -378,7 +378,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] skype_username: Skype username of the user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to be associated with the user.
         :param pulumi.Input[str] timezone: Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserUserAddressArgs']]]] user_addresses: Address of the user.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserUserAddressArgs', 'UserUserAddressArgsDict']]]] user_addresses: Address of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_details: Details about the user in form of key and list. of values.
         :param pulumi.Input[str] username: The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters and must contain lowercase characters only.
         """
@@ -408,13 +408,13 @@ class User(pulumi.CustomResource):
                 "opsgenie",
             ],
             skype_username="skypename",
-            user_addresses=[opsgenie.UserUserAddressArgs(
-                country="Country",
-                state="State",
-                city="City",
-                line="Line",
-                zipcode="998877",
-            )],
+            user_addresses=[{
+                "country": "Country",
+                "state": "State",
+                "city": "City",
+                "line": "Line",
+                "zipcode": "998877",
+            }],
             user_details={
                 "key1": "val1,val2",
                 "key2": "val3,val4",
@@ -450,7 +450,7 @@ class User(pulumi.CustomResource):
                  skype_username: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
-                 user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserUserAddressArgs']]]]] = None,
+                 user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserUserAddressArgs', 'UserUserAddressArgsDict']]]]] = None,
                  user_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -493,7 +493,7 @@ class User(pulumi.CustomResource):
             skype_username: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             timezone: Optional[pulumi.Input[str]] = None,
-            user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserUserAddressArgs']]]]] = None,
+            user_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserUserAddressArgs', 'UserUserAddressArgsDict']]]]] = None,
             user_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             username: Optional[pulumi.Input[str]] = None) -> 'User':
         """
@@ -509,7 +509,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] skype_username: Skype username of the user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to be associated with the user.
         :param pulumi.Input[str] timezone: Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserUserAddressArgs']]]] user_addresses: Address of the user.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserUserAddressArgs', 'UserUserAddressArgsDict']]]] user_addresses: Address of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_details: Details about the user in form of key and list. of values.
         :param pulumi.Input[str] username: The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters and must contain lowercase characters only.
         """

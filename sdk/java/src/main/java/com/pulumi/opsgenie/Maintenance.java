@@ -78,7 +78,7 @@ public class Maintenance extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Maintenance(String name) {
+    public Maintenance(java.lang.String name) {
         this(name, MaintenanceArgs.Empty);
     }
     /**
@@ -86,7 +86,7 @@ public class Maintenance extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Maintenance(String name, MaintenanceArgs args) {
+    public Maintenance(java.lang.String name, MaintenanceArgs args) {
         this(name, args, null);
     }
     /**
@@ -95,12 +95,12 @@ public class Maintenance extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Maintenance(String name, MaintenanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/maintenance:Maintenance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Maintenance(java.lang.String name, MaintenanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/maintenance:Maintenance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Maintenance(String name, Output<String> id, @Nullable MaintenanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/maintenance:Maintenance", name, state, makeResourceOptions(options, id));
+    private Maintenance(java.lang.String name, Output<java.lang.String> id, @Nullable MaintenanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/maintenance:Maintenance", name, state, makeResourceOptions(options, id), false);
     }
 
     private static MaintenanceArgs makeArgs(MaintenanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -110,7 +110,7 @@ public class Maintenance extends com.pulumi.resources.CustomResource {
         return args == null ? MaintenanceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -126,7 +126,7 @@ public class Maintenance extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Maintenance get(String name, Output<String> id, @Nullable MaintenanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Maintenance get(java.lang.String name, Output<java.lang.String> id, @Nullable MaintenanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Maintenance(name, id, state, options);
     }
 }

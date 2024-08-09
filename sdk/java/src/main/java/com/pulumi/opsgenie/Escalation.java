@@ -226,7 +226,7 @@ public class Escalation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Escalation(String name) {
+    public Escalation(java.lang.String name) {
         this(name, EscalationArgs.Empty);
     }
     /**
@@ -234,7 +234,7 @@ public class Escalation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Escalation(String name, EscalationArgs args) {
+    public Escalation(java.lang.String name, EscalationArgs args) {
         this(name, args, null);
     }
     /**
@@ -243,12 +243,12 @@ public class Escalation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Escalation(String name, EscalationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/escalation:Escalation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Escalation(java.lang.String name, EscalationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/escalation:Escalation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Escalation(String name, Output<String> id, @Nullable EscalationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/escalation:Escalation", name, state, makeResourceOptions(options, id));
+    private Escalation(java.lang.String name, Output<java.lang.String> id, @Nullable EscalationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/escalation:Escalation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EscalationArgs makeArgs(EscalationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -258,7 +258,7 @@ public class Escalation extends com.pulumi.resources.CustomResource {
         return args == null ? EscalationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -274,7 +274,7 @@ public class Escalation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Escalation get(String name, Output<String> id, @Nullable EscalationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Escalation get(java.lang.String name, Output<java.lang.String> id, @Nullable EscalationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Escalation(name, id, state, options);
     }
 }

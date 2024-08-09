@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new User("test", UserArgs.builder()
  *             .username("Example user")
  *             .fullName("Name Lastname")
@@ -69,13 +69,13 @@ import javax.annotation.Nullable;
  *             .steps(NotificationRuleStepArgs.builder()
  *                 .contacts(NotificationRuleStepContactArgs.builder()
  *                     .method("email")
- *                     .to("example{@literal @}user.com")
+ *                     .to("example}{@literal @}{@code user.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -210,7 +210,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NotificationRule(String name) {
+    public NotificationRule(java.lang.String name) {
         this(name, NotificationRuleArgs.Empty);
     }
     /**
@@ -218,7 +218,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NotificationRule(String name, NotificationRuleArgs args) {
+    public NotificationRule(java.lang.String name, NotificationRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -227,12 +227,12 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NotificationRule(String name, NotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/notificationRule:NotificationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NotificationRule(java.lang.String name, NotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/notificationRule:NotificationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NotificationRule(String name, Output<String> id, @Nullable NotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/notificationRule:NotificationRule", name, state, makeResourceOptions(options, id));
+    private NotificationRule(java.lang.String name, Output<java.lang.String> id, @Nullable NotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/notificationRule:NotificationRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NotificationRuleArgs makeArgs(NotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -242,7 +242,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
         return args == null ? NotificationRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -258,7 +258,7 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NotificationRule get(String name, Output<String> id, @Nullable NotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NotificationRule get(java.lang.String name, Output<java.lang.String> id, @Nullable NotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NotificationRule(name, id, state, options);
     }
 }

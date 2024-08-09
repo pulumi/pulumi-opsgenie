@@ -293,7 +293,7 @@ class IncidentTemplate(pulumi.CustomResource):
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
-                 stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentTemplateStakeholderPropertyArgs']]]]] = None,
+                 stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentTemplateStakeholderPropertyArgs', 'IncidentTemplateStakeholderPropertyArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -315,11 +315,11 @@ class IncidentTemplate(pulumi.CustomResource):
             name="genietest-incident-template",
             message="Incident Message",
             priority="P2",
-            stakeholder_properties=[opsgenie.IncidentTemplateStakeholderPropertyArgs(
-                enable=True,
-                message="Stakeholder Message",
-                description="Stakeholder Description",
-            )],
+            stakeholder_properties=[{
+                "enable": True,
+                "message": "Stakeholder Message",
+                "description": "Stakeholder Description",
+            }],
             tags=[
                 "tag1",
                 "tag2",
@@ -378,11 +378,11 @@ class IncidentTemplate(pulumi.CustomResource):
             name="genietest-incident-template",
             message="Incident Message",
             priority="P2",
-            stakeholder_properties=[opsgenie.IncidentTemplateStakeholderPropertyArgs(
-                enable=True,
-                message="Stakeholder Message",
-                description="Stakeholder Description",
-            )],
+            stakeholder_properties=[{
+                "enable": True,
+                "message": "Stakeholder Message",
+                "description": "Stakeholder Description",
+            }],
             tags=[
                 "tag1",
                 "tag2",
@@ -424,7 +424,7 @@ class IncidentTemplate(pulumi.CustomResource):
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
-                 stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentTemplateStakeholderPropertyArgs']]]]] = None,
+                 stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentTemplateStakeholderPropertyArgs', 'IncidentTemplateStakeholderPropertyArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -465,7 +465,7 @@ class IncidentTemplate(pulumi.CustomResource):
             message: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[str]] = None,
-            stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentTemplateStakeholderPropertyArgs']]]]] = None,
+            stakeholder_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentTemplateStakeholderPropertyArgs', 'IncidentTemplateStakeholderPropertyArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'IncidentTemplate':
         """
         Get an existing IncidentTemplate resource's state with the given name, id, and optional extra

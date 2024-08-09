@@ -189,7 +189,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiIntegration(String name) {
+    public ApiIntegration(java.lang.String name) {
         this(name, ApiIntegrationArgs.Empty);
     }
     /**
@@ -197,7 +197,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiIntegration(String name, @Nullable ApiIntegrationArgs args) {
+    public ApiIntegration(java.lang.String name, @Nullable ApiIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -206,12 +206,12 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiIntegration(String name, @Nullable ApiIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/apiIntegration:ApiIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ApiIntegration(java.lang.String name, @Nullable ApiIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/apiIntegration:ApiIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiIntegration(String name, Output<String> id, @Nullable ApiIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/apiIntegration:ApiIntegration", name, state, makeResourceOptions(options, id));
+    private ApiIntegration(java.lang.String name, Output<java.lang.String> id, @Nullable ApiIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/apiIntegration:ApiIntegration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ApiIntegrationArgs makeArgs(@Nullable ApiIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -221,7 +221,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return args == null ? ApiIntegrationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -240,7 +240,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiIntegration get(String name, Output<String> id, @Nullable ApiIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiIntegration get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiIntegration(name, id, state, options);
     }
 }

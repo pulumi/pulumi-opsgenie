@@ -74,7 +74,7 @@ class AwaitableGetTeamResult(GetTeamResult):
 
 
 def get_team(description: Optional[str] = None,
-             members: Optional[Sequence[pulumi.InputType['GetTeamMemberArgs']]] = None,
+             members: Optional[Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict']]] = None,
              name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamResult:
     """
@@ -91,7 +91,7 @@ def get_team(description: Optional[str] = None,
 
 
     :param str description: A description for this team.
-    :param Sequence[pulumi.InputType['GetTeamMemberArgs']] members: A Member block as documented below.
+    :param Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict']] members: A Member block as documented below.
     :param str name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
            
            The following attributes are exported:
@@ -112,7 +112,7 @@ def get_team(description: Optional[str] = None,
 
 @_utilities.lift_output_func(get_team)
 def get_team_output(description: Optional[pulumi.Input[Optional[str]]] = None,
-                    members: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTeamMemberArgs']]]]] = None,
+                    members: Optional[pulumi.Input[Optional[Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict']]]]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
     """
@@ -129,7 +129,7 @@ def get_team_output(description: Optional[pulumi.Input[Optional[str]]] = None,
 
 
     :param str description: A description for this team.
-    :param Sequence[pulumi.InputType['GetTeamMemberArgs']] members: A Member block as documented below.
+    :param Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict']] members: A Member block as documented below.
     :param str name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
            
            The following attributes are exported:
