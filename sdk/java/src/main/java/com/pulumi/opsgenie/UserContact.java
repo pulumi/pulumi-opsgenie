@@ -37,12 +37,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var sms = new UserContact("sms", UserContactArgs.builder()
  *             .username(exampleuser.username())
  *             .to("39-123")
@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         var email = new UserContact("email", UserContactArgs.builder()
  *             .username(exampleuser.username())
- *             .to("fahri{@literal @}opsgenie.com")
+ *             .to("fahri}{@literal @}{@code opsgenie.com")
  *             .method("email")
  *             .build());
  * 
@@ -61,8 +61,8 @@ import javax.annotation.Nullable;
  *             .method("voice")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -139,7 +139,7 @@ public class UserContact extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserContact(String name) {
+    public UserContact(java.lang.String name) {
         this(name, UserContactArgs.Empty);
     }
     /**
@@ -147,7 +147,7 @@ public class UserContact extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserContact(String name, UserContactArgs args) {
+    public UserContact(java.lang.String name, UserContactArgs args) {
         this(name, args, null);
     }
     /**
@@ -156,12 +156,12 @@ public class UserContact extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserContact(String name, UserContactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/userContact:UserContact", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public UserContact(java.lang.String name, UserContactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/userContact:UserContact", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserContact(String name, Output<String> id, @Nullable UserContactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/userContact:UserContact", name, state, makeResourceOptions(options, id));
+    private UserContact(java.lang.String name, Output<java.lang.String> id, @Nullable UserContactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/userContact:UserContact", name, state, makeResourceOptions(options, id), false);
     }
 
     private static UserContactArgs makeArgs(UserContactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -171,7 +171,7 @@ public class UserContact extends com.pulumi.resources.CustomResource {
         return args == null ? UserContactArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -187,7 +187,7 @@ public class UserContact extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserContact get(String name, Output<String> id, @Nullable UserContactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserContact get(java.lang.String name, Output<java.lang.String> id, @Nullable UserContactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserContact(name, id, state, options);
     }
 }

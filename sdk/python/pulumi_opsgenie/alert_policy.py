@@ -679,7 +679,7 @@ class AlertPolicy(pulumi.CustomResource):
                  continue_policy: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]]] = None,
                  ignore_original_actions: Optional[pulumi.Input[bool]] = None,
                  ignore_original_details: Optional[pulumi.Input[bool]] = None,
                  ignore_original_responders: Optional[pulumi.Input[bool]] = None,
@@ -688,11 +688,11 @@ class AlertPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]]] = None,
+                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyTimeRestrictionArgs']]]]] = None,
+                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Alert Policy within Opsgenie.
@@ -707,32 +707,32 @@ class AlertPolicy(pulumi.CustomResource):
             name="example team",
             description="This team deals with all the things")
         test_alert_policy = opsgenie.AlertPolicy("test",
-            filters=[opsgenie.AlertPolicyFilterArgs()],
+            filters=[{}],
             name="example policy",
             team_id=test.id,
             policy_description="This is sample policy",
             message="{{message}}",
-            time_restrictions=[opsgenie.AlertPolicyTimeRestrictionArgs(
-                type="weekday-and-time-of-day",
-                restriction_list=[
-                    opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs(
-                        end_day="monday",
-                        end_hour=7,
-                        end_min=0,
-                        start_day="sunday",
-                        start_hour=21,
-                        start_min=0,
-                    ),
-                    opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs(
-                        end_day="tuesday",
-                        end_hour=7,
-                        end_min=0,
-                        start_day="monday",
-                        start_hour=22,
-                        start_min=0,
-                    ),
+            time_restrictions=[{
+                "type": "weekday-and-time-of-day",
+                "restriction_list": [
+                    {
+                        "end_day": "monday",
+                        "end_hour": 7,
+                        "end_min": 0,
+                        "start_day": "sunday",
+                        "start_hour": 21,
+                        "start_min": 0,
+                    },
+                    {
+                        "end_day": "tuesday",
+                        "end_hour": 7,
+                        "end_min": 0,
+                        "start_day": "monday",
+                        "start_hour": 22,
+                        "start_min": 0,
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -757,7 +757,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] continue_policy: It will trigger other modify policies if set to `true`. Default: `false`
         :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] entity: Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyFilterArgs']]]] filters: A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]] filters: A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         :param pulumi.Input[bool] ignore_original_actions: If set to `true`, policy will ignore the original actions of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_details: If set to `true`, policy will ignore the original details of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
@@ -766,11 +766,11 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         :param pulumi.Input[str] source: Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyTimeRestrictionArgs']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
         ...
     @overload
@@ -791,32 +791,32 @@ class AlertPolicy(pulumi.CustomResource):
             name="example team",
             description="This team deals with all the things")
         test_alert_policy = opsgenie.AlertPolicy("test",
-            filters=[opsgenie.AlertPolicyFilterArgs()],
+            filters=[{}],
             name="example policy",
             team_id=test.id,
             policy_description="This is sample policy",
             message="{{message}}",
-            time_restrictions=[opsgenie.AlertPolicyTimeRestrictionArgs(
-                type="weekday-and-time-of-day",
-                restriction_list=[
-                    opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs(
-                        end_day="monday",
-                        end_hour=7,
-                        end_min=0,
-                        start_day="sunday",
-                        start_hour=21,
-                        start_min=0,
-                    ),
-                    opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs(
-                        end_day="tuesday",
-                        end_hour=7,
-                        end_min=0,
-                        start_day="monday",
-                        start_hour=22,
-                        start_min=0,
-                    ),
+            time_restrictions=[{
+                "type": "weekday-and-time-of-day",
+                "restriction_list": [
+                    {
+                        "end_day": "monday",
+                        "end_hour": 7,
+                        "end_min": 0,
+                        "start_day": "sunday",
+                        "start_hour": 21,
+                        "start_min": 0,
+                    },
+                    {
+                        "end_day": "tuesday",
+                        "end_hour": 7,
+                        "end_min": 0,
+                        "start_day": "monday",
+                        "start_hour": 22,
+                        "start_min": 0,
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -854,7 +854,7 @@ class AlertPolicy(pulumi.CustomResource):
                  continue_policy: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]]] = None,
                  ignore_original_actions: Optional[pulumi.Input[bool]] = None,
                  ignore_original_details: Optional[pulumi.Input[bool]] = None,
                  ignore_original_responders: Optional[pulumi.Input[bool]] = None,
@@ -863,11 +863,11 @@ class AlertPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]]] = None,
+                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyTimeRestrictionArgs']]]]] = None,
+                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -915,7 +915,7 @@ class AlertPolicy(pulumi.CustomResource):
             continue_policy: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             entity: Optional[pulumi.Input[str]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]]] = None,
             ignore_original_actions: Optional[pulumi.Input[bool]] = None,
             ignore_original_details: Optional[pulumi.Input[bool]] = None,
             ignore_original_responders: Optional[pulumi.Input[bool]] = None,
@@ -924,11 +924,11 @@ class AlertPolicy(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             policy_description: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[str]] = None,
-            responders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]]] = None,
+            responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]]] = None,
             source: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             team_id: Optional[pulumi.Input[str]] = None,
-            time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyTimeRestrictionArgs']]]]] = None) -> 'AlertPolicy':
+            time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]]] = None) -> 'AlertPolicy':
         """
         Get an existing AlertPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -942,7 +942,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] continue_policy: It will trigger other modify policies if set to `true`. Default: `false`
         :param pulumi.Input[bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[str] entity: Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyFilterArgs']]]] filters: A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]] filters: A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         :param pulumi.Input[bool] ignore_original_actions: If set to `true`, policy will ignore the original actions of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_details: If set to `true`, policy will ignore the original details of the alert. Default: `false`
         :param pulumi.Input[bool] ignore_original_responders: If set to `true`, policy will ignore the original responders of the alert. Default: `false`
@@ -951,11 +951,11 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the alert policy
         :param pulumi.Input[str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[str] priority: Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyResponderArgs']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]] responders: Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         :param pulumi.Input[str] source: Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         :param pulumi.Input[str] team_id: Id of team that this policy belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPolicyTimeRestrictionArgs']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

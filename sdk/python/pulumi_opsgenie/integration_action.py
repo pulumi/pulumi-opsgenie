@@ -185,11 +185,11 @@ class IntegrationAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionAcknowledgeArgs']]]]] = None,
-                 add_notes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionAddNoteArgs']]]]] = None,
-                 closes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionCloseArgs']]]]] = None,
-                 creates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionCreateArgs']]]]] = None,
-                 ignores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionIgnoreArgs']]]]] = None,
+                 acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
+                 add_notes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
+                 closes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
+                 creates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
+                 ignores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
                  integration_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -214,140 +214,140 @@ class IntegrationAction(pulumi.CustomResource):
         test_action = opsgenie.IntegrationAction("test_action",
             integration_id=test_opsgenie_api_integration["id"],
             creates=[
-                opsgenie.IntegrationActionCreateArgs(
-                    name="create action",
-                    tags=[
+                {
+                    "name": "create action",
+                    "tags": [
                         "CRITICAL",
                         "SEV-0",
                     ],
-                    user="Example-service",
-                    note="{{note}}",
-                    alias="{{alias}}",
-                    source="{{source}}",
-                    message="{{message}}",
-                    description="{{description}}",
-                    entity="{{entity}}",
-                    alert_actions=["Runbook ID#342"],
-                    filters=[opsgenie.IntegrationActionCreateFilterArgs(
-                        type="match-all-conditions",
-                        conditions=[opsgenie.IntegrationActionCreateFilterConditionArgs(
-                            field="priority",
-                            operation="equals",
-                            expected_value="P1",
-                        )],
-                    )],
-                    responders=[opsgenie.IntegrationActionCreateResponderArgs(
-                        id=test["id"],
-                        type="team",
-                    )],
-                ),
-                opsgenie.IntegrationActionCreateArgs(
-                    name="create action with multiline description",
-                    message="{{message}}",
-                    description=std.chomp(input=\"\"\"This
+                    "user": "Example-service",
+                    "note": "{{note}}",
+                    "alias": "{{alias}}",
+                    "source": "{{source}}",
+                    "message": "{{message}}",
+                    "description": "{{description}}",
+                    "entity": "{{entity}}",
+                    "alert_actions": ["Runbook ID#342"],
+                    "filters": [{
+                        "type": "match-all-conditions",
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P1",
+                        }],
+                    }],
+                    "responders": [{
+                        "id": test["id"],
+                        "type": "team",
+                    }],
+                },
+                {
+                    "name": "create action with multiline description",
+                    "message": "{{message}}",
+                    "description": std.chomp(input=\"\"\"This
         is a multiline
         description.
         \"\"\").result,
-                    filters=[opsgenie.IntegrationActionCreateFilterArgs(
-                        type="match-all-conditions",
-                        conditions=[opsgenie.IntegrationActionCreateFilterConditionArgs(
-                            field="priority",
-                            operation="equals",
-                            expected_value="P1",
-                        )],
-                    )],
-                ),
-                opsgenie.IntegrationActionCreateArgs(
-                    name="Create medium priority alerts",
-                    tags=[
+                    "filters": [{
+                        "type": "match-all-conditions",
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P1",
+                        }],
+                    }],
+                },
+                {
+                    "name": "Create medium priority alerts",
+                    "tags": [
                         "SEVERE",
                         "SEV-1",
                     ],
-                    priority="P3",
-                    filters=[opsgenie.IntegrationActionCreateFilterArgs(
-                        type="match-all-conditions",
-                        conditions=[opsgenie.IntegrationActionCreateFilterConditionArgs(
-                            field="priority",
-                            operation="equals",
-                            expected_value="P2",
-                        )],
-                    )],
-                ),
-                opsgenie.IntegrationActionCreateArgs(
-                    name="Create alert with priority from message",
-                    custom_priority="{{message.substringAfter(\\"[custom]\\")}}",
-                    filters=[opsgenie.IntegrationActionCreateFilterArgs(
-                        type="match-all-conditions",
-                        conditions=[
-                            opsgenie.IntegrationActionCreateFilterConditionArgs(
-                                field="tags",
-                                operation="contains",
-                                expected_value="P5",
-                            ),
-                            opsgenie.IntegrationActionCreateFilterConditionArgs(
-                                field="message",
-                                operation="starts-with",
-                                expected_value="[custom]",
-                            ),
+                    "priority": "P3",
+                    "filters": [{
+                        "type": "match-all-conditions",
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P2",
+                        }],
+                    }],
+                },
+                {
+                    "name": "Create alert with priority from message",
+                    "custom_priority": "{{message.substringAfter(\\"[custom]\\")}}",
+                    "filters": [{
+                        "type": "match-all-conditions",
+                        "conditions": [
+                            {
+                                "field": "tags",
+                                "operation": "contains",
+                                "expected_value": "P5",
+                            },
+                            {
+                                "field": "message",
+                                "operation": "starts-with",
+                                "expected_value": "[custom]",
+                            },
                         ],
-                    )],
-                ),
+                    }],
+                },
             ],
-            closes=[opsgenie.IntegrationActionCloseArgs(
-                name="Low priority alerts",
-                filters=[opsgenie.IntegrationActionCloseFilterArgs(
-                    type="match-any-condition",
-                    conditions=[
-                        opsgenie.IntegrationActionCloseFilterConditionArgs(
-                            field="priority",
-                            operation="equals",
-                            expected_value="P5",
-                        ),
-                        opsgenie.IntegrationActionCloseFilterConditionArgs(
-                            field="message",
-                            operation="contains",
-                            expected_value="DEBUG",
-                        ),
+            closes=[{
+                "name": "Low priority alerts",
+                "filters": [{
+                    "type": "match-any-condition",
+                    "conditions": [
+                        {
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P5",
+                        },
+                        {
+                            "field": "message",
+                            "operation": "contains",
+                            "expected_value": "DEBUG",
+                        },
                     ],
-                )],
-            )],
-            acknowledges=[opsgenie.IntegrationActionAcknowledgeArgs(
-                name="Auto-ack test alerts",
-                filters=[opsgenie.IntegrationActionAcknowledgeFilterArgs(
-                    type="match-all-conditions",
-                    conditions=[
-                        opsgenie.IntegrationActionAcknowledgeFilterConditionArgs(
-                            field="message",
-                            not_=True,
-                            operation="contains",
-                            expected_value="TEST",
-                        ),
-                        opsgenie.IntegrationActionAcknowledgeFilterConditionArgs(
-                            field="priority",
-                            operation="equals",
-                            expected_value="P5",
-                        ),
+                }],
+            }],
+            acknowledges=[{
+                "name": "Auto-ack test alerts",
+                "filters": [{
+                    "type": "match-all-conditions",
+                    "conditions": [
+                        {
+                            "field": "message",
+                            "not_": True,
+                            "operation": "contains",
+                            "expected_value": "TEST",
+                        },
+                        {
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P5",
+                        },
                     ],
-                )],
-            )],
-            add_notes=[opsgenie.IntegrationActionAddNoteArgs(
-                name="Add note to all alerts",
-                note="Created from test integration",
-                filters=[opsgenie.IntegrationActionAddNoteFilterArgs(
-                    type="match-all",
-                )],
-            )],
-            ignores=[opsgenie.IntegrationActionIgnoreArgs(
-                name="Ignore alerts with ignore tag",
-                filters=[opsgenie.IntegrationActionIgnoreFilterArgs(
-                    type="match-all-conditions",
-                    conditions=[opsgenie.IntegrationActionIgnoreFilterConditionArgs(
-                        field="tags",
-                        operation="contains",
-                        expected_value="ignore",
-                    )],
-                )],
-            )])
+                }],
+            }],
+            add_notes=[{
+                "name": "Add note to all alerts",
+                "note": "Created from test integration",
+                "filters": [{
+                    "type": "match-all",
+                }],
+            }],
+            ignores=[{
+                "name": "Ignore alerts with ignore tag",
+                "filters": [{
+                    "type": "match-all-conditions",
+                    "conditions": [{
+                        "field": "tags",
+                        "operation": "contains",
+                        "expected_value": "ignore",
+                    }],
+                }],
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -382,140 +382,140 @@ class IntegrationAction(pulumi.CustomResource):
         test_action = opsgenie.IntegrationAction("test_action",
             integration_id=test_opsgenie_api_integration["id"],
             creates=[
-                opsgenie.IntegrationActionCreateArgs(
-                    name="create action",
-                    tags=[
+                {
+                    "name": "create action",
+                    "tags": [
                         "CRITICAL",
                         "SEV-0",
                     ],
-                    user="Example-service",
-                    note="{{note}}",
-                    alias="{{alias}}",
-                    source="{{source}}",
-                    message="{{message}}",
-                    description="{{description}}",
-                    entity="{{entity}}",
-                    alert_actions=["Runbook ID#342"],
-                    filters=[opsgenie.IntegrationActionCreateFilterArgs(
-                        type="match-all-conditions",
-                        conditions=[opsgenie.IntegrationActionCreateFilterConditionArgs(
-                            field="priority",
-                            operation="equals",
-                            expected_value="P1",
-                        )],
-                    )],
-                    responders=[opsgenie.IntegrationActionCreateResponderArgs(
-                        id=test["id"],
-                        type="team",
-                    )],
-                ),
-                opsgenie.IntegrationActionCreateArgs(
-                    name="create action with multiline description",
-                    message="{{message}}",
-                    description=std.chomp(input=\"\"\"This
+                    "user": "Example-service",
+                    "note": "{{note}}",
+                    "alias": "{{alias}}",
+                    "source": "{{source}}",
+                    "message": "{{message}}",
+                    "description": "{{description}}",
+                    "entity": "{{entity}}",
+                    "alert_actions": ["Runbook ID#342"],
+                    "filters": [{
+                        "type": "match-all-conditions",
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P1",
+                        }],
+                    }],
+                    "responders": [{
+                        "id": test["id"],
+                        "type": "team",
+                    }],
+                },
+                {
+                    "name": "create action with multiline description",
+                    "message": "{{message}}",
+                    "description": std.chomp(input=\"\"\"This
         is a multiline
         description.
         \"\"\").result,
-                    filters=[opsgenie.IntegrationActionCreateFilterArgs(
-                        type="match-all-conditions",
-                        conditions=[opsgenie.IntegrationActionCreateFilterConditionArgs(
-                            field="priority",
-                            operation="equals",
-                            expected_value="P1",
-                        )],
-                    )],
-                ),
-                opsgenie.IntegrationActionCreateArgs(
-                    name="Create medium priority alerts",
-                    tags=[
+                    "filters": [{
+                        "type": "match-all-conditions",
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P1",
+                        }],
+                    }],
+                },
+                {
+                    "name": "Create medium priority alerts",
+                    "tags": [
                         "SEVERE",
                         "SEV-1",
                     ],
-                    priority="P3",
-                    filters=[opsgenie.IntegrationActionCreateFilterArgs(
-                        type="match-all-conditions",
-                        conditions=[opsgenie.IntegrationActionCreateFilterConditionArgs(
-                            field="priority",
-                            operation="equals",
-                            expected_value="P2",
-                        )],
-                    )],
-                ),
-                opsgenie.IntegrationActionCreateArgs(
-                    name="Create alert with priority from message",
-                    custom_priority="{{message.substringAfter(\\"[custom]\\")}}",
-                    filters=[opsgenie.IntegrationActionCreateFilterArgs(
-                        type="match-all-conditions",
-                        conditions=[
-                            opsgenie.IntegrationActionCreateFilterConditionArgs(
-                                field="tags",
-                                operation="contains",
-                                expected_value="P5",
-                            ),
-                            opsgenie.IntegrationActionCreateFilterConditionArgs(
-                                field="message",
-                                operation="starts-with",
-                                expected_value="[custom]",
-                            ),
+                    "priority": "P3",
+                    "filters": [{
+                        "type": "match-all-conditions",
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P2",
+                        }],
+                    }],
+                },
+                {
+                    "name": "Create alert with priority from message",
+                    "custom_priority": "{{message.substringAfter(\\"[custom]\\")}}",
+                    "filters": [{
+                        "type": "match-all-conditions",
+                        "conditions": [
+                            {
+                                "field": "tags",
+                                "operation": "contains",
+                                "expected_value": "P5",
+                            },
+                            {
+                                "field": "message",
+                                "operation": "starts-with",
+                                "expected_value": "[custom]",
+                            },
                         ],
-                    )],
-                ),
+                    }],
+                },
             ],
-            closes=[opsgenie.IntegrationActionCloseArgs(
-                name="Low priority alerts",
-                filters=[opsgenie.IntegrationActionCloseFilterArgs(
-                    type="match-any-condition",
-                    conditions=[
-                        opsgenie.IntegrationActionCloseFilterConditionArgs(
-                            field="priority",
-                            operation="equals",
-                            expected_value="P5",
-                        ),
-                        opsgenie.IntegrationActionCloseFilterConditionArgs(
-                            field="message",
-                            operation="contains",
-                            expected_value="DEBUG",
-                        ),
+            closes=[{
+                "name": "Low priority alerts",
+                "filters": [{
+                    "type": "match-any-condition",
+                    "conditions": [
+                        {
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P5",
+                        },
+                        {
+                            "field": "message",
+                            "operation": "contains",
+                            "expected_value": "DEBUG",
+                        },
                     ],
-                )],
-            )],
-            acknowledges=[opsgenie.IntegrationActionAcknowledgeArgs(
-                name="Auto-ack test alerts",
-                filters=[opsgenie.IntegrationActionAcknowledgeFilterArgs(
-                    type="match-all-conditions",
-                    conditions=[
-                        opsgenie.IntegrationActionAcknowledgeFilterConditionArgs(
-                            field="message",
-                            not_=True,
-                            operation="contains",
-                            expected_value="TEST",
-                        ),
-                        opsgenie.IntegrationActionAcknowledgeFilterConditionArgs(
-                            field="priority",
-                            operation="equals",
-                            expected_value="P5",
-                        ),
+                }],
+            }],
+            acknowledges=[{
+                "name": "Auto-ack test alerts",
+                "filters": [{
+                    "type": "match-all-conditions",
+                    "conditions": [
+                        {
+                            "field": "message",
+                            "not_": True,
+                            "operation": "contains",
+                            "expected_value": "TEST",
+                        },
+                        {
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P5",
+                        },
                     ],
-                )],
-            )],
-            add_notes=[opsgenie.IntegrationActionAddNoteArgs(
-                name="Add note to all alerts",
-                note="Created from test integration",
-                filters=[opsgenie.IntegrationActionAddNoteFilterArgs(
-                    type="match-all",
-                )],
-            )],
-            ignores=[opsgenie.IntegrationActionIgnoreArgs(
-                name="Ignore alerts with ignore tag",
-                filters=[opsgenie.IntegrationActionIgnoreFilterArgs(
-                    type="match-all-conditions",
-                    conditions=[opsgenie.IntegrationActionIgnoreFilterConditionArgs(
-                        field="tags",
-                        operation="contains",
-                        expected_value="ignore",
-                    )],
-                )],
-            )])
+                }],
+            }],
+            add_notes=[{
+                "name": "Add note to all alerts",
+                "note": "Created from test integration",
+                "filters": [{
+                    "type": "match-all",
+                }],
+            }],
+            ignores=[{
+                "name": "Ignore alerts with ignore tag",
+                "filters": [{
+                    "type": "match-all-conditions",
+                    "conditions": [{
+                        "field": "tags",
+                        "operation": "contains",
+                        "expected_value": "ignore",
+                    }],
+                }],
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -533,11 +533,11 @@ class IntegrationAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionAcknowledgeArgs']]]]] = None,
-                 add_notes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionAddNoteArgs']]]]] = None,
-                 closes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionCloseArgs']]]]] = None,
-                 creates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionCreateArgs']]]]] = None,
-                 ignores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionIgnoreArgs']]]]] = None,
+                 acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
+                 add_notes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
+                 closes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
+                 creates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
+                 ignores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
                  integration_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -566,11 +566,11 @@ class IntegrationAction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionAcknowledgeArgs']]]]] = None,
-            add_notes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionAddNoteArgs']]]]] = None,
-            closes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionCloseArgs']]]]] = None,
-            creates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionCreateArgs']]]]] = None,
-            ignores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationActionIgnoreArgs']]]]] = None,
+            acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
+            add_notes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
+            closes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
+            creates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
+            ignores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
             integration_id: Optional[pulumi.Input[str]] = None) -> 'IntegrationAction':
         """
         Get an existing IntegrationAction resource's state with the given name, id, and optional extra

@@ -197,7 +197,7 @@ class Team(pulumi.CustomResource):
                  delete_default_resources: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ignore_members: Optional[pulumi.Input[bool]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -221,14 +221,14 @@ class Team(pulumi.CustomResource):
             name="example",
             description="This team deals with all the things",
             members=[
-                opsgenie.TeamMemberArgs(
-                    id=first.id,
-                    role="admin",
-                ),
-                opsgenie.TeamMemberArgs(
-                    id=second.id,
-                    role="user",
-                ),
+                {
+                    "id": first.id,
+                    "role": "admin",
+                },
+                {
+                    "id": second.id,
+                    "role": "user",
+                },
             ])
         self_service = opsgenie.Team("self-service",
             name="Self Service",
@@ -250,7 +250,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] delete_default_resources: Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
         :param pulumi.Input[str] description: A description for this team.
         :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMemberArgs']]]] members: A Member block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]] members: A Member block as documented below.
         :param pulumi.Input[str] name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
         ...
@@ -280,14 +280,14 @@ class Team(pulumi.CustomResource):
             name="example",
             description="This team deals with all the things",
             members=[
-                opsgenie.TeamMemberArgs(
-                    id=first.id,
-                    role="admin",
-                ),
-                opsgenie.TeamMemberArgs(
-                    id=second.id,
-                    role="user",
-                ),
+                {
+                    "id": first.id,
+                    "role": "admin",
+                },
+                {
+                    "id": second.id,
+                    "role": "user",
+                },
             ])
         self_service = opsgenie.Team("self-service",
             name="Self Service",
@@ -322,7 +322,7 @@ class Team(pulumi.CustomResource):
                  delete_default_resources: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ignore_members: Optional[pulumi.Input[bool]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -351,7 +351,7 @@ class Team(pulumi.CustomResource):
             delete_default_resources: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             ignore_members: Optional[pulumi.Input[bool]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMemberArgs']]]]] = None,
+            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Team':
         """
         Get an existing Team resource's state with the given name, id, and optional extra
@@ -363,7 +363,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] delete_default_resources: Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
         :param pulumi.Input[str] description: A description for this team.
         :param pulumi.Input[bool] ignore_members: Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMemberArgs']]]] members: A Member block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]] members: A Member block as documented below.
         :param pulumi.Input[str] name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

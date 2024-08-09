@@ -96,7 +96,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIncidentRuleIncidentRuleArgs']]]]] = None,
+                 incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
                  service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -116,31 +116,31 @@ class ServiceIncidentRule(pulumi.CustomResource):
             team_id=test.id)
         test_service_incident_rule = opsgenie.ServiceIncidentRule("test",
             service_id=test_service.id,
-            incident_rules=[opsgenie.ServiceIncidentRuleIncidentRuleArgs(
-                condition_match_type="match-any-condition",
-                conditions=[
-                    opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs(
-                        field="message",
-                        not_=False,
-                        operation="contains",
-                        expected_value="expected1",
-                    ),
-                    opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs(
-                        field="message",
-                        not_=False,
-                        operation="contains",
-                        expected_value="expected2",
-                    ),
+            incident_rules=[{
+                "condition_match_type": "match-any-condition",
+                "conditions": [
+                    {
+                        "field": "message",
+                        "not_": False,
+                        "operation": "contains",
+                        "expected_value": "expected1",
+                    },
+                    {
+                        "field": "message",
+                        "not_": False,
+                        "operation": "contains",
+                        "expected_value": "expected2",
+                    },
                 ],
-                incident_properties=[opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs(
-                    message="This is a test message",
-                    priority="P3",
-                    stakeholder_properties=[opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs(
-                        message="Message for stakeholders",
-                        enable=True,
-                    )],
-                )],
-            )])
+                "incident_properties": [{
+                    "message": "This is a test message",
+                    "priority": "P3",
+                    "stakeholder_properties": [{
+                        "message": "Message for stakeholders",
+                        "enable": True,
+                    }],
+                }],
+            }])
         ```
 
         ## Import
@@ -153,7 +153,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIncidentRuleIncidentRuleArgs']]]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
         :param pulumi.Input[str] service_id: ID of the service associated
         """
         ...
@@ -179,31 +179,31 @@ class ServiceIncidentRule(pulumi.CustomResource):
             team_id=test.id)
         test_service_incident_rule = opsgenie.ServiceIncidentRule("test",
             service_id=test_service.id,
-            incident_rules=[opsgenie.ServiceIncidentRuleIncidentRuleArgs(
-                condition_match_type="match-any-condition",
-                conditions=[
-                    opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs(
-                        field="message",
-                        not_=False,
-                        operation="contains",
-                        expected_value="expected1",
-                    ),
-                    opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs(
-                        field="message",
-                        not_=False,
-                        operation="contains",
-                        expected_value="expected2",
-                    ),
+            incident_rules=[{
+                "condition_match_type": "match-any-condition",
+                "conditions": [
+                    {
+                        "field": "message",
+                        "not_": False,
+                        "operation": "contains",
+                        "expected_value": "expected1",
+                    },
+                    {
+                        "field": "message",
+                        "not_": False,
+                        "operation": "contains",
+                        "expected_value": "expected2",
+                    },
                 ],
-                incident_properties=[opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs(
-                    message="This is a test message",
-                    priority="P3",
-                    stakeholder_properties=[opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs(
-                        message="Message for stakeholders",
-                        enable=True,
-                    )],
-                )],
-            )])
+                "incident_properties": [{
+                    "message": "This is a test message",
+                    "priority": "P3",
+                    "stakeholder_properties": [{
+                        "message": "Message for stakeholders",
+                        "enable": True,
+                    }],
+                }],
+            }])
         ```
 
         ## Import
@@ -229,7 +229,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIncidentRuleIncidentRuleArgs']]]]] = None,
+                 incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
                  service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -256,7 +256,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIncidentRuleIncidentRuleArgs']]]]] = None,
+            incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
             service_id: Optional[pulumi.Input[str]] = None) -> 'ServiceIncidentRule':
         """
         Get an existing ServiceIncidentRule resource's state with the given name, id, and optional extra
@@ -265,7 +265,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIncidentRuleIncidentRuleArgs']]]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
         :param pulumi.Input[str] service_id: ID of the service associated
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
