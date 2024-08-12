@@ -42,20 +42,20 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var first = new User("first", UserArgs.builder()
- *             .username("user{@literal @}domain.com")
+ *             .username("user}{@literal @}{@code domain.com")
  *             .fullName("name ")
  *             .role("User")
  *             .build());
  * 
  *         var second = new User("second", UserArgs.builder()
- *             .username("test{@literal @}domain.com")
+ *             .username("test}{@literal @}{@code domain.com")
  *             .fullName("name ")
  *             .role("User")
  *             .build());
@@ -81,8 +81,8 @@ import javax.annotation.Nullable;
  *             .deleteDefaultResources(true)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -173,7 +173,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Team(String name) {
+    public Team(java.lang.String name) {
         this(name, TeamArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Team(String name, @Nullable TeamArgs args) {
+    public Team(java.lang.String name, @Nullable TeamArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,12 +190,12 @@ public class Team extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Team(String name, @Nullable TeamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/team:Team", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Team(java.lang.String name, @Nullable TeamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/team:Team", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Team(String name, Output<String> id, @Nullable TeamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/team:Team", name, state, makeResourceOptions(options, id));
+    private Team(java.lang.String name, Output<java.lang.String> id, @Nullable TeamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/team:Team", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TeamArgs makeArgs(@Nullable TeamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -205,7 +205,7 @@ public class Team extends com.pulumi.resources.CustomResource {
         return args == null ? TeamArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -221,7 +221,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Team get(String name, Output<String> id, @Nullable TeamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Team get(java.lang.String name, Output<java.lang.String> id, @Nullable TeamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Team(name, id, state, options);
     }
 }
