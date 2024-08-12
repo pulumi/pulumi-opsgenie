@@ -281,10 +281,10 @@ class ScheduleRotation(pulumi.CustomResource):
                  end_date: Optional[pulumi.Input[str]] = None,
                  length: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 participants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleRotationParticipantArgs']]]]] = None,
+                 participants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]]] = None,
                  schedule_id: Optional[pulumi.Input[str]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleRotationTimeRestrictionArgs']]]]] = None,
+                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationTimeRestrictionArgs', 'ScheduleRotationTimeRestrictionArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -303,19 +303,19 @@ class ScheduleRotation(pulumi.CustomResource):
             end_date="2019-06-20T17:30:00Z",
             type="hourly",
             length=6,
-            participants=[opsgenie.ScheduleRotationParticipantArgs(
-                type="user",
-                id=test_opsgenie_user["id"],
-            )],
-            time_restrictions=[opsgenie.ScheduleRotationTimeRestrictionArgs(
-                type="time-of-day",
-                restriction=[opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs(
-                    start_hour=1,
-                    start_min=1,
-                    end_hour=10,
-                    end_min=1,
-                )],
-            )])
+            participants=[{
+                "type": "user",
+                "id": test_opsgenie_user["id"],
+            }],
+            time_restrictions=[{
+                "type": "time-of-day",
+                "restriction": [{
+                    "start_hour": 1,
+                    "start_min": 1,
+                    "end_hour": 10,
+                    "end_min": 1,
+                }],
+            }])
         ```
 
         ## Import
@@ -331,7 +331,7 @@ class ScheduleRotation(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
         :param pulumi.Input[int] length: Length of the rotation with default value 1.
         :param pulumi.Input[str] name: Name of rotation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleRotationParticipantArgs']]]] participants: List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]] participants: List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
         :param pulumi.Input[str] schedule_id: Identifier of the schedule.
         :param pulumi.Input[str] start_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
         :param pulumi.Input[str] type: Type of rotation. May be one of daily, weekly and hourly.
@@ -358,19 +358,19 @@ class ScheduleRotation(pulumi.CustomResource):
             end_date="2019-06-20T17:30:00Z",
             type="hourly",
             length=6,
-            participants=[opsgenie.ScheduleRotationParticipantArgs(
-                type="user",
-                id=test_opsgenie_user["id"],
-            )],
-            time_restrictions=[opsgenie.ScheduleRotationTimeRestrictionArgs(
-                type="time-of-day",
-                restriction=[opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs(
-                    start_hour=1,
-                    start_min=1,
-                    end_hour=10,
-                    end_min=1,
-                )],
-            )])
+            participants=[{
+                "type": "user",
+                "id": test_opsgenie_user["id"],
+            }],
+            time_restrictions=[{
+                "type": "time-of-day",
+                "restriction": [{
+                    "start_hour": 1,
+                    "start_min": 1,
+                    "end_hour": 10,
+                    "end_min": 1,
+                }],
+            }])
         ```
 
         ## Import
@@ -399,10 +399,10 @@ class ScheduleRotation(pulumi.CustomResource):
                  end_date: Optional[pulumi.Input[str]] = None,
                  length: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 participants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleRotationParticipantArgs']]]]] = None,
+                 participants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]]] = None,
                  schedule_id: Optional[pulumi.Input[str]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleRotationTimeRestrictionArgs']]]]] = None,
+                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationTimeRestrictionArgs', 'ScheduleRotationTimeRestrictionArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -442,10 +442,10 @@ class ScheduleRotation(pulumi.CustomResource):
             end_date: Optional[pulumi.Input[str]] = None,
             length: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            participants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleRotationParticipantArgs']]]]] = None,
+            participants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]]] = None,
             schedule_id: Optional[pulumi.Input[str]] = None,
             start_date: Optional[pulumi.Input[str]] = None,
-            time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleRotationTimeRestrictionArgs']]]]] = None,
+            time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationTimeRestrictionArgs', 'ScheduleRotationTimeRestrictionArgsDict']]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ScheduleRotation':
         """
         Get an existing ScheduleRotation resource's state with the given name, id, and optional extra
@@ -457,7 +457,7 @@ class ScheduleRotation(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
         :param pulumi.Input[int] length: Length of the rotation with default value 1.
         :param pulumi.Input[str] name: Name of rotation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleRotationParticipantArgs']]]] participants: List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]] participants: List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
         :param pulumi.Input[str] schedule_id: Identifier of the schedule.
         :param pulumi.Input[str] start_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
         :param pulumi.Input[str] type: Type of rotation. May be one of daily, weekly and hourly.

@@ -256,7 +256,7 @@ public class IntegrationAction extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationAction(String name) {
+    public IntegrationAction(java.lang.String name) {
         this(name, IntegrationActionArgs.Empty);
     }
     /**
@@ -264,7 +264,7 @@ public class IntegrationAction extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationAction(String name, IntegrationActionArgs args) {
+    public IntegrationAction(java.lang.String name, IntegrationActionArgs args) {
         this(name, args, null);
     }
     /**
@@ -273,12 +273,12 @@ public class IntegrationAction extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationAction(String name, IntegrationActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/integrationAction:IntegrationAction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IntegrationAction(java.lang.String name, IntegrationActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/integrationAction:IntegrationAction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationAction(String name, Output<String> id, @Nullable IntegrationActionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/integrationAction:IntegrationAction", name, state, makeResourceOptions(options, id));
+    private IntegrationAction(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationActionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/integrationAction:IntegrationAction", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IntegrationActionArgs makeArgs(IntegrationActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -288,7 +288,7 @@ public class IntegrationAction extends com.pulumi.resources.CustomResource {
         return args == null ? IntegrationActionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -304,7 +304,7 @@ public class IntegrationAction extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationAction get(String name, Output<String> id, @Nullable IntegrationActionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationAction get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationActionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationAction(name, id, state, options);
     }
 }

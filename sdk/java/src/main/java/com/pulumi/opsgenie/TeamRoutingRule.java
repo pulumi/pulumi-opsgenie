@@ -232,7 +232,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TeamRoutingRule(String name) {
+    public TeamRoutingRule(java.lang.String name) {
         this(name, TeamRoutingRuleArgs.Empty);
     }
     /**
@@ -240,7 +240,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TeamRoutingRule(String name, TeamRoutingRuleArgs args) {
+    public TeamRoutingRule(java.lang.String name, TeamRoutingRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -249,12 +249,12 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TeamRoutingRule(String name, TeamRoutingRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/teamRoutingRule:TeamRoutingRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public TeamRoutingRule(java.lang.String name, TeamRoutingRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/teamRoutingRule:TeamRoutingRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TeamRoutingRule(String name, Output<String> id, @Nullable TeamRoutingRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("opsgenie:index/teamRoutingRule:TeamRoutingRule", name, state, makeResourceOptions(options, id));
+    private TeamRoutingRule(java.lang.String name, Output<java.lang.String> id, @Nullable TeamRoutingRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("opsgenie:index/teamRoutingRule:TeamRoutingRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TeamRoutingRuleArgs makeArgs(TeamRoutingRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -264,7 +264,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
         return args == null ? TeamRoutingRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -280,7 +280,7 @@ public class TeamRoutingRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TeamRoutingRule get(String name, Output<String> id, @Nullable TeamRoutingRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TeamRoutingRule get(java.lang.String name, Output<java.lang.String> id, @Nullable TeamRoutingRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TeamRoutingRule(name, id, state, options);
     }
 }
