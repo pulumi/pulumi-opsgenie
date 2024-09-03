@@ -621,7 +621,7 @@
                 },
                 "customPriority": {
                     "type": "string",
-                    "description": "Custom alert priority. e.g. ``{{message.substring(0,2)}}``\n"
+                    "description": "Custom alert priority. e.g. `{{message.substring(0,2)}}`\n"
                 },
                 "description": {
                     "type": "string",
