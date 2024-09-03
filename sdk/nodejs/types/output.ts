@@ -395,7 +395,7 @@ export interface IntegrationActionCreate {
     alias?: string;
     appendAttachments?: boolean;
     /**
-     * Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+     * Custom alert priority. e.g. `{{message.substring(0,2)}}`
      */
     customPriority?: string;
     /**

@@ -26,7 +26,7 @@ public final class IntegrationActionCreate {
     private @Nullable String alias;
     private @Nullable Boolean appendAttachments;
     /**
-     * @return Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+     * @return Custom alert priority. e.g. `{{message.substring(0,2)}}`
      * 
      */
     private @Nullable String customPriority;
@@ -132,7 +132,7 @@ public final class IntegrationActionCreate {
         return Optional.ofNullable(this.appendAttachments);
     }
     /**
-     * @return Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+     * @return Custom alert priority. e.g. `{{message.substring(0,2)}}`
      * 
      */
     public Optional<String> customPriority() {

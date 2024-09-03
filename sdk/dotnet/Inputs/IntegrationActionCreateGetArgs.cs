@@ -30,7 +30,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<bool>? AppendAttachments { get; set; }
 
         /// <summary>
-        /// Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+        /// Custom alert priority. e.g. `{{message.substring(0,2)}}`
         /// </summary>
         [Input("customPriority")]
         public Input<string>? CustomPriority { get; set; }
