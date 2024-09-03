@@ -52,14 +52,14 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+     * Custom alert priority. e.g. `{{message.substring(0,2)}}`
      * 
      */
     @Import(name="customPriority")
     private @Nullable Output<String> customPriority;
 
     /**
-     * @return Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+     * @return Custom alert priority. e.g. `{{message.substring(0,2)}}`
      * 
      */
     public Optional<Output<String>> customPriority() {
@@ -423,7 +423,7 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customPriority Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+         * @param customPriority Custom alert priority. e.g. `{{message.substring(0,2)}}`
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customPriority Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+         * @param customPriority Custom alert priority. e.g. `{{message.substring(0,2)}}`
          * 
          * @return builder
          * 

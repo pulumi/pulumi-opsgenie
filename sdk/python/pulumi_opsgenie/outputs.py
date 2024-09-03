@@ -1411,7 +1411,7 @@ class IntegrationActionCreate(dict):
         """
         :param str name: Name of the integration action.
         :param str alias: An identifier that is used for alert deduplication. Default: `{{alias}}`.
-        :param str custom_priority: Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+        :param str custom_priority: Custom alert priority. e.g. `{{message.substring(0,2)}}`
         :param str description: Detailed description of the alert, anything that may not have fit in the `message` field.
         :param str entity: The entity the alert is related to.
         :param Mapping[str, str] extra_properties: Set of user defined properties specified as a map.
@@ -1507,7 +1507,7 @@ class IntegrationActionCreate(dict):
     @pulumi.getter(name="customPriority")
     def custom_priority(self) -> Optional[str]:
         """
-        Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+        Custom alert priority. e.g. `{{message.substring(0,2)}}`
         """
         return pulumi.get(self, "custom_priority")
 

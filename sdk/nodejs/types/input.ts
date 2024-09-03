@@ -426,7 +426,7 @@ export interface IntegrationActionCreate {
     alias?: pulumi.Input<string>;
     appendAttachments?: pulumi.Input<boolean>;
     /**
-     * Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+     * Custom alert priority. e.g. `{{message.substring(0,2)}}`
      */
     customPriority?: pulumi.Input<string>;
     /**

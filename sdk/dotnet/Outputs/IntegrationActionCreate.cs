@@ -20,7 +20,7 @@ namespace Pulumi.Opsgenie.Outputs
         public readonly string? Alias;
         public readonly bool? AppendAttachments;
         /// <summary>
-        /// Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+        /// Custom alert priority. e.g. `{{message.substring(0,2)}}`
         /// </summary>
         public readonly string? CustomPriority;
         /// <summary>

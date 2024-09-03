@@ -2611,7 +2611,7 @@ type IntegrationActionCreate struct {
 	// An identifier that is used for alert deduplication. Default: `{{alias}}`.
 	Alias             *string `pulumi:"alias"`
 	AppendAttachments *bool   `pulumi:"appendAttachments"`
-	// Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+	// Custom alert priority. e.g. `{{message.substring(0,2)}}`
 	CustomPriority *string `pulumi:"customPriority"`
 	// Detailed description of the alert, anything that may not have fit in the `message` field.
 	Description *string `pulumi:"description"`
@@ -2669,7 +2669,7 @@ type IntegrationActionCreateArgs struct {
 	// An identifier that is used for alert deduplication. Default: `{{alias}}`.
 	Alias             pulumi.StringPtrInput `pulumi:"alias"`
 	AppendAttachments pulumi.BoolPtrInput   `pulumi:"appendAttachments"`
-	// Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+	// Custom alert priority. e.g. `{{message.substring(0,2)}}`
 	CustomPriority pulumi.StringPtrInput `pulumi:"customPriority"`
 	// Detailed description of the alert, anything that may not have fit in the `message` field.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -2775,7 +2775,7 @@ func (o IntegrationActionCreateOutput) AppendAttachments() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v IntegrationActionCreate) *bool { return v.AppendAttachments }).(pulumi.BoolPtrOutput)
 }
 
-// Custom alert priority. e.g. “{{message.substring(0,2)}}“
+// Custom alert priority. e.g. `{{message.substring(0,2)}}`
 func (o IntegrationActionCreateOutput) CustomPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationActionCreate) *string { return v.CustomPriority }).(pulumi.StringPtrOutput)
 }
