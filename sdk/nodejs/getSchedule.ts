@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("opsgenie:index/getSchedule:getSchedule", {
         "description": args.description,
@@ -97,7 +96,14 @@ export interface GetScheduleResult {
  * ```
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("opsgenie:index/getSchedule:getSchedule", {
+        "description": args.description,
+        "enabled": args.enabled,
+        "name": args.name,
+        "ownerTeamId": args.ownerTeamId,
+        "timezone": args.timezone,
+    }, opts);
 }
 
 /**

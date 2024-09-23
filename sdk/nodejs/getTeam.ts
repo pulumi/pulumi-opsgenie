@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("opsgenie:index/getTeam:getTeam", {
         "description": args.description,
@@ -77,7 +76,12 @@ export interface GetTeamResult {
  * ```
  */
 export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
-    return pulumi.output(args).apply((a: any) => getTeam(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("opsgenie:index/getTeam:getTeam", {
+        "description": args.description,
+        "members": args.members,
+        "name": args.name,
+    }, opts);
 }
 
 /**
