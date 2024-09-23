@@ -95,14 +95,20 @@ type LookupHeartbeatResult struct {
 
 func LookupHeartbeatOutput(ctx *pulumi.Context, args LookupHeartbeatOutputArgs, opts ...pulumi.InvokeOption) LookupHeartbeatResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupHeartbeatResult, error) {
+		ApplyT(func(v interface{}) (LookupHeartbeatResultOutput, error) {
 			args := v.(LookupHeartbeatArgs)
-			r, err := LookupHeartbeat(ctx, &args, opts...)
-			var s LookupHeartbeatResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupHeartbeatResult
+			secret, err := ctx.InvokePackageRaw("opsgenie:index/getHeartbeat:getHeartbeat", args, &rv, "", opts...)
+			if err != nil {
+				return LookupHeartbeatResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupHeartbeatResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupHeartbeatResultOutput), nil
+			}
+			return output, nil
 		}).(LookupHeartbeatResultOutput)
 }
 

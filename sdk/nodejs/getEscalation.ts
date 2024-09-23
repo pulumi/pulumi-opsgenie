@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getEscalation(args: GetEscalationArgs, opts?: pulumi.InvokeOptions): Promise<GetEscalationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("opsgenie:index/getEscalation:getEscalation", {
         "description": args.description,
@@ -99,7 +98,14 @@ export interface GetEscalationResult {
  * ```
  */
 export function getEscalationOutput(args: GetEscalationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEscalationResult> {
-    return pulumi.output(args).apply((a: any) => getEscalation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("opsgenie:index/getEscalation:getEscalation", {
+        "description": args.description,
+        "name": args.name,
+        "ownerTeamId": args.ownerTeamId,
+        "repeats": args.repeats,
+        "rules": args.rules,
+    }, opts);
 }
 
 /**

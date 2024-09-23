@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getHeartbeat(args: GetHeartbeatArgs, opts?: pulumi.InvokeOptions): Promise<GetHeartbeatResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("opsgenie:index/getHeartbeat:getHeartbeat", {
         "alertMessage": args.alertMessage,
@@ -133,7 +132,18 @@ export interface GetHeartbeatResult {
  * ```
  */
 export function getHeartbeatOutput(args: GetHeartbeatOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHeartbeatResult> {
-    return pulumi.output(args).apply((a: any) => getHeartbeat(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("opsgenie:index/getHeartbeat:getHeartbeat", {
+        "alertMessage": args.alertMessage,
+        "alertPriority": args.alertPriority,
+        "alertTags": args.alertTags,
+        "description": args.description,
+        "enabled": args.enabled,
+        "interval": args.interval,
+        "intervalUnit": args.intervalUnit,
+        "name": args.name,
+        "ownerTeamId": args.ownerTeamId,
+    }, opts);
 }
 
 /**
