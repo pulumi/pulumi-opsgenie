@@ -5,6 +5,7 @@ env:
 makeTemplate: bridged
 team: ecosystem
 pulumiConvert: 1
+registryDocs: true
 plugins:
   - name: std
     version: "1.6.2"
