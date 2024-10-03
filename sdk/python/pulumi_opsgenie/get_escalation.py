@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -144,9 +149,6 @@ def get_escalation(description: Optional[str] = None,
         owner_team_id=pulumi.get(__ret__, 'owner_team_id'),
         repeats=pulumi.get(__ret__, 'repeats'),
         rules=pulumi.get(__ret__, 'rules'))
-
-
-@_utilities.lift_output_func(get_escalation)
 def get_escalation_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                           name: Optional[pulumi.Input[str]] = None,
                           owner_team_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -172,4 +174,18 @@ def get_escalation_output(description: Optional[pulumi.Input[Optional[str]]] = N
     :param Sequence[Union['GetEscalationRepeatArgs', 'GetEscalationRepeatArgsDict']] repeats: Escalation repeat preferences
     :param Sequence[Union['GetEscalationRuleArgs', 'GetEscalationRuleArgsDict']] rules: Escalation rules
     """
-    ...
+    __args__ = dict()
+    __args__['description'] = description
+    __args__['name'] = name
+    __args__['ownerTeamId'] = owner_team_id
+    __args__['repeats'] = repeats
+    __args__['rules'] = rules
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('opsgenie:index/getEscalation:getEscalation', __args__, opts=opts, typ=GetEscalationResult)
+    return __ret__.apply(lambda __response__: GetEscalationResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner_team_id=pulumi.get(__response__, 'owner_team_id'),
+        repeats=pulumi.get(__response__, 'repeats'),
+        rules=pulumi.get(__response__, 'rules')))
