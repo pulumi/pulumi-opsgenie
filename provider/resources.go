@@ -15,6 +15,7 @@
 package opsgenie
 
 import (
+	"bytes"
 	"fmt"
 	"path/filepath"
 	"unicode"
@@ -81,6 +82,9 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-opsgenie",
 		GitHubOrg:   "opsgenie",
+		DocRules: &tfbridge.DocRuleInfo{
+			EditRules: docEditRules,
+		},
 		Config: map[string]*tfbridge.SchemaInfo{
 			"api_url": {
 				Default: &tfbridge.DefaultInfo{
@@ -252,6 +256,32 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	edits := []tfbridge.DocsEdit{
+		// Remove a section relating to the upstream provider
+		targetedReplace(
+			"index.html.markdown",
+			"**Breaking Change - v0.6.0**\n\nWith 0.6.0 version provider adopted Terraform Plugin SDK v2 therefore "+
+				"some resources reads has changed.\nIf you encounter any problems you can contact us via Github",
+			"",
+		),
+	}
+	return append(
+		edits,
+		defaults...,
+	)
+}
+
+func targetedReplace(filePath, from, to string) tfbridge.DocsEdit {
+	fromB, toB := []byte(from), []byte(to)
+	return tfbridge.DocsEdit{
+		Path: filePath,
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			return bytes.ReplaceAll(content, fromB, toB), nil
+		},
+	}
 }
 
 //go:embed cmd/pulumi-resource-opsgenie/bridge-metadata.json
