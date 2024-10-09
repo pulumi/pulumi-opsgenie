@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = opsgenie.NewNotificationPolicy(ctx, "test", &opsgenie.NotificationPolicyArgs{
 //				Filters: opsgenie.NotificationPolicyFilterArray{
-//					nil,
+//					&opsgenie.NotificationPolicyFilterArgs{},
 //				},
 //				Name:              pulumi.String("example policy"),
 //				TeamId:            test.ID(),

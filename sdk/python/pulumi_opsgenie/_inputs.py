@@ -4,85 +4,177 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'AlertPolicyFilterArgs',
+    'AlertPolicyFilterArgsDict',
     'AlertPolicyFilterConditionArgs',
+    'AlertPolicyFilterConditionArgsDict',
     'AlertPolicyResponderArgs',
+    'AlertPolicyResponderArgsDict',
     'AlertPolicyTimeRestrictionArgs',
+    'AlertPolicyTimeRestrictionArgsDict',
     'AlertPolicyTimeRestrictionRestrictionArgs',
+    'AlertPolicyTimeRestrictionRestrictionArgsDict',
     'AlertPolicyTimeRestrictionRestrictionListArgs',
+    'AlertPolicyTimeRestrictionRestrictionListArgsDict',
     'ApiIntegrationResponderArgs',
+    'ApiIntegrationResponderArgsDict',
     'EmailIntegrationResponderArgs',
+    'EmailIntegrationResponderArgsDict',
     'EscalationRepeatArgs',
+    'EscalationRepeatArgsDict',
     'EscalationRuleArgs',
+    'EscalationRuleArgsDict',
     'EscalationRuleRecipientArgs',
+    'EscalationRuleRecipientArgsDict',
     'IncidentTemplateStakeholderPropertyArgs',
+    'IncidentTemplateStakeholderPropertyArgsDict',
     'IntegrationActionAcknowledgeArgs',
+    'IntegrationActionAcknowledgeArgsDict',
     'IntegrationActionAcknowledgeFilterArgs',
+    'IntegrationActionAcknowledgeFilterArgsDict',
     'IntegrationActionAcknowledgeFilterConditionArgs',
+    'IntegrationActionAcknowledgeFilterConditionArgsDict',
     'IntegrationActionAddNoteArgs',
+    'IntegrationActionAddNoteArgsDict',
     'IntegrationActionAddNoteFilterArgs',
+    'IntegrationActionAddNoteFilterArgsDict',
     'IntegrationActionAddNoteFilterConditionArgs',
+    'IntegrationActionAddNoteFilterConditionArgsDict',
     'IntegrationActionCloseArgs',
+    'IntegrationActionCloseArgsDict',
     'IntegrationActionCloseFilterArgs',
+    'IntegrationActionCloseFilterArgsDict',
     'IntegrationActionCloseFilterConditionArgs',
+    'IntegrationActionCloseFilterConditionArgsDict',
     'IntegrationActionCreateArgs',
+    'IntegrationActionCreateArgsDict',
     'IntegrationActionCreateFilterArgs',
+    'IntegrationActionCreateFilterArgsDict',
     'IntegrationActionCreateFilterConditionArgs',
+    'IntegrationActionCreateFilterConditionArgsDict',
     'IntegrationActionCreateResponderArgs',
+    'IntegrationActionCreateResponderArgsDict',
     'IntegrationActionIgnoreArgs',
+    'IntegrationActionIgnoreArgsDict',
     'IntegrationActionIgnoreFilterArgs',
+    'IntegrationActionIgnoreFilterArgsDict',
     'IntegrationActionIgnoreFilterConditionArgs',
+    'IntegrationActionIgnoreFilterConditionArgsDict',
     'MaintenanceRuleArgs',
+    'MaintenanceRuleArgsDict',
     'MaintenanceRuleEntityArgs',
+    'MaintenanceRuleEntityArgsDict',
     'MaintenanceTimeArgs',
+    'MaintenanceTimeArgsDict',
     'NotificationPolicyAutoCloseActionArgs',
+    'NotificationPolicyAutoCloseActionArgsDict',
     'NotificationPolicyAutoCloseActionDurationArgs',
+    'NotificationPolicyAutoCloseActionDurationArgsDict',
     'NotificationPolicyAutoRestartActionArgs',
+    'NotificationPolicyAutoRestartActionArgsDict',
     'NotificationPolicyAutoRestartActionDurationArgs',
+    'NotificationPolicyAutoRestartActionDurationArgsDict',
     'NotificationPolicyDeDuplicationActionArgs',
+    'NotificationPolicyDeDuplicationActionArgsDict',
     'NotificationPolicyDeDuplicationActionDurationArgs',
+    'NotificationPolicyDeDuplicationActionDurationArgsDict',
     'NotificationPolicyDelayActionArgs',
+    'NotificationPolicyDelayActionArgsDict',
     'NotificationPolicyDelayActionDurationArgs',
+    'NotificationPolicyDelayActionDurationArgsDict',
     'NotificationPolicyFilterArgs',
+    'NotificationPolicyFilterArgsDict',
     'NotificationPolicyFilterConditionArgs',
+    'NotificationPolicyFilterConditionArgsDict',
     'NotificationPolicyTimeRestrictionArgs',
+    'NotificationPolicyTimeRestrictionArgsDict',
     'NotificationPolicyTimeRestrictionRestrictionArgs',
+    'NotificationPolicyTimeRestrictionRestrictionArgsDict',
     'NotificationPolicyTimeRestrictionRestrictionListArgs',
+    'NotificationPolicyTimeRestrictionRestrictionListArgsDict',
     'NotificationRuleCriteriaArgs',
+    'NotificationRuleCriteriaArgsDict',
     'NotificationRuleCriteriaConditionArgs',
+    'NotificationRuleCriteriaConditionArgsDict',
     'NotificationRuleRepeatArgs',
+    'NotificationRuleRepeatArgsDict',
     'NotificationRuleScheduleArgs',
+    'NotificationRuleScheduleArgsDict',
     'NotificationRuleStepArgs',
+    'NotificationRuleStepArgsDict',
     'NotificationRuleStepContactArgs',
+    'NotificationRuleStepContactArgsDict',
     'NotificationRuleTimeRestrictionArgs',
+    'NotificationRuleTimeRestrictionArgsDict',
     'NotificationRuleTimeRestrictionRestrictionArgs',
+    'NotificationRuleTimeRestrictionRestrictionArgsDict',
     'ScheduleRotationParticipantArgs',
+    'ScheduleRotationParticipantArgsDict',
     'ScheduleRotationTimeRestrictionArgs',
+    'ScheduleRotationTimeRestrictionArgsDict',
     'ScheduleRotationTimeRestrictionRestrictionArgs',
+    'ScheduleRotationTimeRestrictionRestrictionArgsDict',
     'ScheduleRotationTimeRestrictionRestrictionListArgs',
+    'ScheduleRotationTimeRestrictionRestrictionListArgsDict',
     'ServiceIncidentRuleIncidentRuleArgs',
+    'ServiceIncidentRuleIncidentRuleArgsDict',
     'ServiceIncidentRuleIncidentRuleConditionArgs',
+    'ServiceIncidentRuleIncidentRuleConditionArgsDict',
     'ServiceIncidentRuleIncidentRuleIncidentPropertyArgs',
+    'ServiceIncidentRuleIncidentRuleIncidentPropertyArgsDict',
     'ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs',
+    'ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgsDict',
     'TeamMemberArgs',
+    'TeamMemberArgsDict',
     'TeamRoutingRuleCriteriaArgs',
+    'TeamRoutingRuleCriteriaArgsDict',
     'TeamRoutingRuleCriteriaConditionArgs',
+    'TeamRoutingRuleCriteriaConditionArgsDict',
     'TeamRoutingRuleNotifyArgs',
+    'TeamRoutingRuleNotifyArgsDict',
     'TeamRoutingRuleTimeRestrictionArgs',
+    'TeamRoutingRuleTimeRestrictionArgsDict',
     'TeamRoutingRuleTimeRestrictionRestrictionArgs',
+    'TeamRoutingRuleTimeRestrictionRestrictionArgsDict',
     'TeamRoutingRuleTimeRestrictionRestrictionListArgs',
+    'TeamRoutingRuleTimeRestrictionRestrictionListArgsDict',
     'UserUserAddressArgs',
+    'UserUserAddressArgsDict',
     'GetEscalationRepeatArgs',
+    'GetEscalationRepeatArgsDict',
     'GetEscalationRuleArgs',
+    'GetEscalationRuleArgsDict',
     'GetEscalationRuleRecipientArgs',
+    'GetEscalationRuleRecipientArgsDict',
     'GetTeamMemberArgs',
+    'GetTeamMemberArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AlertPolicyFilterArgsDict(TypedDict):
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterConditionArgsDict']]]]
+        """
+        Conditions applied to filter. This is a block, structure is documented below.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
+        """
+elif False:
+    AlertPolicyFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertPolicyFilterArgs:
@@ -122,6 +214,35 @@ class AlertPolicyFilterArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class AlertPolicyFilterConditionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        """
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
+        """
+        operation: pulumi.Input[str]
+        """
+        It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
+        """
+        expected_value: NotRequired[pulumi.Input[str]]
+        """
+        User defined value that will be compared with alert field according to the operation. Default: empty string
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        If `field` is set as extra-properties, key could be used for key-value pair
+        """
+        not_: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates behaviour of the given operation. Default: `false`
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Order of the condition in conditions list
+        """
+elif False:
+    AlertPolicyFilterConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertPolicyFilterConditionArgs:
@@ -224,6 +345,27 @@ class AlertPolicyFilterConditionArgs:
         pulumi.set(self, "order", value)
 
 
+if not MYPY:
+    class AlertPolicyResponderArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        ID of the responder
+        """
+        type: pulumi.Input[str]
+        """
+        Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the responder
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Username of the responder
+        """
+elif False:
+    AlertPolicyResponderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertPolicyResponderArgs:
     def __init__(__self__, *,
@@ -293,6 +435,23 @@ class AlertPolicyResponderArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class AlertPolicyTimeRestrictionArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+        """
+        restriction: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgsDict']]]]
+        """
+        A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+        """
+        restriction_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgsDict']]]]
+        """
+        List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
+        """
+elif False:
+    AlertPolicyTimeRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertPolicyTimeRestrictionArgs:
     def __init__(__self__, *,
@@ -346,6 +505,27 @@ class AlertPolicyTimeRestrictionArgs:
     def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]]):
         pulumi.set(self, "restriction_list", value)
 
+
+if not MYPY:
+    class AlertPolicyTimeRestrictionRestrictionArgsDict(TypedDict):
+        end_hour: pulumi.Input[int]
+        """
+        Ending hour of restriction.
+        """
+        end_min: pulumi.Input[int]
+        """
+        Ending minute of restriction on defined `end_hour`
+        """
+        start_hour: pulumi.Input[int]
+        """
+        Starting hour of restriction.
+        """
+        start_min: pulumi.Input[int]
+        """
+        Staring minute of restriction on defined `start_hour`
+        """
+elif False:
+    AlertPolicyTimeRestrictionRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertPolicyTimeRestrictionRestrictionArgs:
@@ -413,6 +593,35 @@ class AlertPolicyTimeRestrictionRestrictionArgs:
     def start_min(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_min", value)
 
+
+if not MYPY:
+    class AlertPolicyTimeRestrictionRestrictionListArgsDict(TypedDict):
+        end_day: pulumi.Input[str]
+        """
+        Ending day of restriction (eg. `wednesday`)
+        """
+        end_hour: pulumi.Input[int]
+        """
+        Ending hour of restriction on defined `end_day`
+        """
+        end_min: pulumi.Input[int]
+        """
+        Ending minute of restriction on defined `end_hour`
+        """
+        start_day: pulumi.Input[str]
+        """
+        Starting day of restriction (eg. `monday`)
+        """
+        start_hour: pulumi.Input[int]
+        """
+        Starting hour of restriction on defined `start_day`
+        """
+        start_min: pulumi.Input[int]
+        """
+        Staring minute of restriction on defined `start_hour`
+        """
+elif False:
+    AlertPolicyTimeRestrictionRestrictionListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertPolicyTimeRestrictionRestrictionListArgs:
@@ -511,6 +720,19 @@ class AlertPolicyTimeRestrictionRestrictionListArgs:
         pulumi.set(self, "start_min", value)
 
 
+if not MYPY:
+    class ApiIntegrationResponderArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the responder.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The responder type.
+        """
+elif False:
+    ApiIntegrationResponderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiIntegrationResponderArgs:
     def __init__(__self__, *,
@@ -550,6 +772,19 @@ class ApiIntegrationResponderArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class EmailIntegrationResponderArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Opsgenie Email based Integration.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The responder type.
+        """
+elif False:
+    EmailIntegrationResponderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmailIntegrationResponderArgs:
     def __init__(__self__, *,
@@ -588,6 +823,15 @@ class EmailIntegrationResponderArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class EscalationRepeatArgsDict(TypedDict):
+        close_alert_after_all: NotRequired[pulumi.Input[bool]]
+        count: NotRequired[pulumi.Input[int]]
+        reset_recipient_states: NotRequired[pulumi.Input[bool]]
+        wait_interval: NotRequired[pulumi.Input[int]]
+elif False:
+    EscalationRepeatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EscalationRepeatArgs:
@@ -641,6 +885,27 @@ class EscalationRepeatArgs:
     def wait_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "wait_interval", value)
 
+
+if not MYPY:
+    class EscalationRuleArgsDict(TypedDict):
+        condition: pulumi.Input[str]
+        """
+        The condition for notifying the recipient of escalation rule that is based on the alert state. Possible values are: `if-not-acked` and `if-not-closed`. Default: `if-not-acked`
+        """
+        delay: pulumi.Input[int]
+        """
+        Time delay of the escalation rule, in minutes.
+        """
+        notify_type: pulumi.Input[str]
+        """
+        Recipient calculation logic for schedules. Possible values are:
+        """
+        recipients: pulumi.Input[Sequence[pulumi.Input['EscalationRuleRecipientArgsDict']]]
+        """
+        Object of schedule, team, or users which will be notified in escalation. The possible values for participants are: `user`, `schedule`, `team`. There can only be one recipient per each `rules`.
+        """
+elif False:
+    EscalationRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EscalationRuleArgs:
@@ -709,6 +974,16 @@ class EscalationRuleArgs:
         pulumi.set(self, "recipients", value)
 
 
+if not MYPY:
+    class EscalationRuleRecipientArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Opsgenie Escalation.
+        """
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    EscalationRuleRecipientArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EscalationRuleRecipientArgs:
     def __init__(__self__, *,
@@ -743,6 +1018,23 @@ class EscalationRuleRecipientArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class IncidentTemplateStakeholderPropertyArgsDict(TypedDict):
+        message: pulumi.Input[str]
+        """
+        Message of the related incident template. This field must not be longer than 130 characters.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description field of the incident template. This field must not be longer than 10000 characters.
+        """
+        enable: NotRequired[pulumi.Input[bool]]
+        """
+        Option to enable stakeholder notifications.Default value is true.
+        """
+elif False:
+    IncidentTemplateStakeholderPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentTemplateStakeholderPropertyArgs:
@@ -797,6 +1089,42 @@ class IncidentTemplateStakeholderPropertyArgs:
     def enable(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable", value)
 
+
+if not MYPY:
+    class IntegrationActionAcknowledgeArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the integration action.
+        """
+        alias: NotRequired[pulumi.Input[str]]
+        """
+        An identifier that is used for alert deduplication. Default: `{{alias}}`.
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgsDict']]]]
+        """
+        Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
+        * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
+        * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
+        * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+        """
+        note: NotRequired[pulumi.Input[str]]
+        """
+        Additional alert action note.
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Integer value that defines in which order the action will be performed. Default: `1`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        Owner of the execution for integration action.
+        """
+elif False:
+    IntegrationActionAcknowledgeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationActionAcknowledgeArgs:
@@ -922,6 +1250,16 @@ class IntegrationActionAcknowledgeArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class IntegrationActionAcknowledgeFilterArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgsDict']]]]
+elif False:
+    IntegrationActionAcknowledgeFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationActionAcknowledgeFilterArgs:
     def __init__(__self__, *,
@@ -955,6 +1293,20 @@ class IntegrationActionAcknowledgeFilterArgs:
     def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class IntegrationActionAcknowledgeFilterConditionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        operation: pulumi.Input[str]
+        expected_value: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        not_: NotRequired[pulumi.Input[bool]]
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Integer value that defines in which order the action will be performed. Default: `1`.
+        """
+elif False:
+    IntegrationActionAcknowledgeFilterConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationActionAcknowledgeFilterConditionArgs:
@@ -1036,6 +1388,42 @@ class IntegrationActionAcknowledgeFilterConditionArgs:
     def order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "order", value)
 
+
+if not MYPY:
+    class IntegrationActionAddNoteArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the integration action.
+        """
+        alias: NotRequired[pulumi.Input[str]]
+        """
+        An identifier that is used for alert deduplication. Default: `{{alias}}`.
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgsDict']]]]
+        """
+        Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
+        * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
+        * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
+        * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+        """
+        note: NotRequired[pulumi.Input[str]]
+        """
+        Additional alert action note.
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Integer value that defines in which order the action will be performed. Default: `1`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        Owner of the execution for integration action.
+        """
+elif False:
+    IntegrationActionAddNoteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationActionAddNoteArgs:
@@ -1161,6 +1549,16 @@ class IntegrationActionAddNoteArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class IntegrationActionAddNoteFilterArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgsDict']]]]
+elif False:
+    IntegrationActionAddNoteFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationActionAddNoteFilterArgs:
     def __init__(__self__, *,
@@ -1194,6 +1592,20 @@ class IntegrationActionAddNoteFilterArgs:
     def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class IntegrationActionAddNoteFilterConditionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        operation: pulumi.Input[str]
+        expected_value: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        not_: NotRequired[pulumi.Input[bool]]
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Integer value that defines in which order the action will be performed. Default: `1`.
+        """
+elif False:
+    IntegrationActionAddNoteFilterConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationActionAddNoteFilterConditionArgs:
@@ -1275,6 +1687,42 @@ class IntegrationActionAddNoteFilterConditionArgs:
     def order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "order", value)
 
+
+if not MYPY:
+    class IntegrationActionCloseArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the integration action.
+        """
+        alias: NotRequired[pulumi.Input[str]]
+        """
+        An identifier that is used for alert deduplication. Default: `{{alias}}`.
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterArgsDict']]]]
+        """
+        Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
+        * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
+        * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
+        * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+        """
+        note: NotRequired[pulumi.Input[str]]
+        """
+        Additional alert action note.
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Integer value that defines in which order the action will be performed. Default: `1`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        Owner of the execution for integration action.
+        """
+elif False:
+    IntegrationActionCloseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationActionCloseArgs:
@@ -1400,6 +1848,16 @@ class IntegrationActionCloseArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class IntegrationActionCloseFilterArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgsDict']]]]
+elif False:
+    IntegrationActionCloseFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationActionCloseFilterArgs:
     def __init__(__self__, *,
@@ -1433,6 +1891,20 @@ class IntegrationActionCloseFilterArgs:
     def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class IntegrationActionCloseFilterConditionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        operation: pulumi.Input[str]
+        expected_value: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        not_: NotRequired[pulumi.Input[bool]]
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Integer value that defines in which order the action will be performed. Default: `1`.
+        """
+elif False:
+    IntegrationActionCloseFilterConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationActionCloseFilterConditionArgs:
@@ -1514,6 +1986,91 @@ class IntegrationActionCloseFilterConditionArgs:
     def order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "order", value)
 
+
+if not MYPY:
+    class IntegrationActionCreateArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the integration action.
+        """
+        alert_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        alias: NotRequired[pulumi.Input[str]]
+        """
+        An identifier that is used for alert deduplication. Default: `{{alias}}`.
+        """
+        append_attachments: NotRequired[pulumi.Input[bool]]
+        custom_priority: NotRequired[pulumi.Input[str]]
+        """
+        Custom alert priority. e.g. ``{{message.substring(0,2)}}``
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Detailed description of the alert, anything that may not have fit in the `message` field.
+        """
+        entity: NotRequired[pulumi.Input[str]]
+        """
+        The entity the alert is related to.
+        """
+        extra_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Set of user defined properties specified as a map.
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterArgsDict']]]]
+        """
+        Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
+        * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
+        * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
+        * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+        """
+        ignore_alert_actions_from_payload: NotRequired[pulumi.Input[bool]]
+        ignore_extra_properties_from_payload: NotRequired[pulumi.Input[bool]]
+        ignore_responders_from_payload: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled, the integration will ignore responders sent in request payloads.
+        """
+        ignore_tags_from_payload: NotRequired[pulumi.Input[bool]]
+        ignore_teams_from_payload: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled, the integration will ignore teams sent in request payloads.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Alert text limited to 130 characters.
+        """
+        note: NotRequired[pulumi.Input[str]]
+        """
+        Additional alert action note.
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Integer value that defines in which order the action will be performed. Default: `1`.
+        """
+        priority: NotRequired[pulumi.Input[str]]
+        """
+        Alert priority.
+        """
+        responders: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateResponderArgsDict']]]]
+        """
+        User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        User defined field to specify source of action.
+        """
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Comma separated list of labels to be attached to the alert.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        Owner of the execution for integration action.
+        """
+elif False:
+    IntegrationActionCreateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationActionCreateArgs:
@@ -1875,6 +2432,16 @@ class IntegrationActionCreateArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class IntegrationActionCreateFilterArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgsDict']]]]
+elif False:
+    IntegrationActionCreateFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationActionCreateFilterArgs:
     def __init__(__self__, *,
@@ -1908,6 +2475,20 @@ class IntegrationActionCreateFilterArgs:
     def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class IntegrationActionCreateFilterConditionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        operation: pulumi.Input[str]
+        expected_value: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        not_: NotRequired[pulumi.Input[bool]]
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Integer value that defines in which order the action will be performed. Default: `1`.
+        """
+elif False:
+    IntegrationActionCreateFilterConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationActionCreateFilterConditionArgs:
@@ -1990,6 +2571,19 @@ class IntegrationActionCreateFilterConditionArgs:
         pulumi.set(self, "order", value)
 
 
+if not MYPY:
+    class IntegrationActionCreateResponderArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The id of the responder.
+        """
+        type: pulumi.Input[str]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+elif False:
+    IntegrationActionCreateResponderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationActionCreateResponderArgs:
     def __init__(__self__, *,
@@ -2026,6 +2620,30 @@ class IntegrationActionCreateResponderArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class IntegrationActionIgnoreArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the integration action.
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgsDict']]]]
+        """
+        Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
+        * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
+        * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
+        * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Integer value that defines in which order the action will be performed. Default: `1`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+elif False:
+    IntegrationActionIgnoreArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationActionIgnoreArgs:
@@ -2103,6 +2721,16 @@ class IntegrationActionIgnoreArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class IntegrationActionIgnoreFilterArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The responder type - can be `escalation`, `team` or `user`.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgsDict']]]]
+elif False:
+    IntegrationActionIgnoreFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationActionIgnoreFilterArgs:
     def __init__(__self__, *,
@@ -2136,6 +2764,20 @@ class IntegrationActionIgnoreFilterArgs:
     def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class IntegrationActionIgnoreFilterConditionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        operation: pulumi.Input[str]
+        expected_value: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        not_: NotRequired[pulumi.Input[bool]]
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Integer value that defines in which order the action will be performed. Default: `1`.
+        """
+elif False:
+    IntegrationActionIgnoreFilterConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationActionIgnoreFilterConditionArgs:
@@ -2218,6 +2860,19 @@ class IntegrationActionIgnoreFilterConditionArgs:
         pulumi.set(self, "order", value)
 
 
+if not MYPY:
+    class MaintenanceRuleArgsDict(TypedDict):
+        entities: pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleEntityArgsDict']]]
+        """
+        This field represents the entity that maintenance will be applied. Entity field takes two mandatory fields as id and type.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        State of rule that will be defined in maintenance and can take either enabled or disabled for policy type rules. This field has to be disabled for integration type entity rules.
+        """
+elif False:
+    MaintenanceRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MaintenanceRuleArgs:
     def __init__(__self__, *,
@@ -2255,6 +2910,19 @@ class MaintenanceRuleArgs:
     def state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class MaintenanceRuleEntityArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the entity that maintenance will be applied.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the entity that maintenance will be applied. It can be either integration or policy.
+        """
+elif False:
+    MaintenanceRuleEntityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaintenanceRuleEntityArgs:
@@ -2294,6 +2962,20 @@ class MaintenanceRuleEntityArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class MaintenanceTimeArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        end_date: NotRequired[pulumi.Input[str]]
+        """
+        This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+        """
+        start_date: NotRequired[pulumi.Input[str]]
+        """
+        This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
+        """
+elif False:
+    MaintenanceTimeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaintenanceTimeArgs:
@@ -2345,6 +3027,15 @@ class MaintenanceTimeArgs:
         pulumi.set(self, "start_date", value)
 
 
+if not MYPY:
+    class NotificationPolicyAutoCloseActionArgsDict(TypedDict):
+        durations: pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionDurationArgsDict']]]
+        """
+        Duration of this action. This is a block, structure is documented below.
+        """
+elif False:
+    NotificationPolicyAutoCloseActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationPolicyAutoCloseActionArgs:
     def __init__(__self__, *,
@@ -2366,6 +3057,19 @@ class NotificationPolicyAutoCloseActionArgs:
     def durations(self, value: pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionDurationArgs']]]):
         pulumi.set(self, "durations", value)
 
+
+if not MYPY:
+    class NotificationPolicyAutoCloseActionDurationArgsDict(TypedDict):
+        time_amount: pulumi.Input[int]
+        """
+        A amount of time in `time_units`. This is a integer attribute.
+        """
+        time_unit: NotRequired[pulumi.Input[str]]
+        """
+        Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
+        """
+elif False:
+    NotificationPolicyAutoCloseActionDurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationPolicyAutoCloseActionDurationArgs:
@@ -2405,6 +3109,19 @@ class NotificationPolicyAutoCloseActionDurationArgs:
         pulumi.set(self, "time_unit", value)
 
 
+if not MYPY:
+    class NotificationPolicyAutoRestartActionArgsDict(TypedDict):
+        durations: pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionDurationArgsDict']]]
+        """
+        Duration of this action. This is a block, structure is documented below.
+        """
+        max_repeat_count: pulumi.Input[int]
+        """
+        How many times to repeat. This is a integer attribute.
+        """
+elif False:
+    NotificationPolicyAutoRestartActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationPolicyAutoRestartActionArgs:
     def __init__(__self__, *,
@@ -2441,6 +3158,19 @@ class NotificationPolicyAutoRestartActionArgs:
     def max_repeat_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_repeat_count", value)
 
+
+if not MYPY:
+    class NotificationPolicyAutoRestartActionDurationArgsDict(TypedDict):
+        time_amount: pulumi.Input[int]
+        """
+        A amount of time in `time_units`. This is a integer attribute.
+        """
+        time_unit: NotRequired[pulumi.Input[str]]
+        """
+        Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
+        """
+elif False:
+    NotificationPolicyAutoRestartActionDurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationPolicyAutoRestartActionDurationArgs:
@@ -2479,6 +3209,23 @@ class NotificationPolicyAutoRestartActionDurationArgs:
     def time_unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_unit", value)
 
+
+if not MYPY:
+    class NotificationPolicyDeDuplicationActionArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        Count
+        """
+        de_duplication_action_type: pulumi.Input[str]
+        """
+        Deduplication type. Possible values are: "value-based", "frequency-based"
+        """
+        durations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgsDict']]]]
+        """
+        Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
+        """
+elif False:
+    NotificationPolicyDeDuplicationActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationPolicyDeDuplicationActionArgs:
@@ -2533,6 +3280,19 @@ class NotificationPolicyDeDuplicationActionArgs:
         pulumi.set(self, "durations", value)
 
 
+if not MYPY:
+    class NotificationPolicyDeDuplicationActionDurationArgsDict(TypedDict):
+        time_amount: pulumi.Input[int]
+        """
+        A amount of time in `time_units`. This is a integer attribute.
+        """
+        time_unit: NotRequired[pulumi.Input[str]]
+        """
+        Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
+        """
+elif False:
+    NotificationPolicyDeDuplicationActionDurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationPolicyDeDuplicationActionDurationArgs:
     def __init__(__self__, *,
@@ -2570,6 +3330,27 @@ class NotificationPolicyDeDuplicationActionDurationArgs:
     def time_unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_unit", value)
 
+
+if not MYPY:
+    class NotificationPolicyDelayActionArgsDict(TypedDict):
+        delay_option: pulumi.Input[str]
+        """
+        Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
+        """
+        durations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgsDict']]]]
+        """
+        Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        """
+        until_hour: NotRequired[pulumi.Input[int]]
+        """
+        Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+        """
+        until_minute: NotRequired[pulumi.Input[int]]
+        """
+        Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+        """
+elif False:
+    NotificationPolicyDelayActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationPolicyDelayActionArgs:
@@ -2641,6 +3422,19 @@ class NotificationPolicyDelayActionArgs:
         pulumi.set(self, "until_minute", value)
 
 
+if not MYPY:
+    class NotificationPolicyDelayActionDurationArgsDict(TypedDict):
+        time_amount: pulumi.Input[int]
+        """
+        A amount of time in `time_units`. This is a integer attribute.
+        """
+        time_unit: NotRequired[pulumi.Input[str]]
+        """
+        Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
+        """
+elif False:
+    NotificationPolicyDelayActionDurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationPolicyDelayActionDurationArgs:
     def __init__(__self__, *,
@@ -2678,6 +3472,19 @@ class NotificationPolicyDelayActionDurationArgs:
     def time_unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_unit", value)
 
+
+if not MYPY:
+    class NotificationPolicyFilterArgsDict(TypedDict):
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgsDict']]]]
+        """
+        Conditions applied to filter. This is a block, structure is documented below.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
+        """
+elif False:
+    NotificationPolicyFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationPolicyFilterArgs:
@@ -2717,6 +3524,35 @@ class NotificationPolicyFilterArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class NotificationPolicyFilterConditionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        """
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
+        """
+        operation: pulumi.Input[str]
+        """
+        It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
+        """
+        expected_value: NotRequired[pulumi.Input[str]]
+        """
+        User defined value that will be compared with alert field according to the operation. Default: empty string
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        If `field` is set as extra-properties, key could be used for key-value pair
+        """
+        not_: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates behaviour of the given operation. Default: `false`
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Order of the condition in conditions list
+        """
+elif False:
+    NotificationPolicyFilterConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationPolicyFilterConditionArgs:
@@ -2819,6 +3655,23 @@ class NotificationPolicyFilterConditionArgs:
         pulumi.set(self, "order", value)
 
 
+if not MYPY:
+    class NotificationPolicyTimeRestrictionArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
+        """
+        restriction: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgsDict']]]]
+        """
+        A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
+        """
+        restriction_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgsDict']]]]
+        """
+        List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
+        """
+elif False:
+    NotificationPolicyTimeRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationPolicyTimeRestrictionArgs:
     def __init__(__self__, *,
@@ -2872,6 +3725,27 @@ class NotificationPolicyTimeRestrictionArgs:
     def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]]):
         pulumi.set(self, "restriction_list", value)
 
+
+if not MYPY:
+    class NotificationPolicyTimeRestrictionRestrictionArgsDict(TypedDict):
+        end_hour: pulumi.Input[int]
+        """
+        Ending hour of restriction.
+        """
+        end_min: pulumi.Input[int]
+        """
+        Ending minute of restriction on defined `end_hour`
+        """
+        start_hour: pulumi.Input[int]
+        """
+        Starting hour of restriction.
+        """
+        start_min: pulumi.Input[int]
+        """
+        Staring minute of restriction on defined `start_hour`
+        """
+elif False:
+    NotificationPolicyTimeRestrictionRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationPolicyTimeRestrictionRestrictionArgs:
@@ -2939,6 +3813,35 @@ class NotificationPolicyTimeRestrictionRestrictionArgs:
     def start_min(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_min", value)
 
+
+if not MYPY:
+    class NotificationPolicyTimeRestrictionRestrictionListArgsDict(TypedDict):
+        end_day: pulumi.Input[str]
+        """
+        Ending day of restriction (eg. `wednesday`)
+        """
+        end_hour: pulumi.Input[int]
+        """
+        Ending hour of restriction on defined `end_day`
+        """
+        end_min: pulumi.Input[int]
+        """
+        Ending minute of restriction on defined `end_hour`
+        """
+        start_day: pulumi.Input[str]
+        """
+        Starting day of restriction (eg. `monday`)
+        """
+        start_hour: pulumi.Input[int]
+        """
+        Starting hour of restriction on defined `start_day`
+        """
+        start_min: pulumi.Input[int]
+        """
+        Staring minute of restriction on defined `start_hour`
+        """
+elif False:
+    NotificationPolicyTimeRestrictionRestrictionListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationPolicyTimeRestrictionRestrictionListArgs:
@@ -3037,6 +3940,19 @@ class NotificationPolicyTimeRestrictionRestrictionListArgs:
         pulumi.set(self, "start_min", value)
 
 
+if not MYPY:
+    class NotificationRuleCriteriaArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgsDict']]]]
+        """
+        Defines the fields and values when the condition applies
+        """
+elif False:
+    NotificationRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationRuleCriteriaArgs:
     def __init__(__self__, *,
@@ -3074,6 +3990,35 @@ class NotificationRuleCriteriaArgs:
     def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class NotificationRuleCriteriaConditionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        """
+        Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        """
+        operation: pulumi.Input[str]
+        """
+        Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
+        """
+        expected_value: NotRequired[pulumi.Input[str]]
+        """
+        User defined value that will be compared with alert field according to the operation. Default: empty string
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        If 'field' is set as 'extra-properties', key could be used for key-value pair
+        """
+        not_: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates behaviour of the given operation. Default: `false`
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Order of the condition in conditions list
+        """
+elif False:
+    NotificationRuleCriteriaConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationRuleCriteriaConditionArgs:
@@ -3176,6 +4121,16 @@ class NotificationRuleCriteriaConditionArgs:
         pulumi.set(self, "order", value)
 
 
+if not MYPY:
+    class NotificationRuleRepeatArgsDict(TypedDict):
+        loop_after: pulumi.Input[int]
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If policy should be enabled. Default: `true`
+        """
+elif False:
+    NotificationRuleRepeatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationRuleRepeatArgs:
     def __init__(__self__, *,
@@ -3209,6 +4164,19 @@ class NotificationRuleRepeatArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class NotificationRuleScheduleArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the notification policy
+        """
+        type: pulumi.Input[str]
+        """
+        Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
+        """
+elif False:
+    NotificationRuleScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationRuleScheduleArgs:
@@ -3246,6 +4214,23 @@ class NotificationRuleScheduleArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class NotificationRuleStepArgsDict(TypedDict):
+        contacts: pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepContactArgsDict']]]
+        """
+        Defines the contact that notification will be sent to. This is a block, structure is documented below.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Defined if this step is enabled. Default: `true`
+        """
+        send_after: NotRequired[pulumi.Input[int]]
+        """
+        Time period, in minutes, notification will be sent after.
+        """
+elif False:
+    NotificationRuleStepArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationRuleStepArgs:
@@ -3301,6 +4286,19 @@ class NotificationRuleStepArgs:
         pulumi.set(self, "send_after", value)
 
 
+if not MYPY:
+    class NotificationRuleStepContactArgsDict(TypedDict):
+        method: pulumi.Input[str]
+        """
+        Contact method. Possible values: `email`, `sms`, `voice`, `mobile`
+        """
+        to: pulumi.Input[str]
+        """
+        Address of a given method (eg. email address for `email`, phone number for `sms`/`voice` or mobile application name for `mobile`)
+        """
+elif False:
+    NotificationRuleStepContactArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationRuleStepContactArgs:
     def __init__(__self__, *,
@@ -3337,6 +4335,17 @@ class NotificationRuleStepContactArgs:
     def to(self, value: pulumi.Input[str]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class NotificationRuleTimeRestrictionArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
+        """
+        restriction: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgsDict']]]]
+        restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgsDict']]]]
+elif False:
+    NotificationRuleTimeRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationRuleTimeRestrictionArgs:
@@ -3383,6 +4392,17 @@ class NotificationRuleTimeRestrictionArgs:
     def restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]):
         pulumi.set(self, "restrictions", value)
 
+
+if not MYPY:
+    class NotificationRuleTimeRestrictionRestrictionArgsDict(TypedDict):
+        end_day: pulumi.Input[str]
+        end_hour: pulumi.Input[int]
+        end_min: pulumi.Input[int]
+        start_day: pulumi.Input[str]
+        start_hour: pulumi.Input[int]
+        start_min: pulumi.Input[int]
+elif False:
+    NotificationRuleTimeRestrictionRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationRuleTimeRestrictionRestrictionArgs:
@@ -3455,6 +4475,19 @@ class NotificationRuleTimeRestrictionRestrictionArgs:
         pulumi.set(self, "start_min", value)
 
 
+if not MYPY:
+    class ScheduleRotationParticipantArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The responder type.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the responder.
+        """
+elif False:
+    ScheduleRotationParticipantArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduleRotationParticipantArgs:
     def __init__(__self__, *,
@@ -3492,6 +4525,23 @@ class ScheduleRotationParticipantArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ScheduleRotationTimeRestrictionArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
+        """
+        restriction: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgsDict']]]]
+        """
+        It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
+        """
+        restriction_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgsDict']]]]
+        """
+        It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
+        """
+elif False:
+    ScheduleRotationTimeRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleRotationTimeRestrictionArgs:
@@ -3546,6 +4596,27 @@ class ScheduleRotationTimeRestrictionArgs:
     def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]]):
         pulumi.set(self, "restriction_list", value)
 
+
+if not MYPY:
+    class ScheduleRotationTimeRestrictionRestrictionArgsDict(TypedDict):
+        end_hour: pulumi.Input[int]
+        """
+        Value of the hour that frame will end.
+        """
+        end_min: pulumi.Input[int]
+        """
+        Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
+        start_hour: pulumi.Input[int]
+        """
+        Value of the hour that frame will start.
+        """
+        start_min: pulumi.Input[int]
+        """
+        Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
+elif False:
+    ScheduleRotationTimeRestrictionRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleRotationTimeRestrictionRestrictionArgs:
@@ -3613,6 +4684,37 @@ class ScheduleRotationTimeRestrictionRestrictionArgs:
     def start_min(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_min", value)
 
+
+if not MYPY:
+    class ScheduleRotationTimeRestrictionRestrictionListArgsDict(TypedDict):
+        end_day: pulumi.Input[str]
+        """
+        Value of the day that frame will end.
+        """
+        end_hour: pulumi.Input[int]
+        """
+        Value of the hour that frame will end.
+        """
+        end_min: pulumi.Input[int]
+        """
+        Value of the minute that frame will end. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+
+        Both `start_day` and `end_day` can assume only `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday` values.
+        """
+        start_day: pulumi.Input[str]
+        """
+        Value of the day that frame will start.
+        """
+        start_hour: pulumi.Input[int]
+        """
+        Value of the hour that frame will start
+        """
+        start_min: pulumi.Input[int]
+        """
+        Value of the minute that frame will start. Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically.
+        """
+elif False:
+    ScheduleRotationTimeRestrictionRestrictionListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleRotationTimeRestrictionRestrictionListArgs:
@@ -3715,6 +4817,23 @@ class ScheduleRotationTimeRestrictionRestrictionListArgs:
         pulumi.set(self, "start_min", value)
 
 
+if not MYPY:
+    class ServiceIncidentRuleIncidentRuleArgsDict(TypedDict):
+        incident_properties: pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleIncidentPropertyArgsDict']]]
+        """
+        Properties for incident rule. This is a block, structure is documented below.
+        """
+        condition_match_type: NotRequired[pulumi.Input[str]]
+        """
+        A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgsDict']]]]
+        """
+        Conditions applied to incident. This is a block, structure is documented below.
+        """
+elif False:
+    ServiceIncidentRuleIncidentRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceIncidentRuleIncidentRuleArgs:
     def __init__(__self__, *,
@@ -3768,6 +4887,31 @@ class ServiceIncidentRuleIncidentRuleArgs:
     def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class ServiceIncidentRuleIncidentRuleConditionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        """
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        """
+        operation: pulumi.Input[str]
+        """
+        It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
+        """
+        expected_value: NotRequired[pulumi.Input[str]]
+        """
+        User defined value that will be compared with alert field according to the operation. Default: empty string
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        If 'field' is set as 'extra-properties', key could be used for key-value pair
+        """
+        not_: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates behaviour of the given operation. Default: false
+        """
+elif False:
+    ServiceIncidentRuleIncidentRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceIncidentRuleIncidentRuleConditionArgs:
@@ -3853,6 +4997,35 @@ class ServiceIncidentRuleIncidentRuleConditionArgs:
     def not_(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "not_", value)
 
+
+if not MYPY:
+    class ServiceIncidentRuleIncidentRuleIncidentPropertyArgsDict(TypedDict):
+        message: pulumi.Input[str]
+        """
+        Message of the related incident rule.
+        """
+        priority: pulumi.Input[str]
+        """
+        Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
+        """
+        stakeholder_properties: pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgsDict']]]
+        """
+        DEtails about stakeholders for this rule. This is a block, structure is documented below.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description field of the incident rule.
+        """
+        details: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of key-value pairs to use as custom properties of the alert.
+        """
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Tags of the alert.
+        """
+elif False:
+    ServiceIncidentRuleIncidentRuleIncidentPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
@@ -3954,6 +5127,23 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgsDict(TypedDict):
+        message: pulumi.Input[str]
+        """
+        Message that is to be passed to audience that is generally used to provide a content information about the alert.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description that is generally used to provide a detailed information about the alert.
+        """
+        enable: NotRequired[pulumi.Input[bool]]
+        """
+        Option to enable stakeholder notifications.Default value is true.
+        """
+elif False:
+    ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs:
     def __init__(__self__, *,
@@ -4008,6 +5198,20 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs:
         pulumi.set(self, "enable", value)
 
 
+if not MYPY:
+    class TeamMemberArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The UUID for the member to add to this Team.
+        """
+        role: NotRequired[pulumi.Input[str]]
+        """
+        The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
+        """
+        username: NotRequired[pulumi.Input[str]]
+elif False:
+    TeamMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TeamMemberArgs:
     def __init__(__self__, *,
@@ -4058,6 +5262,19 @@ class TeamMemberArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class TeamRoutingRuleCriteriaArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgsDict']]]]
+        """
+        List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
+        """
+elif False:
+    TeamRoutingRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TeamRoutingRuleCriteriaArgs:
     def __init__(__self__, *,
@@ -4095,6 +5312,34 @@ class TeamRoutingRuleCriteriaArgs:
     def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class TeamRoutingRuleCriteriaConditionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        """
+        Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
+        """
+        operation: pulumi.Input[str]
+        """
+        It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+
+        * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
+        """
+        expected_value: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        """
+        If field is set as extra-properties, key could be used for key-value pair.
+        """
+        not_: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates behaviour of the given operation. Default value is false.
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Order of the condition in conditions list.
+        """
+elif False:
+    TeamRoutingRuleCriteriaConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TeamRoutingRuleCriteriaConditionArgs:
@@ -4197,6 +5442,14 @@ class TeamRoutingRuleCriteriaConditionArgs:
         pulumi.set(self, "order", value)
 
 
+if not MYPY:
+    class TeamRoutingRuleNotifyArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        id: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    TeamRoutingRuleNotifyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TeamRoutingRuleNotifyArgs:
     def __init__(__self__, *,
@@ -4237,6 +5490,14 @@ class TeamRoutingRuleNotifyArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class TeamRoutingRuleTimeRestrictionArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        restriction: NotRequired[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgsDict']]]]
+        restriction_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgsDict']]]]
+elif False:
+    TeamRoutingRuleTimeRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TeamRoutingRuleTimeRestrictionArgs:
     def __init__(__self__, *,
@@ -4276,6 +5537,15 @@ class TeamRoutingRuleTimeRestrictionArgs:
     def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]]):
         pulumi.set(self, "restriction_list", value)
 
+
+if not MYPY:
+    class TeamRoutingRuleTimeRestrictionRestrictionArgsDict(TypedDict):
+        end_hour: pulumi.Input[int]
+        end_min: pulumi.Input[int]
+        start_hour: pulumi.Input[int]
+        start_min: pulumi.Input[int]
+elif False:
+    TeamRoutingRuleTimeRestrictionRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TeamRoutingRuleTimeRestrictionRestrictionArgs:
@@ -4325,6 +5595,17 @@ class TeamRoutingRuleTimeRestrictionRestrictionArgs:
     def start_min(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_min", value)
 
+
+if not MYPY:
+    class TeamRoutingRuleTimeRestrictionRestrictionListArgsDict(TypedDict):
+        end_day: pulumi.Input[str]
+        end_hour: pulumi.Input[int]
+        end_min: pulumi.Input[int]
+        start_day: pulumi.Input[str]
+        start_hour: pulumi.Input[int]
+        start_min: pulumi.Input[int]
+elif False:
+    TeamRoutingRuleTimeRestrictionRestrictionListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TeamRoutingRuleTimeRestrictionRestrictionListArgs:
@@ -4397,6 +5678,16 @@ class TeamRoutingRuleTimeRestrictionRestrictionListArgs:
         pulumi.set(self, "start_min", value)
 
 
+if not MYPY:
+    class UserUserAddressArgsDict(TypedDict):
+        city: pulumi.Input[str]
+        country: pulumi.Input[str]
+        line: pulumi.Input[str]
+        state: pulumi.Input[str]
+        zipcode: pulumi.Input[str]
+elif False:
+    UserUserAddressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserUserAddressArgs:
     def __init__(__self__, *,
@@ -4457,6 +5748,15 @@ class UserUserAddressArgs:
         pulumi.set(self, "zipcode", value)
 
 
+if not MYPY:
+    class GetEscalationRepeatArgsDict(TypedDict):
+        close_alert_after_all: NotRequired[bool]
+        count: NotRequired[int]
+        reset_recipient_states: NotRequired[bool]
+        wait_interval: NotRequired[int]
+elif False:
+    GetEscalationRepeatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetEscalationRepeatArgs:
     def __init__(__self__, *,
@@ -4510,6 +5810,15 @@ class GetEscalationRepeatArgs:
         pulumi.set(self, "wait_interval", value)
 
 
+if not MYPY:
+    class GetEscalationRuleArgsDict(TypedDict):
+        condition: str
+        delay: int
+        notify_type: str
+        recipients: Sequence['GetEscalationRuleRecipientArgsDict']
+elif False:
+    GetEscalationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetEscalationRuleArgs:
     def __init__(__self__, *,
@@ -4559,6 +5868,16 @@ class GetEscalationRuleArgs:
         pulumi.set(self, "recipients", value)
 
 
+if not MYPY:
+    class GetEscalationRuleRecipientArgsDict(TypedDict):
+        id: NotRequired[str]
+        """
+        The ID of the Opsgenie Escalation.
+        """
+        type: NotRequired[str]
+elif False:
+    GetEscalationRuleRecipientArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetEscalationRuleRecipientArgs:
     def __init__(__self__, *,
@@ -4593,6 +5912,17 @@ class GetEscalationRuleRecipientArgs:
     def type(self, value: Optional[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class GetTeamMemberArgsDict(TypedDict):
+        id: NotRequired[str]
+        """
+        The ID of the Opsgenie Team.
+        """
+        role: NotRequired[str]
+        username: NotRequired[str]
+elif False:
+    GetTeamMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTeamMemberArgs:
