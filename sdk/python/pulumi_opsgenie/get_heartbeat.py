@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -206,9 +211,6 @@ def get_heartbeat(alert_message: Optional[str] = None,
         interval_unit=pulumi.get(__ret__, 'interval_unit'),
         name=pulumi.get(__ret__, 'name'),
         owner_team_id=pulumi.get(__ret__, 'owner_team_id'))
-
-
-@_utilities.lift_output_func(get_heartbeat)
 def get_heartbeat_output(alert_message: Optional[pulumi.Input[Optional[str]]] = None,
                          alert_priority: Optional[pulumi.Input[Optional[str]]] = None,
                          alert_tags: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -242,4 +244,26 @@ def get_heartbeat_output(alert_message: Optional[pulumi.Input[Optional[str]]] = 
     :param str name: Name of the heartbeat
     :param str owner_team_id: Owner team of the heartbeat.
     """
-    ...
+    __args__ = dict()
+    __args__['alertMessage'] = alert_message
+    __args__['alertPriority'] = alert_priority
+    __args__['alertTags'] = alert_tags
+    __args__['description'] = description
+    __args__['enabled'] = enabled
+    __args__['interval'] = interval
+    __args__['intervalUnit'] = interval_unit
+    __args__['name'] = name
+    __args__['ownerTeamId'] = owner_team_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('opsgenie:index/getHeartbeat:getHeartbeat', __args__, opts=opts, typ=GetHeartbeatResult)
+    return __ret__.apply(lambda __response__: GetHeartbeatResult(
+        alert_message=pulumi.get(__response__, 'alert_message'),
+        alert_priority=pulumi.get(__response__, 'alert_priority'),
+        alert_tags=pulumi.get(__response__, 'alert_tags'),
+        description=pulumi.get(__response__, 'description'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        interval=pulumi.get(__response__, 'interval'),
+        interval_unit=pulumi.get(__response__, 'interval_unit'),
+        name=pulumi.get(__response__, 'name'),
+        owner_team_id=pulumi.get(__response__, 'owner_team_id')))
