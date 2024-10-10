@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -142,9 +147,6 @@ def get_schedule(description: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         owner_team_id=pulumi.get(__ret__, 'owner_team_id'),
         timezone=pulumi.get(__ret__, 'timezone'))
-
-
-@_utilities.lift_output_func(get_schedule)
 def get_schedule_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                         enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                         name: Optional[pulumi.Input[str]] = None,
@@ -170,4 +172,18 @@ def get_schedule_output(description: Optional[pulumi.Input[Optional[str]]] = Non
     :param str owner_team_id: Owner team id of the schedule.
     :param str timezone: The description of schedule.
     """
-    ...
+    __args__ = dict()
+    __args__['description'] = description
+    __args__['enabled'] = enabled
+    __args__['name'] = name
+    __args__['ownerTeamId'] = owner_team_id
+    __args__['timezone'] = timezone
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('opsgenie:index/getSchedule:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
+    return __ret__.apply(lambda __response__: GetScheduleResult(
+        description=pulumi.get(__response__, 'description'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner_team_id=pulumi.get(__response__, 'owner_team_id'),
+        timezone=pulumi.get(__response__, 'timezone')))

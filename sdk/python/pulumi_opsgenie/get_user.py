@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -142,9 +147,6 @@ def get_user(full_name: Optional[str] = None,
         role=pulumi.get(__ret__, 'role'),
         timezone=pulumi.get(__ret__, 'timezone'),
         username=pulumi.get(__ret__, 'username'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(full_name: Optional[pulumi.Input[Optional[str]]] = None,
                     locale: Optional[pulumi.Input[Optional[str]]] = None,
                     role: Optional[pulumi.Input[Optional[str]]] = None,
@@ -170,4 +172,18 @@ def get_user_output(full_name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str timezone: Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
     :param str username: The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters.
     """
-    ...
+    __args__ = dict()
+    __args__['fullName'] = full_name
+    __args__['locale'] = locale
+    __args__['role'] = role
+    __args__['timezone'] = timezone
+    __args__['username'] = username
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('opsgenie:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        full_name=pulumi.get(__response__, 'full_name'),
+        id=pulumi.get(__response__, 'id'),
+        locale=pulumi.get(__response__, 'locale'),
+        role=pulumi.get(__response__, 'role'),
+        timezone=pulumi.get(__response__, 'timezone'),
+        username=pulumi.get(__response__, 'username')))
