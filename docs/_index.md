@@ -6,7 +6,7 @@ layout: package
 ---
 ## Installation
 
-The opsgenie provider is available as a package in all Pulumi languages:
+The Opsgenie provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/opsgenie`](https://www.npmjs.com/package/@pulumi/opsgenie)
 * Python: [`pulumi-opsgenie`](https://pypi.org/project/pulumi-opsgenie/)
