@@ -116,7 +116,7 @@ def get_team(description: Optional[str] = None,
 def get_team_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                     members: Optional[pulumi.Input[Optional[Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict']]]]] = None,
                     name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamResult]:
     """
     Manages existing Team within Opsgenie.
 
@@ -140,7 +140,7 @@ def get_team_output(description: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['description'] = description
     __args__['members'] = members
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('opsgenie:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult)
     return __ret__.apply(lambda __response__: GetTeamResult(
         description=pulumi.get(__response__, 'description'),

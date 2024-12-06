@@ -131,7 +131,7 @@ export interface GetHeartbeatResult {
  * });
  * ```
  */
-export function getHeartbeatOutput(args: GetHeartbeatOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHeartbeatResult> {
+export function getHeartbeatOutput(args: GetHeartbeatOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHeartbeatResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("opsgenie:index/getHeartbeat:getHeartbeat", {
         "alertMessage": args.alertMessage,

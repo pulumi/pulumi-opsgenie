@@ -152,7 +152,7 @@ def get_schedule_output(description: Optional[pulumi.Input[Optional[str]]] = Non
                         name: Optional[pulumi.Input[str]] = None,
                         owner_team_id: Optional[pulumi.Input[Optional[str]]] = None,
                         timezone: Optional[pulumi.Input[Optional[str]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Manages a Schedule within Opsgenie.
 
@@ -178,7 +178,7 @@ def get_schedule_output(description: Optional[pulumi.Input[Optional[str]]] = Non
     __args__['name'] = name
     __args__['ownerTeamId'] = owner_team_id
     __args__['timezone'] = timezone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('opsgenie:index/getSchedule:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
     return __ret__.apply(lambda __response__: GetScheduleResult(
         description=pulumi.get(__response__, 'description'),

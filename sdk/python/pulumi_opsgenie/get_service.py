@@ -114,7 +114,7 @@ def get_service(description: Optional[str] = None,
 def get_service_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        team_id: Optional[pulumi.Input[Optional[str]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Manages existing Service within Opsgenie.
 
@@ -138,7 +138,7 @@ def get_service_output(description: Optional[pulumi.Input[Optional[str]]] = None
     __args__['description'] = description
     __args__['name'] = name
     __args__['teamId'] = team_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('opsgenie:index/getService:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         description=pulumi.get(__response__, 'description'),

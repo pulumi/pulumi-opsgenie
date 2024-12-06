@@ -154,7 +154,7 @@ def get_escalation_output(description: Optional[pulumi.Input[Optional[str]]] = N
                           owner_team_id: Optional[pulumi.Input[Optional[str]]] = None,
                           repeats: Optional[pulumi.Input[Optional[Sequence[Union['GetEscalationRepeatArgs', 'GetEscalationRepeatArgsDict']]]]] = None,
                           rules: Optional[pulumi.Input[Optional[Sequence[Union['GetEscalationRuleArgs', 'GetEscalationRuleArgsDict']]]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEscalationResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEscalationResult]:
     """
     Manages an Escalation within Opsgenie.
 
@@ -180,7 +180,7 @@ def get_escalation_output(description: Optional[pulumi.Input[Optional[str]]] = N
     __args__['ownerTeamId'] = owner_team_id
     __args__['repeats'] = repeats
     __args__['rules'] = rules
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('opsgenie:index/getEscalation:getEscalation', __args__, opts=opts, typ=GetEscalationResult)
     return __ret__.apply(lambda __response__: GetEscalationResult(
         description=pulumi.get(__response__, 'description'),
