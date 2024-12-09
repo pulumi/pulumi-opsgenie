@@ -97,7 +97,7 @@ export interface GetEscalationResult {
  * });
  * ```
  */
-export function getEscalationOutput(args: GetEscalationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEscalationResult> {
+export function getEscalationOutput(args: GetEscalationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEscalationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("opsgenie:index/getEscalation:getEscalation", {
         "description": args.description,
