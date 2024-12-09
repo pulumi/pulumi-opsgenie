@@ -220,7 +220,7 @@ def get_heartbeat_output(alert_message: Optional[pulumi.Input[Optional[str]]] = 
                          interval_unit: Optional[pulumi.Input[Optional[str]]] = None,
                          name: Optional[pulumi.Input[str]] = None,
                          owner_team_id: Optional[pulumi.Input[Optional[str]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHeartbeatResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHeartbeatResult]:
     """
     Manages existing heartbeat within Opsgenie.
 
@@ -254,7 +254,7 @@ def get_heartbeat_output(alert_message: Optional[pulumi.Input[Optional[str]]] = 
     __args__['intervalUnit'] = interval_unit
     __args__['name'] = name
     __args__['ownerTeamId'] = owner_team_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('opsgenie:index/getHeartbeat:getHeartbeat', __args__, opts=opts, typ=GetHeartbeatResult)
     return __ret__.apply(lambda __response__: GetHeartbeatResult(
         alert_message=pulumi.get(__response__, 'alert_message'),
