@@ -78,21 +78,11 @@ type LookupEscalationResult struct {
 }
 
 func LookupEscalationOutput(ctx *pulumi.Context, args LookupEscalationOutputArgs, opts ...pulumi.InvokeOption) LookupEscalationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEscalationResultOutput, error) {
 			args := v.(LookupEscalationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEscalationResult
-			secret, err := ctx.InvokePackageRaw("opsgenie:index/getEscalation:getEscalation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEscalationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEscalationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEscalationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("opsgenie:index/getEscalation:getEscalation", args, LookupEscalationResultOutput{}, options).(LookupEscalationResultOutput), nil
 		}).(LookupEscalationResultOutput)
 }
 
