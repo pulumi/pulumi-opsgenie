@@ -58,6 +58,30 @@ namespace Pulumi.Opsgenie
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("opsgenie:index/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Manages existing Service within Opsgenie.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Opsgenie = Pulumi.Opsgenie;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @this = Opsgenie.GetService.Invoke(new()
+        ///     {
+        ///         Name = "Payment",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("opsgenie:index/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

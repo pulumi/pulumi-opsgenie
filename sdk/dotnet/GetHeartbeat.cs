@@ -58,6 +58,30 @@ namespace Pulumi.Opsgenie
         /// </summary>
         public static Output<GetHeartbeatResult> Invoke(GetHeartbeatInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHeartbeatResult>("opsgenie:index/getHeartbeat:getHeartbeat", args ?? new GetHeartbeatInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Manages existing heartbeat within Opsgenie.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Opsgenie = Pulumi.Opsgenie;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Opsgenie.GetHeartbeat.Invoke(new()
+        ///     {
+        ///         Name = "genieheartbeat-existing",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetHeartbeatResult> Invoke(GetHeartbeatInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHeartbeatResult>("opsgenie:index/getHeartbeat:getHeartbeat", args ?? new GetHeartbeatInvokeArgs(), options.WithDefaults());
     }
 
 
