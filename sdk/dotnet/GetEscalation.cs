@@ -58,6 +58,30 @@ namespace Pulumi.Opsgenie
         /// </summary>
         public static Output<GetEscalationResult> Invoke(GetEscalationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Manages an Escalation within Opsgenie.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Opsgenie = Pulumi.Opsgenie;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Opsgenie.GetEscalation.Invoke(new()
+        ///     {
+        ///         Name = "existing-escalation",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEscalationResult> Invoke(GetEscalationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEscalationResult>("opsgenie:index/getEscalation:getEscalation", args ?? new GetEscalationInvokeArgs(), options.WithDefaults());
     }
 
 

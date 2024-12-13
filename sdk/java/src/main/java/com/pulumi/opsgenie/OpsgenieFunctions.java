@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.opsgenie.Utilities;
 import com.pulumi.opsgenie.inputs.GetEscalationArgs;
 import com.pulumi.opsgenie.inputs.GetEscalationPlainArgs;
@@ -153,6 +154,48 @@ public final class OpsgenieFunctions {
      * 
      */
     public static Output<GetEscalationResult> getEscalation(GetEscalationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("opsgenie:index/getEscalation:getEscalation", TypeShape.of(GetEscalationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Manages an Escalation within Opsgenie.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.opsgenie.OpsgenieFunctions;
+     * import com.pulumi.opsgenie.inputs.GetEscalationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OpsgenieFunctions.getEscalation(GetEscalationArgs.builder()
+     *             .name("existing-escalation")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEscalationResult> getEscalation(GetEscalationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("opsgenie:index/getEscalation:getEscalation", TypeShape.of(GetEscalationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -362,6 +405,48 @@ public final class OpsgenieFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetHeartbeatResult> getHeartbeat(GetHeartbeatArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("opsgenie:index/getHeartbeat:getHeartbeat", TypeShape.of(GetHeartbeatResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Manages existing heartbeat within Opsgenie.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.opsgenie.OpsgenieFunctions;
+     * import com.pulumi.opsgenie.inputs.GetHeartbeatArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OpsgenieFunctions.getHeartbeat(GetHeartbeatArgs.builder()
+     *             .name("genieheartbeat-existing")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetHeartbeatResult> getHeartbeatPlain(GetHeartbeatPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("opsgenie:index/getHeartbeat:getHeartbeat", TypeShape.of(GetHeartbeatResult.class), args, Utilities.withVersion(options));
     }
@@ -489,6 +574,48 @@ public final class OpsgenieFunctions {
      * 
      */
     public static Output<GetScheduleResult> getSchedule(GetScheduleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("opsgenie:index/getSchedule:getSchedule", TypeShape.of(GetScheduleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Manages a Schedule within Opsgenie.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.opsgenie.OpsgenieFunctions;
+     * import com.pulumi.opsgenie.inputs.GetScheduleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OpsgenieFunctions.getSchedule(GetScheduleArgs.builder()
+     *             .name("sre-team schedule")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetScheduleResult> getSchedule(GetScheduleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("opsgenie:index/getSchedule:getSchedule", TypeShape.of(GetScheduleResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -698,6 +825,48 @@ public final class OpsgenieFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("opsgenie:index/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Manages existing Service within Opsgenie.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.opsgenie.OpsgenieFunctions;
+     * import com.pulumi.opsgenie.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = OpsgenieFunctions.getService(GetServiceArgs.builder()
+     *             .name("Payment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("opsgenie:index/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
     }
@@ -866,6 +1035,48 @@ public final class OpsgenieFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("opsgenie:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Manages existing Team within Opsgenie.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.opsgenie.OpsgenieFunctions;
+     * import com.pulumi.opsgenie.inputs.GetTeamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sre-team = OpsgenieFunctions.getTeam(GetTeamArgs.builder()
+     *             .name("sre-team")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("opsgenie:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
     }
@@ -993,6 +1204,48 @@ public final class OpsgenieFunctions {
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("opsgenie:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Manages existing User within Opsgenie.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.opsgenie.OpsgenieFunctions;
+     * import com.pulumi.opsgenie.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var test = OpsgenieFunctions.getUser(GetUserArgs.builder()
+     *             .username("user}{@literal @}{@code domain.com")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("opsgenie:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
