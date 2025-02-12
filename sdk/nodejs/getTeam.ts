@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const sre-team = opsgenie.getTeam({
+ * const sre_team = opsgenie.getTeam({
  *     name: "sre-team",
  * });
  * ```
@@ -70,7 +70,7 @@ export interface GetTeamResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const sre-team = opsgenie.getTeam({
+ * const sre_team = opsgenie.getTeam({
  *     name: "sre-team",
  * });
  * ```
