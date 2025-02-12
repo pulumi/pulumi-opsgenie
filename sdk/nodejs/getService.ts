@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const this = opsgenie.getService({
+ * const _this = opsgenie.getService({
  *     name: "Payment",
  * });
  * ```
@@ -68,7 +68,7 @@ export interface GetServiceResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
- * const this = opsgenie.getService({
+ * const _this = opsgenie.getService({
  *     name: "Payment",
  * });
  * ```
