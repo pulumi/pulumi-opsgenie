@@ -49,6 +49,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.opsgenie.inputs.IntegrationActionAcknowledgeArgs;
  * import com.pulumi.opsgenie.inputs.IntegrationActionAddNoteArgs;
  * import com.pulumi.opsgenie.inputs.IntegrationActionIgnoreArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.ChompArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

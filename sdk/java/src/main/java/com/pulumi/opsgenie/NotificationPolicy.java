@@ -60,7 +60,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testNotificationPolicy = new NotificationPolicy("testNotificationPolicy", NotificationPolicyArgs.builder()
- *             .filters()
+ *             .filters(NotificationPolicyFilterArgs.builder()
+ *                 .build())
  *             .name("example policy")
  *             .teamId(test.id())
  *             .policyDescription("This policy has a delay action")

@@ -57,7 +57,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testAlertPolicy = new AlertPolicy("testAlertPolicy", AlertPolicyArgs.builder()
- *             .filters()
+ *             .filters(AlertPolicyFilterArgs.builder()
+ *                 .build())
  *             .name("example policy")
  *             .teamId(test.id())
  *             .policyDescription("This is sample policy")
