@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *                     .priority("P3")
  *                     .stakeholderProperties(ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs.builder()
  *                         .message("Message for stakeholders")
- *                         .enable("true")
+ *                         .enable(true)
  *                         .build())
  *                     .build())
  *                 .build())
