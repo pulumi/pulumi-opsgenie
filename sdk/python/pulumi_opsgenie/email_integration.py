@@ -251,6 +251,9 @@ class _EmailIntegrationState:
 
 
 class EmailIntegration(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/emailIntegration:EmailIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -98,6 +98,9 @@ class _ServiceIncidentRuleState:
 
 
 class ServiceIncidentRule(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/serviceIncidentRule:ServiceIncidentRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

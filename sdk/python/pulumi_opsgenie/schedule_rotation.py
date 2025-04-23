@@ -280,6 +280,9 @@ class _ScheduleRotationState:
 
 
 class ScheduleRotation(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/scheduleRotation:ScheduleRotation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

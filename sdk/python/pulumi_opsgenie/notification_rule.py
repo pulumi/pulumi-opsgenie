@@ -346,6 +346,9 @@ class _NotificationRuleState:
 
 
 class NotificationRule(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/notificationRule:NotificationRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
