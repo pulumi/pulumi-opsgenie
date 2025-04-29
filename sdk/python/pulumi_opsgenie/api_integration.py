@@ -388,6 +388,9 @@ class _ApiIntegrationState:
 
 
 class ApiIntegration(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/apiIntegration:ApiIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

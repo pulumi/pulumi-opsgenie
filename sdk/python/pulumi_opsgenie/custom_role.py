@@ -161,6 +161,9 @@ class _CustomRoleState:
 
 
 class CustomRole(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/customRole:CustomRole"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

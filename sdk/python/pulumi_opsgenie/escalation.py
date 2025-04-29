@@ -195,6 +195,9 @@ class _EscalationState:
 
 
 class Escalation(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/escalation:Escalation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

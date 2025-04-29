@@ -319,6 +319,9 @@ class _HeartbeatState:
 
 
 class Heartbeat(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/heartbeat:Heartbeat"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

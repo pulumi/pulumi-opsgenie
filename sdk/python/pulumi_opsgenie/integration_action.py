@@ -187,6 +187,9 @@ class _IntegrationActionState:
 
 
 class IntegrationAction(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/integrationAction:IntegrationAction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
