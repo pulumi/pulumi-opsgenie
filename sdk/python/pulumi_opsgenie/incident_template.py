@@ -289,6 +289,9 @@ class _IncidentTemplateState:
 
 
 class IncidentTemplate(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/incidentTemplate:IncidentTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

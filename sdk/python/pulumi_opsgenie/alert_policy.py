@@ -675,6 +675,9 @@ class _AlertPolicyState:
 
 
 class AlertPolicy(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/alertPolicy:AlertPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

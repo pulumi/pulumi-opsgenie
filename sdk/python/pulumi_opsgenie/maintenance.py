@@ -130,6 +130,9 @@ class _MaintenanceState:
 
 
 class Maintenance(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/maintenance:Maintenance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

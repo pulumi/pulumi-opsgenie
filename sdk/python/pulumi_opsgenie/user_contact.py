@@ -159,6 +159,9 @@ class _UserContactState:
 
 
 class UserContact(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/userContact:UserContact"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

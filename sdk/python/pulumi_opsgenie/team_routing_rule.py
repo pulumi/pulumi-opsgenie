@@ -290,6 +290,9 @@ class _TeamRoutingRuleState:
 
 
 class TeamRoutingRule(pulumi.CustomResource):
+
+    pulumi_type = "opsgenie:index/teamRoutingRule:TeamRoutingRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
