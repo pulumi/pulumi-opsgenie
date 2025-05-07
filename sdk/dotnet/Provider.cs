@@ -19,7 +19,7 @@ namespace Pulumi.Opsgenie
     public partial class Provider : global::Pulumi.ProviderResource
     {
         [Output("apiKey")]
-        public Output<string> ApiKey { get; private set; } = null!;
+        public Output<string?> ApiKey { get; private set; } = null!;
 
         [Output("apiUrl")]
         public Output<string?> ApiUrl { get; private set; } = null!;
@@ -32,7 +32,7 @@ namespace Pulumi.Opsgenie
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
             : base("opsgenie", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -48,12 +48,18 @@ namespace Pulumi.Opsgenie
             merged.Id = id ?? merged.Id;
             return merged;
         }
+
+        /// <summary>
+        /// This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
+        /// </summary>
+        public global::Pulumi.Output<ProviderTerraformConfigResult> TerraformConfig()
+            => global::Pulumi.Deployment.Instance.Call<ProviderTerraformConfigResult>("pulumi:providers:opsgenie/terraformConfig", CallArgs.Empty, this);
     }
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
-        [Input("apiKey", required: true)]
-        public Input<string> ApiKey { get; set; } = null!;
+        [Input("apiKey")]
+        public Input<string>? ApiKey { get; set; }
 
         [Input("apiRetryCount", json: true)]
         public Input<int>? ApiRetryCount { get; set; }
@@ -72,5 +78,20 @@ namespace Pulumi.Opsgenie
             ApiUrl = Utilities.GetEnv("OPSGENIE_API_URL");
         }
         public static new ProviderArgs Empty => new ProviderArgs();
+    }
+
+    /// <summary>
+    /// The results of the <see cref="Provider.TerraformConfig"/> method.
+    /// </summary>
+    [OutputType]
+    public sealed class ProviderTerraformConfigResult
+    {
+        public readonly ImmutableDictionary<string, object> Result;
+
+        [OutputConstructor]
+        private ProviderTerraformConfigResult(ImmutableDictionary<string, object> result)
+        {
+            Result = result;
+        }
     }
 }

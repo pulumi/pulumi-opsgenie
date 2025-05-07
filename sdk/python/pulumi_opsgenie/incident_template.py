@@ -288,10 +288,8 @@ class _IncidentTemplateState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("opsgenie:index/incidentTemplate:IncidentTemplate")
 class IncidentTemplate(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/incidentTemplate:IncidentTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

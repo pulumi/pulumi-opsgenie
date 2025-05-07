@@ -160,10 +160,8 @@ class _ServiceState:
         pulumi.set(self, "team_id", value)
 
 
+@pulumi.type_token("opsgenie:index/service:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/service:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

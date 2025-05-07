@@ -20,7 +20,7 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 api_key: pulumi.Input[builtins.str],
+                 api_key: Optional[pulumi.Input[builtins.str]] = None,
                  api_retry_count: Optional[pulumi.Input[builtins.int]] = None,
                  api_retry_wait_max: Optional[pulumi.Input[builtins.int]] = None,
                  api_retry_wait_min: Optional[pulumi.Input[builtins.int]] = None,
@@ -28,7 +28,8 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         """
-        pulumi.set(__self__, "api_key", api_key)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
         if api_retry_count is not None:
             pulumi.set(__self__, "api_retry_count", api_retry_count)
         if api_retry_wait_max is not None:
@@ -42,11 +43,11 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> pulumi.Input[builtins.str]:
+    def api_key(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: pulumi.Input[builtins.str]):
+    def api_key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @property
@@ -86,10 +87,8 @@ class ProviderArgs:
         pulumi.set(self, "api_url", value)
 
 
+@pulumi.type_token("pulumi:providers:opsgenie")
 class Provider(pulumi.ProviderResource):
-
-    pulumi_type = "pulumi:providers:opsgenie"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -113,7 +112,7 @@ class Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProviderArgs,
+                 args: Optional[ProviderArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the opsgenie package. By default, resources use package-wide configuration
@@ -150,8 +149,6 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            if api_key is None and not opts.urn:
-                raise TypeError("Missing required property 'api_key'")
             __props__.__dict__["api_key"] = api_key
             __props__.__dict__["api_retry_count"] = pulumi.Output.from_input(api_retry_count).apply(pulumi.runtime.to_json) if api_retry_count is not None else None
             __props__.__dict__["api_retry_wait_max"] = pulumi.Output.from_input(api_retry_wait_max).apply(pulumi.runtime.to_json) if api_retry_wait_max is not None else None
@@ -167,11 +164,31 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> pulumi.Output[builtins.str]:
+    def api_key(self) -> pulumi.Output[Optional[builtins.str]]:
         return pulumi.get(self, "api_key")
 
     @property
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> pulumi.Output[Optional[builtins.str]]:
         return pulumi.get(self, "api_url")
+
+    @pulumi.output_type
+    class TerraformConfigResult:
+        def __init__(__self__, result=None):
+            if result and not isinstance(result, dict):
+                raise TypeError("Expected argument 'result' to be a dict")
+            pulumi.set(__self__, "result", result)
+
+        @property
+        @pulumi.getter
+        def result(self) -> Mapping[str, Any]:
+            return pulumi.get(self, "result")
+
+    def terraform_config(__self__) -> pulumi.Output['Provider.TerraformConfigResult']:
+        """
+        This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
+        """
+        __args__ = dict()
+        __args__['__self__'] = __self__
+        return pulumi.runtime.call('pulumi:providers:opsgenie/terraformConfig', __args__, res=__self__, typ=Provider.TerraformConfigResult)
 

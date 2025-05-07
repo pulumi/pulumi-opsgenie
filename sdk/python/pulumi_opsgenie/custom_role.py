@@ -160,10 +160,8 @@ class _CustomRoleState:
         pulumi.set(self, "role_name", value)
 
 
+@pulumi.type_token("opsgenie:index/customRole:CustomRole")
 class CustomRole(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/customRole:CustomRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

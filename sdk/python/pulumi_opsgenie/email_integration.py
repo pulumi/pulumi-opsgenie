@@ -250,10 +250,8 @@ class _EmailIntegrationState:
         pulumi.set(self, "suppress_notifications", value)
 
 
+@pulumi.type_token("opsgenie:index/emailIntegration:EmailIntegration")
 class EmailIntegration(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/emailIntegration:EmailIntegration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

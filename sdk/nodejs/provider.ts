@@ -25,7 +25,7 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
-    public readonly apiKey!: pulumi.Output<string>;
+    public readonly apiKey!: pulumi.Output<string | undefined>;
     public readonly apiUrl!: pulumi.Output<string | undefined>;
 
     /**
@@ -35,13 +35,10 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            if ((!args || args.apiKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'apiKey'");
-            }
             resourceInputs["apiKey"] = args ? args.apiKey : undefined;
             resourceInputs["apiRetryCount"] = pulumi.output(args ? args.apiRetryCount : undefined).apply(JSON.stringify);
             resourceInputs["apiRetryWaitMax"] = pulumi.output(args ? args.apiRetryWaitMax : undefined).apply(JSON.stringify);
@@ -51,15 +48,34 @@ export class Provider extends pulumi.ProviderResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
+
+    /**
+     * This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
+     */
+    terraformConfig(): pulumi.Output<Provider.TerraformConfigResult> {
+        return pulumi.runtime.call("pulumi:providers:opsgenie/terraformConfig", {
+            "__self__": this,
+        }, this);
+    }
 }
 
 /**
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    apiKey: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     apiRetryCount?: pulumi.Input<number>;
     apiRetryWaitMax?: pulumi.Input<number>;
     apiRetryWaitMin?: pulumi.Input<number>;
     apiUrl?: pulumi.Input<string>;
+}
+
+export namespace Provider {
+    /**
+     * The results of the Provider.terraformConfig method.
+     */
+    export interface TerraformConfigResult {
+        readonly result: {[key: string]: any};
+    }
+
 }

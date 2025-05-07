@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,7 +18,7 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	ApiKey pulumi.StringOutput    `pulumi:"apiKey"`
+	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	ApiUrl pulumi.StringPtrOutput `pulumi:"apiUrl"`
 }
 
@@ -27,12 +26,9 @@ type Provider struct {
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ProviderArgs{}
 	}
 
-	if args.ApiKey == nil {
-		return nil, errors.New("invalid value for required argument 'ApiKey'")
-	}
 	if args.ApiUrl == nil {
 		if d := internal.GetEnvOrDefault(nil, nil, "OPSGENIE_API_URL"); d != nil {
 			args.ApiUrl = pulumi.StringPtr(d.(string))
@@ -48,7 +44,7 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	ApiKey          string  `pulumi:"apiKey"`
+	ApiKey          *string `pulumi:"apiKey"`
 	ApiRetryCount   *int    `pulumi:"apiRetryCount"`
 	ApiRetryWaitMax *int    `pulumi:"apiRetryWaitMax"`
 	ApiRetryWaitMin *int    `pulumi:"apiRetryWaitMin"`
@@ -57,7 +53,7 @@ type providerArgs struct {
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	ApiKey          pulumi.StringInput
+	ApiKey          pulumi.StringPtrInput
 	ApiRetryCount   pulumi.IntPtrInput
 	ApiRetryWaitMax pulumi.IntPtrInput
 	ApiRetryWaitMin pulumi.IntPtrInput
@@ -66,6 +62,29 @@ type ProviderArgs struct {
 
 func (ProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerArgs)(nil)).Elem()
+}
+
+// This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
+func (r *Provider) TerraformConfig(ctx *pulumi.Context) (ProviderTerraformConfigResultOutput, error) {
+	out, err := ctx.Call("pulumi:providers:opsgenie/terraformConfig", nil, ProviderTerraformConfigResultOutput{}, r)
+	if err != nil {
+		return ProviderTerraformConfigResultOutput{}, err
+	}
+	return out.(ProviderTerraformConfigResultOutput), nil
+}
+
+type ProviderTerraformConfigResult struct {
+	Result map[string]interface{} `pulumi:"result"`
+}
+
+type ProviderTerraformConfigResultOutput struct{ *pulumi.OutputState }
+
+func (ProviderTerraformConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderTerraformConfigResult)(nil)).Elem()
+}
+
+func (o ProviderTerraformConfigResultOutput) Result() pulumi.MapOutput {
+	return o.ApplyT(func(v ProviderTerraformConfigResult) map[string]interface{} { return v.Result }).(pulumi.MapOutput)
 }
 
 type ProviderInput interface {
@@ -101,8 +120,8 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
-func (o ProviderOutput) ApiKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
+func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderOutput) ApiUrl() pulumi.StringPtrOutput {
@@ -112,4 +131,5 @@ func (o ProviderOutput) ApiUrl() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderInput)(nil)).Elem(), &Provider{})
 	pulumi.RegisterOutputType(ProviderOutput{})
+	pulumi.RegisterOutputType(ProviderTerraformConfigResultOutput{})
 }

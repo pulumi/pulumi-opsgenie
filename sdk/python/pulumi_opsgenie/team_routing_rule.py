@@ -289,10 +289,8 @@ class _TeamRoutingRuleState:
         pulumi.set(self, "timezone", value)
 
 
+@pulumi.type_token("opsgenie:index/teamRoutingRule:TeamRoutingRule")
 class TeamRoutingRule(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/teamRoutingRule:TeamRoutingRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
