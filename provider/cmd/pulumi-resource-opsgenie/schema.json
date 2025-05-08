@@ -1912,7 +1912,10 @@
         },
         "requiredInputs": [
             "apiKey"
-        ]
+        ],
+        "methods": {
+            "terraformConfig": "pulumi:providers:opsgenie/terraformConfig"
+        }
     },
     "resources": {
         "opsgenie:index/alertPolicy:AlertPolicy": {
@@ -4800,6 +4803,35 @@
                 "required": [
                     "username",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "pulumi:providers:opsgenie/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:opsgenie"
+                    }
+                },
+                "type": "pulumi:providers:opsgenie/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
                 ],
                 "type": "object"
             }
