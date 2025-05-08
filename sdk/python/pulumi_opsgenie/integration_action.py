@@ -186,10 +186,8 @@ class _IntegrationActionState:
         pulumi.set(self, "integration_id", value)
 
 
+@pulumi.type_token("opsgenie:index/integrationAction:IntegrationAction")
 class IntegrationAction(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/integrationAction:IntegrationAction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

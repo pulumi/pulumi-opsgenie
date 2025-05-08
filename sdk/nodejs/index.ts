@@ -90,10 +90,8 @@ export type NotificationRule = import("./notificationRule").NotificationRule;
 export const NotificationRule: typeof import("./notificationRule").NotificationRule = null as any;
 utilities.lazyLoad(exports, ["NotificationRule"], () => require("./notificationRule"));
 
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export { ScheduleArgs, ScheduleState } from "./schedule";
 export type Schedule = import("./schedule").Schedule;

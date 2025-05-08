@@ -318,10 +318,8 @@ class _HeartbeatState:
         pulumi.set(self, "owner_team_id", value)
 
 
+@pulumi.type_token("opsgenie:index/heartbeat:Heartbeat")
 class Heartbeat(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/heartbeat:Heartbeat"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

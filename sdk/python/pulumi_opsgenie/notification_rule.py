@@ -345,10 +345,8 @@ class _NotificationRuleState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("opsgenie:index/notificationRule:NotificationRule")
 class NotificationRule(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/notificationRule:NotificationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
