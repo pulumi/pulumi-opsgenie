@@ -387,10 +387,8 @@ class _ApiIntegrationState:
         pulumi.set(self, "webhook_url", value)
 
 
+@pulumi.type_token("opsgenie:index/apiIntegration:ApiIntegration")
 class ApiIntegration(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/apiIntegration:ApiIntegration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

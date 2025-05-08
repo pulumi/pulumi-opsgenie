@@ -194,10 +194,8 @@ class _EscalationState:
         pulumi.set(self, "rules", value)
 
 
+@pulumi.type_token("opsgenie:index/escalation:Escalation")
 class Escalation(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/escalation:Escalation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

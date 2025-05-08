@@ -385,10 +385,8 @@ class _NotificationPolicyState:
         pulumi.set(self, "time_restrictions", value)
 
 
+@pulumi.type_token("opsgenie:index/notificationPolicy:NotificationPolicy")
 class NotificationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/notificationPolicy:NotificationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

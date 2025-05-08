@@ -674,10 +674,8 @@ class _AlertPolicyState:
         pulumi.set(self, "time_restrictions", value)
 
 
+@pulumi.type_token("opsgenie:index/alertPolicy:AlertPolicy")
 class AlertPolicy(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/alertPolicy:AlertPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

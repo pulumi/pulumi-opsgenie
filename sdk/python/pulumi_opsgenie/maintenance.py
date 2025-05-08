@@ -129,10 +129,8 @@ class _MaintenanceState:
         pulumi.set(self, "times", value)
 
 
+@pulumi.type_token("opsgenie:index/maintenance:Maintenance")
 class Maintenance(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/maintenance:Maintenance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

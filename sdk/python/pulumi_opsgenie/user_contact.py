@@ -158,10 +158,8 @@ class _UserContactState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("opsgenie:index/userContact:UserContact")
 class UserContact(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/userContact:UserContact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

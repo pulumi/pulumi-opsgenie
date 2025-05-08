@@ -193,10 +193,8 @@ class _ScheduleState:
         pulumi.set(self, "timezone", value)
 
 
+@pulumi.type_token("opsgenie:index/schedule:Schedule")
 class Schedule(pulumi.CustomResource):
-
-    pulumi_type = "opsgenie:index/schedule:Schedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
