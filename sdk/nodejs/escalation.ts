@@ -118,23 +118,23 @@ export class Escalation extends pulumi.CustomResource {
     /**
      * Description of the escalation.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the escalation.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Owner team id of the escalation.
      */
-    public readonly ownerTeamId!: pulumi.Output<string | undefined>;
+    declare public readonly ownerTeamId: pulumi.Output<string | undefined>;
     /**
      * Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
      */
-    public readonly repeats!: pulumi.Output<outputs.EscalationRepeat[] | undefined>;
+    declare public readonly repeats: pulumi.Output<outputs.EscalationRepeat[] | undefined>;
     /**
      * List of the escalation rules. See below for how rules are defined.
      */
-    public readonly rules!: pulumi.Output<outputs.EscalationRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.EscalationRule[]>;
 
     /**
      * Create a Escalation resource with the given unique name, arguments, and options.
@@ -149,21 +149,21 @@ export class Escalation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EscalationState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
-            resourceInputs["repeats"] = state ? state.repeats : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ownerTeamId"] = state?.ownerTeamId;
+            resourceInputs["repeats"] = state?.repeats;
+            resourceInputs["rules"] = state?.rules;
         } else {
             const args = argsOrState as EscalationArgs | undefined;
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
-            resourceInputs["repeats"] = args ? args.repeats : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ownerTeamId"] = args?.ownerTeamId;
+            resourceInputs["repeats"] = args?.repeats;
+            resourceInputs["rules"] = args?.rules;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Escalation.__pulumiType, name, resourceInputs, opts);
