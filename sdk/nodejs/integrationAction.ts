@@ -195,15 +195,15 @@ export class IntegrationAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === IntegrationAction.__pulumiType;
     }
 
-    public readonly acknowledges!: pulumi.Output<outputs.IntegrationActionAcknowledge[] | undefined>;
-    public readonly addNotes!: pulumi.Output<outputs.IntegrationActionAddNote[] | undefined>;
-    public readonly closes!: pulumi.Output<outputs.IntegrationActionClose[] | undefined>;
-    public readonly creates!: pulumi.Output<outputs.IntegrationActionCreate[] | undefined>;
-    public readonly ignores!: pulumi.Output<outputs.IntegrationActionIgnore[] | undefined>;
+    declare public readonly acknowledges: pulumi.Output<outputs.IntegrationActionAcknowledge[] | undefined>;
+    declare public readonly addNotes: pulumi.Output<outputs.IntegrationActionAddNote[] | undefined>;
+    declare public readonly closes: pulumi.Output<outputs.IntegrationActionClose[] | undefined>;
+    declare public readonly creates: pulumi.Output<outputs.IntegrationActionCreate[] | undefined>;
+    declare public readonly ignores: pulumi.Output<outputs.IntegrationActionIgnore[] | undefined>;
     /**
      * ID of the parent integration resource to bind to.
      */
-    public readonly integrationId!: pulumi.Output<string>;
+    declare public readonly integrationId: pulumi.Output<string>;
 
     /**
      * Create a IntegrationAction resource with the given unique name, arguments, and options.
@@ -218,23 +218,23 @@ export class IntegrationAction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationActionState | undefined;
-            resourceInputs["acknowledges"] = state ? state.acknowledges : undefined;
-            resourceInputs["addNotes"] = state ? state.addNotes : undefined;
-            resourceInputs["closes"] = state ? state.closes : undefined;
-            resourceInputs["creates"] = state ? state.creates : undefined;
-            resourceInputs["ignores"] = state ? state.ignores : undefined;
-            resourceInputs["integrationId"] = state ? state.integrationId : undefined;
+            resourceInputs["acknowledges"] = state?.acknowledges;
+            resourceInputs["addNotes"] = state?.addNotes;
+            resourceInputs["closes"] = state?.closes;
+            resourceInputs["creates"] = state?.creates;
+            resourceInputs["ignores"] = state?.ignores;
+            resourceInputs["integrationId"] = state?.integrationId;
         } else {
             const args = argsOrState as IntegrationActionArgs | undefined;
-            if ((!args || args.integrationId === undefined) && !opts.urn) {
+            if (args?.integrationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationId'");
             }
-            resourceInputs["acknowledges"] = args ? args.acknowledges : undefined;
-            resourceInputs["addNotes"] = args ? args.addNotes : undefined;
-            resourceInputs["closes"] = args ? args.closes : undefined;
-            resourceInputs["creates"] = args ? args.creates : undefined;
-            resourceInputs["ignores"] = args ? args.ignores : undefined;
-            resourceInputs["integrationId"] = args ? args.integrationId : undefined;
+            resourceInputs["acknowledges"] = args?.acknowledges;
+            resourceInputs["addNotes"] = args?.addNotes;
+            resourceInputs["closes"] = args?.closes;
+            resourceInputs["creates"] = args?.creates;
+            resourceInputs["ignores"] = args?.ignores;
+            resourceInputs["integrationId"] = args?.integrationId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationAction.__pulumiType, name, resourceInputs, opts);

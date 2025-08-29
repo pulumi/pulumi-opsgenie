@@ -79,39 +79,39 @@ export class User extends pulumi.CustomResource {
     /**
      * The Full Name of the User.
      */
-    public readonly fullName!: pulumi.Output<string>;
+    declare public readonly fullName: pulumi.Output<string>;
     /**
      * Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
      */
-    public readonly locale!: pulumi.Output<string | undefined>;
+    declare public readonly locale: pulumi.Output<string | undefined>;
     /**
      * The Role assigned to the User. Either a built-in such as 'Admin' or 'User' - or the name of a custom role.
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * Skype username of the user.
      */
-    public readonly skypeUsername!: pulumi.Output<string | undefined>;
+    declare public readonly skypeUsername: pulumi.Output<string | undefined>;
     /**
      * A list of tags to be associated with the user.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
     /**
      * Address of the user.
      */
-    public readonly userAddresses!: pulumi.Output<outputs.UserUserAddress[] | undefined>;
+    declare public readonly userAddresses: pulumi.Output<outputs.UserUserAddress[] | undefined>;
     /**
      * Details about the user in form of key and list. of values.
      */
-    public readonly userDetails!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly userDetails: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters and must contain lowercase characters only.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -126,35 +126,35 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["fullName"] = state ? state.fullName : undefined;
-            resourceInputs["locale"] = state ? state.locale : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["skypeUsername"] = state ? state.skypeUsername : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
-            resourceInputs["userAddresses"] = state ? state.userAddresses : undefined;
-            resourceInputs["userDetails"] = state ? state.userDetails : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["fullName"] = state?.fullName;
+            resourceInputs["locale"] = state?.locale;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["skypeUsername"] = state?.skypeUsername;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["timezone"] = state?.timezone;
+            resourceInputs["userAddresses"] = state?.userAddresses;
+            resourceInputs["userDetails"] = state?.userDetails;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.fullName === undefined) && !opts.urn) {
+            if (args?.fullName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fullName'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["fullName"] = args ? args.fullName : undefined;
-            resourceInputs["locale"] = args ? args.locale : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["skypeUsername"] = args ? args.skypeUsername : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
-            resourceInputs["userAddresses"] = args ? args.userAddresses : undefined;
-            resourceInputs["userDetails"] = args ? args.userDetails : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["fullName"] = args?.fullName;
+            resourceInputs["locale"] = args?.locale;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["skypeUsername"] = args?.skypeUsername;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timezone"] = args?.timezone;
+            resourceInputs["userAddresses"] = args?.userAddresses;
+            resourceInputs["userDetails"] = args?.userDetails;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(User.__pulumiType, name, resourceInputs, opts);

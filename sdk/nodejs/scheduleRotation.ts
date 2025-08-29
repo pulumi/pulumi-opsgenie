@@ -77,32 +77,32 @@ export class ScheduleRotation extends pulumi.CustomResource {
     /**
      * This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
      */
-    public readonly endDate!: pulumi.Output<string | undefined>;
+    declare public readonly endDate: pulumi.Output<string | undefined>;
     /**
      * Length of the rotation with default value 1.
      */
-    public readonly length!: pulumi.Output<number | undefined>;
+    declare public readonly length: pulumi.Output<number | undefined>;
     /**
      * Name of rotation.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
      */
-    public readonly participants!: pulumi.Output<outputs.ScheduleRotationParticipant[]>;
+    declare public readonly participants: pulumi.Output<outputs.ScheduleRotationParticipant[]>;
     /**
      * Identifier of the schedule.
      */
-    public readonly scheduleId!: pulumi.Output<string>;
+    declare public readonly scheduleId: pulumi.Output<string>;
     /**
      * This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
      */
-    public readonly startDate!: pulumi.Output<string>;
-    public readonly timeRestrictions!: pulumi.Output<outputs.ScheduleRotationTimeRestriction[] | undefined>;
+    declare public readonly startDate: pulumi.Output<string>;
+    declare public readonly timeRestrictions: pulumi.Output<outputs.ScheduleRotationTimeRestriction[] | undefined>;
     /**
      * Type of rotation. May be one of daily, weekly and hourly.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a ScheduleRotation resource with the given unique name, arguments, and options.
@@ -117,36 +117,36 @@ export class ScheduleRotation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleRotationState | undefined;
-            resourceInputs["endDate"] = state ? state.endDate : undefined;
-            resourceInputs["length"] = state ? state.length : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["participants"] = state ? state.participants : undefined;
-            resourceInputs["scheduleId"] = state ? state.scheduleId : undefined;
-            resourceInputs["startDate"] = state ? state.startDate : undefined;
-            resourceInputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["endDate"] = state?.endDate;
+            resourceInputs["length"] = state?.length;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["participants"] = state?.participants;
+            resourceInputs["scheduleId"] = state?.scheduleId;
+            resourceInputs["startDate"] = state?.startDate;
+            resourceInputs["timeRestrictions"] = state?.timeRestrictions;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ScheduleRotationArgs | undefined;
-            if ((!args || args.participants === undefined) && !opts.urn) {
+            if (args?.participants === undefined && !opts.urn) {
                 throw new Error("Missing required property 'participants'");
             }
-            if ((!args || args.scheduleId === undefined) && !opts.urn) {
+            if (args?.scheduleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleId'");
             }
-            if ((!args || args.startDate === undefined) && !opts.urn) {
+            if (args?.startDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startDate'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
-            resourceInputs["length"] = args ? args.length : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["participants"] = args ? args.participants : undefined;
-            resourceInputs["scheduleId"] = args ? args.scheduleId : undefined;
-            resourceInputs["startDate"] = args ? args.startDate : undefined;
-            resourceInputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["endDate"] = args?.endDate;
+            resourceInputs["length"] = args?.length;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["participants"] = args?.participants;
+            resourceInputs["scheduleId"] = args?.scheduleId;
+            resourceInputs["startDate"] = args?.startDate;
+            resourceInputs["timeRestrictions"] = args?.timeRestrictions;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScheduleRotation.__pulumiType, name, resourceInputs, opts);

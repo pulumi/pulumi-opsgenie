@@ -25,8 +25,8 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
-    public readonly apiKey!: pulumi.Output<string | undefined>;
-    public readonly apiUrl!: pulumi.Output<string | undefined>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
+    declare public readonly apiUrl: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -39,11 +39,11 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
-            resourceInputs["apiRetryCount"] = pulumi.output(args ? args.apiRetryCount : undefined).apply(JSON.stringify);
-            resourceInputs["apiRetryWaitMax"] = pulumi.output(args ? args.apiRetryWaitMax : undefined).apply(JSON.stringify);
-            resourceInputs["apiRetryWaitMin"] = pulumi.output(args ? args.apiRetryWaitMin : undefined).apply(JSON.stringify);
-            resourceInputs["apiUrl"] = (args ? args.apiUrl : undefined) ?? utilities.getEnv("OPSGENIE_API_URL");
+            resourceInputs["apiKey"] = args?.apiKey;
+            resourceInputs["apiRetryCount"] = pulumi.output(args?.apiRetryCount).apply(JSON.stringify);
+            resourceInputs["apiRetryWaitMax"] = pulumi.output(args?.apiRetryWaitMax).apply(JSON.stringify);
+            resourceInputs["apiRetryWaitMin"] = pulumi.output(args?.apiRetryWaitMin).apply(JSON.stringify);
+            resourceInputs["apiUrl"] = (args?.apiUrl) ?? utilities.getEnv("OPSGENIE_API_URL");
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);

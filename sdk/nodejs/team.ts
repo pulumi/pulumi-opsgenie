@@ -86,23 +86,23 @@ export class Team extends pulumi.CustomResource {
     /**
      * Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
      */
-    public readonly deleteDefaultResources!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteDefaultResources: pulumi.Output<boolean | undefined>;
     /**
      * A description for this team.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
      */
-    public readonly ignoreMembers!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreMembers: pulumi.Output<boolean | undefined>;
     /**
      * A Member block as documented below.
      */
-    public readonly members!: pulumi.Output<outputs.TeamMember[] | undefined>;
+    declare public readonly members: pulumi.Output<outputs.TeamMember[] | undefined>;
     /**
      * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Team resource with the given unique name, arguments, and options.
@@ -117,18 +117,18 @@ export class Team extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamState | undefined;
-            resourceInputs["deleteDefaultResources"] = state ? state.deleteDefaultResources : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["ignoreMembers"] = state ? state.ignoreMembers : undefined;
-            resourceInputs["members"] = state ? state.members : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["deleteDefaultResources"] = state?.deleteDefaultResources;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["ignoreMembers"] = state?.ignoreMembers;
+            resourceInputs["members"] = state?.members;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as TeamArgs | undefined;
-            resourceInputs["deleteDefaultResources"] = args ? args.deleteDefaultResources : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ignoreMembers"] = args ? args.ignoreMembers : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["deleteDefaultResources"] = args?.deleteDefaultResources;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ignoreMembers"] = args?.ignoreMembers;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Team.__pulumiType, name, resourceInputs, opts);

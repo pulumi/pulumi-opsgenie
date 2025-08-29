@@ -46,23 +46,23 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The description of schedule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Enable/disable state of schedule
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Name of the schedule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Owner team id of the schedule.
      */
-    public readonly ownerTeamId!: pulumi.Output<string | undefined>;
+    declare public readonly ownerTeamId: pulumi.Output<string | undefined>;
     /**
      * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -77,18 +77,18 @@ export class Schedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ownerTeamId"] = state?.ownerTeamId;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ownerTeamId"] = args?.ownerTeamId;
+            resourceInputs["timezone"] = args?.timezone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);

@@ -96,35 +96,35 @@ export class TeamRoutingRule extends pulumi.CustomResource {
     /**
      * You can refer Criteria for detailed information about criteria and its fields
      */
-    public readonly criterias!: pulumi.Output<outputs.TeamRoutingRuleCriteria[] | undefined>;
+    declare public readonly criterias: pulumi.Output<outputs.TeamRoutingRuleCriteria[] | undefined>;
     /**
      * Only use when importing default routing rule
      */
-    public readonly isDefault!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDefault: pulumi.Output<boolean | undefined>;
     /**
      * Name of the team routing rule
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
      */
-    public readonly notifies!: pulumi.Output<outputs.TeamRoutingRuleNotify[]>;
+    declare public readonly notifies: pulumi.Output<outputs.TeamRoutingRuleNotify[]>;
     /**
      * The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
      */
-    public readonly order!: pulumi.Output<number | undefined>;
+    declare public readonly order: pulumi.Output<number | undefined>;
     /**
      * Id of the team owning the routing rule
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
     /**
      * You can refer Time Restriction for detailed information about time restriction and its fields.
      */
-    public readonly timeRestrictions!: pulumi.Output<outputs.TeamRoutingRuleTimeRestriction[] | undefined>;
+    declare public readonly timeRestrictions: pulumi.Output<outputs.TeamRoutingRuleTimeRestriction[] | undefined>;
     /**
      * Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a TeamRoutingRule resource with the given unique name, arguments, and options.
@@ -139,30 +139,30 @@ export class TeamRoutingRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamRoutingRuleState | undefined;
-            resourceInputs["criterias"] = state ? state.criterias : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notifies"] = state ? state.notifies : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
-            resourceInputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["criterias"] = state?.criterias;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notifies"] = state?.notifies;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["teamId"] = state?.teamId;
+            resourceInputs["timeRestrictions"] = state?.timeRestrictions;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as TeamRoutingRuleArgs | undefined;
-            if ((!args || args.notifies === undefined) && !opts.urn) {
+            if (args?.notifies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notifies'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["criterias"] = args ? args.criterias : undefined;
-            resourceInputs["isDefault"] = args ? args.isDefault : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifies"] = args ? args.notifies : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["criterias"] = args?.criterias;
+            resourceInputs["isDefault"] = args?.isDefault;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifies"] = args?.notifies;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["teamId"] = args?.teamId;
+            resourceInputs["timeRestrictions"] = args?.timeRestrictions;
+            resourceInputs["timezone"] = args?.timezone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TeamRoutingRule.__pulumiType, name, resourceInputs, opts);

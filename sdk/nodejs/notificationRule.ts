@@ -76,32 +76,32 @@ export class NotificationRule extends pulumi.CustomResource {
     /**
      * Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
      */
-    public readonly actionType!: pulumi.Output<string>;
-    public readonly criterias!: pulumi.Output<outputs.NotificationRuleCriteria[] | undefined>;
+    declare public readonly actionType: pulumi.Output<string>;
+    declare public readonly criterias: pulumi.Output<outputs.NotificationRuleCriteria[] | undefined>;
     /**
      * If policy should be enabled. Default: `true`
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Name of the notification policy
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
-    public readonly notificationTimes!: pulumi.Output<string[] | undefined>;
-    public readonly order!: pulumi.Output<number>;
-    public readonly repeats!: pulumi.Output<outputs.NotificationRuleRepeat[] | undefined>;
-    public readonly schedules!: pulumi.Output<outputs.NotificationRuleSchedule[] | undefined>;
+    declare public readonly notificationTimes: pulumi.Output<string[] | undefined>;
+    declare public readonly order: pulumi.Output<number>;
+    declare public readonly repeats: pulumi.Output<outputs.NotificationRuleRepeat[] | undefined>;
+    declare public readonly schedules: pulumi.Output<outputs.NotificationRuleSchedule[] | undefined>;
     /**
      * Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
      */
-    public readonly steps!: pulumi.Output<outputs.NotificationRuleStep[] | undefined>;
-    public readonly timeRestrictions!: pulumi.Output<outputs.NotificationRuleTimeRestriction[] | undefined>;
+    declare public readonly steps: pulumi.Output<outputs.NotificationRuleStep[] | undefined>;
+    declare public readonly timeRestrictions: pulumi.Output<outputs.NotificationRuleTimeRestriction[] | undefined>;
     /**
      * Username of user to which this notification rule belongs to.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a NotificationRule resource with the given unique name, arguments, and options.
@@ -116,36 +116,36 @@ export class NotificationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationRuleState | undefined;
-            resourceInputs["actionType"] = state ? state.actionType : undefined;
-            resourceInputs["criterias"] = state ? state.criterias : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationTimes"] = state ? state.notificationTimes : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["repeats"] = state ? state.repeats : undefined;
-            resourceInputs["schedules"] = state ? state.schedules : undefined;
-            resourceInputs["steps"] = state ? state.steps : undefined;
-            resourceInputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["actionType"] = state?.actionType;
+            resourceInputs["criterias"] = state?.criterias;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notificationTimes"] = state?.notificationTimes;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["repeats"] = state?.repeats;
+            resourceInputs["schedules"] = state?.schedules;
+            resourceInputs["steps"] = state?.steps;
+            resourceInputs["timeRestrictions"] = state?.timeRestrictions;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as NotificationRuleArgs | undefined;
-            if ((!args || args.actionType === undefined) && !opts.urn) {
+            if (args?.actionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionType'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["actionType"] = args ? args.actionType : undefined;
-            resourceInputs["criterias"] = args ? args.criterias : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationTimes"] = args ? args.notificationTimes : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["repeats"] = args ? args.repeats : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
-            resourceInputs["steps"] = args ? args.steps : undefined;
-            resourceInputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["actionType"] = args?.actionType;
+            resourceInputs["criterias"] = args?.criterias;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationTimes"] = args?.notificationTimes;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["repeats"] = args?.repeats;
+            resourceInputs["schedules"] = args?.schedules;
+            resourceInputs["steps"] = args?.steps;
+            resourceInputs["timeRestrictions"] = args?.timeRestrictions;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NotificationRule.__pulumiType, name, resourceInputs, opts);

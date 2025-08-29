@@ -84,20 +84,20 @@ export class IncidentTemplate extends pulumi.CustomResource {
     /**
      * Description field of the incident template. This field must not be longer than 10000 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
      */
-    public readonly details!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly impactedServices!: pulumi.Output<string[] | undefined>;
+    declare public readonly details: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly impactedServices: pulumi.Output<string[] | undefined>;
     /**
      * Message of the related incident template. This field must not be longer than 130 characters.
      */
-    public readonly message!: pulumi.Output<string>;
+    declare public readonly message: pulumi.Output<string>;
     /**
      * Name of the incident template.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      *
@@ -105,12 +105,12 @@ export class IncidentTemplate extends pulumi.CustomResource {
      *
      * * `stakeholderProperties` (Required)
      */
-    public readonly priority!: pulumi.Output<string>;
-    public readonly stakeholderProperties!: pulumi.Output<outputs.IncidentTemplateStakeholderProperty[]>;
+    declare public readonly priority: pulumi.Output<string>;
+    declare public readonly stakeholderProperties: pulumi.Output<outputs.IncidentTemplateStakeholderProperty[]>;
     /**
      * Tags of the incident template.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a IncidentTemplate resource with the given unique name, arguments, and options.
@@ -125,33 +125,33 @@ export class IncidentTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IncidentTemplateState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["details"] = state ? state.details : undefined;
-            resourceInputs["impactedServices"] = state ? state.impactedServices : undefined;
-            resourceInputs["message"] = state ? state.message : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["stakeholderProperties"] = state ? state.stakeholderProperties : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["details"] = state?.details;
+            resourceInputs["impactedServices"] = state?.impactedServices;
+            resourceInputs["message"] = state?.message;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["stakeholderProperties"] = state?.stakeholderProperties;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as IncidentTemplateArgs | undefined;
-            if ((!args || args.message === undefined) && !opts.urn) {
+            if (args?.message === undefined && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.stakeholderProperties === undefined) && !opts.urn) {
+            if (args?.stakeholderProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stakeholderProperties'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["details"] = args ? args.details : undefined;
-            resourceInputs["impactedServices"] = args ? args.impactedServices : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["stakeholderProperties"] = args ? args.stakeholderProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["details"] = args?.details;
+            resourceInputs["impactedServices"] = args?.impactedServices;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["stakeholderProperties"] = args?.stakeholderProperties;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IncidentTemplate.__pulumiType, name, resourceInputs, opts);

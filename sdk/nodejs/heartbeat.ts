@@ -68,39 +68,39 @@ export class Heartbeat extends pulumi.CustomResource {
     /**
      * Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
      */
-    public readonly alertMessage!: pulumi.Output<string | undefined>;
+    declare public readonly alertMessage: pulumi.Output<string | undefined>;
     /**
      * Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
      */
-    public readonly alertPriority!: pulumi.Output<string | undefined>;
+    declare public readonly alertPriority: pulumi.Output<string | undefined>;
     /**
      * Specifies the alert tags for heartbeat expiration alert.
      */
-    public readonly alertTags!: pulumi.Output<string[] | undefined>;
+    declare public readonly alertTags: pulumi.Output<string[] | undefined>;
     /**
      * An optional description of the heartbeat
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Enable/disable heartbeat monitoring.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Specifies how often a heartbeat message should be expected.
      */
-    public readonly interval!: pulumi.Output<number>;
+    declare public readonly interval: pulumi.Output<number>;
     /**
      * Interval specified as minutes, hours or days.
      */
-    public readonly intervalUnit!: pulumi.Output<string>;
+    declare public readonly intervalUnit: pulumi.Output<string>;
     /**
      * Name of the heartbeat
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Owner team of the heartbeat.
      */
-    public readonly ownerTeamId!: pulumi.Output<string | undefined>;
+    declare public readonly ownerTeamId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Heartbeat resource with the given unique name, arguments, and options.
@@ -115,35 +115,35 @@ export class Heartbeat extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HeartbeatState | undefined;
-            resourceInputs["alertMessage"] = state ? state.alertMessage : undefined;
-            resourceInputs["alertPriority"] = state ? state.alertPriority : undefined;
-            resourceInputs["alertTags"] = state ? state.alertTags : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["interval"] = state ? state.interval : undefined;
-            resourceInputs["intervalUnit"] = state ? state.intervalUnit : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
+            resourceInputs["alertMessage"] = state?.alertMessage;
+            resourceInputs["alertPriority"] = state?.alertPriority;
+            resourceInputs["alertTags"] = state?.alertTags;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["interval"] = state?.interval;
+            resourceInputs["intervalUnit"] = state?.intervalUnit;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ownerTeamId"] = state?.ownerTeamId;
         } else {
             const args = argsOrState as HeartbeatArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.interval === undefined) && !opts.urn) {
+            if (args?.interval === undefined && !opts.urn) {
                 throw new Error("Missing required property 'interval'");
             }
-            if ((!args || args.intervalUnit === undefined) && !opts.urn) {
+            if (args?.intervalUnit === undefined && !opts.urn) {
                 throw new Error("Missing required property 'intervalUnit'");
             }
-            resourceInputs["alertMessage"] = args ? args.alertMessage : undefined;
-            resourceInputs["alertPriority"] = args ? args.alertPriority : undefined;
-            resourceInputs["alertTags"] = args ? args.alertTags : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["intervalUnit"] = args ? args.intervalUnit : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
+            resourceInputs["alertMessage"] = args?.alertMessage;
+            resourceInputs["alertPriority"] = args?.alertPriority;
+            resourceInputs["alertTags"] = args?.alertTags;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["intervalUnit"] = args?.intervalUnit;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ownerTeamId"] = args?.ownerTeamId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Heartbeat.__pulumiType, name, resourceInputs, opts);

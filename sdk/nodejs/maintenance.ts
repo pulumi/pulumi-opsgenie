@@ -48,15 +48,15 @@ export class Maintenance extends pulumi.CustomResource {
     /**
      * Description for the maintenance.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
      */
-    public readonly rules!: pulumi.Output<outputs.MaintenanceRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.MaintenanceRule[]>;
     /**
      * Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
      */
-    public readonly times!: pulumi.Output<outputs.MaintenanceTime[] | undefined>;
+    declare public readonly times: pulumi.Output<outputs.MaintenanceTime[] | undefined>;
 
     /**
      * Create a Maintenance resource with the given unique name, arguments, and options.
@@ -71,20 +71,20 @@ export class Maintenance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaintenanceState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["times"] = state ? state.times : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["times"] = state?.times;
         } else {
             const args = argsOrState as MaintenanceArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["times"] = args ? args.times : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["times"] = args?.times;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Maintenance.__pulumiType, name, resourceInputs, opts);

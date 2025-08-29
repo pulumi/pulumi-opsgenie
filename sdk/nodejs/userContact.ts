@@ -69,19 +69,19 @@ export class UserContact extends pulumi.CustomResource {
     /**
      * Enable contact of the user in OpsGenie. Default value is true.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
      */
-    public readonly method!: pulumi.Output<string>;
+    declare public readonly method: pulumi.Output<string>;
     /**
      * to field is the address of given method.
      */
-    public readonly to!: pulumi.Output<string>;
+    declare public readonly to: pulumi.Output<string>;
     /**
      * The username for contact.(reference)
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a UserContact resource with the given unique name, arguments, and options.
@@ -96,25 +96,25 @@ export class UserContact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserContactState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["method"] = state ? state.method : undefined;
-            resourceInputs["to"] = state ? state.to : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["method"] = state?.method;
+            resourceInputs["to"] = state?.to;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as UserContactArgs | undefined;
-            if ((!args || args.method === undefined) && !opts.urn) {
+            if (args?.method === undefined && !opts.urn) {
                 throw new Error("Missing required property 'method'");
             }
-            if ((!args || args.to === undefined) && !opts.urn) {
+            if (args?.to === undefined && !opts.urn) {
                 throw new Error("Missing required property 'to'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["method"] = args ? args.method : undefined;
-            resourceInputs["to"] = args ? args.to : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["method"] = args?.method;
+            resourceInputs["to"] = args?.to;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserContact.__pulumiType, name, resourceInputs, opts);
