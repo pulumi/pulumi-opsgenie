@@ -71,47 +71,47 @@ export class NotificationPolicy extends pulumi.CustomResource {
     /**
      * Auto Restart Action of the policy. This is a block, structure is documented below.
      */
-    public readonly autoCloseActions!: pulumi.Output<outputs.NotificationPolicyAutoCloseAction[] | undefined>;
+    declare public readonly autoCloseActions: pulumi.Output<outputs.NotificationPolicyAutoCloseAction[] | undefined>;
     /**
      * Auto Restart Action of the policy. This is a block, structure is documented below.
      */
-    public readonly autoRestartActions!: pulumi.Output<outputs.NotificationPolicyAutoRestartAction[] | undefined>;
+    declare public readonly autoRestartActions: pulumi.Output<outputs.NotificationPolicyAutoRestartAction[] | undefined>;
     /**
      * Deduplication Action of the policy. This is a block, structure is documented below.
      */
-    public readonly deDuplicationActions!: pulumi.Output<outputs.NotificationPolicyDeDuplicationAction[] | undefined>;
+    declare public readonly deDuplicationActions: pulumi.Output<outputs.NotificationPolicyDeDuplicationAction[] | undefined>;
     /**
      * Delay notifications. This is a block, structure is documented below.
      */
-    public readonly delayActions!: pulumi.Output<outputs.NotificationPolicyDelayAction[] | undefined>;
+    declare public readonly delayActions: pulumi.Output<outputs.NotificationPolicyDelayAction[] | undefined>;
     /**
      * If policy should be enabled. Default: `true`
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      */
-    public readonly filters!: pulumi.Output<outputs.NotificationPolicyFilter[]>;
+    declare public readonly filters: pulumi.Output<outputs.NotificationPolicyFilter[]>;
     /**
      * Name of the notification policy
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Description of the policy. This can be max 512 characters.
      */
-    public readonly policyDescription!: pulumi.Output<string | undefined>;
+    declare public readonly policyDescription: pulumi.Output<string | undefined>;
     /**
      * Suppress value of the policy. Values are: `true`, `false`. Default: `false`
      */
-    public readonly suppress!: pulumi.Output<boolean | undefined>;
+    declare public readonly suppress: pulumi.Output<boolean | undefined>;
     /**
      * Id of team that this policy belons to.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
     /**
      * Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
      */
-    public readonly timeRestrictions!: pulumi.Output<outputs.NotificationPolicyTimeRestriction[] | undefined>;
+    declare public readonly timeRestrictions: pulumi.Output<outputs.NotificationPolicyTimeRestriction[] | undefined>;
 
     /**
      * Create a NotificationPolicy resource with the given unique name, arguments, and options.
@@ -126,36 +126,36 @@ export class NotificationPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationPolicyState | undefined;
-            resourceInputs["autoCloseActions"] = state ? state.autoCloseActions : undefined;
-            resourceInputs["autoRestartActions"] = state ? state.autoRestartActions : undefined;
-            resourceInputs["deDuplicationActions"] = state ? state.deDuplicationActions : undefined;
-            resourceInputs["delayActions"] = state ? state.delayActions : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyDescription"] = state ? state.policyDescription : undefined;
-            resourceInputs["suppress"] = state ? state.suppress : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
-            resourceInputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
+            resourceInputs["autoCloseActions"] = state?.autoCloseActions;
+            resourceInputs["autoRestartActions"] = state?.autoRestartActions;
+            resourceInputs["deDuplicationActions"] = state?.deDuplicationActions;
+            resourceInputs["delayActions"] = state?.delayActions;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyDescription"] = state?.policyDescription;
+            resourceInputs["suppress"] = state?.suppress;
+            resourceInputs["teamId"] = state?.teamId;
+            resourceInputs["timeRestrictions"] = state?.timeRestrictions;
         } else {
             const args = argsOrState as NotificationPolicyArgs | undefined;
-            if ((!args || args.filters === undefined) && !opts.urn) {
+            if (args?.filters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["autoCloseActions"] = args ? args.autoCloseActions : undefined;
-            resourceInputs["autoRestartActions"] = args ? args.autoRestartActions : undefined;
-            resourceInputs["deDuplicationActions"] = args ? args.deDuplicationActions : undefined;
-            resourceInputs["delayActions"] = args ? args.delayActions : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyDescription"] = args ? args.policyDescription : undefined;
-            resourceInputs["suppress"] = args ? args.suppress : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
+            resourceInputs["autoCloseActions"] = args?.autoCloseActions;
+            resourceInputs["autoRestartActions"] = args?.autoRestartActions;
+            resourceInputs["deDuplicationActions"] = args?.deDuplicationActions;
+            resourceInputs["delayActions"] = args?.delayActions;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyDescription"] = args?.policyDescription;
+            resourceInputs["suppress"] = args?.suppress;
+            resourceInputs["teamId"] = args?.teamId;
+            resourceInputs["timeRestrictions"] = args?.timeRestrictions;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NotificationPolicy.__pulumiType, name, resourceInputs, opts);

@@ -55,19 +55,19 @@ export class CustomRole extends pulumi.CustomResource {
     /**
      * The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      */
-    public readonly disallowedRights!: pulumi.Output<string[] | undefined>;
+    declare public readonly disallowedRights: pulumi.Output<string[] | undefined>;
     /**
      * The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
      */
-    public readonly extendedRole!: pulumi.Output<string | undefined>;
+    declare public readonly extendedRole: pulumi.Output<string | undefined>;
     /**
      * The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      */
-    public readonly grantedRights!: pulumi.Output<string[] | undefined>;
+    declare public readonly grantedRights: pulumi.Output<string[] | undefined>;
     /**
      * Name of the custom role.
      */
-    public readonly roleName!: pulumi.Output<string>;
+    declare public readonly roleName: pulumi.Output<string>;
 
     /**
      * Create a CustomRole resource with the given unique name, arguments, and options.
@@ -82,19 +82,19 @@ export class CustomRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomRoleState | undefined;
-            resourceInputs["disallowedRights"] = state ? state.disallowedRights : undefined;
-            resourceInputs["extendedRole"] = state ? state.extendedRole : undefined;
-            resourceInputs["grantedRights"] = state ? state.grantedRights : undefined;
-            resourceInputs["roleName"] = state ? state.roleName : undefined;
+            resourceInputs["disallowedRights"] = state?.disallowedRights;
+            resourceInputs["extendedRole"] = state?.extendedRole;
+            resourceInputs["grantedRights"] = state?.grantedRights;
+            resourceInputs["roleName"] = state?.roleName;
         } else {
             const args = argsOrState as CustomRoleArgs | undefined;
-            if ((!args || args.roleName === undefined) && !opts.urn) {
+            if (args?.roleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            resourceInputs["disallowedRights"] = args ? args.disallowedRights : undefined;
-            resourceInputs["extendedRole"] = args ? args.extendedRole : undefined;
-            resourceInputs["grantedRights"] = args ? args.grantedRights : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["disallowedRights"] = args?.disallowedRights;
+            resourceInputs["extendedRole"] = args?.extendedRole;
+            resourceInputs["grantedRights"] = args?.grantedRights;
+            resourceInputs["roleName"] = args?.roleName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomRole.__pulumiType, name, resourceInputs, opts);

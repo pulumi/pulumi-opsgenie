@@ -92,11 +92,11 @@ export class ServiceIncidentRule extends pulumi.CustomResource {
     /**
      * This is the rule configuration for this incident rule. This is a block, structure is documented below.
      */
-    public readonly incidentRules!: pulumi.Output<outputs.ServiceIncidentRuleIncidentRule[]>;
+    declare public readonly incidentRules: pulumi.Output<outputs.ServiceIncidentRuleIncidentRule[]>;
     /**
      * ID of the service associated
      */
-    public readonly serviceId!: pulumi.Output<string>;
+    declare public readonly serviceId: pulumi.Output<string>;
 
     /**
      * Create a ServiceIncidentRule resource with the given unique name, arguments, and options.
@@ -111,18 +111,18 @@ export class ServiceIncidentRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceIncidentRuleState | undefined;
-            resourceInputs["incidentRules"] = state ? state.incidentRules : undefined;
-            resourceInputs["serviceId"] = state ? state.serviceId : undefined;
+            resourceInputs["incidentRules"] = state?.incidentRules;
+            resourceInputs["serviceId"] = state?.serviceId;
         } else {
             const args = argsOrState as ServiceIncidentRuleArgs | undefined;
-            if ((!args || args.incidentRules === undefined) && !opts.urn) {
+            if (args?.incidentRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'incidentRules'");
             }
-            if ((!args || args.serviceId === undefined) && !opts.urn) {
+            if (args?.serviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
-            resourceInputs["incidentRules"] = args ? args.incidentRules : undefined;
-            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
+            resourceInputs["incidentRules"] = args?.incidentRules;
+            resourceInputs["serviceId"] = args?.serviceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceIncidentRule.__pulumiType, name, resourceInputs, opts);

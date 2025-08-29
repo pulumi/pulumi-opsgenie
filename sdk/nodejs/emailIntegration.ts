@@ -48,28 +48,28 @@ export class EmailIntegration extends pulumi.CustomResource {
     /**
      * The username part of the email address. It must be unique for each integration.
      */
-    public readonly emailUsername!: pulumi.Output<string>;
+    declare public readonly emailUsername: pulumi.Output<string>;
     /**
      * A Member block as documented below.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
-    public readonly ignoreRespondersFromPayload!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreRespondersFromPayload: pulumi.Output<boolean | undefined>;
     /**
      * Name of the integration. Name must be unique for each integration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Owner team id of the integration.
      */
-    public readonly ownerTeamId!: pulumi.Output<string | undefined>;
-    public readonly responders!: pulumi.Output<outputs.EmailIntegrationResponder[] | undefined>;
+    declare public readonly ownerTeamId: pulumi.Output<string | undefined>;
+    declare public readonly responders: pulumi.Output<outputs.EmailIntegrationResponder[] | undefined>;
     /**
      * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
-    public readonly suppressNotifications!: pulumi.Output<boolean | undefined>;
+    declare public readonly suppressNotifications: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a EmailIntegration resource with the given unique name, arguments, and options.
@@ -84,25 +84,25 @@ export class EmailIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailIntegrationState | undefined;
-            resourceInputs["emailUsername"] = state ? state.emailUsername : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["ignoreRespondersFromPayload"] = state ? state.ignoreRespondersFromPayload : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ownerTeamId"] = state ? state.ownerTeamId : undefined;
-            resourceInputs["responders"] = state ? state.responders : undefined;
-            resourceInputs["suppressNotifications"] = state ? state.suppressNotifications : undefined;
+            resourceInputs["emailUsername"] = state?.emailUsername;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["ignoreRespondersFromPayload"] = state?.ignoreRespondersFromPayload;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ownerTeamId"] = state?.ownerTeamId;
+            resourceInputs["responders"] = state?.responders;
+            resourceInputs["suppressNotifications"] = state?.suppressNotifications;
         } else {
             const args = argsOrState as EmailIntegrationArgs | undefined;
-            if ((!args || args.emailUsername === undefined) && !opts.urn) {
+            if (args?.emailUsername === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailUsername'");
             }
-            resourceInputs["emailUsername"] = args ? args.emailUsername : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["ignoreRespondersFromPayload"] = args ? args.ignoreRespondersFromPayload : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ownerTeamId"] = args ? args.ownerTeamId : undefined;
-            resourceInputs["responders"] = args ? args.responders : undefined;
-            resourceInputs["suppressNotifications"] = args ? args.suppressNotifications : undefined;
+            resourceInputs["emailUsername"] = args?.emailUsername;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["ignoreRespondersFromPayload"] = args?.ignoreRespondersFromPayload;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ownerTeamId"] = args?.ownerTeamId;
+            resourceInputs["responders"] = args?.responders;
+            resourceInputs["suppressNotifications"] = args?.suppressNotifications;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailIntegration.__pulumiType, name, resourceInputs, opts);

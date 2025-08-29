@@ -94,83 +94,83 @@ export class AlertPolicy extends pulumi.CustomResource {
     /**
      * Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
      */
-    public readonly actions!: pulumi.Output<string[] | undefined>;
+    declare public readonly actions: pulumi.Output<string[] | undefined>;
     /**
      * Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
      */
-    public readonly alertDescription!: pulumi.Output<string | undefined>;
+    declare public readonly alertDescription: pulumi.Output<string | undefined>;
     /**
      * Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
      */
-    public readonly alias!: pulumi.Output<string | undefined>;
+    declare public readonly alias: pulumi.Output<string | undefined>;
     /**
      * It will trigger other modify policies if set to `true`. Default: `false`
      */
-    public readonly continuePolicy!: pulumi.Output<boolean | undefined>;
+    declare public readonly continuePolicy: pulumi.Output<boolean | undefined>;
     /**
      * If policy should be enabled. Default: `true`
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
      */
-    public readonly entity!: pulumi.Output<string | undefined>;
+    declare public readonly entity: pulumi.Output<string | undefined>;
     /**
      * A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      */
-    public readonly filters!: pulumi.Output<outputs.AlertPolicyFilter[] | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.AlertPolicyFilter[] | undefined>;
     /**
      * If set to `true`, policy will ignore the original actions of the alert. Default: `false`
      */
-    public readonly ignoreOriginalActions!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreOriginalActions: pulumi.Output<boolean | undefined>;
     /**
      * If set to `true`, policy will ignore the original details of the alert. Default: `false`
      */
-    public readonly ignoreOriginalDetails!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreOriginalDetails: pulumi.Output<boolean | undefined>;
     /**
      * If set to `true`, policy will ignore the original responders of the alert. Default: `false`
      */
-    public readonly ignoreOriginalResponders!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreOriginalResponders: pulumi.Output<boolean | undefined>;
     /**
      * If set to `true`, policy will ignore the original tags of the alert. Default: `false`
      */
-    public readonly ignoreOriginalTags!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreOriginalTags: pulumi.Output<boolean | undefined>;
     /**
      * Message of the alerts
      */
-    public readonly message!: pulumi.Output<string>;
+    declare public readonly message: pulumi.Output<string>;
     /**
      * Name of the alert policy
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Description of the policy. This can be max 512 characters.
      */
-    public readonly policyDescription!: pulumi.Output<string | undefined>;
+    declare public readonly policyDescription: pulumi.Output<string | undefined>;
     /**
      * Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
      */
-    public readonly priority!: pulumi.Output<string | undefined>;
+    declare public readonly priority: pulumi.Output<string | undefined>;
     /**
      * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      */
-    public readonly responders!: pulumi.Output<outputs.AlertPolicyResponder[] | undefined>;
+    declare public readonly responders: pulumi.Output<outputs.AlertPolicyResponder[] | undefined>;
     /**
      * Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    declare public readonly source: pulumi.Output<string | undefined>;
     /**
      * Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * Id of team that this policy belongs to.
      */
-    public readonly teamId!: pulumi.Output<string | undefined>;
+    declare public readonly teamId: pulumi.Output<string | undefined>;
     /**
      * Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
      */
-    public readonly timeRestrictions!: pulumi.Output<outputs.AlertPolicyTimeRestriction[] | undefined>;
+    declare public readonly timeRestrictions: pulumi.Output<outputs.AlertPolicyTimeRestriction[] | undefined>;
 
     /**
      * Create a AlertPolicy resource with the given unique name, arguments, and options.
@@ -185,51 +185,51 @@ export class AlertPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertPolicyState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["alertDescription"] = state ? state.alertDescription : undefined;
-            resourceInputs["alias"] = state ? state.alias : undefined;
-            resourceInputs["continuePolicy"] = state ? state.continuePolicy : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entity"] = state ? state.entity : undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["ignoreOriginalActions"] = state ? state.ignoreOriginalActions : undefined;
-            resourceInputs["ignoreOriginalDetails"] = state ? state.ignoreOriginalDetails : undefined;
-            resourceInputs["ignoreOriginalResponders"] = state ? state.ignoreOriginalResponders : undefined;
-            resourceInputs["ignoreOriginalTags"] = state ? state.ignoreOriginalTags : undefined;
-            resourceInputs["message"] = state ? state.message : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyDescription"] = state ? state.policyDescription : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["responders"] = state ? state.responders : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
-            resourceInputs["timeRestrictions"] = state ? state.timeRestrictions : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["alertDescription"] = state?.alertDescription;
+            resourceInputs["alias"] = state?.alias;
+            resourceInputs["continuePolicy"] = state?.continuePolicy;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["entity"] = state?.entity;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["ignoreOriginalActions"] = state?.ignoreOriginalActions;
+            resourceInputs["ignoreOriginalDetails"] = state?.ignoreOriginalDetails;
+            resourceInputs["ignoreOriginalResponders"] = state?.ignoreOriginalResponders;
+            resourceInputs["ignoreOriginalTags"] = state?.ignoreOriginalTags;
+            resourceInputs["message"] = state?.message;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyDescription"] = state?.policyDescription;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["responders"] = state?.responders;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["teamId"] = state?.teamId;
+            resourceInputs["timeRestrictions"] = state?.timeRestrictions;
         } else {
             const args = argsOrState as AlertPolicyArgs | undefined;
-            if ((!args || args.message === undefined) && !opts.urn) {
+            if (args?.message === undefined && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["alertDescription"] = args ? args.alertDescription : undefined;
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["continuePolicy"] = args ? args.continuePolicy : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entity"] = args ? args.entity : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["ignoreOriginalActions"] = args ? args.ignoreOriginalActions : undefined;
-            resourceInputs["ignoreOriginalDetails"] = args ? args.ignoreOriginalDetails : undefined;
-            resourceInputs["ignoreOriginalResponders"] = args ? args.ignoreOriginalResponders : undefined;
-            resourceInputs["ignoreOriginalTags"] = args ? args.ignoreOriginalTags : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyDescription"] = args ? args.policyDescription : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["responders"] = args ? args.responders : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["timeRestrictions"] = args ? args.timeRestrictions : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["alertDescription"] = args?.alertDescription;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["continuePolicy"] = args?.continuePolicy;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entity"] = args?.entity;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["ignoreOriginalActions"] = args?.ignoreOriginalActions;
+            resourceInputs["ignoreOriginalDetails"] = args?.ignoreOriginalDetails;
+            resourceInputs["ignoreOriginalResponders"] = args?.ignoreOriginalResponders;
+            resourceInputs["ignoreOriginalTags"] = args?.ignoreOriginalTags;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyDescription"] = args?.policyDescription;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["responders"] = args?.responders;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["teamId"] = args?.teamId;
+            resourceInputs["timeRestrictions"] = args?.timeRestrictions;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertPolicy.__pulumiType, name, resourceInputs, opts);
