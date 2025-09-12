@@ -1,5 +1,7 @@
 provider: opsgenie
 major-version: 1
+esc:
+  enabled: true
 env:
   OPSGENIE_API_KEY: ${{ secrets.OPSGENIE_API_KEY }}
 makeTemplate: bridged
