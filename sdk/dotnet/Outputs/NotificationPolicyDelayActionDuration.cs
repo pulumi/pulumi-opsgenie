@@ -14,11 +14,11 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class NotificationPolicyDelayActionDuration
     {
         /// <summary>
-        /// A amount of time in `time_units`. This is a integer attribute.
+        /// A amount of time in `TimeUnits`. This is a integer attribute.
         /// </summary>
         public readonly int TimeAmount;
         /// <summary>
-        /// Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
+        /// Valid time units are: `Minutes`, `Hours`, `Days`. Default: `Minutes`
         /// </summary>
         public readonly string? TimeUnit;
 

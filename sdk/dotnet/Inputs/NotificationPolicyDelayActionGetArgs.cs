@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie.Inputs
         private InputList<Inputs.NotificationPolicyDelayActionDurationGetArgs>? _durations;
 
         /// <summary>
-        /// Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+        /// Duration of this action. If `DelayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
         /// </summary>
         public InputList<Inputs.NotificationPolicyDelayActionDurationGetArgs> Durations
         {
@@ -31,13 +31,13 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+        /// Until what hour notifications will be delayed. If `DelayOption` is set to antyhing else then `for-duration` this has to be set.
         /// </summary>
         [Input("untilHour")]
         public Input<int>? UntilHour { get; set; }
 
         /// <summary>
-        /// Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+        /// Until what minute on `UntilHour` notifications will be delayed. If `DelayOption` is set to antyhing else then `for-duration` this has to be set.
         /// </summary>
         [Input("untilMinute")]
         public Input<int>? UntilMinute { get; set; }

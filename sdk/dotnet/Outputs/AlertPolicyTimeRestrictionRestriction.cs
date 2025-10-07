@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly int EndHour;
         /// <summary>
-        /// Ending minute of restriction on defined `end_hour`
+        /// Ending minute of restriction on defined `EndHour`
         /// </summary>
         public readonly int EndMin;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly int StartHour;
         /// <summary>
-        /// Staring minute of restriction on defined `start_hour`
+        /// Staring minute of restriction on defined `StartHour`
         /// </summary>
         public readonly int StartMin;
 
