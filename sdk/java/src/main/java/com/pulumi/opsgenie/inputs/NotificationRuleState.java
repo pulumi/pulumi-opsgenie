@@ -76,14 +76,14 @@ public final class NotificationRuleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
+     * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      * 
      */
     @Import(name="notificationTimes")
     private @Nullable Output<List<String>> notificationTimes;
 
     /**
-     * @return List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
+     * @return List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      * 
      */
     public Optional<Output<List<String>>> notificationTimes() {
@@ -259,7 +259,7 @@ public final class NotificationRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notificationTimes List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
+         * @param notificationTimes List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class NotificationRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notificationTimes List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
+         * @param notificationTimes List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class NotificationRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notificationTimes List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
+         * @param notificationTimes List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
          * 
          * @return builder
          * 

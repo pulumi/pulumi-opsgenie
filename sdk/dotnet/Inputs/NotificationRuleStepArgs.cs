@@ -25,7 +25,7 @@ namespace Pulumi.Opsgenie.Inputs
         }
 
         /// <summary>
-        /// Defined if this step is enabled. Default: `true`
+        /// Defined if this step is enabled. Default: `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

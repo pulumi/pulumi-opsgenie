@@ -13,7 +13,7 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class NotificationRuleRepeatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If policy should be enabled. Default: `true`
+        /// If policy should be enabled. Default: `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
