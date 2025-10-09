@@ -19,7 +19,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
+        /// The role for the user within the Team - can be either `Admin` or `User`. Default: `User`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

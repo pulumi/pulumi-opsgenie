@@ -138,14 +138,14 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
+     * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      * 
      */
     @Export(name="notificationTimes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notificationTimes;
 
     /**
-     * @return List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
+     * @return List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      * 
      */
     public Output<Optional<List<String>>> notificationTimes() {

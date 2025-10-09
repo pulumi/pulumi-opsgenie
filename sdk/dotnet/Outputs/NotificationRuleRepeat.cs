@@ -14,7 +14,7 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class NotificationRuleRepeat
     {
         /// <summary>
-        /// If policy should be enabled. Default: `true`
+        /// If policy should be enabled. Default: `True`
         /// </summary>
         public readonly bool? Enabled;
         public readonly int LoopAfter;
