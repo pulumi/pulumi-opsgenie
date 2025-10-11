@@ -19,7 +19,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<int> EndHour { get; set; } = null!;
 
         /// <summary>
-        /// Ending minute of restriction on defined `end_hour`
+        /// Ending minute of restriction on defined `EndHour`
         /// </summary>
         [Input("endMin", required: true)]
         public Input<int> EndMin { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<int> StartHour { get; set; } = null!;
 
         /// <summary>
-        /// Staring minute of restriction on defined `start_hour`
+        /// Staring minute of restriction on defined `StartHour`
         /// </summary>
         [Input("startMin", required: true)]
         public Input<int> StartMin { get; set; } = null!;

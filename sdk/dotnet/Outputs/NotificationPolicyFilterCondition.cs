@@ -18,19 +18,19 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string? ExpectedValue;
         /// <summary>
-        /// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
+        /// Specifies which alert field will be used in condition. Possible values are `Message`, `Alias`, `Description`, `Source`, `Entity`, `Tags`, `Actions`, `Details`, `extra-properties`, `Responders`, `Teams`, `Priority`
         /// </summary>
         public readonly string Field;
         /// <summary>
-        /// If `field` is set as extra-properties, key could be used for key-value pair
+        /// If `Field` is set as extra-properties, key could be used for key-value pair
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// Indicates behaviour of the given operation. Default: `false`
+        /// Indicates behaviour of the given operation. Default: `False`
         /// </summary>
         public readonly bool? Not;
         /// <summary>
-        /// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
+        /// It is the operation that will be executed for the given field and key. Possible operations are `Matches`, `Contains`, `starts-with`, `ends-with`, `Equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
         /// </summary>
         public readonly string Operation;
         /// <summary>

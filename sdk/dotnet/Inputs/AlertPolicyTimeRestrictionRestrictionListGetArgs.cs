@@ -13,37 +13,37 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class AlertPolicyTimeRestrictionRestrictionListGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Ending day of restriction (eg. `wednesday`)
+        /// Ending day of restriction (eg. `Wednesday`)
         /// </summary>
         [Input("endDay", required: true)]
         public Input<string> EndDay { get; set; } = null!;
 
         /// <summary>
-        /// Ending hour of restriction on defined `end_day`
+        /// Ending hour of restriction on defined `EndDay`
         /// </summary>
         [Input("endHour", required: true)]
         public Input<int> EndHour { get; set; } = null!;
 
         /// <summary>
-        /// Ending minute of restriction on defined `end_hour`
+        /// Ending minute of restriction on defined `EndHour`
         /// </summary>
         [Input("endMin", required: true)]
         public Input<int> EndMin { get; set; } = null!;
 
         /// <summary>
-        /// Starting day of restriction (eg. `monday`)
+        /// Starting day of restriction (eg. `Monday`)
         /// </summary>
         [Input("startDay", required: true)]
         public Input<string> StartDay { get; set; } = null!;
 
         /// <summary>
-        /// Starting hour of restriction on defined `start_day`
+        /// Starting hour of restriction on defined `StartDay`
         /// </summary>
         [Input("startHour", required: true)]
         public Input<int> StartHour { get; set; } = null!;
 
         /// <summary>
-        /// Staring minute of restriction on defined `start_hour`
+        /// Staring minute of restriction on defined `StartHour`
         /// </summary>
         [Input("startMin", required: true)]
         public Input<int> StartMin { get; set; } = null!;

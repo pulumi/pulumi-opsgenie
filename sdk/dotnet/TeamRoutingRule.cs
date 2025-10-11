@@ -121,7 +121,7 @@ namespace Pulumi.Opsgenie
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
+        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `Schedule`, `Escalation`, `None`
         /// </summary>
         [Output("notifies")]
         public Output<ImmutableArray<Outputs.TeamRoutingRuleNotify>> Notifies { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.TeamRoutingRuleNotifyArgs>? _notifies;
 
         /// <summary>
-        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
+        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `Schedule`, `Escalation`, `None`
         /// </summary>
         public InputList<Inputs.TeamRoutingRuleNotifyArgs> Notifies
         {
@@ -298,7 +298,7 @@ namespace Pulumi.Opsgenie
         private InputList<Inputs.TeamRoutingRuleNotifyGetArgs>? _notifies;
 
         /// <summary>
-        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
+        /// Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `Schedule`, `Escalation`, `None`
         /// </summary>
         public InputList<Inputs.TeamRoutingRuleNotifyGetArgs> Notifies
         {

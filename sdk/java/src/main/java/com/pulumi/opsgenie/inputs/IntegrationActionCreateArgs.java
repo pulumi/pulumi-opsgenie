@@ -115,7 +115,7 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
      * Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
      * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
      * * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
-     * * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+     * * For Email integration: `fromAddress`, `fromName`, `conversationSubject`, `subject`
      * 
      */
     @Import(name="filters")
@@ -125,7 +125,7 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
      * @return Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
      * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
      * * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
-     * * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+     * * For Email integration: `fromAddress`, `fromName`, `conversationSubject`, `subject`
      * 
      */
     public Optional<Output<List<IntegrationActionCreateFilterArgs>>> filters() {
@@ -510,7 +510,7 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
          * @param filters Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
          * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
          * * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
-         * * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+         * * For Email integration: `fromAddress`, `fromName`, `conversationSubject`, `subject`
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
          * @param filters Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
          * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
          * * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
-         * * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+         * * For Email integration: `fromAddress`, `fromName`, `conversationSubject`, `subject`
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class IntegrationActionCreateArgs extends com.pulumi.resources.Reso
          * @param filters Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
          * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
          * * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
-         * * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+         * * For Email integration: `fromAddress`, `fromName`, `conversationSubject`, `subject`
          * 
          * @return builder
          * 

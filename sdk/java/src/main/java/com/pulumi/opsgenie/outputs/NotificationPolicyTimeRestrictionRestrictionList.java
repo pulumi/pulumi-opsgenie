@@ -17,12 +17,12 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
      */
     private String endDay;
     /**
-     * @return Ending hour of restriction on defined `end_day`
+     * @return Ending hour of restriction on defined `endDay`
      * 
      */
     private Integer endHour;
     /**
-     * @return Ending minute of restriction on defined `end_hour`
+     * @return Ending minute of restriction on defined `endHour`
      * 
      */
     private Integer endMin;
@@ -32,12 +32,12 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
      */
     private String startDay;
     /**
-     * @return Starting hour of restriction on defined `start_day`
+     * @return Starting hour of restriction on defined `startDay`
      * 
      */
     private Integer startHour;
     /**
-     * @return Staring minute of restriction on defined `start_hour`
+     * @return Staring minute of restriction on defined `startHour`
      * 
      */
     private Integer startMin;
@@ -51,14 +51,14 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
         return this.endDay;
     }
     /**
-     * @return Ending hour of restriction on defined `end_day`
+     * @return Ending hour of restriction on defined `endDay`
      * 
      */
     public Integer endHour() {
         return this.endHour;
     }
     /**
-     * @return Ending minute of restriction on defined `end_hour`
+     * @return Ending minute of restriction on defined `endHour`
      * 
      */
     public Integer endMin() {
@@ -72,14 +72,14 @@ public final class NotificationPolicyTimeRestrictionRestrictionList {
         return this.startDay;
     }
     /**
-     * @return Starting hour of restriction on defined `start_day`
+     * @return Starting hour of restriction on defined `startDay`
      * 
      */
     public Integer startHour() {
         return this.startHour;
     }
     /**
-     * @return Staring minute of restriction on defined `start_hour`
+     * @return Staring minute of restriction on defined `startHour`
      * 
      */
     public Integer startMin() {

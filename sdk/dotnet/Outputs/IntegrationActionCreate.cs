@@ -24,7 +24,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string? CustomPriority;
         /// <summary>
-        /// Detailed description of the alert, anything that may not have fit in the `message` field.
+        /// Detailed description of the alert, anything that may not have fit in the `Message` field.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -37,9 +37,9 @@ namespace Pulumi.Opsgenie.Outputs
         public readonly ImmutableDictionary<string, string>? ExtraProperties;
         /// <summary>
         /// Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
-        /// * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
-        /// * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
-        /// * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+        /// * For SNS integration: `Actions`, `Alias`, `Entity`, `Message`, `Recipients`, `Responders`, `Subject`, `Tags`, `Teams`, `eventType`, `Timestamp`, `TopicArn`.
+        /// * For API integration: `Message`, `Alias`, `Description`, `Source`, `Entity`, `Tags`, `Actions`, `Details`, `extra-properties`, `Recipients`, `Teams`, `Priority`, `eventType`.
+        /// * For Email integration: `FromAddress`, `FromName`, `conversationSubject`, `Subject`
         /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationActionCreateFilter> Filters;
         public readonly bool? IgnoreAlertActionsFromPayload;
@@ -86,7 +86,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Tags;
         /// <summary>
-        /// The responder type - can be `escalation`, `team` or `user`.
+        /// The responder type - can be `Escalation`, `Team` or `User`.
         /// </summary>
         public readonly string? Type;
         /// <summary>

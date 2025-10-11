@@ -31,14 +31,14 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
     }
 
     /**
-     * Ending hour of restriction on defined `end_day`
+     * Ending hour of restriction on defined `endDay`
      * 
      */
     @Import(name="endHour", required=true)
     private Output<Integer> endHour;
 
     /**
-     * @return Ending hour of restriction on defined `end_day`
+     * @return Ending hour of restriction on defined `endDay`
      * 
      */
     public Output<Integer> endHour() {
@@ -46,14 +46,14 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
     }
 
     /**
-     * Ending minute of restriction on defined `end_hour`
+     * Ending minute of restriction on defined `endHour`
      * 
      */
     @Import(name="endMin", required=true)
     private Output<Integer> endMin;
 
     /**
-     * @return Ending minute of restriction on defined `end_hour`
+     * @return Ending minute of restriction on defined `endHour`
      * 
      */
     public Output<Integer> endMin() {
@@ -76,14 +76,14 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
     }
 
     /**
-     * Starting hour of restriction on defined `start_day`
+     * Starting hour of restriction on defined `startDay`
      * 
      */
     @Import(name="startHour", required=true)
     private Output<Integer> startHour;
 
     /**
-     * @return Starting hour of restriction on defined `start_day`
+     * @return Starting hour of restriction on defined `startDay`
      * 
      */
     public Output<Integer> startHour() {
@@ -91,14 +91,14 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
     }
 
     /**
-     * Staring minute of restriction on defined `start_hour`
+     * Staring minute of restriction on defined `startHour`
      * 
      */
     @Import(name="startMin", required=true)
     private Output<Integer> startMin;
 
     /**
-     * @return Staring minute of restriction on defined `start_hour`
+     * @return Staring minute of restriction on defined `startHour`
      * 
      */
     public Output<Integer> startMin() {
@@ -156,7 +156,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param endHour Ending hour of restriction on defined `end_day`
+         * @param endHour Ending hour of restriction on defined `endDay`
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param endHour Ending hour of restriction on defined `end_day`
+         * @param endHour Ending hour of restriction on defined `endDay`
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param endMin Ending minute of restriction on defined `end_hour`
+         * @param endMin Ending minute of restriction on defined `endHour`
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param endMin Ending minute of restriction on defined `end_hour`
+         * @param endMin Ending minute of restriction on defined `endHour`
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param startHour Starting hour of restriction on defined `start_day`
+         * @param startHour Starting hour of restriction on defined `startDay`
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param startHour Starting hour of restriction on defined `start_day`
+         * @param startHour Starting hour of restriction on defined `startDay`
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param startMin Staring minute of restriction on defined `start_hour`
+         * @param startMin Staring minute of restriction on defined `startHour`
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class NotificationPolicyTimeRestrictionRestrictionListArgs extends 
         }
 
         /**
-         * @param startMin Staring minute of restriction on defined `start_hour`
+         * @param startMin Staring minute of restriction on defined `startHour`
          * 
          * @return builder
          * 

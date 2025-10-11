@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
+        /// Type of responder. Acceptable values are: `User`, `Team`, `Escalation` or `Schedule`
         /// </summary>
         public readonly string Type;
         /// <summary>

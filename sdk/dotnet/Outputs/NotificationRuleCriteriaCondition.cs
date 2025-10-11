@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string? ExpectedValue;
         /// <summary>
-        /// Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
+        /// Possible values: `Message`, `Alias`, `Description`, `Source`, `Entity`, `Tags`, `Actions`, `Details`, `extra-properties`, `Recipients`, `Teams`, `Priority`
         /// </summary>
         public readonly string Field;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// Indicates behaviour of the given operation. Default: `false`
+        /// Indicates behaviour of the given operation. Default: `False`
         /// </summary>
         public readonly bool? Not;
         /// <summary>
-        /// Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
+        /// Possible values: `Matches`, `Contains`, `starts-with`, `ends-with`, `Equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
         /// </summary>
         public readonly string Operation;
         /// <summary>

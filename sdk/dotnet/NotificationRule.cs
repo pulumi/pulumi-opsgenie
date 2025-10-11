@@ -79,7 +79,7 @@ namespace Pulumi.Opsgenie
         public Output<ImmutableArray<Outputs.NotificationRuleCriteria>> Criterias { get; private set; } = null!;
 
         /// <summary>
-        /// If policy should be enabled. Default: `true`
+        /// If policy should be enabled. Default: `True`
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Opsgenie
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
+        /// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `ActionType` is `schedule-start` or `schedule-end` then it is required.
         /// </summary>
         [Output("notificationTimes")]
         public Output<ImmutableArray<string>> NotificationTimes { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If policy should be enabled. Default: `true`
+        /// If policy should be enabled. Default: `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Opsgenie
         private InputList<string>? _notificationTimes;
 
         /// <summary>
-        /// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
+        /// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `ActionType` is `schedule-start` or `schedule-end` then it is required.
         /// </summary>
         public InputList<string> NotificationTimes
         {
@@ -272,7 +272,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If policy should be enabled. Default: `true`
+        /// If policy should be enabled. Default: `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Opsgenie
         private InputList<string>? _notificationTimes;
 
         /// <summary>
-        /// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
+        /// List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `ActionType` is `schedule-start` or `schedule-end` then it is required.
         /// </summary>
         public InputList<string> NotificationTimes
         {

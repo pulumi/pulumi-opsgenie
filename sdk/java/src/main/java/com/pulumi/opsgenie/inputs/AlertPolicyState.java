@@ -21,14 +21,14 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
     public static final AlertPolicyState Empty = new AlertPolicyState();
 
     /**
-     * Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+     * Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
      * 
      */
     @Import(name="actions")
     private @Nullable Output<List<String>> actions;
 
     /**
-     * @return Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+     * @return Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
      * 
      */
     public Optional<Output<List<String>>> actions() {
@@ -246,14 +246,14 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
+     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      * 
      */
     @Import(name="responders")
     private @Nullable Output<List<AlertPolicyResponderArgs>> responders;
 
     /**
-     * @return Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
+     * @return Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      * 
      */
     public Optional<Output<List<AlertPolicyResponderArgs>>> responders() {
@@ -276,14 +276,14 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
+     * Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
+     * @return Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -364,7 +364,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actions Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+         * @param actions Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actions Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+         * @param actions Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actions Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+         * @param actions Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
          * 
          * @return builder
          * 
@@ -699,7 +699,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
+         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
+         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
+         * @param responders Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
+         * @param tags Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
+         * @param tags Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class AlertPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
+         * @param tags Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
          * 
          * @return builder
          * 

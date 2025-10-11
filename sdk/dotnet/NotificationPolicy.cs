@@ -87,7 +87,7 @@ namespace Pulumi.Opsgenie
         public Output<ImmutableArray<Outputs.NotificationPolicyDelayAction>> DelayActions { get; private set; } = null!;
 
         /// <summary>
-        /// If policy should be enabled. Default: `true`
+        /// If policy should be enabled. Default: `True`
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Opsgenie
         public Output<string?> PolicyDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
+        /// Suppress value of the policy. Values are: `True`, `False`. Default: `False`
         /// </summary>
         [Output("suppress")]
         public Output<bool?> Suppress { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If policy should be enabled. Default: `true`
+        /// If policy should be enabled. Default: `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? PolicyDescription { get; set; }
 
         /// <summary>
-        /// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
+        /// Suppress value of the policy. Values are: `True`, `False`. Default: `False`
         /// </summary>
         [Input("suppress")]
         public Input<bool>? Suppress { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Opsgenie
         }
 
         /// <summary>
-        /// If policy should be enabled. Default: `true`
+        /// If policy should be enabled. Default: `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Opsgenie
         public Input<string>? PolicyDescription { get; set; }
 
         /// <summary>
-        /// Suppress value of the policy. Values are: `true`, `false`. Default: `false`
+        /// Suppress value of the policy. Values are: `True`, `False`. Default: `False`
         /// </summary>
         [Input("suppress")]
         public Input<bool>? Suppress { get; set; }

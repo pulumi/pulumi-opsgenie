@@ -30,14 +30,14 @@ public final class AlertPolicyTimeRestrictionRestrictionArgs extends com.pulumi.
     }
 
     /**
-     * Ending minute of restriction on defined `end_hour`
+     * Ending minute of restriction on defined `endHour`
      * 
      */
     @Import(name="endMin", required=true)
     private Output<Integer> endMin;
 
     /**
-     * @return Ending minute of restriction on defined `end_hour`
+     * @return Ending minute of restriction on defined `endHour`
      * 
      */
     public Output<Integer> endMin() {
@@ -60,14 +60,14 @@ public final class AlertPolicyTimeRestrictionRestrictionArgs extends com.pulumi.
     }
 
     /**
-     * Staring minute of restriction on defined `start_hour`
+     * Staring minute of restriction on defined `startHour`
      * 
      */
     @Import(name="startMin", required=true)
     private Output<Integer> startMin;
 
     /**
-     * @return Staring minute of restriction on defined `start_hour`
+     * @return Staring minute of restriction on defined `startHour`
      * 
      */
     public Output<Integer> startMin() {
@@ -123,7 +123,7 @@ public final class AlertPolicyTimeRestrictionRestrictionArgs extends com.pulumi.
         }
 
         /**
-         * @param endMin Ending minute of restriction on defined `end_hour`
+         * @param endMin Ending minute of restriction on defined `endHour`
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class AlertPolicyTimeRestrictionRestrictionArgs extends com.pulumi.
         }
 
         /**
-         * @param endMin Ending minute of restriction on defined `end_hour`
+         * @param endMin Ending minute of restriction on defined `endHour`
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class AlertPolicyTimeRestrictionRestrictionArgs extends com.pulumi.
         }
 
         /**
-         * @param startMin Staring minute of restriction on defined `start_hour`
+         * @param startMin Staring minute of restriction on defined `startHour`
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class AlertPolicyTimeRestrictionRestrictionArgs extends com.pulumi.
         }
 
         /**
-         * @param startMin Staring minute of restriction on defined `start_hour`
+         * @param startMin Staring minute of restriction on defined `startHour`
          * 
          * @return builder
          * 

@@ -16,7 +16,7 @@ public final class NotificationPolicyTimeRestrictionRestriction {
      */
     private Integer endHour;
     /**
-     * @return Ending minute of restriction on defined `end_hour`
+     * @return Ending minute of restriction on defined `endHour`
      * 
      */
     private Integer endMin;
@@ -26,7 +26,7 @@ public final class NotificationPolicyTimeRestrictionRestriction {
      */
     private Integer startHour;
     /**
-     * @return Staring minute of restriction on defined `start_hour`
+     * @return Staring minute of restriction on defined `startHour`
      * 
      */
     private Integer startMin;
@@ -40,7 +40,7 @@ public final class NotificationPolicyTimeRestrictionRestriction {
         return this.endHour;
     }
     /**
-     * @return Ending minute of restriction on defined `end_hour`
+     * @return Ending minute of restriction on defined `endHour`
      * 
      */
     public Integer endMin() {
@@ -54,7 +54,7 @@ public final class NotificationPolicyTimeRestrictionRestriction {
         return this.startHour;
     }
     /**
-     * @return Staring minute of restriction on defined `start_hour`
+     * @return Staring minute of restriction on defined `startHour`
      * 
      */
     public Integer startMin() {

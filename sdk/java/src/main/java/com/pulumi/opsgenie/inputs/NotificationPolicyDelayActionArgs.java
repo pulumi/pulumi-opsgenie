@@ -35,14 +35,14 @@ public final class NotificationPolicyDelayActionArgs extends com.pulumi.resource
     }
 
     /**
-     * Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      * 
      */
     @Import(name="durations")
     private @Nullable Output<List<NotificationPolicyDelayActionDurationArgs>> durations;
 
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      * 
      */
     public Optional<Output<List<NotificationPolicyDelayActionDurationArgs>>> durations() {
@@ -50,14 +50,14 @@ public final class NotificationPolicyDelayActionArgs extends com.pulumi.resource
     }
 
     /**
-     * Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+     * Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      * 
      */
     @Import(name="untilHour")
     private @Nullable Output<Integer> untilHour;
 
     /**
-     * @return Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+     * @return Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      * 
      */
     public Optional<Output<Integer>> untilHour() {
@@ -65,14 +65,14 @@ public final class NotificationPolicyDelayActionArgs extends com.pulumi.resource
     }
 
     /**
-     * Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+     * Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      * 
      */
     @Import(name="untilMinute")
     private @Nullable Output<Integer> untilMinute;
 
     /**
-     * @return Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+     * @return Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      * 
      */
     public Optional<Output<Integer>> untilMinute() {
@@ -128,7 +128,7 @@ public final class NotificationPolicyDelayActionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param durations Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+         * @param durations Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class NotificationPolicyDelayActionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param durations Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+         * @param durations Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class NotificationPolicyDelayActionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param durations Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+         * @param durations Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class NotificationPolicyDelayActionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param untilHour Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+         * @param untilHour Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class NotificationPolicyDelayActionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param untilHour Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+         * @param untilHour Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class NotificationPolicyDelayActionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param untilMinute Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+         * @param untilMinute Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class NotificationPolicyDelayActionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param untilMinute Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+         * @param untilMinute Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
          * 
          * @return builder
          * 

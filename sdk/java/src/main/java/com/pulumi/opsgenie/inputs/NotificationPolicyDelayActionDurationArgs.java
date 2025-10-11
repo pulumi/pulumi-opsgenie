@@ -18,14 +18,14 @@ public final class NotificationPolicyDelayActionDurationArgs extends com.pulumi.
     public static final NotificationPolicyDelayActionDurationArgs Empty = new NotificationPolicyDelayActionDurationArgs();
 
     /**
-     * A amount of time in `time_units`. This is a integer attribute.
+     * A amount of time in `timeUnits`. This is a integer attribute.
      * 
      */
     @Import(name="timeAmount", required=true)
     private Output<Integer> timeAmount;
 
     /**
-     * @return A amount of time in `time_units`. This is a integer attribute.
+     * @return A amount of time in `timeUnits`. This is a integer attribute.
      * 
      */
     public Output<Integer> timeAmount() {
@@ -73,7 +73,7 @@ public final class NotificationPolicyDelayActionDurationArgs extends com.pulumi.
         }
 
         /**
-         * @param timeAmount A amount of time in `time_units`. This is a integer attribute.
+         * @param timeAmount A amount of time in `timeUnits`. This is a integer attribute.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class NotificationPolicyDelayActionDurationArgs extends com.pulumi.
         }
 
         /**
-         * @param timeAmount A amount of time in `time_units`. This is a integer attribute.
+         * @param timeAmount A amount of time in `timeUnits`. This is a integer attribute.
          * 
          * @return builder
          * 

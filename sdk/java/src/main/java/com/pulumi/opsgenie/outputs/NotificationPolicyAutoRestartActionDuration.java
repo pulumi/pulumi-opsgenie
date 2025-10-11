@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NotificationPolicyAutoRestartActionDuration {
     /**
-     * @return A amount of time in `time_units`. This is a integer attribute.
+     * @return A amount of time in `timeUnits`. This is a integer attribute.
      * 
      */
     private Integer timeAmount;
@@ -26,7 +26,7 @@ public final class NotificationPolicyAutoRestartActionDuration {
 
     private NotificationPolicyAutoRestartActionDuration() {}
     /**
-     * @return A amount of time in `time_units`. This is a integer attribute.
+     * @return A amount of time in `timeUnits`. This is a integer attribute.
      * 
      */
     public Integer timeAmount() {

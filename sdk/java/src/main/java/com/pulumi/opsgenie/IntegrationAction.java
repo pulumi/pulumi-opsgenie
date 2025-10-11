@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * * `create`
  * * `close`
  * * `acknowledge`
- * * `add_note`
+ * * `addNote`
  * * `ignore`
  * 
  * ## Example Usage
