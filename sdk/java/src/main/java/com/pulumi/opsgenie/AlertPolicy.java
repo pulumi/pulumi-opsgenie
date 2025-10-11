@@ -107,14 +107,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="opsgenie:index/alertPolicy:AlertPolicy")
 public class AlertPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+     * Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
      * 
      */
     @Export(name="actions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> actions;
 
     /**
-     * @return Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
+     * @return Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
      * 
      */
     public Output<Optional<List<String>>> actions() {
@@ -317,14 +317,14 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.priority);
     }
     /**
-     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
+     * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      * 
      */
     @Export(name="responders", refs={List.class,AlertPolicyResponder.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertPolicyResponder>> responders;
 
     /**
-     * @return Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
+     * @return Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      * 
      */
     public Output<Optional<List<AlertPolicyResponder>>> responders() {
@@ -345,14 +345,14 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.source);
     }
     /**
-     * Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
+     * Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
-     * @return Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
+     * @return Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
      * 
      */
     public Output<Optional<List<String>>> tags() {

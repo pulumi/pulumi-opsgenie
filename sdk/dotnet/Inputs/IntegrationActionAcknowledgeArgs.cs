@@ -23,9 +23,9 @@ namespace Pulumi.Opsgenie.Inputs
 
         /// <summary>
         /// Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
-        /// * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
-        /// * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
-        /// * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
+        /// * For SNS integration: `Actions`, `Alias`, `Entity`, `Message`, `Recipients`, `Responders`, `Subject`, `Tags`, `Teams`, `eventType`, `Timestamp`, `TopicArn`.
+        /// * For API integration: `Message`, `Alias`, `Description`, `Source`, `Entity`, `Tags`, `Actions`, `Details`, `extra-properties`, `Recipients`, `Teams`, `Priority`, `eventType`.
+        /// * For Email integration: `FromAddress`, `FromName`, `conversationSubject`, `Subject`
         /// </summary>
         public InputList<Inputs.IntegrationActionAcknowledgeFilterArgs> Filters
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// The responder type - can be `escalation`, `team` or `user`.
+        /// The responder type - can be `Escalation`, `Team` or `User`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

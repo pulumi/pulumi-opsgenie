@@ -13,13 +13,13 @@ namespace Pulumi.Opsgenie.Inputs
     public sealed class NotificationPolicyAutoCloseActionDurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A amount of time in `time_units`. This is a integer attribute.
+        /// A amount of time in `TimeUnits`. This is a integer attribute.
         /// </summary>
         [Input("timeAmount", required: true)]
         public Input<int> TimeAmount { get; set; } = null!;
 
         /// <summary>
-        /// Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
+        /// Valid time units are: `Minutes`, `Hours`, `Days`. Default: `Minutes`
         /// </summary>
         [Input("timeUnit")]
         public Input<string>? TimeUnit { get; set; }
