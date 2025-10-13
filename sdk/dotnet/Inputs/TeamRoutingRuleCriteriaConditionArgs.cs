@@ -16,7 +16,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<string>? ExpectedValue { get; set; }
 
         /// <summary>
-        /// Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
+        /// Specifies which alert field will be used in condition. Possible values are `Message`, `Alias`, `Description`, `Source`, `Entity`, `Tags`, `Actions`, `extra-properties`, `Recipients`, `Teams` or `Priority`.
         /// </summary>
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.Opsgenie.Inputs
         public Input<bool>? Not { get; set; }
 
         /// <summary>
-        /// It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
+        /// It is the operation that will be executed for the given field and key. Possible operations are `Matches`, `Contains`, `starts-with`, `ends-with`, `Equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
         /// 
         /// * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
         /// </summary>

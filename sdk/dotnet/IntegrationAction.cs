@@ -15,11 +15,11 @@ namespace Pulumi.Opsgenie
     /// * `opsgenie.EmailIntegration`
     /// 
     /// The actions that are supported are:
-    /// * `create`
-    /// * `close`
-    /// * `acknowledge`
-    /// * `add_note`
-    /// * `ignore`
+    /// * `Create`
+    /// * `Close`
+    /// * `Acknowledge`
+    /// * `AddNote`
+    /// * `Ignore`
     /// 
     /// ## Example Usage
     /// 
