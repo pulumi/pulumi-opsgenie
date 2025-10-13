@@ -21,17 +21,17 @@ public final class NotificationPolicyDelayAction {
      */
     private String delayOption;
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      * 
      */
     private @Nullable List<NotificationPolicyDelayActionDuration> durations;
     /**
-     * @return Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+     * @return Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      * 
      */
     private @Nullable Integer untilHour;
     /**
-     * @return Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+     * @return Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      * 
      */
     private @Nullable Integer untilMinute;
@@ -45,21 +45,21 @@ public final class NotificationPolicyDelayAction {
         return this.delayOption;
     }
     /**
-     * @return Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
+     * @return Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      * 
      */
     public List<NotificationPolicyDelayActionDuration> durations() {
         return this.durations == null ? List.of() : this.durations;
     }
     /**
-     * @return Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+     * @return Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      * 
      */
     public Optional<Integer> untilHour() {
         return Optional.ofNullable(this.untilHour);
     }
     /**
-     * @return Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
+     * @return Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      * 
      */
     public Optional<Integer> untilMinute() {

@@ -14,27 +14,27 @@ namespace Pulumi.Opsgenie.Outputs
     public sealed class NotificationPolicyTimeRestrictionRestrictionList
     {
         /// <summary>
-        /// Ending day of restriction (eg. `wednesday`)
+        /// Ending day of restriction (eg. `Wednesday`)
         /// </summary>
         public readonly string EndDay;
         /// <summary>
-        /// Ending hour of restriction on defined `end_day`
+        /// Ending hour of restriction on defined `EndDay`
         /// </summary>
         public readonly int EndHour;
         /// <summary>
-        /// Ending minute of restriction on defined `end_hour`
+        /// Ending minute of restriction on defined `EndHour`
         /// </summary>
         public readonly int EndMin;
         /// <summary>
-        /// Starting day of restriction (eg. `monday`)
+        /// Starting day of restriction (eg. `Monday`)
         /// </summary>
         public readonly string StartDay;
         /// <summary>
-        /// Starting hour of restriction on defined `start_day`
+        /// Starting hour of restriction on defined `StartDay`
         /// </summary>
         public readonly int StartHour;
         /// <summary>
-        /// Staring minute of restriction on defined `start_hour`
+        /// Staring minute of restriction on defined `StartHour`
         /// </summary>
         public readonly int StartMin;
 

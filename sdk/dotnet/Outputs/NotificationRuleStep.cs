@@ -18,7 +18,7 @@ namespace Pulumi.Opsgenie.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationRuleStepContact> Contacts;
         /// <summary>
-        /// Defined if this step is enabled. Default: `true`
+        /// Defined if this step is enabled. Default: `True`
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
