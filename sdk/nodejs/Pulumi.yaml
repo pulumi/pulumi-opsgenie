@@ -1,0 +1,3 @@
+name: opsgenie
+description: A Pulumi resource provider for opsgenie.
+language: nodejs
