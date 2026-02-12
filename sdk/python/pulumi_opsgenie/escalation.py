@@ -280,9 +280,7 @@ class Escalation(pulumi.CustomResource):
 
         Escalations can be imported using the `escalation_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
-        ```
+        `$ terraform import opsgenie_escalation.test escalation_id`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -373,9 +371,7 @@ class Escalation(pulumi.CustomResource):
 
         Escalations can be imported using the `escalation_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
-        ```
+        `$ terraform import opsgenie_escalation.test escalation_id`
 
         :param str resource_name: The name of the resource.
         :param EscalationArgs args: The arguments to use to populate this resource's properties.

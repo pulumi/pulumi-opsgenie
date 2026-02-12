@@ -25,11 +25,9 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Teams can be imported using the `service_id`, e.g.
+ * Teams can be imported using the `serviceId`, e.g.
  *
- * ```sh
- * $ pulumi import opsgenie:index/service:Service this service_id`
- * ```
+ * `$ terraform import opsgenie_service.this serviceId`
  */
 export class Service extends pulumi.CustomResource {
     /**

@@ -11,14 +11,6 @@ namespace Pulumi.Opsgenie
 {
     /// <summary>
     /// Manages an Email Integration within Opsgenie.
-    /// 
-    /// ## Import
-    /// 
-    /// Email Integrations can be imported using the `id`, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
-    /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/emailIntegration:EmailIntegration")]
     public partial class EmailIntegration : global::Pulumi.CustomResource

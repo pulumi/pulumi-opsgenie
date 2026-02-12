@@ -207,14 +207,6 @@ class Schedule(pulumi.CustomResource):
         """
         Manages a Schedule within Opsgenie.
 
-        ## Import
-
-        Schedule can be imported using the `schedule_id`, e.g.
-
-        ```sh
-        $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of schedule.
@@ -231,14 +223,6 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Schedule within Opsgenie.
-
-        ## Import
-
-        Schedule can be imported using the `schedule_id`, e.g.
-
-        ```sh
-        $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
-        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

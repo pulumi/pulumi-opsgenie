@@ -430,9 +430,7 @@ class NotificationPolicy(pulumi.CustomResource):
 
         Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test team_id/notification_policy_id`
-        ```
+        `$ terraform import opsgenie_notification_policy.test team_id/notification_policy_id`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -482,9 +480,7 @@ class NotificationPolicy(pulumi.CustomResource):
 
         Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test team_id/notification_policy_id`
-        ```
+        `$ terraform import opsgenie_notification_policy.test team_id/notification_policy_id`
 
         :param str resource_name: The name of the resource.
         :param NotificationPolicyArgs args: The arguments to use to populate this resource's properties.

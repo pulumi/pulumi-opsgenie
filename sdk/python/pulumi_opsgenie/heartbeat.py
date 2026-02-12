@@ -361,9 +361,7 @@ class Heartbeat(pulumi.CustomResource):
 
         Heartbeat Integrations can be imported using the `name`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
-        ```
+        `$ terraform import opsgenie_heartbeat.test name`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -411,9 +409,7 @@ class Heartbeat(pulumi.CustomResource):
 
         Heartbeat Integrations can be imported using the `name`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
-        ```
+        `$ terraform import opsgenie_heartbeat.test name`
 
         :param str resource_name: The name of the resource.
         :param HeartbeatArgs args: The arguments to use to populate this resource's properties.

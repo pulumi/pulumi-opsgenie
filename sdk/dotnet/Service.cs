@@ -39,11 +39,9 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// Teams can be imported using the `service_id`, e.g.
+    /// Teams can be imported using the `ServiceId`, e.g.
     /// 
-    /// ```sh
-    /// $ pulumi import opsgenie:index/service:Service this service_id`
-    /// ```
+    /// `$ terraform import opsgenie_service.this ServiceId`
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/service:Service")]
     public partial class Service : global::Pulumi.CustomResource

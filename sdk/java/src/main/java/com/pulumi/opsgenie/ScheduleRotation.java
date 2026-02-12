@@ -78,9 +78,7 @@ import javax.annotation.Nullable;
  * 
  * Schedule Rotations can be imported using the `schedule_id/rotation_id`, e.g.
  * 
- * ```sh
- * $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/rotation_id`
- * ```
+ * * `terraform import opsgenie_schedule_rotation.test schedule_id/rotation_id`
  * 
  */
 @ResourceType(type="opsgenie:index/scheduleRotation:ScheduleRotation")

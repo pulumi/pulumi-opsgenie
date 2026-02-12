@@ -21,14 +21,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an API Integration within Opsgenie.
  * 
- * ## Import
- * 
- * API Integrations can be imported using the `integration_id`, e.g.
- * 
- * ```sh
- * $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
- * ```
- * 
  */
 @ResourceType(type="opsgenie:index/apiIntegration:ApiIntegration")
 public class ApiIntegration extends com.pulumi.resources.CustomResource {

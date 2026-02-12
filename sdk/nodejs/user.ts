@@ -42,11 +42,9 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Users can be imported using the `user_id`, e.g.
+ * Users can be imported using the `userId`, e.g.
  *
- * ```sh
- * $ pulumi import opsgenie:index/user:User user user_id`
- * ```
+ * `$ terraform import opsgenie_user.user userId`
  */
 export class User extends pulumi.CustomResource {
     /**

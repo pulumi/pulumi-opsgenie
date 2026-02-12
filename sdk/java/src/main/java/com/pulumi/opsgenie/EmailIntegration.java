@@ -20,14 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an Email Integration within Opsgenie.
  * 
- * ## Import
- * 
- * Email Integrations can be imported using the `id`, e.g.
- * 
- * ```sh
- * $ pulumi import opsgenie:index/emailIntegration:EmailIntegration test id`
- * ```
- * 
  */
 @ResourceType(type="opsgenie:index/emailIntegration:EmailIntegration")
 public class EmailIntegration extends com.pulumi.resources.CustomResource {

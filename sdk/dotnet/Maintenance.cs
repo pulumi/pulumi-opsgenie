@@ -11,14 +11,6 @@ namespace Pulumi.Opsgenie
 {
     /// <summary>
     /// Manages a Maintenance within Opsgenie.
-    /// 
-    /// ## Import
-    /// 
-    /// Maintenance policies can be imported using the `policy_id`, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
-    /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/maintenance:Maintenance")]
     public partial class Maintenance : global::Pulumi.CustomResource

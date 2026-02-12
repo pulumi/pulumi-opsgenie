@@ -328,9 +328,7 @@ class ScheduleRotation(pulumi.CustomResource):
 
         Schedule Rotations can be imported using the `schedule_id/rotation_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/rotation_id`
-        ```
+        * `terraform import opsgenie_schedule_rotation.test schedule_id/rotation_id`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -383,9 +381,7 @@ class ScheduleRotation(pulumi.CustomResource):
 
         Schedule Rotations can be imported using the `schedule_id/rotation_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/scheduleRotation:ScheduleRotation * `opsgenie_schedule_rotation.test schedule_id/rotation_id`
-        ```
+        * `terraform import opsgenie_schedule_rotation.test schedule_id/rotation_id`
 
         :param str resource_name: The name of the resource.
         :param ScheduleRotationArgs args: The arguments to use to populate this resource's properties.

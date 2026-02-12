@@ -407,14 +407,6 @@ class ApiIntegration(pulumi.CustomResource):
         """
         Manages an API Integration within Opsgenie.
 
-        ## Import
-
-        API Integrations can be imported using the `integration_id`, e.g.
-
-        ```sh
-        $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
@@ -435,14 +427,6 @@ class ApiIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Integration within Opsgenie.
-
-        ## Import
-
-        API Integrations can be imported using the `integration_id`, e.g.
-
-        ```sh
-        $ pulumi import opsgenie:index/apiIntegration:ApiIntegration this integration_id`
-        ```
 
         :param str resource_name: The name of the resource.
         :param ApiIntegrationArgs args: The arguments to use to populate this resource's properties.

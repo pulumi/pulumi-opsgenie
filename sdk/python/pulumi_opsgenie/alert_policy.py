@@ -745,15 +745,11 @@ class AlertPolicy(pulumi.CustomResource):
 
         Alert policies can be imported using the `team_id/policy_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
-        ```
+        `$ terraform import opsgenie_notification_policy.test team_id/policy_id`
 
         You can import global polices using only policy identifier
 
-        ```sh
-        $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`
-        ```
+        `$ terraform import opsgenie_alert_policy.test policy_id`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -829,15 +825,11 @@ class AlertPolicy(pulumi.CustomResource):
 
         Alert policies can be imported using the `team_id/policy_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test team_id/policy_id`
-        ```
+        `$ terraform import opsgenie_notification_policy.test team_id/policy_id`
 
         You can import global polices using only policy identifier
 
-        ```sh
-        $ pulumi import opsgenie:index/alertPolicy:AlertPolicy test policy_id`
-        ```
+        `$ terraform import opsgenie_alert_policy.test policy_id`
 
         :param str resource_name: The name of the resource.
         :param AlertPolicyArgs args: The arguments to use to populate this resource's properties.

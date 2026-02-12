@@ -44,11 +44,9 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// Heartbeat Integrations can be imported using the `name`, e.g.
+    /// Heartbeat Integrations can be imported using the `Name`, e.g.
     /// 
-    /// ```sh
-    /// $ pulumi import opsgenie:index/heartbeat:Heartbeat test name`
-    /// ```
+    /// `$ terraform import opsgenie_heartbeat.test name`
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/heartbeat:Heartbeat")]
     public partial class Heartbeat : global::Pulumi.CustomResource
