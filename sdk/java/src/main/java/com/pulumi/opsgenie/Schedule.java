@@ -18,14 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Schedule within Opsgenie.
  * 
- * ## Import
- * 
- * Schedule can be imported using the `schedule_id`, e.g.
- * 
- * ```sh
- * $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
- * ```
- * 
  */
 @ResourceType(type="opsgenie:index/schedule:Schedule")
 public class Schedule extends com.pulumi.resources.CustomResource {

@@ -94,9 +94,7 @@ import javax.annotation.Nullable;
  * 
  * Service Incident Rule can be imported using the `service_id/service_incident_rule_id`, e.g.
  * 
- * ```sh
- * $ pulumi import opsgenie:index/serviceIncidentRule:ServiceIncidentRule this service_id/service_incident_rule_id`
- * ```
+ * `$ terraform import opsgenie_service_incident_rule.this service_id/service_incident_rule_id`
  * 
  */
 @ResourceType(type="opsgenie:index/serviceIncidentRule:ServiceIncidentRule")

@@ -77,11 +77,9 @@ import (
 //
 // ## Import
 //
-// Service can be imported using the `template_id`, e.g.
+// Service can be imported using the `templateId`, e.g.
 //
-// ```sh
-// $ pulumi import opsgenie:index/incidentTemplate:IncidentTemplate test template_id`
-// ```
+// `$ terraform import opsgenie_incident_template.test templateId`
 type IncidentTemplate struct {
 	pulumi.CustomResourceState
 

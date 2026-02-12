@@ -20,14 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Maintenance within Opsgenie.
  * 
- * ## Import
- * 
- * Maintenance policies can be imported using the `policy_id`, e.g.
- * 
- * ```sh
- * $ pulumi import opsgenie:index/maintenance:Maintenance test policy_id`
- * ```
- * 
  */
 @ResourceType(type="opsgenie:index/maintenance:Maintenance")
 public class Maintenance extends com.pulumi.resources.CustomResource {

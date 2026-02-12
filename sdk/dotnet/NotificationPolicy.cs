@@ -53,11 +53,9 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
+    /// Notification policies can be imported using the `TeamId` and `NotificationPolicyId`, e.g.
     /// 
-    /// ```sh
-    /// $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test team_id/notification_policy_id`
-    /// ```
+    /// `$ terraform import opsgenie_notification_policy.test team_id/notification_policy_id`
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/notificationPolicy:NotificationPolicy")]
     public partial class NotificationPolicy : global::Pulumi.CustomResource

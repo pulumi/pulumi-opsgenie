@@ -58,11 +58,9 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// Users can be imported using the `user_id`, e.g.
+    /// Users can be imported using the `UserId`, e.g.
     /// 
-    /// ```sh
-    /// $ pulumi import opsgenie:index/user:User user user_id`
-    /// ```
+    /// `$ terraform import opsgenie_user.user UserId`
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/user:User")]
     public partial class User : global::Pulumi.CustomResource

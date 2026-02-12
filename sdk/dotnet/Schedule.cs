@@ -11,14 +11,6 @@ namespace Pulumi.Opsgenie
 {
     /// <summary>
     /// Manages a Schedule within Opsgenie.
-    /// 
-    /// ## Import
-    /// 
-    /// Schedule can be imported using the `schedule_id`, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import opsgenie:index/schedule:Schedule test schedule_id`
-    /// ```
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/schedule:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

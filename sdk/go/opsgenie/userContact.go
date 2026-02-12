@@ -62,9 +62,7 @@ import (
 //
 // Users can be imported using the `username/contact_id`, e.g.
 //
-// ```sh
-// $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
-// ```
+// `$ terraform import opsgenie_user_contact.testcontact username/contact_id`
 type UserContact struct {
 	pulumi.CustomResourceState
 

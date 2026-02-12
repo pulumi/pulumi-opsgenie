@@ -34,11 +34,9 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
+ * Notification policies can be imported using the `teamId` and `notificationPolicyId`, e.g.
  *
- * ```sh
- * $ pulumi import opsgenie:index/notificationPolicy:NotificationPolicy test team_id/notification_policy_id`
- * ```
+ * `$ terraform import opsgenie_notification_policy.test team_id/notification_policy_id`
  */
 export class NotificationPolicy extends pulumi.CustomResource {
     /**

@@ -97,9 +97,7 @@ import (
 //
 // Team Routing Rules can be imported using the `team_id/routing_rule_id`, e.g.
 //
-// ```sh
-// $ pulumi import opsgenie:index/teamRoutingRule:TeamRoutingRule ruletest team_id/routing_rule_id`
-// ```
+// `$ terraform import opsgenie_team_routing_rule.ruletest team_id/routing_rule_id`
 type TeamRoutingRule struct {
 	pulumi.CustomResourceState
 

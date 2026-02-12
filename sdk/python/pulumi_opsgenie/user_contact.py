@@ -195,9 +195,7 @@ class UserContact(pulumi.CustomResource):
 
         Users can be imported using the `username/contact_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
-        ```
+        `$ terraform import opsgenie_user_contact.testcontact username/contact_id`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -239,9 +237,7 @@ class UserContact(pulumi.CustomResource):
 
         Users can be imported using the `username/contact_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/userContact:UserContact testcontact username/contact_id`
-        ```
+        `$ terraform import opsgenie_user_contact.testcontact username/contact_id`
 
         :param str resource_name: The name of the resource.
         :param UserContactArgs args: The arguments to use to populate this resource's properties.

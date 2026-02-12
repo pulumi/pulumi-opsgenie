@@ -372,9 +372,7 @@ class User(pulumi.CustomResource):
 
         Users can be imported using the `user_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/user:User user user_id`
-        ```
+        `$ terraform import opsgenie_user.user user_id`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -431,9 +429,7 @@ class User(pulumi.CustomResource):
 
         Users can be imported using the `user_id`, e.g.
 
-        ```sh
-        $ pulumi import opsgenie:index/user:User user user_id`
-        ```
+        `$ terraform import opsgenie_user.user user_id`
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

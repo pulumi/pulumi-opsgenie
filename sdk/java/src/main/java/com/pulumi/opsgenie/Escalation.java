@@ -138,11 +138,9 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Escalations can be imported using the `escalation_id`, e.g.
+ * Escalations can be imported using the `escalationId`, e.g.
  * 
- * ```sh
- * $ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
- * ```
+ * `$ terraform import opsgenie_escalation.test escalationId`
  * 
  */
 @ResourceType(type="opsgenie:index/escalation:Escalation")

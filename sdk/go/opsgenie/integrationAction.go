@@ -31,7 +31,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-opsgenie/sdk/go/opsgenie"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-std/sdk/v2/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

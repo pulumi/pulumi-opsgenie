@@ -87,11 +87,9 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Teams can be imported using the `team_id`, e.g.
+ * Teams can be imported using the `teamId`, e.g.
  * 
- * ```sh
- * $ pulumi import opsgenie:index/team:Team team1 team_id`
- * ```
+ * `$ terraform import opsgenie_team.team1 teamId`
  * 
  */
 @ResourceType(type="opsgenie:index/team:Team")

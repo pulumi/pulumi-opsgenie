@@ -126,11 +126,9 @@ namespace Pulumi.Opsgenie
     /// 
     /// ## Import
     /// 
-    /// Escalations can be imported using the `escalation_id`, e.g.
+    /// Escalations can be imported using the `EscalationId`, e.g.
     /// 
-    /// ```sh
-    /// $ pulumi import opsgenie:index/escalation:Escalation test escalation_id`
-    /// ```
+    /// `$ terraform import opsgenie_escalation.test EscalationId`
     /// </summary>
     [OpsgenieResourceType("opsgenie:index/escalation:Escalation")]
     public partial class Escalation : global::Pulumi.CustomResource
