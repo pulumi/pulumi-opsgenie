@@ -31,6 +31,7 @@ class ScheduleRotationArgs:
                  time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None):
         """
         The set of arguments for constructing a ScheduleRotation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]] participants: List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
         :param pulumi.Input[_builtins.str] schedule_id: Identifier of the schedule.
         :param pulumi.Input[_builtins.str] start_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
@@ -159,6 +160,7 @@ class _ScheduleRotationState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScheduleRotation resources.
+
         :param pulumi.Input[_builtins.str] end_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
         :param pulumi.Input[_builtins.int] length: Length of the rotation with default value 1.
         :param pulumi.Input[_builtins.str] name: Name of rotation.
@@ -330,6 +332,7 @@ class ScheduleRotation(pulumi.CustomResource):
 
         * `terraform import opsgenie_schedule_rotation.test schedule_id/rotation_id`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
@@ -382,6 +385,7 @@ class ScheduleRotation(pulumi.CustomResource):
         Schedule Rotations can be imported using the `schedule_id/rotation_id`, e.g.
 
         * `terraform import opsgenie_schedule_rotation.test schedule_id/rotation_id`
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleRotationArgs args: The arguments to use to populate this resource's properties.

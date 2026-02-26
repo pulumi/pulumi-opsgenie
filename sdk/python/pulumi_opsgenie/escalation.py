@@ -28,6 +28,7 @@ class EscalationArgs:
                  repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None):
         """
         The set of arguments for constructing a Escalation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]] rules: List of the escalation rules. See below for how rules are defined.
         :param pulumi.Input[_builtins.str] description: Description of the escalation.
         :param pulumi.Input[_builtins.str] name: Name of the escalation.
@@ -115,6 +116,7 @@ class _EscalationState:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering Escalation resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the escalation.
         :param pulumi.Input[_builtins.str] name: Name of the escalation.
         :param pulumi.Input[_builtins.str] owner_team_id: Owner team id of the escalation.
@@ -282,6 +284,7 @@ class Escalation(pulumi.CustomResource):
 
         `$ terraform import opsgenie_escalation.test escalation_id`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the escalation.
@@ -372,6 +375,7 @@ class Escalation(pulumi.CustomResource):
         Escalations can be imported using the `escalation_id`, e.g.
 
         `$ terraform import opsgenie_escalation.test escalation_id`
+
 
         :param str resource_name: The name of the resource.
         :param EscalationArgs args: The arguments to use to populate this resource's properties.

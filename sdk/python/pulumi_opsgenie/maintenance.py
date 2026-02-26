@@ -26,6 +26,7 @@ class MaintenanceArgs:
                  times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None):
         """
         The set of arguments for constructing a Maintenance resource.
+
         :param pulumi.Input[_builtins.str] description: Description for the maintenance.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]] rules: Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]] times: Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
@@ -80,6 +81,7 @@ class _MaintenanceState:
                  times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None):
         """
         Input properties used for looking up and filtering Maintenance resources.
+
         :param pulumi.Input[_builtins.str] description: Description for the maintenance.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]] rules: Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]] times: Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
@@ -141,6 +143,7 @@ class Maintenance(pulumi.CustomResource):
         """
         Manages a Maintenance within Opsgenie.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the maintenance.
@@ -155,6 +158,7 @@ class Maintenance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Maintenance within Opsgenie.
+
 
         :param str resource_name: The name of the resource.
         :param MaintenanceArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class ApiIntegrationArgs:
                  webhook_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiIntegration resource.
+
         :param pulumi.Input[_builtins.bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         :param pulumi.Input[_builtins.bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         :param pulumi.Input[_builtins.bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
@@ -211,6 +212,7 @@ class _ApiIntegrationState:
                  webhook_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiIntegration resources.
+
         :param pulumi.Input[_builtins.bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         :param pulumi.Input[_builtins.str] api_key: (Computed) API key of the created integration
         :param pulumi.Input[_builtins.bool] enabled: This parameter is for specifying whether the integration will be enabled or not. Default: `true`
@@ -407,6 +409,7 @@ class ApiIntegration(pulumi.CustomResource):
         """
         Manages an API Integration within Opsgenie.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_write_access: This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
@@ -427,6 +430,7 @@ class ApiIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Integration within Opsgenie.
+
 
         :param str resource_name: The name of the resource.
         :param ApiIntegrationArgs args: The arguments to use to populate this resource's properties.

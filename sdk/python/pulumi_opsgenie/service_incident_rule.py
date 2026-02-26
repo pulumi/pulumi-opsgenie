@@ -25,6 +25,7 @@ class ServiceIncidentRuleArgs:
                  service_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServiceIncidentRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.str] service_id: ID of the service associated
         """
@@ -63,6 +64,7 @@ class _ServiceIncidentRuleState:
                  service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceIncidentRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.str] service_id: ID of the service associated
         """
@@ -155,6 +157,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
 
         `$ terraform import opsgenie_service_incident_rule.this service_id/service_incident_rule_id`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
@@ -215,6 +218,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
         Service Incident Rule can be imported using the `service_id/service_incident_rule_id`, e.g.
 
         `$ terraform import opsgenie_service_incident_rule.this service_id/service_incident_rule_id`
+
 
         :param str resource_name: The name of the resource.
         :param ServiceIncidentRuleArgs args: The arguments to use to populate this resource's properties.

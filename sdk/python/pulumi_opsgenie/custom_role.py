@@ -25,6 +25,7 @@ class CustomRoleArgs:
                  granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomRole resource.
+
         :param pulumi.Input[_builtins.str] role_name: Name of the custom role.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_rights: The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
         :param pulumi.Input[_builtins.str] extended_role: The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
@@ -96,6 +97,7 @@ class _CustomRoleState:
                  role_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomRole resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_rights: The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
         :param pulumi.Input[_builtins.str] extended_role: The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] granted_rights: The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
@@ -189,6 +191,7 @@ class CustomRole(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_rights: The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
@@ -220,6 +223,7 @@ class CustomRole(pulumi.CustomResource):
                 "contacts-edit",
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomRoleArgs args: The arguments to use to populate this resource's properties.

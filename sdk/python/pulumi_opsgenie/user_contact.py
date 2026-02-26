@@ -25,6 +25,7 @@ class UserContactArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UserContact resource.
+
         :param pulumi.Input[_builtins.str] method: This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
         :param pulumi.Input[_builtins.str] to: to field is the address of given method.
         :param pulumi.Input[_builtins.str] username: The username for contact.(reference)
@@ -94,6 +95,7 @@ class _UserContactState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserContact resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Enable contact of the user in OpsGenie. Default value is true.
         :param pulumi.Input[_builtins.str] method: This parameter is the contact method of user and should be one of email, sms or voice. Please note that adding mobile is not supported from API.
         :param pulumi.Input[_builtins.str] to: to field is the address of given method.
@@ -197,6 +199,7 @@ class UserContact(pulumi.CustomResource):
 
         `$ terraform import opsgenie_user_contact.testcontact username/contact_id`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Enable contact of the user in OpsGenie. Default value is true.
@@ -238,6 +241,7 @@ class UserContact(pulumi.CustomResource):
         Users can be imported using the `username/contact_id`, e.g.
 
         `$ terraform import opsgenie_user_contact.testcontact username/contact_id`
+
 
         :param str resource_name: The name of the resource.
         :param UserContactArgs args: The arguments to use to populate this resource's properties.

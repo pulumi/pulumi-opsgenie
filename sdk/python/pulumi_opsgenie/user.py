@@ -32,6 +32,7 @@ class UserArgs:
                  user_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] full_name: The Full Name of the User.
         :param pulumi.Input[_builtins.str] role: The Role assigned to the User. Either a built-in such as 'Admin' or 'User' - or the name of a custom role.
         :param pulumi.Input[_builtins.str] username: The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters and must contain lowercase characters only.
@@ -181,6 +182,7 @@ class _UserState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.str] full_name: The Full Name of the User.
         :param pulumi.Input[_builtins.str] locale: Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
         :param pulumi.Input[_builtins.str] role: The Role assigned to the User. Either a built-in such as 'Admin' or 'User' - or the name of a custom role.
@@ -374,6 +376,7 @@ class User(pulumi.CustomResource):
 
         `$ terraform import opsgenie_user.user user_id`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] full_name: The Full Name of the User.
@@ -430,6 +433,7 @@ class User(pulumi.CustomResource):
         Users can be imported using the `user_id`, e.g.
 
         `$ terraform import opsgenie_user.user user_id`
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
