@@ -5,6 +5,7 @@ esc:
 env:
     OPSGENIE_API_KEY: ${{ secrets.OPSGENIE_API_KEY }}
 makeTemplate: bridged
+renovateCmd: make tfgen schema build_sdks
 team: ecosystem
 pulumiConvert: 1
 registryDocs: true
