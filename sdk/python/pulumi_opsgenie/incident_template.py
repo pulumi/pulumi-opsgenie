@@ -31,6 +31,7 @@ class IncidentTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IncidentTemplate resource.
+
         :param pulumi.Input[_builtins.str] message: Message of the related incident template. This field must not be longer than 130 characters.
         :param pulumi.Input[_builtins.str] priority: Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
                
@@ -164,6 +165,7 @@ class _IncidentTemplateState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IncidentTemplate resources.
+
         :param pulumi.Input[_builtins.str] description: Description field of the incident template. This field must not be longer than 10000 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] details: Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
         :param pulumi.Input[_builtins.str] message: Message of the related incident template. This field must not be longer than 130 characters.
@@ -344,6 +346,7 @@ class IncidentTemplate(pulumi.CustomResource):
 
         `$ terraform import opsgenie_incident_template.test template_id`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description field of the incident template. This field must not be longer than 10000 characters.
@@ -404,6 +407,7 @@ class IncidentTemplate(pulumi.CustomResource):
         Service can be imported using the `template_id`, e.g.
 
         `$ terraform import opsgenie_incident_template.test template_id`
+
 
         :param str resource_name: The name of the resource.
         :param IncidentTemplateArgs args: The arguments to use to populate this resource's properties.

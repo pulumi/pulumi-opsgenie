@@ -34,6 +34,7 @@ class NotificationRuleArgs:
                  time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]] = None):
         """
         The set of arguments for constructing a NotificationRule resource.
+
         :param pulumi.Input[_builtins.str] action_type: Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
         :param pulumi.Input[_builtins.str] username: Username of user to which this notification rule belongs to.
         :param pulumi.Input[_builtins.bool] enabled: If policy should be enabled. Default: `true`
@@ -196,6 +197,7 @@ class _NotificationRuleState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NotificationRule resources.
+
         :param pulumi.Input[_builtins.str] action_type: Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
         :param pulumi.Input[_builtins.bool] enabled: If policy should be enabled. Default: `true`
         :param pulumi.Input[_builtins.str] name: Name of the notification policy
@@ -397,6 +399,7 @@ class NotificationRule(pulumi.CustomResource):
 
         `$ terraform import opsgenie_notification_rule.test user_id/notification_rule_id`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_type: Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
@@ -446,6 +449,7 @@ class NotificationRule(pulumi.CustomResource):
         Notification policies can be imported using the `user_id/notification_rule_id`, e.g.
 
         `$ terraform import opsgenie_notification_rule.test user_id/notification_rule_id`
+
 
         :param str resource_name: The name of the resource.
         :param NotificationRuleArgs args: The arguments to use to populate this resource's properties.

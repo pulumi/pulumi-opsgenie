@@ -25,6 +25,7 @@ class ServiceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
+
         :param pulumi.Input[_builtins.str] team_id: Team id of the service. This field must not be longer than 512 characters.
         :param pulumi.Input[_builtins.str] description: Description field of the service that is generally used to provide a detailed information about the service.
         :param pulumi.Input[_builtins.str] name: Name of the service. This field must not be longer than 100 characters.
@@ -96,6 +97,7 @@ class _ServiceState:
                  team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Service resources.
+
         :param pulumi.Input[_builtins.str] description: Description field of the service that is generally used to provide a detailed information about the service.
         :param pulumi.Input[_builtins.str] name: Name of the service. This field must not be longer than 100 characters.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tags for the service, with a maximum of 20 tags per service.
@@ -193,6 +195,7 @@ class Service(pulumi.CustomResource):
 
         `$ terraform import opsgenie_service.this service_id`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description field of the service that is generally used to provide a detailed information about the service.
@@ -228,6 +231,7 @@ class Service(pulumi.CustomResource):
         Teams can be imported using the `service_id`, e.g.
 
         `$ terraform import opsgenie_service.this service_id`
+
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

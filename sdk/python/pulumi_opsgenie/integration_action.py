@@ -29,6 +29,7 @@ class IntegrationActionArgs:
                  ignores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None):
         """
         The set of arguments for constructing a IntegrationAction resource.
+
         :param pulumi.Input[_builtins.str] integration_id: ID of the parent integration resource to bind to.
         """
         pulumi.set(__self__, "integration_id", integration_id)
@@ -112,6 +113,7 @@ class _IntegrationActionState:
                  integration_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAction resources.
+
         :param pulumi.Input[_builtins.str] integration_id: ID of the parent integration resource to bind to.
         """
         if acknowledges is not None:
@@ -356,6 +358,7 @@ class IntegrationAction(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] integration_id: ID of the parent integration resource to bind to.
@@ -523,6 +526,7 @@ class IntegrationAction(pulumi.CustomResource):
                 }],
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationActionArgs args: The arguments to use to populate this resource's properties.

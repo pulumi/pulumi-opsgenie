@@ -30,6 +30,7 @@ class EmailIntegrationArgs:
                  suppress_notifications: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EmailIntegration resource.
+
         :param pulumi.Input[_builtins.str] email_username: The username part of the email address. It must be unique for each integration.
         :param pulumi.Input[_builtins.bool] enabled: A Member block as documented below.
         :param pulumi.Input[_builtins.bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
@@ -145,6 +146,7 @@ class _EmailIntegrationState:
                  suppress_notifications: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EmailIntegration resources.
+
         :param pulumi.Input[_builtins.str] email_username: The username part of the email address. It must be unique for each integration.
         :param pulumi.Input[_builtins.bool] enabled: A Member block as documented below.
         :param pulumi.Input[_builtins.bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
@@ -266,6 +268,7 @@ class EmailIntegration(pulumi.CustomResource):
         """
         Manages an Email Integration within Opsgenie.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] email_username: The username part of the email address. It must be unique for each integration.
@@ -283,6 +286,7 @@ class EmailIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Email Integration within Opsgenie.
+
 
         :param str resource_name: The name of the resource.
         :param EmailIntegrationArgs args: The arguments to use to populate this resource's properties.

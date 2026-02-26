@@ -43,6 +43,7 @@ class AlertPolicyArgs:
                  time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None):
         """
         The set of arguments for constructing a AlertPolicy resource.
+
         :param pulumi.Input[_builtins.str] message: Message of the alerts
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         :param pulumi.Input[_builtins.str] alert_description: Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
@@ -370,6 +371,7 @@ class _AlertPolicyState:
                  time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None):
         """
         Input properties used for looking up and filtering AlertPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         :param pulumi.Input[_builtins.str] alert_description: Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
         :param pulumi.Input[_builtins.str] alias: Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
@@ -751,6 +753,7 @@ class AlertPolicy(pulumi.CustomResource):
 
         `$ terraform import opsgenie_alert_policy.test policy_id`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
@@ -830,6 +833,7 @@ class AlertPolicy(pulumi.CustomResource):
         You can import global polices using only policy identifier
 
         `$ terraform import opsgenie_alert_policy.test policy_id`
+
 
         :param str resource_name: The name of the resource.
         :param AlertPolicyArgs args: The arguments to use to populate this resource's properties.

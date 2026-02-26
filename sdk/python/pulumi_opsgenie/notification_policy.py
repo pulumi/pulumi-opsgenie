@@ -34,6 +34,7 @@ class NotificationPolicyArgs:
                  time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]]] = None):
         """
         The set of arguments for constructing a NotificationPolicy resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterArgs']]] filters: A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.str] team_id: Id of team that this policy belons to.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionArgs']]] auto_close_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
@@ -216,6 +217,7 @@ class _NotificationPolicyState:
                  time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionArgs']]]] = None):
         """
         Input properties used for looking up and filtering NotificationPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoCloseActionArgs']]] auto_close_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyAutoRestartActionArgs']]] auto_restart_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionArgs']]] de_duplication_actions: Deduplication Action of the policy. This is a block, structure is documented below.
@@ -432,6 +434,7 @@ class NotificationPolicy(pulumi.CustomResource):
 
         `$ terraform import opsgenie_notification_policy.test team_id/notification_policy_id`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict']]]] auto_close_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
@@ -481,6 +484,7 @@ class NotificationPolicy(pulumi.CustomResource):
         Notification policies can be imported using the `team_id` and `notification_policy_id`, e.g.
 
         `$ terraform import opsgenie_notification_policy.test team_id/notification_policy_id`
+
 
         :param str resource_name: The name of the resource.
         :param NotificationPolicyArgs args: The arguments to use to populate this resource's properties.

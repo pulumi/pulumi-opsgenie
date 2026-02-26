@@ -26,6 +26,7 @@ class ScheduleArgs:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
+
         :param pulumi.Input[_builtins.str] description: The description of schedule.
         :param pulumi.Input[_builtins.bool] enabled: Enable/disable state of schedule
         :param pulumi.Input[_builtins.str] name: Name of the schedule.
@@ -114,6 +115,7 @@ class _ScheduleState:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
+
         :param pulumi.Input[_builtins.str] description: The description of schedule.
         :param pulumi.Input[_builtins.bool] enabled: Enable/disable state of schedule
         :param pulumi.Input[_builtins.str] name: Name of the schedule.
@@ -207,6 +209,7 @@ class Schedule(pulumi.CustomResource):
         """
         Manages a Schedule within Opsgenie.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of schedule.
@@ -223,6 +226,7 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Schedule within Opsgenie.
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

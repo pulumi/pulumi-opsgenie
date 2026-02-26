@@ -30,6 +30,7 @@ class HeartbeatArgs:
                  owner_team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Heartbeat resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Enable/disable heartbeat monitoring.
         :param pulumi.Input[_builtins.int] interval: Specifies how often a heartbeat message should be expected.
         :param pulumi.Input[_builtins.str] interval_unit: Interval specified as minutes, hours or days.
@@ -179,6 +180,7 @@ class _HeartbeatState:
                  owner_team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Heartbeat resources.
+
         :param pulumi.Input[_builtins.str] alert_message: Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
         :param pulumi.Input[_builtins.str] alert_priority: Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alert_tags: Specifies the alert tags for heartbeat expiration alert.
@@ -363,6 +365,7 @@ class Heartbeat(pulumi.CustomResource):
 
         `$ terraform import opsgenie_heartbeat.test name`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_message: Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
@@ -410,6 +413,7 @@ class Heartbeat(pulumi.CustomResource):
         Heartbeat Integrations can be imported using the `name`, e.g.
 
         `$ terraform import opsgenie_heartbeat.test name`
+
 
         :param str resource_name: The name of the resource.
         :param HeartbeatArgs args: The arguments to use to populate this resource's properties.
