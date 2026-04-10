@@ -24,7 +24,7 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Opsgenie.Escalation("default", new()
+    ///     var @default = new Opsgenie.Index.Escalation("default", new()
     ///     {
     ///         Name = "genieescalation",
     ///         Rules = new[]
@@ -59,7 +59,7 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Opsgenie.Escalation("default", new()
+    ///     var @default = new Opsgenie.Index.Escalation("default", new()
     ///     {
     ///         Name = "genieescalation",
     ///         Description = "test",

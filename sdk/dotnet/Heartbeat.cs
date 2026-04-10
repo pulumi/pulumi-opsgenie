@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Opsgenie.Heartbeat("test", new()
+    ///     var test = new Opsgenie.Index.Heartbeat("test", new()
     ///     {
     ///         Name = "genieheartbeat-test",
     ///         Description = "test opsgenie heartbeat terraform",

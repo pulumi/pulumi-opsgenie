@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Opsgenie.Schedule("test", new()
+    ///     var test = new Opsgenie.Index.Schedule("test", new()
     ///     {
     ///         Name = "genieschedule",
     ///         Description = "schedule test",
@@ -30,13 +30,13 @@ namespace Pulumi.Opsgenie
     ///         Enabled = false,
     ///     });
     /// 
-    ///     var testTeam = new Opsgenie.Team("test", new()
+    ///     var testTeam = new Opsgenie.Index.Team("test", new()
     ///     {
     ///         Name = "example team",
     ///         Description = "This team deals with all the things",
     ///     });
     /// 
-    ///     var testTeamRoutingRule = new Opsgenie.TeamRoutingRule("test", new()
+    ///     var testTeamRoutingRule = new Opsgenie.Index.TeamRoutingRule("test", new()
     ///     {
     ///         Name = "routing rule example",
     ///         TeamId = testTeam.Id,

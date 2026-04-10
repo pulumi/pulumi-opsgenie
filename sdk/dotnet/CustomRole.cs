@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Opsgenie.CustomRole("test", new()
+    ///     var test = new Opsgenie.Index.CustomRole("test", new()
     ///     {
     ///         RoleName = "genierole",
     ///         ExtendedRole = "user",

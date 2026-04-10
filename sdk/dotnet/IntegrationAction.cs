@@ -32,7 +32,7 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testAction = new Opsgenie.IntegrationAction("test_action", new()
+    ///     var testAction = new Opsgenie.Index.IntegrationAction("test_action", new()
     ///     {
     ///         IntegrationId = testOpsgenieApiIntegration.Id,
     ///         Creates = new[]
@@ -85,7 +85,7 @@ namespace Pulumi.Opsgenie
     ///             {
     ///                 Name = "create action with multiline description",
     ///                 Message = "{{message}}",
-    ///                 Description = Std.Chomp.Invoke(new()
+    ///                 Description = Std.Index.Chomp.Invoke(new()
     ///                 {
     ///                     Input = @"This
     /// is a multiline

@@ -22,21 +22,21 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var first = new Opsgenie.User("first", new()
+    ///     var first = new Opsgenie.Index.User("first", new()
     ///     {
     ///         Username = "user@domain.com",
     ///         FullName = "name ",
     ///         Role = "User",
     ///     });
     /// 
-    ///     var second = new Opsgenie.User("second", new()
+    ///     var second = new Opsgenie.Index.User("second", new()
     ///     {
     ///         Username = "test@domain.com",
     ///         FullName = "name ",
     ///         Role = "User",
     ///     });
     /// 
-    ///     var test = new Opsgenie.Team("test", new()
+    ///     var test = new Opsgenie.Index.Team("test", new()
     ///     {
     ///         Name = "example",
     ///         Description = "This team deals with all the things",
@@ -55,7 +55,7 @@ namespace Pulumi.Opsgenie
     ///         },
     ///     });
     /// 
-    ///     var self_service = new Opsgenie.Team("self-service", new()
+    ///     var self_service = new Opsgenie.Index.Team("self-service", new()
     ///     {
     ///         Name = "Self Service",
     ///         Description = "Membership in this team is managed via OpsGenie web UI only",

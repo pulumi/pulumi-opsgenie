@@ -22,13 +22,13 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Opsgenie.Team("test", new()
+    ///     var test = new Opsgenie.Index.Team("test", new()
     ///     {
     ///         Name = "example team",
     ///         Description = "This team deals with all the things",
     ///     });
     /// 
-    ///     var testAlertPolicy = new Opsgenie.AlertPolicy("test", new()
+    ///     var testAlertPolicy = new Opsgenie.Index.AlertPolicy("test", new()
     ///     {
     ///         Filters = new[]
     ///         {

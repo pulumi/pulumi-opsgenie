@@ -22,21 +22,21 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sms = new Opsgenie.UserContact("sms", new()
+    ///     var sms = new Opsgenie.Index.UserContact("sms", new()
     ///     {
     ///         Username = exampleuser.Username,
     ///         To = "39-123",
     ///         Method = "sms",
     ///     });
     /// 
-    ///     var email = new Opsgenie.UserContact("email", new()
+    ///     var email = new Opsgenie.Index.UserContact("email", new()
     ///     {
     ///         Username = exampleuser.Username,
     ///         To = "fahri@opsgenie.com",
     ///         Method = "email",
     ///     });
     /// 
-    ///     var voice = new Opsgenie.UserContact("voice", new()
+    ///     var voice = new Opsgenie.Index.UserContact("voice", new()
     ///     {
     ///         Username = exampleuser.Username,
     ///         To = "39-123",

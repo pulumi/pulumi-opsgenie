@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Opsgenie.User("test", new()
+    ///     var test = new Opsgenie.Index.User("test", new()
     ///     {
     ///         Username = "user@domain.com",
     ///         FullName = "Test User",

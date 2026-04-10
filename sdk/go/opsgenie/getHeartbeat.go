@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsgenie.LookupHeartbeat(ctx, &opsgenie.LookupHeartbeatArgs{
+//			_, err := opsgenie.GetHeartbeat(ctx, &opsgenie.LookupHeartbeatArgs{
 //				Name: "genieheartbeat-existing",
 //			}, nil)
 //			if err != nil {

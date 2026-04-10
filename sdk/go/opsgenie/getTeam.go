@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsgenie.LookupTeam(ctx, &opsgenie.LookupTeamArgs{
+//			_, err := opsgenie.GetTeam(ctx, &opsgenie.LookupTeamArgs{
 //				Name: "sre-team",
 //			}, nil)
 //			if err != nil {

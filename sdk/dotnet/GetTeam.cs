@@ -24,7 +24,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sre_team = Opsgenie.GetTeam.Invoke(new()
+        ///     var sre_team = Opsgenie.Index.GetTeam.Invoke(new()
         ///     {
         ///         Name = "sre-team",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sre_team = Opsgenie.GetTeam.Invoke(new()
+        ///     var sre_team = Opsgenie.Index.GetTeam.Invoke(new()
         ///     {
         ///         Name = "sre-team",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sre_team = Opsgenie.GetTeam.Invoke(new()
+        ///     var sre_team = Opsgenie.Index.GetTeam.Invoke(new()
         ///     {
         ///         Name = "sre-team",
         ///     });

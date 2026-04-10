@@ -24,7 +24,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Opsgenie.GetEscalation.Invoke(new()
+        ///     var test = Opsgenie.Index.GetEscalation.Invoke(new()
         ///     {
         ///         Name = "existing-escalation",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Opsgenie.GetEscalation.Invoke(new()
+        ///     var test = Opsgenie.Index.GetEscalation.Invoke(new()
         ///     {
         ///         Name = "existing-escalation",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Opsgenie.GetEscalation.Invoke(new()
+        ///     var test = Opsgenie.Index.GetEscalation.Invoke(new()
         ///     {
         ///         Name = "existing-escalation",
         ///     });
