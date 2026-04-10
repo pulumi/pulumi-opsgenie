@@ -22,14 +22,14 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Opsgenie.User("test", new()
+    ///     var test = new Opsgenie.Index.User("test", new()
     ///     {
     ///         Username = "Example user",
     ///         FullName = "Name Lastname",
     ///         Role = "User",
     ///     });
     /// 
-    ///     var testNotificationRule = new Opsgenie.NotificationRule("test", new()
+    ///     var testNotificationRule = new Opsgenie.Index.NotificationRule("test", new()
     ///     {
     ///         Name = "Example notification rule",
     ///         Username = test.Username,

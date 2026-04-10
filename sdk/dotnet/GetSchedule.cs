@@ -24,7 +24,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Opsgenie.GetSchedule.Invoke(new()
+        ///     var test = Opsgenie.Index.GetSchedule.Invoke(new()
         ///     {
         ///         Name = "sre-team schedule",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Opsgenie.GetSchedule.Invoke(new()
+        ///     var test = Opsgenie.Index.GetSchedule.Invoke(new()
         ///     {
         ///         Name = "sre-team schedule",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Opsgenie.GetSchedule.Invoke(new()
+        ///     var test = Opsgenie.Index.GetSchedule.Invoke(new()
         ///     {
         ///         Name = "sre-team schedule",
         ///     });

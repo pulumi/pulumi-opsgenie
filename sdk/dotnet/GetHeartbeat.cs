@@ -24,7 +24,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Opsgenie.GetHeartbeat.Invoke(new()
+        ///     var test = Opsgenie.Index.GetHeartbeat.Invoke(new()
         ///     {
         ///         Name = "genieheartbeat-existing",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Opsgenie.GetHeartbeat.Invoke(new()
+        ///     var test = Opsgenie.Index.GetHeartbeat.Invoke(new()
         ///     {
         ///         Name = "genieheartbeat-existing",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Opsgenie.GetHeartbeat.Invoke(new()
+        ///     var test = Opsgenie.Index.GetHeartbeat.Invoke(new()
         ///     {
         ///         Name = "genieheartbeat-existing",
         ///     });

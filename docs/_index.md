@@ -96,7 +96,7 @@ using Opsgenie = Pulumi.Opsgenie;
 return await Deployment.RunAsync(() =>
 {
     // Create a user
-    var test = new Opsgenie.User("test");
+    var test = new Opsgenie.Index.User("test");
 
 });
 

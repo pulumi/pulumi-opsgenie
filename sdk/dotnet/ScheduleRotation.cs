@@ -22,7 +22,7 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Opsgenie.ScheduleRotation("test", new()
+    ///     var test = new Opsgenie.Index.ScheduleRotation("test", new()
     ///     {
     ///         ScheduleId = testOpsgenieSchedule.Id,
     ///         Name = "test",

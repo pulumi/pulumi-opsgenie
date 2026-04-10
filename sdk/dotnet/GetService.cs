@@ -24,7 +24,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Opsgenie.GetService.Invoke(new()
+        ///     var @this = Opsgenie.Index.GetService.Invoke(new()
         ///     {
         ///         Name = "Payment",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Opsgenie.GetService.Invoke(new()
+        ///     var @this = Opsgenie.Index.GetService.Invoke(new()
         ///     {
         ///         Name = "Payment",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Opsgenie
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Opsgenie.GetService.Invoke(new()
+        ///     var @this = Opsgenie.Index.GetService.Invoke(new()
         ///     {
         ///         Name = "Payment",
         ///     });

@@ -22,19 +22,19 @@ namespace Pulumi.Opsgenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Opsgenie.Team("test", new()
+    ///     var test = new Opsgenie.Index.Team("test", new()
     ///     {
     ///         Name = "genietest-team",
     ///         Description = "This team deals with all the things",
     ///     });
     /// 
-    ///     var testService = new Opsgenie.Service("test", new()
+    ///     var testService = new Opsgenie.Index.Service("test", new()
     ///     {
     ///         Name = "genietest-service",
     ///         TeamId = test.Id,
     ///     });
     /// 
-    ///     var testIncidentTemplate = new Opsgenie.IncidentTemplate("test", new()
+    ///     var testIncidentTemplate = new Opsgenie.Index.IncidentTemplate("test", new()
     ///     {
     ///         Name = "genietest-incident-template",
     ///         Message = "Incident Message",
