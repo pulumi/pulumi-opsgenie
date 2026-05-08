@@ -22,11 +22,11 @@ __all__ = ['IntegrationActionArgs', 'IntegrationAction']
 class IntegrationActionArgs:
     def __init__(__self__, *,
                  integration_id: pulumi.Input[_builtins.str],
-                 acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]] = None,
-                 add_notes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]] = None,
-                 closes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]] = None,
-                 creates: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]] = None,
-                 ignores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None):
+                 acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]] = None,
+                 add_notes: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]] = None,
+                 closes: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]] = None,
+                 creates: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]] = None,
+                 ignores: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None):
         """
         The set of arguments for constructing a IntegrationAction resource.
 
@@ -58,59 +58,59 @@ class IntegrationActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def acknowledges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]]:
+    def acknowledges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]]:
         return pulumi.get(self, "acknowledges")
 
     @acknowledges.setter
-    def acknowledges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]]):
+    def acknowledges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]]):
         pulumi.set(self, "acknowledges", value)
 
     @_builtins.property
     @pulumi.getter(name="addNotes")
-    def add_notes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]]:
+    def add_notes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]]:
         return pulumi.get(self, "add_notes")
 
     @add_notes.setter
-    def add_notes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]]):
+    def add_notes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]]):
         pulumi.set(self, "add_notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def closes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]]:
+    def closes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]]:
         return pulumi.get(self, "closes")
 
     @closes.setter
-    def closes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]]):
+    def closes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]]):
         pulumi.set(self, "closes", value)
 
     @_builtins.property
     @pulumi.getter
-    def creates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]]:
+    def creates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]]:
         return pulumi.get(self, "creates")
 
     @creates.setter
-    def creates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]]):
+    def creates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]]):
         pulumi.set(self, "creates", value)
 
     @_builtins.property
     @pulumi.getter
-    def ignores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]]:
+    def ignores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]]:
         return pulumi.get(self, "ignores")
 
     @ignores.setter
-    def ignores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]]):
+    def ignores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]]):
         pulumi.set(self, "ignores", value)
 
 
 @pulumi.input_type
 class _IntegrationActionState:
     def __init__(__self__, *,
-                 acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]] = None,
-                 add_notes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]] = None,
-                 closes: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]] = None,
-                 creates: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]] = None,
-                 ignores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None,
-                 integration_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]] = None,
+                 add_notes: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]] = None,
+                 closes: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]] = None,
+                 creates: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]] = None,
+                 ignores: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]] = None,
+                 integration_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAction resources.
 
@@ -131,59 +131,59 @@ class _IntegrationActionState:
 
     @_builtins.property
     @pulumi.getter
-    def acknowledges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]]:
+    def acknowledges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]]:
         return pulumi.get(self, "acknowledges")
 
     @acknowledges.setter
-    def acknowledges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]]):
+    def acknowledges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeArgs']]]]):
         pulumi.set(self, "acknowledges", value)
 
     @_builtins.property
     @pulumi.getter(name="addNotes")
-    def add_notes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]]:
+    def add_notes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]]:
         return pulumi.get(self, "add_notes")
 
     @add_notes.setter
-    def add_notes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]]):
+    def add_notes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteArgs']]]]):
         pulumi.set(self, "add_notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def closes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]]:
+    def closes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]]:
         return pulumi.get(self, "closes")
 
     @closes.setter
-    def closes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]]):
+    def closes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseArgs']]]]):
         pulumi.set(self, "closes", value)
 
     @_builtins.property
     @pulumi.getter
-    def creates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]]:
+    def creates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]]:
         return pulumi.get(self, "creates")
 
     @creates.setter
-    def creates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]]):
+    def creates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateArgs']]]]):
         pulumi.set(self, "creates", value)
 
     @_builtins.property
     @pulumi.getter
-    def ignores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]]:
+    def ignores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]]:
         return pulumi.get(self, "ignores")
 
     @ignores.setter
-    def ignores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]]):
+    def ignores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreArgs']]]]):
         pulumi.set(self, "ignores", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationId")
-    def integration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the parent integration resource to bind to.
         """
         return pulumi.get(self, "integration_id")
 
     @integration_id.setter
-    def integration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_id", value)
 
 
@@ -193,12 +193,12 @@ class IntegrationAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
-                 add_notes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
-                 closes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
-                 creates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
-                 ignores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
-                 integration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
+                 add_notes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
+                 closes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
+                 creates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
+                 ignores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
+                 integration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages advanced actions for Integrations within Opsgenie. This applies for the following resources:
@@ -543,12 +543,12 @@ class IntegrationAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
-                 add_notes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
-                 closes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
-                 creates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
-                 ignores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
-                 integration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
+                 add_notes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
+                 closes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
+                 creates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
+                 ignores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
+                 integration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -576,12 +576,12 @@ class IntegrationAction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            acknowledges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
-            add_notes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
-            closes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
-            creates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
-            ignores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
-            integration_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'IntegrationAction':
+            acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
+            add_notes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
+            closes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
+            creates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
+            ignores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
+            integration_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'IntegrationAction':
         """
         Get an existing IntegrationAction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

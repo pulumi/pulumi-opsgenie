@@ -155,39 +155,39 @@ export interface HeartbeatState {
     /**
      * Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
      */
-    alertMessage?: pulumi.Input<string>;
+    alertMessage?: pulumi.Input<string | undefined>;
     /**
      * Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
      */
-    alertPriority?: pulumi.Input<string>;
+    alertPriority?: pulumi.Input<string | undefined>;
     /**
      * Specifies the alert tags for heartbeat expiration alert.
      */
-    alertTags?: pulumi.Input<pulumi.Input<string>[]>;
+    alertTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An optional description of the heartbeat
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable/disable heartbeat monitoring.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies how often a heartbeat message should be expected.
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Interval specified as minutes, hours or days.
      */
-    intervalUnit?: pulumi.Input<string>;
+    intervalUnit?: pulumi.Input<string | undefined>;
     /**
      * Name of the heartbeat
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner team of the heartbeat.
      */
-    ownerTeamId?: pulumi.Input<string>;
+    ownerTeamId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -197,19 +197,19 @@ export interface HeartbeatArgs {
     /**
      * Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
      */
-    alertMessage?: pulumi.Input<string>;
+    alertMessage?: pulumi.Input<string | undefined>;
     /**
      * Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
      */
-    alertPriority?: pulumi.Input<string>;
+    alertPriority?: pulumi.Input<string | undefined>;
     /**
      * Specifies the alert tags for heartbeat expiration alert.
      */
-    alertTags?: pulumi.Input<pulumi.Input<string>[]>;
+    alertTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An optional description of the heartbeat
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable/disable heartbeat monitoring.
      */
@@ -225,9 +225,9 @@ export interface HeartbeatArgs {
     /**
      * Name of the heartbeat
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner team of the heartbeat.
      */
-    ownerTeamId?: pulumi.Input<string>;
+    ownerTeamId?: pulumi.Input<string | undefined>;
 }

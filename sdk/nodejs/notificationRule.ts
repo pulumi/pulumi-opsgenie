@@ -157,32 +157,32 @@ export interface NotificationRuleState {
     /**
      * Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
      */
-    actionType?: pulumi.Input<string>;
-    criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[]>;
+    actionType?: pulumi.Input<string | undefined>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[] | undefined>;
     /**
      * If policy should be enabled. Default: `true`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the notification policy
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
-    notificationTimes?: pulumi.Input<pulumi.Input<string>[]>;
-    order?: pulumi.Input<number>;
-    repeats?: pulumi.Input<pulumi.Input<inputs.NotificationRuleRepeat>[]>;
-    schedules?: pulumi.Input<pulumi.Input<inputs.NotificationRuleSchedule>[]>;
+    notificationTimes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    order?: pulumi.Input<number | undefined>;
+    repeats?: pulumi.Input<pulumi.Input<inputs.NotificationRuleRepeat>[] | undefined>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.NotificationRuleSchedule>[] | undefined>;
     /**
      * Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.NotificationRuleStep>[]>;
-    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestriction>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.NotificationRuleStep>[] | undefined>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestriction>[] | undefined>;
     /**
      * Username of user to which this notification rule belongs to.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -193,27 +193,27 @@ export interface NotificationRuleArgs {
      * Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
      */
     actionType: pulumi.Input<string>;
-    criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[]>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteria>[] | undefined>;
     /**
      * If policy should be enabled. Default: `true`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the notification policy
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `actionType` is `schedule-start` or `schedule-end` then it is required.
      */
-    notificationTimes?: pulumi.Input<pulumi.Input<string>[]>;
-    order?: pulumi.Input<number>;
-    repeats?: pulumi.Input<pulumi.Input<inputs.NotificationRuleRepeat>[]>;
-    schedules?: pulumi.Input<pulumi.Input<inputs.NotificationRuleSchedule>[]>;
+    notificationTimes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    order?: pulumi.Input<number | undefined>;
+    repeats?: pulumi.Input<pulumi.Input<inputs.NotificationRuleRepeat>[] | undefined>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.NotificationRuleSchedule>[] | undefined>;
     /**
      * Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.NotificationRuleStep>[]>;
-    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestriction>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.NotificationRuleStep>[] | undefined>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestriction>[] | undefined>;
     /**
      * Username of user to which this notification rule belongs to.
      */

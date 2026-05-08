@@ -22,25 +22,25 @@ __all__ = ['AlertPolicyArgs', 'AlertPolicy']
 class AlertPolicyArgs:
     def __init__(__self__, *,
                  message: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alert_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 continue_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]] = None,
-                 ignore_original_actions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_details: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_responders: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alert_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 continue_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]] = None,
+                 ignore_original_actions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_responders: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None):
         """
         The set of arguments for constructing a AlertPolicy resource.
 
@@ -119,256 +119,256 @@ class AlertPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="alertDescription")
-    def alert_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
         """
         return pulumi.get(self, "alert_description")
 
     @alert_description.setter
-    def alert_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="continuePolicy")
-    def continue_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def continue_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         It will trigger other modify policies if set to `true`. Default: `false`
         """
         return pulumi.get(self, "continue_policy")
 
     @continue_policy.setter
-    def continue_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def continue_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "continue_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def entity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
         """
         return pulumi.get(self, "entity")
 
     @entity.setter
-    def entity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]]:
         """
         A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreOriginalActions")
-    def ignore_original_actions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_original_actions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, policy will ignore the original actions of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_actions")
 
     @ignore_original_actions.setter
-    def ignore_original_actions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_original_actions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_original_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreOriginalDetails")
-    def ignore_original_details(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_original_details(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, policy will ignore the original details of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_details")
 
     @ignore_original_details.setter
-    def ignore_original_details(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_original_details(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_original_details", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreOriginalResponders")
-    def ignore_original_responders(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_original_responders(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_responders")
 
     @ignore_original_responders.setter
-    def ignore_original_responders(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_original_responders(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_original_responders", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreOriginalTags")
-    def ignore_original_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_original_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_tags")
 
     @ignore_original_tags.setter
-    def ignore_original_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_original_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_original_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the alert policy
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDescription")
-    def policy_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the policy. This can be max 512 characters.
         """
         return pulumi.get(self, "policy_description")
 
     @policy_description.setter
-    def policy_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]:
+    def responders(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]:
         """
         Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "responders")
 
     @responders.setter
-    def responders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]):
+    def responders(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]):
         pulumi.set(self, "responders", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="teamId")
-    def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of team that this policy belongs to.
         """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
-    def team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_id", value)
 
     @_builtins.property
     @pulumi.getter(name="timeRestrictions")
-    def time_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]]:
+    def time_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]]:
         """
         Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
         return pulumi.get(self, "time_restrictions")
 
     @time_restrictions.setter
-    def time_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]]):
+    def time_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]]):
         pulumi.set(self, "time_restrictions", value)
 
 
 @pulumi.input_type
 class _AlertPolicyState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alert_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 continue_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]] = None,
-                 ignore_original_actions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_details: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_responders: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alert_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 continue_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]] = None,
+                 ignore_original_actions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_responders: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]] = None):
         """
         Input properties used for looking up and filtering AlertPolicy resources.
 
@@ -436,242 +436,242 @@ class _AlertPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Actions to add to the alerts original actions value as a list of strings. If `ignore_original_actions` field is set to `true`, this will replace the original actions.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="alertDescription")
-    def alert_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
         """
         return pulumi.get(self, "alert_description")
 
     @alert_description.setter
-    def alert_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="continuePolicy")
-    def continue_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def continue_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         It will trigger other modify policies if set to `true`. Default: `false`
         """
         return pulumi.get(self, "continue_policy")
 
     @continue_policy.setter
-    def continue_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def continue_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "continue_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def entity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
         """
         return pulumi.get(self, "entity")
 
     @entity.setter
-    def entity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]]:
         """
         A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreOriginalActions")
-    def ignore_original_actions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_original_actions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, policy will ignore the original actions of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_actions")
 
     @ignore_original_actions.setter
-    def ignore_original_actions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_original_actions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_original_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreOriginalDetails")
-    def ignore_original_details(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_original_details(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, policy will ignore the original details of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_details")
 
     @ignore_original_details.setter
-    def ignore_original_details(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_original_details(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_original_details", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreOriginalResponders")
-    def ignore_original_responders(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_original_responders(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, policy will ignore the original responders of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_responders")
 
     @ignore_original_responders.setter
-    def ignore_original_responders(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_original_responders(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_original_responders", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreOriginalTags")
-    def ignore_original_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_original_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, policy will ignore the original tags of the alert. Default: `false`
         """
         return pulumi.get(self, "ignore_original_tags")
 
     @ignore_original_tags.setter
-    def ignore_original_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_original_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_original_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message of the alerts
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the alert policy
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDescription")
-    def policy_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the policy. This can be max 512 characters.
         """
         return pulumi.get(self, "policy_description")
 
     @policy_description.setter
-    def policy_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]:
+    def responders(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]:
         """
         Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignore_original_responders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "responders")
 
     @responders.setter
-    def responders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]):
+    def responders(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyResponderArgs']]]]):
         pulumi.set(self, "responders", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tags to add to the alerts original tags value as a list of strings. If `ignore_original_responders` field is set to `true`, this will replace the original responders.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="teamId")
-    def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of team that this policy belongs to.
         """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
-    def team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_id", value)
 
     @_builtins.property
     @pulumi.getter(name="timeRestrictions")
-    def time_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]]:
+    def time_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]]:
         """
         Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
         return pulumi.get(self, "time_restrictions")
 
     @time_restrictions.setter
-    def time_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]]):
+    def time_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionArgs']]]]):
         pulumi.set(self, "time_restrictions", value)
 
 
@@ -681,26 +681,26 @@ class AlertPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alert_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 continue_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]]] = None,
-                 ignore_original_actions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_details: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_responders: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alert_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 continue_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]]] = None,
+                 ignore_original_actions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_responders: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Alert Policy within Opsgenie.
@@ -850,26 +850,26 @@ class AlertPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alert_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 continue_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]]] = None,
-                 ignore_original_actions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_details: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_responders: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_original_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alert_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 continue_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]]] = None,
+                 ignore_original_actions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_responders: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_original_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -911,26 +911,26 @@ class AlertPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            alert_description: Optional[pulumi.Input[_builtins.str]] = None,
-            alias: Optional[pulumi.Input[_builtins.str]] = None,
-            continue_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            entity: Optional[pulumi.Input[_builtins.str]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]]] = None,
-            ignore_original_actions: Optional[pulumi.Input[_builtins.bool]] = None,
-            ignore_original_details: Optional[pulumi.Input[_builtins.bool]] = None,
-            ignore_original_responders: Optional[pulumi.Input[_builtins.bool]] = None,
-            ignore_original_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-            message: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_description: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.str]] = None,
-            responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]]] = None,
-            source: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            team_id: Optional[pulumi.Input[_builtins.str]] = None,
-            time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]]] = None) -> 'AlertPolicy':
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            alert_description: pulumi.Input[Optional[_builtins.str]] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            continue_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity: pulumi.Input[Optional[_builtins.str]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict']]]]] = None,
+            ignore_original_actions: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_original_details: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_original_responders: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_original_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_description: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.str]] = None,
+            responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict']]]]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict']]]]] = None) -> 'AlertPolicy':
         """
         Get an existing AlertPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

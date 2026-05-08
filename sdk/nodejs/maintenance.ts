@@ -90,15 +90,15 @@ export interface MaintenanceState {
     /**
      * Description for the maintenance.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.MaintenanceRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.MaintenanceRule>[] | undefined>;
     /**
      * Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
      */
-    times?: pulumi.Input<pulumi.Input<inputs.MaintenanceTime>[]>;
+    times?: pulumi.Input<pulumi.Input<inputs.MaintenanceTime>[] | undefined>;
 }
 
 /**
@@ -116,5 +116,5 @@ export interface MaintenanceArgs {
     /**
      * Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
      */
-    times?: pulumi.Input<pulumi.Input<inputs.MaintenanceTime>[]>;
+    times?: pulumi.Input<pulumi.Input<inputs.MaintenanceTime>[] | undefined>;
 }

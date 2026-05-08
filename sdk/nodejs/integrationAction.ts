@@ -245,26 +245,26 @@ export class IntegrationAction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationAction resources.
  */
 export interface IntegrationActionState {
-    acknowledges?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledge>[]>;
-    addNotes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNote>[]>;
-    closes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionClose>[]>;
-    creates?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreate>[]>;
-    ignores?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnore>[]>;
+    acknowledges?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledge>[] | undefined>;
+    addNotes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNote>[] | undefined>;
+    closes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionClose>[] | undefined>;
+    creates?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreate>[] | undefined>;
+    ignores?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnore>[] | undefined>;
     /**
      * ID of the parent integration resource to bind to.
      */
-    integrationId?: pulumi.Input<string>;
+    integrationId?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a IntegrationAction resource.
  */
 export interface IntegrationActionArgs {
-    acknowledges?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledge>[]>;
-    addNotes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNote>[]>;
-    closes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionClose>[]>;
-    creates?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreate>[]>;
-    ignores?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnore>[]>;
+    acknowledges?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledge>[] | undefined>;
+    addNotes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNote>[] | undefined>;
+    closes?: pulumi.Input<pulumi.Input<inputs.IntegrationActionClose>[] | undefined>;
+    creates?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreate>[] | undefined>;
+    ignores?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnore>[] | undefined>;
     /**
      * ID of the parent integration resource to bind to.
      */

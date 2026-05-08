@@ -91,11 +91,11 @@ export interface GetTeamOutputArgs {
     /**
      * A description for this team.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A Member block as documented below.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.GetTeamMemberArgs>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.GetTeamMemberArgs>[] | undefined>;
     /**
      * The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
      *

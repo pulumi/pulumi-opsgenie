@@ -163,20 +163,20 @@ export interface IncidentTemplateState {
     /**
      * Description field of the incident template. This field must not be longer than 10000 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
      */
-    details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    impactedServices?: pulumi.Input<pulumi.Input<string>[]>;
+    details?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    impactedServices?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Message of the related incident template. This field must not be longer than 130 characters.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * Name of the incident template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      *
@@ -184,12 +184,12 @@ export interface IncidentTemplateState {
      *
      * * `stakeholderProperties` (Required)
      */
-    priority?: pulumi.Input<string>;
-    stakeholderProperties?: pulumi.Input<pulumi.Input<inputs.IncidentTemplateStakeholderProperty>[]>;
+    priority?: pulumi.Input<string | undefined>;
+    stakeholderProperties?: pulumi.Input<pulumi.Input<inputs.IncidentTemplateStakeholderProperty>[] | undefined>;
     /**
      * Tags of the incident template.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -199,12 +199,12 @@ export interface IncidentTemplateArgs {
     /**
      * Description field of the incident template. This field must not be longer than 10000 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value pairs to use as custom properties of the incident template. This field must not be longer than 8000 characters.
      */
-    details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    impactedServices?: pulumi.Input<pulumi.Input<string>[]>;
+    details?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    impactedServices?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Message of the related incident template. This field must not be longer than 130 characters.
      */
@@ -212,7 +212,7 @@ export interface IncidentTemplateArgs {
     /**
      * Name of the incident template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Priority level of the incident. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`.
      *
@@ -225,5 +225,5 @@ export interface IncidentTemplateArgs {
     /**
      * Tags of the incident template.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

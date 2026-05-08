@@ -162,11 +162,11 @@ __all__ = [
 ]
 
 class AlertPolicyFilterArgsDict(TypedDict):
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]]]]
     """
     Conditions applied to filter. This is a block, structure is documented below.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
     """
@@ -174,8 +174,8 @@ class AlertPolicyFilterArgsDict(TypedDict):
 @pulumi.input_type
 class AlertPolicyFilterArgs:
     def __init__(__self__, *,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]] conditions: Conditions applied to filter. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.str] type: A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
@@ -187,26 +187,26 @@ class AlertPolicyFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]]]:
         """
         Conditions applied to filter. This is a block, structure is documented below.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -219,19 +219,19 @@ class AlertPolicyFilterConditionArgsDict(TypedDict):
     """
     It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
     """
-    expected_value: NotRequired[pulumi.Input[_builtins.str]]
+    expected_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User defined value that will be compared with alert field according to the operation. Default: empty string
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If `field` is set as extra-properties, key could be used for key-value pair
     """
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates behaviour of the given operation. Default: `false`
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Order of the condition in conditions list
     """
@@ -241,10 +241,10 @@ class AlertPolicyFilterConditionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
                  operation: pulumi.Input[_builtins.str],
-                 expected_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 expected_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         :param pulumi.Input[_builtins.str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
@@ -290,50 +290,50 @@ class AlertPolicyFilterConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined value that will be compared with alert field according to the operation. Default: empty string
         """
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
-    def expected_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `field` is set as extra-properties, key could be used for key-value pair
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates behaviour of the given operation. Default: `false`
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order of the condition in conditions list
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
@@ -346,11 +346,11 @@ class AlertPolicyResponderArgsDict(TypedDict):
     """
     Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the responder
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Username of the responder
     """
@@ -360,8 +360,8 @@ class AlertPolicyResponderArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: ID of the responder
         :param pulumi.Input[_builtins.str] type: Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
@@ -401,26 +401,26 @@ class AlertPolicyResponderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the responder
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username of the responder
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -429,11 +429,11 @@ class AlertPolicyTimeRestrictionArgsDict(TypedDict):
     """
     Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
     """
-    restriction: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgsDict']]]]
+    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]]
     """
     A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
     """
-    restriction_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgsDict']]]]
+    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]]]
     """
     List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
     """
@@ -442,8 +442,8 @@ class AlertPolicyTimeRestrictionArgsDict(TypedDict):
 class AlertPolicyTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 restriction: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]] = None,
-                 restriction_list: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]] = None):
+                 restriction: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]] = None,
+                 restriction_list: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         :param pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
@@ -469,26 +469,26 @@ class AlertPolicyTimeRestrictionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def restriction(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]:
+    def restriction(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]:
         """
         A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "restriction")
 
     @restriction.setter
-    def restriction(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]):
+    def restriction(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]):
         pulumi.set(self, "restriction", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictionList")
-    def restriction_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]]:
+    def restriction_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]]:
         """
         List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "restriction_list")
 
     @restriction_list.setter
-    def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]]):
+    def restriction_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]]):
         pulumi.set(self, "restriction_list", value)
 
 
@@ -701,11 +701,11 @@ class AlertPolicyTimeRestrictionRestrictionListArgs:
 
 
 class ApiIntegrationResponderArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the responder.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The responder type.
     """
@@ -713,8 +713,8 @@ class ApiIntegrationResponderArgsDict(TypedDict):
 @pulumi.input_type
 class ApiIntegrationResponderArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The id of the responder.
         :param pulumi.Input[_builtins.str] type: The responder type.
@@ -726,35 +726,35 @@ class ApiIntegrationResponderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the responder.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The responder type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class EmailIntegrationResponderArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Opsgenie Email based Integration.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The responder type.
     """
@@ -762,8 +762,8 @@ class EmailIntegrationResponderArgsDict(TypedDict):
 @pulumi.input_type
 class EmailIntegrationResponderArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Opsgenie Email based Integration.
         :param pulumi.Input[_builtins.str] type: The responder type.
@@ -775,42 +775,42 @@ class EmailIntegrationResponderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Opsgenie Email based Integration.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The responder type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class EscalationRepeatArgsDict(TypedDict):
-    close_alert_after_all: NotRequired[pulumi.Input[_builtins.bool]]
-    count: NotRequired[pulumi.Input[_builtins.int]]
-    reset_recipient_states: NotRequired[pulumi.Input[_builtins.bool]]
-    wait_interval: NotRequired[pulumi.Input[_builtins.int]]
+    close_alert_after_all: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    reset_recipient_states: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    wait_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class EscalationRepeatArgs:
     def __init__(__self__, *,
-                 close_alert_after_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 reset_recipient_states: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wait_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 close_alert_after_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 reset_recipient_states: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wait_interval: pulumi.Input[Optional[_builtins.int]] = None):
         if close_alert_after_all is not None:
             pulumi.set(__self__, "close_alert_after_all", close_alert_after_all)
         if count is not None:
@@ -822,38 +822,38 @@ class EscalationRepeatArgs:
 
     @_builtins.property
     @pulumi.getter(name="closeAlertAfterAll")
-    def close_alert_after_all(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def close_alert_after_all(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "close_alert_after_all")
 
     @close_alert_after_all.setter
-    def close_alert_after_all(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def close_alert_after_all(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "close_alert_after_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter(name="resetRecipientStates")
-    def reset_recipient_states(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reset_recipient_states(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "reset_recipient_states")
 
     @reset_recipient_states.setter
-    def reset_recipient_states(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reset_recipient_states(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reset_recipient_states", value)
 
     @_builtins.property
     @pulumi.getter(name="waitInterval")
-    def wait_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def wait_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "wait_interval")
 
     @wait_interval.setter
-    def wait_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def wait_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "wait_interval", value)
 
 
@@ -943,17 +943,17 @@ class EscalationRuleArgs:
 
 
 class EscalationRuleRecipientArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Opsgenie Escalation.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class EscalationRuleRecipientArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Opsgenie Escalation.
         """
@@ -964,23 +964,23 @@ class EscalationRuleRecipientArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Opsgenie Escalation.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -989,11 +989,11 @@ class IncidentTemplateStakeholderPropertyArgsDict(TypedDict):
     """
     Message of the related incident template. This field must not be longer than 130 characters.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description field of the incident template. This field must not be longer than 10000 characters.
     """
-    enable: NotRequired[pulumi.Input[_builtins.bool]]
+    enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Option to enable stakeholder notifications.Default value is true.
     """
@@ -1002,8 +1002,8 @@ class IncidentTemplateStakeholderPropertyArgsDict(TypedDict):
 class IncidentTemplateStakeholderPropertyArgs:
     def __init__(__self__, *,
                  message: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] message: Message of the related incident template. This field must not be longer than 130 characters.
         :param pulumi.Input[_builtins.str] description: Description field of the incident template. This field must not be longer than 10000 characters.
@@ -1029,26 +1029,26 @@ class IncidentTemplateStakeholderPropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description field of the incident template. This field must not be longer than 10000 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Option to enable stakeholder notifications.Default value is true.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
 
@@ -1057,30 +1057,30 @@ class IntegrationActionAcknowledgeArgsDict(TypedDict):
     """
     Name of the integration action.
     """
-    alias: NotRequired[pulumi.Input[_builtins.str]]
+    alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An identifier that is used for alert deduplication. Default: `{{alias}}`.
     """
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgsDict']]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgs']]]]]
     """
     Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
     * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
     * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
     * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
     """
-    note: NotRequired[pulumi.Input[_builtins.str]]
+    note: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Additional alert action note.
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Integer value that defines in which order the action will be performed. Default: `1`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    user: NotRequired[pulumi.Input[_builtins.str]]
+    user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Owner of the execution for integration action.
     """
@@ -1089,12 +1089,12 @@ class IntegrationActionAcknowledgeArgsDict(TypedDict):
 class IntegrationActionAcknowledgeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgs']]]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgs']]]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the integration action.
         :param pulumi.Input[_builtins.str] alias: An identifier that is used for alert deduplication. Default: `{{alias}}`.
@@ -1135,19 +1135,19 @@ class IntegrationActionAcknowledgeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier that is used for alert deduplication. Default: `{{alias}}`.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgs']]]]:
         """
         Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
         * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -1157,55 +1157,55 @@ class IntegrationActionAcknowledgeArgs:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional alert action note.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the execution for integration action.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user", value)
 
 
@@ -1214,13 +1214,13 @@ class IntegrationActionAcknowledgeFilterArgsDict(TypedDict):
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgs']]]]]
 
 @pulumi.input_type
 class IntegrationActionAcknowledgeFilterArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgs']]]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The responder type - can be `escalation`, `team` or `user`.
         """
@@ -1242,21 +1242,21 @@ class IntegrationActionAcknowledgeFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgs']]]]:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
 class IntegrationActionAcknowledgeFilterConditionArgsDict(TypedDict):
     field: pulumi.Input[_builtins.str]
     operation: pulumi.Input[_builtins.str]
-    expected_value: NotRequired[pulumi.Input[_builtins.str]]
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    expected_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Integer value that defines in which order the action will be performed. Default: `1`.
     """
@@ -1266,10 +1266,10 @@ class IntegrationActionAcknowledgeFilterConditionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
                  operation: pulumi.Input[_builtins.str],
-                 expected_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 expected_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
@@ -1304,41 +1304,41 @@ class IntegrationActionAcknowledgeFilterConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
-    def expected_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
@@ -1347,30 +1347,30 @@ class IntegrationActionAddNoteArgsDict(TypedDict):
     """
     Name of the integration action.
     """
-    alias: NotRequired[pulumi.Input[_builtins.str]]
+    alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An identifier that is used for alert deduplication. Default: `{{alias}}`.
     """
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgsDict']]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgs']]]]]
     """
     Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
     * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
     * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
     * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
     """
-    note: NotRequired[pulumi.Input[_builtins.str]]
+    note: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Additional alert action note.
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Integer value that defines in which order the action will be performed. Default: `1`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    user: NotRequired[pulumi.Input[_builtins.str]]
+    user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Owner of the execution for integration action.
     """
@@ -1379,12 +1379,12 @@ class IntegrationActionAddNoteArgsDict(TypedDict):
 class IntegrationActionAddNoteArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgs']]]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgs']]]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the integration action.
         :param pulumi.Input[_builtins.str] alias: An identifier that is used for alert deduplication. Default: `{{alias}}`.
@@ -1425,19 +1425,19 @@ class IntegrationActionAddNoteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier that is used for alert deduplication. Default: `{{alias}}`.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgs']]]]:
         """
         Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
         * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -1447,55 +1447,55 @@ class IntegrationActionAddNoteArgs:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional alert action note.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the execution for integration action.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user", value)
 
 
@@ -1504,13 +1504,13 @@ class IntegrationActionAddNoteFilterArgsDict(TypedDict):
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgs']]]]]
 
 @pulumi.input_type
 class IntegrationActionAddNoteFilterArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgs']]]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The responder type - can be `escalation`, `team` or `user`.
         """
@@ -1532,21 +1532,21 @@ class IntegrationActionAddNoteFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgs']]]]:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
 class IntegrationActionAddNoteFilterConditionArgsDict(TypedDict):
     field: pulumi.Input[_builtins.str]
     operation: pulumi.Input[_builtins.str]
-    expected_value: NotRequired[pulumi.Input[_builtins.str]]
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    expected_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Integer value that defines in which order the action will be performed. Default: `1`.
     """
@@ -1556,10 +1556,10 @@ class IntegrationActionAddNoteFilterConditionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
                  operation: pulumi.Input[_builtins.str],
-                 expected_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 expected_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
@@ -1594,41 +1594,41 @@ class IntegrationActionAddNoteFilterConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
-    def expected_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
@@ -1637,30 +1637,30 @@ class IntegrationActionCloseArgsDict(TypedDict):
     """
     Name of the integration action.
     """
-    alias: NotRequired[pulumi.Input[_builtins.str]]
+    alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An identifier that is used for alert deduplication. Default: `{{alias}}`.
     """
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterArgsDict']]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterArgs']]]]]
     """
     Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
     * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
     * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
     * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
     """
-    note: NotRequired[pulumi.Input[_builtins.str]]
+    note: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Additional alert action note.
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Integer value that defines in which order the action will be performed. Default: `1`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    user: NotRequired[pulumi.Input[_builtins.str]]
+    user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Owner of the execution for integration action.
     """
@@ -1669,12 +1669,12 @@ class IntegrationActionCloseArgsDict(TypedDict):
 class IntegrationActionCloseArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterArgs']]]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterArgs']]]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the integration action.
         :param pulumi.Input[_builtins.str] alias: An identifier that is used for alert deduplication. Default: `{{alias}}`.
@@ -1715,19 +1715,19 @@ class IntegrationActionCloseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier that is used for alert deduplication. Default: `{{alias}}`.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterArgs']]]]:
         """
         Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
         * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -1737,55 +1737,55 @@ class IntegrationActionCloseArgs:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional alert action note.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the execution for integration action.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user", value)
 
 
@@ -1794,13 +1794,13 @@ class IntegrationActionCloseFilterArgsDict(TypedDict):
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgs']]]]]
 
 @pulumi.input_type
 class IntegrationActionCloseFilterArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgs']]]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The responder type - can be `escalation`, `team` or `user`.
         """
@@ -1822,21 +1822,21 @@ class IntegrationActionCloseFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgs']]]]:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
 class IntegrationActionCloseFilterConditionArgsDict(TypedDict):
     field: pulumi.Input[_builtins.str]
     operation: pulumi.Input[_builtins.str]
-    expected_value: NotRequired[pulumi.Input[_builtins.str]]
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    expected_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Integer value that defines in which order the action will be performed. Default: `1`.
     """
@@ -1846,10 +1846,10 @@ class IntegrationActionCloseFilterConditionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
                  operation: pulumi.Input[_builtins.str],
-                 expected_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 expected_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
@@ -1884,41 +1884,41 @@ class IntegrationActionCloseFilterConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
-    def expected_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
@@ -1927,79 +1927,79 @@ class IntegrationActionCreateArgsDict(TypedDict):
     """
     Name of the integration action.
     """
-    alert_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    alias: NotRequired[pulumi.Input[_builtins.str]]
+    alert_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An identifier that is used for alert deduplication. Default: `{{alias}}`.
     """
-    append_attachments: NotRequired[pulumi.Input[_builtins.bool]]
-    custom_priority: NotRequired[pulumi.Input[_builtins.str]]
+    append_attachments: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    custom_priority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom alert priority. e.g. ``{{message.substring(0,2)}}``
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Detailed description of the alert, anything that may not have fit in the `message` field.
     """
-    entity: NotRequired[pulumi.Input[_builtins.str]]
+    entity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The entity the alert is related to.
     """
-    extra_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    extra_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Set of user defined properties specified as a map.
     """
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterArgsDict']]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterArgs']]]]]
     """
     Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
     * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
     * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
     * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
     """
-    ignore_alert_actions_from_payload: NotRequired[pulumi.Input[_builtins.bool]]
-    ignore_extra_properties_from_payload: NotRequired[pulumi.Input[_builtins.bool]]
-    ignore_responders_from_payload: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_alert_actions_from_payload: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ignore_extra_properties_from_payload: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ignore_responders_from_payload: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If enabled, the integration will ignore responders sent in request payloads.
     """
-    ignore_tags_from_payload: NotRequired[pulumi.Input[_builtins.bool]]
-    ignore_teams_from_payload: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_tags_from_payload: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ignore_teams_from_payload: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If enabled, the integration will ignore teams sent in request payloads.
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Alert text limited to 130 characters.
     """
-    note: NotRequired[pulumi.Input[_builtins.str]]
+    note: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Additional alert action note.
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Integer value that defines in which order the action will be performed. Default: `1`.
     """
-    priority: NotRequired[pulumi.Input[_builtins.str]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Alert priority.
     """
-    responders: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateResponderArgsDict']]]]
+    responders: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateResponderArgs']]]]]
     """
     User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
     """
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User defined field to specify source of action.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Comma separated list of labels to be attached to the alert.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    user: NotRequired[pulumi.Input[_builtins.str]]
+    user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Owner of the execution for integration action.
     """
@@ -2008,28 +2008,28 @@ class IntegrationActionCreateArgsDict(TypedDict):
 class IntegrationActionCreateArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 alert_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 append_attachments: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 extra_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterArgs']]]] = None,
-                 ignore_alert_actions_from_payload: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_extra_properties_from_payload: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_responders_from_payload: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_tags_from_payload: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_teams_from_payload: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateResponderArgs']]]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None):
+                 alert_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 append_attachments: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 extra_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterArgs']]]] = None,
+                 ignore_alert_actions_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_extra_properties_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_responders_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_tags_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_teams_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateResponderArgs']]]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the integration action.
         :param pulumi.Input[_builtins.str] alias: An identifier that is used for alert deduplication. Default: `{{alias}}`.
@@ -2113,85 +2113,85 @@ class IntegrationActionCreateArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertActions")
-    def alert_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def alert_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "alert_actions")
 
     @alert_actions.setter
-    def alert_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def alert_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "alert_actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier that is used for alert deduplication. Default: `{{alias}}`.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="appendAttachments")
-    def append_attachments(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def append_attachments(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "append_attachments")
 
     @append_attachments.setter
-    def append_attachments(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def append_attachments(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "append_attachments", value)
 
     @_builtins.property
     @pulumi.getter(name="customPriority")
-    def custom_priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom alert priority. e.g. ``{{message.substring(0,2)}}``
         """
         return pulumi.get(self, "custom_priority")
 
     @custom_priority.setter
-    def custom_priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Detailed description of the alert, anything that may not have fit in the `message` field.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def entity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity the alert is related to.
         """
         return pulumi.get(self, "entity")
 
     @entity.setter
-    def entity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity", value)
 
     @_builtins.property
     @pulumi.getter(name="extraProperties")
-    def extra_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def extra_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Set of user defined properties specified as a map.
         """
         return pulumi.get(self, "extra_properties")
 
     @extra_properties.setter
-    def extra_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def extra_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extra_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterArgs']]]]:
         """
         Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
         * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -2201,166 +2201,166 @@ class IntegrationActionCreateArgs:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreAlertActionsFromPayload")
-    def ignore_alert_actions_from_payload(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_alert_actions_from_payload(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ignore_alert_actions_from_payload")
 
     @ignore_alert_actions_from_payload.setter
-    def ignore_alert_actions_from_payload(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_alert_actions_from_payload(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_alert_actions_from_payload", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreExtraPropertiesFromPayload")
-    def ignore_extra_properties_from_payload(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_extra_properties_from_payload(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ignore_extra_properties_from_payload")
 
     @ignore_extra_properties_from_payload.setter
-    def ignore_extra_properties_from_payload(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_extra_properties_from_payload(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_extra_properties_from_payload", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreRespondersFromPayload")
-    def ignore_responders_from_payload(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_responders_from_payload(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the integration will ignore responders sent in request payloads.
         """
         return pulumi.get(self, "ignore_responders_from_payload")
 
     @ignore_responders_from_payload.setter
-    def ignore_responders_from_payload(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_responders_from_payload(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_responders_from_payload", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreTagsFromPayload")
-    def ignore_tags_from_payload(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_tags_from_payload(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ignore_tags_from_payload")
 
     @ignore_tags_from_payload.setter
-    def ignore_tags_from_payload(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_tags_from_payload(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_tags_from_payload", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreTeamsFromPayload")
-    def ignore_teams_from_payload(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_teams_from_payload(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the integration will ignore teams sent in request payloads.
         """
         return pulumi.get(self, "ignore_teams_from_payload")
 
     @ignore_teams_from_payload.setter
-    def ignore_teams_from_payload(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_teams_from_payload(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_teams_from_payload", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alert text limited to 130 characters.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional alert action note.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alert priority.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateResponderArgs']]]]:
+    def responders(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateResponderArgs']]]]:
         """
         User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
         """
         return pulumi.get(self, "responders")
 
     @responders.setter
-    def responders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateResponderArgs']]]]):
+    def responders(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateResponderArgs']]]]):
         pulumi.set(self, "responders", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined field to specify source of action.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Comma separated list of labels to be attached to the alert.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the execution for integration action.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user", value)
 
 
@@ -2369,13 +2369,13 @@ class IntegrationActionCreateFilterArgsDict(TypedDict):
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgs']]]]]
 
 @pulumi.input_type
 class IntegrationActionCreateFilterArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgs']]]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The responder type - can be `escalation`, `team` or `user`.
         """
@@ -2397,21 +2397,21 @@ class IntegrationActionCreateFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgs']]]]:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
 class IntegrationActionCreateFilterConditionArgsDict(TypedDict):
     field: pulumi.Input[_builtins.str]
     operation: pulumi.Input[_builtins.str]
-    expected_value: NotRequired[pulumi.Input[_builtins.str]]
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    expected_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Integer value that defines in which order the action will be performed. Default: `1`.
     """
@@ -2421,10 +2421,10 @@ class IntegrationActionCreateFilterConditionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
                  operation: pulumi.Input[_builtins.str],
-                 expected_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 expected_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
@@ -2459,41 +2459,41 @@ class IntegrationActionCreateFilterConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
-    def expected_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
@@ -2549,18 +2549,18 @@ class IntegrationActionIgnoreArgsDict(TypedDict):
     """
     Name of the integration action.
     """
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgsDict']]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgs']]]]]
     """
     Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
     * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
     * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
     * For Email integration: `from_address`, `from_name`, `conversationSubject`, `subject`
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Integer value that defines in which order the action will be performed. Default: `1`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
@@ -2569,9 +2569,9 @@ class IntegrationActionIgnoreArgsDict(TypedDict):
 class IntegrationActionIgnoreArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgs']]]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgs']]]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the integration action.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgs']]] filters: Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
@@ -2603,7 +2603,7 @@ class IntegrationActionIgnoreArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgs']]]]:
         """
         Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
         * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -2613,31 +2613,31 @@ class IntegrationActionIgnoreArgs:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The responder type - can be `escalation`, `team` or `user`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -2646,13 +2646,13 @@ class IntegrationActionIgnoreFilterArgsDict(TypedDict):
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgs']]]]]
 
 @pulumi.input_type
 class IntegrationActionIgnoreFilterArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgs']]]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The responder type - can be `escalation`, `team` or `user`.
         """
@@ -2674,21 +2674,21 @@ class IntegrationActionIgnoreFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgs']]]]:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
 class IntegrationActionIgnoreFilterConditionArgsDict(TypedDict):
     field: pulumi.Input[_builtins.str]
     operation: pulumi.Input[_builtins.str]
-    expected_value: NotRequired[pulumi.Input[_builtins.str]]
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    expected_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Integer value that defines in which order the action will be performed. Default: `1`.
     """
@@ -2698,10 +2698,10 @@ class IntegrationActionIgnoreFilterConditionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
                  operation: pulumi.Input[_builtins.str],
-                 expected_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 expected_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] order: Integer value that defines in which order the action will be performed. Default: `1`.
         """
@@ -2736,41 +2736,41 @@ class IntegrationActionIgnoreFilterConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
-    def expected_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that defines in which order the action will be performed. Default: `1`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
@@ -2779,7 +2779,7 @@ class MaintenanceRuleArgsDict(TypedDict):
     """
     This field represents the entity that maintenance will be applied. Entity field takes two mandatory fields as id and type.
     """
-    state: NotRequired[pulumi.Input[_builtins.str]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     State of rule that will be defined in maintenance and can take either enabled or disabled for policy type rules. This field has to be disabled for integration type entity rules.
     """
@@ -2788,7 +2788,7 @@ class MaintenanceRuleArgsDict(TypedDict):
 class MaintenanceRuleArgs:
     def __init__(__self__, *,
                  entities: pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleEntityArgs']]],
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleEntityArgs']]] entities: This field represents the entity that maintenance will be applied. Entity field takes two mandatory fields as id and type.
         :param pulumi.Input[_builtins.str] state: State of rule that will be defined in maintenance and can take either enabled or disabled for policy type rules. This field has to be disabled for integration type entity rules.
@@ -2811,23 +2811,23 @@ class MaintenanceRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of rule that will be defined in maintenance and can take either enabled or disabled for policy type rules. This field has to be disabled for integration type entity rules.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
 class MaintenanceRuleEntityArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the entity that maintenance will be applied.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the entity that maintenance will be applied. It can be either integration or policy.
     """
@@ -2835,8 +2835,8 @@ class MaintenanceRuleEntityArgsDict(TypedDict):
 @pulumi.input_type
 class MaintenanceRuleEntityArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The id of the entity that maintenance will be applied.
         :param pulumi.Input[_builtins.str] type: The type of the entity that maintenance will be applied. It can be either integration or policy.
@@ -2848,36 +2848,36 @@ class MaintenanceRuleEntityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the entity that maintenance will be applied.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the entity that maintenance will be applied. It can be either integration or policy.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class MaintenanceTimeArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    end_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
     """
-    start_date: NotRequired[pulumi.Input[_builtins.str]]
+    start_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
     """
@@ -2886,8 +2886,8 @@ class MaintenanceTimeArgsDict(TypedDict):
 class MaintenanceTimeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] end_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
         :param pulumi.Input[_builtins.str] start_date: This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
@@ -2909,26 +2909,26 @@ class MaintenanceTimeArgs:
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
         """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
     @_builtins.property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
         """
         return pulumi.get(self, "start_date")
 
     @start_date.setter
-    def start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_date", value)
 
 
@@ -2965,7 +2965,7 @@ class NotificationPolicyAutoCloseActionDurationArgsDict(TypedDict):
     """
     A amount of time in `time_units`. This is a integer attribute.
     """
-    time_unit: NotRequired[pulumi.Input[_builtins.str]]
+    time_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
     """
@@ -2974,7 +2974,7 @@ class NotificationPolicyAutoCloseActionDurationArgsDict(TypedDict):
 class NotificationPolicyAutoCloseActionDurationArgs:
     def __init__(__self__, *,
                  time_amount: pulumi.Input[_builtins.int],
-                 time_unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 time_unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param pulumi.Input[_builtins.str] time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
@@ -2997,14 +2997,14 @@ class NotificationPolicyAutoCloseActionDurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         return pulumi.get(self, "time_unit")
 
     @time_unit.setter
-    def time_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_unit", value)
 
 
@@ -3060,7 +3060,7 @@ class NotificationPolicyAutoRestartActionDurationArgsDict(TypedDict):
     """
     A amount of time in `time_units`. This is a integer attribute.
     """
-    time_unit: NotRequired[pulumi.Input[_builtins.str]]
+    time_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
     """
@@ -3069,7 +3069,7 @@ class NotificationPolicyAutoRestartActionDurationArgsDict(TypedDict):
 class NotificationPolicyAutoRestartActionDurationArgs:
     def __init__(__self__, *,
                  time_amount: pulumi.Input[_builtins.int],
-                 time_unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 time_unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param pulumi.Input[_builtins.str] time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
@@ -3092,14 +3092,14 @@ class NotificationPolicyAutoRestartActionDurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         return pulumi.get(self, "time_unit")
 
     @time_unit.setter
-    def time_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_unit", value)
 
 
@@ -3112,7 +3112,7 @@ class NotificationPolicyDeDuplicationActionArgsDict(TypedDict):
     """
     Deduplication type. Possible values are: "value-based", "frequency-based"
     """
-    durations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgsDict']]]]
+    durations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]]]
     """
     Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
     """
@@ -3122,7 +3122,7 @@ class NotificationPolicyDeDuplicationActionArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[_builtins.int],
                  de_duplication_action_type: pulumi.Input[_builtins.str],
-                 durations: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]] = None):
+                 durations: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.int] count: Count
         :param pulumi.Input[_builtins.str] de_duplication_action_type: Deduplication type. Possible values are: "value-based", "frequency-based"
@@ -3159,14 +3159,14 @@ class NotificationPolicyDeDuplicationActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def durations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]]:
+    def durations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]]:
         """
         Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
         """
         return pulumi.get(self, "durations")
 
     @durations.setter
-    def durations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]]):
+    def durations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]]):
         pulumi.set(self, "durations", value)
 
 
@@ -3175,7 +3175,7 @@ class NotificationPolicyDeDuplicationActionDurationArgsDict(TypedDict):
     """
     A amount of time in `time_units`. This is a integer attribute.
     """
-    time_unit: NotRequired[pulumi.Input[_builtins.str]]
+    time_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
     """
@@ -3184,7 +3184,7 @@ class NotificationPolicyDeDuplicationActionDurationArgsDict(TypedDict):
 class NotificationPolicyDeDuplicationActionDurationArgs:
     def __init__(__self__, *,
                  time_amount: pulumi.Input[_builtins.int],
-                 time_unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 time_unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param pulumi.Input[_builtins.str] time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
@@ -3207,14 +3207,14 @@ class NotificationPolicyDeDuplicationActionDurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         return pulumi.get(self, "time_unit")
 
     @time_unit.setter
-    def time_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_unit", value)
 
 
@@ -3223,15 +3223,15 @@ class NotificationPolicyDelayActionArgsDict(TypedDict):
     """
     Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
     """
-    durations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgsDict']]]]
+    durations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]]]]
     """
     Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
     """
-    until_hour: NotRequired[pulumi.Input[_builtins.int]]
+    until_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
     """
-    until_minute: NotRequired[pulumi.Input[_builtins.int]]
+    until_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
     """
@@ -3240,9 +3240,9 @@ class NotificationPolicyDelayActionArgsDict(TypedDict):
 class NotificationPolicyDelayActionArgs:
     def __init__(__self__, *,
                  delay_option: pulumi.Input[_builtins.str],
-                 durations: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]]] = None,
-                 until_hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 until_minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 durations: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]]] = None,
+                 until_hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 until_minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] delay_option: Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]] durations: Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
@@ -3271,38 +3271,38 @@ class NotificationPolicyDelayActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def durations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]]]:
+    def durations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]]]:
         """
         Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
         """
         return pulumi.get(self, "durations")
 
     @durations.setter
-    def durations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]]]):
+    def durations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]]]):
         pulumi.set(self, "durations", value)
 
     @_builtins.property
     @pulumi.getter(name="untilHour")
-    def until_hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def until_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Until what hour notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         """
         return pulumi.get(self, "until_hour")
 
     @until_hour.setter
-    def until_hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def until_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "until_hour", value)
 
     @_builtins.property
     @pulumi.getter(name="untilMinute")
-    def until_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def until_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Until what minute on `until_hour` notifications will be delayed. If `delay_option` is set to antyhing else then `for-duration` this has to be set.
         """
         return pulumi.get(self, "until_minute")
 
     @until_minute.setter
-    def until_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def until_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "until_minute", value)
 
 
@@ -3311,7 +3311,7 @@ class NotificationPolicyDelayActionDurationArgsDict(TypedDict):
     """
     A amount of time in `time_units`. This is a integer attribute.
     """
-    time_unit: NotRequired[pulumi.Input[_builtins.str]]
+    time_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
     """
@@ -3320,7 +3320,7 @@ class NotificationPolicyDelayActionDurationArgsDict(TypedDict):
 class NotificationPolicyDelayActionDurationArgs:
     def __init__(__self__, *,
                  time_amount: pulumi.Input[_builtins.int],
-                 time_unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 time_unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] time_amount: A amount of time in `time_units`. This is a integer attribute.
         :param pulumi.Input[_builtins.str] time_unit: Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
@@ -3343,23 +3343,23 @@ class NotificationPolicyDelayActionDurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
         """
         return pulumi.get(self, "time_unit")
 
     @time_unit.setter
-    def time_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_unit", value)
 
 
 class NotificationPolicyFilterArgsDict(TypedDict):
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]]]]
     """
     Conditions applied to filter. This is a block, structure is documented below.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
     """
@@ -3367,8 +3367,8 @@ class NotificationPolicyFilterArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationPolicyFilterArgs:
     def __init__(__self__, *,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]] conditions: Conditions applied to filter. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.str] type: A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
@@ -3380,26 +3380,26 @@ class NotificationPolicyFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]]]:
         """
         Conditions applied to filter. This is a block, structure is documented below.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -3412,19 +3412,19 @@ class NotificationPolicyFilterConditionArgsDict(TypedDict):
     """
     It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
     """
-    expected_value: NotRequired[pulumi.Input[_builtins.str]]
+    expected_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User defined value that will be compared with alert field according to the operation. Default: empty string
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If `field` is set as extra-properties, key could be used for key-value pair
     """
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates behaviour of the given operation. Default: `false`
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Order of the condition in conditions list
     """
@@ -3434,10 +3434,10 @@ class NotificationPolicyFilterConditionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
                  operation: pulumi.Input[_builtins.str],
-                 expected_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 expected_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
         :param pulumi.Input[_builtins.str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
@@ -3483,50 +3483,50 @@ class NotificationPolicyFilterConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined value that will be compared with alert field according to the operation. Default: empty string
         """
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
-    def expected_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `field` is set as extra-properties, key could be used for key-value pair
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates behaviour of the given operation. Default: `false`
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order of the condition in conditions list
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
@@ -3535,11 +3535,11 @@ class NotificationPolicyTimeRestrictionArgsDict(TypedDict):
     """
     Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
     """
-    restriction: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgsDict']]]]
+    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]]
     """
     A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
     """
-    restriction_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgsDict']]]]
+    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]]]
     """
     List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
     """
@@ -3548,8 +3548,8 @@ class NotificationPolicyTimeRestrictionArgsDict(TypedDict):
 class NotificationPolicyTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 restriction: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]] = None,
-                 restriction_list: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]] = None):
+                 restriction: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]] = None,
+                 restriction_list: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]] restriction: A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
@@ -3575,26 +3575,26 @@ class NotificationPolicyTimeRestrictionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def restriction(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]:
+    def restriction(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]:
         """
         A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "restriction")
 
     @restriction.setter
-    def restriction(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]):
+    def restriction(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]):
         pulumi.set(self, "restriction", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictionList")
-    def restriction_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]]:
+    def restriction_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]]:
         """
         List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
         """
         return pulumi.get(self, "restriction_list")
 
     @restriction_list.setter
-    def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]]):
+    def restriction_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]]):
         pulumi.set(self, "restriction_list", value)
 
 
@@ -3811,7 +3811,7 @@ class NotificationRuleCriteriaArgsDict(TypedDict):
     """
     Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
     """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]]]]
     """
     Defines the fields and values when the condition applies
     """
@@ -3820,7 +3820,7 @@ class NotificationRuleCriteriaArgsDict(TypedDict):
 class NotificationRuleCriteriaArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]] conditions: Defines the fields and values when the condition applies
@@ -3843,14 +3843,14 @@ class NotificationRuleCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]]]:
         """
         Defines the fields and values when the condition applies
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
@@ -3863,19 +3863,19 @@ class NotificationRuleCriteriaConditionArgsDict(TypedDict):
     """
     Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
     """
-    expected_value: NotRequired[pulumi.Input[_builtins.str]]
+    expected_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User defined value that will be compared with alert field according to the operation. Default: empty string
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If 'field' is set as 'extra-properties', key could be used for key-value pair
     """
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates behaviour of the given operation. Default: `false`
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Order of the condition in conditions list
     """
@@ -3885,10 +3885,10 @@ class NotificationRuleCriteriaConditionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
                  operation: pulumi.Input[_builtins.str],
-                 expected_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 expected_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] field: Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
         :param pulumi.Input[_builtins.str] operation: Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
@@ -3934,56 +3934,56 @@ class NotificationRuleCriteriaConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined value that will be compared with alert field according to the operation. Default: empty string
         """
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
-    def expected_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If 'field' is set as 'extra-properties', key could be used for key-value pair
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates behaviour of the given operation. Default: `false`
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order of the condition in conditions list
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
 class NotificationRuleRepeatArgsDict(TypedDict):
     loop_after: pulumi.Input[_builtins.int]
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If policy should be enabled. Default: `true`
     """
@@ -3992,7 +3992,7 @@ class NotificationRuleRepeatArgsDict(TypedDict):
 class NotificationRuleRepeatArgs:
     def __init__(__self__, *,
                  loop_after: pulumi.Input[_builtins.int],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: If policy should be enabled. Default: `true`
         """
@@ -4011,14 +4011,14 @@ class NotificationRuleRepeatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -4074,11 +4074,11 @@ class NotificationRuleStepArgsDict(TypedDict):
     """
     Defines the contact that notification will be sent to. This is a block, structure is documented below.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Defined if this step is enabled. Default: `true`
     """
-    send_after: NotRequired[pulumi.Input[_builtins.int]]
+    send_after: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time period, in minutes, notification will be sent after.
     """
@@ -4087,8 +4087,8 @@ class NotificationRuleStepArgsDict(TypedDict):
 class NotificationRuleStepArgs:
     def __init__(__self__, *,
                  contacts: pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepContactArgs']]],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_after: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_after: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepContactArgs']]] contacts: Defines the contact that notification will be sent to. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.bool] enabled: Defined if this step is enabled. Default: `true`
@@ -4114,26 +4114,26 @@ class NotificationRuleStepArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Defined if this step is enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendAfter")
-    def send_after(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def send_after(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time period, in minutes, notification will be sent after.
         """
         return pulumi.get(self, "send_after")
 
     @send_after.setter
-    def send_after(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def send_after(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "send_after", value)
 
 
@@ -4189,15 +4189,15 @@ class NotificationRuleTimeRestrictionArgsDict(TypedDict):
     """
     Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
     """
-    restriction: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgsDict']]]]
-    restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgsDict']]]]
+    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]]
+    restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]]
 
 @pulumi.input_type
 class NotificationRuleTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 restriction: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]] = None,
-                 restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]] = None):
+                 restriction: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]] = None,
+                 restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
         """
@@ -4221,20 +4221,20 @@ class NotificationRuleTimeRestrictionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def restriction(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]:
+    def restriction(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]:
         return pulumi.get(self, "restriction")
 
     @restriction.setter
-    def restriction(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]):
+    def restriction(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]):
         pulumi.set(self, "restriction", value)
 
     @_builtins.property
     @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]:
+    def restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]:
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]):
+    def restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]):
         pulumi.set(self, "restrictions", value)
 
 
@@ -4322,7 +4322,7 @@ class ScheduleRotationParticipantArgsDict(TypedDict):
     """
     The responder type.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the responder.
     """
@@ -4331,7 +4331,7 @@ class ScheduleRotationParticipantArgsDict(TypedDict):
 class ScheduleRotationParticipantArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The responder type.
         :param pulumi.Input[_builtins.str] id: The id of the responder.
@@ -4354,14 +4354,14 @@ class ScheduleRotationParticipantArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the responder.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -4370,11 +4370,11 @@ class ScheduleRotationTimeRestrictionArgsDict(TypedDict):
     """
     This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
     """
-    restriction: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgsDict']]]]
+    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]]]
     """
     It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
     """
-    restriction_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgsDict']]]]
+    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]]]
     """
     It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
     """
@@ -4383,8 +4383,8 @@ class ScheduleRotationTimeRestrictionArgsDict(TypedDict):
 class ScheduleRotationTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 restriction: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]] = None,
-                 restriction_list: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]] = None):
+                 restriction: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]] = None,
+                 restriction_list: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]] restriction: It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
@@ -4410,26 +4410,26 @@ class ScheduleRotationTimeRestrictionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def restriction(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]]:
+    def restriction(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]]:
         """
         It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
         """
         return pulumi.get(self, "restriction")
 
     @restriction.setter
-    def restriction(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]]):
+    def restriction(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]]):
         pulumi.set(self, "restriction", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictionList")
-    def restriction_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]]:
+    def restriction_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]]:
         """
         It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
         """
         return pulumi.get(self, "restriction_list")
 
     @restriction_list.setter
-    def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]]):
+    def restriction_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]]):
         pulumi.set(self, "restriction_list", value)
 
 
@@ -4652,11 +4652,11 @@ class ServiceIncidentRuleIncidentRuleArgsDict(TypedDict):
     """
     Properties for incident rule. This is a block, structure is documented below.
     """
-    condition_match_type: NotRequired[pulumi.Input[_builtins.str]]
+    condition_match_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
     """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]]]]
     """
     Conditions applied to incident. This is a block, structure is documented below.
     """
@@ -4665,8 +4665,8 @@ class ServiceIncidentRuleIncidentRuleArgsDict(TypedDict):
 class ServiceIncidentRuleIncidentRuleArgs:
     def __init__(__self__, *,
                  incident_properties: pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleIncidentPropertyArgs']]],
-                 condition_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]]] = None):
+                 condition_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleIncidentPropertyArgs']]] incident_properties: Properties for incident rule. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.str] condition_match_type: A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
@@ -4692,26 +4692,26 @@ class ServiceIncidentRuleIncidentRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="conditionMatchType")
-    def condition_match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
         """
         return pulumi.get(self, "condition_match_type")
 
     @condition_match_type.setter
-    def condition_match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_match_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]]]:
         """
         Conditions applied to incident. This is a block, structure is documented below.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
@@ -4724,15 +4724,15 @@ class ServiceIncidentRuleIncidentRuleConditionArgsDict(TypedDict):
     """
     It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
     """
-    expected_value: NotRequired[pulumi.Input[_builtins.str]]
+    expected_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User defined value that will be compared with alert field according to the operation. Default: empty string
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If 'field' is set as 'extra-properties', key could be used for key-value pair
     """
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates behaviour of the given operation. Default: false
     """
@@ -4742,9 +4742,9 @@ class ServiceIncidentRuleIncidentRuleConditionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
                  operation: pulumi.Input[_builtins.str],
-                 expected_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None):
+                 expected_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
         :param pulumi.Input[_builtins.str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
@@ -4787,38 +4787,38 @@ class ServiceIncidentRuleIncidentRuleConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined value that will be compared with alert field according to the operation. Default: empty string
         """
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
-    def expected_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If 'field' is set as 'extra-properties', key could be used for key-value pair
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates behaviour of the given operation. Default: false
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
 
@@ -4835,15 +4835,15 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgsDict(TypedDict):
     """
     DEtails about stakeholders for this rule. This is a block, structure is documented below.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description field of the incident rule.
     """
-    details: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    details: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Map of key-value pairs to use as custom properties of the alert.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Tags of the alert.
     """
@@ -4854,9 +4854,9 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
                  message: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.str],
                  stakeholder_properties: pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs']]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] message: Message of the related incident rule.
         :param pulumi.Input[_builtins.str] priority: Priority level of the alert. Possible values are `P1`, `P2`, `P3`, `P4` and `P5`
@@ -4913,38 +4913,38 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description field of the incident rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def details(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of key-value pairs to use as custom properties of the alert.
         """
         return pulumi.get(self, "details")
 
     @details.setter
-    def details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def details(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "details", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tags of the alert.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -4953,11 +4953,11 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgsDict
     """
     Message that is to be passed to audience that is generally used to provide a content information about the alert.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description that is generally used to provide a detailed information about the alert.
     """
-    enable: NotRequired[pulumi.Input[_builtins.bool]]
+    enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Option to enable stakeholder notifications.Default value is true.
     """
@@ -4966,8 +4966,8 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgsDict
 class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs:
     def __init__(__self__, *,
                  message: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] message: Message that is to be passed to audience that is generally used to provide a content information about the alert.
         :param pulumi.Input[_builtins.str] description: Description that is generally used to provide a detailed information about the alert.
@@ -4993,26 +4993,26 @@ class ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description that is generally used to provide a detailed information about the alert.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Option to enable stakeholder notifications.Default value is true.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
 
@@ -5021,18 +5021,18 @@ class TeamMemberArgsDict(TypedDict):
     """
     The UUID for the member to add to this Team.
     """
-    role: NotRequired[pulumi.Input[_builtins.str]]
+    role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TeamMemberArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The UUID for the member to add to this Team.
         :param pulumi.Input[_builtins.str] role: The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
@@ -5057,23 +5057,23 @@ class TeamMemberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -5082,7 +5082,7 @@ class TeamRoutingRuleCriteriaArgsDict(TypedDict):
     """
     Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
     """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]]]]
     """
     List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
     """
@@ -5091,7 +5091,7 @@ class TeamRoutingRuleCriteriaArgsDict(TypedDict):
 class TeamRoutingRuleCriteriaArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
         :param pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]] conditions: List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
@@ -5114,14 +5114,14 @@ class TeamRoutingRuleCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]]]:
         """
         List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
@@ -5136,16 +5136,16 @@ class TeamRoutingRuleCriteriaConditionArgsDict(TypedDict):
 
     * `expectedValue` - (Optional) User defined value that will be compared with alert field according to the operation. Default: empty string.
     """
-    expected_value: NotRequired[pulumi.Input[_builtins.str]]
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    expected_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If field is set as extra-properties, key could be used for key-value pair.
     """
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates behaviour of the given operation. Default value is false.
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Order of the condition in conditions list.
     """
@@ -5155,10 +5155,10 @@ class TeamRoutingRuleCriteriaConditionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
                  operation: pulumi.Input[_builtins.str],
-                 expected_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 expected_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] field: Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
         :param pulumi.Input[_builtins.str] operation: It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
@@ -5207,61 +5207,61 @@ class TeamRoutingRuleCriteriaConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expected_value")
 
     @expected_value.setter
-    def expected_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If field is set as extra-properties, key could be used for key-value pair.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates behaviour of the given operation. Default value is false.
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order of the condition in conditions list.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
 class TeamRoutingRuleNotifyArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TeamRoutingRuleNotifyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -5279,34 +5279,34 @@ class TeamRoutingRuleNotifyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class TeamRoutingRuleTimeRestrictionArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    restriction: NotRequired[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgsDict']]]]
-    restriction_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgsDict']]]]
+    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]]]
+    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]]]
 
 @pulumi.input_type
 class TeamRoutingRuleTimeRestrictionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 restriction: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]] = None,
-                 restriction_list: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]] = None):
+                 restriction: pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]] = None,
+                 restriction_list: pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]] = None):
         pulumi.set(__self__, "type", type)
         if restriction is not None:
             pulumi.set(__self__, "restriction", restriction)
@@ -5324,20 +5324,20 @@ class TeamRoutingRuleTimeRestrictionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def restriction(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]]:
+    def restriction(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]]:
         return pulumi.get(self, "restriction")
 
     @restriction.setter
-    def restriction(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]]):
+    def restriction(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]]):
         pulumi.set(self, "restriction", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictionList")
-    def restriction_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]]:
+    def restriction_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]]:
         return pulumi.get(self, "restriction_list")
 
     @restriction_list.setter
-    def restriction_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]]):
+    def restriction_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]]):
         pulumi.set(self, "restriction_list", value)
 
 

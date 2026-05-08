@@ -174,35 +174,35 @@ export interface TeamRoutingRuleState {
     /**
      * You can refer Criteria for detailed information about criteria and its fields
      */
-    criterias?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteria>[]>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteria>[] | undefined>;
     /**
      * Only use when importing default routing rule
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the team routing rule
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
      */
-    notifies?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleNotify>[]>;
+    notifies?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleNotify>[] | undefined>;
     /**
      * The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * Id of the team owning the routing rule
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
     /**
      * You can refer Time Restriction for detailed information about time restriction and its fields.
      */
-    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestriction>[]>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestriction>[] | undefined>;
     /**
      * Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -212,15 +212,15 @@ export interface TeamRoutingRuleArgs {
     /**
      * You can refer Criteria for detailed information about criteria and its fields
      */
-    criterias?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteria>[]>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteria>[] | undefined>;
     /**
      * Only use when importing default routing rule
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the team routing rule
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
      */
@@ -228,7 +228,7 @@ export interface TeamRoutingRuleArgs {
     /**
      * The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * Id of the team owning the routing rule
      */
@@ -236,9 +236,9 @@ export interface TeamRoutingRuleArgs {
     /**
      * You can refer Time Restriction for detailed information about time restriction and its fields.
      */
-    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestriction>[]>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestriction>[] | undefined>;
     /**
      * Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }

@@ -108,28 +108,28 @@ export interface EmailIntegrationState {
     /**
      * The username part of the email address. It must be unique for each integration.
      */
-    emailUsername?: pulumi.Input<string>;
+    emailUsername?: pulumi.Input<string | undefined>;
     /**
      * A Member block as documented below.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
-    ignoreRespondersFromPayload?: pulumi.Input<boolean>;
+    ignoreRespondersFromPayload?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the integration. Name must be unique for each integration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner team id of the integration.
      */
-    ownerTeamId?: pulumi.Input<string>;
-    responders?: pulumi.Input<pulumi.Input<inputs.EmailIntegrationResponder>[]>;
+    ownerTeamId?: pulumi.Input<string | undefined>;
+    responders?: pulumi.Input<pulumi.Input<inputs.EmailIntegrationResponder>[] | undefined>;
     /**
      * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
-    suppressNotifications?: pulumi.Input<boolean>;
+    suppressNotifications?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -143,22 +143,22 @@ export interface EmailIntegrationArgs {
     /**
      * A Member block as documented below.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
-    ignoreRespondersFromPayload?: pulumi.Input<boolean>;
+    ignoreRespondersFromPayload?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the integration. Name must be unique for each integration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner team id of the integration.
      */
-    ownerTeamId?: pulumi.Input<string>;
-    responders?: pulumi.Input<pulumi.Input<inputs.EmailIntegrationResponder>[]>;
+    ownerTeamId?: pulumi.Input<string | undefined>;
+    responders?: pulumi.Input<pulumi.Input<inputs.EmailIntegrationResponder>[] | undefined>;
     /**
      * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
-    suppressNotifications?: pulumi.Input<boolean>;
+    suppressNotifications?: pulumi.Input<boolean | undefined>;
 }

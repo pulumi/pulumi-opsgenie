@@ -111,9 +111,9 @@ def get_service(description: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         team_id=pulumi.get(__ret__, 'team_id'))
-def get_service_output(description: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       name: Optional[pulumi.Input[_builtins.str]] = None,
-                       team_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_service_output(description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       name: pulumi.Input[Optional[_builtins.str]] = None,
+                       team_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Manages existing Service within Opsgenie.

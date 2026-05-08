@@ -19,11 +19,11 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_retry_wait_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_retry_wait_min: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_retry_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_retry_wait_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_retry_wait_min: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         """
@@ -42,47 +42,47 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="apiRetryCount")
-    def api_retry_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def api_retry_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "api_retry_count")
 
     @api_retry_count.setter
-    def api_retry_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def api_retry_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "api_retry_count", value)
 
     @_builtins.property
     @pulumi.getter(name="apiRetryWaitMax")
-    def api_retry_wait_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def api_retry_wait_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "api_retry_wait_max")
 
     @api_retry_wait_max.setter
-    def api_retry_wait_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def api_retry_wait_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "api_retry_wait_max", value)
 
     @_builtins.property
     @pulumi.getter(name="apiRetryWaitMin")
-    def api_retry_wait_min(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def api_retry_wait_min(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "api_retry_wait_min")
 
     @api_retry_wait_min.setter
-    def api_retry_wait_min(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def api_retry_wait_min(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "api_retry_wait_min", value)
 
     @_builtins.property
     @pulumi.getter(name="apiUrl")
-    def api_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "api_url")
 
     @api_url.setter
-    def api_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_url", value)
 
 
@@ -92,11 +92,11 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_retry_wait_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_retry_wait_min: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_retry_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_retry_wait_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_retry_wait_min: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the opsgenie package. By default, resources use package-wide configuration
@@ -136,11 +136,11 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_retry_wait_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_retry_wait_min: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_retry_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_retry_wait_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_retry_wait_min: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

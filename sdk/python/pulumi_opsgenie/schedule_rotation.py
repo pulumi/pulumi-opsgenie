@@ -25,10 +25,10 @@ class ScheduleRotationArgs:
                  schedule_id: pulumi.Input[_builtins.str],
                  start_date: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 length: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None):
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 length: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None):
         """
         The set of arguments for constructing a ScheduleRotation resource.
 
@@ -103,61 +103,61 @@ class ScheduleRotationArgs:
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
         """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length of the rotation with default value 1.
         """
         return pulumi.get(self, "length")
 
     @length.setter
-    def length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "length", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of rotation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="timeRestrictions")
-    def time_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]]:
+    def time_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]]:
         return pulumi.get(self, "time_restrictions")
 
     @time_restrictions.setter
-    def time_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]]):
+    def time_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]]):
         pulumi.set(self, "time_restrictions", value)
 
 
 @pulumi.input_type
 class _ScheduleRotationState:
     def __init__(__self__, *,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 length: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 participants: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]]] = None,
-                 schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 length: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 participants: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]]] = None,
+                 schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScheduleRotation resources.
 
@@ -188,95 +188,95 @@ class _ScheduleRotationState:
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
         """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length of the rotation with default value 1.
         """
         return pulumi.get(self, "length")
 
     @length.setter
-    def length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "length", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of rotation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def participants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]]]:
+    def participants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]]]:
         """
         List of escalations, teams, users or the reserved word none which will be used in schedule. Each of them can be used multiple times and will be rotated in the order they given. "user,escalation,team,none"
         """
         return pulumi.get(self, "participants")
 
     @participants.setter
-    def participants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]]]):
+    def participants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationParticipantArgs']]]]):
         pulumi.set(self, "participants", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleId")
-    def schedule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the schedule.
         """
         return pulumi.get(self, "schedule_id")
 
     @schedule_id.setter
-    def schedule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
         """
         return pulumi.get(self, "start_date")
 
     @start_date.setter
-    def start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_date", value)
 
     @_builtins.property
     @pulumi.getter(name="timeRestrictions")
-    def time_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]]:
+    def time_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]]:
         return pulumi.get(self, "time_restrictions")
 
     @time_restrictions.setter
-    def time_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]]):
+    def time_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionArgs']]]]):
         pulumi.set(self, "time_restrictions", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of rotation. May be one of daily, weekly and hourly.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -286,14 +286,14 @@ class ScheduleRotation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 length: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 participants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]]] = None,
-                 schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationTimeRestrictionArgs', 'ScheduleRotationTimeRestrictionArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 length: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 participants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]]] = None,
+                 schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleRotationTimeRestrictionArgs', 'ScheduleRotationTimeRestrictionArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Schedule Rotation within Opsgenie.
@@ -402,14 +402,14 @@ class ScheduleRotation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 length: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 participants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]]] = None,
-                 schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationTimeRestrictionArgs', 'ScheduleRotationTimeRestrictionArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 length: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 participants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]]] = None,
+                 schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleRotationTimeRestrictionArgs', 'ScheduleRotationTimeRestrictionArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -445,14 +445,14 @@ class ScheduleRotation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            end_date: Optional[pulumi.Input[_builtins.str]] = None,
-            length: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            participants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]]] = None,
-            schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            start_date: Optional[pulumi.Input[_builtins.str]] = None,
-            time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleRotationTimeRestrictionArgs', 'ScheduleRotationTimeRestrictionArgsDict']]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ScheduleRotation':
+            end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            length: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            participants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict']]]]] = None,
+            schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleRotationTimeRestrictionArgs', 'ScheduleRotationTimeRestrictionArgsDict']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScheduleRotation':
         """
         Get an existing ScheduleRotation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

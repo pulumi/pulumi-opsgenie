@@ -175,23 +175,23 @@ export interface EscalationState {
     /**
      * Description of the escalation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the escalation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner team id of the escalation.
      */
-    ownerTeamId?: pulumi.Input<string>;
+    ownerTeamId?: pulumi.Input<string | undefined>;
     /**
      * Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
      */
-    repeats?: pulumi.Input<pulumi.Input<inputs.EscalationRepeat>[]>;
+    repeats?: pulumi.Input<pulumi.Input<inputs.EscalationRepeat>[] | undefined>;
     /**
      * List of the escalation rules. See below for how rules are defined.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.EscalationRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EscalationRule>[] | undefined>;
 }
 
 /**
@@ -201,19 +201,19 @@ export interface EscalationArgs {
     /**
      * Description of the escalation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the escalation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner team id of the escalation.
      */
-    ownerTeamId?: pulumi.Input<string>;
+    ownerTeamId?: pulumi.Input<string | undefined>;
     /**
      * Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
      */
-    repeats?: pulumi.Input<pulumi.Input<inputs.EscalationRepeat>[]>;
+    repeats?: pulumi.Input<pulumi.Input<inputs.EscalationRepeat>[] | undefined>;
     /**
      * List of the escalation rules. See below for how rules are defined.
      */

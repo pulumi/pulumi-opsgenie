@@ -166,39 +166,39 @@ export interface UserState {
     /**
      * The Full Name of the User.
      */
-    fullName?: pulumi.Input<string>;
+    fullName?: pulumi.Input<string | undefined>;
     /**
      * Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * The Role assigned to the User. Either a built-in such as 'Admin' or 'User' - or the name of a custom role.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * Skype username of the user.
      */
-    skypeUsername?: pulumi.Input<string>;
+    skypeUsername?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to be associated with the user.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
     /**
      * Address of the user.
      */
-    userAddresses?: pulumi.Input<pulumi.Input<inputs.UserUserAddress>[]>;
+    userAddresses?: pulumi.Input<pulumi.Input<inputs.UserUserAddress>[] | undefined>;
     /**
      * Details about the user in form of key and list. of values.
      */
-    userDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    userDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters and must contain lowercase characters only.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -212,7 +212,7 @@ export interface UserArgs {
     /**
      * Location information for the user. Please look at [Supported Locale Ids](https://docs.opsgenie.com/docs/supported-locales) for available locales.
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * The Role assigned to the User. Either a built-in such as 'Admin' or 'User' - or the name of a custom role.
      */
@@ -220,23 +220,23 @@ export interface UserArgs {
     /**
      * Skype username of the user.
      */
-    skypeUsername?: pulumi.Input<string>;
+    skypeUsername?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to be associated with the user.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Timezone information of the user. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
     /**
      * Address of the user.
      */
-    userAddresses?: pulumi.Input<pulumi.Input<inputs.UserUserAddress>[]>;
+    userAddresses?: pulumi.Input<pulumi.Input<inputs.UserUserAddress>[] | undefined>;
     /**
      * Details about the user in form of key and list. of values.
      */
-    userDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    userDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The email address associated with this user. Opsgenie defines that this must not be longer than 100 characters and must contain lowercase characters only.
      */
