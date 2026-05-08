@@ -115,7 +115,7 @@ export interface GetEscalationOutputArgs {
     /**
      * Escalation Description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the escalation.
      */
@@ -123,13 +123,13 @@ export interface GetEscalationOutputArgs {
     /**
      * If owner team exist the id of the team is exported
      */
-    ownerTeamId?: pulumi.Input<string>;
+    ownerTeamId?: pulumi.Input<string | undefined>;
     /**
      * Escalation repeat preferences
      */
-    repeats?: pulumi.Input<pulumi.Input<inputs.GetEscalationRepeatArgs>[]>;
+    repeats?: pulumi.Input<pulumi.Input<inputs.GetEscalationRepeatArgs>[] | undefined>;
     /**
      * Escalation rules
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.GetEscalationRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.GetEscalationRuleArgs>[] | undefined>;
 }

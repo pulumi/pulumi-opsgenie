@@ -21,11 +21,11 @@ __all__ = ['TeamArgs', 'Team']
 @pulumi.input_type
 class TeamArgs:
     def __init__(__self__, *,
-                 delete_default_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_members: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 delete_default_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_members: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input['TeamMemberArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Team resource.
 
@@ -48,73 +48,73 @@ class TeamArgs:
 
     @_builtins.property
     @pulumi.getter(name="deleteDefaultResources")
-    def delete_default_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_default_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
         """
         return pulumi.get(self, "delete_default_resources")
 
     @delete_default_resources.setter
-    def delete_default_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_default_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_default_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for this team.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreMembers")
-    def ignore_members(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_members(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
         """
         return pulumi.get(self, "ignore_members")
 
     @ignore_members.setter
-    def ignore_members(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_members(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_members", value)
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamMemberArgs']]]]:
         """
         A Member block as documented below.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TeamMemberArgs']]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _TeamState:
     def __init__(__self__, *,
-                 delete_default_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_members: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 delete_default_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_members: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input['TeamMemberArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
 
@@ -137,62 +137,62 @@ class _TeamState:
 
     @_builtins.property
     @pulumi.getter(name="deleteDefaultResources")
-    def delete_default_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_default_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
         """
         return pulumi.get(self, "delete_default_resources")
 
     @delete_default_resources.setter
-    def delete_default_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_default_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_default_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for this team.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreMembers")
-    def ignore_members(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_members(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to ignore any configured member blocks and any team member added/updated/removed via OpsGenie web UI. Use this option e.g. to maintain membership via web UI only and use it only for new teams. Changing the value for existing teams might lead to strange behaviour. Default: `false`.
         """
         return pulumi.get(self, "ignore_members")
 
     @ignore_members.setter
-    def ignore_members(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_members(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_members", value)
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamMemberArgs']]]]:
         """
         A Member block as documented below.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMemberArgs']]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TeamMemberArgs']]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -202,11 +202,11 @@ class Team(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_default_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_members: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete_default_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_members: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Team within Opsgenie.
@@ -325,11 +325,11 @@ class Team(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_default_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_members: Optional[pulumi.Input[_builtins.bool]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete_default_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_members: pulumi.Input[Optional[_builtins.bool]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -354,11 +354,11 @@ class Team(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            delete_default_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_members: Optional[pulumi.Input[_builtins.bool]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Team':
+            delete_default_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_members: pulumi.Input[Optional[_builtins.bool]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Team':
         """
         Get an existing Team resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

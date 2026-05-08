@@ -22,10 +22,10 @@ __all__ = ['EscalationArgs', 'Escalation']
 class EscalationArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None):
         """
         The set of arguments for constructing a Escalation resource.
 
@@ -59,61 +59,61 @@ class EscalationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the escalation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the escalation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerTeamId")
-    def owner_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner team id of the escalation.
         """
         return pulumi.get(self, "owner_team_id")
 
     @owner_team_id.setter
-    def owner_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_team_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def repeats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]]:
+    def repeats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EscalationRepeatArgs']]]]:
         """
         Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
         """
         return pulumi.get(self, "repeats")
 
     @repeats.setter
-    def repeats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]]):
+    def repeats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationRepeatArgs']]]]):
         pulumi.set(self, "repeats", value)
 
 
 @pulumi.input_type
 class _EscalationState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationRepeatArgs']]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering Escalation resources.
 
@@ -136,62 +136,62 @@ class _EscalationState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the escalation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the escalation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerTeamId")
-    def owner_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner team id of the escalation.
         """
         return pulumi.get(self, "owner_team_id")
 
     @owner_team_id.setter
-    def owner_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_team_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def repeats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]]:
+    def repeats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EscalationRepeatArgs']]]]:
         """
         Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
         """
         return pulumi.get(self, "repeats")
 
     @repeats.setter
-    def repeats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRepeatArgs']]]]):
+    def repeats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationRepeatArgs']]]]):
         pulumi.set(self, "repeats", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EscalationRuleArgs']]]]:
         """
         List of the escalation rules. See below for how rules are defined.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -201,11 +201,11 @@ class Escalation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an Escalation within Opsgenie.
@@ -392,11 +392,11 @@ class Escalation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -423,11 +423,11 @@ class Escalation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-            repeats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]]] = None) -> 'Escalation':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]]] = None) -> 'Escalation':
         """
         Get an existing Escalation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

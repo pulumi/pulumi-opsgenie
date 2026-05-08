@@ -22,12 +22,12 @@ class HeartbeatArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  interval: pulumi.Input[_builtins.int],
                  interval_unit: pulumi.Input[_builtins.str],
-                 alert_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 alert_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Heartbeat resource.
 
@@ -95,89 +95,89 @@ class HeartbeatArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertMessage")
-    def alert_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
         """
         return pulumi.get(self, "alert_message")
 
     @alert_message.setter
-    def alert_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_message", value)
 
     @_builtins.property
     @pulumi.getter(name="alertPriority")
-    def alert_priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
         """
         return pulumi.get(self, "alert_priority")
 
     @alert_priority.setter
-    def alert_priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_priority", value)
 
     @_builtins.property
     @pulumi.getter(name="alertTags")
-    def alert_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def alert_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the alert tags for heartbeat expiration alert.
         """
         return pulumi.get(self, "alert_tags")
 
     @alert_tags.setter
-    def alert_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def alert_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "alert_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the heartbeat
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the heartbeat
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerTeamId")
-    def owner_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner team of the heartbeat.
         """
         return pulumi.get(self, "owner_team_id")
 
     @owner_team_id.setter
-    def owner_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_team_id", value)
 
 
 @pulumi.input_type
 class _HeartbeatState:
     def __init__(__self__, *,
-                 alert_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 interval_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 alert_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 interval_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Heartbeat resources.
 
@@ -212,110 +212,110 @@ class _HeartbeatState:
 
     @_builtins.property
     @pulumi.getter(name="alertMessage")
-    def alert_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
         """
         return pulumi.get(self, "alert_message")
 
     @alert_message.setter
-    def alert_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_message", value)
 
     @_builtins.property
     @pulumi.getter(name="alertPriority")
-    def alert_priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the alert priority for heartbeat expiration alert. If this is not provided, default priority is P3.
         """
         return pulumi.get(self, "alert_priority")
 
     @alert_priority.setter
-    def alert_priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_priority", value)
 
     @_builtins.property
     @pulumi.getter(name="alertTags")
-    def alert_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def alert_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the alert tags for heartbeat expiration alert.
         """
         return pulumi.get(self, "alert_tags")
 
     @alert_tags.setter
-    def alert_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def alert_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "alert_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the heartbeat
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/disable heartbeat monitoring.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how often a heartbeat message should be expected.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="intervalUnit")
-    def interval_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interval_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Interval specified as minutes, hours or days.
         """
         return pulumi.get(self, "interval_unit")
 
     @interval_unit.setter
-    def interval_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interval_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interval_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the heartbeat
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerTeamId")
-    def owner_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner team of the heartbeat.
         """
         return pulumi.get(self, "owner_team_id")
 
     @owner_team_id.setter
-    def owner_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_team_id", value)
 
 
@@ -325,15 +325,15 @@ class Heartbeat(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 interval_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 interval_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages heartbeat within Opsgenie.
@@ -430,15 +430,15 @@ class Heartbeat(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 interval_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 interval_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -473,15 +473,15 @@ class Heartbeat(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alert_message: Optional[pulumi.Input[_builtins.str]] = None,
-            alert_priority: Optional[pulumi.Input[_builtins.str]] = None,
-            alert_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            interval: Optional[pulumi.Input[_builtins.int]] = None,
-            interval_unit: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_team_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Heartbeat':
+            alert_message: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_priority: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            interval_unit: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_team_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Heartbeat':
         """
         Get an existing Heartbeat resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

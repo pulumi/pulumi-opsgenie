@@ -63,11 +63,11 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    apiKey?: pulumi.Input<string>;
-    apiRetryCount?: pulumi.Input<number>;
-    apiRetryWaitMax?: pulumi.Input<number>;
-    apiRetryWaitMin?: pulumi.Input<number>;
-    apiUrl?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
+    apiRetryCount?: pulumi.Input<number | undefined>;
+    apiRetryWaitMax?: pulumi.Input<number | undefined>;
+    apiRetryWaitMin?: pulumi.Input<number | undefined>;
+    apiUrl?: pulumi.Input<string | undefined>;
 }
 
 export namespace Provider {

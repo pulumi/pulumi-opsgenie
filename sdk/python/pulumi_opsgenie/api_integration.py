@@ -21,17 +21,17 @@ __all__ = ['ApiIntegrationArgs', 'ApiIntegration']
 @pulumi.input_type
 class ApiIntegrationArgs:
     def __init__(__self__, *,
-                 allow_configuration_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_write_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ignore_responders_from_payload: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]] = None,
-                 suppress_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 webhook_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_configuration_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_write_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ignore_responders_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]] = None,
+                 suppress_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 webhook_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiIntegration resource.
 
@@ -70,146 +70,146 @@ class ApiIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowConfigurationAccess")
-    def allow_configuration_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_configuration_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "allow_configuration_access")
 
     @allow_configuration_access.setter
-    def allow_configuration_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_configuration_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_configuration_access", value)
 
     @_builtins.property
     @pulumi.getter(name="allowWriteAccess")
-    def allow_write_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_write_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         """
         return pulumi.get(self, "allow_write_access")
 
     @allow_write_access.setter
-    def allow_write_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_write_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_write_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreRespondersFromPayload")
-    def ignore_responders_from_payload(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_responders_from_payload(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         """
         return pulumi.get(self, "ignore_responders_from_payload")
 
     @ignore_responders_from_payload.setter
-    def ignore_responders_from_payload(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_responders_from_payload(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_responders_from_payload", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the integration. Name must be unique for each integration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerTeamId")
-    def owner_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         """
         return pulumi.get(self, "owner_team_id")
 
     @owner_team_id.setter
-    def owner_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_team_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]]:
+    def responders(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]]:
         """
         User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
         """
         return pulumi.get(self, "responders")
 
     @responders.setter
-    def responders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]]):
+    def responders(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]]):
         pulumi.set(self, "responders", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressNotifications")
-    def suppress_notifications(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suppress_notifications(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         return pulumi.get(self, "suppress_notifications")
 
     @suppress_notifications.setter
-    def suppress_notifications(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suppress_notifications(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suppress_notifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="webhookUrl")
-    def webhook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webhook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
         return pulumi.get(self, "webhook_url")
 
     @webhook_url.setter
-    def webhook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webhook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webhook_url", value)
 
 
 @pulumi.input_type
 class _ApiIntegrationState:
     def __init__(__self__, *,
-                 allow_configuration_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_write_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ignore_responders_from_payload: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]] = None,
-                 suppress_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 webhook_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_configuration_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_write_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ignore_responders_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]] = None,
+                 suppress_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 webhook_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiIntegration resources.
 
@@ -251,140 +251,140 @@ class _ApiIntegrationState:
 
     @_builtins.property
     @pulumi.getter(name="allowConfigurationAccess")
-    def allow_configuration_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_configuration_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "allow_configuration_access")
 
     @allow_configuration_access.setter
-    def allow_configuration_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_configuration_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_configuration_access", value)
 
     @_builtins.property
     @pulumi.getter(name="allowWriteAccess")
-    def allow_write_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_write_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
         """
         return pulumi.get(self, "allow_write_access")
 
     @allow_write_access.setter
-    def allow_write_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_write_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_write_access", value)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Computed) API key of the created integration
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This parameter is for specifying whether the integration will be enabled or not. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreRespondersFromPayload")
-    def ignore_responders_from_payload(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_responders_from_payload(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         """
         return pulumi.get(self, "ignore_responders_from_payload")
 
     @ignore_responders_from_payload.setter
-    def ignore_responders_from_payload(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_responders_from_payload(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_responders_from_payload", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the integration. Name must be unique for each integration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerTeamId")
-    def owner_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
         """
         return pulumi.get(self, "owner_team_id")
 
     @owner_team_id.setter
-    def owner_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_team_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]]:
+    def responders(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]]:
         """
         User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
         """
         return pulumi.get(self, "responders")
 
     @responders.setter
-    def responders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]]):
+    def responders(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiIntegrationResponderArgs']]]]):
         pulumi.set(self, "responders", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressNotifications")
-    def suppress_notifications(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suppress_notifications(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         """
         return pulumi.get(self, "suppress_notifications")
 
     @suppress_notifications.setter
-    def suppress_notifications(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suppress_notifications(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suppress_notifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="webhookUrl")
-    def webhook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webhook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
         """
         return pulumi.get(self, "webhook_url")
 
     @webhook_url.setter
-    def webhook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webhook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webhook_url", value)
 
 
@@ -394,17 +394,17 @@ class ApiIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_configuration_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_write_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ignore_responders_from_payload: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]]] = None,
-                 suppress_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 webhook_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_configuration_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_write_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ignore_responders_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]]] = None,
+                 suppress_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 webhook_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Integration within Opsgenie.
@@ -447,17 +447,17 @@ class ApiIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_configuration_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_write_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ignore_responders_from_payload: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]]] = None,
-                 suppress_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 webhook_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_configuration_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_write_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ignore_responders_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]]] = None,
+                 suppress_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 webhook_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -491,18 +491,18 @@ class ApiIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_configuration_access: Optional[pulumi.Input[_builtins.bool]] = None,
-            allow_write_access: Optional[pulumi.Input[_builtins.bool]] = None,
-            api_key: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            ignore_responders_from_payload: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-            responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]]] = None,
-            suppress_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            webhook_url: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiIntegration':
+            allow_configuration_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_write_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ignore_responders_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]]] = None,
+            suppress_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            webhook_url: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiIntegration':
         """
         Get an existing ApiIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

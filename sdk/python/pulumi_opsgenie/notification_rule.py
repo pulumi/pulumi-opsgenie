@@ -23,15 +23,15 @@ class NotificationRuleArgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]] = None):
+                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_times: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleStepArgs']]]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]] = None):
         """
         The set of arguments for constructing a NotificationRule resource.
 
@@ -89,112 +89,112 @@ class NotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]]:
+    def criterias(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]]:
         return pulumi.get(self, "criterias")
 
     @criterias.setter
-    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]]):
+    def criterias(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]]):
         pulumi.set(self, "criterias", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the notification policy
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationTimes")
-    def notification_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notification_times(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
         """
         return pulumi.get(self, "notification_times")
 
     @notification_times.setter
-    def notification_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notification_times(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notification_times", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def repeats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]]:
+    def repeats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]]:
         return pulumi.get(self, "repeats")
 
     @repeats.setter
-    def repeats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]]):
+    def repeats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]]):
         pulumi.set(self, "repeats", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]]:
+    def schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]]:
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]]):
+    def schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @_builtins.property
     @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]]]:
+    def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleStepArgs']]]]:
         """
         Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]]]):
+    def steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleStepArgs']]]]):
         pulumi.set(self, "steps", value)
 
     @_builtins.property
     @pulumi.getter(name="timeRestrictions")
-    def time_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]]:
+    def time_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]]:
         return pulumi.get(self, "time_restrictions")
 
     @time_restrictions.setter
-    def time_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]]):
+    def time_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]]):
         pulumi.set(self, "time_restrictions", value)
 
 
 @pulumi.input_type
 class _NotificationRuleState:
     def __init__(__self__, *,
-                 action_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_times: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleStepArgs']]]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NotificationRule resources.
 
@@ -230,119 +230,119 @@ class _NotificationRuleState:
 
     @_builtins.property
     @pulumi.getter(name="actionType")
-    def action_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
         """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
-    def action_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]]:
+    def criterias(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]]:
         return pulumi.get(self, "criterias")
 
     @criterias.setter
-    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]]):
+    def criterias(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaArgs']]]]):
         pulumi.set(self, "criterias", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If policy should be enabled. Default: `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the notification policy
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationTimes")
-    def notification_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notification_times(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Time Periods that notification for schedule start/end will be sent. Allowed values: `just-before`, `15-minutes-ago`, `1-hour-ago`, `1-day-ago`. If `action_type` is `schedule-start` or `schedule-end` then it is required.
         """
         return pulumi.get(self, "notification_times")
 
     @notification_times.setter
-    def notification_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notification_times(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notification_times", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def repeats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]]:
+    def repeats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]]:
         return pulumi.get(self, "repeats")
 
     @repeats.setter
-    def repeats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]]):
+    def repeats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleRepeatArgs']]]]):
         pulumi.set(self, "repeats", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]]:
+    def schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]]:
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]]):
+    def schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleScheduleArgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @_builtins.property
     @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]]]:
+    def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleStepArgs']]]]:
         """
         Notification rule steps to take (eg. SMS or email message). This is a block, structure is documented below.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleStepArgs']]]]):
+    def steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleStepArgs']]]]):
         pulumi.set(self, "steps", value)
 
     @_builtins.property
     @pulumi.getter(name="timeRestrictions")
-    def time_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]]:
+    def time_restrictions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]]:
         return pulumi.get(self, "time_restrictions")
 
     @time_restrictions.setter
-    def time_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]]):
+    def time_restrictions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionArgs']]]]):
         pulumi.set(self, "time_restrictions", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username of user to which this notification rule belongs to.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -352,17 +352,17 @@ class NotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleCriteriaArgs', 'NotificationRuleCriteriaArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleRepeatArgs', 'NotificationRuleRepeatArgsDict']]]]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleScheduleArgs', 'NotificationRuleScheduleArgsDict']]]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleStepArgs', 'NotificationRuleStepArgsDict']]]]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTimeRestrictionArgs', 'NotificationRuleTimeRestrictionArgsDict']]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleCriteriaArgs', 'NotificationRuleCriteriaArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_times: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleRepeatArgs', 'NotificationRuleRepeatArgsDict']]]]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleScheduleArgs', 'NotificationRuleScheduleArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleStepArgs', 'NotificationRuleStepArgsDict']]]]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTimeRestrictionArgs', 'NotificationRuleTimeRestrictionArgsDict']]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Notification Rule within Opsgenie.
@@ -466,17 +466,17 @@ class NotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleCriteriaArgs', 'NotificationRuleCriteriaArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 repeats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleRepeatArgs', 'NotificationRuleRepeatArgsDict']]]]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleScheduleArgs', 'NotificationRuleScheduleArgsDict']]]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleStepArgs', 'NotificationRuleStepArgsDict']]]]] = None,
-                 time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTimeRestrictionArgs', 'NotificationRuleTimeRestrictionArgsDict']]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleCriteriaArgs', 'NotificationRuleCriteriaArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_times: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleRepeatArgs', 'NotificationRuleRepeatArgsDict']]]]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleScheduleArgs', 'NotificationRuleScheduleArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleStepArgs', 'NotificationRuleStepArgsDict']]]]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTimeRestrictionArgs', 'NotificationRuleTimeRestrictionArgsDict']]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -511,17 +511,17 @@ class NotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_type: Optional[pulumi.Input[_builtins.str]] = None,
-            criterias: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleCriteriaArgs', 'NotificationRuleCriteriaArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            repeats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleRepeatArgs', 'NotificationRuleRepeatArgsDict']]]]] = None,
-            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleScheduleArgs', 'NotificationRuleScheduleArgsDict']]]]] = None,
-            steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleStepArgs', 'NotificationRuleStepArgsDict']]]]] = None,
-            time_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTimeRestrictionArgs', 'NotificationRuleTimeRestrictionArgsDict']]]]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'NotificationRule':
+            action_type: pulumi.Input[Optional[_builtins.str]] = None,
+            criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleCriteriaArgs', 'NotificationRuleCriteriaArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_times: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleRepeatArgs', 'NotificationRuleRepeatArgsDict']]]]] = None,
+            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleScheduleArgs', 'NotificationRuleScheduleArgsDict']]]]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleStepArgs', 'NotificationRuleStepArgsDict']]]]] = None,
+            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTimeRestrictionArgs', 'NotificationRuleTimeRestrictionArgsDict']]]]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'NotificationRule':
         """
         Get an existing NotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

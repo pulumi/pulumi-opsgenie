@@ -113,11 +113,11 @@ export interface GetScheduleOutputArgs {
     /**
      * Timezone of schedule. Please look at [Supported Timezone Ids](https://docs.opsgenie.com/docs/supported-timezone-ids) for available timezones - Default: `America/New_York`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable/disable state of schedule
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the schedule.
      */
@@ -125,9 +125,9 @@ export interface GetScheduleOutputArgs {
     /**
      * Owner team id of the schedule.
      */
-    ownerTeamId?: pulumi.Input<string>;
+    ownerTeamId?: pulumi.Input<string | undefined>;
     /**
      * The description of schedule.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }

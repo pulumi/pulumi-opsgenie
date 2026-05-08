@@ -9,18 +9,18 @@ export interface AlertPolicyFilter {
     /**
      * Conditions applied to filter. This is a block, structure is documented below.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.AlertPolicyFilterCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertPolicyFilterCondition>[] | undefined>;
     /**
      * A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface AlertPolicyFilterCondition {
     /**
      * User defined value that will be compared with alert field according to the operation. Default: empty string
      */
-    expectedValue?: pulumi.Input<string>;
+    expectedValue?: pulumi.Input<string | undefined>;
     /**
      * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      */
@@ -28,11 +28,11 @@ export interface AlertPolicyFilterCondition {
     /**
      * If `field` is set as extra-properties, key could be used for key-value pair
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Indicates behaviour of the given operation. Default: `false`
      */
-    not?: pulumi.Input<boolean>;
+    not?: pulumi.Input<boolean | undefined>;
     /**
      * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
      */
@@ -40,7 +40,7 @@ export interface AlertPolicyFilterCondition {
     /**
      * Order of the condition in conditions list
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
 }
 
 export interface AlertPolicyResponder {
@@ -51,7 +51,7 @@ export interface AlertPolicyResponder {
     /**
      * Name of the responder
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Type of responder. Acceptable values are: `user`, `team`, `escalation` or `schedule`
      */
@@ -59,18 +59,18 @@ export interface AlertPolicyResponder {
     /**
      * Username of the responder
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 export interface AlertPolicyTimeRestriction {
     /**
      * A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
      */
-    restriction?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestrictionRestriction>[]>;
+    restriction?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestrictionRestriction>[] | undefined>;
     /**
      * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
-    restrictionList?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestrictionRestrictionList>[]>;
+    restrictionList?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestrictionRestrictionList>[] | undefined>;
     /**
      * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      */
@@ -127,29 +127,29 @@ export interface ApiIntegrationResponder {
     /**
      * The id of the responder.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The responder type.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface EmailIntegrationResponder {
     /**
      * The ID of the Opsgenie Email based Integration.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The responder type.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface EscalationRepeat {
-    closeAlertAfterAll?: pulumi.Input<boolean>;
-    count?: pulumi.Input<number>;
-    resetRecipientStates?: pulumi.Input<boolean>;
-    waitInterval?: pulumi.Input<number>;
+    closeAlertAfterAll?: pulumi.Input<boolean | undefined>;
+    count?: pulumi.Input<number | undefined>;
+    resetRecipientStates?: pulumi.Input<boolean | undefined>;
+    waitInterval?: pulumi.Input<number | undefined>;
 }
 
 export interface EscalationRule {
@@ -175,8 +175,8 @@ export interface EscalationRuleRecipient {
     /**
      * The ID of the Opsgenie Escalation.
      */
-    id?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetEscalationRepeat {
@@ -187,10 +187,10 @@ export interface GetEscalationRepeat {
 }
 
 export interface GetEscalationRepeatArgs {
-    closeAlertAfterAll?: pulumi.Input<boolean>;
-    count?: pulumi.Input<number>;
-    resetRecipientStates?: pulumi.Input<boolean>;
-    waitInterval?: pulumi.Input<number>;
+    closeAlertAfterAll?: pulumi.Input<boolean | undefined>;
+    count?: pulumi.Input<number | undefined>;
+    resetRecipientStates?: pulumi.Input<boolean | undefined>;
+    waitInterval?: pulumi.Input<number | undefined>;
 }
 
 export interface GetEscalationRule {
@@ -219,8 +219,8 @@ export interface GetEscalationRuleRecipientArgs {
     /**
      * The ID of the Opsgenie Escalation.
      */
-    id?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetTeamMember {
@@ -236,20 +236,20 @@ export interface GetTeamMemberArgs {
     /**
      * The ID of the Opsgenie Team.
      */
-    id?: pulumi.Input<string>;
-    role?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    role?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 export interface IncidentTemplateStakeholderProperty {
     /**
      * Description field of the incident template. This field must not be longer than 10000 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Option to enable stakeholder notifications.Default value is true.
      */
-    enable?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean | undefined>;
     /**
      * Message of the related incident template. This field must not be longer than 130 characters.
      */
@@ -260,14 +260,14 @@ export interface IntegrationActionAcknowledge {
     /**
      * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
      * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
      * * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
      * * For Email integration: `fromAddress`, `fromName`, `conversationSubject`, `subject`
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledgeFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledgeFilter>[] | undefined>;
     /**
      * Name of the integration action.
      */
@@ -275,23 +275,23 @@ export interface IntegrationActionAcknowledge {
     /**
      * Additional alert action note.
      */
-    note?: pulumi.Input<string>;
+    note?: pulumi.Input<string | undefined>;
     /**
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The responder type - can be `escalation`, `team` or `user`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Owner of the execution for integration action.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 export interface IntegrationActionAcknowledgeFilter {
-    conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledgeFilterCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAcknowledgeFilterCondition>[] | undefined>;
     /**
      * The responder type - can be `escalation`, `team` or `user`.
      */
@@ -299,29 +299,29 @@ export interface IntegrationActionAcknowledgeFilter {
 }
 
 export interface IntegrationActionAcknowledgeFilterCondition {
-    expectedValue?: pulumi.Input<string>;
+    expectedValue?: pulumi.Input<string | undefined>;
     field: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    not?: pulumi.Input<boolean>;
+    key?: pulumi.Input<string | undefined>;
+    not?: pulumi.Input<boolean | undefined>;
     operation: pulumi.Input<string>;
     /**
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
 }
 
 export interface IntegrationActionAddNote {
     /**
      * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
      * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
      * * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
      * * For Email integration: `fromAddress`, `fromName`, `conversationSubject`, `subject`
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNoteFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNoteFilter>[] | undefined>;
     /**
      * Name of the integration action.
      */
@@ -329,23 +329,23 @@ export interface IntegrationActionAddNote {
     /**
      * Additional alert action note.
      */
-    note?: pulumi.Input<string>;
+    note?: pulumi.Input<string | undefined>;
     /**
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The responder type - can be `escalation`, `team` or `user`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Owner of the execution for integration action.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 export interface IntegrationActionAddNoteFilter {
-    conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNoteFilterCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionAddNoteFilterCondition>[] | undefined>;
     /**
      * The responder type - can be `escalation`, `team` or `user`.
      */
@@ -353,29 +353,29 @@ export interface IntegrationActionAddNoteFilter {
 }
 
 export interface IntegrationActionAddNoteFilterCondition {
-    expectedValue?: pulumi.Input<string>;
+    expectedValue?: pulumi.Input<string | undefined>;
     field: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    not?: pulumi.Input<boolean>;
+    key?: pulumi.Input<string | undefined>;
+    not?: pulumi.Input<boolean | undefined>;
     operation: pulumi.Input<string>;
     /**
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
 }
 
 export interface IntegrationActionClose {
     /**
      * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
      * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
      * * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
      * * For Email integration: `fromAddress`, `fromName`, `conversationSubject`, `subject`
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCloseFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCloseFilter>[] | undefined>;
     /**
      * Name of the integration action.
      */
@@ -383,23 +383,23 @@ export interface IntegrationActionClose {
     /**
      * Additional alert action note.
      */
-    note?: pulumi.Input<string>;
+    note?: pulumi.Input<string | undefined>;
     /**
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The responder type - can be `escalation`, `team` or `user`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Owner of the execution for integration action.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 export interface IntegrationActionCloseFilter {
-    conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCloseFilterCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCloseFilterCondition>[] | undefined>;
     /**
      * The responder type - can be `escalation`, `team` or `user`.
      */
@@ -407,62 +407,62 @@ export interface IntegrationActionCloseFilter {
 }
 
 export interface IntegrationActionCloseFilterCondition {
-    expectedValue?: pulumi.Input<string>;
+    expectedValue?: pulumi.Input<string | undefined>;
     field: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    not?: pulumi.Input<boolean>;
+    key?: pulumi.Input<string | undefined>;
+    not?: pulumi.Input<boolean | undefined>;
     operation: pulumi.Input<string>;
     /**
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
 }
 
 export interface IntegrationActionCreate {
-    alertActions?: pulumi.Input<pulumi.Input<string>[]>;
+    alertActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An identifier that is used for alert deduplication. Default: `{{alias}}`.
      */
-    alias?: pulumi.Input<string>;
-    appendAttachments?: pulumi.Input<boolean>;
+    alias?: pulumi.Input<string | undefined>;
+    appendAttachments?: pulumi.Input<boolean | undefined>;
     /**
      * Custom alert priority. e.g. ``{{message.substring(0,2)}}``
      */
-    customPriority?: pulumi.Input<string>;
+    customPriority?: pulumi.Input<string | undefined>;
     /**
      * Detailed description of the alert, anything that may not have fit in the `message` field.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The entity the alert is related to.
      */
-    entity?: pulumi.Input<string>;
+    entity?: pulumi.Input<string | undefined>;
     /**
      * Set of user defined properties specified as a map.
      */
-    extraProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    extraProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
      * * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
      * * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
      * * For Email integration: `fromAddress`, `fromName`, `conversationSubject`, `subject`
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreateFilter>[]>;
-    ignoreAlertActionsFromPayload?: pulumi.Input<boolean>;
-    ignoreExtraPropertiesFromPayload?: pulumi.Input<boolean>;
+    filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreateFilter>[] | undefined>;
+    ignoreAlertActionsFromPayload?: pulumi.Input<boolean | undefined>;
+    ignoreExtraPropertiesFromPayload?: pulumi.Input<boolean | undefined>;
     /**
      * If enabled, the integration will ignore responders sent in request payloads.
      */
-    ignoreRespondersFromPayload?: pulumi.Input<boolean>;
-    ignoreTagsFromPayload?: pulumi.Input<boolean>;
+    ignoreRespondersFromPayload?: pulumi.Input<boolean | undefined>;
+    ignoreTagsFromPayload?: pulumi.Input<boolean | undefined>;
     /**
      * If enabled, the integration will ignore teams sent in request payloads.
      */
-    ignoreTeamsFromPayload?: pulumi.Input<boolean>;
+    ignoreTeamsFromPayload?: pulumi.Input<boolean | undefined>;
     /**
      * Alert text limited to 130 characters.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * Name of the integration action.
      */
@@ -470,39 +470,39 @@ export interface IntegrationActionCreate {
     /**
      * Additional alert action note.
      */
-    note?: pulumi.Input<string>;
+    note?: pulumi.Input<string | undefined>;
     /**
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * Alert priority.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
      */
-    responders?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreateResponder>[]>;
+    responders?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreateResponder>[] | undefined>;
     /**
      * User defined field to specify source of action.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * Comma separated list of labels to be attached to the alert.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The responder type - can be `escalation`, `team` or `user`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Owner of the execution for integration action.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 export interface IntegrationActionCreateFilter {
-    conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreateFilterCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionCreateFilterCondition>[] | undefined>;
     /**
      * The responder type - can be `escalation`, `team` or `user`.
      */
@@ -510,15 +510,15 @@ export interface IntegrationActionCreateFilter {
 }
 
 export interface IntegrationActionCreateFilterCondition {
-    expectedValue?: pulumi.Input<string>;
+    expectedValue?: pulumi.Input<string | undefined>;
     field: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    not?: pulumi.Input<boolean>;
+    key?: pulumi.Input<string | undefined>;
+    not?: pulumi.Input<boolean | undefined>;
     operation: pulumi.Input<string>;
     /**
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
 }
 
 export interface IntegrationActionCreateResponder {
@@ -539,7 +539,7 @@ export interface IntegrationActionIgnore {
      * * For API integration: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`, `eventType`.
      * * For Email integration: `fromAddress`, `fromName`, `conversationSubject`, `subject`
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnoreFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnoreFilter>[] | undefined>;
     /**
      * Name of the integration action.
      */
@@ -547,15 +547,15 @@ export interface IntegrationActionIgnore {
     /**
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The responder type - can be `escalation`, `team` or `user`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface IntegrationActionIgnoreFilter {
-    conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnoreFilterCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.IntegrationActionIgnoreFilterCondition>[] | undefined>;
     /**
      * The responder type - can be `escalation`, `team` or `user`.
      */
@@ -563,15 +563,15 @@ export interface IntegrationActionIgnoreFilter {
 }
 
 export interface IntegrationActionIgnoreFilterCondition {
-    expectedValue?: pulumi.Input<string>;
+    expectedValue?: pulumi.Input<string | undefined>;
     field: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    not?: pulumi.Input<boolean>;
+    key?: pulumi.Input<string | undefined>;
+    not?: pulumi.Input<boolean | undefined>;
     operation: pulumi.Input<string>;
     /**
      * Integer value that defines in which order the action will be performed. Default: `1`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
 }
 
 export interface MaintenanceRule {
@@ -582,29 +582,29 @@ export interface MaintenanceRule {
     /**
      * State of rule that will be defined in maintenance and can take either enabled or disabled for policy type rules. This field has to be disabled for integration type entity rules.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
 }
 
 export interface MaintenanceRuleEntity {
     /**
      * The id of the entity that maintenance will be applied.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The type of the entity that maintenance will be applied. It can be either integration or policy.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface MaintenanceTime {
     /**
      * This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00).
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     type: pulumi.Input<string>;
 }
 
@@ -623,7 +623,7 @@ export interface NotificationPolicyAutoCloseActionDuration {
     /**
      * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
-    timeUnit?: pulumi.Input<string>;
+    timeUnit?: pulumi.Input<string | undefined>;
 }
 
 export interface NotificationPolicyAutoRestartAction {
@@ -645,7 +645,7 @@ export interface NotificationPolicyAutoRestartActionDuration {
     /**
      * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
-    timeUnit?: pulumi.Input<string>;
+    timeUnit?: pulumi.Input<string | undefined>;
 }
 
 export interface NotificationPolicyDeDuplicationAction {
@@ -660,7 +660,7 @@ export interface NotificationPolicyDeDuplicationAction {
     /**
      * Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
      */
-    durations?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDeDuplicationActionDuration>[]>;
+    durations?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDeDuplicationActionDuration>[] | undefined>;
 }
 
 export interface NotificationPolicyDeDuplicationActionDuration {
@@ -671,7 +671,7 @@ export interface NotificationPolicyDeDuplicationActionDuration {
     /**
      * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
-    timeUnit?: pulumi.Input<string>;
+    timeUnit?: pulumi.Input<string | undefined>;
 }
 
 export interface NotificationPolicyDelayAction {
@@ -682,15 +682,15 @@ export interface NotificationPolicyDelayAction {
     /**
      * Duration of this action. If `delayOption` = `for-duration` this has to be set. This is a block, structure is documented below.
      */
-    durations?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDelayActionDuration>[]>;
+    durations?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyDelayActionDuration>[] | undefined>;
     /**
      * Until what hour notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      */
-    untilHour?: pulumi.Input<number>;
+    untilHour?: pulumi.Input<number | undefined>;
     /**
      * Until what minute on `untilHour` notifications will be delayed. If `delayOption` is set to antyhing else then `for-duration` this has to be set.
      */
-    untilMinute?: pulumi.Input<number>;
+    untilMinute?: pulumi.Input<number | undefined>;
 }
 
 export interface NotificationPolicyDelayActionDuration {
@@ -701,25 +701,25 @@ export interface NotificationPolicyDelayActionDuration {
     /**
      * Valid time units are: `minutes`, `hours`, `days`. Default: `minutes`
      */
-    timeUnit?: pulumi.Input<string>;
+    timeUnit?: pulumi.Input<string | undefined>;
 }
 
 export interface NotificationPolicyFilter {
     /**
      * Conditions applied to filter. This is a block, structure is documented below.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyFilterCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyFilterCondition>[] | undefined>;
     /**
      * A filter type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface NotificationPolicyFilterCondition {
     /**
      * User defined value that will be compared with alert field according to the operation. Default: empty string
      */
-    expectedValue?: pulumi.Input<string>;
+    expectedValue?: pulumi.Input<string | undefined>;
     /**
      * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `responders`, `teams`, `priority`
      */
@@ -727,11 +727,11 @@ export interface NotificationPolicyFilterCondition {
     /**
      * If `field` is set as extra-properties, key could be used for key-value pair
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Indicates behaviour of the given operation. Default: `false`
      */
-    not?: pulumi.Input<boolean>;
+    not?: pulumi.Input<boolean | undefined>;
     /**
      * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
      */
@@ -739,18 +739,18 @@ export interface NotificationPolicyFilterCondition {
     /**
      * Order of the condition in conditions list
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
 }
 
 export interface NotificationPolicyTimeRestriction {
     /**
      * A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
      */
-    restriction?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestrictionRestriction>[]>;
+    restriction?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestrictionRestriction>[] | undefined>;
     /**
      * List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
      */
-    restrictionList?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestrictionRestrictionList>[]>;
+    restrictionList?: pulumi.Input<pulumi.Input<inputs.NotificationPolicyTimeRestrictionRestrictionList>[] | undefined>;
     /**
      * Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
      */
@@ -807,7 +807,7 @@ export interface NotificationRuleCriteria {
     /**
      * Defines the fields and values when the condition applies
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteriaCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleCriteriaCondition>[] | undefined>;
     /**
      * Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
      */
@@ -818,7 +818,7 @@ export interface NotificationRuleCriteriaCondition {
     /**
      * User defined value that will be compared with alert field according to the operation. Default: empty string
      */
-    expectedValue?: pulumi.Input<string>;
+    expectedValue?: pulumi.Input<string | undefined>;
     /**
      * Possible values: `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
      */
@@ -826,11 +826,11 @@ export interface NotificationRuleCriteriaCondition {
     /**
      * If 'field' is set as 'extra-properties', key could be used for key-value pair
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Indicates behaviour of the given operation. Default: `false`
      */
-    not?: pulumi.Input<boolean>;
+    not?: pulumi.Input<boolean | undefined>;
     /**
      * Possible values: `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`
      */
@@ -838,14 +838,14 @@ export interface NotificationRuleCriteriaCondition {
     /**
      * Order of the condition in conditions list
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
 }
 
 export interface NotificationRuleRepeat {
     /**
      * If policy should be enabled. Default: `true`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     loopAfter: pulumi.Input<number>;
 }
 
@@ -868,11 +868,11 @@ export interface NotificationRuleStep {
     /**
      * Defined if this step is enabled. Default: `true`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Time period, in minutes, notification will be sent after.
      */
-    sendAfter?: pulumi.Input<number>;
+    sendAfter?: pulumi.Input<number | undefined>;
 }
 
 export interface NotificationRuleStepContact {
@@ -887,8 +887,8 @@ export interface NotificationRuleStepContact {
 }
 
 export interface NotificationRuleTimeRestriction {
-    restriction?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestrictionRestriction>[]>;
-    restrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestrictionRestriction>[]>;
+    restriction?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestrictionRestriction>[] | undefined>;
+    restrictions?: pulumi.Input<pulumi.Input<inputs.NotificationRuleTimeRestrictionRestriction>[] | undefined>;
     /**
      * Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
      */
@@ -908,7 +908,7 @@ export interface ScheduleRotationParticipant {
     /**
      * The id of the responder.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The responder type.
      */
@@ -919,11 +919,11 @@ export interface ScheduleRotationTimeRestriction {
     /**
      * It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
      */
-    restriction?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestrictionRestriction>[]>;
+    restriction?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestrictionRestriction>[] | undefined>;
     /**
      * It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
      */
-    restrictionList?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestrictionRestrictionList>[]>;
+    restrictionList?: pulumi.Input<pulumi.Input<inputs.ScheduleRotationTimeRestrictionRestrictionList>[] | undefined>;
     /**
      * This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
      */
@@ -982,11 +982,11 @@ export interface ServiceIncidentRuleIncidentRule {
     /**
      * A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
      */
-    conditionMatchType?: pulumi.Input<string>;
+    conditionMatchType?: pulumi.Input<string | undefined>;
     /**
      * Conditions applied to incident. This is a block, structure is documented below.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.ServiceIncidentRuleIncidentRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.ServiceIncidentRuleIncidentRuleCondition>[] | undefined>;
     /**
      * Properties for incident rule. This is a block, structure is documented below.
      */
@@ -997,7 +997,7 @@ export interface ServiceIncidentRuleIncidentRuleCondition {
     /**
      * User defined value that will be compared with alert field according to the operation. Default: empty string
      */
-    expectedValue?: pulumi.Input<string>;
+    expectedValue?: pulumi.Input<string | undefined>;
     /**
      * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `details`, `extra-properties`, `recipients`, `teams`, `priority`
      */
@@ -1005,11 +1005,11 @@ export interface ServiceIncidentRuleIncidentRuleCondition {
     /**
      * If 'field' is set as 'extra-properties', key could be used for key-value pair
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Indicates behaviour of the given operation. Default: false
      */
-    not?: pulumi.Input<boolean>;
+    not?: pulumi.Input<boolean | undefined>;
     /**
      * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty`, `equals-ignore-whitespace`.
      */
@@ -1020,11 +1020,11 @@ export interface ServiceIncidentRuleIncidentRuleIncidentProperty {
     /**
      * Description field of the incident rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value pairs to use as custom properties of the alert.
      */
-    details?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    details?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Message of the related incident rule.
      */
@@ -1040,18 +1040,18 @@ export interface ServiceIncidentRuleIncidentRuleIncidentProperty {
     /**
      * Tags of the alert.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderProperty {
     /**
      * Description that is generally used to provide a detailed information about the alert.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Option to enable stakeholder notifications.Default value is true.
      */
-    enable?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean | undefined>;
     /**
      * Message that is to be passed to audience that is generally used to provide a content information about the alert.
      */
@@ -1066,15 +1066,15 @@ export interface TeamMember {
     /**
      * The role for the user within the Team - can be either `admin` or `user`. Default: `user`.
      */
-    role?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 export interface TeamRoutingRuleCriteria {
     /**
      * List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteriaCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleCriteriaCondition>[] | undefined>;
     /**
      * Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
      */
@@ -1082,7 +1082,7 @@ export interface TeamRoutingRuleCriteria {
 }
 
 export interface TeamRoutingRuleCriteriaCondition {
-    expectedValue?: pulumi.Input<string>;
+    expectedValue?: pulumi.Input<string | undefined>;
     /**
      * Specifies which alert field will be used in condition. Possible values are `message`, `alias`, `description`, `source`, `entity`, `tags`, `actions`, `extra-properties`, `recipients`, `teams` or `priority`.
      */
@@ -1090,11 +1090,11 @@ export interface TeamRoutingRuleCriteriaCondition {
     /**
      * If field is set as extra-properties, key could be used for key-value pair.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Indicates behaviour of the given operation. Default value is false.
      */
-    not?: pulumi.Input<boolean>;
+    not?: pulumi.Input<boolean | undefined>;
     /**
      * It is the operation that will be executed for the given field and key. Possible operations are `matches`, `contains`, `starts-with`, `ends-with`, `equals`, `contains-key`, `contains-value`, `greater-than`, `less-than`, `is-empty` and `equals-ignore-whitespace`.
      *
@@ -1104,18 +1104,18 @@ export interface TeamRoutingRuleCriteriaCondition {
     /**
      * Order of the condition in conditions list.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
 }
 
 export interface TeamRoutingRuleNotify {
-    id?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
     type: pulumi.Input<string>;
 }
 
 export interface TeamRoutingRuleTimeRestriction {
-    restriction?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestriction>[]>;
-    restrictionList?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestrictionList>[]>;
+    restriction?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestriction>[] | undefined>;
+    restrictionList?: pulumi.Input<pulumi.Input<inputs.TeamRoutingRuleTimeRestrictionRestrictionList>[] | undefined>;
     type: pulumi.Input<string>;
 }
 

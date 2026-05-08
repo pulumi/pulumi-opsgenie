@@ -113,19 +113,19 @@ export interface ServiceState {
     /**
      * Description field of the service that is generally used to provide a detailed information about the service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the service. This field must not be longer than 100 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags for the service, with a maximum of 20 tags per service.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Team id of the service. This field must not be longer than 512 characters.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -135,15 +135,15 @@ export interface ServiceArgs {
     /**
      * Description field of the service that is generally used to provide a detailed information about the service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the service. This field must not be longer than 100 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags for the service, with a maximum of 20 tags per service.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Team id of the service. This field must not be longer than 512 characters.
      */

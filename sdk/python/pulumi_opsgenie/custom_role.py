@@ -20,9 +20,9 @@ __all__ = ['CustomRoleArgs', 'CustomRole']
 class CustomRoleArgs:
     def __init__(__self__, *,
                  role_name: pulumi.Input[_builtins.str],
-                 disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extended_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disallowed_rights: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extended_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 granted_rights: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomRole resource.
 
@@ -53,48 +53,48 @@ class CustomRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="disallowedRights")
-    def disallowed_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disallowed_rights(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
         """
         return pulumi.get(self, "disallowed_rights")
 
     @disallowed_rights.setter
-    def disallowed_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disallowed_rights(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disallowed_rights", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedRole")
-    def extended_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extended_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
         """
         return pulumi.get(self, "extended_role")
 
     @extended_role.setter
-    def extended_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extended_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extended_role", value)
 
     @_builtins.property
     @pulumi.getter(name="grantedRights")
-    def granted_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def granted_rights(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
         """
         return pulumi.get(self, "granted_rights")
 
     @granted_rights.setter
-    def granted_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def granted_rights(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "granted_rights", value)
 
 
 @pulumi.input_type
 class _CustomRoleState:
     def __init__(__self__, *,
-                 disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extended_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 disallowed_rights: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extended_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 granted_rights: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomRole resources.
 
@@ -114,50 +114,50 @@ class _CustomRoleState:
 
     @_builtins.property
     @pulumi.getter(name="disallowedRights")
-    def disallowed_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disallowed_rights(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
         """
         return pulumi.get(self, "disallowed_rights")
 
     @disallowed_rights.setter
-    def disallowed_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disallowed_rights(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disallowed_rights", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedRole")
-    def extended_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extended_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
         """
         return pulumi.get(self, "extended_role")
 
     @extended_role.setter
-    def extended_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extended_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extended_role", value)
 
     @_builtins.property
     @pulumi.getter(name="grantedRights")
-    def granted_rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def granted_rights(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
         """
         return pulumi.get(self, "granted_rights")
 
     @granted_rights.setter
-    def granted_rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def granted_rights(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "granted_rights", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the custom role.
         """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
 
@@ -167,10 +167,10 @@ class CustomRole(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extended_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 disallowed_rights: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extended_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 granted_rights: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages custom user roles within Opsgenie.
@@ -240,10 +240,10 @@ class CustomRole(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extended_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 disallowed_rights: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extended_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 granted_rights: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,10 +269,10 @@ class CustomRole(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            disallowed_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            extended_role: Optional[pulumi.Input[_builtins.str]] = None,
-            granted_rights: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            role_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomRole':
+            disallowed_rights: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            extended_role: pulumi.Input[Optional[_builtins.str]] = None,
+            granted_rights: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomRole':
         """
         Get an existing CustomRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

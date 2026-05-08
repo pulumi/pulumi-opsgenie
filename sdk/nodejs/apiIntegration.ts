@@ -131,90 +131,90 @@ export class ApiIntegration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApiIntegration resources.
  */
 export interface ApiIntegrationState {
-    allowConfigurationAccess?: pulumi.Input<boolean>;
+    allowConfigurationAccess?: pulumi.Input<boolean | undefined>;
     /**
      * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      */
-    allowWriteAccess?: pulumi.Input<boolean>;
+    allowWriteAccess?: pulumi.Input<boolean | undefined>;
     /**
      * (Computed) API key of the created integration
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * This parameter is for specifying whether the integration will be enabled or not. Default: `true`
      */
-    enabled?: pulumi.Input<boolean>;
-    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
-    ignoreRespondersFromPayload?: pulumi.Input<boolean>;
+    ignoreRespondersFromPayload?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the integration. Name must be unique for each integration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
      */
-    ownerTeamId?: pulumi.Input<string>;
+    ownerTeamId?: pulumi.Input<string | undefined>;
     /**
      * User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
      */
-    responders?: pulumi.Input<pulumi.Input<inputs.ApiIntegrationResponder>[]>;
+    responders?: pulumi.Input<pulumi.Input<inputs.ApiIntegrationResponder>[] | undefined>;
     /**
      * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
-    suppressNotifications?: pulumi.Input<boolean>;
+    suppressNotifications?: pulumi.Input<boolean | undefined>;
     /**
      * Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
      */
-    webhookUrl?: pulumi.Input<string>;
+    webhookUrl?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a ApiIntegration resource.
  */
 export interface ApiIntegrationArgs {
-    allowConfigurationAccess?: pulumi.Input<boolean>;
+    allowConfigurationAccess?: pulumi.Input<boolean | undefined>;
     /**
      * This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.
      */
-    allowWriteAccess?: pulumi.Input<boolean>;
+    allowWriteAccess?: pulumi.Input<boolean | undefined>;
     /**
      * This parameter is for specifying whether the integration will be enabled or not. Default: `true`
      */
-    enabled?: pulumi.Input<boolean>;
-    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
      */
-    ignoreRespondersFromPayload?: pulumi.Input<boolean>;
+    ignoreRespondersFromPayload?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the integration. Name must be unique for each integration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
      */
-    ownerTeamId?: pulumi.Input<string>;
+    ownerTeamId?: pulumi.Input<string | undefined>;
     /**
      * User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
      */
-    responders?: pulumi.Input<pulumi.Input<inputs.ApiIntegrationResponder>[]>;
+    responders?: pulumi.Input<pulumi.Input<inputs.ApiIntegrationResponder>[] | undefined>;
     /**
      * If enabled, notifications that come from alerts will be suppressed. Default: `false`.
      */
-    suppressNotifications?: pulumi.Input<boolean>;
+    suppressNotifications?: pulumi.Input<boolean | undefined>;
     /**
      * Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
      */
-    webhookUrl?: pulumi.Input<string>;
+    webhookUrl?: pulumi.Input<string | undefined>;
 }

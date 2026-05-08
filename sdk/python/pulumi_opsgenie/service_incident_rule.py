@@ -60,8 +60,8 @@ class ServiceIncidentRuleArgs:
 @pulumi.input_type
 class _ServiceIncidentRuleState:
     def __init__(__self__, *,
-                 incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 incident_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceIncidentRule resources.
 
@@ -75,26 +75,26 @@ class _ServiceIncidentRuleState:
 
     @_builtins.property
     @pulumi.getter(name="incidentRules")
-    def incident_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]]:
+    def incident_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]]:
         """
         This is the rule configuration for this incident rule. This is a block, structure is documented below.
         """
         return pulumi.get(self, "incident_rules")
 
     @incident_rules.setter
-    def incident_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]]):
+    def incident_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleArgs']]]]):
         pulumi.set(self, "incident_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceId")
-    def service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the service associated
         """
         return pulumi.get(self, "service_id")
 
     @service_id.setter
-    def service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_id", value)
 
 
@@ -104,8 +104,8 @@ class ServiceIncidentRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 incident_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Service Incident Rule within Opsgenie.
@@ -235,8 +235,8 @@ class ServiceIncidentRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 incident_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,8 +262,8 @@ class ServiceIncidentRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            incident_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
-            service_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceIncidentRule':
+            incident_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
+            service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceIncidentRule':
         """
         Get an existing ServiceIncidentRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

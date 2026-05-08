@@ -147,11 +147,11 @@ def get_user(full_name: Optional[_builtins.str] = None,
         role=pulumi.get(__ret__, 'role'),
         timezone=pulumi.get(__ret__, 'timezone'),
         username=pulumi.get(__ret__, 'username'))
-def get_user_output(full_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    locale: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    role: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    timezone: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    username: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(full_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    locale: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    role: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    timezone: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    username: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Manages existing User within Opsgenie.

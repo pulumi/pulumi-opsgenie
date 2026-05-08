@@ -23,7 +23,7 @@ class MaintenanceArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
                  rules: pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]],
-                 times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None):
+                 times: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None):
         """
         The set of arguments for constructing a Maintenance resource.
 
@@ -62,23 +62,23 @@ class MaintenanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]]:
+    def times(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceTimeArgs']]]]:
         """
         Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
         """
         return pulumi.get(self, "times")
 
     @times.setter
-    def times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]]):
+    def times(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceTimeArgs']]]]):
         pulumi.set(self, "times", value)
 
 
 @pulumi.input_type
 class _MaintenanceState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]]] = None,
-                 times: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceRuleArgs']]]] = None,
+                 times: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceTimeArgs']]]] = None):
         """
         Input properties used for looking up and filtering Maintenance resources.
 
@@ -95,38 +95,38 @@ class _MaintenanceState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the maintenance.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceRuleArgs']]]]:
         """
         Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]]:
+    def times(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceTimeArgs']]]]:
         """
         Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
         """
         return pulumi.get(self, "times")
 
     @times.setter
-    def times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceTimeArgs']]]]):
+    def times(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceTimeArgs']]]]):
         pulumi.set(self, "times", value)
 
 
@@ -136,9 +136,9 @@ class Maintenance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]]] = None,
-                 times: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]]] = None,
+                 times: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Maintenance within Opsgenie.
@@ -175,9 +175,9 @@ class Maintenance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]]] = None,
-                 times: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]]] = None,
+                 times: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -204,9 +204,9 @@ class Maintenance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]]] = None,
-            times: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]]] = None) -> 'Maintenance':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]]] = None,
+            times: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]]] = None) -> 'Maintenance':
         """
         Get an existing Maintenance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

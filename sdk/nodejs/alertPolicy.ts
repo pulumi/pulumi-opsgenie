@@ -239,83 +239,83 @@ export interface AlertPolicyState {
     /**
      * Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
      */
-    actions?: pulumi.Input<pulumi.Input<string>[]>;
+    actions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
      */
-    alertDescription?: pulumi.Input<string>;
+    alertDescription?: pulumi.Input<string | undefined>;
     /**
      * Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * It will trigger other modify policies if set to `true`. Default: `false`
      */
-    continuePolicy?: pulumi.Input<boolean>;
+    continuePolicy?: pulumi.Input<boolean | undefined>;
     /**
      * If policy should be enabled. Default: `true`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
      */
-    entity?: pulumi.Input<string>;
+    entity?: pulumi.Input<string | undefined>;
     /**
      * A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.AlertPolicyFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.AlertPolicyFilter>[] | undefined>;
     /**
      * If set to `true`, policy will ignore the original actions of the alert. Default: `false`
      */
-    ignoreOriginalActions?: pulumi.Input<boolean>;
+    ignoreOriginalActions?: pulumi.Input<boolean | undefined>;
     /**
      * If set to `true`, policy will ignore the original details of the alert. Default: `false`
      */
-    ignoreOriginalDetails?: pulumi.Input<boolean>;
+    ignoreOriginalDetails?: pulumi.Input<boolean | undefined>;
     /**
      * If set to `true`, policy will ignore the original responders of the alert. Default: `false`
      */
-    ignoreOriginalResponders?: pulumi.Input<boolean>;
+    ignoreOriginalResponders?: pulumi.Input<boolean | undefined>;
     /**
      * If set to `true`, policy will ignore the original tags of the alert. Default: `false`
      */
-    ignoreOriginalTags?: pulumi.Input<boolean>;
+    ignoreOriginalTags?: pulumi.Input<boolean | undefined>;
     /**
      * Message of the alerts
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * Name of the alert policy
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Description of the policy. This can be max 512 characters.
      */
-    policyDescription?: pulumi.Input<string>;
+    policyDescription?: pulumi.Input<string | undefined>;
     /**
      * Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      */
-    responders?: pulumi.Input<pulumi.Input<inputs.AlertPolicyResponder>[]>;
+    responders?: pulumi.Input<pulumi.Input<inputs.AlertPolicyResponder>[] | undefined>;
     /**
      * Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Id of team that this policy belongs to.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
     /**
      * Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
      */
-    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestriction>[]>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestriction>[] | undefined>;
 }
 
 /**
@@ -325,47 +325,47 @@ export interface AlertPolicyArgs {
     /**
      * Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
      */
-    actions?: pulumi.Input<pulumi.Input<string>[]>;
+    actions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Description of the alert. You can use `{{description}}` to refer to the original alert description. Default: `{{description}}`
      */
-    alertDescription?: pulumi.Input<string>;
+    alertDescription?: pulumi.Input<string | undefined>;
     /**
      * Alias of the alert. You can use `{{alias}}` to refer to the original alias. Default: `{{alias}}`
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * It will trigger other modify policies if set to `true`. Default: `false`
      */
-    continuePolicy?: pulumi.Input<boolean>;
+    continuePolicy?: pulumi.Input<boolean | undefined>;
     /**
      * If policy should be enabled. Default: `true`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Entity field of the alert. You can use `{{entity}}` to refer to the original entity. Default: `{{entity}}`
      */
-    entity?: pulumi.Input<string>;
+    entity?: pulumi.Input<string | undefined>;
     /**
      * A alert filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.AlertPolicyFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.AlertPolicyFilter>[] | undefined>;
     /**
      * If set to `true`, policy will ignore the original actions of the alert. Default: `false`
      */
-    ignoreOriginalActions?: pulumi.Input<boolean>;
+    ignoreOriginalActions?: pulumi.Input<boolean | undefined>;
     /**
      * If set to `true`, policy will ignore the original details of the alert. Default: `false`
      */
-    ignoreOriginalDetails?: pulumi.Input<boolean>;
+    ignoreOriginalDetails?: pulumi.Input<boolean | undefined>;
     /**
      * If set to `true`, policy will ignore the original responders of the alert. Default: `false`
      */
-    ignoreOriginalResponders?: pulumi.Input<boolean>;
+    ignoreOriginalResponders?: pulumi.Input<boolean | undefined>;
     /**
      * If set to `true`, policy will ignore the original tags of the alert. Default: `false`
      */
-    ignoreOriginalTags?: pulumi.Input<boolean>;
+    ignoreOriginalTags?: pulumi.Input<boolean | undefined>;
     /**
      * Message of the alerts
      */
@@ -373,33 +373,33 @@ export interface AlertPolicyArgs {
     /**
      * Name of the alert policy
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Description of the policy. This can be max 512 characters.
      */
-    policyDescription?: pulumi.Input<string>;
+    policyDescription?: pulumi.Input<string | undefined>;
     /**
      * Priority of the alert. Should be one of `P1`, `P2`, `P3`, `P4`, or `P5`
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * Responders to add to the alerts original responders value as a list of teams, users or the reserved word none or all. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders. The possible values for responders are: `user`, `team`, `escalation`, `schedule`. This is a block, structure is documented below.
      */
-    responders?: pulumi.Input<pulumi.Input<inputs.AlertPolicyResponder>[]>;
+    responders?: pulumi.Input<pulumi.Input<inputs.AlertPolicyResponder>[] | undefined>;
     /**
      * Source field of the alert. You can use `{{source}}` to refer to the original source. Default: `{{source}}`
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * Tags to add to the alerts original tags value as a list of strings. If `ignoreOriginalResponders` field is set to `true`, this will replace the original responders.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Id of team that this policy belongs to.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
     /**
      * Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
      */
-    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestriction>[]>;
+    timeRestrictions?: pulumi.Input<pulumi.Input<inputs.AlertPolicyTimeRestriction>[] | undefined>;
 }

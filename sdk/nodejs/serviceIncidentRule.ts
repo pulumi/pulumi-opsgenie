@@ -134,11 +134,11 @@ export interface ServiceIncidentRuleState {
     /**
      * This is the rule configuration for this incident rule. This is a block, structure is documented below.
      */
-    incidentRules?: pulumi.Input<pulumi.Input<inputs.ServiceIncidentRuleIncidentRule>[]>;
+    incidentRules?: pulumi.Input<pulumi.Input<inputs.ServiceIncidentRuleIncidentRule>[] | undefined>;
     /**
      * ID of the service associated
      */
-    serviceId?: pulumi.Input<string>;
+    serviceId?: pulumi.Input<string | undefined>;
 }
 
 /**

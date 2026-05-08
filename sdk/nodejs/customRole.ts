@@ -108,19 +108,19 @@ export interface CustomRoleState {
     /**
      * The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      */
-    disallowedRights?: pulumi.Input<pulumi.Input<string>[]>;
+    disallowedRights?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
      */
-    extendedRole?: pulumi.Input<string>;
+    extendedRole?: pulumi.Input<string | undefined>;
     /**
      * The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      */
-    grantedRights?: pulumi.Input<pulumi.Input<string>[]>;
+    grantedRights?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the custom role.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -130,15 +130,15 @@ export interface CustomRoleArgs {
     /**
      * The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      */
-    disallowedRights?: pulumi.Input<pulumi.Input<string>[]>;
+    disallowedRights?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The role from which this role has been derived. Allowed Values: "user", "observer", "stakeholder".
      */
-    extendedRole?: pulumi.Input<string>;
+    extendedRole?: pulumi.Input<string | undefined>;
     /**
      * The rights granted to this role. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
      */
-    grantedRights?: pulumi.Input<pulumi.Input<string>[]>;
+    grantedRights?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the custom role.
      */

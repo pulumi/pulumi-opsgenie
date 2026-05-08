@@ -96,7 +96,7 @@ using Opsgenie = Pulumi.Opsgenie;
 return await Deployment.RunAsync(() =>
 {
     // Create a user
-    var test = new Opsgenie.Index.User("test");
+    var test = new Opsgenie.User("test");
 
 });
 
@@ -178,8 +178,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.opsgenie.User;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;

@@ -89,7 +89,7 @@ export interface GetServiceOutputArgs {
     /**
      * Description field of the service that is generally used to provide a detailed information about the service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the service. This field must not be longer than 100 characters.
      *
@@ -99,5 +99,5 @@ export interface GetServiceOutputArgs {
     /**
      * Team id of the service.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }
