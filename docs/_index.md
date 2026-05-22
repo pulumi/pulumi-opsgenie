@@ -29,7 +29,7 @@ If you encounter any problems you can contact us via Github
 Use the navigation to the left to read about the available resources.
 ## Example Usage
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -195,6 +195,22 @@ public class App {
         var test = new User("test");
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    opsgenie = {
+      source = "pulumi/opsgenie"
+    }
+  }
+}
+
+# Create a user
+resource "opsgenie_user" "test" {
 }
 ```
 

@@ -162,7 +162,7 @@ __all__ = [
 ]
 
 class AlertPolicyFilterArgsDict(TypedDict):
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyFilterConditionArgsDict']]]]]
     """
     Conditions applied to filter. This is a block, structure is documented below.
     """
@@ -429,11 +429,11 @@ class AlertPolicyTimeRestrictionArgsDict(TypedDict):
     """
     Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
     """
-    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgs']]]]]
+    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionArgsDict']]]]]
     """
     A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
     """
-    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgs']]]]]
+    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPolicyTimeRestrictionRestrictionListArgsDict']]]]]
     """
     List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
     """
@@ -1061,7 +1061,7 @@ class IntegrationActionAcknowledgeArgsDict(TypedDict):
     """
     An identifier that is used for alert deduplication. Default: `{{alias}}`.
     """
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterArgsDict']]]]]
     """
     Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
     * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -1214,7 +1214,7 @@ class IntegrationActionAcknowledgeFilterArgsDict(TypedDict):
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAcknowledgeFilterConditionArgsDict']]]]]
 
 @pulumi.input_type
 class IntegrationActionAcknowledgeFilterArgs:
@@ -1351,7 +1351,7 @@ class IntegrationActionAddNoteArgsDict(TypedDict):
     """
     An identifier that is used for alert deduplication. Default: `{{alias}}`.
     """
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterArgsDict']]]]]
     """
     Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
     * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -1504,7 +1504,7 @@ class IntegrationActionAddNoteFilterArgsDict(TypedDict):
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionAddNoteFilterConditionArgsDict']]]]]
 
 @pulumi.input_type
 class IntegrationActionAddNoteFilterArgs:
@@ -1641,7 +1641,7 @@ class IntegrationActionCloseArgsDict(TypedDict):
     """
     An identifier that is used for alert deduplication. Default: `{{alias}}`.
     """
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterArgsDict']]]]]
     """
     Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
     * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -1794,7 +1794,7 @@ class IntegrationActionCloseFilterArgsDict(TypedDict):
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCloseFilterConditionArgsDict']]]]]
 
 @pulumi.input_type
 class IntegrationActionCloseFilterArgs:
@@ -1949,7 +1949,7 @@ class IntegrationActionCreateArgsDict(TypedDict):
     """
     Set of user defined properties specified as a map.
     """
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterArgsDict']]]]]
     """
     Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
     * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -1983,7 +1983,7 @@ class IntegrationActionCreateArgsDict(TypedDict):
     """
     Alert priority.
     """
-    responders: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateResponderArgs']]]]]
+    responders: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateResponderArgsDict']]]]]
     """
     User, schedule, teams or escalation names to calculate which users will receive notifications of the alert.
     """
@@ -2369,7 +2369,7 @@ class IntegrationActionCreateFilterArgsDict(TypedDict):
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionCreateFilterConditionArgsDict']]]]]
 
 @pulumi.input_type
 class IntegrationActionCreateFilterArgs:
@@ -2549,7 +2549,7 @@ class IntegrationActionIgnoreArgsDict(TypedDict):
     """
     Name of the integration action.
     """
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterArgsDict']]]]]
     """
     Used to specify rules for matching alerts and the filter type. Please note that depending on the integration type the field names in the filter conditions are:
     * For SNS integration: `actions`, `alias`, `entity`, `Message`, `recipients`, `responders`, `Subject`, `tags`, `teams`, `eventType`, `Timestamp`, `TopicArn`.
@@ -2646,7 +2646,7 @@ class IntegrationActionIgnoreFilterArgsDict(TypedDict):
     """
     The responder type - can be `escalation`, `team` or `user`.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationActionIgnoreFilterConditionArgsDict']]]]]
 
 @pulumi.input_type
 class IntegrationActionIgnoreFilterArgs:
@@ -3112,7 +3112,7 @@ class NotificationPolicyDeDuplicationActionArgsDict(TypedDict):
     """
     Deduplication type. Possible values are: "value-based", "frequency-based"
     """
-    durations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgs']]]]]
+    durations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDeDuplicationActionDurationArgsDict']]]]]
     """
     Duration of this action (only required for "frequency-based" de-duplication action). This is a block, structure is documented below.
     """
@@ -3223,7 +3223,7 @@ class NotificationPolicyDelayActionArgsDict(TypedDict):
     """
     Defines until what day to delay or for what duration. Possible values are: `for-duration`, `next-time`, `next-weekday`, `next-monday`, `next-tuesday`, `next-wednesday`, `next-thursday`, `next-friday`, `next-saturday`, `next-sunday`
     """
-    durations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgs']]]]]
+    durations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyDelayActionDurationArgsDict']]]]]
     """
     Duration of this action. If `delay_option` = `for-duration` this has to be set. This is a block, structure is documented below.
     """
@@ -3355,7 +3355,7 @@ class NotificationPolicyDelayActionDurationArgs:
 
 
 class NotificationPolicyFilterArgsDict(TypedDict):
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyFilterConditionArgsDict']]]]]
     """
     Conditions applied to filter. This is a block, structure is documented below.
     """
@@ -3535,11 +3535,11 @@ class NotificationPolicyTimeRestrictionArgsDict(TypedDict):
     """
     Defines if restriction should apply daily on given hours or on certain days and hours. Possible values are: `time-of-day`, `weekday-and-time-of-day`
     """
-    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgs']]]]]
+    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionArgsDict']]]]]
     """
     A definition of hourly definition applied daily, this has to be used with combination: type = `time-of-day`. This is a block, structure is documented below.
     """
-    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgs']]]]]
+    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationPolicyTimeRestrictionRestrictionListArgsDict']]]]]
     """
     List of days and hours definitions for field type = `weekday-and-time-of-day`. This is a block, structure is documented below.
     """
@@ -3811,7 +3811,7 @@ class NotificationRuleCriteriaArgsDict(TypedDict):
     """
     Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleCriteriaConditionArgsDict']]]]]
     """
     Defines the fields and values when the condition applies
     """
@@ -4189,8 +4189,8 @@ class NotificationRuleTimeRestrictionArgsDict(TypedDict):
     """
     Kind of matching filter. Possible values: `match-all`, `match-any-condition`, `match-all-conditions`
     """
-    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]]
-    restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgs']]]]]
+    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgsDict']]]]]
+    restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationRuleTimeRestrictionRestrictionArgsDict']]]]]
 
 @pulumi.input_type
 class NotificationRuleTimeRestrictionArgs:
@@ -4370,11 +4370,11 @@ class ScheduleRotationTimeRestrictionArgsDict(TypedDict):
     """
     This parameter should be set to `time-of-day` or `weekday-and-time-of-day`.
     """
-    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgs']]]]]
+    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionArgsDict']]]]]
     """
     It is a restriction object which is described below. In this case startDay/endDay fields are not supported. This can be used only if time restriction type is `time-of-day`.
     """
-    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgs']]]]]
+    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleRotationTimeRestrictionRestrictionListArgsDict']]]]]
     """
     It is a restriction object which is described below. This can be used only if time restriction type is `weekday-and-time-of-day`.
     """
@@ -4656,7 +4656,7 @@ class ServiceIncidentRuleIncidentRuleArgsDict(TypedDict):
     """
     A Condition type, supported types are: `match-all`, `match-any-condition`, `match-all-conditions`. Default: `match-all`
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIncidentRuleIncidentRuleConditionArgsDict']]]]]
     """
     Conditions applied to incident. This is a block, structure is documented below.
     """
@@ -5082,7 +5082,7 @@ class TeamRoutingRuleCriteriaArgsDict(TypedDict):
     """
     Type of the operation will be applied on conditions. Should be one of `match-all`, `match-any-condition` or `match-all-conditions`.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleCriteriaConditionArgsDict']]]]]
     """
     List of conditions will be checked before applying team routing rule. This field declaration should be omitted if the criteria type is set to match-all.
     """
@@ -5298,8 +5298,8 @@ class TeamRoutingRuleNotifyArgs:
 
 class TeamRoutingRuleTimeRestrictionArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgs']]]]]
-    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgs']]]]]
+    restriction: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionArgsDict']]]]]
+    restriction_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TeamRoutingRuleTimeRestrictionRestrictionListArgsDict']]]]]
 
 @pulumi.input_type
 class TeamRoutingRuleTimeRestrictionArgs:
