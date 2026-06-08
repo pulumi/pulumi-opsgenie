@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.opsgenie.NotificationRule;
  * import com.pulumi.opsgenie.NotificationRuleArgs;
  * import com.pulumi.opsgenie.inputs.NotificationRuleStepArgs;
+ * import com.pulumi.opsgenie.inputs.NotificationRuleStepContactArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
