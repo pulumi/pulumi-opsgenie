@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.opsgenie.AlertPolicyArgs;
  * import com.pulumi.opsgenie.inputs.AlertPolicyFilterArgs;
  * import com.pulumi.opsgenie.inputs.AlertPolicyTimeRestrictionArgs;
+ * import com.pulumi.opsgenie.inputs.AlertPolicyTimeRestrictionRestrictionListArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

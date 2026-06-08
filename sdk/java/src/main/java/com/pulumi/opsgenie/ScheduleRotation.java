@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.opsgenie.ScheduleRotationArgs;
  * import com.pulumi.opsgenie.inputs.ScheduleRotationParticipantArgs;
  * import com.pulumi.opsgenie.inputs.ScheduleRotationTimeRestrictionArgs;
+ * import com.pulumi.opsgenie.inputs.ScheduleRotationTimeRestrictionRestrictionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
