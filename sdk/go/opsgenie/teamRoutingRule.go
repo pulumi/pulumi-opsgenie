@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = opsgenie.NewTeamRoutingRule(ctx, "test", &opsgenie.TeamRoutingRuleArgs{
 //				Name:     pulumi.String("routing rule example"),
-//				TeamId:   testTeam.ID(),
+//				TeamId:   testTeam.ID().ToIDOutput().ToStringOutput(),
 //				Order:    pulumi.Int(0),
 //				Timezone: pulumi.String("America/Los_Angeles"),
 //				Criterias: opsgenie.TeamRoutingRuleCriteriaArray{

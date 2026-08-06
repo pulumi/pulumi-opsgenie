@@ -37,13 +37,13 @@ import (
 //			}
 //			testService, err := opsgenie.NewService(ctx, "test", &opsgenie.ServiceArgs{
 //				Name:   pulumi.String("example-service"),
-//				TeamId: test.ID(),
+//				TeamId: test.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = opsgenie.NewServiceIncidentRule(ctx, "test", &opsgenie.ServiceIncidentRuleArgs{
-//				ServiceId: testService.ID(),
+//				ServiceId: testService.ID().ToIDOutput().ToStringOutput(),
 //				IncidentRules: opsgenie.ServiceIncidentRuleIncidentRuleArray{
 //					&opsgenie.ServiceIncidentRuleIncidentRuleArgs{
 //						ConditionMatchType: pulumi.String("match-any-condition"),
