@@ -40,7 +40,7 @@ import (
 //					&opsgenie.NotificationPolicyFilterArgs{},
 //				},
 //				Name:              pulumi.String("example policy"),
-//				TeamId:            test.ID(),
+//				TeamId:            test.ID().ToIDOutput().ToStringOutput(),
 //				PolicyDescription: pulumi.String("This policy has a delay action"),
 //				DelayActions: opsgenie.NotificationPolicyDelayActionArray{
 //					&opsgenie.NotificationPolicyDelayActionArgs{

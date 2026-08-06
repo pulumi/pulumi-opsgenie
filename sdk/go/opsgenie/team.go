@@ -48,11 +48,11 @@ import (
 //				Description: pulumi.String("This team deals with all the things"),
 //				Members: opsgenie.TeamMemberArray{
 //					&opsgenie.TeamMemberArgs{
-//						Id:   first.ID(),
+//						Id:   first.ID().ToIDOutput().ToStringOutput(),
 //						Role: pulumi.String("admin"),
 //					},
 //					&opsgenie.TeamMemberArgs{
-//						Id:   second.ID(),
+//						Id:   second.ID().ToIDOutput().ToStringOutput(),
 //						Role: pulumi.String("user"),
 //					},
 //				},

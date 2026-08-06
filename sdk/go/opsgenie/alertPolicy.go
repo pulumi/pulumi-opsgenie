@@ -40,7 +40,7 @@ import (
 //					&opsgenie.AlertPolicyFilterArgs{},
 //				},
 //				Name:              pulumi.String("example policy"),
-//				TeamId:            test.ID(),
+//				TeamId:            test.ID().ToIDOutput().ToStringOutput(),
 //				PolicyDescription: pulumi.String("This is sample policy"),
 //				Message:           pulumi.String("{{message}}"),
 //				TimeRestrictions: opsgenie.AlertPolicyTimeRestrictionArray{
