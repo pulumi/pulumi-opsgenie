@@ -301,7 +301,7 @@ class IncidentTemplate(pulumi.CustomResource):
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.str]] = None,
-                 stakeholder_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentTemplateStakeholderPropertyArgs', 'IncidentTemplateStakeholderPropertyArgsDict']]]]] = None,
+                 stakeholder_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentTemplateStakeholderPropertyArgs', 'IncidentTemplateStakeholderPropertyArgsDict', 'outputs.IncidentTemplateStakeholderProperty']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -320,14 +320,14 @@ class IncidentTemplate(pulumi.CustomResource):
             name="genietest-service",
             team_id=test.id)
         test_incident_template = opsgenie.IncidentTemplate("test",
-            name="genietest-incident-template",
-            message="Incident Message",
-            priority="P2",
             stakeholder_properties=[{
                 "enable": True,
                 "message": "Stakeholder Message",
                 "description": "Stakeholder Description",
             }],
+            name="genietest-incident-template",
+            message="Incident Message",
+            priority="P2",
             tags=[
                 "tag1",
                 "tag2",
@@ -382,14 +382,14 @@ class IncidentTemplate(pulumi.CustomResource):
             name="genietest-service",
             team_id=test.id)
         test_incident_template = opsgenie.IncidentTemplate("test",
-            name="genietest-incident-template",
-            message="Incident Message",
-            priority="P2",
             stakeholder_properties=[{
                 "enable": True,
                 "message": "Stakeholder Message",
                 "description": "Stakeholder Description",
             }],
+            name="genietest-incident-template",
+            message="Incident Message",
+            priority="P2",
             tags=[
                 "tag1",
                 "tag2",
@@ -430,7 +430,7 @@ class IncidentTemplate(pulumi.CustomResource):
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.str]] = None,
-                 stakeholder_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentTemplateStakeholderPropertyArgs', 'IncidentTemplateStakeholderPropertyArgsDict']]]]] = None,
+                 stakeholder_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentTemplateStakeholderPropertyArgs', 'IncidentTemplateStakeholderPropertyArgsDict', 'outputs.IncidentTemplateStakeholderProperty']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -471,7 +471,7 @@ class IncidentTemplate(pulumi.CustomResource):
             message: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.str]] = None,
-            stakeholder_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentTemplateStakeholderPropertyArgs', 'IncidentTemplateStakeholderPropertyArgsDict']]]]] = None,
+            stakeholder_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentTemplateStakeholderPropertyArgs', 'IncidentTemplateStakeholderPropertyArgsDict', 'outputs.IncidentTemplateStakeholderProperty']]]]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'IncidentTemplate':
         """
         Get an existing IncidentTemplate resource's state with the given name, id, and optional extra

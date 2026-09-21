@@ -29,6 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewUser(ctx, "test", &opsgenie.UserArgs{
+//				UserAddresses: opsgenie.UserUserAddressArray{
+//					&opsgenie.UserUserAddressArgs{
+//						Country: pulumi.String("Country"),
+//						State:   pulumi.String("State"),
+//						City:    pulumi.String("City"),
+//						Line:    pulumi.String("Line"),
+//						Zipcode: pulumi.String("998877"),
+//					},
+//				},
 //				Username: pulumi.String("user@domain.com"),
 //				FullName: pulumi.String("Test User"),
 //				Role:     pulumi.String("User"),
@@ -39,15 +48,6 @@ import (
 //					pulumi.String("opsgenie"),
 //				},
 //				SkypeUsername: pulumi.String("skypename"),
-//				UserAddresses: opsgenie.UserUserAddressArray{
-//					&opsgenie.UserUserAddressArgs{
-//						Country: pulumi.String("Country"),
-//						State:   pulumi.String("State"),
-//						City:    pulumi.String("City"),
-//						Line:    pulumi.String("Line"),
-//						Zipcode: pulumi.String("998877"),
-//					},
-//				},
 //				UserDetails: pulumi.StringMap{
 //					"key1": pulumi.String("val1,val2"),
 //					"key2": pulumi.String("val3,val4"),

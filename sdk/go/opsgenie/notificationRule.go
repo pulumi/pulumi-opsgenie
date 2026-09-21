@@ -37,13 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewNotificationRule(ctx, "test", &opsgenie.NotificationRuleArgs{
-//				Name:       pulumi.String("Example notification rule"),
-//				Username:   test.Username,
-//				ActionType: pulumi.String("schedule-end"),
-//				NotificationTimes: pulumi.StringArray{
-//					pulumi.String("just-before"),
-//					pulumi.String("15-minutes-ago"),
-//				},
 //				Steps: opsgenie.NotificationRuleStepArray{
 //					&opsgenie.NotificationRuleStepArgs{
 //						Contacts: opsgenie.NotificationRuleStepContactArray{
@@ -53,6 +46,13 @@ import (
 //							},
 //						},
 //					},
+//				},
+//				Name:       pulumi.String("Example notification rule"),
+//				Username:   test.Username,
+//				ActionType: pulumi.String("schedule-end"),
+//				NotificationTimes: pulumi.StringArray{
+//					pulumi.String("just-before"),
+//					pulumi.String("15-minutes-ago"),
 //				},
 //			})
 //			if err != nil {

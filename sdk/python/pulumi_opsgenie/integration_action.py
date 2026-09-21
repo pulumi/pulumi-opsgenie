@@ -193,11 +193,11 @@ class IntegrationAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
-                 add_notes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
-                 closes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
-                 creates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
-                 ignores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
+                 acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict', 'outputs.IntegrationActionAcknowledge']]]]] = None,
+                 add_notes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict', 'outputs.IntegrationActionAddNote']]]]] = None,
+                 closes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict', 'outputs.IntegrationActionClose']]]]] = None,
+                 creates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict', 'outputs.IntegrationActionCreate']]]]] = None,
+                 ignores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict', 'outputs.IntegrationActionIgnore']]]]] = None,
                  integration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -220,109 +220,8 @@ class IntegrationAction(pulumi.CustomResource):
         import pulumi_std as std
 
         test_action = opsgenie.IntegrationAction("test_action",
-            integration_id=test_opsgenie_api_integration["id"],
-            creates=[
-                {
-                    "name": "create action",
-                    "tags": [
-                        "CRITICAL",
-                        "SEV-0",
-                    ],
-                    "user": "Example-service",
-                    "note": "{{note}}",
-                    "alias": "{{alias}}",
-                    "source": "{{source}}",
-                    "message": "{{message}}",
-                    "description": "{{description}}",
-                    "entity": "{{entity}}",
-                    "alert_actions": ["Runbook ID#342"],
-                    "filters": [{
-                        "type": "match-all-conditions",
-                        "conditions": [{
-                            "field": "priority",
-                            "operation": "equals",
-                            "expected_value": "P1",
-                        }],
-                    }],
-                    "responders": [{
-                        "id": test["id"],
-                        "type": "team",
-                    }],
-                },
-                {
-                    "name": "create action with multiline description",
-                    "message": "{{message}}",
-                    "description": std.chomp(input=\"\"\"This
-        is a multiline
-        description.
-        \"\"\").result,
-                    "filters": [{
-                        "type": "match-all-conditions",
-                        "conditions": [{
-                            "field": "priority",
-                            "operation": "equals",
-                            "expected_value": "P1",
-                        }],
-                    }],
-                },
-                {
-                    "name": "Create medium priority alerts",
-                    "tags": [
-                        "SEVERE",
-                        "SEV-1",
-                    ],
-                    "priority": "P3",
-                    "filters": [{
-                        "type": "match-all-conditions",
-                        "conditions": [{
-                            "field": "priority",
-                            "operation": "equals",
-                            "expected_value": "P2",
-                        }],
-                    }],
-                },
-                {
-                    "name": "Create alert with priority from message",
-                    "custom_priority": "{{message.substringAfter(\\"[custom]\\")}}",
-                    "filters": [{
-                        "type": "match-all-conditions",
-                        "conditions": [
-                            {
-                                "field": "tags",
-                                "operation": "contains",
-                                "expected_value": "P5",
-                            },
-                            {
-                                "field": "message",
-                                "operation": "starts-with",
-                                "expected_value": "[custom]",
-                            },
-                        ],
-                    }],
-                },
-            ],
-            closes=[{
-                "name": "Low priority alerts",
-                "filters": [{
-                    "type": "match-any-condition",
-                    "conditions": [
-                        {
-                            "field": "priority",
-                            "operation": "equals",
-                            "expected_value": "P5",
-                        },
-                        {
-                            "field": "message",
-                            "operation": "contains",
-                            "expected_value": "DEBUG",
-                        },
-                    ],
-                }],
-            }],
             acknowledges=[{
-                "name": "Auto-ack test alerts",
                 "filters": [{
-                    "type": "match-all-conditions",
                     "conditions": [
                         {
                             "field": "message",
@@ -336,26 +235,127 @@ class IntegrationAction(pulumi.CustomResource):
                             "expected_value": "P5",
                         },
                     ],
+                    "type": "match-all-conditions",
                 }],
+                "name": "Auto-ack test alerts",
             }],
             add_notes=[{
-                "name": "Add note to all alerts",
-                "note": "Created from test integration",
                 "filters": [{
                     "type": "match-all",
                 }],
+                "name": "Add note to all alerts",
+                "note": "Created from test integration",
             }],
-            ignores=[{
-                "name": "Ignore alerts with ignore tag",
+            closes=[{
                 "filters": [{
-                    "type": "match-all-conditions",
+                    "conditions": [
+                        {
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P5",
+                        },
+                        {
+                            "field": "message",
+                            "operation": "contains",
+                            "expected_value": "DEBUG",
+                        },
+                    ],
+                    "type": "match-any-condition",
+                }],
+                "name": "Low priority alerts",
+            }],
+            creates=[
+                {
+                    "filters": [{
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P1",
+                        }],
+                        "type": "match-all-conditions",
+                    }],
+                    "responders": [{
+                        "id": test["id"],
+                        "type": "team",
+                    }],
+                    "name": "create action",
+                    "tags": [
+                        "CRITICAL",
+                        "SEV-0",
+                    ],
+                    "user": "Example-service",
+                    "note": "{{note}}",
+                    "alias": "{{alias}}",
+                    "source": "{{source}}",
+                    "message": "{{message}}",
+                    "description": "{{description}}",
+                    "entity": "{{entity}}",
+                    "alert_actions": ["Runbook ID#342"],
+                },
+                {
+                    "filters": [{
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P1",
+                        }],
+                        "type": "match-all-conditions",
+                    }],
+                    "name": "create action with multiline description",
+                    "message": "{{message}}",
+                    "description": std.chomp(input=\"\"\"This
+        is a multiline
+        description.
+        \"\"\").result,
+                },
+                {
+                    "filters": [{
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P2",
+                        }],
+                        "type": "match-all-conditions",
+                    }],
+                    "name": "Create medium priority alerts",
+                    "tags": [
+                        "SEVERE",
+                        "SEV-1",
+                    ],
+                    "priority": "P3",
+                },
+                {
+                    "filters": [{
+                        "conditions": [
+                            {
+                                "field": "tags",
+                                "operation": "contains",
+                                "expected_value": "P5",
+                            },
+                            {
+                                "field": "message",
+                                "operation": "starts-with",
+                                "expected_value": "[custom]",
+                            },
+                        ],
+                        "type": "match-all-conditions",
+                    }],
+                    "name": "Create alert with priority from message",
+                    "custom_priority": "{{message.substringAfter(\\"[custom]\\")}}",
+                },
+            ],
+            ignores=[{
+                "filters": [{
                     "conditions": [{
                         "field": "tags",
                         "operation": "contains",
                         "expected_value": "ignore",
                     }],
+                    "type": "match-all-conditions",
                 }],
-            }])
+                "name": "Ignore alerts with ignore tag",
+            }],
+            integration_id=test_opsgenie_api_integration["id"])
         ```
 
 
@@ -389,109 +389,8 @@ class IntegrationAction(pulumi.CustomResource):
         import pulumi_std as std
 
         test_action = opsgenie.IntegrationAction("test_action",
-            integration_id=test_opsgenie_api_integration["id"],
-            creates=[
-                {
-                    "name": "create action",
-                    "tags": [
-                        "CRITICAL",
-                        "SEV-0",
-                    ],
-                    "user": "Example-service",
-                    "note": "{{note}}",
-                    "alias": "{{alias}}",
-                    "source": "{{source}}",
-                    "message": "{{message}}",
-                    "description": "{{description}}",
-                    "entity": "{{entity}}",
-                    "alert_actions": ["Runbook ID#342"],
-                    "filters": [{
-                        "type": "match-all-conditions",
-                        "conditions": [{
-                            "field": "priority",
-                            "operation": "equals",
-                            "expected_value": "P1",
-                        }],
-                    }],
-                    "responders": [{
-                        "id": test["id"],
-                        "type": "team",
-                    }],
-                },
-                {
-                    "name": "create action with multiline description",
-                    "message": "{{message}}",
-                    "description": std.chomp(input=\"\"\"This
-        is a multiline
-        description.
-        \"\"\").result,
-                    "filters": [{
-                        "type": "match-all-conditions",
-                        "conditions": [{
-                            "field": "priority",
-                            "operation": "equals",
-                            "expected_value": "P1",
-                        }],
-                    }],
-                },
-                {
-                    "name": "Create medium priority alerts",
-                    "tags": [
-                        "SEVERE",
-                        "SEV-1",
-                    ],
-                    "priority": "P3",
-                    "filters": [{
-                        "type": "match-all-conditions",
-                        "conditions": [{
-                            "field": "priority",
-                            "operation": "equals",
-                            "expected_value": "P2",
-                        }],
-                    }],
-                },
-                {
-                    "name": "Create alert with priority from message",
-                    "custom_priority": "{{message.substringAfter(\\"[custom]\\")}}",
-                    "filters": [{
-                        "type": "match-all-conditions",
-                        "conditions": [
-                            {
-                                "field": "tags",
-                                "operation": "contains",
-                                "expected_value": "P5",
-                            },
-                            {
-                                "field": "message",
-                                "operation": "starts-with",
-                                "expected_value": "[custom]",
-                            },
-                        ],
-                    }],
-                },
-            ],
-            closes=[{
-                "name": "Low priority alerts",
-                "filters": [{
-                    "type": "match-any-condition",
-                    "conditions": [
-                        {
-                            "field": "priority",
-                            "operation": "equals",
-                            "expected_value": "P5",
-                        },
-                        {
-                            "field": "message",
-                            "operation": "contains",
-                            "expected_value": "DEBUG",
-                        },
-                    ],
-                }],
-            }],
             acknowledges=[{
-                "name": "Auto-ack test alerts",
                 "filters": [{
-                    "type": "match-all-conditions",
                     "conditions": [
                         {
                             "field": "message",
@@ -505,26 +404,127 @@ class IntegrationAction(pulumi.CustomResource):
                             "expected_value": "P5",
                         },
                     ],
+                    "type": "match-all-conditions",
                 }],
+                "name": "Auto-ack test alerts",
             }],
             add_notes=[{
-                "name": "Add note to all alerts",
-                "note": "Created from test integration",
                 "filters": [{
                     "type": "match-all",
                 }],
+                "name": "Add note to all alerts",
+                "note": "Created from test integration",
             }],
-            ignores=[{
-                "name": "Ignore alerts with ignore tag",
+            closes=[{
                 "filters": [{
-                    "type": "match-all-conditions",
+                    "conditions": [
+                        {
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P5",
+                        },
+                        {
+                            "field": "message",
+                            "operation": "contains",
+                            "expected_value": "DEBUG",
+                        },
+                    ],
+                    "type": "match-any-condition",
+                }],
+                "name": "Low priority alerts",
+            }],
+            creates=[
+                {
+                    "filters": [{
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P1",
+                        }],
+                        "type": "match-all-conditions",
+                    }],
+                    "responders": [{
+                        "id": test["id"],
+                        "type": "team",
+                    }],
+                    "name": "create action",
+                    "tags": [
+                        "CRITICAL",
+                        "SEV-0",
+                    ],
+                    "user": "Example-service",
+                    "note": "{{note}}",
+                    "alias": "{{alias}}",
+                    "source": "{{source}}",
+                    "message": "{{message}}",
+                    "description": "{{description}}",
+                    "entity": "{{entity}}",
+                    "alert_actions": ["Runbook ID#342"],
+                },
+                {
+                    "filters": [{
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P1",
+                        }],
+                        "type": "match-all-conditions",
+                    }],
+                    "name": "create action with multiline description",
+                    "message": "{{message}}",
+                    "description": std.chomp(input=\"\"\"This
+        is a multiline
+        description.
+        \"\"\").result,
+                },
+                {
+                    "filters": [{
+                        "conditions": [{
+                            "field": "priority",
+                            "operation": "equals",
+                            "expected_value": "P2",
+                        }],
+                        "type": "match-all-conditions",
+                    }],
+                    "name": "Create medium priority alerts",
+                    "tags": [
+                        "SEVERE",
+                        "SEV-1",
+                    ],
+                    "priority": "P3",
+                },
+                {
+                    "filters": [{
+                        "conditions": [
+                            {
+                                "field": "tags",
+                                "operation": "contains",
+                                "expected_value": "P5",
+                            },
+                            {
+                                "field": "message",
+                                "operation": "starts-with",
+                                "expected_value": "[custom]",
+                            },
+                        ],
+                        "type": "match-all-conditions",
+                    }],
+                    "name": "Create alert with priority from message",
+                    "custom_priority": "{{message.substringAfter(\\"[custom]\\")}}",
+                },
+            ],
+            ignores=[{
+                "filters": [{
                     "conditions": [{
                         "field": "tags",
                         "operation": "contains",
                         "expected_value": "ignore",
                     }],
+                    "type": "match-all-conditions",
                 }],
-            }])
+                "name": "Ignore alerts with ignore tag",
+            }],
+            integration_id=test_opsgenie_api_integration["id"])
         ```
 
 
@@ -543,11 +543,11 @@ class IntegrationAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
-                 add_notes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
-                 closes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
-                 creates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
-                 ignores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
+                 acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict', 'outputs.IntegrationActionAcknowledge']]]]] = None,
+                 add_notes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict', 'outputs.IntegrationActionAddNote']]]]] = None,
+                 closes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict', 'outputs.IntegrationActionClose']]]]] = None,
+                 creates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict', 'outputs.IntegrationActionCreate']]]]] = None,
+                 ignores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict', 'outputs.IntegrationActionIgnore']]]]] = None,
                  integration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -576,11 +576,11 @@ class IntegrationAction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict']]]]] = None,
-            add_notes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict']]]]] = None,
-            closes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict']]]]] = None,
-            creates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict']]]]] = None,
-            ignores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict']]]]] = None,
+            acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict', 'outputs.IntegrationActionAcknowledge']]]]] = None,
+            add_notes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict', 'outputs.IntegrationActionAddNote']]]]] = None,
+            closes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict', 'outputs.IntegrationActionClose']]]]] = None,
+            creates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict', 'outputs.IntegrationActionCreate']]]]] = None,
+            ignores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict', 'outputs.IntegrationActionIgnore']]]]] = None,
             integration_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'IntegrationAction':
         """
         Get an existing IntegrationAction resource's state with the given name, id, and optional extra

@@ -79,7 +79,7 @@ class AwaitableGetTeamResult(GetTeamResult):
 
 
 def get_team(description: Optional[_builtins.str] = None,
-             members: Optional[Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict']]] = None,
+             members: Optional[Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict', 'outputs.GetTeamMemberResult']]] = None,
              name: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamResult:
     """
@@ -96,7 +96,7 @@ def get_team(description: Optional[_builtins.str] = None,
 
 
     :param _builtins.str description: A description for this team.
-    :param Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict']] members: A Member block as documented below.
+    :param Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict', 'outputs.GetTeamMemberResult']] members: A Member block as documented below.
     :param _builtins.str name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
            
            The following attributes are exported:
@@ -114,7 +114,7 @@ def get_team(description: Optional[_builtins.str] = None,
         members=pulumi.get(__ret__, 'members'),
         name=pulumi.get(__ret__, 'name'))
 def get_team_output(description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                    members: pulumi.Input[Optional[Optional[Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict']]]]] = None,
+                    members: pulumi.Input[Optional[Optional[Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict', 'outputs.GetTeamMemberResult']]]]] = None,
                     name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamResult]:
     """
@@ -131,7 +131,7 @@ def get_team_output(description: pulumi.Input[Optional[Optional[_builtins.str]]]
 
 
     :param _builtins.str description: A description for this team.
-    :param Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict']] members: A Member block as documented below.
+    :param Sequence[Union['GetTeamMemberArgs', 'GetTeamMemberArgsDict', 'outputs.GetTeamMemberResult']] members: A Member block as documented below.
     :param _builtins.str name: The name associated with this team. Opsgenie defines that this must not be longer than 100 characters.
            
            The following attributes are exported:

@@ -39,13 +39,8 @@ import (
 //				Filters: opsgenie.AlertPolicyFilterArray{
 //					&opsgenie.AlertPolicyFilterArgs{},
 //				},
-//				Name:              pulumi.String("example policy"),
-//				TeamId:            test.ID().ToIDOutput().ToStringOutput(),
-//				PolicyDescription: pulumi.String("This is sample policy"),
-//				Message:           pulumi.String("{{message}}"),
 //				TimeRestrictions: opsgenie.AlertPolicyTimeRestrictionArray{
 //					&opsgenie.AlertPolicyTimeRestrictionArgs{
-//						Type: pulumi.String("weekday-and-time-of-day"),
 //						RestrictionList: opsgenie.AlertPolicyTimeRestrictionRestrictionListArray{
 //							&opsgenie.AlertPolicyTimeRestrictionRestrictionListArgs{
 //								EndDay:    pulumi.String("monday"),
@@ -64,8 +59,13 @@ import (
 //								StartMin:  pulumi.Int(0),
 //							},
 //						},
+//						Type: pulumi.String("weekday-and-time-of-day"),
 //					},
 //				},
+//				Name:              pulumi.String("example policy"),
+//				TeamId:            test.ID().ToIDOutput().ToStringOutput(),
+//				PolicyDescription: pulumi.String("This is sample policy"),
+//				Message:           pulumi.String("{{message}}"),
 //			})
 //			if err != nil {
 //				return err

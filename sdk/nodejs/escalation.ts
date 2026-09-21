@@ -18,16 +18,16 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const _default = new opsgenie.Escalation("default", {
- *     name: "genieescalation",
  *     rules: [{
- *         condition: "if-not-acked",
- *         notifyType: "default",
- *         delay: 1,
  *         recipients: [{
  *             type: "user",
  *             id: test.id,
  *         }],
+ *         condition: "if-not-acked",
+ *         notifyType: "default",
+ *         delay: 1,
  *     }],
+ *     name: "genieescalation",
  * });
  * ```
  *
@@ -38,44 +38,44 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const _default = new opsgenie.Escalation("default", {
- *     name: "genieescalation",
- *     description: "test",
- *     ownerTeamId: testOpsgenieTeam.id,
- *     rules: [
- *         {
- *             condition: "if-not-acked",
- *             notifyType: "default",
- *             delay: 1,
- *             recipients: [{
- *                 type: "user",
- *                 id: test.id,
- *             }],
- *         },
- *         {
- *             condition: "if-not-acked",
- *             notifyType: "default",
- *             delay: 1,
- *             recipients: [{
- *                 type: "team",
- *                 id: testOpsgenieTeam.id,
- *             }],
- *         },
- *         {
- *             condition: "if-not-acked",
- *             notifyType: "default",
- *             delay: 1,
- *             recipients: [{
- *                 type: "schedule",
- *                 id: testOpsgenieSchedule.id,
- *             }],
- *         },
- *     ],
  *     repeats: [{
  *         waitInterval: 10,
  *         count: 1,
  *         resetRecipientStates: true,
  *         closeAlertAfterAll: false,
  *     }],
+ *     rules: [
+ *         {
+ *             recipients: [{
+ *                 type: "user",
+ *                 id: test.id,
+ *             }],
+ *             condition: "if-not-acked",
+ *             notifyType: "default",
+ *             delay: 1,
+ *         },
+ *         {
+ *             recipients: [{
+ *                 type: "team",
+ *                 id: testOpsgenieTeam.id,
+ *             }],
+ *             condition: "if-not-acked",
+ *             notifyType: "default",
+ *             delay: 1,
+ *         },
+ *         {
+ *             recipients: [{
+ *                 type: "schedule",
+ *                 id: testOpsgenieSchedule.id,
+ *             }],
+ *             condition: "if-not-acked",
+ *             notifyType: "default",
+ *             delay: 1,
+ *         },
+ *     ],
+ *     name: "genieescalation",
+ *     description: "test",
+ *     ownerTeamId: testOpsgenieTeam.id,
  * });
  * ```
  *

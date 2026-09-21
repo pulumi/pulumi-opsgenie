@@ -26,8 +26,6 @@ import * as utilities from "./utilities";
  *     role: "User",
  * });
  * const test = new opsgenie.Team("test", {
- *     name: "example",
- *     description: "This team deals with all the things",
  *     members: [
  *         {
  *             id: first.id,
@@ -38,6 +36,8 @@ import * as utilities from "./utilities";
  *             role: "user",
  *         },
  *     ],
+ *     name: "example",
+ *     description: "This team deals with all the things",
  * });
  * const self_service = new opsgenie.Team("self-service", {
  *     name: "Self Service",

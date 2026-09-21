@@ -24,14 +24,14 @@ import * as utilities from "./utilities";
  *     teamId: test.id,
  * });
  * const testIncidentTemplate = new opsgenie.IncidentTemplate("test", {
- *     name: "genietest-incident-template",
- *     message: "Incident Message",
- *     priority: "P2",
  *     stakeholderProperties: [{
  *         enable: true,
  *         message: "Stakeholder Message",
  *         description: "Stakeholder Description",
  *     }],
+ *     name: "genietest-incident-template",
+ *     message: "Incident Message",
+ *     priority: "P2",
  *     tags: [
  *         "tag1",
  *         "tag2",

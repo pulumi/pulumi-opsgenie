@@ -31,14 +31,6 @@ namespace Pulumi.Opsgenie
     /// 
     ///     var testNotificationRule = new Opsgenie.NotificationRule("test", new()
     ///     {
-    ///         Name = "Example notification rule",
-    ///         Username = test.Username,
-    ///         ActionType = "schedule-end",
-    ///         NotificationTimes = new[]
-    ///         {
-    ///             "just-before",
-    ///             "15-minutes-ago",
-    ///         },
     ///         Steps = new[]
     ///         {
     ///             new Opsgenie.Inputs.NotificationRuleStepArgs
@@ -52,6 +44,14 @@ namespace Pulumi.Opsgenie
     ///                     },
     ///                 },
     ///             },
+    ///         },
+    ///         Name = "Example notification rule",
+    ///         Username = test.Username,
+    ///         ActionType = "schedule-end",
+    ///         NotificationTimes = new[]
+    ///         {
+    ///             "just-before",
+    ///             "15-minutes-ago",
     ///         },
     ///     });
     /// 

@@ -30,13 +30,6 @@ namespace Pulumi.Opsgenie
     /// 
     ///     var testNotificationPolicy = new Opsgenie.NotificationPolicy("test", new()
     ///     {
-    ///         Filters = new[]
-    ///         {
-    ///             null,
-    ///         },
-    ///         Name = "example policy",
-    ///         TeamId = test.Id,
-    ///         PolicyDescription = "This policy has a delay action",
     ///         DelayActions = new[]
     ///         {
     ///             new Opsgenie.Inputs.NotificationPolicyDelayActionArgs
@@ -46,6 +39,13 @@ namespace Pulumi.Opsgenie
     ///                 UntilHour = 9,
     ///             },
     ///         },
+    ///         Filters = new[]
+    ///         {
+    ///             null,
+    ///         },
+    ///         Name = "example policy",
+    ///         TeamId = test.Id,
+    ///         PolicyDescription = "This policy has a delay action",
     ///     });
     /// 
     /// });

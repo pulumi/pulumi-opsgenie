@@ -401,7 +401,7 @@ class ApiIntegration(pulumi.CustomResource):
                  ignore_responders_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict', 'outputs.ApiIntegrationResponder']]]]] = None,
                  suppress_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  webhook_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -417,7 +417,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[_builtins.str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[_builtins.str] owner_team_id: Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict', 'outputs.ApiIntegrationResponder']]]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
         :param pulumi.Input[_builtins.bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[_builtins.str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[_builtins.str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.
@@ -454,7 +454,7 @@ class ApiIntegration(pulumi.CustomResource):
                  ignore_responders_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict', 'outputs.ApiIntegrationResponder']]]]] = None,
                  suppress_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  webhook_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -499,7 +499,7 @@ class ApiIntegration(pulumi.CustomResource):
             ignore_responders_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
-            responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]]] = None,
+            responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict', 'outputs.ApiIntegrationResponder']]]]] = None,
             suppress_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             webhook_url: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiIntegration':
@@ -516,7 +516,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] ignore_responders_from_payload: If enabled, the integration will ignore recipients sent in request payloads. Default: `false`.
         :param pulumi.Input[_builtins.str] name: Name of the integration. Name must be unique for each integration.
         :param pulumi.Input[_builtins.str] owner_team_id: Owner team id of the integration. If changed, this will recreate a new API integration, which will probably have a different API key.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict']]]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict', 'outputs.ApiIntegrationResponder']]]] responders: User, schedule, teams or escalation names to calculate which users will receive the notifications of the alert.
         :param pulumi.Input[_builtins.bool] suppress_notifications: If enabled, notifications that come from alerts will be suppressed. Default: `false`.
         :param pulumi.Input[_builtins.str] type: Type of the integration (API, Marid, Prometheus, etc). The full list of options can be found [here](https://docs.opsgenie.com/docs/integration-types-to-use-with-api).
         :param pulumi.Input[_builtins.str] webhook_url: It is required if type is `Webhook`. This is the url Opsgenie will be sending request to.

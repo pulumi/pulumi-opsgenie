@@ -21,6 +21,12 @@ import * as utilities from "./utilities";
  *     role: "User",
  * });
  * const testNotificationRule = new opsgenie.NotificationRule("test", {
+ *     steps: [{
+ *         contacts: [{
+ *             method: "email",
+ *             to: "example@user.com",
+ *         }],
+ *     }],
  *     name: "Example notification rule",
  *     username: test.username,
  *     actionType: "schedule-end",
@@ -28,12 +34,6 @@ import * as utilities from "./utilities";
  *         "just-before",
  *         "15-minutes-ago",
  *     ],
- *     steps: [{
- *         contacts: [{
- *             method: "email",
- *             to: "example@user.com",
- *         }],
- *     }],
  * });
  * ```
  *

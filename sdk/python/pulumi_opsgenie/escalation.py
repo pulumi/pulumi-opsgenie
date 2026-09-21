@@ -204,8 +204,8 @@ class Escalation(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]]] = None,
+                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict', 'outputs.EscalationRepeat']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict', 'outputs.EscalationRule']]]]] = None,
                  __props__=None):
         """
         Manages an Escalation within Opsgenie.
@@ -219,16 +219,16 @@ class Escalation(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         default = opsgenie.Escalation("default",
-            name="genieescalation",
             rules=[{
-                "condition": "if-not-acked",
-                "notify_type": "default",
-                "delay": 1,
                 "recipients": [{
                     "type": "user",
                     "id": test["id"],
                 }],
-            }])
+                "condition": "if-not-acked",
+                "notify_type": "default",
+                "delay": 1,
+            }],
+            name="genieescalation")
         ```
 
         An escalation with a multiple rules
@@ -238,44 +238,44 @@ class Escalation(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         default = opsgenie.Escalation("default",
-            name="genieescalation",
-            description="test",
-            owner_team_id=test_opsgenie_team["id"],
-            rules=[
-                {
-                    "condition": "if-not-acked",
-                    "notify_type": "default",
-                    "delay": 1,
-                    "recipients": [{
-                        "type": "user",
-                        "id": test["id"],
-                    }],
-                },
-                {
-                    "condition": "if-not-acked",
-                    "notify_type": "default",
-                    "delay": 1,
-                    "recipients": [{
-                        "type": "team",
-                        "id": test_opsgenie_team["id"],
-                    }],
-                },
-                {
-                    "condition": "if-not-acked",
-                    "notify_type": "default",
-                    "delay": 1,
-                    "recipients": [{
-                        "type": "schedule",
-                        "id": test_opsgenie_schedule["id"],
-                    }],
-                },
-            ],
             repeats=[{
                 "wait_interval": 10,
                 "count": 1,
                 "reset_recipient_states": True,
                 "close_alert_after_all": False,
-            }])
+            }],
+            rules=[
+                {
+                    "recipients": [{
+                        "type": "user",
+                        "id": test["id"],
+                    }],
+                    "condition": "if-not-acked",
+                    "notify_type": "default",
+                    "delay": 1,
+                },
+                {
+                    "recipients": [{
+                        "type": "team",
+                        "id": test_opsgenie_team["id"],
+                    }],
+                    "condition": "if-not-acked",
+                    "notify_type": "default",
+                    "delay": 1,
+                },
+                {
+                    "recipients": [{
+                        "type": "schedule",
+                        "id": test_opsgenie_schedule["id"],
+                    }],
+                    "condition": "if-not-acked",
+                    "notify_type": "default",
+                    "delay": 1,
+                },
+            ],
+            name="genieescalation",
+            description="test",
+            owner_team_id=test_opsgenie_team["id"])
         ```
 
         ## Import
@@ -290,8 +290,8 @@ class Escalation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the escalation.
         :param pulumi.Input[_builtins.str] name: Name of the escalation.
         :param pulumi.Input[_builtins.str] owner_team_id: Owner team id of the escalation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]] rules: List of the escalation rules. See below for how rules are defined.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict', 'outputs.EscalationRepeat']]]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict', 'outputs.EscalationRule']]]] rules: List of the escalation rules. See below for how rules are defined.
         """
         ...
     @overload
@@ -311,16 +311,16 @@ class Escalation(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         default = opsgenie.Escalation("default",
-            name="genieescalation",
             rules=[{
-                "condition": "if-not-acked",
-                "notify_type": "default",
-                "delay": 1,
                 "recipients": [{
                     "type": "user",
                     "id": test["id"],
                 }],
-            }])
+                "condition": "if-not-acked",
+                "notify_type": "default",
+                "delay": 1,
+            }],
+            name="genieescalation")
         ```
 
         An escalation with a multiple rules
@@ -330,44 +330,44 @@ class Escalation(pulumi.CustomResource):
         import pulumi_opsgenie as opsgenie
 
         default = opsgenie.Escalation("default",
-            name="genieescalation",
-            description="test",
-            owner_team_id=test_opsgenie_team["id"],
-            rules=[
-                {
-                    "condition": "if-not-acked",
-                    "notify_type": "default",
-                    "delay": 1,
-                    "recipients": [{
-                        "type": "user",
-                        "id": test["id"],
-                    }],
-                },
-                {
-                    "condition": "if-not-acked",
-                    "notify_type": "default",
-                    "delay": 1,
-                    "recipients": [{
-                        "type": "team",
-                        "id": test_opsgenie_team["id"],
-                    }],
-                },
-                {
-                    "condition": "if-not-acked",
-                    "notify_type": "default",
-                    "delay": 1,
-                    "recipients": [{
-                        "type": "schedule",
-                        "id": test_opsgenie_schedule["id"],
-                    }],
-                },
-            ],
             repeats=[{
                 "wait_interval": 10,
                 "count": 1,
                 "reset_recipient_states": True,
                 "close_alert_after_all": False,
-            }])
+            }],
+            rules=[
+                {
+                    "recipients": [{
+                        "type": "user",
+                        "id": test["id"],
+                    }],
+                    "condition": "if-not-acked",
+                    "notify_type": "default",
+                    "delay": 1,
+                },
+                {
+                    "recipients": [{
+                        "type": "team",
+                        "id": test_opsgenie_team["id"],
+                    }],
+                    "condition": "if-not-acked",
+                    "notify_type": "default",
+                    "delay": 1,
+                },
+                {
+                    "recipients": [{
+                        "type": "schedule",
+                        "id": test_opsgenie_schedule["id"],
+                    }],
+                    "condition": "if-not-acked",
+                    "notify_type": "default",
+                    "delay": 1,
+                },
+            ],
+            name="genieescalation",
+            description="test",
+            owner_team_id=test_opsgenie_team["id"])
         ```
 
         ## Import
@@ -395,8 +395,8 @@ class Escalation(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]]] = None,
+                 repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict', 'outputs.EscalationRepeat']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict', 'outputs.EscalationRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -426,8 +426,8 @@ class Escalation(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
-            repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]]] = None) -> 'Escalation':
+            repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict', 'outputs.EscalationRepeat']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict', 'outputs.EscalationRule']]]]] = None) -> 'Escalation':
         """
         Get an existing Escalation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -438,8 +438,8 @@ class Escalation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the escalation.
         :param pulumi.Input[_builtins.str] name: Name of the escalation.
         :param pulumi.Input[_builtins.str] owner_team_id: Owner team id of the escalation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict']]]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict']]]] rules: List of the escalation rules. See below for how rules are defined.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationRepeatArgs', 'EscalationRepeatArgsDict', 'outputs.EscalationRepeat']]]] repeats: Repeat preferences of the escalation including repeat interval, count, reverting acknowledge and seen states back and closing an alert automatically as soon as repeats are completed
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationRuleArgs', 'EscalationRuleArgsDict', 'outputs.EscalationRule']]]] rules: List of the escalation rules. See below for how rules are defined.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

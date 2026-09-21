@@ -26,111 +26,8 @@ import * as utilities from "./utilities";
  * import * as std from "@pulumi/std";
  *
  * const testAction = new opsgenie.IntegrationAction("test_action", {
- *     integrationId: testOpsgenieApiIntegration.id,
- *     creates: [
- *         {
- *             name: "create action",
- *             tags: [
- *                 "CRITICAL",
- *                 "SEV-0",
- *             ],
- *             user: "Example-service",
- *             note: "{{note}}",
- *             alias: "{{alias}}",
- *             source: "{{source}}",
- *             message: "{{message}}",
- *             description: "{{description}}",
- *             entity: "{{entity}}",
- *             alertActions: ["Runbook ID#342"],
- *             filters: [{
- *                 type: "match-all-conditions",
- *                 conditions: [{
- *                     field: "priority",
- *                     operation: "equals",
- *                     expectedValue: "P1",
- *                 }],
- *             }],
- *             responders: [{
- *                 id: test.id,
- *                 type: "team",
- *             }],
- *         },
- *         {
- *             name: "create action with multiline description",
- *             message: "{{message}}",
- *             description: std.chomp({
- *                 input: `This
- * is a multiline
- * description.
- * `,
- *             }).then(invoke => invoke.result),
- *             filters: [{
- *                 type: "match-all-conditions",
- *                 conditions: [{
- *                     field: "priority",
- *                     operation: "equals",
- *                     expectedValue: "P1",
- *                 }],
- *             }],
- *         },
- *         {
- *             name: "Create medium priority alerts",
- *             tags: [
- *                 "SEVERE",
- *                 "SEV-1",
- *             ],
- *             priority: "P3",
- *             filters: [{
- *                 type: "match-all-conditions",
- *                 conditions: [{
- *                     field: "priority",
- *                     operation: "equals",
- *                     expectedValue: "P2",
- *                 }],
- *             }],
- *         },
- *         {
- *             name: "Create alert with priority from message",
- *             customPriority: "{{message.substringAfter(\"[custom]\")}}",
- *             filters: [{
- *                 type: "match-all-conditions",
- *                 conditions: [
- *                     {
- *                         field: "tags",
- *                         operation: "contains",
- *                         expectedValue: "P5",
- *                     },
- *                     {
- *                         field: "message",
- *                         operation: "starts-with",
- *                         expectedValue: "[custom]",
- *                     },
- *                 ],
- *             }],
- *         },
- *     ],
- *     closes: [{
- *         name: "Low priority alerts",
- *         filters: [{
- *             type: "match-any-condition",
- *             conditions: [
- *                 {
- *                     field: "priority",
- *                     operation: "equals",
- *                     expectedValue: "P5",
- *                 },
- *                 {
- *                     field: "message",
- *                     operation: "contains",
- *                     expectedValue: "DEBUG",
- *                 },
- *             ],
- *         }],
- *     }],
  *     acknowledges: [{
- *         name: "Auto-ack test alerts",
  *         filters: [{
- *             type: "match-all-conditions",
  *             conditions: [
  *                 {
  *                     field: "message",
@@ -144,26 +41,129 @@ import * as utilities from "./utilities";
  *                     expectedValue: "P5",
  *                 },
  *             ],
+ *             type: "match-all-conditions",
  *         }],
+ *         name: "Auto-ack test alerts",
  *     }],
  *     addNotes: [{
- *         name: "Add note to all alerts",
- *         note: "Created from test integration",
  *         filters: [{
  *             type: "match-all",
  *         }],
+ *         name: "Add note to all alerts",
+ *         note: "Created from test integration",
  *     }],
- *     ignores: [{
- *         name: "Ignore alerts with ignore tag",
+ *     closes: [{
  *         filters: [{
- *             type: "match-all-conditions",
+ *             conditions: [
+ *                 {
+ *                     field: "priority",
+ *                     operation: "equals",
+ *                     expectedValue: "P5",
+ *                 },
+ *                 {
+ *                     field: "message",
+ *                     operation: "contains",
+ *                     expectedValue: "DEBUG",
+ *                 },
+ *             ],
+ *             type: "match-any-condition",
+ *         }],
+ *         name: "Low priority alerts",
+ *     }],
+ *     creates: [
+ *         {
+ *             filters: [{
+ *                 conditions: [{
+ *                     field: "priority",
+ *                     operation: "equals",
+ *                     expectedValue: "P1",
+ *                 }],
+ *                 type: "match-all-conditions",
+ *             }],
+ *             responders: [{
+ *                 id: test.id,
+ *                 type: "team",
+ *             }],
+ *             name: "create action",
+ *             tags: [
+ *                 "CRITICAL",
+ *                 "SEV-0",
+ *             ],
+ *             user: "Example-service",
+ *             note: "{{note}}",
+ *             alias: "{{alias}}",
+ *             source: "{{source}}",
+ *             message: "{{message}}",
+ *             description: "{{description}}",
+ *             entity: "{{entity}}",
+ *             alertActions: ["Runbook ID#342"],
+ *         },
+ *         {
+ *             filters: [{
+ *                 conditions: [{
+ *                     field: "priority",
+ *                     operation: "equals",
+ *                     expectedValue: "P1",
+ *                 }],
+ *                 type: "match-all-conditions",
+ *             }],
+ *             name: "create action with multiline description",
+ *             message: "{{message}}",
+ *             description: std.chomp({
+ *                 input: `This
+ * is a multiline
+ * description.
+ * `,
+ *             }).then(invoke => invoke.result),
+ *         },
+ *         {
+ *             filters: [{
+ *                 conditions: [{
+ *                     field: "priority",
+ *                     operation: "equals",
+ *                     expectedValue: "P2",
+ *                 }],
+ *                 type: "match-all-conditions",
+ *             }],
+ *             name: "Create medium priority alerts",
+ *             tags: [
+ *                 "SEVERE",
+ *                 "SEV-1",
+ *             ],
+ *             priority: "P3",
+ *         },
+ *         {
+ *             filters: [{
+ *                 conditions: [
+ *                     {
+ *                         field: "tags",
+ *                         operation: "contains",
+ *                         expectedValue: "P5",
+ *                     },
+ *                     {
+ *                         field: "message",
+ *                         operation: "starts-with",
+ *                         expectedValue: "[custom]",
+ *                     },
+ *                 ],
+ *                 type: "match-all-conditions",
+ *             }],
+ *             name: "Create alert with priority from message",
+ *             customPriority: "{{message.substringAfter(\"[custom]\")}}",
+ *         },
+ *     ],
+ *     ignores: [{
+ *         filters: [{
  *             conditions: [{
  *                 field: "tags",
  *                 operation: "contains",
  *                 expectedValue: "ignore",
  *             }],
+ *             type: "match-all-conditions",
  *         }],
+ *         name: "Ignore alerts with ignore tag",
  *     }],
+ *     integrationId: testOpsgenieApiIntegration.id,
  * });
  * ```
  */

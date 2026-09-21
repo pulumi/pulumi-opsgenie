@@ -104,7 +104,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 incident_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
+                 incident_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict', 'outputs.ServiceIncidentRuleIncidentRule']]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -123,9 +123,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
             name="example-service",
             team_id=test.id)
         test_service_incident_rule = opsgenie.ServiceIncidentRule("test",
-            service_id=test_service.id,
             incident_rules=[{
-                "condition_match_type": "match-any-condition",
                 "conditions": [
                     {
                         "field": "message",
@@ -141,14 +139,16 @@ class ServiceIncidentRule(pulumi.CustomResource):
                     },
                 ],
                 "incident_properties": [{
-                    "message": "This is a test message",
-                    "priority": "P3",
                     "stakeholder_properties": [{
                         "message": "Message for stakeholders",
                         "enable": True,
                     }],
+                    "message": "This is a test message",
+                    "priority": "P3",
                 }],
-            }])
+                "condition_match_type": "match-any-condition",
+            }],
+            service_id=test_service.id)
         ```
 
         ## Import
@@ -160,7 +160,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict', 'outputs.ServiceIncidentRuleIncidentRule']]]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.str] service_id: ID of the service associated
         """
         ...
@@ -185,9 +185,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
             name="example-service",
             team_id=test.id)
         test_service_incident_rule = opsgenie.ServiceIncidentRule("test",
-            service_id=test_service.id,
             incident_rules=[{
-                "condition_match_type": "match-any-condition",
                 "conditions": [
                     {
                         "field": "message",
@@ -203,14 +201,16 @@ class ServiceIncidentRule(pulumi.CustomResource):
                     },
                 ],
                 "incident_properties": [{
-                    "message": "This is a test message",
-                    "priority": "P3",
                     "stakeholder_properties": [{
                         "message": "Message for stakeholders",
                         "enable": True,
                     }],
+                    "message": "This is a test message",
+                    "priority": "P3",
                 }],
-            }])
+                "condition_match_type": "match-any-condition",
+            }],
+            service_id=test_service.id)
         ```
 
         ## Import
@@ -235,7 +235,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 incident_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
+                 incident_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict', 'outputs.ServiceIncidentRuleIncidentRule']]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -262,7 +262,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            incident_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]]] = None,
+            incident_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict', 'outputs.ServiceIncidentRuleIncidentRule']]]]] = None,
             service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceIncidentRule':
         """
         Get an existing ServiceIncidentRule resource's state with the given name, id, and optional extra
@@ -271,7 +271,7 @@ class ServiceIncidentRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict']]]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceIncidentRuleIncidentRuleArgs', 'ServiceIncidentRuleIncidentRuleArgsDict', 'outputs.ServiceIncidentRuleIncidentRule']]]] incident_rules: This is the rule configuration for this incident rule. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.str] service_id: ID of the service associated
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -46,6 +46,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var test = new User("test", UserArgs.builder()
+ *             .userAddresses(UserUserAddressArgs.builder()
+ *                 .country("Country")
+ *                 .state("State")
+ *                 .city("City")
+ *                 .line("Line")
+ *                 .zipcode("998877")
+ *                 .build())
  *             .username("user}{@literal @}{@code domain.com")
  *             .fullName("Test User")
  *             .role("User")
@@ -55,13 +62,6 @@ import javax.annotation.Nullable;
  *                 "sre",
  *                 "opsgenie")
  *             .skypeUsername("skypename")
- *             .userAddresses(UserUserAddressArgs.builder()
- *                 .country("Country")
- *                 .state("State")
- *                 .city("City")
- *                 .line("Line")
- *                 .zipcode("998877")
- *                 .build())
  *             .userDetails(Map.ofEntries(
  *                 Map.entry("key1", "val1,val2"),
  *                 Map.entry("key2", "val3,val4")

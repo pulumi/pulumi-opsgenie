@@ -36,9 +36,6 @@ namespace Pulumi.Opsgenie
     /// 
     ///     var testIncidentTemplate = new Opsgenie.IncidentTemplate("test", new()
     ///     {
-    ///         Name = "genietest-incident-template",
-    ///         Message = "Incident Message",
-    ///         Priority = "P2",
     ///         StakeholderProperties = new[]
     ///         {
     ///             new Opsgenie.Inputs.IncidentTemplateStakeholderPropertyArgs
@@ -48,6 +45,9 @@ namespace Pulumi.Opsgenie
     ///                 Description = "Stakeholder Description",
     ///             },
     ///         },
+    ///         Name = "genietest-incident-template",
+    ///         Message = "Incident Message",
+    ///         Priority = "P2",
     ///         Tags = new[]
     ///         {
     ///             "tag1",

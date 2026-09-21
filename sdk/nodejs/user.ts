@@ -16,6 +16,13 @@ import * as utilities from "./utilities";
  * import * as opsgenie from "@pulumi/opsgenie";
  *
  * const test = new opsgenie.User("test", {
+ *     userAddresses: [{
+ *         country: "Country",
+ *         state: "State",
+ *         city: "City",
+ *         line: "Line",
+ *         zipcode: "998877",
+ *     }],
  *     username: "user@domain.com",
  *     fullName: "Test User",
  *     role: "User",
@@ -26,13 +33,6 @@ import * as utilities from "./utilities";
  *         "opsgenie",
  *     ],
  *     skypeUsername: "skypename",
- *     userAddresses: [{
- *         country: "Country",
- *         state: "State",
- *         city: "City",
- *         line: "Line",
- *         zipcode: "998877",
- *     }],
  *     userDetails: {
  *         key1: "val1,val2",
  *         key2: "val3,val4",

@@ -137,8 +137,8 @@ class Maintenance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]]] = None,
-                 times: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict', 'outputs.MaintenanceRule']]]]] = None,
+                 times: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict', 'outputs.MaintenanceTime']]]]] = None,
                  __props__=None):
         """
         Manages a Maintenance within Opsgenie.
@@ -147,8 +147,8 @@ class Maintenance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the maintenance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]] rules: Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]] times: Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict', 'outputs.MaintenanceRule']]]] rules: Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict', 'outputs.MaintenanceTime']]]] times: Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
         """
         ...
     @overload
@@ -176,8 +176,8 @@ class Maintenance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]]] = None,
-                 times: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict', 'outputs.MaintenanceRule']]]]] = None,
+                 times: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict', 'outputs.MaintenanceTime']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,8 +205,8 @@ class Maintenance(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]]] = None,
-            times: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]]] = None) -> 'Maintenance':
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict', 'outputs.MaintenanceRule']]]]] = None,
+            times: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict', 'outputs.MaintenanceTime']]]]] = None) -> 'Maintenance':
         """
         Get an existing Maintenance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -215,8 +215,8 @@ class Maintenance(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the maintenance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict']]]] rules: Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict']]]] times: Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceRuleArgs', 'MaintenanceRuleArgsDict', 'outputs.MaintenanceRule']]]] rules: Rules of maintenance, which takes a list of rule objects and defines the maintenance rules over integrations and policies.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceTimeArgs', 'MaintenanceTimeArgsDict', 'outputs.MaintenanceTime']]]] times: Time configuration of maintenance. It takes a time object which has type, startDate and endDate fields
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -60,14 +60,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testIncidentTemplate = new IncidentTemplate("testIncidentTemplate", IncidentTemplateArgs.builder()
- *             .name("genietest-incident-template")
- *             .message("Incident Message")
- *             .priority("P2")
  *             .stakeholderProperties(IncidentTemplateStakeholderPropertyArgs.builder()
  *                 .enable(true)
  *                 .message("Stakeholder Message")
  *                 .description("Stakeholder Description")
  *                 .build())
+ *             .name("genietest-incident-template")
+ *             .message("Incident Message")
+ *             .priority("P2")
  *             .tags(            
  *                 "tag1",
  *                 "tag2")

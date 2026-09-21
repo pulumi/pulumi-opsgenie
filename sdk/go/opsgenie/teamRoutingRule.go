@@ -45,13 +45,8 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewTeamRoutingRule(ctx, "test", &opsgenie.TeamRoutingRuleArgs{
-//				Name:     pulumi.String("routing rule example"),
-//				TeamId:   testTeam.ID().ToIDOutput().ToStringOutput(),
-//				Order:    pulumi.Int(0),
-//				Timezone: pulumi.String("America/Los_Angeles"),
 //				Criterias: opsgenie.TeamRoutingRuleCriteriaArray{
 //					&opsgenie.TeamRoutingRuleCriteriaArgs{
-//						Type: pulumi.String("match-any-condition"),
 //						Conditions: opsgenie.TeamRoutingRuleCriteriaConditionArray{
 //							&opsgenie.TeamRoutingRuleCriteriaConditionArgs{
 //								Field:         pulumi.String("message"),
@@ -60,11 +55,17 @@ import (
 //								Not:           pulumi.Bool(false),
 //							},
 //						},
+//						Type: pulumi.String("match-any-condition"),
+//					},
+//				},
+//				Notifies: opsgenie.TeamRoutingRuleNotifyArray{
+//					&opsgenie.TeamRoutingRuleNotifyArgs{
+//						Name: test.Name,
+//						Type: pulumi.String("schedule"),
 //					},
 //				},
 //				TimeRestrictions: opsgenie.TeamRoutingRuleTimeRestrictionArray{
 //					&opsgenie.TeamRoutingRuleTimeRestrictionArgs{
-//						Type: pulumi.String("weekday-and-time-of-day"),
 //						RestrictionList: opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArray{
 //							&opsgenie.TeamRoutingRuleTimeRestrictionRestrictionListArgs{
 //								StartDay:  pulumi.String("monday"),
@@ -75,14 +76,13 @@ import (
 //								EndMin:    pulumi.Int(30),
 //							},
 //						},
+//						Type: pulumi.String("weekday-and-time-of-day"),
 //					},
 //				},
-//				Notifies: opsgenie.TeamRoutingRuleNotifyArray{
-//					&opsgenie.TeamRoutingRuleNotifyArgs{
-//						Name: test.Name,
-//						Type: pulumi.String("schedule"),
-//					},
-//				},
+//				Name:     pulumi.String("routing rule example"),
+//				TeamId:   testTeam.ID().ToIDOutput().ToStringOutput(),
+//				Order:    pulumi.Int(0),
+//				Timezone: pulumi.String("America/Los_Angeles"),
 //			})
 //			if err != nil {
 //				return err

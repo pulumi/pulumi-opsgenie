@@ -60,18 +60,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testNotificationRule = new NotificationRule("testNotificationRule", NotificationRuleArgs.builder()
- *             .name("Example notification rule")
- *             .username(test.username())
- *             .actionType("schedule-end")
- *             .notificationTimes(            
- *                 "just-before",
- *                 "15-minutes-ago")
  *             .steps(NotificationRuleStepArgs.builder()
  *                 .contacts(NotificationRuleStepContactArgs.builder()
  *                     .method("email")
  *                     .to("example}{@literal @}{@code user.com")
  *                     .build())
  *                 .build())
+ *             .name("Example notification rule")
+ *             .username(test.username())
+ *             .actionType("schedule-end")
+ *             .notificationTimes(            
+ *                 "just-before",
+ *                 "15-minutes-ago")
  *             .build());
  * 
  *     }}{@code

@@ -392,17 +392,17 @@ class NotificationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_close_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict']]]]] = None,
-                 auto_restart_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict']]]]] = None,
-                 de_duplication_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict']]]]] = None,
-                 delay_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict']]]]] = None,
+                 auto_close_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict', 'outputs.NotificationPolicyAutoCloseAction']]]]] = None,
+                 auto_restart_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict', 'outputs.NotificationPolicyAutoRestartAction']]]]] = None,
+                 de_duplication_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict', 'outputs.NotificationPolicyDeDuplicationAction']]]]] = None,
+                 delay_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict', 'outputs.NotificationPolicyDelayAction']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict', 'outputs.NotificationPolicyFilter']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_description: pulumi.Input[Optional[_builtins.str]] = None,
                  suppress: pulumi.Input[Optional[_builtins.bool]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict']]]]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict', 'outputs.NotificationPolicyTimeRestriction']]]]] = None,
                  __props__=None):
         """
         Manages a Notification Policy within Opsgenie.
@@ -417,15 +417,15 @@ class NotificationPolicy(pulumi.CustomResource):
             name="example team",
             description="This team deals with all the things")
         test_notification_policy = opsgenie.NotificationPolicy("test",
-            filters=[{}],
-            name="example policy",
-            team_id=test.id,
-            policy_description="This policy has a delay action",
             delay_actions=[{
                 "delay_option": "next-time",
                 "until_minute": 1,
                 "until_hour": 9,
-            }])
+            }],
+            filters=[{}],
+            name="example policy",
+            team_id=test.id,
+            policy_description="This policy has a delay action")
         ```
 
         ## Import
@@ -437,17 +437,17 @@ class NotificationPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict']]]] auto_close_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict']]]] auto_restart_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict']]]] de_duplication_actions: Deduplication Action of the policy. This is a block, structure is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict']]]] delay_actions: Delay notifications. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict', 'outputs.NotificationPolicyAutoCloseAction']]]] auto_close_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict', 'outputs.NotificationPolicyAutoRestartAction']]]] auto_restart_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict', 'outputs.NotificationPolicyDeDuplicationAction']]]] de_duplication_actions: Deduplication Action of the policy. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict', 'outputs.NotificationPolicyDelayAction']]]] delay_actions: Delay notifications. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.bool] enabled: If policy should be enabled. Default: `true`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict']]]] filters: A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict', 'outputs.NotificationPolicyFilter']]]] filters: A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.str] name: Name of the notification policy
         :param pulumi.Input[_builtins.str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[_builtins.bool] suppress: Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         :param pulumi.Input[_builtins.str] team_id: Id of team that this policy belons to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict', 'outputs.NotificationPolicyTimeRestriction']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
         ...
     @overload
@@ -468,15 +468,15 @@ class NotificationPolicy(pulumi.CustomResource):
             name="example team",
             description="This team deals with all the things")
         test_notification_policy = opsgenie.NotificationPolicy("test",
-            filters=[{}],
-            name="example policy",
-            team_id=test.id,
-            policy_description="This policy has a delay action",
             delay_actions=[{
                 "delay_option": "next-time",
                 "until_minute": 1,
                 "until_hour": 9,
-            }])
+            }],
+            filters=[{}],
+            name="example policy",
+            team_id=test.id,
+            policy_description="This policy has a delay action")
         ```
 
         ## Import
@@ -501,17 +501,17 @@ class NotificationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_close_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict']]]]] = None,
-                 auto_restart_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict']]]]] = None,
-                 de_duplication_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict']]]]] = None,
-                 delay_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict']]]]] = None,
+                 auto_close_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict', 'outputs.NotificationPolicyAutoCloseAction']]]]] = None,
+                 auto_restart_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict', 'outputs.NotificationPolicyAutoRestartAction']]]]] = None,
+                 de_duplication_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict', 'outputs.NotificationPolicyDeDuplicationAction']]]]] = None,
+                 delay_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict', 'outputs.NotificationPolicyDelayAction']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict', 'outputs.NotificationPolicyFilter']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_description: pulumi.Input[Optional[_builtins.str]] = None,
                  suppress: pulumi.Input[Optional[_builtins.bool]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict']]]]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict', 'outputs.NotificationPolicyTimeRestriction']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -546,17 +546,17 @@ class NotificationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_close_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict']]]]] = None,
-            auto_restart_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict']]]]] = None,
-            de_duplication_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict']]]]] = None,
-            delay_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict']]]]] = None,
+            auto_close_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict', 'outputs.NotificationPolicyAutoCloseAction']]]]] = None,
+            auto_restart_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict', 'outputs.NotificationPolicyAutoRestartAction']]]]] = None,
+            de_duplication_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict', 'outputs.NotificationPolicyDeDuplicationAction']]]]] = None,
+            delay_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict', 'outputs.NotificationPolicyDelayAction']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict']]]]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict', 'outputs.NotificationPolicyFilter']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             policy_description: pulumi.Input[Optional[_builtins.str]] = None,
             suppress: pulumi.Input[Optional[_builtins.bool]] = None,
             team_id: pulumi.Input[Optional[_builtins.str]] = None,
-            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict']]]]] = None) -> 'NotificationPolicy':
+            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict', 'outputs.NotificationPolicyTimeRestriction']]]]] = None) -> 'NotificationPolicy':
         """
         Get an existing NotificationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -564,17 +564,17 @@ class NotificationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict']]]] auto_close_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict']]]] auto_restart_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict']]]] de_duplication_actions: Deduplication Action of the policy. This is a block, structure is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict']]]] delay_actions: Delay notifications. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict', 'outputs.NotificationPolicyAutoCloseAction']]]] auto_close_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict', 'outputs.NotificationPolicyAutoRestartAction']]]] auto_restart_actions: Auto Restart Action of the policy. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict', 'outputs.NotificationPolicyDeDuplicationAction']]]] de_duplication_actions: Deduplication Action of the policy. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict', 'outputs.NotificationPolicyDelayAction']]]] delay_actions: Delay notifications. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.bool] enabled: If policy should be enabled. Default: `true`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict']]]] filters: A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict', 'outputs.NotificationPolicyFilter']]]] filters: A notification filter which will be applied. This filter can be empty: `filter {}` - this means `match-all`. This is a block, structure is documented below.
         :param pulumi.Input[_builtins.str] name: Name of the notification policy
         :param pulumi.Input[_builtins.str] policy_description: Description of the policy. This can be max 512 characters.
         :param pulumi.Input[_builtins.bool] suppress: Suppress value of the policy. Values are: `true`, `false`. Default: `false`
         :param pulumi.Input[_builtins.str] team_id: Id of team that this policy belons to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict', 'outputs.NotificationPolicyTimeRestriction']]]] time_restrictions: Time restrictions specified in this field must be met for this policy to work. This is a block, structure is documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

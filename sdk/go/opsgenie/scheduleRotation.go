@@ -29,12 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewScheduleRotation(ctx, "test", &opsgenie.ScheduleRotationArgs{
-//				ScheduleId: pulumi.Any(testOpsgenieSchedule.Id),
-//				Name:       pulumi.String("test"),
-//				StartDate:  pulumi.String("2019-06-18T17:00:00Z"),
-//				EndDate:    pulumi.String("2019-06-20T17:30:00Z"),
-//				Type:       pulumi.String("hourly"),
-//				Length:     pulumi.Int(6),
 //				Participants: opsgenie.ScheduleRotationParticipantArray{
 //					&opsgenie.ScheduleRotationParticipantArgs{
 //						Type: pulumi.String("user"),
@@ -43,7 +37,6 @@ import (
 //				},
 //				TimeRestrictions: opsgenie.ScheduleRotationTimeRestrictionArray{
 //					&opsgenie.ScheduleRotationTimeRestrictionArgs{
-//						Type: pulumi.String("time-of-day"),
 //						Restriction: opsgenie.ScheduleRotationTimeRestrictionRestrictionArray{
 //							&opsgenie.ScheduleRotationTimeRestrictionRestrictionArgs{
 //								StartHour: pulumi.Int(1),
@@ -52,8 +45,15 @@ import (
 //								EndMin:    pulumi.Int(1),
 //							},
 //						},
+//						Type: pulumi.String("time-of-day"),
 //					},
 //				},
+//				ScheduleId: pulumi.Any(testOpsgenieSchedule.Id),
+//				Name:       pulumi.String("test"),
+//				StartDate:  pulumi.String("2019-06-18T17:00:00Z"),
+//				EndDate:    pulumi.String("2019-06-20T17:30:00Z"),
+//				Type:       pulumi.String("hourly"),
+//				Length:     pulumi.Int(6),
 //			})
 //			if err != nil {
 //				return err

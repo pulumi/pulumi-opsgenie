@@ -40,9 +40,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.opsgenie.TeamRoutingRuleArgs;
  * import com.pulumi.opsgenie.inputs.TeamRoutingRuleCriteriaArgs;
  * import com.pulumi.opsgenie.inputs.TeamRoutingRuleCriteriaConditionArgs;
+ * import com.pulumi.opsgenie.inputs.TeamRoutingRuleNotifyArgs;
  * import com.pulumi.opsgenie.inputs.TeamRoutingRuleTimeRestrictionArgs;
  * import com.pulumi.opsgenie.inputs.TeamRoutingRuleTimeRestrictionRestrictionListArgs;
- * import com.pulumi.opsgenie.inputs.TeamRoutingRuleNotifyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -69,21 +69,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testTeamRoutingRule = new TeamRoutingRule("testTeamRoutingRule", TeamRoutingRuleArgs.builder()
- *             .name("routing rule example")
- *             .teamId(testTeam.id())
- *             .order(0)
- *             .timezone("America/Los_Angeles")
  *             .criterias(TeamRoutingRuleCriteriaArgs.builder()
- *                 .type("match-any-condition")
  *                 .conditions(TeamRoutingRuleCriteriaConditionArgs.builder()
  *                     .field("message")
  *                     .operation("contains")
  *                     .expectedValue("expected1")
  *                     .not(false)
  *                     .build())
+ *                 .type("match-any-condition")
+ *                 .build())
+ *             .notifies(TeamRoutingRuleNotifyArgs.builder()
+ *                 .name(test.name())
+ *                 .type("schedule")
  *                 .build())
  *             .timeRestrictions(TeamRoutingRuleTimeRestrictionArgs.builder()
- *                 .type("weekday-and-time-of-day")
  *                 .restrictionList(TeamRoutingRuleTimeRestrictionRestrictionListArgs.builder()
  *                     .startDay("monday")
  *                     .startHour(8)
@@ -92,11 +91,12 @@ import javax.annotation.Nullable;
  *                     .endHour(18)
  *                     .endMin(30)
  *                     .build())
+ *                 .type("weekday-and-time-of-day")
  *                 .build())
- *             .notifies(TeamRoutingRuleNotifyArgs.builder()
- *                 .name(test.name())
- *                 .type("schedule")
- *                 .build())
+ *             .name("routing rule example")
+ *             .teamId(testTeam.id())
+ *             .order(0)
+ *             .timezone("America/Los_Angeles")
  *             .build());
  * 
  *     }

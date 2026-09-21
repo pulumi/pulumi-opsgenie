@@ -34,15 +34,10 @@ namespace Pulumi.Opsgenie
     ///         {
     ///             null,
     ///         },
-    ///         Name = "example policy",
-    ///         TeamId = test.Id,
-    ///         PolicyDescription = "This is sample policy",
-    ///         Message = "{{message}}",
     ///         TimeRestrictions = new[]
     ///         {
     ///             new Opsgenie.Inputs.AlertPolicyTimeRestrictionArgs
     ///             {
-    ///                 Type = "weekday-and-time-of-day",
     ///                 RestrictionList = new[]
     ///                 {
     ///                     new Opsgenie.Inputs.AlertPolicyTimeRestrictionRestrictionListArgs
@@ -64,8 +59,13 @@ namespace Pulumi.Opsgenie
     ///                         StartMin = 0,
     ///                     },
     ///                 },
+    ///                 Type = "weekday-and-time-of-day",
     ///             },
     ///         },
+    ///         Name = "example policy",
+    ///         TeamId = test.Id,
+    ///         PolicyDescription = "This is sample policy",
+    ///         Message = "{{message}}",
     ///     });
     /// 
     /// });

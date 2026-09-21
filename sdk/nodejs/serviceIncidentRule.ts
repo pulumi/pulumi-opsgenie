@@ -24,9 +24,7 @@ import * as utilities from "./utilities";
  *     teamId: test.id,
  * });
  * const testServiceIncidentRule = new opsgenie.ServiceIncidentRule("test", {
- *     serviceId: testService.id,
  *     incidentRules: [{
- *         conditionMatchType: "match-any-condition",
  *         conditions: [
  *             {
  *                 field: "message",
@@ -42,14 +40,16 @@ import * as utilities from "./utilities";
  *             },
  *         ],
  *         incidentProperties: [{
- *             message: "This is a test message",
- *             priority: "P3",
  *             stakeholderProperties: [{
  *                 message: "Message for stakeholders",
  *                 enable: true,
  *             }],
+ *             message: "This is a test message",
+ *             priority: "P3",
  *         }],
+ *         conditionMatchType: "match-any-condition",
  *     }],
+ *     serviceId: testService.id,
  * });
  * ```
  *

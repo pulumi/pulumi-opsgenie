@@ -26,14 +26,10 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var @default = new Opsgenie.Escalation("default", new()
     ///     {
-    ///         Name = "genieescalation",
     ///         Rules = new[]
     ///         {
     ///             new Opsgenie.Inputs.EscalationRuleArgs
     ///             {
-    ///                 Condition = "if-not-acked",
-    ///                 NotifyType = "default",
-    ///                 Delay = 1,
     ///                 Recipients = new[]
     ///                 {
     ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
@@ -42,8 +38,12 @@ namespace Pulumi.Opsgenie
     ///                         Id = test.Id,
     ///                     },
     ///                 },
+    ///                 Condition = "if-not-acked",
+    ///                 NotifyType = "default",
+    ///                 Delay = 1,
     ///             },
     ///         },
+    ///         Name = "genieescalation",
     ///     });
     /// 
     /// });
@@ -61,54 +61,6 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var @default = new Opsgenie.Escalation("default", new()
     ///     {
-    ///         Name = "genieescalation",
-    ///         Description = "test",
-    ///         OwnerTeamId = testOpsgenieTeam.Id,
-    ///         Rules = new[]
-    ///         {
-    ///             new Opsgenie.Inputs.EscalationRuleArgs
-    ///             {
-    ///                 Condition = "if-not-acked",
-    ///                 NotifyType = "default",
-    ///                 Delay = 1,
-    ///                 Recipients = new[]
-    ///                 {
-    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
-    ///                     {
-    ///                         Type = "user",
-    ///                         Id = test.Id,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Opsgenie.Inputs.EscalationRuleArgs
-    ///             {
-    ///                 Condition = "if-not-acked",
-    ///                 NotifyType = "default",
-    ///                 Delay = 1,
-    ///                 Recipients = new[]
-    ///                 {
-    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
-    ///                     {
-    ///                         Type = "team",
-    ///                         Id = testOpsgenieTeam.Id,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Opsgenie.Inputs.EscalationRuleArgs
-    ///             {
-    ///                 Condition = "if-not-acked",
-    ///                 NotifyType = "default",
-    ///                 Delay = 1,
-    ///                 Recipients = new[]
-    ///                 {
-    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
-    ///                     {
-    ///                         Type = "schedule",
-    ///                         Id = testOpsgenieSchedule.Id,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
     ///         Repeats = new[]
     ///         {
     ///             new Opsgenie.Inputs.EscalationRepeatArgs
@@ -119,6 +71,54 @@ namespace Pulumi.Opsgenie
     ///                 CloseAlertAfterAll = false,
     ///             },
     ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.EscalationRuleArgs
+    ///             {
+    ///                 Recipients = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
+    ///                     {
+    ///                         Type = "user",
+    ///                         Id = test.Id,
+    ///                     },
+    ///                 },
+    ///                 Condition = "if-not-acked",
+    ///                 NotifyType = "default",
+    ///                 Delay = 1,
+    ///             },
+    ///             new Opsgenie.Inputs.EscalationRuleArgs
+    ///             {
+    ///                 Recipients = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
+    ///                     {
+    ///                         Type = "team",
+    ///                         Id = testOpsgenieTeam.Id,
+    ///                     },
+    ///                 },
+    ///                 Condition = "if-not-acked",
+    ///                 NotifyType = "default",
+    ///                 Delay = 1,
+    ///             },
+    ///             new Opsgenie.Inputs.EscalationRuleArgs
+    ///             {
+    ///                 Recipients = new[]
+    ///                 {
+    ///                     new Opsgenie.Inputs.EscalationRuleRecipientArgs
+    ///                     {
+    ///                         Type = "schedule",
+    ///                         Id = testOpsgenieSchedule.Id,
+    ///                     },
+    ///                 },
+    ///                 Condition = "if-not-acked",
+    ///                 NotifyType = "default",
+    ///                 Delay = 1,
+    ///             },
+    ///         },
+    ///         Name = "genieescalation",
+    ///         Description = "test",
+    ///         OwnerTeamId = testOpsgenieTeam.Id,
     ///     });
     /// 
     /// });

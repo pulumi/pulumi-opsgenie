@@ -20,15 +20,15 @@ import * as utilities from "./utilities";
  *     description: "This team deals with all the things",
  * });
  * const testNotificationPolicy = new opsgenie.NotificationPolicy("test", {
- *     filters: [{}],
- *     name: "example policy",
- *     teamId: test.id,
- *     policyDescription: "This policy has a delay action",
  *     delayActions: [{
  *         delayOption: "next-time",
  *         untilMinute: 1,
  *         untilHour: 9,
  *     }],
+ *     filters: [{}],
+ *     name: "example policy",
+ *     teamId: test.id,
+ *     policyDescription: "This policy has a delay action",
  * });
  * ```
  *
