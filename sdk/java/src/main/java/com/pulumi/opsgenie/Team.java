@@ -60,8 +60,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Team("test", TeamArgs.builder()
- *             .name("example")
- *             .description("This team deals with all the things")
  *             .members(            
  *                 TeamMemberArgs.builder()
  *                     .id(first.id())
@@ -71,6 +69,8 @@ import javax.annotation.Nullable;
  *                     .id(second.id())
  *                     .role("user")
  *                     .build())
+ *             .name("example")
+ *             .description("This team deals with all the things")
  *             .build());
  * 
  *         var self_service = new Team("self-service", TeamArgs.builder()

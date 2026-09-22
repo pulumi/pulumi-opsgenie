@@ -45,9 +45,82 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewIntegrationAction(ctx, "test_action", &opsgenie.IntegrationActionArgs{
-//				IntegrationId: pulumi.Any(testOpsgenieApiIntegration.Id),
+//				Acknowledges: opsgenie.IntegrationActionAcknowledgeArray{
+//					&opsgenie.IntegrationActionAcknowledgeArgs{
+//						Filters: opsgenie.IntegrationActionAcknowledgeFilterArray{
+//							&opsgenie.IntegrationActionAcknowledgeFilterArgs{
+//								Conditions: opsgenie.IntegrationActionAcknowledgeFilterConditionArray{
+//									&opsgenie.IntegrationActionAcknowledgeFilterConditionArgs{
+//										Field:         pulumi.String("message"),
+//										Not:           pulumi.Bool(true),
+//										Operation:     pulumi.String("contains"),
+//										ExpectedValue: pulumi.String("TEST"),
+//									},
+//									&opsgenie.IntegrationActionAcknowledgeFilterConditionArgs{
+//										Field:         pulumi.String("priority"),
+//										Operation:     pulumi.String("equals"),
+//										ExpectedValue: pulumi.String("P5"),
+//									},
+//								},
+//								Type: pulumi.String("match-all-conditions"),
+//							},
+//						},
+//						Name: pulumi.String("Auto-ack test alerts"),
+//					},
+//				},
+//				AddNotes: opsgenie.IntegrationActionAddNoteArray{
+//					&opsgenie.IntegrationActionAddNoteArgs{
+//						Filters: opsgenie.IntegrationActionAddNoteFilterArray{
+//							&opsgenie.IntegrationActionAddNoteFilterArgs{
+//								Type: pulumi.String("match-all"),
+//							},
+//						},
+//						Name: pulumi.String("Add note to all alerts"),
+//						Note: pulumi.String("Created from test integration"),
+//					},
+//				},
+//				Closes: opsgenie.IntegrationActionCloseArray{
+//					&opsgenie.IntegrationActionCloseArgs{
+//						Filters: opsgenie.IntegrationActionCloseFilterArray{
+//							&opsgenie.IntegrationActionCloseFilterArgs{
+//								Conditions: opsgenie.IntegrationActionCloseFilterConditionArray{
+//									&opsgenie.IntegrationActionCloseFilterConditionArgs{
+//										Field:         pulumi.String("priority"),
+//										Operation:     pulumi.String("equals"),
+//										ExpectedValue: pulumi.String("P5"),
+//									},
+//									&opsgenie.IntegrationActionCloseFilterConditionArgs{
+//										Field:         pulumi.String("message"),
+//										Operation:     pulumi.String("contains"),
+//										ExpectedValue: pulumi.String("DEBUG"),
+//									},
+//								},
+//								Type: pulumi.String("match-any-condition"),
+//							},
+//						},
+//						Name: pulumi.String("Low priority alerts"),
+//					},
+//				},
 //				Creates: opsgenie.IntegrationActionCreateArray{
 //					&opsgenie.IntegrationActionCreateArgs{
+//						Filters: opsgenie.IntegrationActionCreateFilterArray{
+//							&opsgenie.IntegrationActionCreateFilterArgs{
+//								Conditions: opsgenie.IntegrationActionCreateFilterConditionArray{
+//									&opsgenie.IntegrationActionCreateFilterConditionArgs{
+//										Field:         pulumi.String("priority"),
+//										Operation:     pulumi.String("equals"),
+//										ExpectedValue: pulumi.String("P1"),
+//									},
+//								},
+//								Type: pulumi.String("match-all-conditions"),
+//							},
+//						},
+//						Responders: opsgenie.IntegrationActionCreateResponderArray{
+//							&opsgenie.IntegrationActionCreateResponderArgs{
+//								Id:   pulumi.Any(test.Id),
+//								Type: pulumi.String("team"),
+//							},
+//						},
 //						Name: pulumi.String("create action"),
 //						Tags: pulumi.StringArray{
 //							pulumi.String("CRITICAL"),
@@ -63,9 +136,10 @@ import (
 //						AlertActions: pulumi.StringArray{
 //							pulumi.String("Runbook ID#342"),
 //						},
+//					},
+//					&opsgenie.IntegrationActionCreateArgs{
 //						Filters: opsgenie.IntegrationActionCreateFilterArray{
 //							&opsgenie.IntegrationActionCreateFilterArgs{
-//								Type: pulumi.String("match-all-conditions"),
 //								Conditions: opsgenie.IntegrationActionCreateFilterConditionArray{
 //									&opsgenie.IntegrationActionCreateFilterConditionArgs{
 //										Field:         pulumi.String("priority"),
@@ -73,42 +147,16 @@ import (
 //										ExpectedValue: pulumi.String("P1"),
 //									},
 //								},
+//								Type: pulumi.String("match-all-conditions"),
 //							},
 //						},
-//						Responders: opsgenie.IntegrationActionCreateResponderArray{
-//							&opsgenie.IntegrationActionCreateResponderArgs{
-//								Id:   pulumi.Any(test.Id),
-//								Type: pulumi.String("team"),
-//							},
-//						},
-//					},
-//					&opsgenie.IntegrationActionCreateArgs{
 //						Name:        pulumi.String("create action with multiline description"),
 //						Message:     pulumi.String("{{message}}"),
 //						Description: pulumi.String(invokeChomp.Result),
-//						Filters: opsgenie.IntegrationActionCreateFilterArray{
-//							&opsgenie.IntegrationActionCreateFilterArgs{
-//								Type: pulumi.String("match-all-conditions"),
-//								Conditions: opsgenie.IntegrationActionCreateFilterConditionArray{
-//									&opsgenie.IntegrationActionCreateFilterConditionArgs{
-//										Field:         pulumi.String("priority"),
-//										Operation:     pulumi.String("equals"),
-//										ExpectedValue: pulumi.String("P1"),
-//									},
-//								},
-//							},
-//						},
 //					},
 //					&opsgenie.IntegrationActionCreateArgs{
-//						Name: pulumi.String("Create medium priority alerts"),
-//						Tags: pulumi.StringArray{
-//							pulumi.String("SEVERE"),
-//							pulumi.String("SEV-1"),
-//						},
-//						Priority: pulumi.String("P3"),
 //						Filters: opsgenie.IntegrationActionCreateFilterArray{
 //							&opsgenie.IntegrationActionCreateFilterArgs{
-//								Type: pulumi.String("match-all-conditions"),
 //								Conditions: opsgenie.IntegrationActionCreateFilterConditionArray{
 //									&opsgenie.IntegrationActionCreateFilterConditionArgs{
 //										Field:         pulumi.String("priority"),
@@ -116,15 +164,19 @@ import (
 //										ExpectedValue: pulumi.String("P2"),
 //									},
 //								},
+//								Type: pulumi.String("match-all-conditions"),
 //							},
 //						},
+//						Name: pulumi.String("Create medium priority alerts"),
+//						Tags: pulumi.StringArray{
+//							pulumi.String("SEVERE"),
+//							pulumi.String("SEV-1"),
+//						},
+//						Priority: pulumi.String("P3"),
 //					},
 //					&opsgenie.IntegrationActionCreateArgs{
-//						Name:           pulumi.String("Create alert with priority from message"),
-//						CustomPriority: pulumi.String("{{message.substringAfter(\"[custom]\")}}"),
 //						Filters: opsgenie.IntegrationActionCreateFilterArray{
 //							&opsgenie.IntegrationActionCreateFilterArgs{
-//								Type: pulumi.String("match-all-conditions"),
 //								Conditions: opsgenie.IntegrationActionCreateFilterConditionArray{
 //									&opsgenie.IntegrationActionCreateFilterConditionArgs{
 //										Field:         pulumi.String("tags"),
@@ -137,72 +189,17 @@ import (
 //										ExpectedValue: pulumi.String("[custom]"),
 //									},
 //								},
-//							},
-//						},
-//					},
-//				},
-//				Closes: opsgenie.IntegrationActionCloseArray{
-//					&opsgenie.IntegrationActionCloseArgs{
-//						Name: pulumi.String("Low priority alerts"),
-//						Filters: opsgenie.IntegrationActionCloseFilterArray{
-//							&opsgenie.IntegrationActionCloseFilterArgs{
-//								Type: pulumi.String("match-any-condition"),
-//								Conditions: opsgenie.IntegrationActionCloseFilterConditionArray{
-//									&opsgenie.IntegrationActionCloseFilterConditionArgs{
-//										Field:         pulumi.String("priority"),
-//										Operation:     pulumi.String("equals"),
-//										ExpectedValue: pulumi.String("P5"),
-//									},
-//									&opsgenie.IntegrationActionCloseFilterConditionArgs{
-//										Field:         pulumi.String("message"),
-//										Operation:     pulumi.String("contains"),
-//										ExpectedValue: pulumi.String("DEBUG"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//				Acknowledges: opsgenie.IntegrationActionAcknowledgeArray{
-//					&opsgenie.IntegrationActionAcknowledgeArgs{
-//						Name: pulumi.String("Auto-ack test alerts"),
-//						Filters: opsgenie.IntegrationActionAcknowledgeFilterArray{
-//							&opsgenie.IntegrationActionAcknowledgeFilterArgs{
 //								Type: pulumi.String("match-all-conditions"),
-//								Conditions: opsgenie.IntegrationActionAcknowledgeFilterConditionArray{
-//									&opsgenie.IntegrationActionAcknowledgeFilterConditionArgs{
-//										Field:         pulumi.String("message"),
-//										Not:           pulumi.Bool(true),
-//										Operation:     pulumi.String("contains"),
-//										ExpectedValue: pulumi.String("TEST"),
-//									},
-//									&opsgenie.IntegrationActionAcknowledgeFilterConditionArgs{
-//										Field:         pulumi.String("priority"),
-//										Operation:     pulumi.String("equals"),
-//										ExpectedValue: pulumi.String("P5"),
-//									},
-//								},
 //							},
 //						},
-//					},
-//				},
-//				AddNotes: opsgenie.IntegrationActionAddNoteArray{
-//					&opsgenie.IntegrationActionAddNoteArgs{
-//						Name: pulumi.String("Add note to all alerts"),
-//						Note: pulumi.String("Created from test integration"),
-//						Filters: opsgenie.IntegrationActionAddNoteFilterArray{
-//							&opsgenie.IntegrationActionAddNoteFilterArgs{
-//								Type: pulumi.String("match-all"),
-//							},
-//						},
+//						Name:           pulumi.String("Create alert with priority from message"),
+//						CustomPriority: pulumi.String("{{message.substringAfter(\"[custom]\")}}"),
 //					},
 //				},
 //				Ignores: opsgenie.IntegrationActionIgnoreArray{
 //					&opsgenie.IntegrationActionIgnoreArgs{
-//						Name: pulumi.String("Ignore alerts with ignore tag"),
 //						Filters: opsgenie.IntegrationActionIgnoreFilterArray{
 //							&opsgenie.IntegrationActionIgnoreFilterArgs{
-//								Type: pulumi.String("match-all-conditions"),
 //								Conditions: opsgenie.IntegrationActionIgnoreFilterConditionArray{
 //									&opsgenie.IntegrationActionIgnoreFilterConditionArgs{
 //										Field:         pulumi.String("tags"),
@@ -210,10 +207,13 @@ import (
 //										ExpectedValue: pulumi.String("ignore"),
 //									},
 //								},
+//								Type: pulumi.String("match-all-conditions"),
 //							},
 //						},
+//						Name: pulumi.String("Ignore alerts with ignore tag"),
 //					},
 //				},
+//				IntegrationId: pulumi.Any(testOpsgenieApiIntegration.Id),
 //			})
 //			if err != nil {
 //				return err

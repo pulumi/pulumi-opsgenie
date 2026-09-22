@@ -43,10 +43,8 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewServiceIncidentRule(ctx, "test", &opsgenie.ServiceIncidentRuleArgs{
-//				ServiceId: testService.ID().ToIDOutput().ToStringOutput(),
 //				IncidentRules: opsgenie.ServiceIncidentRuleIncidentRuleArray{
 //					&opsgenie.ServiceIncidentRuleIncidentRuleArgs{
-//						ConditionMatchType: pulumi.String("match-any-condition"),
 //						Conditions: opsgenie.ServiceIncidentRuleIncidentRuleConditionArray{
 //							&opsgenie.ServiceIncidentRuleIncidentRuleConditionArgs{
 //								Field:         pulumi.String("message"),
@@ -63,18 +61,20 @@ import (
 //						},
 //						IncidentProperties: opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArray{
 //							&opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs{
-//								Message:  pulumi.String("This is a test message"),
-//								Priority: pulumi.String("P3"),
 //								StakeholderProperties: opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArray{
 //									&opsgenie.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs{
 //										Message: pulumi.String("Message for stakeholders"),
 //										Enable:  pulumi.Bool(true),
 //									},
 //								},
+//								Message:  pulumi.String("This is a test message"),
+//								Priority: pulumi.String("P3"),
 //							},
 //						},
+//						ConditionMatchType: pulumi.String("match-any-condition"),
 //					},
 //				},
+//				ServiceId: testService.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

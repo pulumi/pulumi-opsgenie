@@ -21,12 +21,7 @@ import * as utilities from "./utilities";
  * });
  * const testAlertPolicy = new opsgenie.AlertPolicy("test", {
  *     filters: [{}],
- *     name: "example policy",
- *     teamId: test.id,
- *     policyDescription: "This is sample policy",
- *     message: "{{message}}",
  *     timeRestrictions: [{
- *         type: "weekday-and-time-of-day",
  *         restrictionList: [
  *             {
  *                 endDay: "monday",
@@ -45,7 +40,12 @@ import * as utilities from "./utilities";
  *                 startMin: 0,
  *             },
  *         ],
+ *         type: "weekday-and-time-of-day",
  *     }],
+ *     name: "example policy",
+ *     teamId: test.id,
+ *     policyDescription: "This is sample policy",
+ *     message: "{{message}}",
  * });
  * ```
  *

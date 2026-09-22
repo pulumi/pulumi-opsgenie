@@ -26,21 +26,20 @@ import * as utilities from "./utilities";
  *     description: "This team deals with all the things",
  * });
  * const testTeamRoutingRule = new opsgenie.TeamRoutingRule("test", {
- *     name: "routing rule example",
- *     teamId: testTeam.id,
- *     order: 0,
- *     timezone: "America/Los_Angeles",
  *     criterias: [{
- *         type: "match-any-condition",
  *         conditions: [{
  *             field: "message",
  *             operation: "contains",
  *             expectedValue: "expected1",
  *             not: false,
  *         }],
+ *         type: "match-any-condition",
+ *     }],
+ *     notifies: [{
+ *         name: test.name,
+ *         type: "schedule",
  *     }],
  *     timeRestrictions: [{
- *         type: "weekday-and-time-of-day",
  *         restrictionList: [{
  *             startDay: "monday",
  *             startHour: 8,
@@ -49,11 +48,12 @@ import * as utilities from "./utilities";
  *             endHour: 18,
  *             endMin: 30,
  *         }],
+ *         type: "weekday-and-time-of-day",
  *     }],
- *     notifies: [{
- *         name: test.name,
- *         type: "schedule",
- *     }],
+ *     name: "routing rule example",
+ *     teamId: testTeam.id,
+ *     order: 0,
+ *     timezone: "America/Los_Angeles",
  * });
  * ```
  *

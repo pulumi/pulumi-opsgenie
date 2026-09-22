@@ -38,15 +38,10 @@ namespace Pulumi.Opsgenie
     /// 
     ///     var testTeamRoutingRule = new Opsgenie.TeamRoutingRule("test", new()
     ///     {
-    ///         Name = "routing rule example",
-    ///         TeamId = testTeam.Id,
-    ///         Order = 0,
-    ///         Timezone = "America/Los_Angeles",
     ///         Criterias = new[]
     ///         {
     ///             new Opsgenie.Inputs.TeamRoutingRuleCriteriaArgs
     ///             {
-    ///                 Type = "match-any-condition",
     ///                 Conditions = new[]
     ///                 {
     ///                     new Opsgenie.Inputs.TeamRoutingRuleCriteriaConditionArgs
@@ -57,13 +52,21 @@ namespace Pulumi.Opsgenie
     ///                         Not = false,
     ///                     },
     ///                 },
+    ///                 Type = "match-any-condition",
+    ///             },
+    ///         },
+    ///         Notifies = new[]
+    ///         {
+    ///             new Opsgenie.Inputs.TeamRoutingRuleNotifyArgs
+    ///             {
+    ///                 Name = test.Name,
+    ///                 Type = "schedule",
     ///             },
     ///         },
     ///         TimeRestrictions = new[]
     ///         {
     ///             new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionArgs
     ///             {
-    ///                 Type = "weekday-and-time-of-day",
     ///                 RestrictionList = new[]
     ///                 {
     ///                     new Opsgenie.Inputs.TeamRoutingRuleTimeRestrictionRestrictionListArgs
@@ -76,16 +79,13 @@ namespace Pulumi.Opsgenie
     ///                         EndMin = 30,
     ///                     },
     ///                 },
+    ///                 Type = "weekday-and-time-of-day",
     ///             },
     ///         },
-    ///         Notifies = new[]
-    ///         {
-    ///             new Opsgenie.Inputs.TeamRoutingRuleNotifyArgs
-    ///             {
-    ///                 Name = test.Name,
-    ///                 Type = "schedule",
-    ///             },
-    ///         },
+    ///         Name = "routing rule example",
+    ///         TeamId = testTeam.Id,
+    ///         Order = 0,
+    ///         Timezone = "America/Los_Angeles",
     ///     });
     /// 
     /// });

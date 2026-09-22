@@ -59,12 +59,7 @@ import javax.annotation.Nullable;
  *         var testAlertPolicy = new AlertPolicy("testAlertPolicy", AlertPolicyArgs.builder()
  *             .filters(AlertPolicyFilterArgs.builder()
  *                 .build())
- *             .name("example policy")
- *             .teamId(test.id())
- *             .policyDescription("This is sample policy")
- *             .message("{{message}}")
  *             .timeRestrictions(AlertPolicyTimeRestrictionArgs.builder()
- *                 .type("weekday-and-time-of-day")
  *                 .restrictionList(                
  *                     AlertPolicyTimeRestrictionRestrictionListArgs.builder()
  *                         .endDay("monday")
@@ -82,7 +77,12 @@ import javax.annotation.Nullable;
  *                         .startHour(22)
  *                         .startMin(0)
  *                         .build())
+ *                 .type("weekday-and-time-of-day")
  *                 .build())
+ *             .name("example policy")
+ *             .teamId(test.id())
+ *             .policyDescription("This is sample policy")
+ *             .message("{{message}}")
  *             .build());
  * 
  *     }

@@ -111,8 +111,8 @@ class AwaitableGetEscalationResult(GetEscalationResult):
 def get_escalation(description: Optional[_builtins.str] = None,
                    name: Optional[_builtins.str] = None,
                    owner_team_id: Optional[_builtins.str] = None,
-                   repeats: Optional[Sequence[Union['GetEscalationRepeatArgs', 'GetEscalationRepeatArgsDict']]] = None,
-                   rules: Optional[Sequence[Union['GetEscalationRuleArgs', 'GetEscalationRuleArgsDict']]] = None,
+                   repeats: Optional[Sequence[Union['GetEscalationRepeatArgs', 'GetEscalationRepeatArgsDict', 'outputs.GetEscalationRepeatResult']]] = None,
+                   rules: Optional[Sequence[Union['GetEscalationRuleArgs', 'GetEscalationRuleArgsDict', 'outputs.GetEscalationRuleResult']]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEscalationResult:
     """
     Manages an Escalation within Opsgenie.
@@ -130,8 +130,8 @@ def get_escalation(description: Optional[_builtins.str] = None,
     :param _builtins.str description: Escalation Description
     :param _builtins.str name: Name of the escalation.
     :param _builtins.str owner_team_id: If owner team exist the id of the team is exported
-    :param Sequence[Union['GetEscalationRepeatArgs', 'GetEscalationRepeatArgsDict']] repeats: Escalation repeat preferences
-    :param Sequence[Union['GetEscalationRuleArgs', 'GetEscalationRuleArgsDict']] rules: Escalation rules
+    :param Sequence[Union['GetEscalationRepeatArgs', 'GetEscalationRepeatArgsDict', 'outputs.GetEscalationRepeatResult']] repeats: Escalation repeat preferences
+    :param Sequence[Union['GetEscalationRuleArgs', 'GetEscalationRuleArgsDict', 'outputs.GetEscalationRuleResult']] rules: Escalation rules
     """
     __args__ = dict()
     __args__['description'] = description
@@ -152,8 +152,8 @@ def get_escalation(description: Optional[_builtins.str] = None,
 def get_escalation_output(description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           name: pulumi.Input[Optional[_builtins.str]] = None,
                           owner_team_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                          repeats: pulumi.Input[Optional[Optional[Sequence[Union['GetEscalationRepeatArgs', 'GetEscalationRepeatArgsDict']]]]] = None,
-                          rules: pulumi.Input[Optional[Optional[Sequence[Union['GetEscalationRuleArgs', 'GetEscalationRuleArgsDict']]]]] = None,
+                          repeats: pulumi.Input[Optional[Optional[Sequence[Union['GetEscalationRepeatArgs', 'GetEscalationRepeatArgsDict', 'outputs.GetEscalationRepeatResult']]]]] = None,
+                          rules: pulumi.Input[Optional[Optional[Sequence[Union['GetEscalationRuleArgs', 'GetEscalationRuleArgsDict', 'outputs.GetEscalationRuleResult']]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEscalationResult]:
     """
     Manages an Escalation within Opsgenie.
@@ -171,8 +171,8 @@ def get_escalation_output(description: pulumi.Input[Optional[Optional[_builtins.
     :param _builtins.str description: Escalation Description
     :param _builtins.str name: Name of the escalation.
     :param _builtins.str owner_team_id: If owner team exist the id of the team is exported
-    :param Sequence[Union['GetEscalationRepeatArgs', 'GetEscalationRepeatArgsDict']] repeats: Escalation repeat preferences
-    :param Sequence[Union['GetEscalationRuleArgs', 'GetEscalationRuleArgsDict']] rules: Escalation rules
+    :param Sequence[Union['GetEscalationRepeatArgs', 'GetEscalationRepeatArgsDict', 'outputs.GetEscalationRepeatResult']] repeats: Escalation repeat preferences
+    :param Sequence[Union['GetEscalationRuleArgs', 'GetEscalationRuleArgsDict', 'outputs.GetEscalationRuleResult']] rules: Escalation rules
     """
     __args__ = dict()
     __args__['description'] = description

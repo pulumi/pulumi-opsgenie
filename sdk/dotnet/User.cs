@@ -24,17 +24,6 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var test = new Opsgenie.User("test", new()
     ///     {
-    ///         Username = "user@domain.com",
-    ///         FullName = "Test User",
-    ///         Role = "User",
-    ///         Locale = "en_US",
-    ///         Timezone = "America/New_York",
-    ///         Tags = new[]
-    ///         {
-    ///             "sre",
-    ///             "opsgenie",
-    ///         },
-    ///         SkypeUsername = "skypename",
     ///         UserAddresses = new[]
     ///         {
     ///             new Opsgenie.Inputs.UserUserAddressArgs
@@ -46,6 +35,17 @@ namespace Pulumi.Opsgenie
     ///                 Zipcode = "998877",
     ///             },
     ///         },
+    ///         Username = "user@domain.com",
+    ///         FullName = "Test User",
+    ///         Role = "User",
+    ///         Locale = "en_US",
+    ///         Timezone = "America/New_York",
+    ///         Tags = new[]
+    ///         {
+    ///             "sre",
+    ///             "opsgenie",
+    ///         },
+    ///         SkypeUsername = "skypename",
     ///         UserDetails = 
     ///         {
     ///             { "key1", "val1,val2" },

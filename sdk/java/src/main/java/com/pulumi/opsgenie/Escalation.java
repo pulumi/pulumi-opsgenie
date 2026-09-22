@@ -49,16 +49,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new Escalation("default", EscalationArgs.builder()
- *             .name("genieescalation")
  *             .rules(EscalationRuleArgs.builder()
- *                 .condition("if-not-acked")
- *                 .notifyType("default")
- *                 .delay(1)
  *                 .recipients(EscalationRuleRecipientArgs.builder()
  *                     .type("user")
  *                     .id(test.id())
  *                     .build())
+ *                 .condition("if-not-acked")
+ *                 .notifyType("default")
+ *                 .delay(1)
  *                 .build())
+ *             .name("genieescalation")
  *             .build());
  * 
  *     }
@@ -77,9 +77,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.opsgenie.Escalation;
  * import com.pulumi.opsgenie.EscalationArgs;
+ * import com.pulumi.opsgenie.inputs.EscalationRepeatArgs;
  * import com.pulumi.opsgenie.inputs.EscalationRuleArgs;
  * import com.pulumi.opsgenie.inputs.EscalationRuleRecipientArgs;
- * import com.pulumi.opsgenie.inputs.EscalationRepeatArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -94,43 +94,43 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new Escalation("default", EscalationArgs.builder()
- *             .name("genieescalation")
- *             .description("test")
- *             .ownerTeamId(testOpsgenieTeam.id())
- *             .rules(            
- *                 EscalationRuleArgs.builder()
- *                     .condition("if-not-acked")
- *                     .notifyType("default")
- *                     .delay(1)
- *                     .recipients(EscalationRuleRecipientArgs.builder()
- *                         .type("user")
- *                         .id(test.id())
- *                         .build())
- *                     .build(),
- *                 EscalationRuleArgs.builder()
- *                     .condition("if-not-acked")
- *                     .notifyType("default")
- *                     .delay(1)
- *                     .recipients(EscalationRuleRecipientArgs.builder()
- *                         .type("team")
- *                         .id(testOpsgenieTeam.id())
- *                         .build())
- *                     .build(),
- *                 EscalationRuleArgs.builder()
- *                     .condition("if-not-acked")
- *                     .notifyType("default")
- *                     .delay(1)
- *                     .recipients(EscalationRuleRecipientArgs.builder()
- *                         .type("schedule")
- *                         .id(testOpsgenieSchedule.id())
- *                         .build())
- *                     .build())
  *             .repeats(EscalationRepeatArgs.builder()
  *                 .waitInterval(10)
  *                 .count(1)
  *                 .resetRecipientStates(true)
  *                 .closeAlertAfterAll(false)
  *                 .build())
+ *             .rules(            
+ *                 EscalationRuleArgs.builder()
+ *                     .recipients(EscalationRuleRecipientArgs.builder()
+ *                         .type("user")
+ *                         .id(test.id())
+ *                         .build())
+ *                     .condition("if-not-acked")
+ *                     .notifyType("default")
+ *                     .delay(1)
+ *                     .build(),
+ *                 EscalationRuleArgs.builder()
+ *                     .recipients(EscalationRuleRecipientArgs.builder()
+ *                         .type("team")
+ *                         .id(testOpsgenieTeam.id())
+ *                         .build())
+ *                     .condition("if-not-acked")
+ *                     .notifyType("default")
+ *                     .delay(1)
+ *                     .build(),
+ *                 EscalationRuleArgs.builder()
+ *                     .recipients(EscalationRuleRecipientArgs.builder()
+ *                         .type("schedule")
+ *                         .id(testOpsgenieSchedule.id())
+ *                         .build())
+ *                     .condition("if-not-acked")
+ *                     .notifyType("default")
+ *                     .delay(1)
+ *                     .build())
+ *             .name("genieescalation")
+ *             .description("test")
+ *             .ownerTeamId(testOpsgenieTeam.id())
  *             .build());
  * 
  *     }

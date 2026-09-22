@@ -49,25 +49,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ScheduleRotation("test", ScheduleRotationArgs.builder()
- *             .scheduleId(testOpsgenieSchedule.id())
- *             .name("test")
- *             .startDate("2019-06-18T17:00:00Z")
- *             .endDate("2019-06-20T17:30:00Z")
- *             .type("hourly")
- *             .length(6)
  *             .participants(ScheduleRotationParticipantArgs.builder()
  *                 .type("user")
  *                 .id(testOpsgenieUser.id())
  *                 .build())
  *             .timeRestrictions(ScheduleRotationTimeRestrictionArgs.builder()
- *                 .type("time-of-day")
  *                 .restriction(ScheduleRotationTimeRestrictionRestrictionArgs.builder()
  *                     .startHour(1)
  *                     .startMin(1)
  *                     .endHour(10)
  *                     .endMin(1)
  *                     .build())
+ *                 .type("time-of-day")
  *                 .build())
+ *             .scheduleId(testOpsgenieSchedule.id())
+ *             .name("test")
+ *             .startDate("2019-06-18T17:00:00Z")
+ *             .endDate("2019-06-20T17:30:00Z")
+ *             .type("hourly")
+ *             .length(6)
  *             .build());
  * 
  *     }

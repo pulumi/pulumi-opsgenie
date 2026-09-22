@@ -36,12 +36,10 @@ namespace Pulumi.Opsgenie
     /// 
     ///     var testServiceIncidentRule = new Opsgenie.ServiceIncidentRule("test", new()
     ///     {
-    ///         ServiceId = testService.Id,
     ///         IncidentRules = new[]
     ///         {
     ///             new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleArgs
     ///             {
-    ///                 ConditionMatchType = "match-any-condition",
     ///                 Conditions = new[]
     ///                 {
     ///                     new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleConditionArgs
@@ -63,8 +61,6 @@ namespace Pulumi.Opsgenie
     ///                 {
     ///                     new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleIncidentPropertyArgs
     ///                     {
-    ///                         Message = "This is a test message",
-    ///                         Priority = "P3",
     ///                         StakeholderProperties = new[]
     ///                         {
     ///                             new Opsgenie.Inputs.ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs
@@ -73,10 +69,14 @@ namespace Pulumi.Opsgenie
     ///                                 Enable = true,
     ///                             },
     ///                         },
+    ///                         Message = "This is a test message",
+    ///                         Priority = "P3",
     ///                     },
     ///                 },
+    ///                 ConditionMatchType = "match-any-condition",
     ///             },
     ///         },
+    ///         ServiceId = testService.Id,
     ///     });
     /// 
     /// });

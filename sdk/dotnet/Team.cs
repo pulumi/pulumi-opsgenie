@@ -38,8 +38,6 @@ namespace Pulumi.Opsgenie
     /// 
     ///     var test = new Opsgenie.Team("test", new()
     ///     {
-    ///         Name = "example",
-    ///         Description = "This team deals with all the things",
     ///         Members = new[]
     ///         {
     ///             new Opsgenie.Inputs.TeamMemberArgs
@@ -53,6 +51,8 @@ namespace Pulumi.Opsgenie
     ///                 Role = "user",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Description = "This team deals with all the things",
     ///     });
     /// 
     ///     var self_service = new Opsgenie.Team("self-service", new()

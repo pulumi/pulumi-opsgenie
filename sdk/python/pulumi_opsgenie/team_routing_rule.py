@@ -296,13 +296,13 @@ class TeamRoutingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict']]]]] = None,
+                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict', 'outputs.TeamRoutingRuleCriteria']]]]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notifies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict']]]]] = None,
+                 notifies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict', 'outputs.TeamRoutingRuleNotify']]]]] = None,
                  order: pulumi.Input[Optional[_builtins.int]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict']]]]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict', 'outputs.TeamRoutingRuleTimeRestriction']]]]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -323,21 +323,20 @@ class TeamRoutingRule(pulumi.CustomResource):
             name="example team",
             description="This team deals with all the things")
         test_team_routing_rule = opsgenie.TeamRoutingRule("test",
-            name="routing rule example",
-            team_id=test_team.id,
-            order=0,
-            timezone="America/Los_Angeles",
             criterias=[{
-                "type": "match-any-condition",
                 "conditions": [{
                     "field": "message",
                     "operation": "contains",
                     "expected_value": "expected1",
                     "not_": False,
                 }],
+                "type": "match-any-condition",
+            }],
+            notifies=[{
+                "name": test.name,
+                "type": "schedule",
             }],
             time_restrictions=[{
-                "type": "weekday-and-time-of-day",
                 "restriction_list": [{
                     "start_day": "monday",
                     "start_hour": 8,
@@ -346,11 +345,12 @@ class TeamRoutingRule(pulumi.CustomResource):
                     "end_hour": 18,
                     "end_min": 30,
                 }],
+                "type": "weekday-and-time-of-day",
             }],
-            notifies=[{
-                "name": test.name,
-                "type": "schedule",
-            }])
+            name="routing rule example",
+            team_id=test_team.id,
+            order=0,
+            timezone="America/Los_Angeles")
         ```
 
         ## Import
@@ -362,13 +362,13 @@ class TeamRoutingRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict']]]] criterias: You can refer Criteria for detailed information about criteria and its fields
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict', 'outputs.TeamRoutingRuleCriteria']]]] criterias: You can refer Criteria for detailed information about criteria and its fields
         :param pulumi.Input[_builtins.bool] is_default: Only use when importing default routing rule
         :param pulumi.Input[_builtins.str] name: Name of the team routing rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict', 'outputs.TeamRoutingRuleNotify']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[_builtins.int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
         :param pulumi.Input[_builtins.str] team_id: Id of the team owning the routing rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict']]]] time_restrictions: You can refer Time Restriction for detailed information about time restriction and its fields.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict', 'outputs.TeamRoutingRuleTimeRestriction']]]] time_restrictions: You can refer Time Restriction for detailed information about time restriction and its fields.
         :param pulumi.Input[_builtins.str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
         """
         ...
@@ -395,21 +395,20 @@ class TeamRoutingRule(pulumi.CustomResource):
             name="example team",
             description="This team deals with all the things")
         test_team_routing_rule = opsgenie.TeamRoutingRule("test",
-            name="routing rule example",
-            team_id=test_team.id,
-            order=0,
-            timezone="America/Los_Angeles",
             criterias=[{
-                "type": "match-any-condition",
                 "conditions": [{
                     "field": "message",
                     "operation": "contains",
                     "expected_value": "expected1",
                     "not_": False,
                 }],
+                "type": "match-any-condition",
+            }],
+            notifies=[{
+                "name": test.name,
+                "type": "schedule",
             }],
             time_restrictions=[{
-                "type": "weekday-and-time-of-day",
                 "restriction_list": [{
                     "start_day": "monday",
                     "start_hour": 8,
@@ -418,11 +417,12 @@ class TeamRoutingRule(pulumi.CustomResource):
                     "end_hour": 18,
                     "end_min": 30,
                 }],
+                "type": "weekday-and-time-of-day",
             }],
-            notifies=[{
-                "name": test.name,
-                "type": "schedule",
-            }])
+            name="routing rule example",
+            team_id=test_team.id,
+            order=0,
+            timezone="America/Los_Angeles")
         ```
 
         ## Import
@@ -447,13 +447,13 @@ class TeamRoutingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict']]]]] = None,
+                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict', 'outputs.TeamRoutingRuleCriteria']]]]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notifies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict']]]]] = None,
+                 notifies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict', 'outputs.TeamRoutingRuleNotify']]]]] = None,
                  order: pulumi.Input[Optional[_builtins.int]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict']]]]] = None,
+                 time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict', 'outputs.TeamRoutingRuleTimeRestriction']]]]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -486,13 +486,13 @@ class TeamRoutingRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict']]]]] = None,
+            criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict', 'outputs.TeamRoutingRuleCriteria']]]]] = None,
             is_default: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notifies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict']]]]] = None,
+            notifies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict', 'outputs.TeamRoutingRuleNotify']]]]] = None,
             order: pulumi.Input[Optional[_builtins.int]] = None,
             team_id: pulumi.Input[Optional[_builtins.str]] = None,
-            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict']]]]] = None,
+            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict', 'outputs.TeamRoutingRuleTimeRestriction']]]]] = None,
             timezone: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamRoutingRule':
         """
         Get an existing TeamRoutingRule resource's state with the given name, id, and optional extra
@@ -501,13 +501,13 @@ class TeamRoutingRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict']]]] criterias: You can refer Criteria for detailed information about criteria and its fields
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict', 'outputs.TeamRoutingRuleCriteria']]]] criterias: You can refer Criteria for detailed information about criteria and its fields
         :param pulumi.Input[_builtins.bool] is_default: Only use when importing default routing rule
         :param pulumi.Input[_builtins.str] name: Name of the team routing rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict', 'outputs.TeamRoutingRuleNotify']]]] notifies: Target entity of schedule, escalation, or the reserved word none which will be notified in routing rule. The possible values are: `schedule`, `escalation`, `none`
         :param pulumi.Input[_builtins.int] order: The order of the team routing rule within the rules. order value is actually the index of the team routing rule whose minimum value is 0 and whose maximum value is n-1 (number of team routing rules is n)
         :param pulumi.Input[_builtins.str] team_id: Id of the team owning the routing rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict']]]] time_restrictions: You can refer Time Restriction for detailed information about time restriction and its fields.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict', 'outputs.TeamRoutingRuleTimeRestriction']]]] time_restrictions: You can refer Time Restriction for detailed information about time restriction and its fields.
         :param pulumi.Input[_builtins.str] timezone: Timezone of team routing rule. If timezone field is not given, account timezone is used as default.You can refer to Supported Locale IDs for available timezones
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

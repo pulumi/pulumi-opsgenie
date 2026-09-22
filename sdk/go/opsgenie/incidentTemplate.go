@@ -43,9 +43,6 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewIncidentTemplate(ctx, "test", &opsgenie.IncidentTemplateArgs{
-//				Name:     pulumi.String("genietest-incident-template"),
-//				Message:  pulumi.String("Incident Message"),
-//				Priority: pulumi.String("P2"),
 //				StakeholderProperties: opsgenie.IncidentTemplateStakeholderPropertyArray{
 //					&opsgenie.IncidentTemplateStakeholderPropertyArgs{
 //						Enable:      pulumi.Bool(true),
@@ -53,6 +50,9 @@ import (
 //						Description: pulumi.String("Stakeholder Description"),
 //					},
 //				},
+//				Name:     pulumi.String("genietest-incident-template"),
+//				Message:  pulumi.String("Incident Message"),
+//				Priority: pulumi.String("P2"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("tag1"),
 //					pulumi.String("tag2"),

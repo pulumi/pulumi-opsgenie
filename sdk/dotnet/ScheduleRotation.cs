@@ -24,12 +24,6 @@ namespace Pulumi.Opsgenie
     /// {
     ///     var test = new Opsgenie.ScheduleRotation("test", new()
     ///     {
-    ///         ScheduleId = testOpsgenieSchedule.Id,
-    ///         Name = "test",
-    ///         StartDate = "2019-06-18T17:00:00Z",
-    ///         EndDate = "2019-06-20T17:30:00Z",
-    ///         Type = "hourly",
-    ///         Length = 6,
     ///         Participants = new[]
     ///         {
     ///             new Opsgenie.Inputs.ScheduleRotationParticipantArgs
@@ -42,7 +36,6 @@ namespace Pulumi.Opsgenie
     ///         {
     ///             new Opsgenie.Inputs.ScheduleRotationTimeRestrictionArgs
     ///             {
-    ///                 Type = "time-of-day",
     ///                 Restriction = new[]
     ///                 {
     ///                     new Opsgenie.Inputs.ScheduleRotationTimeRestrictionRestrictionArgs
@@ -53,8 +46,15 @@ namespace Pulumi.Opsgenie
     ///                         EndMin = 1,
     ///                     },
     ///                 },
+    ///                 Type = "time-of-day",
     ///             },
     ///         },
+    ///         ScheduleId = testOpsgenieSchedule.Id,
+    ///         Name = "test",
+    ///         StartDate = "2019-06-18T17:00:00Z",
+    ///         EndDate = "2019-06-20T17:30:00Z",
+    ///         Type = "hourly",
+    ///         Length = 6,
     ///     });
     /// 
     /// });

@@ -36,12 +36,6 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewNotificationPolicy(ctx, "test", &opsgenie.NotificationPolicyArgs{
-//				Filters: opsgenie.NotificationPolicyFilterArray{
-//					&opsgenie.NotificationPolicyFilterArgs{},
-//				},
-//				Name:              pulumi.String("example policy"),
-//				TeamId:            test.ID().ToIDOutput().ToStringOutput(),
-//				PolicyDescription: pulumi.String("This policy has a delay action"),
 //				DelayActions: opsgenie.NotificationPolicyDelayActionArray{
 //					&opsgenie.NotificationPolicyDelayActionArgs{
 //						DelayOption: pulumi.String("next-time"),
@@ -49,6 +43,12 @@ import (
 //						UntilHour:   pulumi.Int(9),
 //					},
 //				},
+//				Filters: opsgenie.NotificationPolicyFilterArray{
+//					&opsgenie.NotificationPolicyFilterArgs{},
+//				},
+//				Name:              pulumi.String("example policy"),
+//				TeamId:            test.ID().ToIDOutput().ToStringOutput(),
+//				PolicyDescription: pulumi.String("This policy has a delay action"),
 //			})
 //			if err != nil {
 //				return err

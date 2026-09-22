@@ -31,20 +31,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewEscalation(ctx, "default", &opsgenie.EscalationArgs{
-//				Name: pulumi.String("genieescalation"),
 //				Rules: opsgenie.EscalationRuleArray{
 //					&opsgenie.EscalationRuleArgs{
-//						Condition:  pulumi.String("if-not-acked"),
-//						NotifyType: pulumi.String("default"),
-//						Delay:      pulumi.Int(1),
 //						Recipients: opsgenie.EscalationRuleRecipientArray{
 //							&opsgenie.EscalationRuleRecipientArgs{
 //								Type: pulumi.String("user"),
 //								Id:   pulumi.Any(test.Id),
 //							},
 //						},
+//						Condition:  pulumi.String("if-not-acked"),
+//						NotifyType: pulumi.String("default"),
+//						Delay:      pulumi.Int(1),
 //					},
 //				},
+//				Name: pulumi.String("genieescalation"),
 //			})
 //			if err != nil {
 //				return err
@@ -70,44 +70,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsgenie.NewEscalation(ctx, "default", &opsgenie.EscalationArgs{
-//				Name:        pulumi.String("genieescalation"),
-//				Description: pulumi.String("test"),
-//				OwnerTeamId: pulumi.Any(testOpsgenieTeam.Id),
-//				Rules: opsgenie.EscalationRuleArray{
-//					&opsgenie.EscalationRuleArgs{
-//						Condition:  pulumi.String("if-not-acked"),
-//						NotifyType: pulumi.String("default"),
-//						Delay:      pulumi.Int(1),
-//						Recipients: opsgenie.EscalationRuleRecipientArray{
-//							&opsgenie.EscalationRuleRecipientArgs{
-//								Type: pulumi.String("user"),
-//								Id:   pulumi.Any(test.Id),
-//							},
-//						},
-//					},
-//					&opsgenie.EscalationRuleArgs{
-//						Condition:  pulumi.String("if-not-acked"),
-//						NotifyType: pulumi.String("default"),
-//						Delay:      pulumi.Int(1),
-//						Recipients: opsgenie.EscalationRuleRecipientArray{
-//							&opsgenie.EscalationRuleRecipientArgs{
-//								Type: pulumi.String("team"),
-//								Id:   pulumi.Any(testOpsgenieTeam.Id),
-//							},
-//						},
-//					},
-//					&opsgenie.EscalationRuleArgs{
-//						Condition:  pulumi.String("if-not-acked"),
-//						NotifyType: pulumi.String("default"),
-//						Delay:      pulumi.Int(1),
-//						Recipients: opsgenie.EscalationRuleRecipientArray{
-//							&opsgenie.EscalationRuleRecipientArgs{
-//								Type: pulumi.String("schedule"),
-//								Id:   pulumi.Any(testOpsgenieSchedule.Id),
-//							},
-//						},
-//					},
-//				},
 //				Repeats: opsgenie.EscalationRepeatArray{
 //					&opsgenie.EscalationRepeatArgs{
 //						WaitInterval:         pulumi.Int(10),
@@ -116,6 +78,44 @@ import (
 //						CloseAlertAfterAll:   pulumi.Bool(false),
 //					},
 //				},
+//				Rules: opsgenie.EscalationRuleArray{
+//					&opsgenie.EscalationRuleArgs{
+//						Recipients: opsgenie.EscalationRuleRecipientArray{
+//							&opsgenie.EscalationRuleRecipientArgs{
+//								Type: pulumi.String("user"),
+//								Id:   pulumi.Any(test.Id),
+//							},
+//						},
+//						Condition:  pulumi.String("if-not-acked"),
+//						NotifyType: pulumi.String("default"),
+//						Delay:      pulumi.Int(1),
+//					},
+//					&opsgenie.EscalationRuleArgs{
+//						Recipients: opsgenie.EscalationRuleRecipientArray{
+//							&opsgenie.EscalationRuleRecipientArgs{
+//								Type: pulumi.String("team"),
+//								Id:   pulumi.Any(testOpsgenieTeam.Id),
+//							},
+//						},
+//						Condition:  pulumi.String("if-not-acked"),
+//						NotifyType: pulumi.String("default"),
+//						Delay:      pulumi.Int(1),
+//					},
+//					&opsgenie.EscalationRuleArgs{
+//						Recipients: opsgenie.EscalationRuleRecipientArray{
+//							&opsgenie.EscalationRuleRecipientArgs{
+//								Type: pulumi.String("schedule"),
+//								Id:   pulumi.Any(testOpsgenieSchedule.Id),
+//							},
+//						},
+//						Condition:  pulumi.String("if-not-acked"),
+//						NotifyType: pulumi.String("default"),
+//						Delay:      pulumi.Int(1),
+//					},
+//				},
+//				Name:        pulumi.String("genieescalation"),
+//				Description: pulumi.String("test"),
+//				OwnerTeamId: pulumi.Any(testOpsgenieTeam.Id),
 //			})
 //			if err != nil {
 //				return err

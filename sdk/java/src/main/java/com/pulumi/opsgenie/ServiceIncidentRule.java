@@ -61,9 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testServiceIncidentRule = new ServiceIncidentRule("testServiceIncidentRule", ServiceIncidentRuleArgs.builder()
- *             .serviceId(testService.id())
  *             .incidentRules(ServiceIncidentRuleIncidentRuleArgs.builder()
- *                 .conditionMatchType("match-any-condition")
  *                 .conditions(                
  *                     ServiceIncidentRuleIncidentRuleConditionArgs.builder()
  *                         .field("message")
@@ -78,14 +76,16 @@ import javax.annotation.Nullable;
  *                         .expectedValue("expected2")
  *                         .build())
  *                 .incidentProperties(ServiceIncidentRuleIncidentRuleIncidentPropertyArgs.builder()
- *                     .message("This is a test message")
- *                     .priority("P3")
  *                     .stakeholderProperties(ServiceIncidentRuleIncidentRuleIncidentPropertyStakeholderPropertyArgs.builder()
  *                         .message("Message for stakeholders")
  *                         .enable(true)
  *                         .build())
+ *                     .message("This is a test message")
+ *                     .priority("P3")
  *                     .build())
+ *                 .conditionMatchType("match-any-condition")
  *                 .build())
+ *             .serviceId(testService.id())
  *             .build());
  * 
  *     }

@@ -44,8 +44,6 @@ import (
 //				return err
 //			}
 //			_, err = opsgenie.NewTeam(ctx, "test", &opsgenie.TeamArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("This team deals with all the things"),
 //				Members: opsgenie.TeamMemberArray{
 //					&opsgenie.TeamMemberArgs{
 //						Id:   first.ID().ToIDOutput().ToStringOutput(),
@@ -56,6 +54,8 @@ import (
 //						Role: pulumi.String("user"),
 //					},
 //				},
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("This team deals with all the things"),
 //			})
 //			if err != nil {
 //				return err
