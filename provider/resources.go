@@ -42,6 +42,14 @@ const (
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
+const (
+	timeRestrictionProperty = "time_restriction"
+	restrictionProperty     = "restriction"
+	restrictionListType     = "restrictionList"
+)
+
+const restrictionsProperty = "restrictions"
+
 func makeMember(mod string, mem string) tokens.ModuleMember {
 	return tokens.ModuleMember(mainPkg + ":" + mod + ":" + mem)
 }
@@ -75,13 +83,13 @@ func Provider() tfbridge.ProviderInfo {
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
 		P:           p,
-		Name:        "opsgenie",
+		Name:        mainPkg,
 		Description: "A Pulumi package for creating and managing opsgenie cloud resources.",
-		Keywords:    []string{"pulumi", "opsgenie"},
+		Keywords:    []string{"pulumi", mainPkg},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-opsgenie",
-		GitHubOrg:   "opsgenie",
+		GitHubOrg:   mainPkg,
 		DocRules: &tfbridge.DocRuleInfo{
 			EditRules: docEditRules,
 		},
@@ -102,14 +110,14 @@ func Provider() tfbridge.ProviderInfo {
 			"opsgenie_team_routing_rule": {
 				Tok: makeResource(mainMod, "TeamRoutingRule"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"time_restriction": {
+					timeRestrictionProperty: {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								// there is both a restriction and restrictions parameters so we want to stop
 								// the bridge automatically pluralising the values to prevent any issues
 								// See: https://github.com/pulumi/pulumi-opsgenie/issues/57
-								"restriction":  {Name: "restriction"},
-								"restrictions": {Name: "restrictionList"},
+								restrictionProperty:  {Name: restrictionProperty},
+								restrictionsProperty: {Name: restrictionListType},
 							},
 						},
 					},
@@ -127,14 +135,14 @@ func Provider() tfbridge.ProviderInfo {
 			"opsgenie_notification_policy": {
 				Tok: makeResource(mainMod, "NotificationPolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"time_restriction": {
+					timeRestrictionProperty: {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								// there is both a restriction and restrictions parameters so we want to stop
 								// the bridge automatically pluralising the values to prevent any issues
 								// See: https://github.com/pulumi/pulumi-opsgenie/issues/57
-								"restriction":  {Name: "restriction"},
-								"restrictions": {Name: "restrictionList"},
+								restrictionProperty:  {Name: restrictionProperty},
+								restrictionsProperty: {Name: restrictionListType},
 							},
 						},
 					},
@@ -164,14 +172,14 @@ func Provider() tfbridge.ProviderInfo {
 			"opsgenie_schedule_rotation": {
 				Tok: makeResource(mainMod, "ScheduleRotation"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"time_restriction": {
+					timeRestrictionProperty: {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								// there is both a restriction and restrictions parameters so we want to stop
 								// the bridge automatically pluralising the values to prevent any issues
 								// See: https://github.com/pulumi/pulumi-opsgenie/issues/57
-								"restriction":  {Name: "restriction"},
-								"restrictions": {Name: "restrictionList"},
+								restrictionProperty:  {Name: restrictionProperty},
+								restrictionsProperty: {Name: restrictionListType},
 							},
 						},
 					},
@@ -186,14 +194,14 @@ func Provider() tfbridge.ProviderInfo {
 			"opsgenie_alert_policy": {
 				Tok: makeResource(mainMod, "AlertPolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"time_restriction": {
+					timeRestrictionProperty: {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								// there is both a restriction and restrictions parameter so we want to stop
 								// the bridge automatically pluralising the values to prevent any issues
 								// See: https://github.com/pulumi/pulumi-opsgenie/issues/57
-								"restriction":  {Name: "restriction"},
-								"restrictions": {Name: "restrictionList"},
+								restrictionProperty:  {Name: restrictionProperty},
+								restrictionsProperty: {Name: restrictionListType},
 							},
 						},
 					},
