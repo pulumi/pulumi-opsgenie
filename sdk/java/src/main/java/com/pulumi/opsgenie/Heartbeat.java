@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .alertTags(            
  *                 "test",
  *                 "fahri")
- *             .ownerTeamId(testOpsgenieTeam.id())
+ *             .ownerTeamId(testOpsgenieTeam.get("id"))
  *             .build());
  * 
  *     }

@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  *                         .type("match-all-conditions")
  *                         .build())
  *                     .responders(IntegrationActionCreateResponderArgs.builder()
- *                         .id(test.id())
+ *                         .id(test.get("id"))
  *                         .type("team")
  *                         .build())
  *                     .name("create action")
@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .name("Ignore alerts with ignore tag")
  *                 .build())
- *             .integrationId(testOpsgenieApiIntegration.id())
+ *             .integrationId(testOpsgenieApiIntegration.get("id"))
  *             .build());
  * 
  *     }
