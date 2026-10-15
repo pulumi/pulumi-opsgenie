@@ -201,7 +201,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     opsgenie = {
       source = "pulumi/opsgenie"
@@ -211,6 +211,9 @@ pulumi {
 
 # Create a user
 resource "opsgenie_user" "test" {
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 ```
 
