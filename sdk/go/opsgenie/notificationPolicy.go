@@ -47,7 +47,7 @@ import (
 //					&opsgenie.NotificationPolicyFilterArgs{},
 //				},
 //				Name:              pulumi.String("example policy"),
-//				TeamId:            test.ID().ToIDOutput().ToStringOutput(),
+//				TeamId:            test.ID(),
 //				PolicyDescription: pulumi.String("This policy has a delay action"),
 //			})
 //			if err != nil {

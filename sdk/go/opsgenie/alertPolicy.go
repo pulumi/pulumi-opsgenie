@@ -63,7 +63,7 @@ import (
 //					},
 //				},
 //				Name:              pulumi.String("example policy"),
-//				TeamId:            test.ID().ToIDOutput().ToStringOutput(),
+//				TeamId:            test.ID(),
 //				PolicyDescription: pulumi.String("This is sample policy"),
 //				Message:           pulumi.String("{{message}}"),
 //			})

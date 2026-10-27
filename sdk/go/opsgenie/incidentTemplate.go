@@ -37,7 +37,7 @@ import (
 //			}
 //			testService, err := opsgenie.NewService(ctx, "test", &opsgenie.ServiceArgs{
 //				Name:   pulumi.String("genietest-service"),
-//				TeamId: test.ID().ToIDOutput().ToStringOutput(),
+//				TeamId: test.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -63,7 +63,7 @@ import (
 //					"key2": pulumi.String("value2"),
 //				},
 //				ImpactedServices: pulumi.StringArray{
-//					testService.ID().ToIDOutput().ToStringOutput(),
+//					testService.ID(),
 //				},
 //			})
 //			if err != nil {

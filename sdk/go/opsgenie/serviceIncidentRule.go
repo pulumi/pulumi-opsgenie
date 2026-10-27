@@ -37,7 +37,7 @@ import (
 //			}
 //			testService, err := opsgenie.NewService(ctx, "test", &opsgenie.ServiceArgs{
 //				Name:   pulumi.String("example-service"),
-//				TeamId: test.ID().ToIDOutput().ToStringOutput(),
+//				TeamId: test.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -74,7 +74,7 @@ import (
 //						ConditionMatchType: pulumi.String("match-any-condition"),
 //					},
 //				},
-//				ServiceId: testService.ID().ToIDOutput().ToStringOutput(),
+//				ServiceId: testService.ID(),
 //			})
 //			if err != nil {
 //				return err
