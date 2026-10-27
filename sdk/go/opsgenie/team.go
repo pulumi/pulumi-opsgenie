@@ -46,11 +46,11 @@ import (
 //			_, err = opsgenie.NewTeam(ctx, "test", &opsgenie.TeamArgs{
 //				Members: opsgenie.TeamMemberArray{
 //					&opsgenie.TeamMemberArgs{
-//						Id:   first.ID().ToIDOutput().ToStringOutput(),
+//						Id:   first.ID(),
 //						Role: pulumi.String("admin"),
 //					},
 //					&opsgenie.TeamMemberArgs{
-//						Id:   second.ID().ToIDOutput().ToStringOutput(),
+//						Id:   second.ID(),
 //						Role: pulumi.String("user"),
 //					},
 //				},
