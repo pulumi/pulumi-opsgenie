@@ -126,6 +126,12 @@ func (ApiIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationState)(nil)).Elem()
 }
 
+// ApiIntegrationExists checks whether an existing ApiIntegration resource with the given ID exists.
+func ApiIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/apiIntegration:ApiIntegration", id, state, "", opts...)
+}
+
 type apiIntegrationArgs struct {
 	AllowConfigurationAccess *bool `pulumi:"allowConfigurationAccess"`
 	// This parameter is for configuring the write access of integration. If write access is restricted, the integration will not be authorized to write within any domain. Default: `true`.

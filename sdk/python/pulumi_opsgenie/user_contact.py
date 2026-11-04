@@ -317,6 +317,20 @@ class UserContact(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return UserContact(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            to: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enabled"] = enabled
+        __props__["method"] = method
+        __props__["to"] = to
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/userContact:UserContact', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

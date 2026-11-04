@@ -524,6 +524,28 @@ class TeamRoutingRule(pulumi.CustomResource):
         __props__.__dict__["timezone"] = timezone
         return TeamRoutingRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleCriteriaArgs', 'TeamRoutingRuleCriteriaArgsDict', 'outputs.TeamRoutingRuleCriteria']]]]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notifies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleNotifyArgs', 'TeamRoutingRuleNotifyArgsDict', 'outputs.TeamRoutingRuleNotify']]]]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamRoutingRuleTimeRestrictionArgs', 'TeamRoutingRuleTimeRestrictionArgsDict', 'outputs.TeamRoutingRuleTimeRestriction']]]]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["criterias"] = criterias
+        __props__["isDefault"] = is_default
+        __props__["name"] = name
+        __props__["notifies"] = notifies
+        __props__["order"] = order
+        __props__["teamId"] = team_id
+        __props__["timeRestrictions"] = time_restrictions
+        __props__["timezone"] = timezone
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/teamRoutingRule:TeamRoutingRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def criterias(self) -> pulumi.Output[Optional[Sequence['outputs.TeamRoutingRuleCriteria']]]:

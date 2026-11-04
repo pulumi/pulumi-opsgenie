@@ -252,6 +252,12 @@ func (AlertPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertPolicyState)(nil)).Elem()
 }
 
+// AlertPolicyExists checks whether an existing AlertPolicy resource with the given ID exists.
+func AlertPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/alertPolicy:AlertPolicy", id, state, "", opts...)
+}
+
 type alertPolicyArgs struct {
 	// Actions to add to the alerts original actions value as a list of strings. If `ignoreOriginalActions` field is set to `true`, this will replace the original actions.
 	Actions []string `pulumi:"actions"`

@@ -383,6 +383,22 @@ class Team(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return Team(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            delete_default_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_members: pulumi.Input[Optional[_builtins.bool]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamMemberArgs', 'TeamMemberArgsDict', 'outputs.TeamMember']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["deleteDefaultResources"] = delete_default_resources
+        __props__["description"] = description
+        __props__["ignoreMembers"] = ignore_members
+        __props__["members"] = members
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/team:Team', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="deleteDefaultResources")
     def delete_default_resources(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -208,6 +208,12 @@ func (EscalationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*escalationState)(nil)).Elem()
 }
 
+// EscalationExists checks whether an existing Escalation resource with the given ID exists.
+func EscalationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EscalationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/escalation:Escalation", id, state, "", opts...)
+}
+
 type escalationArgs struct {
 	// Description of the escalation.
 	Description *string `pulumi:"description"`

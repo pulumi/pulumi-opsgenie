@@ -154,6 +154,12 @@ func (TeamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamState)(nil)).Elem()
 }
 
+// TeamExists checks whether an existing Team resource with the given ID exists.
+func TeamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/team:Team", id, state, "", opts...)
+}
+
 type teamArgs struct {
 	// Set to true to remove default escalation and schedule for newly created team. **Be careful its also changes that team routing rule to None. That means you have to define routing rule as well**
 	DeleteDefaultResources *bool `pulumi:"deleteDefaultResources"`

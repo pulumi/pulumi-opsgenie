@@ -534,6 +534,30 @@ class User(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            full_name: pulumi.Input[Optional[_builtins.str]] = None,
+            locale: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            skype_username: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            user_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserUserAddressArgs', 'UserUserAddressArgsDict', 'outputs.UserUserAddress']]]]] = None,
+            user_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["fullName"] = full_name
+        __props__["locale"] = locale
+        __props__["role"] = role
+        __props__["skypeUsername"] = skype_username
+        __props__["tags"] = tags
+        __props__["timezone"] = timezone
+        __props__["userAddresses"] = user_addresses
+        __props__["userDetails"] = user_details
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="fullName")
     def full_name(self) -> pulumi.Output[_builtins.str]:

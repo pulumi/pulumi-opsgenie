@@ -985,6 +985,52 @@ class AlertPolicy(pulumi.CustomResource):
         __props__.__dict__["time_restrictions"] = time_restrictions
         return AlertPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            alert_description: pulumi.Input[Optional[_builtins.str]] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            continue_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity: pulumi.Input[Optional[_builtins.str]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyFilterArgs', 'AlertPolicyFilterArgsDict', 'outputs.AlertPolicyFilter']]]]] = None,
+            ignore_original_actions: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_original_details: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_original_responders: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_original_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_description: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.str]] = None,
+            responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyResponderArgs', 'AlertPolicyResponderArgsDict', 'outputs.AlertPolicyResponder']]]]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPolicyTimeRestrictionArgs', 'AlertPolicyTimeRestrictionArgsDict', 'outputs.AlertPolicyTimeRestriction']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["alertDescription"] = alert_description
+        __props__["alias"] = alias
+        __props__["continuePolicy"] = continue_policy
+        __props__["enabled"] = enabled
+        __props__["entity"] = entity
+        __props__["filters"] = filters
+        __props__["ignoreOriginalActions"] = ignore_original_actions
+        __props__["ignoreOriginalDetails"] = ignore_original_details
+        __props__["ignoreOriginalResponders"] = ignore_original_responders
+        __props__["ignoreOriginalTags"] = ignore_original_tags
+        __props__["message"] = message
+        __props__["name"] = name
+        __props__["policyDescription"] = policy_description
+        __props__["priority"] = priority
+        __props__["responders"] = responders
+        __props__["source"] = source
+        __props__["tags"] = tags
+        __props__["teamId"] = team_id
+        __props__["timeRestrictions"] = time_restrictions
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/alertPolicy:AlertPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

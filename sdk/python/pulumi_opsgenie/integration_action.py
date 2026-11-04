@@ -603,6 +603,24 @@ class IntegrationAction(pulumi.CustomResource):
         __props__.__dict__["integration_id"] = integration_id
         return IntegrationAction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            acknowledges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAcknowledgeArgs', 'IntegrationActionAcknowledgeArgsDict', 'outputs.IntegrationActionAcknowledge']]]]] = None,
+            add_notes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionAddNoteArgs', 'IntegrationActionAddNoteArgsDict', 'outputs.IntegrationActionAddNote']]]]] = None,
+            closes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCloseArgs', 'IntegrationActionCloseArgsDict', 'outputs.IntegrationActionClose']]]]] = None,
+            creates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionCreateArgs', 'IntegrationActionCreateArgsDict', 'outputs.IntegrationActionCreate']]]]] = None,
+            ignores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationActionIgnoreArgs', 'IntegrationActionIgnoreArgsDict', 'outputs.IntegrationActionIgnore']]]]] = None,
+            integration_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acknowledges"] = acknowledges
+        __props__["addNotes"] = add_notes
+        __props__["closes"] = closes
+        __props__["creates"] = creates
+        __props__["ignores"] = ignores
+        __props__["integrationId"] = integration_id
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/integrationAction:IntegrationAction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def acknowledges(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationActionAcknowledge']]]:

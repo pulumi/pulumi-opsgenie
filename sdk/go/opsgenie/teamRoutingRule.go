@@ -196,6 +196,12 @@ func (TeamRoutingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamRoutingRuleState)(nil)).Elem()
 }
 
+// TeamRoutingRuleExists checks whether an existing TeamRoutingRule resource with the given ID exists.
+func TeamRoutingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamRoutingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/teamRoutingRule:TeamRoutingRule", id, state, "", opts...)
+}
+
 type teamRoutingRuleArgs struct {
 	// You can refer Criteria for detailed information about criteria and its fields
 	Criterias []TeamRoutingRuleCriteria `pulumi:"criterias"`

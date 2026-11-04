@@ -118,6 +118,12 @@ func (CustomRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customRoleState)(nil)).Elem()
 }
 
+// CustomRoleExists checks whether an existing CustomRole resource with the given ID exists.
+func CustomRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/customRole:CustomRole", id, state, "", opts...)
+}
+
 type customRoleArgs struct {
 	// The rights this role cannot have. For allowed values please refer [User Right Prerequisites](https://docs.opsgenie.com/docs/custom-user-role-api#section-user-right-prerequisites)
 	DisallowedRights []string `pulumi:"disallowedRights"`

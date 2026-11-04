@@ -163,6 +163,12 @@ func (HeartbeatState) ElementType() reflect.Type {
 	return reflect.TypeOf((*heartbeatState)(nil)).Elem()
 }
 
+// HeartbeatExists checks whether an existing Heartbeat resource with the given ID exists.
+func HeartbeatExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HeartbeatState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/heartbeat:Heartbeat", id, state, "", opts...)
+}
+
 type heartbeatArgs struct {
 	// Specifies the alert message for heartbeat expiration alert. If this is not provided, default alert message is "HeartbeatName is expired".
 	AlertMessage *string `pulumi:"alertMessage"`

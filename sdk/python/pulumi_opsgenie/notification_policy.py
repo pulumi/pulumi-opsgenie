@@ -593,6 +593,34 @@ class NotificationPolicy(pulumi.CustomResource):
         __props__.__dict__["time_restrictions"] = time_restrictions
         return NotificationPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_close_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoCloseActionArgs', 'NotificationPolicyAutoCloseActionArgsDict', 'outputs.NotificationPolicyAutoCloseAction']]]]] = None,
+            auto_restart_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyAutoRestartActionArgs', 'NotificationPolicyAutoRestartActionArgsDict', 'outputs.NotificationPolicyAutoRestartAction']]]]] = None,
+            de_duplication_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDeDuplicationActionArgs', 'NotificationPolicyDeDuplicationActionArgsDict', 'outputs.NotificationPolicyDeDuplicationAction']]]]] = None,
+            delay_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyDelayActionArgs', 'NotificationPolicyDelayActionArgsDict', 'outputs.NotificationPolicyDelayAction']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyFilterArgs', 'NotificationPolicyFilterArgsDict', 'outputs.NotificationPolicyFilter']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_description: pulumi.Input[Optional[_builtins.str]] = None,
+            suppress: pulumi.Input[Optional[_builtins.bool]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationPolicyTimeRestrictionArgs', 'NotificationPolicyTimeRestrictionArgsDict', 'outputs.NotificationPolicyTimeRestriction']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoCloseActions"] = auto_close_actions
+        __props__["autoRestartActions"] = auto_restart_actions
+        __props__["deDuplicationActions"] = de_duplication_actions
+        __props__["delayActions"] = delay_actions
+        __props__["enabled"] = enabled
+        __props__["filters"] = filters
+        __props__["name"] = name
+        __props__["policyDescription"] = policy_description
+        __props__["suppress"] = suppress
+        __props__["teamId"] = team_id
+        __props__["timeRestrictions"] = time_restrictions
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/notificationPolicy:NotificationPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoCloseActions")
     def auto_close_actions(self) -> pulumi.Output[Optional[Sequence['outputs.NotificationPolicyAutoCloseAction']]]:

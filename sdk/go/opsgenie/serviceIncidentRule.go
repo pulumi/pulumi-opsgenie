@@ -152,6 +152,12 @@ func (ServiceIncidentRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceIncidentRuleState)(nil)).Elem()
 }
 
+// ServiceIncidentRuleExists checks whether an existing ServiceIncidentRule resource with the given ID exists.
+func ServiceIncidentRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceIncidentRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/serviceIncidentRule:ServiceIncidentRule", id, state, "", opts...)
+}
+
 type serviceIncidentRuleArgs struct {
 	// This is the rule configuration for this incident rule. This is a block, structure is documented below.
 	IncidentRules []ServiceIncidentRuleIncidentRule `pulumi:"incidentRules"`
