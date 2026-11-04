@@ -539,6 +539,36 @@ class ApiIntegration(pulumi.CustomResource):
         __props__.__dict__["webhook_url"] = webhook_url
         return ApiIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_configuration_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_write_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ignore_responders_from_payload: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationResponderArgs', 'ApiIntegrationResponderArgsDict', 'outputs.ApiIntegrationResponder']]]]] = None,
+            suppress_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            webhook_url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowConfigurationAccess"] = allow_configuration_access
+        __props__["allowWriteAccess"] = allow_write_access
+        __props__["apiKey"] = api_key
+        __props__["enabled"] = enabled
+        __props__["headers"] = headers
+        __props__["ignoreRespondersFromPayload"] = ignore_responders_from_payload
+        __props__["name"] = name
+        __props__["ownerTeamId"] = owner_team_id
+        __props__["responders"] = responders
+        __props__["suppressNotifications"] = suppress_notifications
+        __props__["type"] = type
+        __props__["webhookUrl"] = webhook_url
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/apiIntegration:ApiIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowConfigurationAccess")
     def allow_configuration_access(self) -> pulumi.Output[Optional[_builtins.bool]]:

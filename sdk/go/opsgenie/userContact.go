@@ -140,6 +140,12 @@ func (UserContactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userContactState)(nil)).Elem()
 }
 
+// UserContactExists checks whether an existing UserContact resource with the given ID exists.
+func UserContactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserContactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/userContact:UserContact", id, state, "", opts...)
+}
+
 type userContactArgs struct {
 	// Enable contact of the user in OpsGenie. Default value is true.
 	Enabled *bool `pulumi:"enabled"`

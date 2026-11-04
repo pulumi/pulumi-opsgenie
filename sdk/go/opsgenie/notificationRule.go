@@ -170,6 +170,12 @@ func (NotificationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationRuleState)(nil)).Elem()
 }
 
+// NotificationRuleExists checks whether an existing NotificationRule resource with the given ID exists.
+func NotificationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/notificationRule:NotificationRule", id, state, "", opts...)
+}
+
 type notificationRuleArgs struct {
 	// Type of the action that notification rule will have. Allowed values: `create-alert`, `acknowledged-alert`, `closed-alert`, `assigned-alert`, `add-note`, `schedule-start`, `schedule-end`, `incoming-call-routing`
 	ActionType string                     `pulumi:"actionType"`

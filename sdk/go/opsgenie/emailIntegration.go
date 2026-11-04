@@ -99,6 +99,12 @@ func (EmailIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailIntegrationState)(nil)).Elem()
 }
 
+// EmailIntegrationExists checks whether an existing EmailIntegration resource with the given ID exists.
+func EmailIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/emailIntegration:EmailIntegration", id, state, "", opts...)
+}
+
 type emailIntegrationArgs struct {
 	// The username part of the email address. It must be unique for each integration.
 	EmailUsername string `pulumi:"emailUsername"`

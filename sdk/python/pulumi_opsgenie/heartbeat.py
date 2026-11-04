@@ -514,6 +514,30 @@ class Heartbeat(pulumi.CustomResource):
         __props__.__dict__["owner_team_id"] = owner_team_id
         return Heartbeat(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alert_message: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_priority: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            interval_unit: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_team_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alertMessage"] = alert_message
+        __props__["alertPriority"] = alert_priority
+        __props__["alertTags"] = alert_tags
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["interval"] = interval
+        __props__["intervalUnit"] = interval_unit
+        __props__["name"] = name
+        __props__["ownerTeamId"] = owner_team_id
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/heartbeat:Heartbeat', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alertMessage")
     def alert_message(self) -> pulumi.Output[Optional[_builtins.str]]:

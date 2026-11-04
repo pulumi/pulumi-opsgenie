@@ -170,6 +170,12 @@ func (ScheduleRotationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduleRotationState)(nil)).Elem()
 }
 
+// ScheduleRotationExists checks whether an existing ScheduleRotation resource with the given ID exists.
+func ScheduleRotationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduleRotationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/scheduleRotation:ScheduleRotation", id, state, "", opts...)
+}
+
 type scheduleRotationArgs struct {
 	// This parameter takes a date format as (yyyy-MM-dd'T'HH:mm:ssZ) (e.g. 2019-06-11T08:00:00+02:00). Minutes may take 0 or 30 as value. Otherwise they will be converted to nearest 0 or 30 automatically
 	EndDate *string `pulumi:"endDate"`

@@ -482,6 +482,28 @@ class ScheduleRotation(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ScheduleRotation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            length: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            participants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleRotationParticipantArgs', 'ScheduleRotationParticipantArgsDict', 'outputs.ScheduleRotationParticipant']]]]] = None,
+            schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleRotationTimeRestrictionArgs', 'ScheduleRotationTimeRestrictionArgsDict', 'outputs.ScheduleRotationTimeRestriction']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["endDate"] = end_date
+        __props__["length"] = length
+        __props__["name"] = name
+        __props__["participants"] = participants
+        __props__["scheduleId"] = schedule_id
+        __props__["startDate"] = start_date
+        __props__["timeRestrictions"] = time_restrictions
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/scheduleRotation:ScheduleRotation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="endDate")
     def end_date(self) -> pulumi.Output[Optional[_builtins.str]]:

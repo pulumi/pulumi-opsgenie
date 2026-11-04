@@ -187,6 +187,12 @@ func (IncidentTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentTemplateState)(nil)).Elem()
 }
 
+// IncidentTemplateExists checks whether an existing IncidentTemplate resource with the given ID exists.
+func IncidentTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/incidentTemplate:IncidentTemplate", id, state, "", opts...)
+}
+
 type incidentTemplateArgs struct {
 	// Description field of the incident template. This field must not be longer than 10000 characters.
 	Description *string `pulumi:"description"`

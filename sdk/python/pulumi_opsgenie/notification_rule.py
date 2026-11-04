@@ -553,6 +553,34 @@ class NotificationRule(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return NotificationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_type: pulumi.Input[Optional[_builtins.str]] = None,
+            criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleCriteriaArgs', 'NotificationRuleCriteriaArgsDict', 'outputs.NotificationRuleCriteria']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_times: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            repeats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleRepeatArgs', 'NotificationRuleRepeatArgsDict', 'outputs.NotificationRuleRepeat']]]]] = None,
+            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleScheduleArgs', 'NotificationRuleScheduleArgsDict', 'outputs.NotificationRuleSchedule']]]]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleStepArgs', 'NotificationRuleStepArgsDict', 'outputs.NotificationRuleStep']]]]] = None,
+            time_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTimeRestrictionArgs', 'NotificationRuleTimeRestrictionArgsDict', 'outputs.NotificationRuleTimeRestriction']]]]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionType"] = action_type
+        __props__["criterias"] = criterias
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["notificationTimes"] = notification_times
+        __props__["order"] = order
+        __props__["repeats"] = repeats
+        __props__["schedules"] = schedules
+        __props__["steps"] = steps
+        __props__["timeRestrictions"] = time_restrictions
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'opsgenie:index/notificationRule:NotificationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Output[_builtins.str]:

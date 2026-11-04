@@ -67,12 +67,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var testAction = new IntegrationAction("testAction", IntegrationActionArgs.builder()
  *             .acknowledges(IntegrationActionAcknowledgeArgs.builder()
  *                 .filters(IntegrationActionAcknowledgeFilterArgs.builder()
@@ -135,12 +135,12 @@ import javax.annotation.Nullable;
  *                         "CRITICAL",
  *                         "SEV-0")
  *                     .user("Example-service")
- *                     .note("{{note}}")
- *                     .alias("{{alias}}")
- *                     .source("{{source}}")
- *                     .message("{{message}}")
- *                     .description("{{description}}")
- *                     .entity("{{entity}}")
+ *                     .note("}{{{@code note}}}{@code ")
+ *                     .alias("}{{{@code alias}}}{@code ")
+ *                     .source("}{{{@code source}}}{@code ")
+ *                     .message("}{{{@code message}}}{@code ")
+ *                     .description("}{{{@code description}}}{@code ")
+ *                     .entity("}{{{@code entity}}}{@code ")
  *                     .alertActions("Runbook ID#342")
  *                     .build(),
  *                 IntegrationActionCreateArgs.builder()
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  *                         .type("match-all-conditions")
  *                         .build())
  *                     .name("create action with multiline description")
- *                     .message("{{message}}")
+ *                     .message("}{{{@code message}}}{@code ")
  *                     .description(StdFunctions.chomp(ChompArgs.builder()
  *                         .input("""
  * This
@@ -193,7 +193,7 @@ import javax.annotation.Nullable;
  *                         .type("match-all-conditions")
  *                         .build())
  *                     .name("Create alert with priority from message")
- *                     .customPriority("{{message.substringAfter(\"[custom]\")}}")
+ *                     .customPriority("}{{{@code message.substringAfter(}&#92;{@code "[custom]}&#92;{@code ")}}}{@code ")
  *                     .build())
  *             .ignores(IntegrationActionIgnoreArgs.builder()
  *                 .filters(IntegrationActionIgnoreFilterArgs.builder()
@@ -209,8 +209,8 @@ import javax.annotation.Nullable;
  *             .integrationId(testOpsgenieApiIntegration.get("id"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

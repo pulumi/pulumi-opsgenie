@@ -180,6 +180,12 @@ func (NotificationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationPolicyState)(nil)).Elem()
 }
 
+// NotificationPolicyExists checks whether an existing NotificationPolicy resource with the given ID exists.
+func NotificationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/notificationPolicy:NotificationPolicy", id, state, "", opts...)
+}
+
 type notificationPolicyArgs struct {
 	// Auto Restart Action of the policy. This is a block, structure is documented below.
 	AutoCloseActions []NotificationPolicyAutoCloseAction `pulumi:"autoCloseActions"`

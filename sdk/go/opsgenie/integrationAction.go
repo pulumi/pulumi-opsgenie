@@ -291,6 +291,12 @@ func (IntegrationActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationActionState)(nil)).Elem()
 }
 
+// IntegrationActionExists checks whether an existing IntegrationAction resource with the given ID exists.
+func IntegrationActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("opsgenie:index/integrationAction:IntegrationAction", id, state, "", opts...)
+}
+
 type integrationActionArgs struct {
 	Acknowledges []IntegrationActionAcknowledge `pulumi:"acknowledges"`
 	AddNotes     []IntegrationActionAddNote     `pulumi:"addNotes"`
