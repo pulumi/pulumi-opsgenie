@@ -275,6 +275,14 @@ func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 				"some resources reads has changed.\nIf you encounter any problems you can contact us via Github",
 			"",
 		),
+		// The upstream docs omit the environment variable and default for api_url,
+		// though the provider reads both.
+		targetedReplace(
+			"index.html.markdown",
+			"* `api_url` - (Optional) The API url for the Opsgenie.",
+			"* `api_url` - (Optional) The API url for the Opsgenie. If omitted, the\n"+
+				"  `OPSGENIE_API_URL` environment variable is used, falling back to `api.opsgenie.com`.",
+		),
 	}
 	return append(
 		edits,

@@ -226,6 +226,7 @@ The following configuration inputs are supported:
 * `apiKey` - (Required) The API Key for the Opsgenie Integration. If omitted, the
   `OPSGENIE_API_KEY` environment variable is used.
 
-* `apiUrl` - (Optional) The API url for the Opsgenie.
+* `apiUrl` - (Optional) The API url for the Opsgenie. If omitted, the
+  `OPSGENIE_API_URL` environment variable is used, falling back to `api.opsgenie.com`.
 
 You can generate an API Key within Opsgenie by creating a new API Integration with Read/Write permissions.
